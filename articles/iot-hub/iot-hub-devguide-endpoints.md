@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019561"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152189"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -95,7 +95,7 @@ Pour connaître les limites du nombre de points de terminaison que vous pouvez a
 
 Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et vos points de terminaison IoT Hub. Elle est généralement située près de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l’aide d’un protocole pris en charge. La passerelle de champ se connecte à un point de terminaison IoT Hub à l’aide d’un protocole pris en charge par ce dernier. Une passerelle de champ peut être un matériel dédié ou un ordinateur à faible puissance exécutant un logiciel de passerelle personnalisé.
 
-Vous pouvez utiliser [Azure IoT Edge](/azure/iot-edge/) pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités, comme la possibilité de multiplexer les communications à partir de plusieurs appareils sur la même connexion IoT Hub.
+Vous pouvez utiliser [Azure IoT Edge](../iot-edge/index.yml) pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités, comme la possibilité de multiplexer les communications à partir de plusieurs appareils sur la même connexion IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

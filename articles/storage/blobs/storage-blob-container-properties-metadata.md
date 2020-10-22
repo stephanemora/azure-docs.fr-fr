@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 115ab9767c23afd5876eb23821bd1283777cdb5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018924"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090996"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gérer les métadonnées et les propriétés de conteneur avec .NET
 
-Les conteneurs d’objets blob prennent en charge des propriétés système et des métadonnées définies par l’utilisateur, en plus des données qu’ils contiennent. Cet article présente la gestion des propriétés système et des métadonnées définies par l’utilisateur avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Les conteneurs d’objets blob prennent en charge des propriétés système et des métadonnées définies par l’utilisateur, en plus des données qu’ils contiennent. Cet article présente la gestion des propriétés système et des métadonnées définies par l’utilisateur avec la [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>À propos des propriétés et des métadonnées
 

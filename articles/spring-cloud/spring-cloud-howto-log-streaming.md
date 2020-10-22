@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b03e3857bc5b01c25112f2a0d60c6468ecd42a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888493"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093920"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 
@@ -22,7 +22,7 @@ Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* Installez [extension Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) pour Spring Cloud, version minimale 0.2.0.
+* Installez [extension Azure CLI](/cli/azure/install-azure-cli) pour Spring Cloud, version minimale 0.2.0.
 * Une instance d’**Azure Spring Cloud** avec une application en cours d’exécution, par exemple [application Spring Cloud](./spring-cloud-quickstart.md).
 
 > [!NOTE]
@@ -92,10 +92,4 @@ az spring-cloud app logs -h
 ## <a name="next-steps"></a>Étapes suivantes
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
-
- 
-
-
-
-
 

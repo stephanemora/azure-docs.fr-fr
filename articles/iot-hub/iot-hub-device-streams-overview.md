@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327682"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152163"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -103,7 +103,7 @@ La sortie est un objet JSON de tous les points de terminaison auxquels l’appar
 ```
 
 > [!NOTE]
-> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version à partir de la page [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version à partir de la page [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Autoriser la connectivité sortante aux points de terminaison de flux d’appareils
@@ -119,7 +119,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version à partir de la page [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Assurez-vous d’avoir installé Azure CLI version 2.0.57 ou ultérieure. Vous pouvez télécharger la dernière version à partir de la page [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Détecter un problème via les journaux d’activité des flux d’appareils
@@ -156,7 +156,7 @@ Deux côtés de chaque flux (côté appareil et côté service) utilisent le SDK
 
 ## <a name="iot-hub-device-stream-samples"></a>Exemples de flux d’appareils IoT Hub
 
-Deux [exemples de démarrage rapide](/azure/iot-hub) sont disponibles sur la page IoT Hub. Ils illustrent l’utilisation des flux d’appareils par les applications.
+Deux [exemples de démarrage rapide](./index.yml) sont disponibles sur la page IoT Hub. Ils illustrent l’utilisation des flux d’appareils par les applications.
 
 * L’exemple *écho* illustre l’utilisation programmatique des flux d’appareils (en appelant directement les API du SDK).
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945394"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094005"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -54,7 +54,7 @@ Lequel dois-je utiliser et quelles sont les limites de chaque niveau ?
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Comment puis-je donner un feedback et signaler des problèmes ?
 
-Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Pour soumettre une demande de fonctionnalité ou fournir des commentaires, accédez à la page de [commentaires sur Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Pour soumettre une demande de fonctionnalité ou fournir des commentaires, accédez à la page de [commentaires sur Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Développement
 
@@ -70,9 +70,9 @@ Azure Spring Cloud prend en charge Java 8 et 11. Voir [Runtime Java et versions 
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Où puis-je voir les journaux et les métriques de mon application Spring Cloud ?
 
-Vous trouverez les métriques sous l’onglet Vue d’ensemble de l’application et sous l’onglet [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics).
+Vous trouverez les métriques sous l’onglet Vue d’ensemble de l’application et sous l’onglet [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
 
-Azure Spring Cloud prend en charge l’exportation des journaux et des métriques de votre application Spring Cloud vers Stockage Azure, EventHub et [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). Le nom de la table dans Log Analytics est *AppPlatformLogsforSpring*. Pour savoir comment l’activer, consultez [Services de diagnostic](diagnostic-services.md).
+Azure Spring Cloud prend en charge l’exportation des journaux et des métriques de votre application Spring Cloud vers Stockage Azure, EventHub et [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Le nom de la table dans Log Analytics est *AppPlatformLogsforSpring*. Pour savoir comment l’activer, consultez [Services de diagnostic](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud prend-il en charge le suivi distribué ?
 
@@ -106,7 +106,7 @@ Vous pouvez supprimer les paramètres de diagnostic du Cloud Spring à l’aide 
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Quelles sont les versions du runtime Java prises en charge dans Azure Spring Cloud ?
 
-Azure Spring Cloud prend en charge les versions Java LTS avec les builds les plus récentes (actuellement juin 2020) : Java 8 build 252 et Java 11 build 7 sont pris en charge. Consulter [Installer le JDK pour Azure et Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud prend en charge les versions Java LTS avec les builds les plus récentes (actuellement juin 2020) : Java 8 build 252 et Java 11 build 7 sont pris en charge. Consulter [Installer le JDK pour Azure et Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Qui a créé ces runtimes Java ?
 
@@ -118,14 +118,14 @@ Les versions JDK LTS et MTS disposent de mises à jour de sécurité et de corre
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Combien de temps les versions Java 8 et Java 11 LTS seront-elles prises en charge ?
 
-Consultez [Prise en charge à long terme de Java pour Azure et Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Consultez [Prise en charge à long terme de Java pour Azure et Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8 LTS sera pris en charge jusqu’à décembre 2030.
 * Java 11 LTS sera pris en charge jusqu’à septembre 2027.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Comment télécharger un runtime Java pris en charge pour le développement local ?
 
-Consultez [Installer le JDK pour Azure et Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Consultez [Installer le JDK pour Azure et Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Quelle est la stratégie de mise hors service pour les anciens runtimes Java ?
 
@@ -136,7 +136,7 @@ Un avis public sera envoyé 12 mois avant la mise hors service de l’ancienne v
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Comment puis-je obtenir un support pour les problèmes au niveau du runtime Java ?
 
-Vous pouvez ouvrir un ticket de support auprès du Support Azure.  Consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Vous pouvez ouvrir un ticket de support auprès du Support Azure.  Consultez [Création d’une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>Quel est le système d’exploitation pour exécuter mes applications ?
 

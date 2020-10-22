@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, application web, linux, docker, conteneur
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312054"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152092"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrer des logiciels personnalisés vers Azure App Service à l’aide d’un conteneur personnalisé
 
@@ -28,7 +28,7 @@ Pour suivre ce tutoriel :
 
 - <a href="https://hub.docker.com/" target="_blank">Créez un compte Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installez Docker pour Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Basculez Docker pour exécuter des conteneurs Windows</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Basculez Docker pour exécuter des conteneurs Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installez Visual Studio 2019</a> avec les charges de travail **Développement web et ASP.NET** et **Développement Azure**. Si vous avez déjà installé Visual Studio 2019 :
     - Installez les dernières mises à jour dans Visual Studio en cliquant sur **Aide** > **Rechercher les mises à jour**.
     - Ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.

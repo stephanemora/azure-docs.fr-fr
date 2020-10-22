@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0531ff7765fbcfb304d58e5b444eafdb3ad4fb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404797"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152014"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutoriel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 * [Azure CLI](/cli/azure/overview), installé sur votre propre ordinateur. 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>Cloner l’exemple d’application de liste de tâches et préparer le référentiel
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante dans Cloud Shell : 
-  
+Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante dans Cloud Shell : 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

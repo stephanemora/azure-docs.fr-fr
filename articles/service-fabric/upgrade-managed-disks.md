@@ -3,12 +3,12 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717521"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316156"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
@@ -25,7 +25,7 @@ La stratégie générale de mise à niveau d’un nœud de cluster Service Fabri
 Cet article vous guide tout au long des étapes de mise à niveau du type de nœud principal d’un exemple de cluster pour utiliser des disques managés tout en évitant les temps d’arrêt du cluster (voir remarque ci-dessous). L’état initial de l’exemple de cluster de test se compose d’un type de nœud de [durabilité Silver](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), soutenu par un groupe identique à cinq nœuds.
 
 > [!NOTE]
-> Les limitations d’un équilibreur de charge de référence (SKU) De base empêchent l’ajout d’un groupe identique supplémentaire. Nous vous recommandons d’utiliser à la place l’équilibreur de charge de référence (SKU) Standard. Pour plus d’informations, consultez la [comparaison des deux références (SKU)](/azure/load-balancer/skus).
+> Les limitations d’un équilibreur de charge de référence (SKU) De base empêchent l’ajout d’un groupe identique supplémentaire. Nous vous recommandons d’utiliser à la place l’équilibreur de charge de référence (SKU) Standard. Pour plus d’informations, consultez la [comparaison des deux références (SKU)](../load-balancer/skus.md).
 
 > [!CAUTION]
 > Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.

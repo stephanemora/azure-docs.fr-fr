@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85131970"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151055"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Journaux de ressources pour Azure SignalR Service
 
@@ -20,8 +20,8 @@ Ce didacticiel décrit les journaux des ressources pour Azure SignalR Service, a
 ## <a name="prerequisites"></a>Prérequis
 Pour activer les journaux de ressources, vous avez besoin d’un emplacement pour stocker vos données de journal. Ce tutoriel utilise Stockage Azure et Log Analytics.
 
-* [Stockage Azure](../azure-monitor/platform/resource-logs-collect-storage.md) – Conserve les journaux de ressources pour l’audit de stratégie, l’analyse statique ou la sauvegarde.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
+* [Stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – Conserve les journaux de ressources pour l’audit de stratégie, l’analyse statique ou la sauvegarde.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurer des journaux de ressources pour Azure SignalR Service
 

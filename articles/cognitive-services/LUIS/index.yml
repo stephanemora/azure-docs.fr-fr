@@ -12,12 +12,12 @@ metadata:
   title: Documentation Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Le service LUIS (Language Understanding) permet à votre application de comprendre le sens des propos d’une personne. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
-  ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3bae2e6e0a79dbc0106dc71a9510aa4dc318650c
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89322481"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92364182"
 landingContent:
 - title: À propos de Language Understanding (LUIS)
   linkLists:
@@ -137,9 +137,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Options d’aide et de support
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
     - text: Dépannage
       url: troubleshooting.md
-    - text: Poser des questions sur Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/LUIS
-    - text: Influencer le service avec UserVoice
-      url: https://cognitive.uservoice.com/forums/551524-luis

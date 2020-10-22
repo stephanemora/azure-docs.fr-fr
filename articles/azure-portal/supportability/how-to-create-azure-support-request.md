@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073697"
+ms.locfileid: "92091438"
 ---
 # <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
@@ -39,7 +39,7 @@ Azure offre une prise en charge illimitée de la gestion des abonnements, ce qui
 
 Vous pouvez accéder à **Aide + support** dans le portail Azure. Cette fonctionnalité est disponible dans le menu du portail Azure, dans l’en-tête global ou dans le menu des ressources d’un service. Avant de pouvoir faire une demande de support, vous devez disposer des autorisations appropriées.
 
-### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+### <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
 Pour créer une demande de support, vous devez être [propriétaire](../../role-based-access-control/built-in-roles.md#owner) ou [contributeur](../../role-based-access-control/built-in-roles.md#contributor) ou le rôle [Contributeur de demande de support](../../role-based-access-control/built-in-roles.md#support-request-contributor) doit vous avoir été attribuer au niveau de l’abonnement. Pour créer une demande de support sans abonnement, par exemple dans un scénario Azure Active Directory, vous devez être un [administrateur](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767308"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150786"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -53,9 +53,9 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 | Langage | Paramètre de protocole MQTT | Paramètre de protocole MQTT sur Web Sockets
 | --- | --- | --- |
 | [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt utilise MQTT sur Web Sockets en cas d’échec de MQTT. Pour spécifier MQTT sur Web Sockets uniquement, utilisez TransportType.Mqtt_WebSocket_Only |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | TransportType.Mqtt utilise MQTT sur Web Sockets en cas d’échec de MQTT. Pour spécifier MQTT sur Web Sockets uniquement, utilisez TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Prend en charge MQTT par défaut | Ajoutez `websockets=True` dans l’appel pour créer le client |
 
 Le fragment suivant montre comment spécifier le protocole MQTT sur Web Sockets quand vous utilisez le kit Azure IoT Node.js SDK :
@@ -119,7 +119,7 @@ Ce référentiel contient les éléments suivants :
 
 * DeviceTwinMQTTWin32 : contient le code pour interroger les événements du jumeau d’un appareil dans le hub Azure IoT sur une machine Windows et s’y abonner.
 
-* PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des fonctionnalités d’appareil IoT Plug-and-Play à un hub Azure IoT, généré et exécuté sur une machine Windows. Vous pouvez en savoir plus sur [IoT Plug-and-Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des fonctionnalités d’appareil IoT Plug-and-Play à un hub Azure IoT, généré et exécuté sur une machine Windows. Vous pouvez en savoir plus sur [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md)
 
 **Pour Linux :**
 
@@ -451,4 +451,4 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/quickstart-linux.md)

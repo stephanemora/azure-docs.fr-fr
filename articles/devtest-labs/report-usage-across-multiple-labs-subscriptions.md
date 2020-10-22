@@ -3,16 +3,16 @@ title: Utilisation de Azure DevTest Labs dans plusieurs laboratoires et abonne
 description: Découvrez comment rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287276"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152204"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements
 
-La plupart des grandes organisations veulent suivre l’usage des ressources afin d’exploiter celles-i plus efficacement en visualisant les tendances et les anomalies d’utilisation. Selon l’utilisation des ressources, les propriétaires ou administrateurs de labos peuvent personnaliser ceux-ci pour [améliorer l’utilisation et les coûts des ressources](../cost-management-billing/manage/getting-started.md). Avec Azure DevTest Labs, vous pouvez télécharger l’utilisation des ressources par labo qui vous permet d’avoir une vision historique plus approfondie des modèles d’utilisation. Ces modèles d’utilisation peuvent vous aider à épingler des modifications pour améliorer l’efficacité. La plupart des organisations veulent pouvoir choisir entre une utilisation en labo individuel et une utilisation globale dans [plusieurs labos et abonnements](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+La plupart des grandes organisations veulent suivre l’usage des ressources afin d’exploiter celles-i plus efficacement en visualisant les tendances et les anomalies d’utilisation. Selon l’utilisation des ressources, les propriétaires ou administrateurs de labos peuvent personnaliser ceux-ci pour [améliorer l’utilisation et les coûts des ressources](../cost-management-billing/cost-management-billing-overview.md). Avec Azure DevTest Labs, vous pouvez télécharger l’utilisation des ressources par labo qui vous permet d’avoir une vision historique plus approfondie des modèles d’utilisation. Ces modèles d’utilisation peuvent vous aider à épingler des modifications pour améliorer l’efficacité. La plupart des organisations veulent pouvoir choisir entre une utilisation en labo individuel et une utilisation globale dans [plusieurs labos et abonnements](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Cet article explique comment gérer les informations sur l’utilisation des ressources de plusieurs labos et abonnements.
 

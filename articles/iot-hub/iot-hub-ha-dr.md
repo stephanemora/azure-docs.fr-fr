@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021425"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151675"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
-La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
+La première étape de l’implémentation d’une solution IoT résiliente consiste, pour les architectes, développeurs et chefs d’entreprise, à définir les objectifs de temps de fonctionnement pour les solutions qu’ils développent. Ces objectifs peuvent être principalement définis en fonction des objectifs stratégiques applicables à chaque scénario. Dans ce contexte, l’article [Conception d’applications résilientes pour Azure](/azure/architecture/resiliency/) décrit un cadre général qui vous aide à réfléchir aux questions de continuité d'activité et de reprise d'activité. Le document [Récupération d’urgence et haute disponibilité pour les applications Azure](/azure/architecture/reliability/disaster-recovery) contient des recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure.
 
 Cet article décrit les fonctionnalités de haute disponibilité et de récupération d’urgence offertes par le service IoT Hub. Il aborde essentiellement les aspects suivants :
 
@@ -64,7 +64,7 @@ Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les op
 >
 > - Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison Events intégré, vous devrez peut-être effectuer un **redémarrage**. Cela est dû au fait que, pendant le basculement, les décalages précédents ne sont plus valides.
 >
-> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. Pour en savoir plus, consultez [Stockage Azure en tant que point de terminaison de routage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. Pour en savoir plus, consultez [Stockage Azure en tant que point de terminaison de routage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 

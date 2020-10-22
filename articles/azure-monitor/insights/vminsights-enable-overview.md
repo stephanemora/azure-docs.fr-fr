@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995681"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164480"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
@@ -37,30 +38,42 @@ Avant de commencer, prenez connaissance de ce qui suit.
 >[!NOTE]
 >Les informations suivantes décrites dans cette section s’appliquent également à la solution [Service Map](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
 
 Azure Monitor pour machines virtuelles prend en charge un espace de travail Log Analytics dans les régions suivantes :
 
-- Centre-USA Ouest
-- USA Ouest
-- USA Ouest 2
-- États-Unis - partie centrale méridionale
-- USA Est
-- USA Est 2
-- USA Centre
-- Centre-Nord des États-Unis
-- US Gov Arizona
-- US Gov Va
-- Centre du Canada
-- Sud du Royaume-Uni
-- Europe Nord
-- Europe Ouest
-- Asie Est
-- Asie Sud-Est
-- Inde centrale
-- Japon Est
-- Australie Est
-- Sud-Australie Est
+- Afrique
+  - Afrique du Sud Nord
+- Asie-Pacifique
+  - Asie Est
+  - Asie Sud-Est
+- Australie
+  - Australie Est
+  - Sud-Australie Est
+- Azure Government
+  - US Gov Arizona
+  - US Gov Va
+- Canada
+  - Centre du Canada
+- Europe
+  - Europe Nord
+  - Europe Ouest
+- Inde
+  - Inde centrale
+- Japon
+  - Japon Est
+- Royaume-Uni
+  - Sud du Royaume-Uni
+- États-Unis
+  - USA Centre
+  - USA Est
+  - USA Est 2
+  - Centre-Nord des États-Unis
+  - États-Unis - partie centrale méridionale
+  - Centre-USA Ouest
+  - USA Ouest
+  - USA Ouest 2
+
 
 >[!NOTE]
 >Vous pouvez surveiller les machines virtuelles Azure de n’importe quelle région. Les machines virtuelles elles-même ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.

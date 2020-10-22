@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles VMware à l’aide d’Azure Migrate Server Assessment.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667790"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315795"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -117,4 +117,4 @@ L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Passer en revue](best-practices-assessment.md) les meilleures pratiques pour la création d’évaluations.
-- [Préparer l’évaluation](tutorial-prepare-vmware.md) VMware.
+- [Préparer l’évaluation](./tutorial-discover-vmware.md) VMware.
