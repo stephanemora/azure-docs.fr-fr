@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506675"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174031"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -122,7 +122,7 @@ Après avoir sélectionné le [point de restauration approprié](#select-recover
 ***Toutes les opérations de restauration sur l’élément de sauvegarde sont effectuées avec la même API *POST*. Seul le corps de la requête change avec les scénarios de restauration.***
 
 > [!IMPORTANT]
-> Tous les détails sur les différentes options de restauration et leurs dépendances sont mentionnés [ici](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Veuillez consulter ces détails avant de commencer à déclencher ces opérations.
+> Tous les détails sur les différentes options de restauration et leurs dépendances sont mentionnés [ici](./backup-azure-arm-restore-vms.md#restore-options). Veuillez consulter ces détails avant de commencer à déclencher ces opérations.
 
 Le déclenchement des opérations de restauration est une requête *POST*. Pour en savoir plus sur l’API, consultez l’[API REST « déclencher la restauration »](/rest/api/backup/restores/trigger).
 
@@ -246,7 +246,7 @@ Le corps de demande suivant définit les propriétés requises pour déclencher 
 
 ### <a name="restore-disks-selectively"></a>Restaurer des disques de manière sélective
 
-Si vous [sauvegardez des disques de manière sélective](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la liste de disques sauvegardés est fournie dans le [résumé des points de récupération](#select-recovery-point) et la [réponse détaillée](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Vous pouvez également restaurer des disques de manière sélective. Plus de détails sont disponibles [ici](selective-disk-backup-restore.md#selective-disk-restore). Pour restaurer un disque de manière sélective dans la liste des disques sauvegardés, recherchez le numéro d’unité logique du disque à partir de la réponse du point de récupération et ajoutez la propriété **restoreDiskLunList** au [corps de la demande ci-dessus](#example-request) comme indiqué ci-dessous.
+Si vous [sauvegardez des disques de manière sélective](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la liste de disques sauvegardés est fournie dans le [résumé des points de récupération](#select-recovery-point) et la [réponse détaillée](/rest/api/backup/recoverypoints/get). Vous pouvez également restaurer des disques de manière sélective. Plus de détails sont disponibles [ici](selective-disk-backup-restore.md#selective-disk-restore). Pour restaurer un disque de manière sélective dans la liste des disques sauvegardés, recherchez le numéro d’unité logique du disque à partir de la réponse du point de récupération et ajoutez la propriété **restoreDiskLunList** au [corps de la demande ci-dessus](#example-request) comme indiqué ci-dessous.
 
 ```json
 {

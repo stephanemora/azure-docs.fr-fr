@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981515"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171622"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -35,7 +35,7 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
    - Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
    - Sinon, choisissez l’option **Redondant en local** qui réduit les coûts de stockage Azure.
    - Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md#geo-redundant-storage) et [locale](../storage/common/storage-redundancy.md#locally-redundant-storage).
-   - Si vous avez besoin de la disponibilité des données sans temps d’arrêt dans une région, pour garantir la résidence des données, choisissez le [stockage redondant dans une zone](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Si vous avez besoin de la disponibilité des données sans temps d’arrêt dans une région, pour garantir la résidence des données, choisissez le [stockage redondant dans une zone](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >Les paramètres de réplication de stockage pour le coffre ne sont pas pertinents pour la sauvegarde de partage de fichiers Azure, car la solution actuelle est basée sur une capture instantanée et aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage de fichiers sauvegardé.

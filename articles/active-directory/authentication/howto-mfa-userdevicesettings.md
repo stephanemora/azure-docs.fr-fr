@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968631"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166508"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gérer les paramètres utilisateur pour Azure Multi-Factor Authentication
 
@@ -36,8 +36,8 @@ Si le rôle *Administrateur d’authentification* vous est attribué, vous pouve
       > Les méthodes d’authentification actuellement inscrites de l’utilisateur ne sont pas supprimées lorsqu’un administrateur requiert une nouvelle inscription pour MFA. Une fois qu’un utilisateur a effectué une nouvelle inscription pour MFA, nous lui recommandons de consulter ses informations de sécurité et de supprimer toutes les méthodes d’authentification précédemment inscrites qui ne sont plus utilisables.
    
    - **Révoquer les sessions MFA** permet d’effacer les sessions MFA mémorisées de l’utilisateur et d’obliger ce dernier à s’authentifier via MFA la prochaine fois que cette méthode est imposée par la stratégie de l’appareil.
-
-   ![Gérer les méthodes d’authentification à partir du portail Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gérer les méthodes d’authentification à partir du portail Azure":::
 
 ## <a name="delete-users-existing-app-passwords"></a>Supprimer les mots de passe d’application existants des utilisateurs
 

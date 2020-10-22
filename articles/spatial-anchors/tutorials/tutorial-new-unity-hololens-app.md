@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939526"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096536"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutoriel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
@@ -25,7 +25,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
 1. Une machine Windows dotée de <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> avec la charge de travail de **développement pour la plateforme Windows universelle** et le composant **SDK Windows 10 (version 10.0.18362.0 ou plus récente)** , et <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 2. L’[extension Visual Studio (VSIX) C++/WinRT](https://aka.ms/cppwinrt/vsix) pour Visual Studio doit être installée à partir de [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. Un appareil HoloLens avec le [mode développeur](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) activé. L’appareil utilisé dans cet article est un HoloLens doté de la [mise à jour Windows 10 de mai 2020](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). Pour mettre à jour votre appareil HoloLens vers la dernière version, ouvrez l’application **Paramètres**, accédez à **Mise et sécurité**, puis sélectionnez le bouton **Vérifier les mises à jour**.
+3. Un appareil HoloLens avec le [mode développeur](/windows/mixed-reality/using-visual-studio) activé. L’appareil utilisé dans cet article est un HoloLens doté de la [mise à jour Windows 10 de mai 2020](/windows/mixed-reality/whats-new/release-notes-may-2020). Pour mettre à jour votre appareil HoloLens vers la dernière version, ouvrez l’application **Paramètres**, accédez à **Mise et sécurité**, puis sélectionnez le bouton **Vérifier les mises à jour**.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -89,7 +89,7 @@ Nous devons configurer notre application Unity avec une vue immersive, et non pa
 Vous devez désormais avoir un Prefab de sphère dans votre volet **Project**.
 
 ## <a name="trying-it-out"></a>Essai
-Pour vérifier que tout fonctionne correctement, générez votre application **Unity** et déployez-la à partir de **Visual Studio**. Suivez le chapitre 6 dans [**Réalité mixte - Principes fondamentaux - Cours 100 : Bien démarrer avec Unity**](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) pour cela. Vous devez voir l’écran de démarrage Unity, puis un écran clair.
+Pour vérifier que tout fonctionne correctement, générez votre application **Unity** et déployez-la à partir de **Visual Studio**. Suivez le chapitre 6 dans [**Réalité mixte - Principes fondamentaux - Cours 100 : Bien démarrer avec Unity**](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) pour cela. Vous devez voir l’écran de démarrage Unity, puis un écran clair.
 
 ## <a name="place-an-object-in-the-real-world"></a>Placer un objet dans le monde réel
 Vous allez maintenant créer et placer un objet à l’aide de votre application. Ouvrez la solution Visual Studio que nous avons créée lorsque nous [avons déployé notre application](#trying-it-out).
@@ -208,7 +208,7 @@ Enfin, raccordez tout ensemble. Dans votre méthode `CreateAndSaveSphere()`, ajo
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Exécutez une nouvelle fois votre application à partir de **Visual Studio**. Bougez votre tête, puis faites un geste d’appui (air tap) pour placer votre sphère. Une fois que le nombre d’images est suffisant, la sphère devient jaune et le chargement cloud débute. À l’issue du chargement, la sphère passe au bleu. Si vous le souhaitez, vous pouvez aussi utiliser la [fenêtre Sortie](https://docs.microsoft.com/visualstudio/ide/reference/output-window) pendant le débogage dans **Visual Studio** pour superviser les messages de journal envoyés par votre application. Veillez à déployer la configuration `Debug` de votre application à partir de Visual Studio pour afficher les messages de journal. Vous pouvez regarder `RecommendedForCreateProgress` et, une fois le chargement terminé, vous pouvez voir l’identificateur d’ancre retourné à partir du cloud.
+Exécutez une nouvelle fois votre application à partir de **Visual Studio**. Bougez votre tête, puis faites un geste d’appui (air tap) pour placer votre sphère. Une fois que le nombre d’images est suffisant, la sphère devient jaune et le chargement cloud débute. À l’issue du chargement, la sphère passe au bleu. Si vous le souhaitez, vous pouvez aussi utiliser la [fenêtre Sortie](/visualstudio/ide/reference/output-window) pendant le débogage dans **Visual Studio** pour superviser les messages de journal envoyés par votre application. Veillez à déployer la configuration `Debug` de votre application à partir de Visual Studio pour afficher les messages de journal. Vous pouvez regarder `RecommendedForCreateProgress` et, une fois le chargement terminé, vous pouvez voir l’identificateur d’ancre retourné à partir du cloud.
 
 > [!NOTE]
 > Si vous obtenez « DllNotFoundException : Impossible de charger la DLL AzureSpatialAnchors : le module spécifié est introuvable. », vous devez **Supprimer** et **Générer** à nouveau votre solution.

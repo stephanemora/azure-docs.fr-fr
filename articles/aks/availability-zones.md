@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489134"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165806"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -29,6 +29,7 @@ La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et confi
 Les clusters AKS peuvent actuellement être créés en utilisant des zones de disponibilité dans les régions suivantes :
 
 * Australie Est
+* Centre du Canada
 * USA Centre
 * USA Est 2
 * USA Est

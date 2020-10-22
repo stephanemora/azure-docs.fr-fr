@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985400"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172178"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Avant de restaurer une base de données, notez les points suivants :
 - Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure.
 - Le serveur de destination doit être inscrit auprès du même coffre que la source.
 - Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Les bases de données compatibles avec la [capture des changements de données (CDC)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) doivent être restaurées en utilisant l’option [Restaurer en tant que fichiers](#restore-as-files).
+- Les bases de données compatibles avec la [capture des changements de données (CDC)](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) doivent être restaurées en utilisant l’option [Restaurer en tant que fichiers](#restore-as-files).
 - Avant de restaurer la base de données « master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage **-m AzureWorkloadBackup**.
   - La valeur de **-m** est le nom du client.
   - Seul le nom du client spécifié peut ouvrir la connexion.

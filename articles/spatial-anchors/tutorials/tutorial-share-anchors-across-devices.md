@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971319"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097284"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Tutoriel : Partager des ancres spatiales entre plusieurs sessions et appareils
 
@@ -86,7 +86,7 @@ Sélectionnez **OK**.
 
 Après avoir ouvert Visual Studio Code, ouvrez le projet dans le dossier *Sharing\SharingServiceSample*. 
 
-Pour déployer le service de partage via Visual Studio Code, suivez les instructions dans <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publier une application ASP.NET Core sur Azure avec Visual Studio Code</a>. Commencez à la section « Ouvrir le projet avec Visual Studio Code ». Ne créez pas un autre projet ASP.NET comme expliqué à l’étape précédente, car vous avez déjà un projet à déployer et à publier : SharingServiceSample.
+Pour déployer le service de partage via Visual Studio Code, suivez les instructions dans <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publier une application ASP.NET Core sur Azure avec Visual Studio Code</a>. Commencez à la section « Ouvrir le projet avec Visual Studio Code ». Ne créez pas un autre projet ASP.NET comme expliqué à l’étape précédente, car vous avez déjà un projet à déployer et à publier : SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ Vous pouvez améliorer votre application web ASP.NET Core afin qu’elle utilise
 
 > [!div class="nextstepaction"]
 > [Utiliser Azure Cosmos DB pour stocker des ancres](./tutorial-use-cosmos-db-to-store-anchors.md)
-

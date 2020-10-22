@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657000"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173649"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -22,19 +22,18 @@ ms.locfileid: "89657000"
 
 **Azure CLI** : Les exemples de ligne de commande dans cet article utilisent [Azure CLI](/cli/azure/) et sont mis en forme pour le shell Bash. Vous pouvez [installer Azure CLI](/cli/azure/install-azure-cli) localement, ou bien utilisez [Azure Cloud Shell][cloud-shell-bash].
 
+## <a name="limitations"></a>Limites
+
+* Vous ne pouvez pas vous authentifier auprès d’Azure Container Registry pour extraire des images pendant le déploiement d’un groupe de conteneurs à l’aide d’une [identité managée](container-instances-managed-identity.md) configurée dans le même groupe de conteneurs.
+* Vous ne pouvez pas extraire des images [Azure Container Registry](../container-registry/container-registry-vnet.md) déployées dans un réseau virtuel Azure à ce stade.
+
 ## <a name="configure-registry-authentication"></a>Configurer l’authentification du registre
 
 Dans un scénario de production où vous fournissez l’accès à des services et applications « sans affichage », il est recommandé de configurer l’accès au registre avec un [principal de service](../container-registry/container-registry-auth-service-principal.md). Un principal de service vous permet de fournir un [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../container-registry/container-registry-roles.md) à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
 Azure Container Registry offre des [options d’authentification](../container-registry/container-registry-authentication.md) supplémentaires.
 
-> [!NOTE]
-> Vous ne pouvez pas vous authentifier auprès d’Azure Container Registry pour extraire des images pendant le déploiement d’un groupe de conteneurs à l’aide d’une [identité managée](container-instances-managed-identity.md) configurée dans le même groupe de conteneurs.
-
-> [!NOTE]
-> Vous ne pouvez pas extraire des images [Azure Container Registry](../container-registry/container-registry-vnet.md) déployées dans un réseau virtuel Azure à ce stade.
-
-Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre. 
+Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre.
 
 ### <a name="create-key-vault"></a>Création d’un coffre de clés
 

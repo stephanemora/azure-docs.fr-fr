@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271492"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172215"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91271492"
 
 Cet article explique comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion de DPM et MABS dans un coffre Azure Recovery Services.
 
-Vous pouvez utiliser [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) pour amorcer vos sauvegardes DPM/MABS initiales volumineuses hors connexion (sans utiliser de réseau) dans un coffre Recovery Services. Ce processus permet de gagner du temps et d’économiser de la bande passante réseau, qui serait sinon consommée pour déplacer de grandes quantités de données de sauvegarde en ligne sur un réseau à latence élevée. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+Vous pouvez utiliser [Azure Data Box](../databox/data-box-overview.md) pour amorcer vos sauvegardes DPM/MABS initiales volumineuses hors connexion (sans utiliser de réseau) dans un coffre Recovery Services. Ce processus permet de gagner du temps et d’économiser de la bande passante réseau, qui serait sinon consommée pour déplacer de grandes quantités de données de sauvegarde en ligne sur un réseau à latence élevée. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 La sauvegarde hors connexion basée sur Azure Data Box offre deux avantages distincts par rapport à la [sauvegarde hors connexion basée sur le service Azure Import/Export](backup-azure-backup-server-import-export.md) :
 
@@ -39,8 +39,8 @@ Les SKU Data Box suivants sont pris en charge :
 
 | Taille des données de sauvegarde (après compression par MARS)\* par serveur | SKU Azure Data Box pris en charge |
 | --- | --- |
-| \<= 7,2 To | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 To et <= 80 To\*\* | [Azure Data Box (100 To)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| \<= 7,2 To | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 To et <= 80 To\*\* | [Azure Data Box (100 To)](../databox/data-box-overview.md) |
 
 \*Les taux de compression habituels varient entre 10 et 20 % <br>
 \*\*Contactez [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) si vous prévoyez plus de 80 To de données de sauvegarde initiales pour une seule source de données.
@@ -64,7 +64,7 @@ Vérifiez les points suivants :
 
 ### <a name="order-and-receive-the-data-box-device"></a>Commander et recevoir l’appareil Data Box
 
-Assurez-vous que les appareils Data Box requis sont dans l’état *Livré* avant de déclencher la sauvegarde hors connexion. Pour commander le SKU qui répond le mieux à vos besoins, reportez-vous à [Taille des données de sauvegarde et SKU Data Box pris en charge](#backup-data-size-and-supported-data-box-skus). Suivez les étapes décrites dans [cet article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) pour commander et recevoir vos appareils Data Box.
+Assurez-vous que les appareils Data Box requis sont dans l’état *Livré* avant de déclencher la sauvegarde hors connexion. Pour commander le SKU qui répond le mieux à vos besoins, reportez-vous à [Taille des données de sauvegarde et SKU Data Box pris en charge](#backup-data-size-and-supported-data-box-skus). Suivez les étapes décrites dans [cet article](../databox/data-box-disk-deploy-ordered.md) pour commander et recevoir vos appareils Data Box.
 
 > [!IMPORTANT]
 > Ne sélectionnez pas *BlobStorage* pour le **type de compte**. Le serveur DPM/MABS exige un compte qui prend en charge les objets blob de pages, ce qui n’est pas possible quand *BlobStorage* est sélectionné. Sélectionnez le **type de compte** **Stockage V2 (v2 universel)** lors de la création du compte de stockage cible pour votre travail Azure Data Box.
@@ -77,14 +77,14 @@ Quand vous recevez l’appareil Azure Data Box, selon la référence SKU Azure D
 
 ### <a name="setup-azure-data-box-disk"></a>Configurer Azure Data Box Disk
 
-Si vous avez commandé un ou plusieurs disques Azure Data Box (jusqu’à 8 To chacun), suivez les étapes mentionnées ici pour [déballer, connecter et déverrouiller votre disque Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Si vous avez commandé un ou plusieurs disques Azure Data Box (jusqu’à 8 To chacun), suivez les étapes mentionnées ici pour [déballer, connecter et déverrouiller votre disque Data Box Disk](../databox/data-box-disk-deploy-set-up.md).
 
 > [!NOTE]
 > Il est possible que le serveur DPM/MABS ne dispose pas d’un port USB. Dans cette situation, vous pouvez connecter votre disque Azure Data Box Disk à un autre serveur/client et exposer la racine de l’appareil en tant que partage réseau.
 
 ## <a name="setup-azure-data-box"></a>Configurer Azure Data Box
 
-Si vous avez commandé un disque Azure Data Box (jusqu’à 100 To), suivez les étapes mentionnées ici [pour configurer votre disque Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Si vous avez commandé un disque Azure Data Box (jusqu’à 100 To), suivez les étapes mentionnées ici [pour configurer votre disque Data Box](../databox/data-box-deploy-set-up.md).
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Monter votre disque Azure Data Box en tant que système local
 
@@ -100,7 +100,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
    ```
 
 4. La fenêtre de commande qui s’ouvre à l’issue de la commande ci-dessus se trouve dans le contexte du système local. Utilisez cette fenêtre de commande pour exécuter les étapes de montage du partage d’objets blob de pages Azure en tant que lecteur réseau sur votre serveur Windows.
-5. Suivez les étapes décrites [ici](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) pour connecter votre serveur DPM/MABS à l’appareil Data Box par le biais de NFS, puis exécutez la commande suivante à l’invite de commandes du système local pour monter le partage d’objets blob de pages Azure :
+5. Suivez les étapes décrites [ici](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) pour connecter votre serveur DPM/MABS à l’appareil Data Box par le biais de NFS, puis exécutez la commande suivante à l’invite de commandes du système local pour monter le partage d’objets blob de pages Azure :
 
     ```cmd
     mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
@@ -110,7 +110,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transférer les données de sauvegarde initiales aux appareils Azure Data Box
 
-1. Sur votre serveur DPM/MABS, suivez les étapes pour [créer un groupe de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Si vous ajoutez une protection en ligne au groupe de protection existant, cliquez avec le bouton droit sur le groupe de protection existant, puis sélectionnez **Ajouter une de protection en ligne** et commencez à partir de **l’étape 8**.
+1. Sur votre serveur DPM/MABS, suivez les étapes pour [créer un groupe de protection](/system-center/dpm/create-dpm-protection-groups). Si vous ajoutez une protection en ligne au groupe de protection existant, cliquez avec le bouton droit sur le groupe de protection existant, puis sélectionnez **Ajouter une de protection en ligne** et commencez à partir de **l’étape 8**.
 2. Dans la page **Sélectionner les membres du groupe**, spécifiez les ordinateurs et sources que vous souhaitez sauvegarder.
 3. Dans la page **Sélectionner la méthode de protection des données**, spécifiez la façon dont vous souhaitez gérer les sauvegardes à court terme et à long terme. Veillez à sélectionner **Je voudrais une protection en ligne.**
 
@@ -163,7 +163,7 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
     > ![Lecteur USB](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > Par exemple, si le chemin du disque est `\\mydomain\myserver\disk1\` et si *Disk1* contient un répertoire appelé *PageBlob*, le chemin à fournir dans le serveur DPM/MABS est `\\mydomain\myserver\disk1\`.
-    > Si vous [configurez un appareil Azure Data Box de 100 To](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box), indiquez le chemin réseau d’appareil `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` suivant.
+    > Si vous [configurez un appareil Azure Data Box de 100 To](./offline-backup-azure-data-box.md#set-up-azure-data-box), indiquez le chemin réseau d’appareil `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` suivant.
 
 15. Sélectionnez **Suivant**. Dans la page **Résumé**, vérifiez vos paramètres puis sélectionnez **Créer un groupe**.
 
@@ -193,8 +193,8 @@ Spécifiez une autre source : *WIM:D:\Sources\Install.wim:4*
 
 Procédez comme suit une fois que la sauvegarde des données sur Azure Data Box Disk est réussie.
 
-- Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
-- [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box *effectué*, le serveur DPM/MABS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué comme *Travail effectué* si un point de récupération a correctement été créé.
+- Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](../databox/data-box-disk-deploy-picked-up.md). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier le disque Azure Data Box à Azure](../databox/data-box-deploy-picked-up.md).
+- [Supervisez le travail Data Box](../databox/data-box-disk-deploy-upload-verify.md) dans le portail Azure. Une fois le travail Azure Data Box *effectué*, le serveur DPM/MABS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué comme *Travail effectué* si un point de récupération a correctement été créé.
 
   > [!NOTE]
   > Le serveur DPM/MABS déclenche les sauvegardes aux heures planifiées pendant la création du groupe de protection. Toutefois, ces travaux indiquent *En attente de la fin du travail Azure Data Box* tant que le travail n’est pas terminé.

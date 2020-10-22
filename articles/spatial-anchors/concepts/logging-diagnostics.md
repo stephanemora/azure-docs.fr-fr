@@ -9,12 +9,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da941aa8b616fffeb2e283480c2a1e2f9cf7a093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45d345e8d8dbe45ecb4873904f31141111827647
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003114"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097352"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Journalisation et diagnostics dans Azure Spatial Anchors
 
@@ -43,9 +43,9 @@ Deux rappels sont particulièrement intéressants pour l’utilisateur. L’exem
 
 Ces rappels d’événement sont fournis pour traiter les journaux et les erreurs de la session :
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel) : spécifie le niveau de détail que le runtime doit envoyer en ce qui concerne les événements.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug) : fournit les événements de journalisation de débogage standard.
-- [Erreur](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error) : fournit les événements de journalisation que le runtime considère comme des erreurs.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel) : spécifie le niveau de détail que le runtime doit envoyer en ce qui concerne les événements.
+- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug) : fournit les événements de journalisation de débogage standard.
+- [Erreur](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error) : fournit les événements de journalisation que le runtime considère comme des erreurs.
 
 ## <a name="diagnostics-logging"></a>Journalisation des diagnostics
 

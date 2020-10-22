@@ -4,12 +4,12 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271373"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174105"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 À partir du portail Azure, vous pouvez afficher les disques inclus et les disques exclus dans le volet d’informations de la sauvegarde de machine virtuelle et dans le volet d’informations du travail de sauvegarde.  Pendant la restauration, quand vous sélectionnez le point de récupération à partir duquel effectuer la restauration, vous pouvez voir les disques sauvegardés dans ce point de récupération.
 

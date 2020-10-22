@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930286"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166928"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -36,7 +36,7 @@ Analyse des sentiments prend en charge une large palette de langues, et plus de 
 | [Conteneur Docker](text-analytics-how-to-install-containers.md) basé sur Linux | X  |  |
 | Exploration des opinions                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Scoring et étiquetage des sentiments
+## <a name="sentiment-scoring-and-labeling"></a>Scoring et étiquetage des sentiments
 
 Analyse des sentiments v3 applique des étiquettes de sentiment au texte, qui sont retournées au niveau de la phrase et du document avec un score de confiance pour chacune d’elles. 
 
@@ -51,7 +51,7 @@ Les étiquettes sont *positive* (positif), *negative* (négatif) et *neutral* (n
 
 Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Pour chaque document ou chaque phrase, les scores prédits associés aux étiquettes (positif, négatif et neutre) donnent la somme de 1.
 
-### <a name="opinion-mining"></a>Exploration des opinions
+## <a name="opinion-mining"></a>Exploration des opinions
 
 L’exploration des opinions est une fonctionnalité d’Analyse des sentiments, à partir de la version 3.1-preview.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
 

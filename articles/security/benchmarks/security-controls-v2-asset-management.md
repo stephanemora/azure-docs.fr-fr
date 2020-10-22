@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318022"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201832"
 ---
 # <a name="security-control-v2-asset-management"></a>Contrôle de sécurité V2 : Gestion des ressources
 
@@ -150,7 +150,7 @@ Vous pouvez également utiliser une solution tierce pour découvrir et identifie
 
 - [Guide pratique pour utiliser les contrôles d’application adaptatifs d’Azure Security Center](../../security-center/security-center-adaptive-application.md)
 
-- [Comprendre la fonctionnalité Suivi des modifications et inventaire d’Azure Automation](../../automation/change-tracking.md)
+- [Comprendre la fonctionnalité Suivi des modifications et inventaire d’Azure Automation](../../automation/change-tracking/overview.md)
 
 - [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
