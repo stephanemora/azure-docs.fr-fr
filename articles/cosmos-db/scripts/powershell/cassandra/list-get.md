@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: cf29bae8b2aa011593e4d9acb45bad71a6ad0167
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c90f41e76b0f448fd07bcbd4f54dd02a653449fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505453"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282796"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Répertorier et obtenir des espaces de clés et des tables pour Azure Cosmos DB - API Cassandra
 
@@ -49,5 +49,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Vous trouverez des exemples supplémentaires de scripts Azure Cosmos DB PowerShell sur la page [Scripts PowerShell Azure Cosmos DB](../../../powershell-samples.md).

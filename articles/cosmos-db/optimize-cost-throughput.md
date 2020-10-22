@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801322"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281064"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Vous pouvez configurer le débit sur des bases de données ou des conteneurs, et
 
 * Si vous approvisionnez le débit sur une base de données, tous les conteneurs, par exemple les collections/tables/graphiques au sein de cette base de données, peuvent se partager le débit en fonction de la charge. Le débit réservé au niveau de la base de données est partagé inégalement sur un ensemble spécifique de conteneurs, selon la charge de travail.
 
-* Si vous configurez le débit sur un conteneur, ce débit est garanti par contrat de niveau de service pour ce conteneur. Le choix d’une clé de partition logique est essentiel pour la répartition de la charge sur toutes les partitions logiques d’un conteneur. Consultez les articles [Partitionnement](partitioning-overview.md) et [Mise à l’échelle horizontale](partition-data.md) pour plus d’informations.
+* Si vous configurez le débit sur un conteneur, ce débit est garanti par contrat de niveau de service pour ce conteneur. Le choix d’une clé de partition logique est essentiel pour la répartition de la charge sur toutes les partitions logiques d’un conteneur. Consultez les articles [Partitionnement](partitioning-overview.md) et [Mise à l’échelle horizontale](partitioning-overview.md) pour plus d’informations.
 
 Voici quelques indications pour choisir une stratégie de débit approvisionné :
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340306"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -74,9 +74,9 @@ Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Ajouter les rôles de contrôle d’accès à votre compte
 
-Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser le service de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
+Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/index.yml) pour autoriser le service de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
 
-Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) et [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) pour l’utilisateur « HPC Cache Resource Provider ».
+Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](../role-based-access-control/built-in-roles.md#storage-account-contributor) et [Contributeur aux données Blob du stockage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) pour l’utilisateur « HPC Cache Resource Provider ».
 
 Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à partir de laquelle vous ajoutez une cible de stockage Blob. Rappelez-vous qu’il peut falloir jusqu’à cinq minutes pour que les paramètres de rôle se propagent dans l’environnement Azure. Par conséquent, après avoir ajouté les rôles, vous devez attendre quelques minutes avant de créer une cible de stockage.
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409677"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282450"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
-Le document suivant contient les commandes d’action personnalisées qui sont spécifiques à l’API d’Azure Cosmos DB pour MongoDB. Ces commandes peuvent être utilisées pour créer et obtenir des ressources de base de données spécifiques au [modèle de capacité Azure Cosmos DB](databases-containers-items.md).
+Le document suivant contient les commandes d’action personnalisées qui sont spécifiques à l’API d’Azure Cosmos DB pour MongoDB. Ces commandes peuvent être utilisées pour créer et obtenir des ressources de base de données spécifiques au [modèle de capacité Azure Cosmos DB](account-databases-containers-items.md).
 
 En utilisant l’API d’Azure Cosmos DB pour MongoDB, vous pouvez profiter des nombreux avantages de Cosmos DB, comme la distribution mondiale, le partitionnement automatique, la haute disponibilité, les garanties de latence, le chiffrement automatique au repos, les sauvegardes, etc. tout en préservant vos investissements dans votre application MongoDB. Vous pouvez communiquer avec l'API Azure Cosmos DB pour MongoDB par le biais de n'importe quel [pilote du client MongoDB](https://docs.mongodb.org/ecosystem/drivers) open source. L’API d’Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 

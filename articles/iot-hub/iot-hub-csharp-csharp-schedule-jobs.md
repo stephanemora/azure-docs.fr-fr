@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018499"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142456"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planifier et diffuser des travaux (.NET)
 
@@ -261,7 +261,7 @@ Dans cette section, vous allez créer une application console .NET (en C#) qui u
     ```
 
     > [!NOTE]
-    > Pour plus d’informations sur la syntaxe de requête, consultez l’article [Langage de requête IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Pour plus d’informations sur la syntaxe de requête, consultez l’article [Langage de requête IoT Hub](./iot-hub-devguide-query-language.md).
     >
 
 1. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
@@ -311,4 +311,4 @@ Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode d
 
 * Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Didacticiel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
 
-* Pour en savoir plus sur le déploiement de l’intelligence artificielle sur des appareils de périphérie avec Azure IoT Edge, consultez [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Pour en savoir plus sur le déploiement de l’intelligence artificielle sur des appareils de périphérie avec Azure IoT Edge, consultez [Bien démarrer avec IoT Edge](../iot-edge/quickstart-linux.md).

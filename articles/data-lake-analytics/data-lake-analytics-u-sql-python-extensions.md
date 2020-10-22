@@ -1,18 +1,17 @@
 ---
 title: Étendre des scripts U-SQL à l’aide de Python dans Azure Data Lake Analytics
 description: Découvrez comment exécuter du code Python dans des scripts U-SQL à l’aide de Azure Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: devx-track-python
-ms.openlocfilehash: b15ab268433e4220d499f3e1fe7cb90ffac2a1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d81e529d7073e8200c5a1d1fa8f51504b1dc9259
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876015"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218440"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code Python dans Azure Data Lake Analytics
 
@@ -101,5 +100,5 @@ Chaque vertex possède une quantité limitée de mémoire qui lui est assignée.
 
 * [Vue d'ensemble de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Développer des scripts de U-SQL à l’aide d’outils Data Lake Tools pour Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](data-lake-analytics-use-window-functions.md)
+* [Utilisation des fonctions U-SQL dans les travaux Analytique Data Lake Azure](./data-lake-analytics-u-sql-get-started.md)
 * [Utiliser Azure Data Lake Tools pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301446"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341683"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -62,7 +62,7 @@ Pour savoir comment configurer une stratégie de sécurité, consultez [Définit
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Quand des failles de sécurité potentielles sont identifiées, des recommandations sont créées. Les recommandations vous guident tout au long du processus de configuration du contrôle. Voici quelques exemples :
 
 * Approvisionnement d’un logiciel anti-programme malveillant pour identifier et supprimer les programmes malveillants
-* [Groupes de sécurité réseau](../virtual-network/security-overview.md) et règles pour contrôler le trafic vers les machines virtuelles
+* [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md) et règles pour contrôler le trafic vers les machines virtuelles
 * Approvisionnement d’un pare-feu d’applications web pour se défendre des attaques ciblant vos applications web
 * Déploiement de mises à jour système manquantes
 * Correction des configurations de système d’exploitation qui ne suivent pas les recommandations

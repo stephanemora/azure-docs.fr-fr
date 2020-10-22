@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660130"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123043"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks
 
-Ce guide pratique vous montre comment étendre votre application IoT Central en tant que développeur de solutions avec des visualisations et des analyses personnalisées. L’exemple utilise un espace de travail [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) pour analyser le flux de données de télémétrie IoT Central et pour générer des visualisations telles que des [diagrammes à surfaces](https://wikipedia.org/wiki/Box_plot).
+Ce guide pratique vous montre comment étendre votre application IoT Central en tant que développeur de solutions avec des visualisations et des analyses personnalisées. L’exemple utilise un espace de travail [Azure Databricks](/azure/azure-databricks/) pour analyser le flux de données de télémétrie IoT Central et pour générer des visualisations telles que des [diagrammes à surfaces](https://wikipedia.org/wiki/Box_plot).
 
 Ce guide pratique vous montre comment étendre IoT Central au-delà de ce qu’il peut déjà faire avec les [outils d’analytique intégrés](./howto-create-custom-analytics.md).
 

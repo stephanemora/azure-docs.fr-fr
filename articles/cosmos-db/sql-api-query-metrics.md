@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280519"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Azure Cosmos DB fournit une [API SQL pour interroger des données](how-to-sql-qu
 
 ## <a name="about-sql-query-execution"></a>À propos de l’exécution de requêtes SQL
 
-Dans Azure Cosmos DB, vous stockez les données dans des conteneurs pouvant se remplir à n’importe quel [débit de requête ou taille de stockage](partition-data.md). Azure Cosmos DB adapte de façon continue les données entre les partitions physiques situées en arrière-plan, pour gérer la croissance des données ou l’augmentation de débit approvisionné. Vous pouvez émettre des requêtes SQL sur n’importe quel conteneur à l’aide de l’API REST ou de l’un des [kits SDK SQL](sql-api-sdk-dotnet.md) pris en charge.
+Dans Azure Cosmos DB, vous stockez les données dans des conteneurs pouvant se remplir à n’importe quel [débit de requête ou taille de stockage](partitioning-overview.md). Azure Cosmos DB adapte de façon continue les données entre les partitions physiques situées en arrière-plan, pour gérer la croissance des données ou l’augmentation de débit approvisionné. Vous pouvez émettre des requêtes SQL sur n’importe quel conteneur à l’aide de l’API REST ou de l’un des [kits SDK SQL](sql-api-sdk-dotnet.md) pris en charge.
 
 Pour résumer brièvement le partitionnement : vous définissez une clé de partition, par exemple "city", qui détermine la façon dont les données sont fractionnées entre plusieurs partitions physiques. Les données appartenant à une clé de partition unique (par exemple, "city" == "Seattle") sont stockées dans une partition physique, bien qu’en général une seule partition physique ait plusieurs clés de partition. Lorsqu’une partition a atteint sa taille de stockage, le service divise de façon homogène la partition en deux nouvelles partitions, et répartit la clé de partition uniformément entre ces partitions. Étant donné que les partitions sont temporaires, les API utilisent une abstraction de « plage de clé de partition » représentant les plages des hachages de clé de partition. 
 
@@ -163,7 +163,7 @@ Avec Azure Cosmos DB, les requêtes s’effectuent généralement dans l’ordre
 
 Les requêtes qui doivent consulter toutes les partitions nécessitent une latence plus élevée et peuvent consommer des RU plus élevées. Étant donné que chaque partition dispose de l’indexation automatique sur toutes les propriétés, la requête peut être servie efficacement à partir de l’index dans ce cas. Vous pouvez effectuer des requêtes qui englobent les partitions plus rapidement en utilisant les options de parallélisme.
 
-Pour en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement dans Azure Cosmos DB](partition-data.md).
+Pour en savoir plus sur le partitionnement et les clés de partition, consultez [Partitionnement dans Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>Options de requête et de kit SDK
 Consultez [Conseils sur les performances](performance-tips.md) et [Tests de performances](performance-testing.md) pour savoir comment obtenir les meilleures performances côté client à partir d’Azure Cosmos DB. Cela implique d’utiliser les kits SDK les plus récents, de procéder à des configurations spécifiques aux plateformes, comme la fréquence de garbage collection ou le nombre de connexions par défaut, et d’utiliser des options de connectivité légère, comme Direct/TCP. 

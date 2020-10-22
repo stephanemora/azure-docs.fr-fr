@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131188"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -156,7 +156,7 @@ La configuration par défaut des mesures de performances est la suivante.
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +164,7 @@ La configuration par défaut des mesures de performances est la suivante.
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>

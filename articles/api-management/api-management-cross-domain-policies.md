@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 31d26769fa3ef49684f8a2eedf6a0691316e742b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071232"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131239"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -45,9 +45,7 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 

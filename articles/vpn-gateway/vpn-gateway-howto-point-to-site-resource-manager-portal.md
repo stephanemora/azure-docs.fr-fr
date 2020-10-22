@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 03dbc481950ed2a020a26dc3af8668c516b66115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1a0234754c2966313e0b35dd59bed79e7736a2c
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435999"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328429"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 
@@ -52,6 +52,9 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 ## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1. Créez un réseau virtuel
 
 Avant de commencer, assurez-vous que vous disposez d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="2-create-a-virtual-network-gateway"></a><a name="creategw"></a>2. Créer une passerelle de réseau virtuel

@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132651"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280987"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 
-Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partition-data.md).
+Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partitioning-overview.md).
 
 Une fois qu’un conteneur a été généré avec une stratégie de clé unique, la création ou la mise à jour d’un élément engendrant un doublon au sein d’une partition logique sont impossibles, conformément à la contrainte de clé unique. La combinaison clé de partition-clé unique garantit l'unicité d'un élément à l’échelle d'un conteneur.
 
@@ -55,5 +55,5 @@ Les clés uniques ne peuvent être définies qu'au moment de la création d'un c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [partitions logiques](partition-data.md)
+* En savoir plus sur les [partitions logiques](partitioning-overview.md)
 * Explorer [comment définir des clés uniques](how-to-define-unique-keys.md) lors de la création d’un conteneur

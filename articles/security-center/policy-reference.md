@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Security Center
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Security Center. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0c445dc882c40724c20c773b3a5e191fb06970a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823151"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340901"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Définitions intégrées d’Azure Policy pour Azure Security Center
 
@@ -52,5 +52,5 @@ Dans cet article, vous avez découvert les définitions de stratégies de sécur
 - [Guide des opérations et de planification d’Azure Security Center](./security-center-planning-and-operations-guide.md) : Découvrez les considérations sur la conception dans Azure Security Center et comment les planifier.
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](./security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 - [Gestion et résolution des alertes de sécurité dans Azure Security Center](./security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Surveillance des solutions de partenaire avec Azure Security Center](./security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
+- [Surveillance des solutions de partenaire avec Azure Security Center](./security-center-partner-integration.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 - [Azure Policy](../governance/policy/overview.md) : découvrez comment contrôler et gérer vos ressources azurées.

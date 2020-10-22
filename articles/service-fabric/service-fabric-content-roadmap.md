@@ -3,12 +3,12 @@ title: En savoir plus sur Azure Service Fabric
 description: Découvrez les concepts fondamentaux et les principales zones d’Azure Service Fabric. Fournit une vue d’ensemble étendue de Service Fabric et explique comment créer des microservices.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: d09d774ed32c98222b71423ca733f1b4294957ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f4e0ea03b631773f96ca4645d44b9fe28d89da9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836698"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319803"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Service Fabric dispose d’une grande surface d’exposition et il y a beaucoup d’informations à découvrir.  Cet article fournit une synthèse de Service Fabric et décrit les concepts fondamentaux, les modèles de programmation, le cycle de vie d’application, les tests, les clusters et la surveillance de l’intégrité. Consultez [Vue d’ensemble](service-fabric-overview.md) et [Que sont les microservices ?](service-fabric-overview-microservices.md) pour obtenir une présentation et savoir comment utiliser Service Fabric pour créer des microservices. Cet article ne donne pas la liste complète du contenu, mais fournit un lien vers des articles de présentation et de prise en main pour chaque zone de Service Fabric. 
@@ -189,7 +189,7 @@ Plusieurs produits couvrant ces trois domaines sont disponibles, et vous êtes l
 * Apprenez à [surveiller et diagnostiquer les services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Apprenez à [tester vos applications et services](service-fabric-testability-overview.md).
 * Apprenez à [gérer et orchestrer les ressources de cluster](service-fabric-cluster-resource-manager-introduction.md).
-* Examinez les [exemples Service Fabric](https://aka.ms/servicefabricsamples).
+* Examinez les [exemples Service Fabric](/samples/browse/?products=azure).
 * Découvrez les [options de support de Service Fabric](service-fabric-support.md).
 * Lisez le [blog de l’équipe](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) pour des articles et annonces.
 

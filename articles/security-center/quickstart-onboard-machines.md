@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993606"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340867"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -86,7 +86,7 @@ Vous avez besoin des informations de la page **Gestion des agents** pour ajouter
 1. Connectez-vous à votre portail **Azure Stack** et ouvrez la page **Machines virtuelles**.
 1. Sélectionnez la machine virtuelle que vous souhaitez protéger avec Security Center.
     >[!TIP]
-    > Pour plus d’informations sur la façon de créer une machine virtuelle sur Azure Stack, consultez [ce guide de démarrage rapide pour les machines virtuelles Windows](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou [ce guide de démarrage rapide pour les machines virtuelles Linux](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > Pour plus d’informations sur la façon de créer une machine virtuelle sur Azure Stack, consultez [ce guide de démarrage rapide pour les machines virtuelles Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [ce guide de démarrage rapide pour les machines virtuelles Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Sélectionnez **Extensions**. La liste des extensions de machine virtuelle installées sur cette machine virtuelle s’affiche.
 1. Sélectionnez l’onglet **Ajouter**. Le menu **Nouvelle ressource** affiche la liste des extensions de machine virtuelle disponibles.
 1. Sélectionnez l’extension **Azure Monitor, Update and Configuration Management**, puis sélectionnez **Créer**. La page de configuration **Installer l’extension** s’ouvre.

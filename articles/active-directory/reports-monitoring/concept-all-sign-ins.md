@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339575"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319779"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Rapports d’activité de connexion Azure Active Directory – Préversion
 
@@ -32,8 +32,8 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
     - **Connexions** : informations concernant les moments auxquels des utilisateurs, des applications et des ressources managées se connectent à Azure AD et accèdent à des ressources.
     - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) : fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
 - **Sécurité** 
-    - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](concept-user-at-risk.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
+    - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) correspond à un indicateur de tentative de connexion d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
+    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
 Le rapport classique sur les connexions dans Azure Active Directory fournit une vue d’ensemble des connexions utilisateur interactives. En plus de celui-ci, vous avez désormais accès à trois rapports de connexion supplémentaires actuellement en préversion :
 
@@ -86,7 +86,7 @@ Dans le panneau du rapport de connexions, vous pouvez basculer entre les deux af
 
 - **Connexions de principal de service** – Connexions établies par des principaux d’applications et de service n’impliquant aucune intervention de l’utilisateur. Dans ces connexions, l’application ou le service fournit des informations d’identification pour son propre compte afin de s’authentifier ou d’accéder à des ressources.
 
-- **Connexions avec identités managées pour ressources Azure** – Connexions établies par des ressources Azure dont les secrets sont gérés par Azure. Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Connexions avec identités managées pour ressources Azure** – Connexions établies par des ressources Azure dont les secrets sont gérés par Azure. Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Types de rapports de connexions](./media/concept-all-sign-ins/sign-ins-report-types.png)

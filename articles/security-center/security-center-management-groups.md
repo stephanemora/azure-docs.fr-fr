@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440780"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339728"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article explique comment gérer la position de sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité à tous les abonnements Azure liés à votre locataire Azure Active Directory.
@@ -33,10 +33,10 @@ Le groupe d’administration racine est créé automatiquement quand vous effect
 2. Créer un groupe d’administration via un appel d’API.
 3. Créer un groupe d’administration avec PowerShell.
 
-Pour une présentation détaillée des groupes d’administration, consultez l’article [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md).
+Pour une présentation détaillée des groupes d’administration, consultez l’article [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md).
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Créer un groupe d’administration dans le portail Azure
-Vous pouvez organiser les abonnements en groupes d’administration et y appliquer vos stratégies de gouvernance. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Même si les groupes d’administration ne sont pas obligatoires pour intégrer Security Center, il est vivement recommandé d’en créer au moins un pour que le groupe d’administration racine soit créé. Une fois que le groupe est créé, tous les abonnements sous votre locataire Azure AD y sont liés. Pour des instructions sur PowerShell et d’autres informations, consultez [Créer des groupes d’administration pour gérer les ressources et l’organisation](../azure-resource-manager/management-groups-create.md).
+Vous pouvez organiser les abonnements en groupes d’administration et y appliquer vos stratégies de gouvernance. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Même si les groupes d’administration ne sont pas obligatoires pour intégrer Security Center, il est vivement recommandé d’en créer au moins un pour que le groupe d’administration racine soit créé. Une fois que le groupe est créé, tous les abonnements sous votre locataire Azure AD y sont liés. Pour des instructions sur PowerShell et d’autres informations, consultez [Créer des groupes d’administration pour gérer les ressources et l’organisation](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Connectez-vous au [portail Azure](https://portal.azure.com).

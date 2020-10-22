@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 66cf408799b37de1160ec3a76ee11ff1ffbb770b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe31e67168c4eaf6fe94c056a96fdf695ea94fe4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801407"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279984"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples du kit SDK .NET V3 (Microsoft.Azure.Cosmos) pour l’API SQL
 
@@ -54,7 +54,7 @@ Un abonnement Azure ou un compte d’essai de Cosmos DB gratuit
 
 ## <a name="database-examples"></a>Exemples de base de données
 
-La méthode [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) de l’exemple de projet *DatabaseManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les bases de données Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md).
+La méthode [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) de l’exemple de projet *DatabaseManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les bases de données Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md).
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -65,7 +65,7 @@ La méthode [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/bl
 
 ## <a name="container-examples"></a>Exemples de conteneur
 
-La méthode [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) de l’exemple de projet *ContainerManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les conteneurs Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md).
+La méthode [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) de l’exemple de projet *ContainerManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les conteneurs Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md).
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -78,7 +78,7 @@ La méthode [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/b
 
 ## <a name="item-examples"></a>Exemples d’éléments
 
-La méthode [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) de l’exemple de projet *ItemManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les éléments Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md).
+La méthode [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) de l’exemple de projet *ItemManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les éléments Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md).
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |

@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979231"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341564"
 ---
 # <a name="access-built-in-metrics"></a>Accéder aux métriques intégrées
 
 Les composants du runtime IoT Edge, le hub IoT Edge Hub et l’agent IoT Edge, produisent des métriques intégrées au [format d’exposition Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Accédez à ces métriques à distance pour analyser et comprendre l’intégrité d’un appareil IoT Edge.
 
-À partir de la version 1.0.10, les métriques sont automatiquement exposées par défaut sur le **port 9600** des modules **edgeHub** et **edgeAgent** (`http://edgeHub:9600/metrics` et `http://edgeAgent:9600/metics`). Elles ne sont pas mappées au port de l’hôte par défaut.
+À partir de la version 1.0.10, les métriques sont automatiquement exposées par défaut sur le **port 9600** des modules **edgeHub** et **edgeAgent** (`http://edgeHub:9600/metrics` et `http://edgeAgent:9600/metrics`). Elles ne sont pas mappées au port de l’hôte par défaut.
 
 Accédez aux métriques à partir de l’hôte en exposant et en mappant le port des métriques à partir du paramètre `createOptions` du module. L’exemple ci-dessous mappe le port des métriques par défaut au port 9601 sur l’hôte :
 
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {

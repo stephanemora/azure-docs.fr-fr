@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018967"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282071"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lire le flux de modification Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Un modèle push est le moyen le plus simple de lire le flux de modification. Vou
 
 ### <a name="azure-functions"></a>Azure Functions
 
-Azure Functions est l’option la plus simple si vous commencez tout juste à utiliser le flux de modification. Sa simplicité en font également l’option recommandée pour la plupart des cas d’usage liés au flux de modification. Quand vous créez un déclencheur Azure Functions pour Azure Cosmos DB, vous pouvez sélectionner le conteneur auquel vous souhaitez vous connecter, et la fonction Azure se déclenche chaque fois qu’une modification est apportée au conteneur. Dans la mesure où Azure Functions utilise le processeur de flux de modification en arrière-plan, il parallélise automatiquement le traitement des modifications entre les [partitions](partition-data.md) de votre conteneur.
+Azure Functions est l’option la plus simple si vous commencez tout juste à utiliser le flux de modification. Sa simplicité en font également l’option recommandée pour la plupart des cas d’usage liés au flux de modification. Quand vous créez un déclencheur Azure Functions pour Azure Cosmos DB, vous pouvez sélectionner le conteneur auquel vous souhaitez vous connecter, et la fonction Azure se déclenche chaque fois qu’une modification est apportée au conteneur. Dans la mesure où Azure Functions utilise le processeur de flux de modification en arrière-plan, il parallélise automatiquement le traitement des modifications entre les [partitions](partitioning-overview.md) de votre conteneur.
 
 Le développement avec Azure Functions est une expérience simple qui peut être plus rapide que de déployer le processeur de flux de modification par vous-même. Les déclencheurs peuvent être créés à l’aide du portail Azure Functions ou par programmation à l’aide de kits SDK. Visual Studio et VS Code fournissent un accompagnement pour l'écriture des fonctions Azure. Vous pouvez même utiliser l'interface CLI d'Azure Functions pour le développement multiplateforme. Vous pouvez écrire et déboguer le code sur votre bureau, puis déployer la fonction avec un seul clic. Pour en savoir plus, consultez les articles [Traitement de base de données serverless à l’aide d’Azure Functions](serverless-computing-database.md) et [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md).
 

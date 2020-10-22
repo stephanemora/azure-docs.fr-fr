@@ -7,12 +7,12 @@ ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 749592b778612c6903c9c15e336de3fb00978199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40787e1b7c40e5c238b2e400f6b449ad8963dd1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870865"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277138"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable-exceptions"></a>Diagnostiquer et résoudre des problèmes liés aux exceptions non disponibles du service Azure Cosmos DB
 Le kit de développement logiciel (SDK) n’a pas pu se connecter à Azure Cosmos DB.
@@ -21,7 +21,7 @@ Le kit de développement logiciel (SDK) n’a pas pu se connecter à Azure Cosmo
 La liste suivante répertorie les causes connues et les solutions pour les exceptions de service non disponible.
 
 ### <a name="the-required-ports-are-being-blocked"></a>Les ports requis sont bloqués
-Vérifiez que tous les [ports requis](performance-tips-dotnet-sdk-v3-sql.md#networking) sont activés.
+Vérifiez que tous les [ports requis](sql-sdk-connection-modes.md#service-port-ranges) sont activés.
 
 ### <a name="client-side-transient-connectivity-issues"></a>Problèmes de connectivité temporaires côté client
 Des exceptions non disponibles du service peuvent apparaître en cas de problèmes de connectivité temporaires qui provoquent des expirations de délai. En règle générale, l’arborescence des appels de procédure associée à ce scénario contient une erreur `TransportException`. Par exemple :
