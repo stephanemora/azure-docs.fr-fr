@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400500"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279740"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
 Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la mise à l’échelle horizontale. Les conteneurs peuvent évoluer indépendamment en termes de débit et de stockage. Vous pouvez créer des conteneurs dans Azure Cosmos DB qui peuvent être automatiquement mis à l’échelle pour stocker des données graphiques. Les données sont automatiquement réparties en fonction de la **clé de partition** spécifiée.
 
-**Vous devez procéder à un partitionnement** si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partition-data.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
+**Vous devez procéder à un partitionnement** si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partitioning-overview.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Partitionnement dans Graph." border="false":::
 
@@ -78,7 +78,7 @@ Pour garantir de hautes performances et une bonne évolutivité lors de l’util
 
 - **Utilisez la direction sortante lorsque vous interrogez des arêtes dans la mesure du possible**. Comme nous l’avons déjà vu, les arêtes sont stockées avec leurs sommets sources dans la direction sortante. En d’autres termes, le risque de recourir à des requêtes entre partitions est réduit lorsque les données et les requêtes sont conçues dans cet esprit. Au contraire, la requête `in()` sera toujours une requête de distribution ramifiée coûteuse.
 
-- **Choisissez une clé de partition qui répartira les données de manière uniforme entre les partitions**. Cette décision dépend fortement du modèle de données de la solution. Pour en savoir plus sur la création d’une clé de partition appropriée, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md).
+- **Choisissez une clé de partition qui répartira les données de manière uniforme entre les partitions**. Cette décision dépend fortement du modèle de données de la solution. Pour en savoir plus sur la création d’une clé de partition appropriée, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partitioning-overview.md).
 
 - **Optimisez les requêtes pour obtenir des données dans les limites d’une partition**. Une stratégie de partitionnement optimale doit être en phase avec les modèles de requête. Les requêtes qui obtiennent des données à partir d’une seule partition offrent les meilleures performances.
 
@@ -86,6 +86,6 @@ Pour garantir de hautes performances et une bonne évolutivité lors de l’util
 
 Vous pouvez ensuite passer aux articles suivants :
 
-* Pour en savoir plus, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md).
+* Pour en savoir plus, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partitioning-overview.md).
 * Pour en savoir plus, consultez [Prise en charge de Gremlin dans l’API Gremlin](gremlin-support.md).
 * Pour en savoir plus, consultez [Présentation de l’API Gremlin](graph-introduction.md).

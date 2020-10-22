@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306563"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318131"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -87,7 +87,7 @@ Tenez compte des besoins de votre organisation pour déterminer la stratégie de
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [prenez soin de faire appel aux bonnes parties prenantes](https://aka.ms/deploymentplans) et à clarifier les rôles du projet.
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [prenez soin de faire appel aux bonnes parties prenantes](../fundamentals/active-directory-deployment-plans.md) et à clarifier les rôles du projet.
 
 Pour les révisions d’accès, vous inclurez probablement des représentants des équipes suivantes au sein de votre organisation :
 
@@ -182,7 +182,7 @@ Les cibles classiques à réviser sont les suivantes :
 
 * [Appartenance](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) à un groupe (synchronisée avec Azure AD ou créée dans Azure AD ou Microsoft 365, y compris Microsoft Teams).
 
-* [Package d’accès](/azure/active-directory/governance/entitlement-management-overview) qui regroupe les ressources (groupes, applications et sites) en un seul package pour gérer l’accès.
+* [Package d’accès](./entitlement-management-overview.md) qui regroupe les ressources (groupes, applications et sites) en un seul package pour gérer l’accès.
 
 * [Rôles Azure AD et rôles Ressource Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) tels que définis dans Privileged Identity Management.
 
@@ -518,4 +518,3 @@ En savoir plus sur les technologies connexes ci-dessous.
 * [Présentation de la gestion des droits d’utilisation Azure AD](entitlement-management-overview.md)
 
 * [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../privileged-identity-management/pim-configure.md)
-

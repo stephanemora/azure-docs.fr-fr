@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400141"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318444"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -39,7 +39,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 * Un coffre de clés Azure pour lequel les propriétés **Suppression réversible** et **Ne pas vider** sont activées
 
-  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si vous ne connaissez pas Azure Key Vault, découvrez [comment créer un coffre de clés](../key-vault/secrets/quick-create-portal.md#create-a-vault) à l’aide du portail Azure ou à l’aide de la commande Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Pour plus d’informations sur l’activation de ces propriétés, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md) et [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Si vous ne connaissez pas Azure Key Vault, découvrez [comment créer un coffre de clés](../key-vault/secrets/quick-create-portal.md#create-a-vault) à l’aide du portail Azure ou à l’aide de la commande Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * Dans votre coffre de clés, une clé créée avec les valeurs de propriétés suivantes :
 
@@ -52,7 +52,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
   ![Créez votre clé de chiffrement gérée par le client](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) ou la commande Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
+  Pour plus d’informations, consultez [Configurer des clés gérées par le client avec Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md) ou la commande Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Un outil que vous pouvez utiliser pour créer votre ISE en appelant l’API REST Logic Apps avec une requête PUT HTTPS. Par exemple, vous pouvez utiliser [Postman](https://www.getpostman.com/downloads/) ou créer une application logique qui effectue cette tâche
 
@@ -225,7 +225,7 @@ Pour cette tâche, vous pouvez utiliser la commande Azure PowerShell [Set-AzKeyV
 
    1. Quand vous en avez terminé avec le volet **Stratégies d’accès**, sélectionnez **Enregistrer**.
 
-Pour plus d’informations, consultez [Guide pratique pour s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Pour plus d’informations, consultez [Guide pratique pour s’authentifier auprès de Key Vault](../key-vault/general/authentication.md) et [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

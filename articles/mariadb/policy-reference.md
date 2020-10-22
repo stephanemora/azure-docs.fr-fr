@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Database for MariaDB
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Database for MariaDB. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fb2d8815c6584561135bb2b186e6cee27cb62b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 589d9578b98562cd701c8c9000dd0b287e944cb5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827511"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332142"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Définitions intégrées d’Azure Policy destinées à Azure Database for MariaDB
 
