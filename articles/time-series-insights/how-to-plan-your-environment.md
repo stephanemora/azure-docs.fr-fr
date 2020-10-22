@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289900"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598113"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planifier votre environnement Azure Time Series Insights Gen2
 
@@ -25,7 +25,7 @@ Cet article décrit les bonnes pratiques pour planifier et commencer à utiliser
 
 Les bonnes pratiques pour la planification et la préparation de votre environnement sont décrites plus en détail dans les articles suivants :
 
-* Ce que vous obtenez lorsque vous [approvisionnez un environnement Time Series Insights Gen2](#the-gen2-environment).
+* Ce que vous obtenez lorsque vous [approvisionnez un environnement Azure Time Series Insights Gen2](#the-gen2-environment).
 * Ce que sont vos [propriétés ID Time Series et Timestamp](#configure-time-series-ids-and-timestamp-properties).
 * Ce qu’est le [nouveau modèle Time Series](#understand-the-time-series-model) et comment créer le vôtre.
 * Comment [envoyer des événements de manière efficace dans JSON](#shape-your-events).
@@ -36,7 +36,6 @@ Azure Time Series Insights utilise un modèle de paiement à l’utilisation. Po
 ## <a name="the-gen2-environment"></a>Environnement Gen2
 
 Lorsque vous approvisionnez un environnement Azure Time Series Insights Gen2, vous créez deux ressources Azure :
-
 
 * Un environnement Azure Time Series Insights Gen2
 * Un compte Azure Storage
@@ -69,10 +68,7 @@ Vous pouvez sélectionner jusqu’à trois clés pour différencier de manière 
 
 La propriété **Timestamp** est également importante. Vous pouvez désigner cette propriété lorsque vous ajoutez des sources d’événements. Chaque source d’événement a une propriété Timestamp facultative utilisée pour suivre les sources d’événements. Les valeurs de Timestamp respectent la casse et doivent être mises en forme selon les spécifications propres à chaque source.
 
-> [!TIP]
-> Vérifiez les exigences de mise en forme et d’analyse de vos sources d’événements.
-
-Lorsque ce champ est vide, l’heure de mise en file d’attente de l’événement dans la source d’événement est utilisée comme valeur Timestamp de l’événement. Si vous envoyez des données historiques ou des événements par lot, la personnalisation de la propriété Timestamp est plus utile que le temps de file d’attente d’événement par défaut. Pour plus d’informations, consultez l’article sur l’[ajout de sources d’événements dans Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Si ce champ est vide, l’heure à laquelle l’événement a été mis en file d’attente dans IoT Hub ou Event Hub est utilisée comme Timestamp de l’événement. En général, les utilisateurs doivent choisir de personnaliser la propriété Timestamp et utilisent l’heure à laquelle le capteur ou la balise a généré la lecture, plutôt que l’heure de mise en file d’attente du hub. Pour plus d’informations et pour en savoir plus sur les décalages de fuseau horaire, consultez [Horodateur de la source de l’événement](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Comprendre le modèle Time Series
 
@@ -91,14 +87,14 @@ Une règle de base :
 * stockez les métadonnées dans votre modèle Time Series.
 * Assurez-vous que Time Series Mode, les champs d’instance et les événements ne comprennent que les informations nécessaires, comme un ID de série chronologique ou une propriété Timestamp.
 
-Pour plus d’informations, consultez [Mettre en forme les événements](./time-series-insights-send-events.md#supported-json-shapes).
+Pour plus d’informations et pour comprendre comment les événements seront aplatis et stockés, consultez [Règles d’aplanissement et d’échappement JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Azure Advisor](../advisor/advisor-overview.md) pour planifier vos options de configuration de récupération.
-- Consultez [Azure Advisor](../advisor/advisor-overview.md) pour planifier vos options de configuration de récupération.
-- En savoir plus sur [l’ingestion des données](./concepts-ingestion-overview.md) dans Azure Time Series Insights Gen2.
-- Découvrez cet article sur [le stockage des données](./concepts-storage.md) dans Azure Time Series Insights Gen2.
-- Renseignez-vous sur la [modélisation des données](./concepts-model-overview.md) dans Azure Time Series Insights Gen2.
+* Consultez [Azure Advisor](../advisor/advisor-overview.md) pour planifier vos options de configuration de récupération.
+* Consultez [Azure Advisor](../advisor/advisor-overview.md) pour planifier vos options de configuration de récupération.
+* En savoir plus sur [l’ingestion des données](./concepts-ingestion-overview.md) dans Azure Time Series Insights Gen2.
+* Découvrez cet article sur [le stockage des données](./concepts-storage.md) dans Azure Time Series Insights Gen2.
+* Renseignez-vous sur la [modélisation des données](./concepts-model-overview.md) dans Azure Time Series Insights Gen2.

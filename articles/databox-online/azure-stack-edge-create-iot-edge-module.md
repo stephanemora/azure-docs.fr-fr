@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883485"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951143"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Développer un module IoT Edge en C# pour déplacer des fichiers vers Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Développer un module IoT Edge en C# pour déplacer des fichiers avec Azure Stack Edge Pro
 
 Cet article vous guide tout au long de la création d’un module IoT Edge pour un déploiement avec votre appareil Azure Stack Edge Pro. Azure Stack Edge Pro est une solution de stockage qui vous permet de traiter les données et de les envoyer vers Azure via le réseau.
 
@@ -259,7 +259,7 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
  
 3. Une fois les informations d’identification fournies, vous pouvez transmettre l’image de votre module au registre Azure Container Registry. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **module.json** et sélectionnez **Build and Push IoT Edge solution** (Générer et envoyer (push) la solution IoT Edge).
 
-    ![Générer et envoyer (push) la solution IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Créer et envoyer (push) la solution IoT Edge 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Lorsque vous indiquez à Visual Studio Code de générer votre solution, il exécute deux commandes dans le terminal intégré : docker build et docker push. Ces deux commandes génèrent votre code, mettent votre module CSharpModule.dll en conteneur, puis envoient le code au registre de conteneurs que vous avez spécifié lors de l’initialisation de la solution.
 

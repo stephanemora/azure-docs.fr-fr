@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921792"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018642"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Pare-feu d’applications web (WAF) avec des listes d’exclusions Azure Front Door Service 
 
@@ -45,6 +45,17 @@ Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'u
 Les noms d’en-tête et de cookie se sont pas sensibles à la casse.
 
 Vous pouvez appliquer la liste d’exclusions à toutes les règles de l’ensemble de règles managées, aux règles d’un groupe de règles spécifique ou à une règle unique, comme indiqué dans l’exemple précédent. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Définir l’exclusion basée sur les journaux Web Application Firewall
+ [Surveillance et journalisation du pare-feu d’applications web Azure](waf-front-door-monitor.md) affiche les détails correspondants d’une demande bloquée. Si une valeur d’en-tête, une valeur de cookie, une valeur d’argument de publication ou une valeur d’argument de requête produit un faux positif pour certaines règles, vous pouvez exclure cette partie de la requête de la règle. Le tableau suivant présente des exemples de valeurs de journaux WAF et les conditions d’exclusion correspondantes.
+
+|matchVariableName des journaux WAF    |Exclusion de la règle dans le portail|
+|--------|------|
+|CookieValue:SOME_NAME  |Nom de cookie de la demande Égal à SOME_NAME|
+|HeaderValue:SOME_NAME  |Nom de l’en-tête de la demande Égal à SOME_NAME|
+|PostParamValue:SOME_NAME|  Nom des arguments de publication du corps de la demande Égal à SOME_NAME|
+|QueryParamValue:SOME_NAME| Nom des arguments de chaîne de requête Égal à SOME_NAME|
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

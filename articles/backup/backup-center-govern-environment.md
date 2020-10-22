@@ -3,18 +3,20 @@ title: Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
 description: Apprenez à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992983"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173804"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
 
 Le Centre de sauvegarde vous aide à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde. Voici quelques-unes des fonctionnalités de gouvernance du Centre de sauvegarde :
 
 * Afficher et affecter des stratégies Azure pour la sauvegarde
+
+* Afficher la conformité de vos ressources sur toutes les stratégies Azure intégrées pour la sauvegarde.
 
 * Affichez toutes les sources de source qui n’ont pas été configurées pour la sauvegarde.
 
@@ -24,11 +26,17 @@ Le Centre de sauvegarde vous aide à gérer votre environnement Azure pour vous 
 
 ## <a name="azure-policies-for-backup"></a>Stratégies Azure pour la sauvegarde
 
-Pour afficher toutes les [stratégies Azure](https://docs.microsoft.com/azure/governance/policy/overview) disponibles pour la sauvegarde, sélectionnez l’élément de menu **Stratégies Azure pour la sauvegarde**. Cela a pour effet d’afficher toutes les [définitions de stratégie Azure pour la sauvegarde](policy-reference.md), tant intégrées que personnalisées, disponibles pour attribution à vos abonnements et groupes de ressources.
+Pour afficher toutes les [stratégies Azure](../governance/policy/overview.md) disponibles pour la sauvegarde, sélectionnez l’élément de menu **Stratégies Azure pour la sauvegarde**. Cela a pour effet d’afficher toutes les [définitions de stratégie Azure pour la sauvegarde](policy-reference.md), tant intégrées que personnalisées, disponibles pour attribution à vos abonnements et groupes de ressources.
 
-La sélection de l’une des définitions vous permet d’[affecter la stratégie](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) à une étendue.
+La sélection de l’une des définitions vous permet d’[affecter la stratégie](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) à une étendue.
 
 ![Sélectionner des définitions Azure Policy](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Conformité de la sauvegarde
+
+Le fait de cliquer sur l’élément de menu Conformité de la sauvegarde vous permet d’afficher la [conformité](../governance/policy/how-to/get-compliance-data.md) de vos ressources en fonction des différentes stratégies intégrées que vous avez affectées à votre environnement Azure. Vous pouvez afficher le pourcentage des ressources qui sont conformes sur toutes les stratégies, ainsi que les stratégies qui ont une ou plusieurs ressources non conformes.
+
+![Afficher la conformité de la sauvegarde](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Sources de données protégeables
 

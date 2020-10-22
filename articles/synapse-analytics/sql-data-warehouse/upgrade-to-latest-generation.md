@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210692"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627072"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimiser les performances en mettant à niveau le pool SQL Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le n
 
    > [!NOTE]
    > Si vous ne voyez pas la carte **Mettre à niveau vers la 2e génération** sous l’onglet Tâches, votre type d’abonnement est limité dans la région actuelle.
-   > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour mettre votre abonnement sur liste verte.
+   > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour faire en sorte que votre abonnement soit approuvé.
 
 3. Vérifiez que l’exécution de votre charge de travail est terminée et arrêtée avant de mettre à niveau. Vous subirez un temps d’arrêt de quelques minutes avant la remise en ligne de votre pool SQL comme pool SQL de niveau Gen2 optimisé pour le calcul. **Sélectionnez Upgrade**  (Mettre à niveau) :
 

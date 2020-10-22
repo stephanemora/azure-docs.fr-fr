@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895798"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627140"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -45,17 +45,22 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 
 - **Intégration de service à service** :<br> Certains services sont connectés en mode natif, tels que les services Microsoft et AWS. Ces services tirent parti de la base Azure pour une intégration prête à l’emploi ; les solutions suivantes peuvent être connectées en quelques clics :
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Activité Azure](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - journaux d’audit et journaux de connexion
+    - [Activité Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender pour Identity](connect-azure-atp.md) (anciennement Azure Advanced Threat Protection)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender pour IoT](connect-asc-iot.md) (anciennement Azure Security Center pour IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Pare-feu Azure](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md) : alertes provenant de solutions Azure Defender
+    - [Pare-feu d’application web (WAF) Azure](connect-azure-waf.md) (anciennement Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serveur de noms de domaine](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) : comprend les données brutes MDATP
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (anciennement Microsoft Defender Advanced Threat Protection)
-    - [Pare-feu d’application web Microsoft](connect-microsoft-waf.md)
+    - [Microsoft Defender pour Identity](connect-azure-atp.md) (anciennement Azure Advanced Threat Protection)
+    - [Microsoft Defender pour Office 365](connect-office-365-advanced-threat-protection.md) (anciennement Office 365 - Protection avancée contre les menaces)
+    - [Office 365](connect-office-365.md) (maintenant avec Teams !)
     - [Pare-feu Windows](connect-windows-firewall.md)
     - [Événements de sécurité Windows](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
     - [Citrix Analytics (Sécurité)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Journaux Perimeter 81](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 
     L’agent Azure Sentinel, qui est en réalité l’agent Log Analytics, convertit les journaux au format CEF dans un format que Log Analytics peut ingérer. Selon le type d’appliance, l’agent est installé directement sur l’appliance ou sur un redirecteur de journaux Linux dédié. L’agent pour Linux reçoit des événements du démon Syslog en utilisant le protocole UDP mais, si une machine Linux est supposée collecter un volume important d’événements Syslog, ceux-ci sont envoyés, en utilisant le protocole TCP, du démon Syslog à l’agent, puis de celui-ci à Log Analytics.
 
-    - **Pare-feu, proxys et points de terminaison :**
+    - **Pare-feu, proxys et points de terminaison - CEF :**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
         - [F5 ASM](connect-f5.md)
         - [Produits Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Autres appliances CEF](connect-common-event-format.md)
-        - [Autres appliances Syslog](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Autres appliances basées sur le format CEF](connect-common-event-format.md)
+    - **Pare-feu, proxys et points de terminaison - Syslog :**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Autres appliances basées sur Syslog](connect-syslog.md)
     - Solutions DLP
     - [Fournisseurs de renseignement sur les menaces](connect-threat-intelligence.md)
     - [Machines DNS](connect-dns.md) : agent installé directement sur la machine DNS
+    - [Machines virtuelles Azure Stack](connect-azure-stack.md)
     - Serveurs Linux
     - Autres clouds
     

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165173"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613983"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur
 
@@ -37,14 +37,14 @@ Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d�
 
    - Seule l’authentification de base est actuellement prise en charge. Si vous souhaitez utiliser une API sans authentification de base à des fins de développement, saisissez simplement un **nom d’utilisateur** et un **mot de passe** factices que votre API peut ignorer. Pour vous en servir avec une fonction Azure et une clé API, vous pouvez inclure le code en tant que paramètre de requête dans l’**URL du point de terminaison** (par exemple https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
-   ![Ajoutez un nouveau connecteur d'API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+   ![Configurer un nouveau connecteur d’API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Sélectionnez **Enregistrer**.
 
 > [!IMPORTANT]
 > Auparavant, vous deviez configurer les attributs d’utilisateur à envoyer à l’API (« revendications à envoyer ») et les attributs d’utilisateur à accepter à partir de l’API (« revendications à recevoir »). Désormais, tous les attributs utilisateur sont envoyés par défaut s’ils ont une valeur et qu’un attribut utilisateur peut être retourné par l’API dans une réponse de « continuation ».
 
 ## <a name="the-request-sent-to-your-api"></a>Demande envoyée à votre API
-Un connecteur d’API est matérialisé en tant que requête **HTTP POST**, en envoyant les attributs utilisateur (« revendications ») en tant que paires clé-valeur dans un corps JSON. Les attributs sont sérialisés de la même façon que les propriétés utilisateur [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties). 
+Un connecteur d’API est matérialisé en tant que requête **HTTP POST**, en envoyant les attributs utilisateur (« revendications ») en tant que paires clé-valeur dans un corps JSON. Les attributs sont sérialisés de la même façon que les propriétés utilisateur [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties). 
 
 **Exemple de requête**
 ```http
@@ -85,7 +85,7 @@ De plus, la revendication **Paramètres régionaux de l’interface utilisateur 
 > Si une revendication à envoyer n’a pas de valeur au moment où le point de terminaison de l’API est appelé, la revendication n’est pas envoyée à l’API. Votre API doit être conçue pour vérifier explicitement la valeur qu’elle attend.
 
 > [!TIP] 
-> Les revendications [**identités (« identities »)** ](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. La revendication « identities » (identités) est envoyée quand un utilisateur s’authentifie avec un fournisseur d’identité tel que Google ou Facebook. « email » est toujours envoyé.
+> Les revendications [**identités (« identities »)** ](https://docs.microsoft.com/graph/api/resources/objectidentity) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. La revendication « identities » (identités) est envoyée quand un utilisateur s’authentifie avec un fournisseur d’identité tel que Google ou Facebook. « email » est toujours envoyé.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Activer le connecteur d’API dans un workflow utilisateur
 
@@ -304,11 +304,29 @@ Content-type: application/json
 
 ![Exemple de page de validation](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## <a name="using-azure-functions"></a>Utilisation d’Azure Functions
-Vous pouvez utiliser un déclencheur HTTP dans Azure Functions comme un moyen simple de créer un point de terminaison d’API à utiliser avec le connecteur d’API. Vous utilisez la fonction Azure pour, [par exemple](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), effectuer une logique de validation et limiter les inscriptions à des domaines spécifiques. Vous pouvez également appeler et invoquer d’autres API Web, magasins d’utilisateurs et autres services Cloud à partir de votre fonction Azure pour les scénarios étendus.
+
+## <a name="best-practices-and-how-to-troubleshoot"></a>Meilleures pratiques et résolution des problèmes
+
+### <a name="using-serverless-cloud-functions"></a>Utilisation des fonctions cloud serverless
+Les fonctions serverless, comme les déclencheurs HTTP dans Azure Functions, fournissent une méthode simple pour créer des points de terminaison d’API à utiliser avec le connecteur d’API. Vous pouvez utiliser la fonction cloud serverless pour, [par exemple](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), effectuer une logique de validation et limiter les inscriptions à des domaines spécifiques. La fonction cloud serverless peut également appeler et invoquer d’autres API web, magasins d’utilisateurs et autres services cloud dans le cade de scénarios plus complexes.
+
+### <a name="best-practices"></a>Meilleures pratiques
+Assurez-vous que :
+* Votre API suit les contrats de demande et de réponse d’API comme indiqué ci-dessus. 
+* L’**URL du point de terminaison** du connecteur d’API pointe vers le point de terminaison d’API approprié.
+* Votre API recherche explicitement les valeurs null des revendications reçues.
+* Votre API répond aussi rapidement que possible pour garantir une expérience utilisateur fluide.
+    * Si vous utilisez une fonction serverless ou un service web scalable, utilisez un plan d’hébergement qui conserve l’API dans un état « de veille » ou « dynamique ». Pour Azure Functions, il est recommandé d’utiliser le [plan Premium](../../azure-functions/functions-scale.md#premium-plan). 
+
+
+### <a name="use-logging"></a>Utiliser la journalisation
+En général, il est judicieux d’utiliser les outils de journalisation activés par votre service API Web, comme [Application Insights](../../azure-functions/functions-monitoring.md), pour surveiller votre API en cas de codes d’erreur inattendus, d’exceptions et de performances médiocres.
+* Analysez les codes d’état HTTP autres que HTTP 200 ou 400.
+* Un code d’état HTTP 401 ou 403 indique généralement un problème avec votre authentification. Vérifiez la couche d’authentification de votre API et la configuration correspondante dans le connecteur d’API.
+* Si nécessaire, utilisez des niveaux de journalisation plus agressifs (par exemple, « trace » ou « debug ») lors du développement.
+* Surveillez votre API en cas de temps de réponse longs.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Découvrez comment [ajouter un système d’approbation personnalisé à l’inscription en libre-service](self-service-sign-up-add-approvals.md)
 - Prise en main de nos [exemples de démarrage rapide d’Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

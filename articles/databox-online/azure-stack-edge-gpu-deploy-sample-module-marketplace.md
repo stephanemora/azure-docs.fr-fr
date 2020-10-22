@@ -1,6 +1,6 @@
 ---
 title: Déployer un module GPU sur votre appareil Microsoft Azure Stack Edge Pro à partir de la Place de marché Azure | Microsoft Docs
-description: Décrit comment activer le calcul et y préparer votre appareil Azure Stack Edge Pro par le biais de l’interface utilisateur locale.
+description: Explique comment déployer un module IoT compatible GPU sur votre appareil Azure Stack Edge Pro avec GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91760057"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Déployer un module IoT compatible GPU à partir de la Place de marché Azure sur un appareil Azure Stack Edge Pro avec GPU
 
@@ -55,7 +55,7 @@ Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
 4. Sélectionnez  **Continuer** pour accepter les conditions d’utilisation et la politique de confidentialité du fournisseur. 
 
-    ![Obtenir l’exemple de module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Obtenir l’exemple de module 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Choisissez l’abonnement que vous avez utilisé pour déployer votre appareil Azure Stack Edge Pro.
 
@@ -89,7 +89,7 @@ Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
 13. Vérifiez que le module est déployé dans votre IoT Hub dans le Portail Azure. Sélectionnez votre appareil, sélectionnez  **Définir des modules** et le module doit être listé dans la section  **Modules IoT Edge**. 
 
-    ![Sélectionner Créer](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Sélectionner Créer 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>Superviser le module  
 

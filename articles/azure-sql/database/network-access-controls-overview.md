@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435369"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951993"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Pour bien comprendre ces contrôles d’accès et ce qu’ils font, regardez la 
 
 ## <a name="allow-azure-services"></a>Autoriser les services Azure
 
-Lors de la création d’un serveur SQL logique [à partir du portail Azure](single-database-create-quickstart.md), ce paramètre est laissé désactivé.
+Par défaut, lors de la création d’un serveur SQL logique [à partir du portail Azure](single-database-create-quickstart.md), ce paramètre est défini sur **DÉSACTIVÉ**. Ce paramètre s’affiche lorsque la connectivité est autorisée à l’aide d’un point de terminaison de service public.
 
 Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le serveur SQL logique créé, comme suit.
   

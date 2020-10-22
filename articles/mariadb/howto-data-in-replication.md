@@ -5,24 +5,24 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 623c072cb8cb2c7fb1b9b6ec7d3ea661302d5e6a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/29/2020
+ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104671"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91598191"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
-Cet article décrit comment configurer [Data-in Replication](concepts-data-in-replication.md) dans Azure Database for MariaDB en configurant les serveurs maître et réplica. Cet article suppose que vous ayez déjà utilisé des serveurs et des bases de données MariaDB.
+Cet article décrit comment configurer [Réplication des données entrantes](concepts-data-in-replication.md) dans Azure Database for MariaDB en configurant les serveurs source et réplica. Cet article suppose que vous ayez déjà utilisé des serveurs et des bases de données MariaDB.
 
-Pour créer un réplica dans Azure Database for MariaDB, [Data-in Replication](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MariaDB maître qui s’exécute en local, dans des machines virtuelles ou dans des services de base de données. La réplication des données entrantes est basée sur la réplication selon la position du fichier journal binaire (binlog) native à MariaDB. Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
+Pour créer un réplica dans Azure Database for MariaDB, [Réplication des données entrantes](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MariaDB source qui s’exécute en local dans des machines virtuelles ou des services de base de données cloud. La réplication des données entrantes est basée sur la réplication selon la position du fichier journal binaire (binlog) native à MariaDB. Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 Passez en revue les [limitations et conditions requises](concepts-data-in-replication.md#limitations-and-considerations) de la Réplication des données entrantes avant de suivre les étapes décrites dans cet article.
 
 > [!NOTE]
-> Si votre serveur maître correspond à la version 10.2 ou ultérieure, nous vous recommandons de définir la réplication des données entrantes à l’aide de l'[ID de transaction global](https://mariadb.com/kb/en/library/gtid/).
+> Si votre serveur source correspond à la version 10.2 ou ultérieure, nous vous recommandons de définir Réplication des données entrantes à l’aide de l’[ID de transaction global](https://mariadb.com/kb/en/library/gtid/).
 
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Créer un serveur MariaDB à utiliser en tant que réplica
@@ -36,27 +36,58 @@ Passez en revue les [limitations et conditions requises](concepts-data-in-replic
 
 2. Créez des comptes d’utilisateurs identiques et les privilèges correspondants.
     
-    Les comptes d’utilisateur ne sont pas répliqués à partir du serveur maître vers le serveur réplica. Pour fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur le nouveau serveur Azure Database for MariaDB.
+    Les comptes d’utilisateur ne sont pas répliqués à partir du serveur source vers le serveur réplica. Pour fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur le nouveau serveur Azure Database for MariaDB.
 
-3. Ajoutez l’adresse IP du serveur maître aux règles de pare-feu du réplica. 
+3. Ajoutez l’adresse IP du serveur source aux règles de pare-feu du réplica. 
 
    Mettez à jour les règles de pare-feu à l’aide du [portail Azure](howto-manage-firewall-portal.md) ou d’[Azure CLI](howto-manage-firewall-cli.md).
 
 > [!NOTE]
 > Communication sans biais
 >
-> Microsoft promeut un environnement diversifié et inclusif. Cet article contient des références au mot _esclave_. Le [guide de style pour la communication sans biais](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft reconnaît celui-ci comme un mot d’exclusion. Le mot est utilisé dans cet article par souci de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
-## <a name="configure-the-master-server"></a>Configurer le serveur maître
+## <a name="configure-the-source-server"></a>Configurer le serveur source
 
-Les étapes suivantes préparent et configurent le serveur MariaDB hébergé localement, dans une machine virtuelle ou dans un service de base de données cloud pour la réplication des données entrantes. Le serveur MariaDB correspond au maître dans la réplication de données entrantes.
+Les étapes suivantes préparent et configurent le serveur MariaDB hébergé localement, dans une machine virtuelle ou dans un service de base de données cloud pour la réplication des données entrantes. Le serveur MariaDB correspond à la source dans Réplication des données entrantes.
 
 1. Avant de continuer, vérifiez la [configuration requise pour le serveur maître](concepts-data-in-replication.md#requirements). 
 
-   Par exemple, assurez-vous que le serveur maître autorise le trafic entrant et sortant sur le port 3306 et que le serveur maître dispose d’une **IP publique**, que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
+2. Assurez-vous que le serveur source autorise le trafic entrant et sortant sur le port 3306, que le serveur source dispose d’une **IP publique** et que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
    
-   Testez la connectivité au serveur maître en tentant de vous connecter à partir d'un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d'[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+   Testez la connectivité au serveur source en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+
+   Si votre organisation a des stratégies de sécurité strictes et qu’elle n’autorise pas toutes les adresses IP sur le serveur source à permettre la communication d’Azure vers votre serveur source, vous pouvez éventuellement utiliser la commande ci-dessous pour déterminer l’adresse IP de votre serveur Azure Database for MariaDB.
+    
+   1. Connectez-vous à Azure Database for MariaDB à l’aide d’un outil tel que la ligne de commande MySQL.
+   2. Exécutez la requête ci-dessous.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Voici un exemple de sortie :
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Quittez la ligne de commande MySQL.
+   4. Exécutez le code ci-dessous dans l’utilitaire Ping pour récupérer l’adresse IP.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Par exemple : 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Configurez les règles de pare-feu de votre serveur source pour inclure l’adresse IP de sortie de l’étape précédente sur le port 3306.
+
+   > [!NOTE]
+   > Cette adresse IP peut changer en raison d’opérations de maintenance ou de déploiement. Cette méthode de connectivité concerne uniquement les clients qui ne peuvent pas se permettre d’autoriser toutes les adresses IP sur le port 3306.
 
 2. Activez la journalisation binaire.
     
@@ -70,9 +101,9 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    Si `log_bin` renvoie la valeur `OFF`, modifiez le fichier **my.cnf** pour permettre à `log_bin=ON` d'activer la journalisation binaire. Redémarrez le serveur pour que la modification prenne effet.
 
-3. Configurez les paramètres du serveur maître.
+3. Configurez les paramètres du serveur source.
 
-    La réplication des données entrantes implique que le paramètre `lower_case_table_names` soit cohérent entre les serveurs maître et réplica. Par défaut, le paramètre `lower_case_table_names` est défini sur `1` dans Azure Database for MariaDB.
+    Réplication des données entrantes nécessite que le paramètre `lower_case_table_names` soit cohérent entre les serveurs source et réplica. Par défaut, le paramètre `lower_case_table_names` est défini sur `1` dans Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -80,11 +111,11 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
 4. Créez un nouveau rôle de réplication et définir des autorisations.
 
-   Créez un compte d’utilisateur sur le serveur maître configuré avec des privilèges de réplication. Vous pouvez créer un compte à l’aide des commandes SQL ou MySQL Workbench. Si vous envisagez une réplication avec SSL, vous devez le spécifier lors de la création du compte d’utilisateur.
+   Créez un compte d’utilisateur sur le serveur source configuré avec des privilèges de réplication. Vous pouvez créer un compte à l’aide des commandes SQL ou MySQL Workbench. Si vous envisagez une réplication avec SSL, vous devez le spécifier lors de la création du compte d’utilisateur.
    
-   Pour savoir comment ajouter des comptes d’utilisateurs sur votre serveur maître, consultez la [documentation MariaDB](https://mariadb.com/kb/en/library/create-user/).
+   Pour savoir comment ajouter des comptes d’utilisateurs sur votre serveur source, consultez la [documentation MariaDB](https://mariadb.com/kb/en/library/create-user/).
 
-   Les commandes suivantes permettent au nouveau rôle de réplication d'accéder au serveur maître à partir de n’importe quelle machine, et pas seulement de celle qui héberge le serveur maître. Pour cet accès, spécifiez **syncuser\@'%'** dans la commande pour créer un utilisateur.
+   Les commandes suivantes permettent au nouveau rôle de réplication d’accéder au serveur source à partir de n’importe quelle machine, et pas seulement de celle qui héberge le serveur source. Pour cet accès, spécifiez **syncuser\@'%'** dans la commande pour créer un utilisateur.
    
    Pour en savoir plus sur la documentation MariaDB, consultez la [définition des noms de compte](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -123,9 +154,9 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
 
-5. Définissez le serveur maître en mode lecture seule.
+5. Définissez le serveur source en mode lecture seule.
 
-   Avant de vider une base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur maître ne peut traiter aucune transaction d’écriture. Pour éviter tout impact sur votre entreprise, planifiez la fenêtre en lecture seule lors d'une période creuse.
+   Avant de vider une base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur source ne peut traiter aucune transaction d’écriture. Pour éviter tout impact sur votre entreprise, planifiez la fenêtre en lecture seule lors d'une période creuse.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -154,17 +185,17 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
     ```
  
 
-## <a name="dump-and-restore-the-master-server"></a>Vider et restaurer le serveur maître
+## <a name="dump-and-restore-the-source-server"></a>Vider et restaurer le serveur source
 
-1. Videz toutes les bases de données du serveur maître.
+1. Videz toutes les bases de données du serveur source.
 
-   Utilisez mysqldump pour vider toutes les bases de données du serveur maître. Il n’est pas nécessaire de vider les bibliothèques MySQL et de test.
+   Utilisez mysqldump pour vider toutes les bases de données du serveur source. Il n’est pas nécessaire de vider les bibliothèques MySQL et de test.
 
     Pour plus d’informations, consultez [Vider et restaurer](howto-migrate-dump-restore.md).
 
-2. Définissez le serveur maître en mode lecture/écriture.
+2. Définissez le serveur source en mode lecture/écriture.
 
-   Une fois la base de données sauvegardée, remettez le serveur MariaDB maître en mode de lecture/écriture.
+   Une fois la base de données sauvegardée, remettez le serveur MariaDB source en mode de lecture/écriture.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -177,27 +208,27 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    Si le fichier de vidage est volumineux, transférez-le vers une machine virtuelle dans Azure au sein de la même région que votre serveur réplica. Restaurez-le sur le serveur Azure Database for MariaDB à partir de la machine virtuelle.
 
-## <a name="link-the-master-and-replica-servers-to-start-data-in-replication"></a>Lier les serveurs maître et réplica pour démarrer la réplication des données entrantes
+## <a name="link-the-source-and-replica-servers-to-start-data-in-replication"></a>Lier les serveurs source et réplica pour démarrer Réplication des données entrantes
 
-1. Définissez le serveur maître.
+1. Définissez le serveur source.
 
    Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench.
 
-   Pour lier deux serveurs et démarrer une réplication, connectez-vous au serveur réplica cible dans le service Azure Database for MariaDB. Définissez ensuite l’instance externe en tant que serveur maître à l’aide de la procédure stockée `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` sur le serveur Azure DB for MariaDB.
+   Pour lier deux serveurs et démarrer une réplication, connectez-vous au serveur réplica cible dans le service Azure Database for MariaDB. Définissez ensuite l’instance externe en tant que serveur source à l’aide de la procédure stockée `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` sur le serveur Azure Database for MariaDB.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
    
-   or
+   ou
    
    ```sql
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
-   - master_host : nom d’hôte du serveur maître
-   - master_user : nom d’utilisateur pour le serveur maître
-   - master_password : mot de passe pour le serveur maître
+   - master_host : nom d’hôte du serveur source
+   - master_user : nom d’utilisateur pour le serveur source
+   - master_password : mot de passe pour le serveur source
    - master_log_file : nom de fichier du journal binaire à partir de l’exécution de `show master status`
    - master_log_pos : position du journal binaire à partir de l’exécution de `show master status`
    - master_gtid_pos : position de l'identificateur GTID à partir de l'exécution de `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
@@ -218,14 +249,14 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
        -----END CERTIFICATE-----'
        ```
 
-       La réplication avec SSL est définie entre un serveur maître hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database for MariaDB. Cette procédure stockée est exécutée sur le réplica.
+       La réplication avec SSL est définie entre un serveur source hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database for MariaDB. Cette procédure stockée est exécutée sur le réplica.
     
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
        ```
    - Réplication sans SSL
 
-       La réplication sans SSL est définie entre un serveur maître hébergé dans le domaine companya.com et un serveur réplica hébergé dans Azure Database for MariaDB. Cette procédure stockée est exécutée sur le réplica.
+       La réplication sans SSL est définie entre un serveur source hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database for MariaDB. Cette procédure stockée est exécutée sur le réplica.
 
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
@@ -259,7 +290,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
 ### <a name="stop-replication"></a>Arrêter la réplication
 
-Pour arrêter la réplication entre le serveur maître et le serveur réplica, utilisez la procédure stockée suivante :
+Pour arrêter la réplication entre le serveur source et le serveur réplica, utilisez la procédure stockée suivante :
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -267,7 +298,7 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-the-replication-relationship"></a>Supprimer la relation de réplication
 
-Pour supprimer la relation entre le serveur maître et le serveur réplica, utilisez la procédure stockée suivante :
+Pour supprimer la relation entre le serveur source et le serveur réplica, utilisez la procédure stockée suivante :
 
 ```sql
 CALL mysql.az_replication_remove_master;

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322030"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850875"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutoriel : Configurer Figma pour le provisionnement automatique d’utilisateurs
 
@@ -53,23 +53,23 @@ Avant de configurer Figma pour l’approvisionnement automatique d’utilisateur
 
 1. Connectez-vous à votre [Console d’administration Figma](https://www.Figma.com/). Cliquez sur l’icône d’engrenage à côté de votre locataire.
 
-    ![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
 
 2. Accédez à **Général > Mettre à jour les paramètres de connexion**.
 
-    ![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
 
 3. Copiez **l’ID de locataire**. Cette valeur sera utilisée pour construire l’URL de point de terminaison SCIM à entrer dans le champ **URL de locataire** dans l’onglet Approvisionnement de votre application Figma dans le portail Azure.
 
-    ![Figma - Créer un jeton](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
 
 4. Défilez vers le bas, puis cliquez sur **Générer un jeton d’API**.
 
-    ![Figma - Créer un jeton](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
 
 5. Copiez la valeur du **Jeton d’API**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Figma dans le portail Azure. 
 
-    ![Figma - Créer un jeton](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Capture d’écran de la console d’administration Figma. Un locataire nommé AAD Scim Test est visible. À côté du locataire, une icône d’engrenage est mise en évidence." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Ajouter Figma depuis la galerie
 

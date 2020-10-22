@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2020
+ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141786"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951483"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
-
 
 Cet article fournit des informations générales et des étapes indiquant comment configurer une clé gérée par le client (CMK) pour Azure Sentinel. La fonctionnalité CMK permet de chiffrer toutes les données enregistrées ou envoyées à Azure Sentinel dans toutes les ressources de stockage pertinentes avec une clé Azure Key Vault que vous avez créée ou dont vous êtes propriétaire.
 
 > [!NOTE]
-> -   La fonctionnalité CMK d’Azure Sentinel est fournie uniquement aux **nouveaux** clients et l’accès à celle-ci est contrôlé par l’inscription des fonctionnalités Azure. Vous pouvez demander l’accès en contactant azuresentinelCMK@microsoft.com, et dans la mesure où la capacité disponible le permet, les demandes en attente sont approuvées.
-> -   La fonctionnalité CMK d’Azure Sentinel n’est disponible que dans les régions USA Est, USA Ouest 2 et USA Centre.
-> -   La fonctionnalité CMK est disponible uniquement pour les clients qui envoient au moins 1 To de données par jour. Vous recevrez d’autres informations sur les prix quand vous vous adresserez à Microsoft pour provisionner CMK sur votre abonnement Azure. Découvrez plus en détail les [tarifs de Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - La fonctionnalité Azure Sentinel CMK est fournie uniquement aux **nouveaux clients**.
+>
+> - L’accès à cette fonctionnalité est contrôlé par l’inscription à la fonctionnalité Azure.  Vous pouvez y demander l’accès en contactant azuresentinelCMK@microsoft.com. Les demandes en attente seront approuvées en fonction de la capacité disponible.
+>
+> - La fonctionnalité CMK est disponible uniquement pour les clients qui envoient au moins 1 To de données par jour. Vous recevrez d’autres informations sur les prix quand vous vous adresserez à Microsoft pour provisionner CMK sur votre abonnement Azure. Découvrez plus en détail les [tarifs de Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Fonctionnement de CMK 
 
@@ -42,7 +43,7 @@ En savoir plus sur [CMK](../azure-monitor/platform/customer-managed-keys.md#cust
 
 ## <a name="enable-cmk"></a>Activer CMK 
 
-Pour provisionner CMK, effectuez les étapes suivantes : 
+Pour provisionner CMK, effectuez les étapes suivantes : 
 
 1.  Créez un coffre de clés Azure et une clé de stockage.
 
@@ -58,7 +59,7 @@ Pour provisionner CMK, effectuez les étapes suivantes : 
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>ÉTAPE 1 : Créer un coffre de clés Azure et une clé de stockage
 
-1.  [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910), puis générez ou importez une clé à utiliser pour le chiffrement des données.
+1.  [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal), puis générez ou importez une clé à utiliser pour le chiffrement des données.
     > [!NOTE]
     >  Azure Key Vault doit être configuré comme récupérable pour protéger votre clé et l’accès.
 

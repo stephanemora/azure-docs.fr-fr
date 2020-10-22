@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300270"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715408"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
@@ -100,7 +100,7 @@ Pour confirmer que les informations d’identification du profil de publication 
 
 ### <a name="disable-access-to-the-api"></a>Désactiver l’accès à l’API
 
-L’API de la section précédente est associée au contrôle d’accès en fonction du rôle (RBAC) Azure, ce qui signifie que vous pouvez [créer un rôle personnalisé](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) et affecter des utilisateurs moins privilégiés au rôle afin qu’ils ne puissent pas activer l’authentification de base sur des sites. Pour configurer le rôle personnalisé, [suivez ces instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+L’API de la section précédente est associée au contrôle d’accès en fonction du rôle Azure (Azure RBAC), ce qui signifie que vous pouvez [créer un rôle personnalisé](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) et affecter des utilisateurs moins privilégiés au rôle afin qu’ils ne puissent pas activer l’authentification de base sur des sites. Pour configurer le rôle personnalisé, [suivez ces instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Vous pouvez également utiliser [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) pour auditer toutes les demandes d’authentification réussies et utiliser [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) pour appliquer cette configuration à tous les sites de votre abonnement.
 

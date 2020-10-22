@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435607"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057754"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accéder à Stockage Azure en tant que partage réseau à partir d’un conteneur dans App Service
 
@@ -65,7 +65,6 @@ Ce guide montre comment attacher le Stockage Azure à un conteneur Linux dans Ap
 
 - Stockage Azure dans App Service est en **préversion** pour App Service sur Linux et Web App pour conteneurs. Elle **n’est pas prise en charge** pour les **scénarios de production**.
 - Stockage Azure dans App Service prend en charge le montage de **conteneurs Azure Files** (lecture/écriture) et de **conteneurs blob Azure** (lecture seule)
-- Stockage Azure dans App Service **ne prend pas en charge** l’utilisation de la configuration **Storage Firewall** en raison des restrictions liées à l’infrastructure.
 - Stockage Azure dans App Service vous permet de spécifier **jusqu’à cinq** points de montage par application.
 - Le stockage Azure monté sur une application n’est pas accessible via des points de terminaison FTP/FTPS App Service. Utiliser [l’explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -91,7 +90,7 @@ Répétez cette opération pour tous les autres annuaires que vous souhaitez lie
 
 Une fois que vous avez créé [votre compte Stockage Azure, le partage de fichiers et l’annuaire](#prerequisites), vous pouvez configurer votre application avec Stockage Azure.
 
-Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. AzureFiles est utilisé dans cet exemple. Le paramètre de chemin d’accès de montage correspond au dossier que vous souhaitez monter à partir de Stockage Azure. Le définir sur « / » a pour effet de monter entièrement Stockage Azure.
+Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. AzureFiles est utilisé dans cet exemple. Le paramètre de chemin de montage correspond au dossier à l’intérieur du conteneur que vous souhaitez monter sur Stockage Azure. Le définir sur « / » a pour effet de monter le conteneur entier sur Stockage Azure.
 
 
 > [!CAUTION]

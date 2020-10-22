@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893410"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966404"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Opérations d’Azure Machine Learning
 
 Azure Machine Learning a des actions intégrées pour de nombreuses opérations et tâches. Pour obtenir une liste complète, consultez [Opérations de fournisseur de ressources Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>Opérations MLflow dans Azure Machine Learning
+
+Ce tableau décrit l’étendue d’autorisation qui doit être ajoutée aux actions dans le rôle personnalisé créé pour effectuer des opérations MLflow.
+
+| Opération MLflow | Étendue |
+| --- | --- |
+| Lister toutes les expériences dans le magasin de suivi d’espace de travail, obtenir une expérience par ID, obtenir une expérience par nom | Microsoft.MachineLearningServices/workspaces/experiments/read |
+| Créer une expérience avec un nom, définir une étiquette sur une expérience, restaurer une expérience marquée pour suppression| Microsoft.MachineLearningServices/workspaces/experiments/write | 
+| Supprimer une expérience | Microsoft.MachineLearningServices/workspaces/experiments/delete |
+| Obtenir une exécution et les données et métadonnées connexes, obtenir la liste de toutes les valeurs pour la métrique spécifiée relative à une exécution donnée, lister les artefacts pour une exécution | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
+| Créer une exécution dans une expérience, supprimer des exécutions, restaurer des exécutions supprimées, journaliser les métriques dans l’exécution actuelle, définir des étiquettes sur une exécution, supprimer des étiquettes sur une exécution, journaliser les paramètres (paire clé-valeur) utilisés pour une exécution, journaliser un lot de métriques, de paramètres et d’étiquettes pour une exécution, mettre à jour l’état d’une exécution | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
+| Obtenir un modèle inscrit par nom, extraire la liste de tous les modèles inscrits dans le registre, rechercher des modèles inscrits, les derniers modèles de version pour chaque étape des demandes, obtenir la version d’un modèle inscrit, rechercher des versions de modèle, obtenir l’URI où sont stockés les artefacts d’une version de modèle, rechercher des exécutions par ID d’expérience | Microsoft.MachineLearningServices/workspaces/models/read |
+| Créer un modèle inscrit, mettre à jour le nom/la description d’un modèle inscrit, renommer un modèle inscrit existant, créer une version du modèle, mettre à jour la description d’une version de modèle, passer un modèle inscrit à l’une des étapes | Microsoft.MachineLearningServices/workspaces/models/write |
+| Supprimer un modèle inscrit avec toute sa version, supprimer des versions spécifiques d’un modèle inscrit | Microsoft.MachineLearningServices/workspaces/models/delete |
+
 
 ## <a name="create-custom-role"></a>Créer un rôle personnalisé
 
@@ -141,7 +157,7 @@ Le tableau suivant résume les activités Azure Machine Learning et les autorisa
 | Publication d’un point de terminaison de pipeline | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Déploiement d’un modèle inscrit sur une ressource AKS/ACI | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring par rapport à un point de terminaison AKS déployé | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (lorsque vous n’utilisez pas l’authentification Azure Active Directory) OU `"/workspaces/read"` (lorsque vous utilisez l’authentification par jeton) |
-| Accès au stockage à l’aide de notebooks interactifs | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Accès au stockage à l’aide de notebooks interactifs | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Créer un nouveau rôle personnalisé | Propriétaire, contributeur ou rôle personnalisé autorisant `Microsoft.Authorization/roleDefinitions/write` | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `/workspaces/computes/write` |
 
 > [!TIP]
@@ -253,6 +269,46 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
         ]
     }
     ```
+     
+* __MLflow Data Scientist Custom__ : permet à un scientifique des données d’effectuer toutes les opérations MLflow AzureML prises en charge **sauf** :
+
+   * Création de calculs
+   * Déploiement de modèles sur un cluster AKS de production
+   * Déploiement d’un point de terminaison de pipeline en production
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__ : Vous permet d’attribuer un rôle à un principal de service et de l’utiliser pour automatiser vos pipelines MLOps. Par exemple, pour envoyer des exécutions sur un pipeline déjà publié :
 

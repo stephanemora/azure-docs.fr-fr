@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751972"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761445"
 ---
 # <a name="receipt-concepts"></a>Concepts relatifs aux reçus
 
@@ -74,14 +74,11 @@ L’API Receipt renvoie également les informations suivantes :
   > Entrée de langue 
   >
   > Receipt v2.1-preview.1 intégré possède un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.1, le modèle utilise par défaut est le modèle EN-US.
-  
- ### <a name="input-requirements"></a>Spécifications relatives aux entrées 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>Opération Analyser le ticket de caisse
 
-L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et extrait les valeurs d’intérêt et de texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et en extrait les valeurs d’intérêt et le texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
@@ -456,7 +453,10 @@ L’API Receipt alimente également la [fonctionnalité de traitement de tickets
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez le guide de démarrage rapide pour commencer [Guide de démarrage rapide Python de l’API Receipt](./quickstarts/python-receipts.md).
-- Apprenez-en davantage sur l’[API REST Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Apprenez-en davantage sur [Form Recognizer](overview.md).
+- Suivez un guide de [démarrage rapide : bibliothèque de client Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de tickets de caisse avec Form Recognizer dans le langage de votre choix.
+- Ou, suivez le guide de [Démarrage rapide Python de l’API Receipt](./quickstarts/python-receipts.md) pour reconnaître les tickets de caisse à l’aide de l’API REST.
 
+## <a name="see-also"></a>Voir aussi
+
+* [Qu’est-ce que Form Recognizer ?](./overview.md)
+* [Documentation de référence sur l’API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

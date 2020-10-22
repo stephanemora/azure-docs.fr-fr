@@ -5,29 +5,32 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: c28f0edafd72794a60ef577fc3177e4436157950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887046"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631475"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurer les paramètres de serveur dans Azure Database pour MySQL
 
 Azure Database pour MySQL prend en charge la configuration de certains paramètres de serveur. Cet article décrit comment configurer ces paramètres à l’aide du portail Azure. Les paramètres du serveur ne sont pas tous modifiables.
 
+>[!Note]
+> Les paramètres serveur peuvent être mis à jour globalement au niveau du serveur à partir d’[Azure CLI](./howto-configure-server-parameters-using-cli.md), de [PowerShell](./howto-configure-server-parameters-using-powershell.md) ou du [portail Azure](./howto-server-parameters.md).
+
 ## <a name="configure-server-parameters"></a>Configurer les paramètres du serveur
 
-1. Connectez-vous au portail Azure, puis recherchez votre serveur Azure Database pour MySQL.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis recherchez votre serveur Azure Database pour MySQL.
 2. Dans la section **PARAMÈTRES**, cliquez sur **Paramètres du serveur** pour ouvrir la page de paramètres du serveur Azure Database pour MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Page Paramètres du serveur du portail Azure":::
 3. Recherchez les paramètres que vous devez ajuster. Examinez la colonne **Description** pour comprendre la fonction et les valeurs autorisées.
-:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Bouton déroulant Énumérer":::
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Page Paramètres du serveur du portail Azure":::
 4. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
-:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Enregistrer ou annuler les modifications":::
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Page Paramètres du serveur du portail Azure":::
 5. Si vous avez enregistré de nouvelles valeurs pour les paramètres, vous pouvez toujours rétablir toutes les valeurs par défaut en sélectionnant **Rétablir toutes les valeurs par défaut**.
-:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Rétablir toutes les valeurs par défaut":::
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Page Paramètres du serveur du portail Azure":::
 
 ## <a name="setting-parameters-not-listed"></a>Configurer les paramètres non listés
 
@@ -69,7 +72,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Le fuseau horaire global peut être défini dans la page **Paramètres du serveur** sur le portail Azure. L’exemple ci-dessous définit le fuseau horaire global sur la valeur « US/Pacific ».
 
-:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Définir le paramètre de fuseau horaire":::
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Page Paramètres du serveur du portail Azure":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Définition du fuseau horaire de la session
 

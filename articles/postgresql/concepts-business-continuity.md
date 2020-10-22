@@ -1,17 +1,17 @@
 ---
 title: Continuité de l’activité - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géo-restauration, réplicas) quand vous utilisez Azure Database pour PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612019"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939866"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -19,16 +19,19 @@ Cette vue d’ensemble décrit les fonctionnalités de continuité d’activité
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités que vous pouvez utiliser pour garantir la continuité d’activité
 
-Azure Database pour PostgreSQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et la possibilité pour les utilisateurs de lancer une géorestauration. Chacune de ces fonctionnalités présente des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données. Le temps de récupération estimé (ERT, Estimated Recovery Time) est le temps estimé pour que la base de données soit pleinement opérationnelle après une demande de restauration ou de basculement. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption, c’est-à-dire votre objectif de délai de récupération (RTO). Vous devez aussi comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la reprise après l’événement d’interruption, c’est-à-dire votre objectif de point de récupération (RPO).
+Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption, c’est-à-dire votre objectif de délai de récupération (RTO). Vous devez aussi comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la reprise après l’événement d’interruption, c’est-à-dire votre objectif de point de récupération (RPO).
 
-Le tableau suivant compare l’ERT et le RPO pour les fonctionnalités disponibles :
+Azure Database pour PostgreSQL propose des fonctionnalités de continuité d’activité, notamment des sauvegardes géoredondantes offrant la possibilité de lancer une géorestauration et le déploiement de réplicas en lecture dans une autre région. Chacune de ces fonctionnalités présente des caractéristiques spécifiques concernant le temps de récupération et le risque de perte de données. Avec la fonctionnalité de [Géorestauration](concepts-backup.md), un nouveau serveur est créé à l’aide des données de sauvegarde répliquées à partir d’une autre région. Le temps total nécessaire à la restauration et à la récupération dépend de la taille de la base de données et de la quantité de journaux à récupérer. La durée totale d’établissement du serveur varie entre quelques minutes et quelques heures. Avec les [réplicas en lecture](concepts-read-replicas.md), les journaux des transactions du serveur principal sont diffusés de façon asynchrone vers le réplica. Le décalage entre le serveur principal et le réplica dépend de la latence entre les sites et de la quantité de données à transmettre. En cas de défaillance du site principal, par exemple d’une zone de disponibilité, le fait de promouvoir le réplica offre un RTO plus court et une perte de données réduite. 
+
+Le tableau suivant compare le RTO et le RPO dans un scénario classique :
 
 | **Fonctionnalité** | **De base** | **Usage général** | **Mémoire optimisée** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Limite de restauration dans le temps à partir de la sauvegarde | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention | N’importe quel point de restauration dans la période de rétention |
-| Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | RTO – Variable <br/>RPO < 1 h | RTO – Variable <br/>RPO < 1 h |
+| Réplicas en lecture | RTO – Quelques minutes <br/>RPO < 5 min* | RTO – Quelques minutes <br/>RPO < 5 min*| RTO – Quelques minutes <br/>RPO < 5 min*|
 
-Vous pouvez également envisager d’utiliser des [réplicas en lecture](concepts-read-replicas.md).
+\* Le RPO peut être plus élevé dans certains cas, en fonction de différents facteurs, dont la charge de travail de la base de données primaire et la latence entre les régions. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 

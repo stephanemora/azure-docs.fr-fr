@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401620"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569521"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Ligne de base de sécurité Azure pour Cosmos DB
 
@@ -153,7 +153,7 @@ Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governan
 
 Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -290,7 +290,7 @@ Azure Cosmos DB intègre RBAC pour les scénarios de gestion courants dans Azure
 
 Vous pouvez également utiliser le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes qui sont membres de groupes d’administration. 
 
-En outre, certaines actions dans Azure Cosmos DB peuvent être contrôlées avec Azure Active Directory et des clés principales spécifiques au compte.  Utilisez le paramètre de compte « disableKeyBasedMetadataWriteAccess » pour contrôler l’accès aux clés.
+De plus, certaines actions dans Azure Cosmos DB peuvent être contrôlées avec Azure Active Directory et de clés primaires spécifiques au compte.  Utilisez le paramètre de compte « disableKeyBasedMetadataWriteAccess » pour contrôler l’accès aux clés.
 
 Comprendre le contrôle d’accès en fonction du rôle (RBAC) dans Azure Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Créez vos propres rôles personnalisés à l’aide des actions Azure Cosmos DB
 
 Créer un nouveau rôle dans Azure Active Directory : https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Comment obtenir un rôle d’annuaire dans Azure Active Directory avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Comment obtenir un rôle d’annuaire dans Azure Active Directory avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Comment obtenir les membres d’un rôle d’annuaire dans Azure Active Directory avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Comment obtenir les membres d’un rôle d’annuaire dans Azure Active Directory avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restreindre l’accès des utilisateurs aux opérations de données uniquement : https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Restreindre l’accès des utilisateurs aux opérations de données uniquement 
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
-**Aide** : Le concept de mots de passe par défaut ou vides n’existe pas en ce qui concerne Azure AD ou Azure Cosmos DB. À la place, Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs et permettre d’accéder à ses données et à ses ressources : les clés principales et les jetons de ressources. Les clés peuvent être régénérées à tout moment.
+**Aide** : Le concept de mots de passe par défaut ou vides n’existe pas en ce qui concerne Azure AD ou Azure Cosmos DB. À la place, Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs et permettre d’accéder à ses données et à ses ressources : les clés primaires et les jetons de ressources. Les clés peuvent être régénérées à tout moment.
 
 Comprendre l’accès sécurisé aux données dans Azure Cosmos DB : https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -352,7 +352,7 @@ Comment activer l’authentification multifacteur dans Azure : https://docs.mic
 
 Comment surveiller l’identité et l’accès dans Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -640,7 +640,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Comprendre le contrôle d’accès en fonction du rôle Azure : https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -696,7 +696,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -739,7 +739,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Comment refuser un type de ressource spécifique avec Azure Policy : https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -792,7 +792,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 - Cosmos DB doit utiliser un point de terminaison de service de réseau virtuel
 
-Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,9 +834,9 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées pour vos ressources Cosmos DB ou associées, utilisez Azure Repos pour stocker et gérer votre code de manière sécurisée.
 
-Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Comment restaurer des secrets Azure Key Vault :
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1066,7 +1066,7 @@ Reportez-vous à la publication du NIST : « Guide to Test, Training, and Exerc
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 Comment définir le contact de sécurité d’Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 

@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423794"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714358"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation (préversion)
 
@@ -128,7 +128,7 @@ Sélectionnez la ressource pour afficher tous les détails. Cela crée un nouvea
 
 De même, un nom de domaine complet (FQDN) unique est créé pour State Configuration (agentsvc) et pour le runtime de travail Runbook Worker hybride (jrds). Chacun se voit attribuer une adresse IP distincte de votre réseau virtuel et l’**état de la connexion** indique **Approuvé**.
 
-Si le contrôle serveur consommateur du service a des autorisations RBAC sur la ressource Automation, il peut choisir la méthode d’approbation automatique. Dans ce cas, lorsque la demande atteint la ressource du fournisseur Automation, celui-ci n’a rien à faire, car la connexion est automatiquement approuvée.
+Si le consommateur du service a des autorisations RBAC sur la ressource Automation, il peut choisir la méthode d’approbation automatique. Dans ce cas, lorsque la demande atteint la ressource du fournisseur Automation, celui-ci n’a rien à faire, car la connexion est automatiquement approuvée.
 
 ## <a name="set-public-network-access-flags"></a>Définir des indicateurs d’accès au réseau public
 

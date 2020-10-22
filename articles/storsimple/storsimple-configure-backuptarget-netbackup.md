@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184004"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710921"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple comme cible de sauvegarde avec NetBackup
 
@@ -132,7 +132,7 @@ La figure ci-après illustre l’architecture dans laquelle les sauvegardes et r
 
 Il est important que vous configuriez correctement votre volume hautes performances pour lui permettre de prendre en charge les exigences en matière de performances et de capacité de stratégie de rétention.
 
-![Diagramme logique de l’utilisation de StorSimple comme cible de sauvegarde secondaire](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagramme illustrant l’architecture dans laquelle les sauvegardes et restaurations initiales ciblent un volume haute performance.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Procédure logique de sauvegarde de la cible secondaire
 

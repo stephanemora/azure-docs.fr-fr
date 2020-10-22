@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495736"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015564"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Une fois les données disponibles dans Azure Data Lake Storage, les banques de données dans Azure Machine Learning sont utilisées pour [se connecter aux services de stockage Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Suivez les étapes ci-dessous pour créer un magasin de données et un jeu de données correspondant :
 
-1. Lancez Azure Machine Learning Studio à partir de Portail Azure ou connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Lancez Azure Machine Learning studio à partir du portail Azure ou connectez-vous à [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. Cliquez sur **Magasins de données** dans le volet gauche de la section **Gérer**, puis cliquez sur **Nouveau magasin de données**.
 
@@ -90,7 +90,7 @@ Ensuite, suivez les étapes ci-dessous pour configurer le concepteur :
 
 1. Faites glisser le jeu données que vous avez créé précédemment dans le canevas.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Capture d’écran du module de jeu de données sur le canevas.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
 ## <a name="clean-the-data"></a>Nettoyer les données
 
@@ -100,13 +100,13 @@ Pour nettoyer les données, supprimez certaines colonnes qui sont inutiles pour 
 
 1. Faites glisser le module **Sélectionner des colonnes dans le jeu de données** sous **Transformation des données < Manipulation** dans le canevas. Connectez ce module au module **Jeu de données**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Capture d’écran du module de sélection de colonne sur le canevas." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Double-cliquez sur le module pour ouvrir le volet Propriétés. Cliquez sur Modifier la colonne pour spécifier les colonnes que vous souhaitez supprimer.
 
 1. Excluez deux colonnes : CustomerAlternateKey et GeographyKey. Cliquez sur **Enregistrer**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Capture d’écran montrant les colonnes supprimées.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
 ## <a name="build-the-model"></a>Générer le modèle
 
@@ -116,7 +116,7 @@ Les données sont fractionnées en 80-20 : 80 % pour l’apprentissage d’un m
 
 1. Sur le volet Propriétés, entrez 0,8 comme **Fraction de lignes dans le premier jeu de données**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Capture d’écran affichant le ratio de 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
 1. Faites glisser le module **Arbre de décision optimisé à deux classes** dans la zone de dessin.
 
@@ -124,9 +124,9 @@ Les données sont fractionnées en 80-20 : 80 % pour l’apprentissage d’un m
 
 1. Pour le module Effectuer l'apprentissage du module, dans l’option de **Colonne d’étiquette** dans le volet Propriétés, sélectionnez Modifier la colonne. Sélectionnez la colonne **BikeBuyer** comme colonne à prédire et sélectionnez **Enregistrer**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Capture d’écran montrant la colonne d’étiquette, BikeBuyer, sélectionnée.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Capture d’écran montrant le module Effectuer l'apprentissage du modèle connecté aux modules Arbre de décision optimisé à deux classes et Fractionner les données.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
 ## <a name="score-the-model"></a>Noter le modèle
 
@@ -142,11 +142,11 @@ Les données sont fractionnées en 80-20 : 80 % pour l’apprentissage d’un m
 
 1. Cliquez sur **Envoyer** pour configurer l’exécution du pipeline.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Capture d'écran de tous les modules restants sur le canevas." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Une fois l’exécution terminée, cliquez avec le bouton droit sur le module **Évaluer le modèle**, puis cliquez sur **Visualiser les résultats de l’évaluation**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Capture écran des résultats.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Capture d’écran du volet gauche de l’interface Azure Machine Learning":::
 
 Les mesures fournies sont la courbe ROC, le diagramme de rappel de précision et la courbe d’élévation. En examinant ces mesures, nous pouvons voir que le premier modèle fonctionne mieux que le second. Pour examiner ce que le premier modèle a prédit, cliquez avec le bouton droit sur le module Évaluer le modèle, puis cliquez sur Visualiser le jeu de données évalué pour voir les résultats prédits.
 

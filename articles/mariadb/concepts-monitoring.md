@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
-ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9868403f69f3dc0b56aae06be1afda2134472805
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224083"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631033"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -37,7 +38,7 @@ Ces métriques sont disponibles pour Azure Database pour MariaDB :
 |storage_limit|Limite de stockage|Octets|Stockage maximal pour ce serveur.|
 |active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
 |connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
-|seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur maître. (Non applicable pour les serveurs de niveau De base)|
+|seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur source. (Non applicable pour les serveurs de niveau De base)|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée. La métrique représente le total du stockage consommé par l’ensemble des sauvegardes de base de données complètes, sauvegardes différentielles et sauvegardes de journaux conservées en fonction de la période de rétention de sauvegarde définie pour le serveur. La fréquence des sauvegardes est gérée par le service et expliquée dans l’[article sur les concepts](concepts-backup.md). Pour le stockage géo-redondant, l’utilisation du stockage de sauvegarde est le double de celle du stockage localement redondant.|
@@ -62,8 +63,10 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur votre Azure Database for MariaDB. Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification au public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevez la notification concernant la maintenance à venir 72 heures avant l’événement.
 
-> [!Note]
-> Nous mettons tout en œuvre pour fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
+Pendant la maintenance planifiée, vous pouvez vous attendre à ce que votre serveur redémarre et des [erreurs temporaires](concepts-connectivity.md#transient-errors) peuvent se produire. La plupart de ces événements sont automatiquement corrigés par le système en moins de 60 secondes. 
+
+> [!IMPORTANT]
+> Les notifications de maintenance planifiée sont disponibles en préversion dans toutes les régions, **sauf** USA Centre-Ouest.
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
 
@@ -78,8 +81,8 @@ Les **notifications de maintenance planifiée** vous permettent de recevoir des 
 
 Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> Les notifications de maintenance planifiée sont actuellement disponibles en préversion dans toutes les régions, **sauf** USA Centre-Ouest.
+> [!Note]
+> Nous mettons tout en œuvre pour fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

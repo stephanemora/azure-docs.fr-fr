@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057890"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -126,7 +126,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 > - Les données entre le hub et le membre risquent d’être perdues même si la synchronisation ne signale aucun problème.
 > - La synchronisation peut échouer, car la table de suivi contient une ligne qui n’existe pas dans la source en raison du changement de la clé primaire.
 
-- L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Le niveau d’isolement d’instantané doit être activé pour le hub et les membres de synchronisation. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitations générales
 
@@ -136,7 +136,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
-- Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
+- S’il existe des tables avec le même nom mais un schéma différent (par exemple, dbo.customers et sales.customers), une seule des tables peut être ajoutée à la synchronisation.
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 

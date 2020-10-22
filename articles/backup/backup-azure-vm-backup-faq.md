@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377316"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172829"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -20,6 +20,12 @@ Cet article fournit des réponses à des questions courantes sur la sauvegarde d
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quelles images de machine virtuelle peuvent être activées pour la sauvegarde lorsque je les crée ?
 
 Lorsque vous créez une machine virtuelle, vous pouvez activer la sauvegarde pour les machines virtuelles exécutant des [systèmes d’exploitation pris en charge](backup-support-matrix-iaas.md#supported-backup-actions).
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Pourquoi la sauvegarde initiale prend-elle du temps ?
+
+La sauvegarde initiale est toujours une sauvegarde complète et elle dépend du volume des données et du moment où la sauvegarde est traitée. <br>
+Pour améliorer les performances de sauvegarde, consultez [Bonnes pratiques de sauvegarde](./backup-azure-vms-introduction.md#best-practices), [Considérations relatives à la sauvegarde](./backup-azure-vms-introduction.md#backup-and-restore-considerations) et [Performances de sauvegarde](./backup-azure-vms-introduction.md#backup-performance).<br>
+Si le temps de sauvegarde total des sauvegardes incrémentielles est inférieur à 24 heures, cela peut ne pas être le cas pour la première sauvegarde.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Le coût de la sauvegarde est-il inclus dans le coût de la machine virtuelle ?
 
@@ -73,7 +79,7 @@ Supprimez le verrou et effacez la collection de points de restauration de ce gro
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
 
-Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
 
@@ -103,7 +109,7 @@ La sauvegarde Azure prend désormais en charge la sauvegarde et la restauration
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Les identités managées sont-elles préservées si une modification de locataire se produit pendant la sauvegarde ?
 
-Si des [modifications du locataire](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) se produisent, vous devez désactiver, puis réactiver les [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour que les sauvegardes fonctionnent à nouveau.
+Si des [modifications du locataire](/azure/devops/organizations/accounts/change-azure-ad-connection) se produisent, vous devez désactiver, puis réactiver les [identités managées](../active-directory/managed-identities-azure-resources/overview.md) pour que les sauvegardes fonctionnent à nouveau.
 
 ## <a name="restore"></a>Restaurer
 
@@ -155,6 +161,10 @@ Des opérations telles que la restauration de secret/clé ne nécessitent pas ce
 
 Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, consultez cet [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Pourquoi l’opération de restauration prend-elle du temps ?
+
+La durée totale de la restauration varie selon les opérations d'entrée/sortie par seconde (IOPS) et le débit du compte de stockage. La durée totale de la restauration peut être affectée si le compte de stockage cible est chargé avec d'autres opérations de lecture et d'écriture de l'application. Pour améliorer l'opération de restauration, sélectionnez un compte de stockage qui n'est pas chargé avec d'autres données d'application.
+
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 
 ### <a name="what-happens-if-i-modify-a-backup-policy"></a>Que se passe-t-il si je modifie une stratégie de sauvegarde ?
@@ -189,7 +199,7 @@ Après avoir déplacé la machine virtuelle vers un nouveau groupe de ressources
 
 Les points de restauration de l’ancienne machine virtuelle seront disponibles pour la restauration, si nécessaire. Si vous n’avez pas besoin de ces données de sauvegarde, vous pouvez arrêter la protection de votre ancienne machine virtuelle avec des données supprimées.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Existe-t-il un nombre limite de machines virtuelles pouvant être associées à la même stratégie de sauvegarde ?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Existe-t-il un nombre limite de machines virtuelles pouvant être associées à la même stratégie de sauvegarde ?
 
 Oui, il existe une limite de 100 machines virtuelles pouvant être associées à la même stratégie de sauvegarde à partir du portail. Pour plus de 100 machines virtuelles, nous recommandons de créer plusieurs stratégies de sauvegarde avec la même planification ou une planification différente.
 
@@ -197,6 +207,6 @@ Oui, il existe une limite de 100 machines virtuelles pouvant être associées �
 
 Actuellement, vous pouvez consulter les paramètres de rétention au niveau d’un élément de sauvegarde (machine virtuelle) en fonction de la stratégie de sauvegarde qui est attribuée à la machine virtuelle.
 
-Pour voir les paramètres de rétention de vos sauvegardes, vous pouvez accéder au [tableau de bord](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) des éléments de sauvegarde de votre machine virtuelle dans le portail Azure. En sélectionnant le lien vers sa politique de sauvegarde, vous pouvez visualiser la durée de rétention de tous les points de rétention quotidiens, hebdomadaires, mensuels et annuels associés à la machine virtuelle.
+Pour voir les paramètres de rétention de vos sauvegardes, vous pouvez accéder au [tableau de bord](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) des éléments de sauvegarde de votre machine virtuelle dans le portail Azure. En sélectionnant le lien vers sa politique de sauvegarde, vous pouvez visualiser la durée de rétention de tous les points de rétention quotidiens, hebdomadaires, mensuels et annuels associés à la machine virtuelle.
 
-Vous pouvez également utiliser [Explorateur de sauvegarde](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) pour afficher les paramètres de rétention de toutes vos machines virtuelles dans un seul volet transparent. Accédez à Explorateur de sauvegarde à partir de n’importe quel coffre Recovery Services, rendez-vous dans l’onglet **Éléments de sauvegarde** et sélectionnez l’affichage avancé pour voir les informations de rétention détaillées de chaque machine virtuelle.
+Vous pouvez également utiliser [Explorateur de sauvegarde](./monitor-azure-backup-with-backup-explorer.md) pour afficher les paramètres de rétention de toutes vos machines virtuelles dans un seul volet transparent. Accédez à Explorateur de sauvegarde à partir de n’importe quel coffre Recovery Services, rendez-vous dans l’onglet **Éléments de sauvegarde** et sélectionnez l’affichage avancé pour voir les informations de rétention détaillées de chaque machine virtuelle.

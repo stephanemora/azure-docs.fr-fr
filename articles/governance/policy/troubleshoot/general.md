@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545537"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999898"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
@@ -52,7 +52,7 @@ L’application d’une nouvelle stratégie ou initiative prend environ 30 minu
 
 Tout d’abord, attendez la durée appropriée pour que l’évaluation se termine et que les résultats de conformité soient disponibles dans le portail Azure ou le Kit de développement logiciel (SDK). Pour démarrer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Scénario : Évaluation non conforme aux attentes
+### <a name="scenario-compliance-not-as-expected"></a>Scénario : État de conformité non attendu
 
 #### <a name="issue"></a>Problème
 
@@ -64,10 +64,21 @@ La ressource n’est pas dans l’étendue appropriée pour l’attribution de s
 
 #### <a name="resolution"></a>Résolution
 
-- Pour une ressource non conforme supposée être conforme, commencez par [déterminer les raisons de la non-conformité](../how-to/determine-non-compliance.md). La comparaison de la définition avec la valeur de propriété évaluée indique la raison pour laquelle une ressource n’est pas conforme.
-- Pour une ressource conforme supposée être non conforme, lisez la définition de stratégie condition par condition et évaluez-la par rapport aux propriétés de la ressource. Vérifiez que les opérateurs logiques regroupent les conditions appropriées et que vos conditions ne sont pas inversées.
+Suivez ces étapes pour résoudre les problèmes liés à la définition de votre stratégie :
 
-Si la conformité d’une attribution de stratégie indique `0/0` ressources, aucune ressource n’a été déterminée comme étant applicable dans l’étendue de l’attribution. Vérifiez à la fois la définition de la stratégie et l’étendue de l’attribution.
+1. Tout d’abord, attendez la durée appropriée pour que l’évaluation se termine et que les résultats de conformité soient disponibles dans le portail Azure ou le Kit de développement logiciel (SDK). Pour démarrer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Vérifiez que les paramètres d’attribution et l’étendue d’attribution sont correctement définis.
+1. Vérifiez le [mode de définition de la stratégie](../concepts/definition-structure.md#mode) :
+   - Mode 'all' (Tous) pour tous les types de ressources.
+   - Mode 'indexed' (indexé) si la définition de la stratégie recherche des balises ou un emplacement.
+1. Vérifiez que l’étendue de la ressource n’est pas [exclue](../concepts/assignment-structure.md#excluded-scopes) ou [exempte](../concepts/exemption-structure.md).
+1. Si la conformité d’une attribution de stratégie indique `0/0` ressources, aucune ressource n’a été déterminée comme étant applicable dans l’étendue de l’attribution. Vérifiez à la fois la définition de la stratégie et l’étendue de l’attribution.
+1. Pour une ressource non conforme supposée être conforme, découvrez comment [déterminer les raisons de la non-conformité](../how-to/determine-non-compliance.md). La comparaison de la définition avec la valeur de propriété évaluée indique la raison pour laquelle une ressource n’est pas conforme.
+   - Si la **valeur cible** est incorrecte, révisez la définition de la stratégie.
+   - Si la **valeur actuelle** est incorrecte, validez la charge utile de la ressource par le biais de `resources.azure.com`.
+1. Consultez [Résoudre des problèmes : Application non conforme aux attentes](#scenario-enforcement-not-as-expected) pour découvrir d’autres problèmes et solutions courants.
+
+Si vous rencontrez toujours un problème avec votre définition de stratégie intégrée dupliquée et personnalisée ou une définition personnalisée, créez un ticket de support sous **Création d’une stratégie** pour acheminer le problème correctement.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Scénario : Application non conforme aux attentes
 
@@ -81,7 +92,18 @@ L’attribution de stratégie a été configurée pour [enforcementMode](../conc
 
 #### <a name="resolution"></a>Résolution
 
-Mettez à jour **enforcementMode** sur _Activé_. Cette modification permet à Azure Policy d’agir sur les ressources de cette attribution de stratégie et d’envoyer des entrées au journal d’activité. Si **enforcementMode** est déjà activé, consultez [Évaluation non conforme aux attentes](#scenario-evaluation-not-as-expected) pour connaître les mesures pouvant être prises.
+Suivez ces étapes pour résoudre les problèmes liés à l’application de l’attribution de votre stratégie :
+
+1. Tout d’abord, attendez la durée appropriée pour que l’évaluation se termine et que les résultats de conformité soient disponibles dans le portail Azure ou le Kit de développement logiciel (SDK). Pour démarrer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Vérifiez que les paramètres d’attribution et l’étendue d’attribution sont correctement définis et que **enforcementMode** est défini sur _Enabled_. 
+1. Vérifiez le [mode de définition de la stratégie](../concepts/definition-structure.md#mode) :
+   - Mode 'all' (Tous) pour tous les types de ressources.
+   - Mode 'indexed' (indexé) si la définition de la stratégie recherche des balises ou un emplacement.
+1. Vérifiez que l’étendue de la ressource n’est pas [exclue](../concepts/assignment-structure.md#excluded-scopes) ou [exempte](../concepts/exemption-structure.md).
+1. Vérifiez que la charge utile de la ressource correspond à la logique de la stratégie. Pour ce faire, vous pouvez [capturer une trace HAR](../../../azure-portal/capture-browser-trace.md) ou consulter les propriétés du modèle ARM.
+1. Consultez [Résoudre des problèmes : État de conformité non attendu](#scenario-compliance-not-as-expected) pour découvrir d’autres problèmes et solutions courants.
+
+Si vous rencontrez toujours un problème avec votre définition de stratégie intégrée dupliquée et personnalisée ou une définition personnalisée, créez un ticket de support sous **Création d’une stratégie** pour acheminer le problème correctement.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Scénario : Refusé par Azure Policy
 
@@ -147,6 +169,24 @@ Le chart Helm portant le nom `azure-policy-addon` a déjà été installé ou pa
 #### <a name="resolution"></a>Résolution
 
 Suivez les instructions pour [supprimer la stratégie Azure pour le module complémentaire Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on), puis réexécutez la commande `helm install azure-policy-addon`.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Scénario : Les identités attribuées par l’utilisateur de la machine virtuelle Azure sont remplacées par des identités managées attribuées par le système
+
+#### <a name="issue"></a>Problème
+
+Après avoir attribué des initiatives de stratégie Guest Configuration pour auditer les paramètres des ordinateurs, les identités managées attribuées par l’utilisateur et affectées à l’ordinateur ne sont plus attribuées. Seule une identité managée attribuée par le système est attribuée.
+
+#### <a name="cause"></a>Cause
+
+Les définitions de stratégie précédemment utilisées dans les définitions DeployIfNotExists de Guest Configuration permettaient de s’assurer qu’une identité attribuée par le système est affectée à l’ordinateur, mais supprimaient aussi les attributions d’identité attribuées par l’utilisateur.
+
+#### <a name="resolution"></a>Résolution
+
+Les définitions qui auparavant provoquaient ce problème apparaissent comme \[Dépréciées\] et sont remplacées par des définitions de stratégie qui gèrent les prérequis sans supprimer l’identité managée attribuée par l’utilisateur. Une étape manuelle est nécessaire. Supprimez les attributions de stratégies existantes qui sont marquées comme \[Dépréciées\] et remplacez-les par les définitions de stratégie et d’initiative de stratégie prérequises mises à jour qui portent le même nom que l’original.
+
+Pour obtenir une description détaillée, consultez le billet de blog suivant :
+
+[Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

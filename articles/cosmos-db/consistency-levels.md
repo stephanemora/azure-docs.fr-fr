@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851694"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567199"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Que sont les niveaux de cohérence dans Azure Cosmos DB ?
 
 Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées qui sont commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence *forte* et une cohérence *éventuelle*. La linéarisabilité du modèle de cohérence fort constitue la référence en matière de programmabilité des données. Le prix à payer est cependant une latence en écriture élevée (dans un état stable) et une disponibilité réduite (en cas de défaillance). Dans le même temps, la cohérence éventuelle offre une plus haute disponibilité et de meilleures performances, mais la programmation des applications est devient difficile.
 
@@ -43,7 +43,7 @@ La sémantique des cinq niveaux de cohérence est décrite ici :
 
   Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », quand vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="vidéo":::
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Spectre de la cohérence":::
 
 - **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures risquent d’accuser un retard par rapport aux écritures d’au maximum *« K »* versions (c’est-à-dire « mises à jour ») d’un élément ou d’un intervalle de temps *« T »* , suivant le seuil qui est atteint en premier. En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
 
@@ -54,27 +54,27 @@ La cohérence de type Obsolescence limitée offre un ordre global total, en deho
 
 À l’intérieur de la fenêtre d’obsolescence, l’obsolescence limitée fournit les garanties de cohérence suivantes :
 
-- Cohérence pour les clients de la même région pour un compte à maître unique = Fort
-- Cohérence pour les clients dans des régions différentes pour un compte à maître unique = Préfixe cohérent
-- Cohérence pour les clients écrivant dans une même région pour un compte à plusieurs maîtres = Préfixe cohérent
-- Cohérence pour les clients écrivant dans des régions différentes pour un compte à plusieurs maîtres = À terme
+- Cohérence pour les clients de la même région pour un compte à une seule région d’écriture = Forte
+- Cohérence pour les clients de régions différentes pour un compte à une seule région d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans une région unique pour un compte à plusieurs régions d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans différentes régions pour un compte à plusieurs régions d’écriture = Éventuelle
 
   L’obsolescence limitée est souvent choisie par des applications mondialement distribuées qui souhaitent de faibles latences en écriture, mais nécessitent des garanties d’ordre totales à l’échelle mondiale. L’obsolescence limitée est idéale pour les applications qui incluent la collaboration et le partage de groupes, les cotations boursières, la publication-abonnement/la mise en file d’attente, etc. Le graphique suivant illustre la cohérence à obsolescence limitée avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », les régions « USA Est 2 » et « Australie Est » lisent la valeur écrite en fonction de la durée de latence maximum configurée ou du nombre maximal d’opérations :
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="vidéo":::
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Spectre de la cohérence":::
 
 - **Session**:  Dans une session à un seul client, il est garanti que les lectures honorent le préfixe cohérent, les lectures unitones, les écritures unitones, les lectures de vos écritures et les écritures suivant les lectures. Cela suppose une session avec un seul « processus d’écriture » ou le partage du jeton de session pour plusieurs processus d’écriture.
 
 Les clients en dehors de la session effectuant des écritures verront les garanties suivantes :
 
-- Cohérence pour les clients dans une même région pour un compte à maître unique = Préfixe cohérent
-- Cohérence pour les clients dans des régions différentes pour un compte à maître unique = Préfixe cohérent
-- Cohérence pour les clients écrivant dans une même région pour un compte à plusieurs maîtres = Préfixe cohérent
-- Cohérence pour les clients écrivant dans plusieurs régions pour un compte à plusieurs maîtres = À terme
+- Cohérence pour les clients de la même région pour un compte à une seule région d’écriture = Préfixe cohérent
+- Cohérence pour les clients de régions différentes pour un compte à une seule région d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans une région unique pour un compte à plusieurs régions d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans plusieurs régions pour un compte à plusieurs régions d’écriture = Éventuelle
 
   La cohérence de session est le niveau de cohérence le plus utilisé pour les applications limitées à une seule région comme pour les applications distribuées dans le monde entier. Elle propose des latences en écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais fournit aussi des garanties de cohérence qui répondent aux besoins des applications écrites pour agir dans le contexte de l’utilisateur. Le graphique suivant illustre la cohérence de session avec des notes musicales. Le « processus d’écriture USA Ouest 2 » et le « processus de lecture USA Est 2 » utilisent la même session (session A) et lisent donc les mêmes données en même temps. En revanche, la région « Australie Est » utilise « Session B » et reçoit les données plus tard, mais dans le même ordre que les écritures.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="vidéo":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Spectre de la cohérence":::
 
 - **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence Préfixe cohérent garantit que les lectures ne voient jamais les écritures non ordonnées.
 
@@ -82,19 +82,19 @@ Si les écritures ont été effectuées dans l’ordre `A, B, C`, un client peut
 
 Voici les garanties de cohérence pour le niveau Préfixe cohérent :
 
-- Cohérence pour les clients dans une même région pour un compte à maître unique = Préfixe cohérent
-- Cohérence pour les clients dans des régions différentes pour un compte à maître unique = Préfixe cohérent
-- Cohérence pour les clients écrivant dans une même région pour un compte à plusieurs maîtres = Préfixe cohérent
-- Cohérence pour les clients écrivant dans plusieurs régions pour un compte à plusieurs maîtres = À terme
+- Cohérence pour les clients de la même région pour un compte à une seule région d’écriture = Préfixe cohérent
+- Cohérence pour les clients de régions différentes pour un compte à une seule région d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans une région unique pour un compte à plusieurs régions d’écriture = Préfixe cohérent
+- Cohérence pour les clients écrivant dans plusieurs régions pour un compte à plusieurs régions d’écriture = Éventuelle
 
 Le graphique suivant illustre la cohérence avec préfixe cohérent avec des notes musicales. Dans toutes les régions, les lectures ne voient jamais d’écritures dans le désordre :
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="vidéo":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Spectre de la cohérence":::
 
 - **Eventual (Éventuel)** : Il n’existe aucune garantie de classement pour les lectures. En l’absence d’autres écritures, les réplicas finissent par converger.  
 La cohérence éventuelle est la forme de cohérence la plus faible, car un client peut lire des valeurs plus anciennes que celles qu’il a déjà lues. La cohérence éventuelle est idéale lorsque l’application ne nécessite pas de garantie d’ordre. Comme exemples, citons le nombre de retweets, de mentions J’aime ou de commentaires non liés à un thread. Le graphique suivant illustre la cohérence éventuelle avec des notes musicales.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vidéo":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Spectre de la cohérence":::
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 

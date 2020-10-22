@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929836"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999313"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -38,7 +38,7 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 |État de sortie :|PRÉVERSION|
 |Prix :|Gratuit|
 |Rôles et autorisations obligatoires :|**Propriétaire** ou **Administrateur de la sécurité** pour modifier une attribution<br>**Lecteur** pour afficher les recommandations|
-|Clusters pris en charge|Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge|
+|Clusters pris en charge :|Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
@@ -58,7 +58,7 @@ Azure Security Center comprend un ensemble de recommandations qui sont disponibl
 
     1. À partir de l’un des contrôles de sécurité, sélectionnez la recommandation pour afficher les ressources sur lesquelles vous pouvez installer le module complémentaire, puis sélectionnez **Corriger**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Page de détails de recommandation pour **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
 
 1. Environ 30 minutes après l’installation du module complémentaire, Security Center affiche l’état d’intégrité des clusters pour les recommandations suivantes, chacune dans le contrôle de sécurité approprié, comme indiqué ci-dessous :
 
@@ -95,11 +95,15 @@ Azure Security Center comprend un ensemble de recommandations qui sont disponibl
     1. Sélectionnez **Enregistrer**.
 
 
-1. Pour appliquer l’une des recommandations, définissez-la sur **Refuser** dans l’onglet **Paramètres** de la stratégie de sécurité de Security Center :
+1. Pour appliquer les recommandations, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Option Refuser pour le paramètre Azure Policy":::
+    1. Ouvrez la page Détails de la recommandation et sélectionnez **Refuser** :
 
-    Cela refuse toute demande non conforme à vos clusters AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
+
+        Cette opération ouvre le volet dans lequel vous définissez l’étendue. 
+
+    1. Une fois que vous avez défini l’étendue, sélectionnez **Remplacer par Refuser**.
 
 1. Pour voir quelles recommandations s’appliquent à vos clusters :
 
@@ -109,7 +113,7 @@ Azure Security Center comprend un ensemble de recommandations qui sont disponibl
 
 1. Lorsque vous affichez une recommandation de l’ensemble de protection de la charge de travail, vous voyez le nombre de pods affectés (« composants Kubernetes ») avec le cluster. Pour obtenir la liste des pods spécifiques, sélectionnez le cluster, puis **Effectuer une action**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Affichage des pods affectés pour une recommandation K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**"::: 
 
 1. Pour tester l’application, utilisez les deux déploiements Kubernetes ci-dessous :
 

@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
-ms.date: 08/12/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167162"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974394"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
@@ -76,7 +76,9 @@ Les filtres du haut de la page vous permettent de trier et regrouper vos informa
 
 Les clients peuvent souhaiter plus de visibilité sur les abonnements et/ou groupes de ressources délégués à Azure Lighthouse. Cela s’avère particulièrement utile pour les clients disposant d’un grand nombre d’abonnements ou en présence de nombreux utilisateurs effectuant des tâches de gestion.
 
-Nous fournissons une [définition de stratégie intégrée Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) pour auditer la délégation d’étendues sur un locataire gestionnaire. Vous pouvez attribuer cette stratégie à un groupe d’administration comprenant tous les abonnements que vous souhaitez auditer. Lorsque vous utilisez cette stratégie pour vérifier la conformité, tous les abonnements et/ou groupes de ressources délégués (dans le groupe d’administration auquel la stratégie est attribuée) apparaissent dans un état non conforme. Vous pouvez ensuite passer en revue les résultats afin de vous assurer de l'absence de délégations inattendues.
+Nous fournissons une [définition de stratégie intégrée Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) pour [auditer la délégation d’étendues sur un locataire gestionnaire](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Vous pouvez attribuer cette stratégie à un groupe d’administration comprenant tous les abonnements que vous souhaitez auditer. Lorsque vous utilisez cette stratégie pour vérifier la conformité, tous les abonnements et/ou groupes de ressources délégués (dans le groupe d’administration auquel la stratégie est attribuée) apparaissent dans un état non conforme. Vous pouvez ensuite passer en revue les résultats afin de vous assurer de l'absence de délégations inattendues.
+
+Une autre [définition de stratégie intégrée](../../governance/policy/samples/built-in-policies.md#lighthouse) vous permet de [limiter les délégations à des locataires gestionnaires spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Cette stratégie peut être appliquée de manière similaire à un groupe d’administration qui comprend tous les abonnements pour lesquels vous souhaitez limiter les délégations. Une fois la stratégie déployée, toute tentative de déléguer un abonnement à un locataire en dehors de ceux que vous spécifiez est refusée.
 
 Pour plus d’informations sur l’attribution d’une stratégie et l’affichage des résultats de l’état de conformité, consultez [Démarrage rapide : Créer une attribution de stratégie](../../governance/policy/assign-policy-portal.md).
 

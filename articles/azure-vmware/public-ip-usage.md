@@ -3,12 +3,12 @@ title: Comment utiliser la fonctionnalité d’adresse IP publique dans Virtual 
 description: Cet article explique comment utiliser la fonctionnalité d’adresse IP publique dans Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744652"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048302"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Comment utiliser la fonctionnalité d’adresse IP publique dans Azure Virtual WAN
 
@@ -29,9 +29,9 @@ Cet article explique en détail comment utiliser la fonctionnalité d’adresse 
 
 ## <a name="prerequisites"></a>Prérequis
 
--   Environnement Azure VMware Solution
-
--   Un serveur web s’exécutant dans un environnement Azure VMware Solution.
+- Environnement Azure VMware Solution
+- Un serveur web s’exécutant dans un environnement Azure VMware Solution.
+- Une nouvelle plage d’adresses IP non superposées pour le déploiement du hub Virtual WAN, en général `/24`.
 
 ## <a name="reference-architecture"></a>Architecture de référence
 
@@ -62,15 +62,15 @@ Dans ce scénario, vous devez publier le serveur web IIS sur Internet. Utilisez 
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagramme de l’architecture d’IP publique" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Acceptez les valeurs par défaut ou modifiez-les, puis sélectionnez **Créer**.
+1. Acceptez les valeurs par défaut ou modifiez-les, puis sélectionnez **Créer**.
 
-   -  Groupe de ressources du réseau étendu virtuel
+   - Groupe de ressources du réseau étendu virtuel
 
-   -  Nom du réseau étendu virtuel
+   - Nom du réseau étendu virtuel
 
-   -  Bloc d'adresses du hub virtuel
+   - Bloc d’adresses du hub virtuel (utilisant une nouvelle plage d’adresses IP non superposées)
 
-   -  Nombre d'adresses IP publiques (1-100)
+   - Nombre d'adresses IP publiques (1-100)
 
 Il faut environ une heure pour terminer le déploiement de tous les composants. Ce déploiement n’a besoin de se produire qu’une fois pour prendre en charge toutes les adresses IP publiques futures pour cet environnement Azure VMware Solution.  
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033011"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708949"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -27,8 +27,8 @@ Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
-| Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
+| Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md). |
+| Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md). |
 | Nombre maximal d’unités de requête par partition (logique) | 10 000 |
 | Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
@@ -79,8 +79,8 @@ Vous pouvez [provisionner et gérer votre compte Azure Cosmos](how-to-manage-dat
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
-| Nombre maximal de basculements régionaux | 1/heure par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
+| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md).|
+| Nombre maximal de basculements régionaux | 1/heure par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md).|
 
 > [!NOTE]
 > Les basculements régionaux s’appliquent uniquement à des comptes d’écriture monorégions. Les comptes d’écriture multirégions ne requièrent pas ou n’ont pas de limite quant au changement de région d’écriture.
@@ -120,7 +120,7 @@ En fonction de l’API que vous utilisez, un conteneur Azure Cosmos peut représ
 | Nombre maximal de chemins par contrainte de clé unique|16 <sup>*</sup>|
 | Valeur TTL maximale |2147483647|
 
-<sup>*</sup> Vous pouvez augmenter ces limites par conteneur en contactant le Support Azure.
+<sup>*</sup> Vous pouvez augmenter ces limites par conteneur en créant une [demande de support Azure](create-support-request-quota-increase.md).
 
 ## <a name="per-item-limits"></a>Limites par élément
 
@@ -137,6 +137,7 @@ En fonction de l’API que vous utilisez, un élément Azure Cosmos peut représ
 | Longueur maximale de la valeur d’une propriété | Aucune limite pratique |
 | Longueur maximale d’une valeur de propriété de chaîne | Aucune limite pratique |
 | Longueur maximale d’une valeur de propriété numérique | 64 bits double précision (norme IEEE754) |
+| Niveau maximal d’imbrication des objets ou tableaux incorporés | 128 |
 | Valeur TTL maximale |2147483647|
 
 Aucune restriction ne pèse sur les charges utiles d’élément comme le nombre de propriétés et la profondeur d’imbrication, sauf en ce qui concerne la longueur des valeurs d’ID et de clé de partition, et la taille globale est limitée à 2 Mo. Vous devrez peut-être configurer une stratégie d’indexation pour les conteneurs qui ont des structures comportant des éléments grands ou complexes pour réduire la consommation de RU. Consultez [Modélisation des éléments dans Cosmos DB](how-to-model-partition-example.md) pour découvrir un exemple concret et des modèles permettant de gérer de grands éléments.
@@ -154,13 +155,13 @@ Azure Cosmos DB prend en charge les [opérations CRUD et de requête](/rest/api/
 
 Dès qu’une opération telle qu’une requête atteint le délai d’expiration de l’exécution ou la taille limite de la réponse, elle retourne une page de résultats et un jeton de continuation au client pour reprendre l’exécution. Il n’existe aucune limite pratique quant à la durée de l’exécution d’une requête unique entre les continuations et les pages.
 
-Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé principale ou un [jeton de ressource](secure-access-to-data.md) pour le contrôle précis de l’accès aux ressources telles que les conteneurs, les clés de partition ou les éléments. Le tableau suivant liste les limites pour les jetons d’autorisation dans Cosmos DB.
+Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé primaire ou un [jeton de ressource](secure-access-to-data.md) pour un contrôle précis de l’accès aux ressources telles que les conteneurs, les clés de partition ou les éléments. Le tableau suivant liste les limites pour les jetons d’autorisation dans Cosmos DB.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Délai d’expiration maximal d’un jeton principal | 15 min  |
 | Délai d’expiration minimal d’un jeton de ressource | 10 min  |
-| Délai d’expiration maximal d’un jeton de ressource | 24 h par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
+| Délai d’expiration maximal d’un jeton de ressource | 24 h par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md).|
 | Variation d’horloge maximale pour l’autorisation de jeton| 15 min |
 
 Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture.
@@ -202,7 +203,7 @@ Cosmos DB prend en charge l’interrogation d’éléments à l’aide de [SQL](
 | Nombre maximal de chemins d'accès exclus par conteneur| 500 |
 | Nombre maximal de propriétés dans un index composite| 8 |
 
-<sup>*</sup> Vous pouvez augmenter ces limites de requête SQL en contactant le Support Azure.
+<sup>*</sup> Vous pouvez augmenter le nombre maximal de requêtes SQL en créant une [demande de support Azure](create-support-request-quota-increase.md).
 
 ## <a name="mongodb-api-specific-limits"></a>Limites propres à l’API MongoDB
 
@@ -216,7 +217,7 @@ Le tableau suivant liste les limites propres à la prise en charge des fonctionn
 | Durée d’exécution maximale des opérations MongoDB| 30 s |
 | Délai d’expiration de connexion inactive pour la fermeture de connexion côté serveur* | 30 minutes |
 
-\* Nous recommandons que les applications clientes définissent le délai d’expiration de connexion inactive dans les paramètres du pilote sur 2-3 minutes, car le [délai d’expiration par défaut pour Azure LoadBalancer est de 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Ce délai d’expiration garantit que les connexions inactives ne sont pas fermées par un équilibreur de charge intermédiaire entre la machine cliente et Azure Cosmos DB.
+\* Nous recommandons que les applications clientes définissent le délai d’expiration de connexion inactive dans les paramètres du pilote sur 2-3 minutes, car le [délai d’expiration par défaut pour Azure LoadBalancer est de 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  Ce délai d’expiration garantit que les connexions inactives ne sont pas fermées par un équilibreur de charge intermédiaire entre la machine cliente et Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Limites liées à l’essai gratuit de Cosmos DB
 

@@ -1,17 +1,17 @@
 ---
 title: SSL/TLS – Azure Database pour PostgreSQL – Serveur unique
 description: Instructions et informations sur la façon de configurer la connectivité TSL pour Azure Database pour PostgreSQL – Serveur unique.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902046"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710445"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurer la connectivité TLS dans Azure Database pour PostgreSQL – Serveur unique
 
@@ -92,6 +92,17 @@ Par exemple, la définition de ce paramètre TLS minimal sur TLS 1.0 signifie q
 > Après avoir appliqué une version TLS minimale, vous ne pouvez plus la désactiver.
 
 Pour découvrir comment définir le paramètre TLS pour Azure Database pour PostgreSQL - Serveur unique, consultez le [Guide pratique pour configurer le paramètre TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Prise en charge du chiffrement par Azure Database pour PostgreSQL – Serveur unique
+
+Dans le cadre de la communication SSL/TLS, les suites de chiffrement sont validées et seules les suites de chiffrement prises en charge sont autorisées à communiquer avec le serveur de la base de données. La validation de la suite de chiffrement est contrôlée dans la [couche passerelle](concepts-connectivity-architecture.md#connectivity-architecture) et non pas explicitement sur le nœud lui-même. Si les suites de chiffrement ne correspondent pas à l’une des suites listées ci-dessous, les connexions client entrantes seront rejetées.
+
+### <a name="cipher-suite-supported"></a>Suite de chiffrement prise en charge
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Étapes suivantes
 

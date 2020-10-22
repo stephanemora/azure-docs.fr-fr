@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
-ms.openlocfilehash: c5b78d80b1aa958af50b81dc152b4a746ce85f70
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902190"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91779141"
 ---
 | Nom du filtre | Description | Schéma du texte du filtre | Valeurs prises en charge | 
 | --- | --- | --- | --- |
@@ -18,19 +18,34 @@ ms.locfileid: "87902190"
 | Type | [Type d’événement](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) circulant dans votre instance de jumeau numérique. | `type = '<eventType>'` | Les valeurs de type d'événement possibles sont les suivantes : <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Source | Nom de l’instance Azure Digital Twins. | `source = '<hostname>'`| Les valeurs de nom d'hôte possibles sont les suivantes : <br> **Pour les notifications** : `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Pour la télémétrie** : `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Objet | Description de l’événement dans le contexte de la source de l’événement ci-dessus | `subject = '<subject>'` | Les valeurs d'objet sont les suivantes : <br>**Pour les notifications** : l’objet est `<twinid>` <br> ou un format d’URI pour les objets identifiés de façon unique par plusieurs éléments ou ID :<br>`<twinid>/relationships/<relationshipid>`<br> **Pour la télémétrie** : l’objet est le chemin d’accès du composant (si la télémétrie est émise à partir d’un composant jumeau), par exemple `comp1.comp2`. Si la télémétrie n’est pas émise à partir d’un composant, le champ d’objet est vide. |
-| Schéma de données | ID de modèle DTDL | `dataschema = '<model-dtmi-ID>'` | **Pour la télémétrie** : le schéma de données est l'ID de modèle du jumeau ou du composant qui émet les données de télémétrie. Par exemple : `dtmi:example:com:floor4;2` <br>**Pour les notifications** : le schéma de données n’est pas pris en charge.|
+| Schéma de données | ID de modèle DTDL | `dataschema = '<model-dtmi-ID>'` | **Pour la télémétrie** : le schéma de données est l'ID de modèle du jumeau ou du composant qui émet les données de télémétrie. Par exemple : `dtmi:example:com:floor4;2` <br>**Pour les notifications** : Le schéma de données est accessible dans le corps de la notification à `$body.$metadata.$model`|
 | Type de contenu | Type de contenu de la valeur de données | `datacontenttype = '<contentType>'` | Le type de contenu est `application/json` |
 | Version de spécification | Version du schéma d’événement que vous utilisez | `specversion = '<version>'` | La version doit être `1.0`. Cela indique le schéma CloudEvents version 1.0. |
+| Corps de la notification | Référencer n’importe quelle propriété dans le champ `data` d’une notification | `$body.<property>` | Consultez [*Guide pratique pour comprendre les données d’événements*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) afin d’obtenir des exemples de notifications. Toute propriété du champ `data` peut être référencée à l’aide de `$body`
 
-Il est également possible de combiner des filtres à l’aide des opérations suivantes :
+Les types de données suivants sont pris en charge en tant que valeurs retournées par les références aux données ci-dessus :
 
-| Nom du filtre | Schéma du texte du filtre | Exemple | 
-| --- | --- | --- |
-| AND / OR | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
-| AND / OR | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
-| Opérations imbriquées | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
+| Type de données | Exemple |
+|-|-|-|
+|**Chaîne**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
+|**Integer**|`$body.errorCode > 200`|
+|**Double**|`$body.temperature <= 5.5`|
+|**Bool**|`$body.poweredOn = true`|
+|**Null**|`$body.prop != null`|
 
-> [!NOTE]
-> Pendant la période de préversion, seule l’égalité de chaîne est prise en charge (=, ! =).
+Les opérateurs suivants sont pris en charge lors de la définition de filtres de route :
+
+|Famille|Opérateurs|Exemple|
+|-|-|-|
+|Logical|AND, OR, ( )|`(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')`|
+|Comparaison|<, <=, >, >=, =, !=|`$body.temperature <= 5.5`
+
+Les fonctions suivantes sont prises en charge lors de la définition de filtres de route :
+
+|Fonction|Description|Exemple|
+|--|--|--|
+|STARTS_WITH(x,y)|Retourne la valeur true si la valeur `x` commence par la chaîne `y`.|`STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')`|
+|ENDS_WITH(x,y) | Retourne la valeur true si la valeur `x` se termine par la chaîne `y`.|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|
+|CONTAINS(x,y)| Retourne la valeur true si la valeur `x` contient la chaîne `y`.|`CONTAINS(subject, '<twinID>')`|
 
 Lorsque vous implémentez ou mettez à jour un filtre, quelques minutes peuvent s’écouler avant que la modification apparaisse dans le pipeline de données.

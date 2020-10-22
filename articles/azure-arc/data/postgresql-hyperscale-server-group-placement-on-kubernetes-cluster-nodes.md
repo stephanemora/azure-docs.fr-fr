@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5da00916a3f7a6a3685b1de1c56dd032355e28fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930108"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148102"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Placement d'un groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale
 
@@ -67,8 +67,8 @@ postgres01-2         3/3     Running   0          9h
 Chacun de ces pods héberge une instance PostgreSQL. L'ensemble forme le groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale :
 
 ```output
-Pod name    Role in the server group
-postgres01-0            Coordinator
+Pod name        Role in the server group
+postgres01-0  Coordinator
 postgres01-1    Worker
 postgres01-2    Worker
 ```
@@ -217,19 +217,19 @@ Les commandes déjà utilisées précédemment nous permettent de voir ce que ch
 
 |Noms des autres pods\* |Usage|Nœud physique Kubernetes hébergeant les pods
 |----|----|----
-|bootstrapper-jh48b||aks-agentpool-42715708-vmss000003
+|bootstrapper-jh48b|Il s’agit d’un service qui traite les demandes entrantes pour créer, modifier et supprimer des ressources personnalisées telles que des instances gérées SQL, des groupes de serveurs PostgreSQL Hyperscale et des contrôleurs de données.|aks-agentpool-42715708-vmss000003
 |control-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0||aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7||aks-agentpool-42715708-vmss000000
-|logsdb-0|Elasticsearch, reçoit les données du conteneur `Fluentbit` de chaque Pod|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5||aks-agentpool-42715708-vmss000003
-|metricsdb-0|InfluxDB, reçoit les données du conteneur `Telegraf` de chaque Pod|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47||aks-agentpool-42715708-vmss000002
-|metricsdc-864kj||aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf||aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l||aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l||aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp||aks-agentpool-42715708-vmss000002
+|controldb-0|Il s’agit du magasin de données du contrôleur qui est utilisé pour stocker la configuration et l’état du contrôleur de données.|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|Il s’agit du service « surveillant » du contrôleur qui garde un œil sur la disponibilité du contrôleur de données.|aks-agentpool-42715708-vmss000000
+|logsdb-0|Il s’agit d’une instance de recherche élastique qui est utilisée pour stocker tous les journaux collectés sur l’ensemble des pods des services de données Arc. Elasticsearch, reçoit les données du conteneur `Fluentbit` de chaque Pod|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|Il s’agit d’une instance Kibana qui se trouve au-dessus de la base de données de recherche élastique pour présenter une interface graphique utilisateur Log Analytics.|aks-agentpool-42715708-vmss000003
+|metricsdb-0|Il s’agit d’une instance InfluxDB qui est utilisée pour stocker toutes les métriques collectées sur l’ensemble des pods des services de données Arc. InfluxDB, reçoit les données du conteneur `Telegraf` de chaque Pod|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Il s’agit d’une instance Grafana qui se trouve au-dessus de la base de données InfluxDB pour présenter une interface utilisateur graphique de tableau de bord d’analyse.|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Il s’agit d’une couche de proxy d’application web qui se trouve devant les instances Grafana et Kibana.|aks-agentpool-42715708-vmss000002
 
 > \* Le suffixe des noms de pods varie en fonction des autres déploiements. De plus, nous ne répertorions ici que les pods hébergés dans l'espace de noms Kubernetes du contrôleur de données Azure Arc.
 

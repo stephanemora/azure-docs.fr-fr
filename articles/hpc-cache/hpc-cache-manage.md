@@ -4,14 +4,14 @@ description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du por
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497219"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613041"
 ---
 # <a name="manage-your-cache"></a>Gérer votre cache
 
@@ -28,6 +28,7 @@ Les boutons situés en haut de la page peuvent vous aider à gérer le cache :
 * **Démarrer** et [**Arrêter**](#stop-the-cache) : reprend ou interrompt l’opération de mise en cache
 * [**Vider**](#flush-cached-data) : écrit les données modifiées dans les cibles de stockage
 * [**Mettre à niveau**](#upgrade-cache-software) : met à jour le logiciel de cache
+* [**Collecter des diagnostics**](#collect-diagnostics) : charge les informations de débogage
 * **Actualiser** : recharge la page d’aperçu
 * [**Supprimer**](#delete-the-cache) : supprime définitivement le cache
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>Collecter des diagnostics
+
+Le bouton **Collecter des diagnostics** permet de démarrer manuellement la collecte des informations système et leur chargement dans le service de support Microsoft en vue du dépannage. Le cache collecte et charge automatiquement les mêmes informations de diagnostic en cas de grave problème du cache.
+
+Utilisez ce contrôle si le service de support Microsoft le demande.
+
+Après avoir cliqué sur le bouton, cliquez sur **Oui** pour confirmer le chargement.
+
+![Capture d’écran du message de confirmation contextuel « Démarrer la collecte de diagnostics ». Le bouton par défaut « Oui » est mis en surbrillance.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>Supprimer le cache
 

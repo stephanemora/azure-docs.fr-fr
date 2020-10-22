@@ -2,26 +2,21 @@
 title: Détecter un problème de délégation Kerberos contrainte - Proxy d’application
 description: Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760437"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568727"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -165,7 +160,7 @@ Si le problème persiste, contactez le support technique Microsoft. Émettez un 
 
 ## <a name="other-scenarios"></a>Autres scénarios
 
-- Le proxy d’application Azure demande un ticket Kerberos avant d’envoyer sa demande à une application. Certaines applications tierces n’aiment pas cette méthode d’authentification. Ces applications préfèrent les négociations plus conventionnelles. La première demande est anonyme, ce qui permet à l’application de répondre avec les types d’authentification qu’elle prend en charge via une erreur 401.
+- Le proxy d’application Azure demande un ticket Kerberos avant d’envoyer sa demande à une application. Certaines applications tierces n’aiment pas cette méthode d’authentification. Ces applications préfèrent les négociations plus conventionnelles. La première demande est anonyme, ce qui permet à l’application de répondre avec les types d’authentification qu’elle prend en charge via une erreur 401. Ce type de négociation Kerberos peut être activé à l’aide des étapes décrites dans ce document : [Délégation contrainte Kerberos pour l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md).
 - L'authentification à tronçons multiples est couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous les deux une authentification, comme SQL Server Reporting Services. Pour configurer le scénario à tronçons multiples, consultez l’article de support [La délégation Kerberos contrainte peut nécessiter une transition de protocole dans les scénarios à tronçons multiples](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Étapes suivantes

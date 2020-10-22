@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72753322"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570196"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heu
 
 ## <a name="costs-for-multiple-write-regions"></a>Coûts pour plusieurs régions d’écriture
 
-Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer `M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
+Dans un système d’écritures multirégions, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` correspond au nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer `M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
 
 ### <a name="example"></a>Exemple
 

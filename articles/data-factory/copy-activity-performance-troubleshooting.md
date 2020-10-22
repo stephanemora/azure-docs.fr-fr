@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440522"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951084"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -74,7 +74,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier «**préfixe**» pour Amazon S3 et Azure Blob. Le filtre de préfixe est un filtre côté serveur de magasin de données qui offre de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 
@@ -128,7 +128,7 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier «**préfixe**» pour Amazon S3 et Azure Blob. Le filtre de préfixe est un filtre côté serveur de magasin de données qui offre de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 

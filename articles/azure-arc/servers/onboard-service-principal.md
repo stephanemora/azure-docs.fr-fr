@@ -1,14 +1,14 @@
 ---
 title: Connecter des machines hybrides à Azure à grande échelle
 description: Dans cet article, vous allez apprendre à connecter des machines à Azure à l’aide de serveurs activés par Azure Arc en utilisant un principal de service.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 545d8abd6dd17e1e413852735c096ddc9261b972
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908334"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713416"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Connecter des machines hybrides à Azure à grande échelle
 
@@ -67,7 +67,7 @@ Les valeurs des propriétés suivantes sont utilisées avec les paramètres tran
 > Veillez à utiliser la propriété **ApplicationId** du principal de service, et non la propriété **Id**.
 >
 
-Le rôle **Intégration Azure Connected Machine** contient uniquement les autorisations requises pour intégrer un ordinateur. Vous pouvez attribuer l’autorisation du principal de service pour permettre à son étendue d’inclure un groupe de ressources ou un abonnement. Pour ajouter une attribution de rôle, consultez [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et du Portail Azure](../../role-based-access-control/role-assignments-portal.md) ou [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+Le rôle **Intégration Azure Connected Machine** contient uniquement les autorisations requises pour intégrer un ordinateur. Vous pouvez attribuer l’autorisation du principal de service pour permettre à son étendue d’inclure un groupe de ressources ou un abonnement. Pour ajouter une attribution de rôle, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md) ou [Ajouter ou supprimer des attributions de rôles Azure à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installer l’agent et le connecter à Azure
 
@@ -139,6 +139,8 @@ Une fois que vous avez installé l’agent et que vous l’avez configuré pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).
+
 - Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-policy.md) et bien plus encore.
 
-- Découvrez-en plus sur l’[[agent Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-intro.md).
+- En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez collecter des données de supervision du système d’exploitation et de la charge de travail, gérer les ressources à l’aide de runbooks Automation ou de fonctionnalités comme Update Management, ou utiliser d’autres services Azure comme [Azure Security Center](../../security-center/security-center-intro.md).

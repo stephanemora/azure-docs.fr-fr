@@ -2,13 +2,13 @@
 title: Azure Service Bus - Expiration des messages
 description: Cet article traite de l'expiration et de la durée de vie des messages Azure Service Bus. Passé ce délai, le message n’est plus remis.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064721"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569924"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -29,7 +29,7 @@ Tous les messages envoyés dans une file d’attente ou une rubrique sont soumis
 > [!NOTE]
 > La valeur par défaut [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) d’un message réparti est [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue), sauf indication contraire.
 >
-> Pour les entités de messagerie (files d’attente et rubriques), le délai d’expiration par défaut est également [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) pour les niveaux standard et Premium de Service Bus.  Pour le niveau de base, le délai d’expiration par défaut est de 14 jours.
+> Pour les entités de messagerie (files d’attente et rubriques), le délai d’expiration par défaut est également [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) pour les niveaux standard et Premium de Service Bus. Pour le niveau **de base**, le délai d’expiration par défaut est de **14 jours** (qui est également le délai d’expiration maximal).
 
 Vous pouvez éventuellement choisir de déplacer les messages expirés vers une [file d’attente de lettres mortes](service-bus-dead-letter-queues.md) en définissant la propriété [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) ou en cochant la case correspondante dans le portail. Si l’option reste désélectionnée, les messages expirés sont supprimés. La distinction entre les messages expirés déplacés vers la file d’attente de lettres mortes et les autres messages de lettres mortes est possible grâce à la valeur de la propriété [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que le répartiteur stocke dans la section des propriétés utilisateur (sa valeur est [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) dans le cas présent).
 

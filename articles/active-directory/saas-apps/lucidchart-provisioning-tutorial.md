@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265457"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850657"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutoriel : Configurer Lucidchart pour le provisionnement automatique d’utilisateurs
 
@@ -49,11 +49,11 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 1. Connectez-vous à la [console d’administration Lucidchart](https://www.lucidchart.com). Accédez à **Team > App Integration** (Équipe > Intégration d’applications).
 
-      ![SCIM Lucidchart](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Capture d’écran de la console d’administration Lucidchart. Le menu Team est mis en évidence et ouvert. Sous Admin, App Integration est mis en évidence." border="false":::
 
 2. Accédez à **SCIM**.
 
-      ![SCIM Lucidchart](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Capture d’écran de la console d’administration Lucidchart. Le menu Team est mis en évidence et ouvert. Sous Admin, App Integration est mis en évidence." border="false":::
 
 3. Faites défiler la liste jusqu’à **Bearer token** (Jeton du porteur) et **Lucidchart Base URL** (URL de base de Lucidchart). Copiez et enregistrez le jeton du porteur (**Bearer token**). Cette valeur sera entrée dans le champ **Jeton secret*** situé sous l’onglet Provisionnement de votre application Lucidchart dans le portail Azure. 
 

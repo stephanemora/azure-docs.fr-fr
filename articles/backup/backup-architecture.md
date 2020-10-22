@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986488"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614000"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -35,7 +35,7 @@ Apprenez-en davantage sur [ce que vous pouvez sauvegarder](backup-overview.md) e
 
 ## <a name="where-is-data-backed-up"></a>Où les données sont-elles sauvegardées ?
 
-Sauvegarde Azure stocke les données sauvegardées dans des coffres Recovery Services et des coffres Sauvegarde. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
+Sauvegarde Azure stocke les données sauvegardées dans des coffres Recovery Services et des coffres de sauvegarde. Un coffre est une entité de stockage en ligne dans Azure qui permet de conserver des données telles que des copies de sauvegarde, des points de récupération et des stratégies de sauvegarde.
 
 Les coffres présentent les fonctionnalités suivantes :
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235534"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629010"
 ---
 # <a name="on-demand-provisioning"></a>Approvisionnement à la demande
 L’approvisionnement à la demande vous permet d’approvisionner un utilisateur dans une application en quelques secondes. Entre autres choses, vous pouvez utiliser cette fonctionnalité pour :
@@ -28,12 +28,15 @@ L’approvisionnement à la demande vous permet d’approvisionner un utilisateu
 ## <a name="how-to-use-on-demand-provisioning"></a>Utilisation de l’approvisionnement à la demande
 
 1. Connectez-vous au **portail Azure**.
-2. Accédez à **tous les services** > **Applications d’entreprise**.
-3. Sélectionnez votre application, puis accédez à la page de configuration de l’approvisionnement.
-4. Configurez l’approvisionnement en fournissant vos informations d’identification d’administrateur.
-5. Sélectionnez **Approvisionner à la demande**.
-6. Recherchez un utilisateur par prénom, nom, nom d’affichage, nom d’utilisateur principal ou adresse e-mail.
-7. Sélectionnez **Approvisionner** au bas de la page.
+1. Accédez à **tous les services** > **Applications d’entreprise**.
+1. Sélectionnez votre application, puis accédez à la page de configuration de l’approvisionnement.
+1. Configurez l’approvisionnement en fournissant vos informations d’identification d’administrateur.
+1. Sélectionnez **Approvisionner à la demande**.
+1. Recherchez un utilisateur par prénom, nom, nom d’affichage, nom d’utilisateur principal ou adresse e-mail.
+   > [!NOTE]
+   > Pour l’application de provisionnement RH cloud (Workday/SuccessFactors à AD/Azure AD), la valeur d’entrée est différente. Pour le scénario Workday, indiquez le « WID » de l’utilisateur dans Workday. Pour le scénario SuccessFactors, indiquez le « personIdExternal » de l’utilisateur dans SuccessFactors. 
+ 
+1. Sélectionnez **Approvisionner** au bas de la page.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Capture d’écran montrant l’interface utilisateur du portail Azure pour approvisionner un utilisateur à la demande.":::
 
@@ -121,7 +124,7 @@ Enfin, le service d’approvisionnement effectue une action telle que créer, me
 
 Voici un exemple de ce que vous pouvez voir une fois l’approvisionnement à la demande d’un utilisateur effectué avec succès :
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Capture d’écran montrant la réussite de l’approvisionnement à la demande d’un utilisateur.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Capture d’écran montrant l’interface utilisateur du portail Azure pour approvisionner un utilisateur à la demande.":::
 
 #### <a name="view-details"></a>Afficher les détails
 
@@ -144,7 +147,7 @@ Il existe actuellement quelques limitations connues de l’approvisionnement à 
 > [!NOTE]
 > Les limitations suivantes sont spécifiques de la fonctionnalité d’approvisionnement à la demande. Pour savoir si une application prend en charge l’approvisionnement de groupes, de suppressions ou d’autres fonctionnalités, consultez le didacticiel de cette application.
 
-* Les applications Workday, Amazon Web Services (AWS) et SuccessFactors ne prennent pas en charge l’approvisionnement à la demande. 
+* L’application Amazon Web Services (AWS) ne prend pas en charge le provisionnement à la demande. 
 * L’approvisionnement à la demande de groupes et de rôles n’est pas prise en charge.
 * L’approvisionnement à la demande prend en charge la désactivation des utilisateurs dont l’affectation a été annulée à partir de l’application. En revanche, il ne prend pas en charge la désactivation ou la suppression d’utilisateurs qui ont été désactivés ou supprimés d’Azure AD. Ces utilisateurs n’apparaissent pas lorsque vous les recherchez.
 

@@ -6,38 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 71f499e1cdd7ccf22d90b21ce04299798978a828
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926601"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91767857"
 ---
 # <a name="azure-data-box-system-requirements"></a>Conditions requises pour le système Data Box
 
-Cet article décrit la configuration système importante qui est demandée pour votre solution Microsoft Azure Data Box et pour les clients accédant au Data Box. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre Data Box, puis d’y revenir si nécessaire pendant le déploiement, et après pour son fonctionnement.
+Cet article décrit les exigences système les plus importantes concernant Microsoft Azure Data Box et les clients qui se connectent à Data Box. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre Data Box, puis de vous y référer si nécessaire pendant le déploiement, et une fois qu’il est en cours d’exécution.
 
 Les conditions requises sont les suivantes :
 
-* **Configuration logicielle pour les hôtes se connectant à Data Box** : décrit les plateformes prises en charge, les navigateurs pour l’interface utilisateur web locale, les clients SMB et des exigences supplémentaires pour les hôtes qui peuvent se connecter au Data Box.
-* **Configuration réseau pour Data Box** : fournit des informations sur la configuration réseau nécessaire au fonctionnement optimal du Data Box.
+* **Exigences logicielles :** Pour les hôtes qui se connectent à Data Box, indique les systèmes d’exploitation pris en charge, les protocoles de transfert de fichiers, les comptes de stockage, les types de stockage, ainsi que les navigateurs pour l’interface utilisateur web locale.
+* **Configuration réseau requise :** Pour Data Box, indique les exigences de connexion réseau et de port pour une utilisation optimale de Data Box.
 
 
 ## <a name="software-requirements"></a>Configuration logicielle requise
 
-La configuration logicielle requise inclut les informations sur les systèmes d’exploitation pris en charge, les navigateurs pris en charge pour l’interface utilisateur web locale et les clients SMB.
+La configuration logicielle requise inclut les systèmes d’exploitation pris en charge, les protocoles de transfert de fichiers, les comptes de stockage, les types de stockage, ainsi que les navigateurs pour l’interface utilisateur web locale.
 
 ### <a name="supported-operating-systems-for-clients"></a>Systèmes d’exploitation pris en charge pour les clients
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 
-### <a name="supported-filesystems-for-linux-clients"></a>Systèmes de fichiers pris en charge pour les clients Linux
+### <a name="supported-file-transfer-protocols-for-clients"></a>Protocoles de transfert de fichiers pris en charge pour les clients
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
-
 
 > [!IMPORTANT] 
 > La connexion à des partages de Data Box n’est pas prise en charge via REST pour les ordres d’exportation. 
@@ -45,7 +44,6 @@ La configuration logicielle requise inclut les informations sur les systèmes d�
 ### <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
 [!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
-
 
 ### <a name="supported-storage-types"></a>Types de stockage pris en charge
 
@@ -57,11 +55,11 @@ La configuration logicielle requise inclut les informations sur les systèmes d�
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 
-Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si une connexion 10 GbE n’est pas disponible, une liaison de données 1 GbE peut être utilisée pour copier des données, mais la vitesse de copie sera affectée.
+Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si une connexion 10 GbE n’est pas disponible, une liaison de données 1 GbE peut être utilisée pour copier des données. Toutefois, cela aura un impact sur la vitesse de copie.
 
 ### <a name="port-requirements"></a>Exigences de port
 
-Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB ou NFS. Dans ce tableau, *entrée* ou *entrant* représente la direction à partir de laquelle les requêtes clientes entrantes accèdent à votre appareil. *Sortie* ou *sortant* représente la direction vers laquelle votre appareil Data Box envoie des données de façon externe, au-delà du déploiement : par exemple, sortant vers Internet.
+Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB ou NFS. Dans ce tableau, *Entrée* (ou *entrant*) indique que les requêtes clientes qui accèdent à votre appareil sont des requêtes entrantes. *Sortie* (ou *sortant*) indique que votre appareil Data Box envoie des données vers l’extérieur, hors déploiement, par exemple, vers Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

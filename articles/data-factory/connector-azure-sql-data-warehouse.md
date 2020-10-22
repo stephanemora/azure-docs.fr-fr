@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332149"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951976"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide d’Azure Data Factory
 
@@ -564,7 +564,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 Quand vos données sources ne sont pas compatibles en mode natif avec PolyBase, activez la copie des données par le biais d’un Stockage Blob Azure intermédiaire ou d’Azure Data Lake Storage Gen2 (il ne peut pas s’agir du Stockage Premium Azure). Dans ce cas, Azure Data Factory convertit automatiquement les données pour répondre aux exigences de format de données de PolyBase. Ensuite, il appelle PolyBase pour charger les données dans Azure Synapse Analytics. Enfin, il nettoie vos données temporaires du stockage. Pour plus d’informations sur la copie de données par le biais d’un stockage de préproduction, consultez [Copie ](copy-activity-performance-features.md#staged-copy).
 
-Pour utiliser cette fonctionnalité, créez un [service lié Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou un [service lié Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) qui fait référence au compte de stockage Azure avec le stockage temporaire. Spécifiez ensuite les propriétés `enableStaging` et `stagingSettings` de l’activité de copie comme indiqué dans le code suivant :
+Pour utiliser cette fonctionnalité, créez un [service lié Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou un [service lié Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) avec **authentification par clé de compte ou identité managée** qui désigne le compte de stockage Azure comme stockage temporaire.
 
 >[!IMPORTANT]
 >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations exigées dans Data Factory dans [Blob Azure - Authentification d’une identité managée](connector-azure-blob-storage.md#managed-identity) et dans [Azure Data Lake Storage Gen2 - Authentification d’une identité managée](connector-azure-data-lake-storage.md#managed-identity).

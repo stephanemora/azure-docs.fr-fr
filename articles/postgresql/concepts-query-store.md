@@ -1,17 +1,17 @@
 ---
 title: Magasin des requêtes - Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL - Serveur unique.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830279"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710530"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -250,7 +250,7 @@ Les tableaux suivants décrivent les champs pour les deux types de journaux. En 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 - Si un serveur PostgreSQL a le paramètre default_transaction_read_only activé, le Magasin des requêtes ne peut pas capturer les données.
 - La fonctionnalité Magasin des requêtes peut être interrompue si elle rencontre des requêtes Unicode longues (>= 6 000 octets).
-- Les [réplicas en lecture](concepts-read-replicas.md) répliquent les données du magasin des requêtes qui se trouve sur le serveur maître. Cela signifie que le magasin des requêtes d’un réplica en lecture ne fournit pas de statistiques concernant les requêtes qui sont exécutées sur le réplica en lecture.
+- Les [réplicas en lecture](concepts-read-replicas.md) répliquent les données du magasin des requêtes qui se trouve sur le serveur principal. Cela signifie que le magasin des requêtes d’un réplica en lecture ne fournit pas de statistiques concernant les requêtes qui sont exécutées sur le réplica en lecture.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

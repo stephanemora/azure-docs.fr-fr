@@ -2,20 +2,20 @@
 title: Planification et connexions réseau pour Azure AD Domain Services | Microsoft Docs
 description: Apprenez-en davantage sur certaines considérations et ressources relatives à la conception du réseau virtuel utilisées pour la connectivité lorsque vous exécutez Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.author: joflore
+ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968087"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -115,6 +115,8 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
 
 Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement. Ne supprimez pas ce groupe de sécurité réseau. L’équilibreur de charge ne fonctionnera pas correctement sans ce groupe.
+
+Si nécessaire, vous pouvez [créer le groupe de sécurité réseau et les règles requis à l’aide d’Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Ne modifiez pas manuellement ces configurations et ressources réseau. Lorsque vous associez un groupe de sécurité réseau mal configuré ou une table d’itinéraire définie par l’utilisateur au sous-réseau dans lequel le domaine managé est déployé, vous risquez de perturber la capacité de Microsoft à traiter et à gérer le domaine. La synchronisation entre votre locataire Azure AD et votre domaine managé est également interrompue.

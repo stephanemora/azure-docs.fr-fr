@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff942cdad74c3b8b71a8f1658f13faae021b983
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567450"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91773503"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -37,6 +37,185 @@ Azure AD bénéficie d’améliorations en continu. Pour vous informer des déve
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. Si vous recherchez des éléments antérieurs aux six derniers mois, vous les trouverez dans l’[Archive des Nouveautés d’Azure Active Directory](whats-new-archive.md).
 
+---
+
+## <a name="september-2020"></a>Septembre 2020
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---september-2020"></a>Nouveaux connecteurs de provisionnement dans la galerie d’applications Azure AD - Septembre 2020
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement d’applications  
+**Fonctionnalité de produit :** Intégration tierce
+ 
+Vous pouvez désormais automatiser la création, la mise à jour et la suppression de comptes d’utilisateur pour ces applications nouvellement intégrées :
+
+- [Coda](../saas-apps/coda-provisioning-tutorial.md)
+- [Cofense Recipient Sync](../saas-apps/cofense-provision-tutorial.md)
+- [InVision](../saas-apps/invision-provisioning-tutorial.md)
+- [myday](../saas-apps/myday-provision-tutorial.md)
+- [SAP Analytics Cloud](../saas-apps/sap-analytics-cloud-provisioning-tutorial.md)
+- [Webroot Security Awareness](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
+
+Pour découvrir comment sécuriser plus efficacement votre organisation à l’aide de l’approvisionnement automatique de comptes utilisateur, voir [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Actualisation de la préversion publique de provisionnement cloud
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Provisionnement cloud Azure AD **Fonctionnalité de produit :** Gestion du cycle de vie des identités
+ 
+L’actualisation de la préversion publique de provisionnement cloud Azure AD Connect propose deux améliorations majeures développées à partir des commentaires des clients : 
+
+- Expérience de mappage d’attributs par le biais du portail Azure
+
+    Avec cette fonctionnalité, les administrateurs informatiques peuvent mapper des attributs d’utilisateur, de groupe ou de contact entre Active Directory et Azure AD à l’aide de différents types de mappage présents aujourd’hui. Le mappage d’attributs est une fonctionnalité utilisée pour standardiser les valeurs des attributs qui circulent d’Active Directory vers Azure Active Directory. Vous pouvez déterminer s’il faut mapper la valeur d’attribut telle quelle d’Active Directory vers Azure AD, ou utiliser des expressions pour transformer les valeurs d’attributs lors du provisionnement des utilisateurs. [En savoir plus](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- Provisionnement à la demande ou expérience de test utilisateur
+
+    Une fois que vous avez paramétré votre configuration, vous souhaiterez peut-être effectuer un test pour voir si la transformation utilisateur fonctionne comme prévu avant de l’appliquer à tous les utilisateurs dans l’étendue. Avec le provisionnement à la demande, les administrateurs informatiques peuvent entrer le nom unique d’un utilisateur Active Directory et voir si la synchronisation fonctionne comme prévu. Le provisionnement à la demande offre un excellent moyen de s’assurer que les mappages d’attributs que vous avez effectués auparavant fonctionnent comme prévu. [En savoir plus](../cloud-provisioning/how-to-on-demand-provision.md)
+ 
+---
+
+### <a name="audited-bitlocker-recovery-in-azure-ad---public-preview"></a>Récupération BitLocker auditée dans Azure AD - Préversion publique
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Gestion de l’accès aux appareils  
+**Fonctionnalité de produit :** Gestion du cycle de vie des appareils
+ 
+Lorsque des administrateurs informatiques ou des utilisateurs finaux lisent des clés de récupération BitLocker auxquelles ils ont accès, Azure Active Directory génère désormais un journal d’audit qui capture les utilisateurs ayant accédé à la clé de récupération. Le même audit fournit des détails sur l’appareil auquel la clé BitLocker a été associée.
+
+Les utilisateurs finaux peuvent [accéder à leurs clés de récupération par le biais de Mon compte](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key). Les administrateurs informatiques peuvent accéder aux clés de récupération par le biais de l’[API de clé de récupération BitLocker en version bêta](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) ou du portail Azure AD. Pour plus d’informations, consultez [Afficher ou copier des clés BitLocker dans le portail Azure AD](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+
+---
+
+### <a name="teams-devices-administrator-built-in-role"></a>Rôle intégré Administrateur d’appareils Teams
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** RBAC  
+**Fonctionnalité de produit :** Contrôle d’accès
+ 
+Les utilisateurs détenant rôle [Administrateur d’appareils Teams](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) peuvent gérer des [appareils certifiés par Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) à partir du Centre d’administration Teams. 
+
+Ce rôle permet à l’utilisateur d’afficher tous les appareils en un seul coup d’œil, avec la possibilité de rechercher et de filtrer les appareils. L’utilisateur peut également vérifier les détails de chaque appareil, notamment le compte de connexion, la marque et le modèle de l’appareil. L’utilisateur peut modifier les paramètres sur l’appareil et mettre à jour les versions des logiciels. Ce rôle n’accorde pas d’autorisations pour vérifier l’activité Teams et la qualité d’appel de l’appareil.
+ 
+---
+
+### <a name="advanced-query-capabilities-for-directory-objects"></a>Fonctionnalités de requête avancées pour les objets d’annuaire
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** MS Graph  
+**Fonctionnalité de produit :** Expérience de développement
+ 
+Toutes les nouvelles fonctionnalités de requête introduites pour les objets d’annuaire dans les API Azure AD sont désormais disponibles dans le point de terminaison v1.0 et prêtes pour la production. Les développeurs peuvent compter, rechercher, filtrer et trier les objets d’annuaire et les liens connexes à l’aide des opérateurs OData standard.
+
+Pour plus d’informations, reportez-vous à la documentation [ici](https://aka.ms/BlogPostMezzoGA). Vous pouvez également envoyer vos commentaires à l’aide de cette [brève enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yN8EPoGo5OpR1hgmCp1XxUMENJRkNQTk5RQkpWTE44NEk2U0RIV0VZRy4u).
+ 
+---
+
+### <a name="public-preview-continuous-access-evaluation-for-tenants-who-configured-conditional-access-policies"></a>Préversion publique : évaluation continue de l’accès pour les locataires qui ont configuré des stratégies d’accès conditionnel
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Authentifications (connexions)  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+ 
+L’évaluation continue de l’accès est désormais disponible en préversion publique pour les locataires Azure AD ayant des stratégies d’accès conditionnel. Avec elle, les stratégies et les événements de sécurité critiques sont évalués en temps réel. Cela comprend la désactivation du compte, la réinitialisation du mot de passe et la modification de l’emplacement. Pour plus d’informations, consultez [Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md).
+
+---
+
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Préversion publique : poser aux utilisateurs qui demandent un package d’accès des questions supplémentaires afin d’améliorer les décisions d’approbation
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Gestion de l’accès utilisateur  
+**Fonctionnalité de produit :** Gestion des droits d’utilisation
+ 
+Les administrateurs peuvent désormais exiger que les utilisateurs qui demandent un package d’accès répondent à des questions supplémentaires au-delà de la justification commerciale dans le portail Mon Accès de gestion des droits d’utilisation Azure AD. Les réponses des utilisateurs sont ensuite présentées aux approbateurs afin de les aider à prendre une décision d’approbation d’accès plus précise. Pour en savoir plus, consultez [Collecter des informations supplémentaires sur le demandeur pour approbation (préversion)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview).
+ 
+---
+
+### <a name="public-preview-enhanced-user-management"></a>Préversion publique : gestion des utilisateurs améliorée
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** User Management  
+**Fonctionnalité de produit :** User Management
+ 
+
+Le portail Azure AD a été mis à jour afin de faciliter la recherche d’utilisateurs dans les pages Tous les utilisateurs et Utilisateurs supprimés. Les modifications apportées à la préversion sont les suivantes : 
+- Propriétés utilisateur plus visibles, notamment l’ID d’objet, l’état de synchronisation d’annuaire, le type de création et l’émetteur d’identité.
+- La fonctionnalité de recherche autorise désormais la recherche combinée de noms, d’e-mails et d’ID d’objets.
+- Filtrage amélioré par type d’utilisateur (membre, invité et aucun), état de la synchronisation d’annuaire, type de création, nom de la société et nom de domaine.
+- Nouvelles fonctionnalités de tri sur des propriétés telles que le nom, le nom d’utilisateur principal et la date de suppression.
+- Nouveau nombre total d’utilisateurs mis à jour avec les recherches ou les filtres.
+
+Pour plus d’informations, consultez [Améliorations de la gestion des utilisateurs (préversion) dans Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
+
+---
+
+### <a name="new-notes-field-for-enterprise-applications"></a>Nouveau champ de notes pour les applications d’entreprise
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise **Fonctionnalité produit :** SSO
+
+Vous pouvez ajouter des notes de texte libres aux applications d’entreprise. Vous pouvez ajouter toute information pertinente qui vous aidera à gérer les applications Sous Applications d’entreprise. Pour plus d’informations, consultez [Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)](../manage-apps/add-application-portal-configure.md). 
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---september-2020"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD – Septembre 2020
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité de produit :** Intégration tierce
+
+En septembre 2020, nous avons ajouté les 34 applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+
+[VMware Horizon - Unified Access Gateway](), [Pulse Secure PCS](../saas-apps/vmware-horizon-unified-access-gateway-tutorial.md), [Inventory360](../saas-apps/pulse-secure-pcs-tutorial.md), [Frontitude](https://services.enteksystems.de/sso/microsoft/signup), [BookWidgets](https://www.bookwidgets.com/sso/office365), [ZVD_Server](https://zaas.zenmutech.com/user/signin), [HashData for Business](https://hashdata.app/login.xhtml), [SecureLogin](https://securelogin.securelogin.nu/sso/azure/login), [CyberSolutions MAILBASEΣ/CMSS](../saas-apps/cybersolutions-mailbase-tutorial.md), [CyberSolutions CYBERMAILΣ](../saas-apps/cybersolutions-cybermail-tutorial.md), [LimbleCMMS](https://auth.limblecmms.com/), [Glint Inc](../saas-apps/glint-inc-tutorial.md), [zeroheight](../saas-apps/zeroheight-tutorial.md), [Gender Fitness](https://app.genderfitness.com/), [Coeo Portal](https://my.coeo.com/), [Grammarly](../saas-apps/grammarly-tutorial.md), [Fivetran](../saas-apps/fivetran-tutorial.md), [Kumolus](../saas-apps/kumolus-tutorial.md), [RSA Archer Suite](../saas-apps/rsa-archer-suite-tutorial.md), [TeamzSkill](../saas-apps/teamzskill-tutorial.md), [raumfürraum](../saas-apps/raumfurraum-tutorial.md), [Saviynt](../saas-apps/saviynt-tutorial.md), [BizMerlinHR](https://marketplace.bizmerlin.net/bmone/signup), [Mobile Locker](../saas-apps/mobile-locker-tutorial.md), [Zengine](../saas-apps/zengine-tutorial.md), [CloudCADI](https://app.cloudcadi.com/login), [Simfoni Analytics](https://simfonianalytics.com/accounts/microsoft/login/), [Priva Identity & Access Management](https://my.priva.com/), [Nitro Pro](https://www.gonitro.com/nps/product-details/downloads), [Eventfinity](../saas-apps/eventfinity-tutorial.md), [Fexa](../saas-apps/fexa-tutorial.md), [Secured Signing Enterprise Portal](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [Secured Signing Enterprise Portal AAD Setup](https://www.securedsigning.com/aad/Auth/ExternalLogin/AdminPortal), [Wistec Online](https://wisteconline.com/auth/oidc), [Oracle PeopleSoft - Protected by F5 BIG-IP APM](../saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md)
+
+La documentation de toutes ces applications est disponible ici : https://aka.ms/AppsTutorial.
+
+Pour référencer votre application dans la galerie d’applications Azure AD, lisez les informations détaillées ici : https://aka.ms/AzureADAppRequest.
+
+---
+
+### <a name="new-delegation-role-in-azure-ad-entitlement-management-access-package-assignment-manager"></a>Nouveau rôle de délégation dans la gestion des droits d’utilisation Azure AD : Gestionnaire d'attribution de package d'accès
+
+**Type :** Nouvelle fonctionnalité  
+**Catégorie de service :** Gestion de l’accès utilisateur  
+**Fonctionnalité de produit :** Gestion des droits d’utilisation
+ 
+Un nouveau rôle Gestionnaire d’attribution de package d’accès a été ajouté dans la gestion des droits d’utilisation Azure AD afin de fournir des autorisations précises pour gérer les attributions. Vous pouvez maintenant déléguer des tâches à un utilisateur détenteur ce rôle, qui peut déléguer la gestion des attributions d’un package d’accès à un dirigeant d’entreprise. Toutefois, un Gestionnaire d’attribution de package d’accès ne peut pas modifier les stratégies de package d’accès ou d’autres propriétés définies par les administrateurs. 
+
+Avec ce nouveau rôle, vous bénéficiez des privilèges minimaux nécessaires pour déléguer la gestion des attributions et conserver le contrôle administratif de toutes les autres configurations de package d’accès. Pour plus d’informations, consultez [Rôles de gestion des droits d’utilisation](../governance/entitlement-management-delegate.md#entitlement-management-roles).
+ 
+---
+
+### <a name="changes-to-privileged-identity-managements-onboarding-flow"></a>Modifications apportées au flux d’intégration de Privileged Identity Management
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Privileged Identity Management  
+**Fonctionnalité de produit :** Privileged Identity Management
+ 
+Auparavant, l’intégration à Privileged Identity Management (PIM) nécessitait le consentement de l’utilisateur et un flux d’intégration dans le panneau PIM qui incluait l’inscription dans Azure MFA. Avec la récente intégration de l’expérience PIM dans le panneau de rôles et administrateurs Azure AD, nous supprimons cette expérience. Tout locataire ayant une licence P2 valide sera intégré automatiquement à PIM.
+
+L’intégration à PIM n’a aucun effet indésirable direct sur votre locataire. Vous pouvez vous attendre aux changements suivants :
+- Options d’attribution supplémentaires telles que actif/éligible avec heure de début et heure de fin lorsque vous effectuez une attribution dans PIM ou dans le panneau de rôles et administrateurs Azure AD. 
+- Mécanismes d’étendue supplémentaires, tels que des unités administratives et des rôles personnalisés, introduits directement dans l’expérience d’attribution. 
+- Si vous êtes administrateur général ou administrateur de rôle privilégié, vous commencerez peut-être à recevoir quelques e-mails supplémentaires tels que le résumé hebdomadaire PIM. 
+- Vous constaterez peut-être aussi la présence du principal de service ms-pim dans le journal d’audit relatif à l’attribution de rôle. Ce changement attendu ne doit pas avoir d’incidence sur votre flux de travail normal.
+
+ Pour plus d’informations, consultez [Commencer à utiliser Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
+
+---
+
+### <a name="azure-ad-entitlement-management-the-select-pane-of-access-package-resources-now-shows-by-default-the-resources-currently-in-the-selected-catalog"></a>Gestion des droits d’utilisation Azure AD : le volet Sélectionner des ressources de package d’accès affiche désormais par défaut les ressources actuellement dans le catalogue sélectionné
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Gestion de l’accès utilisateur  
+**Fonctionnalité de produit :** Gestion des droits d’utilisation
+ 
+
+Dans le flux de création de package d’accès, sous l’onglet Rôles des ressources, le comportement du volet Sélectionner change. Actuellement, le comportement par défaut consiste à afficher toutes les ressources qui sont détenues par l’utilisateur et les ressources ajoutées au catalogue sélectionné. 
+
+Cette expérience sera changée de façon à afficher uniquement les ressources actuellement ajoutées dans le catalogue par défaut, afin que les utilisateurs puissent facilement sélectionner des ressources à partir du catalogue. La mise à jour facilitera la découverte des ressources à ajouter aux packages d’accès, et réduira les risques liés à l’ajout par inadvertance de ressources détenues par l’utilisateur qui ne font pas partie du catalogue. Pour plus d’informations, consultez [Créer un package d’accès dans la gestion des droits d’utilisation Azure AD](../governance/entitlement-management-access-package-create.md#resource-roles).
+ 
 ---
 
 ## <a name="august-2020"></a>Août 2020 
@@ -720,7 +899,7 @@ Avec les identités externes dans Azure AD, vous pouvez autoriser des personnes 
 **Catégorie de service :** Accès conditionnel  
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-Le [classeur Insights et rapports](../conditional-access/howto-conditional-access-insights-reporting.md) donne aux administrateurs une vue récapitulative de l’accès conditionnel Azure AD dans leur locataire. Avec la possibilité de sélectionner une stratégie individuelle, les administrateurs peuvent mieux comprendre l’activité de chaque stratégie, et superviser les modifications en temps réel. Le classeur diffuse les données stockées dans Azure Monitor, que vous pouvez configurer en quelques minutes en [suivant ces instructions](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Pour améliorer la visibilité du tableau de bord, nous avons déplacé celui-ci vers le nouvel onglet Insights et rapports dans le menu de l’accès conditionnel Azure AD.
+Le [classeur Insights et rapports](../conditional-access/howto-conditional-access-insights-reporting.md) donne aux administrateurs une vue récapitulative de l’accès conditionnel Azure AD dans leur locataire. Avec la possibilité de sélectionner une stratégie individuelle, les administrateurs peuvent mieux comprendre ce que fait chaque stratégie et surveiller les modifications en temps réel. Le classeur diffuse les données stockées dans Azure Monitor, que vous pouvez configurer en quelques minutes en [suivant ces instructions](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Pour améliorer la visibilité du tableau de bord, nous avons déplacé celui-ci vers le nouvel onglet Insights et rapports dans le menu de l’accès conditionnel Azure AD.
 
 ---
 
@@ -809,7 +988,7 @@ Nous avons amélioré l’application de provisionnement Workday Writeback pour 
 **Catégorie de service :** Autres  
 **Fonctionnalité de produit :** Expérience de développement
  
-La vérification de l’éditeur (préversion) permet aux administrateurs et aux utilisateurs finaux de s’assurer de l’authenticité des développeurs d’applications qui s’intègrent à la plateforme d’identités Microsoft. Pour plus d’informations, reportez-vous à [Vérification de l’éditeur (préversion)](../develop/publisher-verification-overview.md).
+La vérification de l'éditeur (préversion) permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la Plateforme d'identités Microsoft. Pour plus d’informations, reportez-vous à [Vérification de l’éditeur (préversion)](../develop/publisher-verification-overview.md).
  
 ---
 
@@ -1203,158 +1382,5 @@ Actions d’amélioration ajoutées :
 - Exiger l'authentification multifacteur pour les rôles administratifs
 
 Ces nouvelles actions d’amélioration nécessitent l’inscription de vos utilisateurs ou administrateurs pour l’authentification multifacteur dans votre annuaire, ainsi que la mise en place d’un ensemble approprié de stratégies adaptées aux besoins de votre organisation. L'objectif principal est de disposer d'une certaine flexibilité tout en permettant à l'ensemble de vos utilisateurs et administrateurs de s'authentifier à l'aide de plusieurs facteurs ou d'invites de vérification d'identité basée sur les risques. Cela peut prendre la forme de l’instauration de plusieurs stratégies qui appliquent des décisions étendues ou de la définition de paramètres de sécurité par défaut (à compter du 16 mars) qui permettent à Microsoft de décider quand exiger l’authentification multifacteur des utilisateurs. [En savoir plus sur les nouveautés du service Degré de sécurisation Microsoft](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
-
----
-
-## <a name="march-2020"></a>Mars 2020
-
-### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march-2021"></a>Comptes Azure Active Directory non gérés dans la mise à jour B2B pour mars 2021
-
-**Type :** Modification planifiée  
-**Catégorie de service :** B2B  
-**Fonctionnalité de produit :** B2B/B2C
- 
-**À partir du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure Active Directory (Azure AD) non managés pour les scénarios de collaboration B2B. Dans cette optique, nous vous encourageons à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](../external-identities/one-time-passcode.md).
-
----
-
-### <a name="users-with-the-default-access-role-will-be-in-scope-for-provisioning"></a>Les utilisateurs dotés du rôle d’accès par défaut seront concernés par le provisionnement.
-
-**Type :** Modification planifiée  
-**Catégorie de service :** Provisionnement d’applications  
-**Fonctionnalité de produit :** Gestion du cycle de vie des identités
- 
-Historiquement, les utilisateurs pourvus du rôle d’accès par défaut étaient hors de portée du provisionnement. Certains clients souhaitaient que les utilisateurs disposant de ce rôle figurent dans l’étendue du provisionnement. Nous travaillons au déploiement d’une modification, pour que toute nouvelle configuration de provisionnement autorise les utilisateurs dotés du rôle d’accès par défaut à être provisionnés. Progressivement, nous allons modifier le comportement des configurations de provisionnement existantes pour prendre en charge le provisionnement des utilisateurs avec ce rôle. Aucune action du client n’est nécessaire. Nous allons poster une mise à jour dans notre [documentation](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md) dès que cette modification sera en place.
-
----
-
-### <a name="azure-ad-b2b-collaboration-will-be-available-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet-tenants"></a>La solution Azure AD B2B Collaboration sera disponible dans Microsoft Azure, gérée par les locataires 21Vianet (Azure Chine 21Vianet).
-
-**Type :** Modification planifiée  
-**Catégorie de service :** B2B  
-**Fonctionnalité de produit :** B2B/B2C
- 
-Les fonctionnalités d’Azure AD B2B Collaboration seront rendues disponibles dans Microsoft Azure, gérées par les locataires 21Vianet (Azure Chine 21Vianet), ce qui permettra aux utilisateurs d’un locataire Azure Chine 21Vianet de collaborer de façon transparente avec les utilisateurs d’autres locataires Azure Chine 21Vianet. [En savoir plus sur Azure AD B2B Collaboration](/azure/active-directory/b2b/).
-
----
- 
-### <a name="azure-ad-b2b-collaboration-invitation-email-redesign"></a>Redéfinition de l’e-mail d’invitation à Azure AD B2B Collaboration
-
-**Type :** Modification planifiée  
-**Catégorie de service :** B2B  
-**Fonctionnalité de produit :** B2B/B2C
- 
-Les [e-mails](../external-identities/invitation-email-elements.md) qui sont envoyés par le service d’invitation d’Azure AD B2B Collaboration pour convier les utilisateurs à rejoindre l’annuaire seront remaniés afin de rendre plus claires les informations d’invitation et les étapes de l’utilisateur à suivre.
-
----
-
-### <a name="homerealmdiscovery-policy-changes-will-appear-in-the-audit-logs"></a>Les modifications apportées à la stratégie HomeRealmDiscovery s’afficheront dans les journaux d’audit
-
-**Type :** Résolution  
-**Catégorie de service :** Audit  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-Nous avons résolu un bogue dans lequel les modifications apportées à la stratégie [HomeRealmDiscovery](../manage-apps/configure-authentication-for-federated-users-portal.md) n’étaient pas incluses dans les journaux d’audit. Vous pouvez désormais voir quand et comment la stratégie a été modifiée, et par qui. 
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2020"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - Mars 2020
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Applications d’entreprise  
-**Fonctionnalité de produit :** Intégration tierce
- 
-En mars 2020, nous avons ajouté à la galerie d’applications les 51 applications suivantes qui prennent en charge la fédération : 
-
-[Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho One China](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [o](../saas-apps/profitco-saml-app-tutorial.md), [iPoint Service Provider](../saas-apps/ipoint-service-provider-tutorial.md), [contexxt.ai SPHERE](https://contexxt-sphere.com/login), [Wisdom By Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), [Flare Digital Signage](https://spark-dev.pixelnebula.com/login), [s](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SpectrumU](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision Compas](../saas-apps/netvision-compas-tutorial.md), [FCM HUB](../saas-apps/fcm-hub-tutorial.md), [RIB A/S Byggeweb Mobile](https://apps.apple.com/us/app/docia/id529058757), [GoLinks](../saas-apps/golinks-tutorial.md), [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal](../saas-apps/zscaler-b2b-user-portal-tutorial.md), [LIFT](../saas-apps/lift-tutorial.md), [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md), [WatchTeams](https://www.devfinition.com/), [Aster](https://demo.asterapp.io/login), [Skills Workflow](../saas-apps/skills-workflow-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx), [IP Platform](../saas-apps/ip-platform-tutorial.md), [InVision](../saas-apps/invision-tutorial.md), [Pipedrive](../saas-apps/pipedrive-tutorial.md), [Showcase Workshop](https://app.showcaseworkshop.com/), [Greenlight Integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [Greenlight Compliant Access Management](../saas-apps/greenlight-compliant-access-management-tutorial.md), [Grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore Online](https://login.online.miradore.com/), [Khoros Care](../saas-apps/khoros-care-tutorial.md), [AskYourTeam](../saas-apps/askyourteam-tutorial.md), [TruNarrative](../saas-apps/trunarrative-tutorial.md), [Smartwaiver](https://www.smartwaiver.com/m/user/sw_login.php?wms_login), [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](../saas-apps/britive-tutorial.md), [WhosOffice](../saas-apps/whosoffice-tutorial.md), [E-days](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [Playvox](https://my.playvox.com/login), [Korn Ferry 360](../saas-apps/korn-ferry-360-tutorial.md), [Campus Café](../saas-apps/campus-cafe-tutorial.md), [Catchpoint](../saas-apps/catchpoint-tutorial.md), [Code42](../saas-apps/code42-tutorial.md)
-
-Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](https://aka.ms/appstutorial). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](https://aka.ms/azureadapprequest).
-
----
-
-### <a name="azure-ad-b2b-collaboration-available-in-azure-government-tenants"></a>Azure AD B2B Collaboration disponible dans les locataires Azure Government
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** B2B  
-**Fonctionnalité de produit :** B2B/B2C
- 
-Les fonctionnalités d’Azure AD B2B Collaboration sont désormais disponibles entre certains locataires Azure Government.  Pour déterminer si votre locataire est en mesure d’utiliser ces fonctionnalités, suivez les instructions fournies dans [Comment savoir si B2B Collaboration est disponible dans mon locataire Azure US Government ?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
-
----
-
-### <a name="azure-monitor-integration-for-azure-logs-is-now-available-in-azure-government"></a>L’intégration d’Azure Monitor pour les journaux Azure est à présent disponible dans Azure Government
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Signalement  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-L’intégration d’Azure Monitor aux journaux Azure AD est à présent disponible dans Azure Government. Vous pouvez router les journaux Azure AD (journaux d’audit et de connexion) sur un compte de stockage, Event Hub et Log Analytics. Consultez la [documentation détaillée](https://aka.ms/aadlogsinamd) ainsi que les [plans de déploiement pour la création de rapports et la supervision](../reports-monitoring/plan-monitoring-and-reporting.md) des scénarios Azure AD.
-
----
-
-### <a name="identity-protection-refresh-in-azure-government"></a>Actualisation d’Identity Protection dans Azure Government
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Identity Protection  
-**Fonctionnalité de produit :** Protection et sécurité des identités
-
-Nous sommes ravis d’annoncer que nous venons de déployer l’expérience actualisée d’[Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs)  dans le portail [Microsoft Azure Government](https://portal.azure.us/). Pour plus d’informations, consultez notre [billet sur le blog d’annonces](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
-
----
-
-### <a name="disaster-recovery-download-and-store-your-provisioning-configuration"></a>Reprise d’activité après sinistre : Téléchargement et stockage de votre configuration de provisionnement
-
-**Type :** Nouvelle fonctionnalité  
-**Catégorie de service :** Provisionnement d’applications  
-**Fonctionnalité de produit :** Gestion du cycle de vie des identités
- 
-Le service de provisionnement Azure AD fournit un ensemble complet de fonctionnalités de configuration. Les clients doivent être en mesure d’enregistrer leur configuration afin de pouvoir s’y référer ultérieurement, ou de revenir à une version correcte connue. Nous avons ajouté la possibilité de télécharger votre configuration de provisionnement sous la forme d’un fichier JSON que vous chargez ensuite lorsque vous en avez besoin. [Plus d’informations](../app-provisioning/export-import-provisioning-configuration.md)
-
----
- 
-### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (réinitialisation de mot de passe en libre-service) exige désormais deux portes pour les administrateurs dans Microsoft Azure géré par 21Vianet (Azure Chine 21Vianet) 
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Réinitialisation du mot de passe en libre-service  
-**Fonctionnalité de produit :** Protection et sécurité des identités
- 
-Auparavant, dans Microsoft Azure géré par 21Vianet (Azure Chine 21Vianet), les administrateurs qui utilisaient la réinitialisation de mot de passe en libre-service (SSPR) pour réinitialiser leurs mots de passe n’avaient besoin que d’une seule « porte » (défi) pour prouver leur identité. En général, dans les clouds publics et les autres clouds nationaux, les administrateurs doivent utiliser deux portes pour prouver leur identité lors de l’utilisation de SSPR. Pour autant, comme nous ne prenions en charge ni les appels téléphoniques ni les SMS dans Azure Chine 21Vianet, nous avions autorisé la réinitialisation de mot de passe à une porte par les administrateurs.
-
-Nous sommes en cours de création d’une parité des fonctionnalités SSPR entre Azure Chine 21Vianet et le cloud public. Désormais, les administrateurs devront utiliser deux portes lors de l’utilisation de SSPR. Les SMS, appels téléphoniques ainsi que les codes et notifications de l’application Authenticator seront pris en charge. [Plus d’informations](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences)
-
----
-
-### <a name="password-length-is-limited-to-256-characters"></a>La longueur du mot de passe est limitée à 256 caractères
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Authentifications (connexions)  
-**Fonctionnalité de produit :** Authentification utilisateur
- 
-Pour garantir la fiabilité du service Azure AD, la longueur des mots de passe utilisateur est désormais limitée à 256 caractères. Les utilisateurs dotés de mots de passe plus longs seront invités à modifier leur mot de passe lors d’une prochaine connexion, soit en contactant leur administrateur, soit en utilisant la fonctionnalité de réinitialisation de mot de passe en libre-service.
-
-Cette modification a été activée le 13 mars 2020, à 10 H 00 PST (18:00 UTC), et l’erreur est AADSTS 50052, InvalidPasswordExceedsMaxLength. Pour plus d’informations, consultez l’[avis de changement cassant](../develop/reference-breaking-changes.md#user-passwords-will-be-restricted-to-256-characters).
-
----
-
-### <a name="azure-ad-sign-in-logs-are-now-available-for-all-free-tenants-through-the-azure-portal"></a>Les journaux de connexion Azure AD sont désormais disponibles pour tous les locataires gratuits via le portail Azure
-
-**Type :** Fonctionnalité modifiée  
-**Catégorie de service :** Signalement  
-**Fonctionnalité de produit :** Monitoring et création de rapports
- 
-À partir de maintenant, les clients qui disposent de locataires gratuits peuvent accéder aux [journaux de connexion Azure AD depuis le portail Azure](../reports-monitoring/concept-sign-ins.md), sur une durée de 7 jours. Auparavant, les journaux de connexion étaient uniquement disponibles pour les clients détenteurs de licences Azure Active Directory Premium. Avec cette modification, tous les locataires peuvent désormais accéder à ces journaux par l’intermédiaire du portail.
-
-> [!NOTE]
-> Les clients ont toujours besoin d’une licence Premium (Azure Active Directory Premium P1 ou P2) pour accéder aux journaux de connexion par le biais de l’API Microsoft Graph et d’Azure Monitor.
-
----
-
-### <a name="deprecation-of-directory-wide-groups-option-from-groups-general-settings-on-azure-portal"></a>Dépréciation de l’option Groupes à l’échelle de l’annuaire dans les Paramètres généraux des groupes sur le portail Azure
-
-**Type :** Déprécié  
-**Catégorie de service :** Gestion des groupes  
-**Fonctionnalité de produit :** Collaboration
-
-Pour fournir aux clients un moyen plus souple de créer des groupes au niveau de l’annuaire, tout en répondant mieux à leurs besoins, nous avons remplacé l’option **Groupes à l’échelle de l’annuaire** dans **Groupes** > **Paramètres généraux** du portail Azure par un lien vers la [documentation du groupe dynamique](../users-groups-roles/groups-dynamic-membership.md). Nous avons amélioré notre documentation pour inclure des instructions supplémentaires permettant aux administrateurs de créer des groupes de tous les utilisateurs qui incluent ou excluent des utilisateurs invités.
 
 ---

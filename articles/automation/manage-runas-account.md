@@ -3,61 +3,24 @@ title: Gérer un compte d'identification Azure Automation
 description: Cet article décrit comment gérer votre compte d’identification avec PowerShell ou à partir du portail Azure.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/26/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069889"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gérer un compte d'identification Azure Automation
 
-Les comptes d’identification dans Azure Automation fournissent une authentification permettant de gérer des ressources dans Azure au moyen des applets de commande Azure. Quand vous créez un compte d’identification, un nouvel utilisateur du principal du service dans Azure Active Directory (AD) est créé, auquel est attribué le rôle de contributeur au niveau de l’abonnement.
+Les comptes d’identification d’Azure Automation assurent l’authentification pour la gestion des ressources sur le modèle de déploiement Azure Resource Manager ou Azure Classic à l’aide de runbooks Automation et d’autres fonctionnalités Automation. Cet article aide à gérer un compte d’identification ou un compte d’identification Classic.
 
-## <a name="types-of-run-as-accounts"></a>Types de comptes d’identification
+Pour plus d’informations sur l’authentification des comptes Azure Automation et des conseils relatifs aux scénarios d’automatisation des processus, consultez [Vue d’ensemble de l’authentification des comptes Automation](automation-security-overview.md).
 
-Azure Automation utilise deux types de comptes d’identification :
-
-* Compte d’identification Azure
-* Compte d’identification Azure Classic
-
->[!NOTE]
->Les abonnements Fournisseur de solutions Azure Cloud (CSP) prennent uniquement en charge le modèle Azure Resource Manager. Les services non-Azure Resource Manager ne sont pas disponibles dans le programme. Lorsque vous utilisez un abonnement CSP, le compte d’identification Azure Classic n’est pas créé, c’est le compte d’identification Azure qui l’est. Pour en savoir plus sur les abonnements CSP, consultez [Services disponibles dans les abonnements CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
-
-Le principal du service d’un compte d’identification ne dispose pas d’autorisations pour lire Azure AD par défaut. Si vous souhaitez ajouter des autorisations pour lire ou gérer Azure AD, vous devrez accorder ces autorisations sur le principal du service, sous **Autorisations des API**. Pour en savoir plus, consultez [Ajouter des autorisations pour accéder à vos API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
-
-### <a name="run-as-account"></a>compte d'identification
-
-Le compte d’identification gère les ressources du [modèle de déploiement Resource Manager](../azure-resource-manager/management/deployment-models.md). Il effectue les tâches suivantes.
-
-* Crée une application Azure AD avec un certificat auto-signé, crée un compte de principal de service pour cette application dans Azure AD et affecte le rôle Collaborateur pour le compte dans votre abonnement actuel. Vous pouvez remplacer le paramètre de certificat par un rôle de propriétaire ou tout autre rôle. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
-
-* Crée une ressource de certificat Automation nommée `AzureRunAsCertificate` dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat que l’application Azure AD utilise.
-
-* Crée une ressource de connexion Automation nommée `AzureRunAsConnection` dans le compte Automation spécifié. La ressource de connexion contient l'ID de l'application, l'ID du locataire, l'ID de l'abonnement et l'empreinte du certificat.
-
-### <a name="azure-classic-run-as-account"></a>Compte d’identification Azure Classic
-
-Le compte d’identification Azure Classic gère les ressources du [modèle de déploiement Classic](../azure-resource-manager/management/deployment-models.md). Vous devez être coadministrateur sur l’abonnement pour créer ou renouveler ce type de compte.
-
-Le compte d’identification Azure Classic effectue les tâches suivantes.
-
-  * Crée un certificat de gestion dans l’abonnement.
-
-  * Crée une ressource de certificat Automation nommée `AzureClassicRunAsCertificate` dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat utilisée par le certificat de gestion.
-
-  * Crée une ressource de connexion Automation nommée `AzureClassicRunAsConnection` dans le compte Automation spécifié. La ressource de connexion conserve le nom de l’abonnement, l’ID d’abonnement et le nom de la ressource de certificat.
-
->[!NOTE]
->Le compte d’identification Azure Classic n’est pas créé par défaut en même temps que vous créez un compte Automation. Ce compte est créé individuellement en suivant les étapes décrites plus loin dans cet article.
-
-## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Obtenir des autorisations de compte d’identification
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Autorisations de compte d’identification
 
 Cette section définit les autorisations pour les comptes d’identification standard et les comptes d’identification Classic.
-
-### <a name="get-permissions-to-configure-run-as-accounts"></a>Obtenir des autorisations pour configurer des comptes d’identification
 
 Pour créer ou mettre à jour un compte d’identification, vous devez disposer d’autorisations et de privilèges spécifiques. Un administrateur d’application dans Azure Active Directory et un propriétaire dans un abonnement peuvent effectuer toutes les tâches. Dans une situation où les responsabilités sont partagées, le tableau suivant donne une liste des tâches, avec les applets de commande équivalentes et les autorisations nécessaires :
 
@@ -74,7 +37,7 @@ Pour créer ou mettre à jour un compte d’identification, vous devez disposer 
 
 Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**.
 
-Si vous êtes membre de l’instance Active Directory de l’abonnement lorsque le rôle Administrateur général est attribué, vous pouvez également recevoir un avertissement `You do not have permissions to create…` dans la page **Ajouter un compte Automation**. Dans ce cas, vous pouvez demander la suppression à partir de l’instance Active Directory de l’abonnement, puis demander à être ajouté de nouveau, afin de devenir un utilisateur à part entière dans Active Directory.
+Si vous êtes membre de l’instance Active Directory de l’abonnement sur laquelle le rôle Administrateur général est attribué, vous pouvez également recevoir un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**. Dans ce cas, vous pouvez demander la suppression à partir de l’instance Active Directory de l’abonnement, puis demander à être ajouté de nouveau, afin de devenir un utilisateur à part entière dans Active Directory.
 
 Pour vérifier que la situation produisant le message d’erreur a été corrigée :
 
@@ -83,7 +46,7 @@ Pour vérifier que la situation produisant le message d’erreur a été corrig�
 3. Choisissez votre nom, puis sélectionnez **Profil**.
 4. Vérifiez que la valeur de l’attribut **Usertype** sous votre profil d’utilisateur n’est pas définie sur **Invité**.
 
-### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtenir des autorisations pour configurer des comptes d’identification Classic
+### <a name="permissions-required-to-create-or-manage-classic-run-as-accounts"></a><a name="permissions-classic"></a>Autorisations nécessaires pour créer ou gérer des comptes d’identification Classic
 
 Pour configurer ou renouveler des comptes d’identification Classic, vous devez disposer du rôle Coadministrateur au niveau de l’abonnement. Pour en savoir plus sur les autorisations d’abonnement Classic, consultez [Administrateurs d’abonnement Azure Classic](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
@@ -97,17 +60,87 @@ Effectuez les étapes suivantes pour mettre à jour votre compte Azure Automatio
 
 3. Dans la page Comptes Automation, sélectionnez votre compte Automation dans la liste.
 
-4. Dans le volet gauche, sélectionnez **Comptes d’identification** dans la section des paramètres de compte.
+4. Dans le volet gauche, sélectionnez **Comptes d’identification** dans la section **Paramètres de compte**.
 
-5. Selon le compte dont vous avez besoin, sélectionnez **Compte d’identification Azure** ou **Compte d’identification Azure Classic**.
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Sélection de l’option Compte d’identification":::
 
-6. En fonction du compte qui vous intéresse, utilisez le volet **Ajouter un compte d’identification Azure** ou **Ajouter un compte d’identification Azure Classic**. Après avoir passé en revue les informations générales, cliquez sur **Créer**.
+5. Selon le compte dont vous avez besoin, choisissez le volet **+ Compte d’identification Azure** ou le volet **+ Compte d’identification Azure Classic**. Après avoir passé en revue les informations générales, cliquez sur **Créer**.
 
-7. Pour suivre la progression de la création du compte d’identification, accédez à l’onglet **Notifications** du menu. Une bannière s’affiche également indiquant que le compte est en cours de création. L’exécution de ce processus peut prendre plusieurs minutes.
+    :::image type="content" source="media/manage-runas-account/automation-account-create-runas.png" alt-text="Sélection de l’option Compte d’identification":::
+
+6. Pour suivre la progression de la création du compte d’identification, accédez à l’onglet **Notifications** du menu. Une bannière s’affiche également indiquant que le compte est en cours de création. L’exécution de ce processus peut prendre plusieurs minutes.
+
+## <a name="create-a-run-as-account-using-powershell"></a>Créer un compte d’identification avec PowerShell
+
+La liste suivante indique la configuration nécessaire pour créer un compte d’identification dans PowerShell à l’aide d’un script fourni. Ces conditions requises s’appliquent aux deux types de comptes d’identification.
+
+* Windows 10 ou Windows Server 2016 avec les modules Azure Resource Manager 3.4.1 et ultérieur. Le script PowerShell ne prend pas en charge les versions antérieures de Windows.
+* Azure PowerShell 6.2.4 ou version ultérieure. Pour plus d’informations, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/install-az-ps).
+* Un compte Automation, qui est référencé comme valeur pour les paramètres `AutomationAccountName` et `ApplicationDisplayName`.
+* Les autorisations équivalentes à celles qui sont listées dans [Autorisations nécessaires pour configurer des comptes d’identification](#permissions).
+
+Pour obtenir les valeurs de `AutomationAccountName`, `SubscriptionId` et `ResourceGroupName`, qui sont des paramètres obligatoires pour le script PowerShell, procédez comme suit.
+
+1. Dans le portail Azure, sélectionnez **Comptes Automation**.
+
+1. Dans la page Comptes Automation, sélectionnez votre compte Automation.
+
+1. Dans la section des paramètres de compte, sélectionnez **Propriétés**.
+
+1. Notez les valeurs **Nom**, **ID d’abonnement** et **Groupe de ressources** sur la page **Propriétés**.
+
+   ![Page des propriétés du compte Automation](media/manage-runas-account/automation-account-properties.png)
+
+### <a name="powershell-script-to-create-a-run-as-account"></a>Script PowerShell pour créer un compte d’identification
+
+Le script PowerShell comprend la prise en charge de plusieurs configurations.
+
+* Créez un compte d’identification à l’aide d’un certificat auto-signé.
+* Créez un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat auto-signé.
+* Créer un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat émis par votre AC d’entreprise.
+* Créez un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat auto-signé dans le cloud Azure Government.
+
+1. Téléchargez et enregistrez le script dans un dossier local à l’aide de la commande suivante.
+
+    ```powershell
+    wget https://raw.githubusercontent.com/azureautomation/runbooks/master/Utility/AzRunAs/Create-RunAsAccount.ps1 -outfile Create-RunAsAccount.ps1
+    ```
+
+2. Lancez PowerShell avec des droits d’utilisateur élevés et accédez au dossier contenant le script.
+
+3. Exécutez l’une des commandes suivantes pour créer un compte d’identification ou un compte d’identification Classic en fonction de vos besoins.
+
+    * Créez un compte d’identification à l’aide d’un certificat auto-signé.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
+        ```
+
+    * Créez un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat auto-signé.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
+        ```
+
+    * Créez un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat d’entreprise.
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
+        ```
+
+        Si vous avez créé un compte d’identification Classic avec un certificat public d’entreprise (fichier .cer), utilisez ce certificat. Le script le crée et l’enregistre dans le dossier de fichiers temporaires sur votre ordinateur, sous le profil utilisateur `%USERPROFILE%\AppData\Local\Temp` que vous avez utilisé pour exécuter la session PowerShell. Consultez [Chargement d’un certificat d’API de gestion dans le portail Azure](../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+
+    * Créer un compte d’identification standard et un compte d’identification Classic à l’aide d’un certificat auto-signé dans le cloud Azure Government
+
+        ```powershell
+        .\Create-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnvironmentName AzureUSGovernment
+        ```
+
+4. Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Connectez-vous avec un compte membre du rôle Administrateurs des abonnements. Si vous créez un compte d’identification Classic, votre compte doit être coadministrateur de l’abonnement.
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Supprimer un compte d’identification standard ou Classic
 
-Cette section décrit comment supprimer un compte d’identification standard ou Classic. Lorsque vous effectuez cette opération, le compte Automation est conservé. Après avoir supprimé le compte, vous pouvez le recréer dans le portail Azure.
+Cette section décrit comment supprimer un compte d’identification standard ou Classic. Lorsque vous effectuez cette opération, le compte Automation est conservé. Après avoir supprimé le compte d’identification, vous pouvez le recréer sur le Portail Azure ou avec le script PowerShell fourni.
 
 1. Dans le portail Azure, ouvrez le compte Automation.
 
@@ -120,10 +153,6 @@ Cette section décrit comment supprimer un compte d’identification standard ou
    ![Supprimer un compte d’identification](media/manage-runas-account/automation-account-delete-runas.png)
 
 5. Pour suivre la progression de la suppression du compte, accédez à l’onglet **Notifications** du menu.
-
-6. Une fois le compte supprimé, vous pouvez le recréer dans la page de propriétés Comptes d’identification en sélectionnant l’option de création **Compte d’identification Azure**.
-
-   ![Recréer le compte d’identification Automation](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renouveler un certificat auto-signé
 
@@ -174,8 +203,7 @@ Vous pouvez déterminer si le principal du service utilisé par votre compte d�
 2. Sélectionnez **Compte d'identification Azure**.
 3. Sélectionnez **Rôle** pour rechercher la définition de rôle en cours d’utilisation.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Vérifiez le rôle du compte d’identification." lightbox="media/manage-runas-account/verify-role-expanded.png":::
-
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Sélection de l’option Compte d’identification" lightbox="media/manage-runas-account/verify-role-expanded.png":::
 
 Vous pouvez également déterminer la définition de rôle utilisée par les comptes d’identification pour plusieurs abonnements ou comptes Automation. Pour ce faire, utilisez le script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) dans PowerShell Gallery.
 
@@ -186,7 +214,7 @@ Vous pouvez autoriser Azure Automation à vérifier si Key Vault et votre princi
 * accorder les autorisations à Key Vault ;
 * définir la stratégie d’accès.
 
-Vous pouvez utiliser le script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) dans PowerShell Gallery pour donner à votre compte d’identification des autorisations sur Key Vault. Pour plus d’informations sur la définition des autorisations sur Key Vault, consultez [Attribuer une stratégie d'accès Key Vault](/azure/key-vault/general/assign-access-policy-powershell).
+Vous pouvez utiliser le script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) dans PowerShell Gallery pour donner à votre compte d’identification des autorisations sur Key Vault. Pour plus d’informations sur la définition des autorisations sur Key Vault, consultez [Attribuer une stratégie d'accès Key Vault](../key-vault/general/assign-access-policy-powershell.md).
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Résoudre des problèmes de configuration incorrecte pour les comptes d’identification
 
@@ -199,7 +227,7 @@ Certains éléments de configuration nécessaires à un compte d’identificatio
 
 Pour de tels cas de configuration incorrecte, le compte Automation détecte les modifications et affiche pour le compte l’état *Incomplet* dans le volet des propriétés des comptes d’identification.
 
-![État Incomplet pour la configuration du compte d’identification](media/manage-runas-account/automation-account-runas-incomplete-config.png)
+![État Incomplet pour la configuration du compte d’identification](media/manage-runas-account/automation-account-runas-config-incomplete.png)
 
 Lorsque vous sélectionnez le compte d’identification, le volet des propriétés du compte affiche le message d’erreur suivant :
 

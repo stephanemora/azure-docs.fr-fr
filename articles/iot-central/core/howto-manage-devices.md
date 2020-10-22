@@ -1,28 +1,32 @@
 ---
 title: Gérer les appareils dans votre application Azure IoT Central | Microsoft Docs
-description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central.
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 12/06/2019
+description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central. Découvrez comment gérer des appareils individuels et effectuer des importations et exportations en bloc des appareils de votre application.
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: contperfq2
+ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017096"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850096"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
 Cet article explique comment gérer, en tant qu’opérateur, des appareils dans une application Azure IoT Central. En tant qu’opérateur, vous pouvez :
 
 - Utiliser la page **Appareils** pour visualiser, ajouter et supprimer des appareils connectés à votre application Azure IoT Central
+- Importer et exporter des appareils en bloc.
 - Tenir à jour un inventaire de vos appareils.
-- Maintenir à jour les métadonnées de votre appareil en modifiant les valeurs stockées dans les propriétés de l’appareil à partir des vues
+- Maintenir à jour les métadonnées de votre appareil en modifiant les valeurs stockées dans les propriétés de l’appareil à partir des vues.
 - Contrôler le comportement de vos appareils en mettant à jour un paramètre sur un appareil spécifique à partir des vues
+
+Pour savoir comment gérer des groupes personnalisés d’appareils, consultez [Tutoriel : Utiliser des groupes d’appareils pour analyser les données de télémétrie des appareils](tutorial-use-device-groups.md).
 
 ## <a name="view-your-devices"></a>Voir vos appareils
 
@@ -36,7 +40,6 @@ Pour voir un appareil particulier :
 
     ![Page Détails de l’appareil](./media/howto-manage-devices/devicelist.png)
 
-
 ## <a name="add-a-device"></a>Ajout d’un appareil
 
 Pour ajouter un appareil à votre application Azure IoT Central :
@@ -49,7 +52,7 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 
 1. Définissez la bascule **Simulé** sur **Activé** ou **Désactivé**. Un appareil réel correspond à un appareil physique que vous connectez à votre application Azure IoT Central. Un appareil simulé a des exemples de données générés par Azure IoT Central.
 
-1. Cliquez sur **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Cet appareil apparaît maintenant dans la liste des appareils pour ce modèle. Sélectionnez l’appareil pour voir la page de détails correspondante, qui contient toutes les vues relatives à l’appareil.
 
@@ -82,10 +85,9 @@ Pour l’inscription en masse d’appareils :
 
     ![Importation réussie](./media/howto-manage-devices/bulkimport3a.png)
 
-
 Si l’importation de l’appareil échoue, un message d’erreur s’affiche dans le volet Opérations sur les appareils. Un fichier journal capturant toutes les erreurs est généré et vous pouvez le télécharger.
 
-**Migration des appareils vers un modèle**
+## <a name="migrate-devices-to-a-template"></a>Migrer des appareils vers un modèle
 
 Si vous inscrivez des appareils en démarrant l’importation sous **Tous les appareils**, les appareils sont créés sans association à un modèle d’appareil. Les appareils doivent être associés à un modèle pour explorer les données et les autres informations concernant l’appareil. Procédez comme suit pour associer les appareils à un modèle :
 
@@ -95,8 +97,7 @@ Si vous inscrivez des appareils en démarrant l’importation sous **Tous les ap
 
     ![Appareils non associés](./media/howto-manage-devices/unassociateddevices1a.png)
 
-
-1. Utilisez le filtre sur la grille pour savoir si la colonne **Modèle d’appareil** présente la valeur « Non attribué(e) » pour l’un de vos appareils.
+1. Utilisez le filtre sur la grille pour savoir si la colonne **Modèle d’appareil** présente la valeur **Non attribué(e)** pour l’un de vos appareils.
 
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle :
 
@@ -104,11 +105,9 @@ Si vous inscrivez des appareils en démarrant l’importation sous **Tous les ap
 
     ![Associer des appareils](./media/howto-manage-devices/unassociateddevices2a.png)
 
-
 1. Choisissez le modèle dans la liste des modèles disponibles, puis sélectionnez **Migrer**.
 
 1. Les appareils sélectionnés sont associés au modèle d’appareil que vous avez choisi.
-
 
 ## <a name="export-devices"></a>Exporter des appareils
 
@@ -124,7 +123,6 @@ Pour exporter en bloc des appareils à partir de votre application :
 
     ![Exporter](./media/howto-manage-devices/export1a.png)
 
-
 1. Le processus d’exportation démarre. Vous pouvez suivre l’état dans le volet Opérations sur les appareils.
 
 1. Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
@@ -132,7 +130,6 @@ Pour exporter en bloc des appareils à partir de votre application :
 1. Cliquez sur le lien **Télécharger le fichier** pour télécharger le fichier vers un dossier local sur le disque.
 
     ![Exportation réussie](./media/howto-manage-devices/export2a.png)
-
 
 1. Le fichier CSV exporté contient les colonnes suivantes : ID de l’appareil, nom de l’appareil, clés d’appareil et empreintes numériques de certificat X509 :
 
@@ -159,7 +156,7 @@ Pour supprimer un appareil réel ou simulé depuis votre application Azure IoT C
 
 ## <a name="change-a-property"></a>Modifier une propriété
 
-Les propriétés de cloud sont les métadonnées associées à l’appareil comme la ville et le numéro de série. Les propriétés accessibles en écriture contrôlent le comportement d’un appareil. En d’autres termes, ils vous permettent de fournir des entrées pour votre appareil.  Les propriétés de l’appareil sont définies par l’appareil et sont en lecture seule dans IoT Central. Vous pouvez afficher et mettre à jour des propriétés dans les vues **Détails de l’appareil** relatives à votre appareil.
+Les propriétés de cloud sont les métadonnées associées à l’appareil comme la ville et le numéro de série. Les propriétés de cloud existent uniquement dans l’application IoT Central et ne sont pas synchronisées avec vos appareils. Les propriétés accessibles en écriture contrôlent le comportement d’un appareil et vous permettent de définir l’état d’un appareil à distance, par exemple en définissant la température cible d’un thermostat.  Les propriétés de l’appareil sont définies par l’appareil et sont en lecture seule dans IoT Central. Vous pouvez afficher et mettre à jour des propriétés dans les vues **Détails de l’appareil** relatives à votre appareil.
 
 1. Choisissez **Appareils** dans le volet gauche.
 
@@ -171,12 +168,6 @@ Les propriétés de cloud sont les métadonnées associées à l’appareil comm
 
 1. Choisissez **Enregistrer**. Si vous avez enregistré des propriétés accessibles en écriture, les valeurs sont envoyées à votre appareil. Quand l’appareil confirme la modification de la propriété accessible en écriture, l’état revient à **synchronisé**. Si vous avez enregistré une propriété de cloud, la valeur est mise à jour.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer des appareils dans votre application Azure IoT Central, voici l’étape suivante suggérée :
-
-> [!div class="nextstepaction"]
-> [Comment utiliser des groupes d’appareils](tutorial-use-device-groups.md)
-
-<!-- Next how-tos in the sequence -->
+Maintenant que vous avez appris à gérer des appareils dans votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre à [configurer des règles](howto-configure-rules.md) pour vos appareils.

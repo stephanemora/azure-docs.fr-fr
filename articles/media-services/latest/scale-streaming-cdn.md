@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291277"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057652"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Diffuser du contenu avec l’intégration de CDN
 
@@ -54,7 +54,7 @@ Cette rubrique explique comment activer l’[intégration CDN](#enable-azure-cd
 
 Une fois le point de terminaison de streaming configuré et le CDN activé, il existe un délai d’attente défini sur Media Services avant la mise à jour des DNS pour le mappage du point de terminaison de streaming au point de terminaison CDN.
 
-Si vous souhaitez activer/désactiver le CDN ultérieurement, votre point de terminaison de streaming doit avoir l’état **Arrêté**. Une fois le point de terminaison de streaming démarré, il peut s’écouler jusqu’à deux heures avant que l’intégration d’Azure CDN soit activée et que les modifications soient actives sur tous les comptes POP CDN. Toutefois, vous pouvez démarrer votre point de terminaison de streaming et le flux sans interruptions depuis le point de terminaison de streaming. Une fois l’intégration terminée, le flux est remis à partir du CDN. Pendant la durée de l’approvisionnement, votre point de terminaison de streaming est en état de **démarrage** et vous pouvez observer une dégradation des performances.
+Si vous souhaitez activer/désactiver le CDN ultérieurement, votre point de terminaison de streaming doit avoir l’état **Arrêté**. Une fois le point de terminaison de streaming démarré, il peut s’écouler jusqu’à quatre heures avant que l’intégration d’Azure CDN soit activée et que les modifications soient actives sur tous les comptes POP CDN. Toutefois, vous pouvez démarrer votre point de terminaison de streaming et le flux sans interruptions depuis le point de terminaison de streaming. Une fois l’intégration terminée, le flux est remis à partir du CDN. Pendant la durée de l’approvisionnement, votre point de terminaison de streaming est en état de **démarrage** et vous pouvez observer une dégradation des performances.
 
 Lorsque le point de terminaison de streaming Standard est créé, il est configuré par défaut avec Standard Verizon. Vous pouvez configurer les fournisseurs Premium Verizon ou Standard Akamai à l’aide des API REST.
 

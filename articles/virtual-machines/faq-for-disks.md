@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322515"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973698"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -136,7 +136,7 @@ Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renomm
 
 Les images de génération 1 peuvent utiliser le partitionnement GPT sur les disques de données, mais pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
 
-Les [images de génération 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) peuvent utiliser le partitionnement GPT aussi bien sur les disques de système d’exploitation que sur les disques de données.
+Les [images de génération 2](./generation-2.md) peuvent utiliser le partitionnement GPT aussi bien sur les disques de système d’exploitation que sur les disques de données.
 
 **Quels types de disque prennent en charge les captures instantanées ?**
 
@@ -241,7 +241,7 @@ Non, le chargement ne peut être utilisé que lors de la création d'un disque v
 
 **Comment puis-je charger des données sur un disque managé ?**
 
-Créez un disque managé en définissant la propriété [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) sur « Upload » (Charger). Vous pourrez ensuite y charger des données.
+Créez un disque managé en définissant la propriété [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) de [creationData](/rest/api/compute/disks/createorupdate#creationdata) sur « Upload » (Charger). Vous pourrez ensuite y charger des données.
 
 **Puis-je joindre un disque en état de chargement à une machine virtuelle ?**
 
@@ -396,13 +396,19 @@ Non, elles ne sont prises en charge que sur les disques managés SSD Premium.
 
 Non, quelle que soit leur taille, les disques managés SSD standard ne peuvent pas être utilisés avec des disques non managés ou des objets blob de pages.
 
-**Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
+**Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données sur les machines virtuelles Gen1 ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 4 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés.
+Le type de partition pris en charge par Azure pour les disques de système d’exploitation Gen1 est l’enregistrement de démarrage principal (MBR). Bien que les disques de système d’exploitation Gen1 prennent uniquement en charge MBR, les disques de données prennent en charge GPT. Bien que vous puissiez allouer un disque de système d’exploitation allant jusqu’à 4 Tio, le type de partition MBR ne peut utiliser que 2 Tio de cet espace disque pour le système d’exploitation. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés.
+
+**Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données sur les machines virtuelles Gen2 ?**
+
+Le type de partition pris en charge par Azure pour les disques de système d’exploitation Gen2 est GPT (GUID Partition Table). Les machines virtuelles Gen2 prennent en charge un disque de système d’exploitation allant jusqu’à 4 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés.
+
 
 **Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque non managé de système d’exploitation est de 4 Tio. Azure prend en charge jusqu’à 4 Tio pour les disques de données non managés.
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation utilisant des disques non managés est l’enregistrement de démarrage principal (MBR).  Bien que vous puissiez allouer un disque de système d’exploitation allant jusqu’à 4 Tio, le type de partition MBR ne peut utiliser que 2 Tio de cet espace disque pour le système d’exploitation. Azure prend en charge jusqu’à 4 Tio pour les disques de données non managés.
+
 
 **Quelle est la plus grande taille d’objet blob de page prise en charge ?**
 
@@ -421,7 +427,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 
 **Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
 
-Les tailles de disque P4 (32 Gio) et P6 (64 Gio) ne sont pas prises en charge en tant que niveaux de disque par défaut pour les disques non managés et les objets blob de pages. Vous devez explicitement [définir le niveau d’objets blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) sur P4 et P6 pour que votre disque soit mappé à ces niveaux. Si vous déployez un objet blob de pages ou un disque non managé avec une taille de disque ou une longueur de contenu inférieure à 32 Gio ou entre 32 Gio et 64 Gio sans définir le niveau de l’objet blob, vous continuez à utiliser P10 avec 500 IOPS et 100 Mio/s et le niveau tarifaire mappé.
+Les tailles de disque P4 (32 Gio) et P6 (64 Gio) ne sont pas prises en charge en tant que niveaux de disque par défaut pour les disques non managés et les objets blob de pages. Vous devez explicitement [définir le niveau d’objets blob](/rest/api/storageservices/set-blob-tier) sur P4 et P6 pour que votre disque soit mappé à ces niveaux. Si vous déployez un objet blob de pages ou un disque non managé avec une taille de disque ou une longueur de contenu inférieure à 32 Gio ou entre 32 Gio et 64 Gio sans définir le niveau de l’objet blob, vous continuez à utiliser P10 avec 500 IOPS et 100 Mio/s et le niveau tarifaire mappé.
 
 **Si mon disque managé Premium de moins de 64 Gio a été créé avant l’activation du petit disque (aux environs du 15 juin 2017), comment est-il facturé ?**
 
@@ -491,6 +497,6 @@ Non.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 
-Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article dans les commentaires. Pour prendre contact avec l’équipe de Stockage Azure et d’autres membres de la Communauté concernant cet article, consultez le MSDN [Page de Q&A de Microsoft sur le Stockage Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
+Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article dans les commentaires. Pour prendre contact avec l’équipe de Stockage Azure et d’autres membres de la Communauté concernant cet article, consultez la [page de Q&R de Microsoft sur Stockage Azure](/answers/products/azure?product=storage).
 
 Pour soumettre une demande de fonctionnalité, transmettez vos questions et vos idées sur le [forum dédié aux commentaires sur le stockage Azure](https://feedback.azure.com/forums/217298-storage).

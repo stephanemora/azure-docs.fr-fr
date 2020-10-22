@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420929"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708643"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -61,7 +61,8 @@ Sélectionnez les catégories et sous-catégories qui correspondent le mieux à 
 
 #### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>IMPORTANT : Offres SaaS et compléments Microsoft 365
 
-Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez le [guide par type d’offre](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée :
+Pour plus d’informations sur l’impact des fonctionnalités de transaction sur la visualisation et l’achat de votre offre par les clients de la place de marché, consultez [Transaction dans la Place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md). Pour les offres SaaS, la fonctionnalité de transaction de l’offre ainsi que le choix de la catégorie déterminent le magasin en ligne dans laquelle votre offre est publiée.
+
 
 | Offre SaaS    | Offre SaaS   | Offre SaaS  | Offre SaaS   | Offre SaaS   | Offre SaaS   | Offre SaaS    | Magasin en ligne applicable| Magasin en ligne applicable |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|

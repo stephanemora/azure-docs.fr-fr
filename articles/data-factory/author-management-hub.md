@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851982"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570638"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gestion dans Azure Data Factory
 
@@ -56,7 +56,7 @@ Pour remplacer les paramètres modèle Resource Manager générés lors de la pu
 
 Les déclencheurs déterminent à quel moment l’exécution d’un pipeline doit être lancée. Actuellement, les déclencheurs peuvent figurer dans une planification d’horloge, opérer à intervalles réguliers ou dépendre d’un événement. Pour plus d’informations, découvrez comme [déclencher une exécution](concepts-pipeline-execution-triggers.md#trigger-execution). Le hub de gestion vous permet de créer, modifier, supprimer ou afficher l’état actuel d’un déclencheur.
 
-![Gérer les paramètres personnalisés](media/author-management-hub/management-hub-triggers.png)
+![Capture d’écran montrant où créer, modifier, supprimer ou afficher l’état actuel d’un déclencheur.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Paramètres globaux
 

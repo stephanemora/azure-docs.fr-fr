@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532186"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91620084"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement des clusters Azure HDInsight
 
@@ -68,11 +68,11 @@ Pour la descente en puissance, la mise à l’échelle automatique émet une dem
 > [!Important]
 > La fonctionnalité de mise à l’échelle automatique d’Azure HDInsight a été mise à la disposition générale le 7 novembre 2019 pour les clusters Spark et Hadoop. Elle incluait des améliorations non disponibles dans la préversion de la fonctionnalité. Si vous avez créé un cluster Spark avant le 7 novembre 2019 et que vous souhaitez utiliser la fonctionnalité de mise à l’échelle automatique dessus, l’approche recommandée consiste à créer un nouveau cluster et à activer la mise à l’échelle automatique sur le nouveau cluster.
 >
-> La mise à l’échelle automatique pour Interactive Query (LLAP) a été publiée pour la disponibilité générale le 27 août 2020. Les clusters HBase sont toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase.
+> La mise à l’échelle automatique pour Interactive Query (LLAP) a été publiée en vue d’une mise à disposition générale pour HDI 4.0 le 27 août 2020. Les clusters HBase sont toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase.
 
 Le tableau suivant décrit les types de cluster et les versions qui sont compatibles avec la fonctionnalité de mise à l’échelle automatique.
 
-| Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+| Version | Spark | Hive | Interactive Query | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
 | HDInsight 4.0 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
@@ -251,7 +251,7 @@ Une opération de mise à l’échelle peut prendre entre 10 et 20 minutes. 
 
 ### <a name="prepare-for-scaling-down"></a>Préparation pour la mise  à l’échelle vers le bas
 
-Au cours de descente en puissance du cluster, la mise à l’échelle automatique désactivera les nœuds pour atteindre à la taille cible. Si des tâches sont en cours d’exécution sur ces nœuds, la mise à l’échelle automatique attendra qu’elles soient terminées. Dans la mesure où chaque nœud Worker joue également un rôle dans HDFS, les données temporaires seront décalées vers les nœuds restants. Par conséquent, nous vous conseillons de vérifier que les nœuds restants disposent d’assez d’espace de stockage pour héberger toutes les données temporaires.
+Au cours de descente en puissance du cluster, la mise à l’échelle automatique désactivera les nœuds pour atteindre à la taille cible. Si des tâches sont en cours d’exécution sur ces nœuds, la mise à l’échelle automatique attendra qu’elles soient terminées pour les clusters Spark et Hadoop. Dans la mesure où chaque nœud Worker joue également un rôle dans HDFS, les données temporaires seront décalées vers les nœuds restants. Par conséquent, nous vous conseillons de vérifier que les nœuds restants disposent d’assez d’espace de stockage pour héberger toutes les données temporaires.
 
 Les travaux en cours d’exécution se poursuivront. Les travaux en attente attendrons d’être planifiés avec moins de nœuds Worker disponibles.
 
@@ -265,7 +265,7 @@ La mise à l’échelle automatique pour les clusters Hadoop surveille égalemen
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Définissez le nombre maximal de requêtes simultanées dans la configuration Hive pour le scénario d’utilisation maximale
 
-Les événements de mise à l’échelle automatique ne modifient pas la configuration Hive *Nombre total maximum de requêtes simultanées* dans Ambari. Cela signifie que le service interactif Hive Server 2 ne peut traiter qu’un nombre donné de requêtes simultanées à tout moment, même si le nombre de démons LLAP est augmenté et réduit en fonction de la charge/planification. La recommandation générale consiste à définir cette configuration pour le scénario d’utilisation maximale afin d’éviter toute intervention manuelle.
+Les événements de mise à l’échelle automatique ne modifient pas la configuration Hive *Nombre total maximum de requêtes simultanées* dans Ambari. Cela signifie que le service interactif Hive Server 2 ne peut traiter qu’un nombre déterminé de requêtes simultanées à un moment donné, même si le nombre de démons Interactive Query est augmenté et réduit en fonction de la charge et de la planification. La recommandation générale consiste à définir cette configuration pour le scénario d’utilisation maximale afin d’éviter toute intervention manuelle.
 
 Toutefois, vous pouvez rencontrer un échec de redémarrage du serveur Hive 2 s’il n’y a qu’un petit nombre de nœuds Worker et que le nombre maximum total de requêtes simultanées est configuré sur une valeur trop élevée. Au minimum, vous avez besoin du nombre minimal de nœuds Worker pouvant prendre en charge le nombre donné d’AM Tez (égal à la configuration du maximum total de requêtes simultanées). 
 
@@ -275,11 +275,11 @@ Toutefois, vous pouvez rencontrer un échec de redémarrage du serveur Hive 2 s�
 
 La mise à l’échelle automatique HDInsight utilise un fichier d’étiquette de nœud pour déterminer si un nœud est prêt à exécuter des tâches. Le fichier d’étiquette de nœud est stocké sur HDFS avec trois réplicas. Si la taille du cluster est considérablement réduite et qu’il y a une grande quantité de données temporaires, les trois réplicas peuvent être supprimés. Dans ce cas, le cluster passe en état d’erreur.
 
-### <a name="llap-daemons-count"></a>Nombre de démons LLAP
+### <a name="interactive-query-daemons-count"></a>Nombre de démons Interactive Query
 
-En cas de clusters LLAP avec mise à l’échelle automatique, l’événement de scale-up/scale-down automatique augmente ou diminue également le nombre de démons LLAP sur le nombre de nœuds Worker actifs. La modification du nombre de démons n’est pas conservée dans la configuration `num_llap_nodes` dans Ambari. Si les services Hive sont redémarrés manuellement, le nombre de démons LLAP sera réinitialisé conformément à la configuration dans Ambari.
+En cas de clusters Interactive Query avec mise à l’échelle automatique, un événement de scale-up/scale-down automatique augmente ou diminue également le nombre de démons Interactive Query en fonction du nombre de nœuds Worker actifs. La modification du nombre de démons n’est pas conservée dans la configuration `num_llap_nodes` dans Ambari. Si les services Hive sont redémarrés manuellement, le nombre de démons Interactive Query est réinitialisé conformément à la configuration dans Ambari.
 
-Si le service LLAP est redémarré manuellement, vous devez modifier manuellement la configuration `num_llap_node` (le nombre de nœuds nécessaires pour exécuter le démon LLAP Hive) sous *Advanced hive-interactive-env* pour correspondre au nombre de nœuds de Worker actifs.
+Si le service Interactive Query est redémarré manuellement, vous devez modifier manuellement la configuration `num_llap_node` (nombre de nœuds nécessaires pour exécuter le démon Interactive Query Hive) sous *Advanced hive-interactive-env* pour correspondre au nombre de nœuds de Worker actifs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

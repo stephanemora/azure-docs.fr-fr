@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment mettre à jour la configuratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007109"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567823"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 
@@ -30,13 +30,13 @@ Par défaut, l’état de suppression réversible est activé pour tout coffre R
 Pour extraire l’état actuel de suppression réversible pour un coffre, utilisez l’opération *GET*.
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 L’URI GET contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`. Dans cet exemple, `{vaultName}` est « testVault » et `{vaultresourceGroupName}` est « testVaultRG ». Étant donné que tous les paramètres nécessaires sont fournis dans l’URI, un corps de demande distinct est inutile.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="responses"></a>Réponses
@@ -65,16 +65,16 @@ Une fois la demande « GET » envoyée, une réponse 200 (réussite) est retou
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Mettre à jour l’état de suppression réversible à l’aide de l’API REST
 
-Pour mettre à jour l’état de suppression réversible du coffre Recovery Services à l’aide de l’API REST, utilisez l’opération *PATCH* suivante
+Pour mettre à jour l’état de suppression réversible du coffre Recovery Services à l’aide de l’API REST, utilisez l’opération *PUT* suivante.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-L’URI PATCH contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`. Dans cet exemple, `{vaultName}` est « testVault » et `{vaultresourceGroupName}` est « testVaultRG ». Si nous remplaçons l’URI par les valeurs ci-dessus, l’URI ressemble à ce qui suit.
+L’URI de PUT contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`. Dans cet exemple, `{vaultName}` est « testVault » et `{vaultresourceGroupName}` est « testVaultRG ». Si nous remplaçons l’URI par les valeurs ci-dessus, l’URI ressemble à ce qui suit.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### <a name="create-the-request-body"></a>Créer le corps de la demande

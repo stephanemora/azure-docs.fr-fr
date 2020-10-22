@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527827"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972014"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
@@ -115,7 +115,7 @@ Vous pouvez utiliser le panneau **Catalogue de sauvegarde** pour restaurer votre
    
 4. Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde. Cliquez dessus avec le bouton droit puis sélectionnez **Restaurer** dans le menu contextuel.
 
-    ![Liste des jeux de sauvegarde](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Liste des jeux de sauvegarde 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Vous êtes invité à confirmer l’opération. Passez en revue les informations de restauration, puis cochez la case de confirmation.
    
@@ -123,7 +123,7 @@ Vous pouvez utiliser le panneau **Catalogue de sauvegarde** pour restaurer votre
 
 7. Cliquez sur **Restaurer**. Cette opération lance une tâche de restauration que vous pouvez afficher en accédant à la page **Tâches**.
 
-   ![Page Confirmation](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Page Confirmation 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Une fois la restauration terminée, vérifiez que le contenu de vos volumes a été remplacé par les volumes provenant de la sauvegarde.
 

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125530"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048438"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
 Azure Digital Twins consiste en un [graphique de jumeaux](concepts-twins-graph.md) représentant l’ensemble de votre environnement. Le graphique de jumeaux est constitué de jumeaux numériques individuels connectés via des **relations**.
 
-Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-scripted.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [**API DigitalTwins**](how-to-use-apis-sdks.md) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Une fois que vous disposez d’une [instance Azure Digital Twins](how-to-set-up-instance-portal.md) opérationnelle et que vous avez configuré un code d’[authentification](how-to-authenticate-client.md) dans votre application cliente, vous pouvez utiliser les [**API DigitalTwins**](how-to-use-apis-sdks.md) pour créer, modifier et supprimer des jumeaux numériques et leurs relations dans une instance Azure Digital Twins. Vous pouvez également utiliser le [Kit de développement logiciel (SDK) .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
 Cet article se concentre sur la gestion des relations et du graphique dans son ensemble. Pour utiliser des jumeaux numériques individuels, consultez [*Guide pratique : Gérer des jumeaux numériques*](how-to-manage-twin.md).
 
@@ -64,9 +64,17 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 
 Pour plus d’information sur la classe d’assistance `BasicRelationship`, consultez [*Guide pratique : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md).
 
+### <a name="create-multiple-relationships-between-twins"></a>Créer plusieurs relations entre jumeaux
+
+Il n’existe aucune restriction du nombre de relations que vous pouvez avoir entre deux jumeaux : vous pouvez avoir autant de relations entre jumeaux que vous le souhaitez. 
+
+Cela signifie que vous pouvez exprimer plusieurs types de relations entre deux jumeaux à la fois. Par exemple, le *Jumeau A* peut avoir une relation *stockée* et une relation *fabriquée* avec le *Jumeau B*.
+
+Vous pouvez même créer plusieurs instances du même type de relation entre les deux mêmes jumeaux si vous le souhaitez. Dans cet exemple, cela signifie que le *Jumeau A* pourrait avoir deux relations *stockées* distinctes avec le *Jumeau B*.
+
 ## <a name="list-relationships"></a>Lister les relations
 
-Pour accéder à la liste des relations d’un jumeau donné dans le graphique, vous pouvez utiliser :
+Pour accéder à la liste des relations **sortantes** provenant d’un jumeau donné dans le graphe, vous pouvez utiliser :
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -94,7 +102,7 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
+        Log.Error($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
         return null;
     }
 }
@@ -102,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Vous pouvez utiliser les relations récupérées pour accéder à d’autres jumeaux de votre graphique. Pour ce faire, lisez le champ `target` à partir de la relation retournée et utilisez-le comme ID de votre prochain appel à `GetDigitalTwin`. 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Rechercher des relations avec un jumeau numérique
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Rechercher des relations entrantes avec un jumeau numérique
 
-Azure Digital Twins dispose également d’une API permettant de rechercher toutes les relations entrantes avec un jumeau donné. Cela s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
+Azure Digital Twins dispose également d’une API permettant de rechercher toutes les relations **entrantes** avec un jumeau donné. Cela s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
 
-L’exemple de code précédent se concentrait sur la recherche de relations sortantes. L’exemple suivant est similaire, mais recherche plutôt des relations entrantes. Ils les supprime également une fois qu’il les a trouvées.
+L’exemple de code précédent se concentrait sur la recherche des relations sortantes d’un jumeau. L’exemple suivant est structuré de la même façon, mais il recherche des relations *entrantes*.
 
 Notez que les appels `IncomingRelationship` ne retournent pas le corps complet de la relation.
 
@@ -192,7 +200,7 @@ static async Task<bool> CreateRoom(string id, double temperature, double humidit
     }
     catch (ErrorResponseException e)
     {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
+        Console.WriteLine($"**_ Error creating twin {id}: {e.Response.StatusCode}"); 
         return false;
     }
 }
@@ -217,7 +225,7 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
     }
     catch (ErrorResponseException e)
     {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
+        Console.WriteLine($"_*_ Error creating twin {id}: {e.Response.StatusCode}"); 
         return false;
     }
 }
@@ -239,7 +247,7 @@ Examinez le tableau de données suivant, qui décrit un ensemble de jumeaux num�
 | room    | Room21 | Floor02 | contains | … |
 | room    | Room22 | Floor02 | contains | … |
 
-Le code suivant utilise l’[API Microsoft Graph](https://docs.microsoft.com/graph/overview) pour lire une feuille de calcul et construire un graphique de jumeaux Azure Digital Twins à partir des résultats.
+Le code suivant utilise l’[API Microsoft Graph](/graph/overview) pour lire une feuille de calcul et construire un graphique de jumeaux Azure Digital Twins à partir des résultats.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

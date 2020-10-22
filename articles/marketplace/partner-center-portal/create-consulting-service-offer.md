@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646830"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91709068"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
@@ -25,7 +25,7 @@ Avant de créer votre offre, passez en revue les conditions préalables dans [Co
 Avantages de la publication sur le marketplace commercial :
 
 - Promouvez votre entreprise en utilisant la marque Microsoft.
-- Touchez potentiellement plus de 100 millions d’utilisateurs Office 365 et Dynamics 365 sur AppSource, ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
+- Touchez potentiellement plus de 100 millions d’utilisateurs Microsoft 365 et Dynamics 365 sur AppSource ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
 - Recevez des prospects de grande qualité à partir de ces places de marché.
 - Bénéficiez d’une promotion de vos services assurée par les équipes de terrain et de télévente de Microsoft
 
@@ -76,10 +76,10 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
 
 Voici des ressources de gestion des prospects supplémentaires :
 
-- [Vue d’ensemble de la gestion des prospects](commercial-marketplace-get-customer-leads.md)
-- [Questions fréquentes sur la gestion des prospects](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Erreurs courantes de configuration des prospects](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
+- [Prospects de votre offre de marketplace commercial](commercial-marketplace-get-customer-leads.md)
+- [Questions courantes sur la gestion des prospects](../lead-management-faq.md#common-questions-about-lead-management)
+- [Résolution des erreurs de configuration des prospects](../lead-management-faq.md#publishing-config-errors)
+- PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -146,7 +146,7 @@ Voici un exemple de la façon dont les informations de l’offre s’affichent d
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans Microsoft AppSource (les prix répertoriés sont fournis à titre d’exemple uniquement et ne reflètent pas les coûts réels) :
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Illustre la façon dont cette offre s’affiche dans Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -202,7 +202,7 @@ Ajoutez jusqu’à trois (mais au moins un) documents PDF venant appuyer votre o
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
@@ -247,7 +247,7 @@ Ici, vous allez définir des éléments tels que la tarification, le marché et 
 
 Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez envoyer votre pour révision et publication.
 
-1. Lorsque vous êtes prêt à publier votre offre de services de conseil, cliquez sur **Passer en revue et publier**.
+1. Quand vous êtes prêt à publier votre offre de services de conseil, sélectionnez **Vérifier et publier**.
 2. Passez en revue les détails sur la page d’envoi finale.
 3. Si nécessaire, écrivez une note à l’équipe de certification si vous pensez que les détails de votre offre nécessitent une explication.
 4. Quand vous êtes prêt, sélectionnez **Envoyer**.

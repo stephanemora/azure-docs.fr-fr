@@ -1,18 +1,18 @@
 ---
 title: Comprendre les jumeaux numériques IoT Plug-and-Play
-description: Comprendre comment IoT Plug-and-Play (préversion) utilise les jumeaux numériques
+description: Comprendre comment IoT Plug-and-Play utilise les jumeaux numériques
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87351968"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046466"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Comprendre les jumeaux numériques IoT Plug-and-Play
 
@@ -34,7 +34,7 @@ Les API de jumeaux numériques opèrent sur des constructions de haut niveau en 
 
 Dans un jumeau d’appareil, l’état d’une propriété accessible en écriture est réparti entre les sections Souhaité et Rapporté. Toutes les propriétés en lecture seule sont accessibles dans la section Rapporté.
 
-Dans un jumeau numérique, il existe une vue unifiée de l’état actuel et souhaité de la propriété. L’état de synchronisation d’une propriété donnée est stocké dans la section `$metadata` du niveau racine ou du composant correspondante.
+Dans un jumeau numérique, il existe une vue unifiée de l’état actuel et souhaité de la propriété. L’état de synchronisation d’une propriété donnée est stocké dans la section `$metadata` du composant par défaut correspondant.
 
 ### <a name="digital-twin-json-format"></a>Format JSON de jumeaux numériques
 
@@ -51,9 +51,9 @@ Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numéri
 | `$metadata.{propertyName}.ackCode` | [Obligatoire, uniquement pour les propriétés accessibles en écriture] Code `ack` retourné par l’application d’appareil qui implémente le jumeau numérique |
 | `$metadata.{propertyName}.ackDescription` | [Facultatif, uniquement pour les propriétés accessibles en écriture] Description `ack` retournée par l’application d’appareil qui implémente le jumeau numérique |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub conserve l’horodatage de la dernière mise à jour de la propriété par l’appareil. Les horodatages sont exprimés en UTC et codés au format ISO 8601 AAAA-MM-JJTHH:MM:SS.mmmZ. |
-| `{componentName}` | Objet JSON contenant les valeurs de propriété et les métadonnées du composant, similaires à un objet racine. |
+| `{componentName}` | Objet JSON contenant les valeurs de propriété et les métadonnées du composant. |
 | `{componentName}.{propertyName}` | Valeur de la propriété du composant au format JSON |
-| `{componentName}.$metadata` | Informations de métadonnées pour le composant, similaires aux `$metadata` au niveau de la racine |
+| `{componentName}.$metadata` | Informations sur les métadonnées du composant. |
 
 #### <a name="device-twin-sample"></a>Exemple de jumeau d’appareil
 
@@ -171,7 +171,7 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 #### <a name="writable-property"></a>Propriété accessible en écriture
 
-Supposons que l’appareil avait également la propriété accessible en écriture suivante au niveau racine :
+Supposons que l’appareil avait également la propriété accessible en écriture suivante dans le composant par défaut :
 
 ```json
 {
@@ -307,7 +307,7 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 ## <a name="digital-twin-apis"></a>API de jumeaux numériques
 
-Azure Digital Twins est fourni avec les opérations **Obtenir le jumeau numérique**, **Mettre à jour un jumeau numérique**, **Appeler la commande d’un composant** et **Appeler une commande** pour gérer le jumeau numérique de l’appareil. Vous pouvez utiliser les [API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directement ou par le biais d’un [Kit de développement logiciel (SDK) de service](../iot-pnp/libraries-sdks.md).
+Azure Digital Twins est fourni avec les opérations **Obtenir le jumeau numérique**, **Mettre à jour un jumeau numérique**, **Appeler la commande d’un composant** et **Appeler une commande** pour gérer le jumeau numérique de l’appareil. Vous pouvez utiliser les [API REST](/rest/api/iothub/service/digitaltwin) directement ou par le biais d’un [Kit de développement logiciel (SDK) de service](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Événements de changement de jumeau numérique
 
@@ -374,11 +374,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> Les messages de notification de changement de jumeau sont doublés lorsqu’ils sont activés à la fois dans les notifications de modification d’appareil et de jumeau numérique.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez découvert les jumeaux numériques, voici quelques ressources supplémentaires :
 
 - [Comment utiliser les API de jumeaux numériques d’IoT Plug-and-Play](howto-manage-digital-twin.md)
 - [Interagir avec un appareil à partir de votre solution](quickstart-service-node.md)
-- [API REST de jumeau numérique IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST de jumeau numérique IoT](/rest/api/iothub/service/digitaltwin)
 - [Explorateur Azure IoT](howto-use-iot-explorer.md)

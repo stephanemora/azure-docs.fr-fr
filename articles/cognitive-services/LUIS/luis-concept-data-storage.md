@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/13/2020
+ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541881"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018030"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Stockage et suppression des données dans Language Understanding (LUIS) Cognitive Services
 LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé. Ces données sont stockées pendant 30 jours. 
@@ -50,9 +50,14 @@ Si vous ne souhaitez pas avoir d’énoncés d’apprentissage actif, vous pouve
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Supprimer un compte
-Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux d’activité. Les données sont conservées pendant 60 jours avant que le compte et les données ne soient définitivement supprimés.
+Si vous n’avez pas migré, vous pouvez supprimer votre compte et toutes vos applications seront supprimées ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 90 jours avant que le compte et les données ne soient définitivement supprimés.
 
 La suppression d’un compte est possible à partir de la page **Paramètres**. Sélectionnez le nom de votre compte en haut à droite dans la barre de navigation supérieure pour accéder à la page **Paramètres**.
+
+## <a name="delete-an-authoring-resource"></a>Supprimer une ressource de création
+Si vous avez [migré vers une ressource de création](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), la suppression de la ressource elle-même dans le portail Azure supprimera toutes vos applications associées à cette ressource, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées pendant 90 jours avant leur suppression définitive.    
+
+Pour supprimer votre ressource, accédez au [portail Azure](https://ms.portal.azure.com/#home) et sélectionnez votre ressource de création LUIS. Accédez à l’onglet **Vue d’ensemble** et cliquez sur le bouton **Supprimer** en haut de la page. Confirmez ensuite que votre ressource a été supprimée. 
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>Inactivité de données considérée comme un abonnement arrivé à expiration
 Dans le cadre de la conservation et de la suppression des données, une application LUIS inactive peut, à la _discrétion de Microsoft_ être traitée comme un abonnement arrivé à expiration. Une application est considérée comme inactive si elle répond aux critères suivants pendant les 90 derniers jours : 

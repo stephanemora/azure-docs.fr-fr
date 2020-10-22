@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192145"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91576215"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Diffuser des données à partir d’Azure Storage Blob dans Azure Data Lake Storage Gen1 à l’aide d’Azure Stream Analytics
 Cet article explique comment utiliser Azure Data Lake Storage Gen1 comme sortie pour une tâche Azure Stream Analytics. Cet article présente un scénario simple qui consiste à lire des données à partir d’un objet blob Azure Storage (entrée) et à écrire les données dans Data Lake Storage Gen1 (sortie).
@@ -42,11 +42,11 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 1. Ouvrez la page du travail Stream Analytics et, dans le volet gauche, cliquez sur l’onglet **Entrées**, puis sur **Ajouter**.
 
-    ![Ajout d’une entrée au travail](./media/data-lake-store-stream-analytics/create.input.1.png "Ajouter une entrée à votre tâche")
+    ![Capture d’écran du panneau Tâche Stream Analytics avec l’option Entrées et l’option Ajouter une entrée de flux mises en évidence.](./media/data-lake-store-stream-analytics/create.input.1.png "Ajouter une entrée à votre tâche")
 
 2. Dans le panneau **Nouvelle entrée**, fournissez les valeurs suivantes.
 
-    ![Ajout d’une entrée au travail](./media/data-lake-store-stream-analytics/create.input.2.png "Ajouter une entrée à votre tâche")
+    ![Capture d’écran du panneau Stockage Blob - Nouvelle entrée.](./media/data-lake-store-stream-analytics/create.input.2.png "Ajouter une entrée à votre tâche")
 
    * Pour **Alias d’entrée**, entrez un nom unique pour l’entrée de travail.
    * Pour **Type de source**, sélectionnez **Flux de données**.
@@ -65,18 +65,18 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
 
 1. Ouvrez la page du travail Stream Analytics, cliquez sur l’onglet **Sorties**, puis sur **Ajouter** et sélectionnez **Data Lake Storage Gen1**.
 
-    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.1.png "Ajouter une sortie à votre tâche")
+    ![Capture d’écran du panneau Tâche Stream Analytics avec l’option Sorties, l’option Ajouter et l’option Data Lake Storage Gen1 mises en évidence.](./media/data-lake-store-stream-analytics/create.output.1.png "Ajouter une sortie à votre tâche")
 
 2. Dans le panneau **Nouvelle sortie**, fournissez les valeurs suivantes.
 
-    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.2.png "Ajouter une sortie à votre tâche")
+    ![Capture d’écran du panneau Data Lake Storage Gen1 - Nouvelle sortie, avec l’option Autoriser mise en évidence.](./media/data-lake-store-stream-analytics/create.output.2.png "Ajouter une sortie à votre tâche")
 
     * Dans la zone **Alias de sortie**, entrez un nom unique pour la sortie de travail. Il s’agit du nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce compte Data Lake Storage Gen1.
     * Vous êtes invité à autoriser l’accès au compte Data Lake Storage Gen1. Cliquez sur **Autoriser**.
 
 3. Dans le panneau **Nouvelle sortie**, continuez à fournir les valeurs suivantes.
 
-    ![Ajout d’une sortie au travail](./media/data-lake-store-stream-analytics/create.output.3.png "Ajouter une sortie à votre tâche")
+    ![Capture d’écran du panneau Data Lake Storage Gen1 - Nouvelle sortie.](./media/data-lake-store-stream-analytics/create.output.3.png "Ajouter une sortie à votre tâche")
 
    * Pour **Nom du compte**, sélectionnez le compte Data Lake Storage Gen1 que vous avez déjà créé et auquel vous voulez envoyer la sortie de travail.
    * Pour **Modèle de préfixe de chemin d’accès**, entrez un chemin où écrire vos fichiers dans le compte Data Lake Storage Gen1 spécifié.

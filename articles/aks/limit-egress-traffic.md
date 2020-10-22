@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594257"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570373"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -49,11 +49,11 @@ Les règles de réseau et les dépendances d’adresse IP requises sont les suiv
 
 | Point de terminaison de destination                                                             | Protocol | Port    | Utilisation  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Ou* <br/> [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDR régionaux](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Pour les communications sécurisées par tunnel entre les nœuds et le plan de contrôle. |
-| **`*:9000`** <br/> *Ou* <br/> [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDR régionaux](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Pour les communications sécurisées par tunnel entre les nœuds et le plan de contrôle. |
+| **`*:1194`** <br/> *Ou* <br/> [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDR régionaux](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Pour les communications sécurisées par tunnel entre les nœuds et le plan de contrôle. Ce n’est pas obligatoire pour les [clusters privés](private-clusters.md).|
+| **`*:9000`** <br/> *Ou* <br/> [Balise de service](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDR régionaux](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Pour les communications sécurisées par tunnel entre les nœuds et le plan de contrôle. Ce n’est pas obligatoire pour les [clusters privés](private-clusters.md). |
 | **`*:123`** ou **`ntp.ubuntu.com:123`** (en cas d’utilisation de règles de réseau de Pare-feu Azure)  | UDP      | 123     | Obligatoire pour la synchronisation date/heure NTP (Network Time Protocol) sur les nœuds Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si vous utilisez des serveurs DNS personnalisés, vous devez vérifier qu’ils sont accessibles par les nœuds de cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatoire en cas d’exécution de pods/déploiements qui accèdent au serveur d’API. Ces pods/déploiements utiliseront l’adresse IP de l’API.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatoire en cas d’exécution de pods/déploiements qui accèdent au serveur d’API. Ces pods/déploiements utiliseront l’adresse IP de l’API. Ce n’est pas obligatoire pour les [clusters privés](private-clusters.md).  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure Global 
 
@@ -205,10 +205,7 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | `storage.googleapis.com` | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (préversion)
-
-> [!CAUTION]
-> Certaines des fonctionnalités ci-dessous sont en préversion.  Les suggestions de cet article sont susceptibles de changer à mesure que la fonctionnalité passe à la préversion publique et aux étapes de mise en production ultérieures.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises 
 
@@ -219,7 +216,6 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitation du trafic de sortie à l’aide du Pare-feu Azure
 
@@ -766,7 +762,7 @@ Accédez à l’adresse IP du front-end du pare-feu Azure dans un navigateur pou
 L’application de vote AKS s’affiche. Dans cet exemple, l’IP publique du pare-feu était `52.253.228.132`.
 
 
-![aks-vote](media/limit-egress-traffic/aks-vote.png)
+![Capture d’écran montrant l’application AKS Voting avec des boutons pour Cats, Dogs, Reset et les totaux.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources

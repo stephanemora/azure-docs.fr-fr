@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698935"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744132"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Déployer le service StorSimple Device Manager pour StorSimple Virtual Array
 
@@ -109,7 +109,7 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 #### <a name="to-regenerate-the-service-registration-key"></a>Pour régénérer la clé d’inscription du service
 1. Dans le panneau **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
    
-   ![Panneau Clés](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Panneau Clés de nouveau](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Dans le panneau **Clés**, cliquez sur **Régénérer**.
    
    ![Cliquer sur Régénérer](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
    ![Confirmer la régénération de la clé](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Une nouvelle clé d’inscription du service s’affiche.
    
-    ![Confirmer la régénération de la clé](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Confirmation supplémentaire de la regénération de la clé](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copiez cette clé et sauvegardez-la pour enregistrer tout nouvel appareil auprès de ce service.
 

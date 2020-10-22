@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904436"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952146"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gérer le calcul sur votre ressource Azure Stack Edge Pro
 
@@ -107,7 +107,7 @@ Pour supprimer la configuration de computing en périphérie de votre appareil, 
 
 2. Si vous supprimez la configuration de calcul, vous devrez reconfigurer votre appareil si vous avez besoin d’utiliser le calcul à nouveau. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**.
 
-    ![Sélectionner Supprimer le computing](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Sélectionner Supprimer le computing 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge
 

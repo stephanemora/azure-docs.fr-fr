@@ -1,20 +1,20 @@
 ---
 title: Utiliser les classeurs Azure Monitor avec Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment utiliser Azure Monitor classeurs pour examiner les audits de sécurité et comprendre les problèmes d’un domaine managé Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967067"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Examiner les événements d’audit de sécurité dans Azure Active Directory Domain Services à l’aide d’Azure Monitor Workbooks
 
@@ -58,7 +58,7 @@ Pour accéder au modèle de classeur pour le rapport de vue d’ensemble de la s
 1. Sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Dans le menu de gauche, choisissez **Supervision > Classeurs**
 
-    ![Sélectionnez l’option de menu Classeurs dans le Portail Microsoft Azure.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Capture d’écran qui indique où sélectionner le rapport de vue d’ensemble de la sécurité et le rapport d’activité de compte.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choisissez le **Rapport Vue d’ensemble de la sécurité**.
 1. Dans les menus déroulants en haut du classeur, sélectionnez votre abonnement Azure, puis un espace de travail Azure Monitor.

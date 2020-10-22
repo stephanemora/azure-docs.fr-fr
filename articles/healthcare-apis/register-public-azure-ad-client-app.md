@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853039"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975907"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Inscrire une application cliente publique dans Azure Active Directory
 
 Dans cet article, vous découvrez comment inscrire une application publique dans Azure Active Directory.  
 
 Les inscriptions d’applications clientes sont des représentations Azure Active Directory des applications qui peuvent être utilisées pour l’authentification et la demande d’autorisations d’API au nom d’un utilisateur. Les clients publics sont des applications telles que des applications mobiles et des applications JavaScript monopages qui ne peuvent pas garder les secrets confidentiels. La procédure est similaire à [l’inscription d’un client confidentiel](register-confidential-azure-ad-client-app.md), mais étant donné que les clients publics ne peut pas être garder un secret d’application, il est inutile d’en ajouter un.
+
+Le guide de démarrage rapide fournit des informations générales sur la façon d’[inscrire une application auprès de la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## <a name="app-registrations-in-azure-portal"></a>Inscriptions d’applications dans le portail Azure
 
@@ -39,13 +41,26 @@ Les inscriptions d’applications clientes sont des représentations Azure Activ
 
     ![Portail Azure. Nouvelle inscription d’application publique.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
+
+Pour configurer votre application [de bureau](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobile](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) ou [monopage](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) en tant qu’application publique :
+
+1. Dans le [portail Azure](https://portal.azure.com), dans **Inscriptions d’applications**, sélectionnez votre application, puis sélectionnez **Authentification**.
+
+2. Sélectionnez **Paramètres avancés** > **Type de client par défaut**. Pour **Considérer l’application comme un client public**, sélectionnez **Oui**.
+
+3. Pour une application monopage, sélectionnez **Jetons d’accès** et **Jetons d’ID** afin d’activer le flux implicite.
+
+   - Si votre application connecte des utilisateurs, sélectionnez **Jetons d’ID**.
+   - Si votre application doit également appeler une API web protégée, sélectionnez **Jetons d’accès**.
+
 ## <a name="api-permissions"></a>Autorisations des API
 
 Comme pour [l’application cliente confidentielle](register-confidential-azure-ad-client-app.md), vous devez sélectionner quelles autorisations d’API cette application peut demander au nom des utilisateurs :
 
 1. Ouvrez les **Autorisations de l’API**.
 
-    Si vous utilisez l’API Azure pour FHIR, vous devez ajouter une autorisation aux API Azure Healthcare en recherchant les API Azure Healthcare sous **API utilisées par mon organisation** (image ci-dessous).
+    Si vous utilisez l’API Azure pour FHIR, vous devez ajouter une autorisation aux API Azure Healthcare en recherchant les API Azure Healthcare sous **API utilisées par mon organisation**. Vous ne pouvez le trouver que si vous avez déjà [déployé l’API Azure pour FHIR](fhir-paas-powershell-quickstart.md).
+
     
     Si vous référencez une autre application de ressource, sélectionnez l’[inscription d’application de ressource d’API FHIR](register-resource-azure-ad-client-app.md) que vous avez créée sous **Mes API** :
 

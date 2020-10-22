@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036928"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710377"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
@@ -409,15 +409,15 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 
 4.  Dans la liste déroulante **Storage (Stockage)** , sélectionnez le volume StorSimple sur lequel vous voulez que le travail d’archivage stocke les données.
 
-    ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Capture d’écran montrant la liste dans laquelle vous devez sélectionner le stockage.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Sélectionnez **Verify (Vérifier)** , puis cochez la case **Do not verify data for this job (Ne pas vérifier les données de ce travail)** .
 
-    ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Capture d’écran montrant où vous sélectionnez l’option Do not verify data for this job.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Sélectionnez **OK**.
 
-    ![Console d’administration de Backup Exec, propriétés de définition de sauvegarde et options de duplication](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Capture d’écran montrant les propriétés de définition de sauvegarde.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  Dans la colonne **Backup (Sauvegarde)** , ajoutez une nouvelle étape. Pour la source, utilisez l’option **incrémentielle**. Pour la cible, choisissez un volume StorSimple sur lequel le travail de sauvegarde incrémentielle est archivé. Répétez les étapes 1 à 6.
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.reviewer: jrasnick, sstein
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91596974"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Supervision et réglage des performances dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,14 @@ Azure SQL Database fournit un certain nombre de conseillers en base de données 
 
 Azure SQL Database et Azure SQL Managed Instance offrent des fonctionnalités de supervision et de réglage avancées qui s’appuient sur l’intelligence artificielle pour vous aider à résoudre les problèmes et à optimiser les performances de vos bases de données et solutions. Vous pouvez choisir de configurer l’[exportation en streaming](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de ces journaux [Intelligent Insights](intelligent-insights-overview.md) et d’autres journaux de ressources et métriques de bases de données vers l’une des différentes destinations à des fins de consommation et d’analyse, en particulier à l’aide de [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL Analytics est une solution de supervision du cloud avancée permettant de superviser dans un seul affichage les performances de toutes vos bases de données à grande échelle et sur plusieurs abonnements. Pour obtenir la liste des journaux et des métriques que vous pouvez exporter, consultez [Télémétrie de diagnostic pour l’exportation](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Enfin, SQL Server possède ses propres capacités de supervision et de diagnostic dont bénéficient SQL Database et SQL Managed Instance, comme le [magasin de requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) et les [vues de gestion dynamique (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consultez [Surveillance avec des DMV](monitoring-with-dmvs.md) pour des scripts afin de surveiller un large éventail de problèmes de performances.
+SQL Server possède ses propres capacités d’analyse et de diagnostic dont bénéficient SQL Database et SQL Managed Instance, comme le [magasin de requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) et les [vues de gestion dynamique (DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consultez [Surveillance avec des DMV](monitoring-with-dmvs.md) pour des scripts afin de surveiller un large éventail de problèmes de performances.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Capacités de surveillance et d’optimisation dans le portail Azure
 
-Dans le portail Azure, Azure SQL Database et Azure SQL Managed Instance assurent la supervision des métriques de ressources. De plus, Azure SQL Database fournit des conseillers en base de données et Query Performance Insight propose des recommandations de paramétrage des requêtes et une analyse des performances des requêtes. Enfin, dans le portail Azure, vous pouvez automatiser ces options pour les [serveurs SQL logiques](logical-servers.md) et leurs bases de données uniques et mises en pool.
+Dans le portail Azure, Azure SQL Database et Azure SQL Managed Instance assurent la supervision des métriques de ressources. Azure SQL Database fournit des conseillers en base de données, et Query Performance Insight propose des recommandations de paramétrage des requêtes et une analyse des performances des requêtes. Dans le portail Azure, vous pouvez activer le paramétrage automatique pour les [serveurs SQL logiques](logical-servers.md) et leurs bases de données uniques et mises en pool.
+
+> [!NOTE]
+> Les bases de données dont l’utilisation est très faible peuvent apparaître dans le portail avec une utilisation inférieure à la réalité. En raison de la manière dont la télémétrie est émise lors de la conversion d’une valeur double en un nombre entier le plus proche, certaines quantités d’utilisation inférieures à 0,5 seront arrondies à 0, ce qui entraîne une perte de granularité de la télémétrie émise. Pour plus d’informations, consultez [Métriques faibles de base de données et de pool élastique arrondies à zéro](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Supervision des ressources Azure SQL Database et Azure SQL Managed Instance
 
@@ -46,6 +49,33 @@ Azure SQL Database inclut des [conseillers en base de données](database-advisor
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Query Performance Insight dans Azure SQL Database
 
 [Query Performance Insight](query-performance-insight-use.md) affiche dans le portail Azure les performances des requêtes qui consomment le plus de ressources et dont l’exécution et la plus longue pour les bases de données uniques et mises en pool.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Métriques faibles de base de données et de pool élastique arrondies à zéro
+
+À compter de septembre 2020, les bases de données dont l’utilisation est très faible peuvent apparaître dans le portail avec une utilisation inférieure à la réalité. En raison de la manière dont la télémétrie est émise lors de la conversion d’une valeur double en un nombre entier le plus proche, certaines quantités d’utilisation inférieures à 0,5 seront arrondies à 0, ce qui entraîne une perte de granularité de la télémétrie émise.
+
+Par exemple : Imaginez une fenêtre d’une minute avec les quatre points de données suivants : 0,1, 0,1, 0,1, 0,1. Ces valeurs basses sont arrondies à 0, 0, 0, 0 et présentent une moyenne de 0. Si l’un des points de données est supérieur à 0,5, par exemple : 0,1, 0,1, 0,9, 0,1, ils sont arrondis à 0, 0, 1, 0 et présentent une moyenne de 0,25.
+
+Métriques de base de données concernées :
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Métriques de pool élastique concernées :
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Générer des évaluations intelligentes des problèmes de performances
 

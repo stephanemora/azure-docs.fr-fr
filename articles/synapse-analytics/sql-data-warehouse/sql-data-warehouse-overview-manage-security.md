@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200968"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91629367"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Sécuriser une base de données dans Azure Synapse
 
@@ -33,7 +33,7 @@ Cet article présente les bases de la sécurisation de votre pool SQL Synapse. P
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Le [serveur SQL logique](../../azure-sql/database/logical-servers.md) que ses bases de données utilisent des règles de pare-feu pour rejeter les tentatives de connexion provenant d'adresses IP qui n'ont pas été explicitement mises en liste verte. Pour autoriser les connexions à partir de l’adresse IP publique de l’ordinateur client ou de votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, de l’API REST ou de PowerShell.
+Le [serveur SQL logique](../../azure-sql/database/logical-servers.md) et ses bases de données utilisent des règles de pare-feu pour rejeter les tentatives de connexion provenant d'adresses IP qui n'ont pas été explicitement approuvées. Pour autoriser les connexions à partir de l’adresse IP publique de l’ordinateur client ou de votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, de l’API REST ou de PowerShell.
 
 Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d'adresses IP autorisées à traverser le pare-feu au niveau de votre serveur.  Pour accéder au pool SQL à partir de votre ordinateur local, vérifiez que le pare-feu de votre réseau et l'ordinateur local autorisent les communications sortantes sur le port TCP 1433.  
 

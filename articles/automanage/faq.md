@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714962"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
@@ -33,10 +33,13 @@ Les conditions préalables à l’activation d’Azure Automanage sont les suiva
 - L’utilisateur doit disposer des autorisations appropriées.
 - Les machines virtuelles ne peuvent pas faire partie d’un groupe identique.
 - Les machines virtuelles ne doivent pas être liées à un espace de travail d’analytique des journaux d’activité dans un autre abonnement.
+- Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
-**Quelle autorisation RBAC est nécessaire pour activer Automanage ?**
+**Quelle autorisation Azure RBAC est nécessaire pour activer Automanage ?**
 
-Les utilisateurs doivent avoir le rôle Propriétaire. Les utilisateurs peuvent également avoir le rôle Contributeur et le rôle Administrateur de l’accès utilisateur pour appliquer Automanage.
+Si vous activez Automanage sur une machine virtuelle avec un compte Automanage existant, vous devez disposer du rôle Contributeur pour le groupe de ressources où réside la machine virtuelle.
+
+Si vous utilisez un nouveau compte Automanage lors de l’activation, vous devez avoir le rôle Propriétaire ou le rôle Contributeur + Administrateur de l’accès utilisateur sur l’abonnement.
 
 
 **Quelles sont les régions prises en charge ?**
@@ -48,6 +51,9 @@ Les machines virtuelles prises en charge sont situées dans les régions suivant
 
 Automanage inscrit, configure et surveille tout au long du cycle de vie de la machine virtuelle les services répertoriés [ici](virtual-machines-best-practices.md).
 
+**Azure Automanage fonctionne-t-il avec les machines virtuelles avec Azure Arc ?**
+
+Actuellement, Automanage ne prend pas en charge les machines virtuelles avec Azure Arc.
 
 **Puis-je personnaliser les configurations sur Azure Automanage ?**
 
@@ -82,6 +88,11 @@ Oui, nous disposons d’une stratégie intégrée qui applique automatiquement A
 **Qu’est-ce qu’un compte Automanage ?**
 
 Le compte Automanage est une MSI (Managed Service Identity) qui fournit le contexte de sécurité ou l’identité sous laquelle les opérations automatisées sont effectuées.
+
+
+**Lors de l’activation d’Automanage, des machines virtuelles supplémentaires sont-elles affectées, en plus de celles que j’ai sélectionnées ?**
+
+Si votre machine virtuelle est liée à un espace de travail Log Analytics existant, nous réutiliserons cet espace de travail pour appliquer ces solutions : Change Tracking, Inventaire et Update Management. Ces solutions seront activées sur toutes les machines virtuelles connectées à cet espace de travail.
 
 
 **Puis-je modifier le profil de configuration de ma machine virtuelle ?**

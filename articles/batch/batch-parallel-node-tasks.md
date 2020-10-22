@@ -2,16 +2,16 @@
 title: Exécuter des tâches en parallèle pour optimiser les ressources de calcul
 description: Améliorer l’efficacité et réduire les coûts en utilisant moins de nœuds de calcul et en exécutant des tâches simultanées sur chaque nœud dans un pool Azure Batch
 ms.topic: how-to
-ms.date: 04/17/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: e4c98244755cae7a606ebe26cbadef53ca5fd922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c3a81aa624ccc67c0f9e8ec23e5ef9b8e61c724
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926284"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850997"
 ---
-# <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch 
+# <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch
 
 En exécutant simultanément plusieurs tâches sur chaque nœud de calcul dans votre pool Azure Batch, vous pouvez optimiser l’utilisation des ressources sur un plus petit nombre de nœuds du pool. Pour certaines charges de travail, vous obtiendrez ainsi des durées de travail réduites et un coût inférieur.
 
@@ -28,12 +28,17 @@ Comme exemple d’illustration des avantages de l’exécution de tâches parall
 Au lieu d’utiliser les nœuds Standard\_D1 avec 1 cœur de processeur, vous pouvez utiliser des nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) avec 16 cœurs chacun, et activer l’exécution de tâches parallèles. Vous pouvez donc utiliser *16 fois moins de nœuds* : à la place des 1 000 nœuds, seuls 63 sont requis. En outre, si des fichiers d’application volumineux ou des données de référence sont requis pour chaque nœud, l’efficacité et la durée du travail sont encore améliorées, car les données ne sont copiées que sur 63 nœuds.
 
 ## <a name="enable-parallel-task-execution"></a>Activer l’exécution des tâches parallèles
-Vous configurez les nœuds de calcul pour l’exécution des tâches parallèles au niveau du pool. Avec la bibliothèque Batch .NET, définissez la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] lorsque vous créez un pool. Si vous utilisez l’API REST Batch, définissez l’élément [maxTasksPerNode][rest_addpool] dans le corps de la requête lors de la création du pool.
+Vous configurez les nœuds de calcul pour l’exécution des tâches parallèles au niveau du pool. Avec la bibliothèque Batch .NET, définissez la propriété [CloudPool.TaskSlotsPerNode][maxtasks_net] lorsque vous créez un pool. Si vous utilisez l’API REST Batch, définissez l’élément [taskSlotsPerNode][rest_addpool] dans le corps de la demande lors de la création du pool.
 
-Azure Batch vous permet de définir le nombre de tâches par nœud : jusqu'à quatre fois le nombre de nœuds. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Cependant, quel que soit le nombre de cœurs du nœud, vous ne pouvez pas dépasser les 256 tâches par nœud. Pour plus d’informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](../cloud-services/cloud-services-sizes-specs.md). Pour plus d’informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
+Azure Batch vous permet de définir un nombre d’emplacements de tâches par nœud jusqu’à quatre fois supérieur au nombre de nœuds. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `taskSlotsPerNode` peut être définie sur 16. Toutefois, quel que soit le nombre de cœurs du nœud, vous ne pouvez pas dépasser les 256 emplacements de tâches par nœud. Pour plus d’informations sur le nombre de cœurs pour chacune des tailles de nœud, consultez [Tailles de services Cloud](../cloud-services/cloud-services-sizes-specs.md). Pour plus d’informations sur les limites du service, consultez [Quotas et les limites pour le service Azure Batch](batch-quota-limit.md).
 
 > [!TIP]
-> Veillez à prendre en compte la valeur `maxTasksPerNode` lors de la construction d’une [formule de mise à l’échelle][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.
+> Veillez à prendre en compte la valeur `taskSlotsPerNode` lors de la construction d’une [formule de mise à l’échelle][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.
+>
+>
+
+> [!NOTE]
+> Vous ne pouvez définir l’élément `taskSlotsPerNode` et la propriété [TaskSlotsPerNode][maxtasks_net] qu’au moment de la création du pool. Ils ne peuvent pas être modifiés après qu'un pool a déjà été créé.
 >
 >
 
@@ -42,10 +47,28 @@ Lorsque les nœuds de calcul d’un pool peuvent exécuter des tâches simultan�
 
 La propriété [CloudPool.TaskSchedulingPolicy][task_schedule] vous permet de spécifier que les tâches doivent être affectées uniformément entre tous les nœuds du pool (« propagation »). Vous pouvez également spécifier qu'autant de tâches que possible doivent être attribuées à chaque nœud avant que les tâches ne soient attribuées à un autre nœud du pool (« compression »).
 
-Pour illustrer l’importance de cette fonctionnalité, examinons le pool de nœuds [Standard_Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (dans l’exemple ci-dessus) configuré avec une propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] d’une valeur de 16. Si la propriété [CloudPool.TaskSchedulingPolicy][task_schedule] est configurée avec une propriété [ComputeNodeFillType][fill_type] de type *Pack*, l’utilisation des 16 cœurs de chaque nœud est optimisée et un [pool de mise à l’échelle automatique](batch-automatic-scaling.md) est autorisé pour nettoyer les nœuds inutilisés du pool (nœuds sans aucune tâche affectée). Ceci limite l'utilisation des ressources et permet d'économiser de l'argent.
+Pour illustrer l’importance de cette fonctionnalité, examinons le pool de nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (dans l’exemple ci-dessus) configuré avec une propriété [CloudPool.TaskSlotsPerNode][maxtasks_net] de valeur 16. Si la propriété [CloudPool.TaskSchedulingPolicy][task_schedule] est configurée avec une propriété [ComputeNodeFillType][fill_type] de type *Pack*, l’utilisation des 16 cœurs de chaque nœud est optimisée et un [pool de mise à l’échelle automatique](batch-automatic-scaling.md) est autorisé pour nettoyer les nœuds inutilisés du pool (nœuds sans aucune tâche affectée). Ceci limite l'utilisation des ressources et permet d'économiser de l'argent.
+
+## <a name="variable-slots-per-task"></a>Emplacements variables par tâche
+La tâche peut être définie avec la propriété [CloudTask.RequiredSlots][taskslots_net] pour spécifier le nombre d’emplacements nécessaires pour une exécution sur un nœud de calcul, avec une valeur par défaut de 1. Vous pouvez définir des emplacements de tâches variables si vos tâches ont des pondérations différentes concernant l’utilisation des ressources sur le nœud de calcul, de sorte que chaque nœud de calcul puisse avoir un nombre raisonnable de tâches simultanées sans surcharger les ressources système telles que le processeur ou la mémoire.
+
+Par exemple, pour un pool avec la propriété `taskSlotsPerNode = 8`, vous pouvez soumettre des tâches gourmandes en ressources processeur nécessitant plusieurs cœurs avec `requiredSlots = 8`, et d’autres tâches avec `requiredSlots = 1`. Lorsque cette charge de travail mixte est planifiée sur le pool, les tâches gourmandes en ressources processeur s’exécutent exclusivement sur le nœud de calcul, tandis que d’autres tâches peuvent s’exécuter simultanément (jusqu’à huit tâches) sur d’autres nœuds. Cela vous permet d’équilibrer votre charge de travail entre les nœuds de calcul et d’améliorer l’efficacité de l’utilisation des ressources.
+
+> [!TIP]
+> Lors de l’utilisation d’emplacements de tâches variables, il est possible que des tâches volumineuses nécessitant davantage d’emplacements ne puissent temporairement pas être planifiées en raison d’un nombre insuffisant d’emplacements disponibles sur un nœud de calcul, même si des emplacements sont encore inactifs sur certains nœuds. Vous pouvez augmenter la priorité de travail pour ces tâches afin d’augmenter leurs chances de rivaliser pour les emplacements disponibles sur les nœuds.
+>
+> Le service Batch émet également [TaskScheduleFailEvent](batch-task-schedule-fail-event.md) lorsqu’il ne parvient pas à planifier l’exécution d’une tâche, tout en renouvelant la tentative de planification jusqu’à ce que les emplacements exigés soient disponibles. Vous pouvez être à l’écoute de cet événement pour détecter les problèmes potentiels de planification de tâches bloquée, et réaliser une atténuation en conséquence.
+>
+
+> [!NOTE]
+> Ne spécifiez pas une valeur `requiredSlots` de la tâche supérieure à la valeur `taskSlotsPerNode` du pool. Cela résulterait en une tâche qui ne pourrait jamais s’exécuter. Actuellement, le service Batch n’effectue pas cette validation lorsque vous soumettez des tâches, car le travail peut ne pas avoir de pool lié au moment de l’envoi, ou être remplacé par un pool différent par désactivation/réactivation.
+>
 
 ## <a name="batch-net-example"></a>Exemple .NET Batch
-Cet extrait de code de l’API [Batch .NET][api_net] illustre une demande de création d’un pool contenant quatre nœuds avec un maximum de quatre tâches par nœud. Une stratégie de planification de tâche est également spécifiée ; elle remplira chaque nœud de tâches avant d'attribuer des tâches à un autre nœud du pool. Pour plus d’informations sur l’ajout de pools à l’aide de l’API Batch .NET, consultez [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+Les extraits de code d’API [.NET Batch][api_net] suivants montrent comment créer un pool avec plusieurs emplacements de tâches par nœud, et soumettre une tâche avec les emplacements exigés.
+
+### <a name="create-pool"></a>Créer un pool
+Cet extrait de code illustre une demande de création d’un pool contenant quatre nœuds avec un maximum de quatre emplacements de tâches par nœud. Une stratégie de planification de tâche est également spécifiée ; elle remplira chaque nœud de tâches avant d'attribuer des tâches à un autre nœud du pool. Pour plus d’informations sur l’ajout de pools à l’aide de l’API Batch .NET, consultez [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
@@ -55,9 +78,42 @@ CloudPool pool =
         virtualMachineSize: "standard_d1_v2",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
-pool.MaxTasksPerComputeNode = 4;
+pool.TaskSlotsPerNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
 pool.Commit();
+```
+
+### <a name="create-task-with-required-slots"></a>Créer une tâche avec les emplacements exigés
+Cet extrait de code crée une tâche avec une valeur `requiredSlots` différente de sa valeur par défaut. Cette tâche s’exécute uniquement lorsque le nombre d’emplacements disponibles sur le nœud de calcul est suffisant.
+```csharp
+CloudTask task = new CloudTask(taskId, taskCommandLine)
+{
+    RequiredSlots = 2
+};
+```
+
+### <a name="list-compute-nodes-with-counts-for-running-tasks-and-slots"></a>Lister les nœuds de calcul avec les nombres de tâches en cours d’exécution et d’emplacements
+Cet extrait de code liste tous les nœuds de calcul dans le pool, puis affiche les nombres de tâches en cours d’exécution et d’emplacements de tâches par nœud.
+```csharp
+ODATADetailLevel nodeDetail = new ODATADetailLevel(selectClause: "id,runningTasksCount,runningTaskSlotsCount");
+IPagedEnumerable<ComputeNode> nodes = batchClient.PoolOperations.ListComputeNodes(poolId, nodeDetail);
+
+await nodes.ForEachAsync(node =>
+{
+    Console.WriteLine(node.Id + " :");
+    Console.WriteLine($"RunningTasks = {node.RunningTasksCount}, RunningTaskSlots = {node.RunningTaskSlotsCount}");
+
+}).ConfigureAwait(continueOnCapturedContext: false);
+```
+
+### <a name="list-task-counts-for-the-job"></a>Lister les nombres de tâches pour le travail
+Cet extrait de code obtient le nombre de tâches pour le travail, qui comprend le nombre de tâches et le nombre d’emplacements de tâches par état de tâche.
+```csharp
+TaskCountsResult result = await batchClient.JobOperations.GetJobTaskCountsAsync(jobId);
+
+Console.WriteLine("\t\tActive\tRunning\tCompleted");
+Console.WriteLine($"TaskCounts:\t{result.TaskCounts.Active}\t{result.TaskCounts.Running}\t{result.TaskCounts.Completed}");
+Console.WriteLine($"TaskSlotCounts:\t{result.TaskSlotCounts.Active}\t{result.TaskSlotCounts.Running}\t{result.TaskSlotCounts.Completed}");
 ```
 
 ## <a name="batch-rest-example"></a>Exemple REST Batch
@@ -71,27 +127,38 @@ Cet extrait de code de l’API [REST Batch][api_rest] illustre une demande de cr
   "cloudServiceConfiguration": {
     "osFamily":"4",
     "targetOSVersion":"*",
-  }
+  },
   "targetDedicatedComputeNodes":2,
-  "maxTasksPerNode":4,
+  "taskSlotsPerNode":4,
   "enableInterNodeCommunication":true,
 }
 ```
 
-> [!NOTE]
-> Vous ne pouvez définir l’élément `maxTasksPerNode` et la propriété [MaxTasksPerComputeNode][maxtasks_net] qu’au moment de la création du pool. Ils ne peuvent pas être modifiés après qu'un pool a déjà été créé.
->
->
+Cet extrait de code montre une demande d’ajout d’une tâche avec une valeur `requiredSlots` différente de sa valeur par défaut. Cette tâche s’exécute uniquement lorsque le nombre d’emplacements disponibles sur le nœud de calcul est suffisant.
+```json
+{
+  "id": "taskId",
+  "commandLine": "bash -c 'echo hello'",
+  "userIdentity": {
+    "autoUser": {
+      "scope": "task",
+      "elevationLevel": "nonadmin"
+    }
+  },
+  "requiredSLots": 2
+}
+```
 
 ## <a name="code-sample"></a>Exemple de code
-Le projet [ParallelNodeTasks][parallel_tasks_sample] sur GitHub illustre l’utilisation de la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
+Le projet [ParallelNodeTasks][parallel_tasks_sample] sur GitHub illustre l’utilisation de la propriété [CloudPool.TaskSlotsPerNode][maxtasks_net].
 
 Cette application de console en C# utilise la bibliothèque [Batch .NET][api_net] pour créer un pool avec un ou plusieurs nœuds de calcul. Elle exécute un nombre configurable de tâches sur ces nœuds pour simuler la charge variable. La sortie de l'application spécifie quels nœuds ont exécuté chaque tâche. L'application fournit également un résumé des paramètres du travail et sa durée. La partie Résumé de la sortie de deux exécutions différentes de l’exemple d’application apparaît ci-dessous.
 
 ```
 Nodes: 1
 Node size: large
-Max tasks per node: 1
+Task slots per node: 1
+Max slots per task: 1
 Tasks: 32
 Duration: 00:30:01.4638023
 ```
@@ -101,7 +168,8 @@ La première exécution de l'exemple d'application montre qu'avec un nœud uniqu
 ```
 Nodes: 1
 Node size: large
-Max tasks per node: 4
+Task slots per node: 4
+Max slots per task: 1
 Tasks: 32
 Duration: 00:08:48.2423500
 ```
@@ -130,4 +198,4 @@ La deuxième exécution de l'exemple montre une diminution significative de la d
 [parallel_tasks_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks
 [poolcreate_net]: /dotnet/api/microsoft.azure.batch.pooloperations
 [task_schedule]: /dotnet/api/microsoft.azure.batch.cloudpool
-
+[taskslots_net]: /dotnet/api/microsoft.azure.batch.cloudtask.requiredslots

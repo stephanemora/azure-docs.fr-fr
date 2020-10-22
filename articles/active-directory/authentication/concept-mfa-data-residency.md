@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 09/24/2020
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 25322ad9a5d57094f44ccbad312091214ae8dcac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970665"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965282"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Résidence des données et données client pour Azure Multi-Factor Authentication
 
@@ -28,7 +28,7 @@ Le service Azure Multi-Factor Authentication dispose de centres de données aux 
 
 * Les authentifications multifacteur s’appuyant sur des appels téléphoniques sont issues de centres de données des États-Unis et sont routées par des fournisseurs globaux.
 * Les requêtes d'authentification d'utilisateurs à usage général provenant d'autres régions comme l'Europe ou l'Australie sont actuellement traitées à l’emplacement de l’utilisateur.
-* Les notifications Push qui utilisent l’application Microsoft Authenticator proviennent des centres de données régionaux selon l’emplacement de l’utilisateur.
+* Les notifications Push qui utilisent l’application Microsoft Authenticator sont actuellement traitées dans les centres de données régionaux en fonction de la localisation de l’utilisateur.
     * Les services spécifiques aux fournisseurs d’appareils, comme les notifications push Apple, peuvent se trouver en dehors de l’emplacement de l’utilisateur.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Données personnelles stockées par Azure Multi-Factor Authentication

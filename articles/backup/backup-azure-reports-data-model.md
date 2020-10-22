@@ -3,12 +3,12 @@ title: Modèle de données pour les événements de diagnostics de sauvegarde Az
 description: Ce modèle de données fait référence au mode spécifique à la ressource pour envoyer des événements de diagnostic à Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017581"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569587"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure
 
@@ -217,6 +217,29 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | VaultUniqueId                  | Texte          | ID unique utilisé pour identifier le coffre associé à l’entité de stockage |
 | VolumeFriendlyName             | Texte          | Nom convivial du volume de stockage                          |
 | SourceSystem                   | Texte          | Système source des données actuelles - Azure                    |
+
+## <a name="valid-operation-names-for-each-table"></a>Noms d’opération valides pour chaque table
+
+Chaque enregistrement figurant dans les tables ci-dessus possède un **nom d’opération** associé. Un nom d’opération décrit le type d’enregistrement (et indique également les champs de la table qui sont remplis pour cet enregistrement). Chaque table (catégorie) prend en charge un ou plusieurs noms d’opération distincts. Vous trouverez ci-dessous un résumé des noms d’opération pris en charge pour chacune des tables ci-dessus.
+
+| **Nom de la table / Catégorie**                   | **Nom d’opération pris en charge** | **Description**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | Représente un enregistrement contenant tous les détails d’un élément de sauvegarde donné, tels que l’ID, le nom, le type, etc. |
+| CoreAzureBackup | BackupItemAssociation | Représente un mappage entre un élément de sauvegarde et son conteneur protégé associé (le cas échéant). |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | Représente un mappage entre un élément de sauvegarde et sa taille de front-end. |
+| CoreAzureBackup | ProtectedContainer | Représente un enregistrement contenant tous les détails d’un conteneur protégé donné, tels que l’ID, le nom, le type, etc. |
+| CoreAzureBackup | ProtectedContainerAssociation | Représente un mappage entre un conteneur protégé et le coffre utilisé pour sa sauvegarde. |
+| CoreAzureBackup | Coffre | Représente un enregistrement contenant tous les détails d’un coffre donné, tels que l’ID, le nom, les étiquettes, l’emplacement, etc. |
+| CoreAzureBackup | RecoveryPoint | Représente un enregistrement contenant le point de récupération le plus ancien et le dernier point de récupération pour un élément de sauvegarde donné. |
+| AddonAzureBackupJobs | Travail |  Représente un enregistrement contenant tous les détails d’un travail donné. Par exemple, l’opération de travail, l’heure de début, l’état, etc. |
+| AddonAzureBackupAlerts | Alerte | Représente un enregistrement contenant tous les détails d’une alerte donnée. Par exemple, l’heure de création de l’alerte, la gravité, l’état, etc.  |
+| AddonAzureBackupStorage | Stockage | Représente un enregistrement contenant tous les détails d’une entité de stockage donnée. Par exemple, le nom de stockage, le type, etc. |
+| AddonAzureBackupStorage | StorageAssociation | Représente un mappage entre un élément de sauvegarde et le stockage cloud total consommé par cet élément de sauvegarde. |
+| AddonAzureBackupProtectedInstance | ProtectedInstance | Représente un enregistrement contenant le nombre d’instances protégées pour chaque conteneur ou élément de sauvegarde. Pour la sauvegarde des machines virtuelles Azure, le nombre d’instances protégées est disponible au niveau de l’élément de sauvegarde. Pour les autres charges de travail, il est disponible au niveau du conteneur protégé. |
+| AddonAzureBackupPolicy | Stratégie |  Représente un enregistrement contenant tous les détails d’une stratégie de sauvegarde et de conservation. Par exemple, l’ID, le nom, les paramètres de conservation, etc. |
+| AddonAzureBackupPolicy | PolicyAssociation | Représente un mappage entre un élément de sauvegarde et la stratégie de sauvegarde qui lui est appliquée. |   
+
+Souvent, vous devez effectuer des jointures entre des tables différentes, ainsi que des jeux d’enregistrements différents qui font partie de la même table (différenciés par le nom d’opération), afin d’obtenir tous les champs requis pour votre analyse. Reportez-vous aux [exemples de requêtes](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) pour démarrer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

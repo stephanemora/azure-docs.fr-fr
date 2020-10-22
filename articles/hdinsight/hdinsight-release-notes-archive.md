@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/09/2020
-ms.openlocfilehash: ad0ff98174a81518fe26063f9ccc6acbbddbf8d6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.openlocfilehash: c1d43da3a0be65b2351a4b6dbeeb2772062356bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442372"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974632"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -21,9 +21,50 @@ ms.locfileid: "91442372"
 
 Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure.
 
+## <a name="release-date-09282020"></a>Date de publication : 28/9/2020
+
+Cette version s’applique à la fois à HDInsight 3.6 et HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours que la version soit active dans votre région.
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+#### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>La mise à l’échelle automatique pour Interactive Query avec HDInsight 4.0 est désormais en disponibilité générale
+La mise à l’échelle automatique pour le type de cluster Interactive Query est désormais en disponibilité générale (GA) pour HDInsight 4.0. Tous les clusters Interactive Query 4.0 créés après le 27 août 2020 offriront une prise charge en disponibilité générale de la mise à l’échelle automatique.
+
+#### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Le cluster HBase prend en charge ADLS Gen2 Premium
+HDInsight prend désormais en charge ADLS Gen2 Premium comme compte de stockage principal pour les clusters HDInsight HBase 3.6 et 4.0. Avec [Écritures accélérées](./hbase/apache-hbase-accelerated-writes.md), vous pouvez bénéficier d’un meilleur niveau de performance pour vos clusters HBase.
+
+#### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Distribution de partitions Kafka dans les domaines d’erreur Azure
+Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Avant HDInsight, Kafka peut stocker tous les réplicas de partitions dans le même domaine d’erreur. À compter de cette version, HDInsight prend en charge la distribution automatique des partitions Kafka en fonction des domaines d’erreur Azure. 
+
+#### <a name="encryption-in-transit"></a>Chiffrement en transit
+Les clients peuvent activer le chiffrement en transit entre des nœuds de cluster en utilisant le chiffrement IPSec avec des clés gérées par la plateforme. Cette option peut être activée au moment de créer le cluster. Découvrez de façon plus détaillée [comment activer le chiffrement en transit](./domain-joined/encryption-in-transit.md).
+
+#### <a name="encryption-at-host"></a>Chiffrement sur l’hôte
+Quand vous activez le chiffrement au niveau de l’hôte, les données stockées sur l’hôte de machine virtuelle sont chiffrées au repos et cheminent chiffrées jusqu’au service de stockage. À compter de cette version, vous pouvez **activer le chiffrement au niveau de l’hôte sur le disque de données temporaire** au moment de créer le cluster. Le chiffrement au niveau de l’hôte est uniquement pris en charge par [certaines références SKU de machines virtuelles dans des régions limitées](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). HDInsight prend en charge les [configurations de nœud et les références SKU suivantes](./hdinsight-supported-node-configuration.md). Découvrez de façon plus détaillée [comment activer le chiffrement au niveau de l’hôte](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À compter de cette version, le service migrera progressivement vers des [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). L’ensemble du processus peut prendre plusieurs mois. Une fois les régions et les abonnements migrés, les clusters HDInsight nouvellement créés s’exécuteront sur des groupes de machines virtuelles identiques sans l’intervention du client. Aucun changement cassant n’est prévu.
+
+### <a name="deprecation"></a>Dépréciation
+Cette version ne fait l’objet d’aucune dépréciation.
+
+### <a name="behavior-changes"></a>Changements de comportement
+Cette version n’est associée à aucun changement de comportement.
+
+### <a name="upcoming-changes"></a>Changements à venir
+Les changements suivants se produiront dans les prochaines versions.
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Possibilité de sélectionner différentes références SKU Zookeeper pour les services Spark, Hadoop et ML
+HDInsight ne prend actuellement pas en charge la modification de la référence SKU Zookeeper pour les types de cluster des services Spark, Hadoop et ML. Il utilise la référence SKU A2_v2/A2 pour les nœuds Zookeeper et ceux-ci ne sont pas facturés aux clients. Dans la prochaine version, les clients pourront si nécessaire modifier la référence SKU Zookeeper pour les services Spark, Hadoop et ML. Les nœuds Zookeeper avec une référence différente de A2_v2/A2 sont facturés. La référence SKU par défaut sera toujours A2_v2/A2 et gratuite.
+
+### <a name="bug-fixes"></a>Résolution des bogues
+HDInsight continue à améliorer la fiabilité et les performances des clusters. 
+
+### <a name="component-version-change"></a>Changement de la version des composants
+Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
 ## <a name="release-date-08092020"></a>Date de publication : 09/08/2020
 
-Cette version s’applique uniquement à HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours que la version soit active dans votre région.
+Cette version s’applique uniquement à HDInsight 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les changements ci-dessous, attendez quelques jours pour que la version release soit active dans votre région.
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 #### <a name="support-for-sparkcruise"></a>Prise en charge de SparkCruise
@@ -304,7 +345,7 @@ HDInsight Identity Broker (HIB) permet aux utilisateurs de se connecter à Apach
 
 #### <a name="kafka-rest-api-proxy-preview"></a>Proxy d’API REST Kafka (préversion)
 
-Le proxy d’API REST Kafka fournit un déploiement en un clic d’un proxy REST hautement disponible avec un cluster Kafka via une autorisation AAD sécurisée et un protocole OAuth. 
+Le proxy d’API REST Kafka propose un déploiement en un clic d’un proxy REST hautement disponible avec un cluster Kafka via une autorisation Azure AD sécurisée et le protocole OAuth. 
 
 #### <a name="auto-scale"></a>Mise à l’échelle automatique
 
@@ -485,9 +526,9 @@ Les nouvelles mises à jour et fonctionnalités appartiennent aux catégories su
 
 *  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3*** : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnisme, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
 
-*  ***Prise en charge d’Azure Data Lake Storage Gen2*** : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
+***Prise en charge d’Azure Data Lake Storage Gen2*** : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
 
-*  ***Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)*** : (préversion) [Les points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
+***Mises à jour du Pack Sécurité Entreprise HDInsight (préversion)*** : (préversion) [Les points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) prennent en charge Stockage Blob Azure, ADLS Gen1, Cosmos DB et Azure DB.
 
 ### <a name="component-versions"></a>Versions des composants
 

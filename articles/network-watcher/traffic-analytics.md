@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967509"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951551"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -58,62 +59,106 @@ Traffic Analytics examine les journaux de flux de groupe de sécurité réseau b
 ## <a name="supported-regions-nsg"></a>Régions prises en charge : Groupe de sécurité réseau 
 
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
-
-* Centre du Canada
-* Centre-USA Ouest
-* USA Est
-* USA Est 2
-* Centre-Nord des États-Unis
-* États-Unis - partie centrale méridionale
-* USA Centre
-* USA Ouest
-* USA Ouest 2
-* France Centre
-* Europe Ouest
-* Europe Nord
-* Brésil Sud
-* Ouest du Royaume-Uni
-* Sud du Royaume-Uni
-* Australie Est
-* Sud-Australie Est
-* Asie Est
-* Asie Sud-Est
-* Centre de la Corée
-* Inde centrale
-* Inde Sud
-* Japon Est 
-* OuJapon Est
-* Gouvernement américain - Virginie
-* Chine orientale 2
+:::row:::
+   :::column span="":::
+      Centre de l’Australie  
+      Australie Est  
+      Sud-Australie Est  
+      Brésil Sud  
+      Centre du Canada  
+      Est du Canada  
+      Inde centrale  
+      USA Centre  
+      Chine orientale 2  
+      Chine Nord 2  
+   :::column-end:::
+   :::column span="":::
+      Asie Est  
+      USA Est  
+      USA Est 2  
+      USA Est 2 (EUAP)  
+      France Centre  
+      Japon Est  
+      OuJapon Est  
+      Centre de la Corée  
+      Corée du Sud  
+      Centre-Nord des États-Unis  
+   :::column-end:::
+   :::column span="":::
+      Europe Nord  
+      Afrique du Sud Nord  
+      États-Unis - partie centrale méridionale  
+      Inde Sud  
+      Asie Sud-Est  
+      Suisse Nord  
+      Suisse Ouest  
+      Sud du Royaume-Uni  
+      Ouest du Royaume-Uni  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+      USSec Est  
+      USSec Ouest  
+      Centre-USA Ouest  
+      Europe Ouest  
+      USA Ouest  
+      USA Ouest 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Régions prises en charge : Espaces de travail Log Analytics
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
-* Centre du Canada
-* Centre-USA Ouest
-* USA Est
-* USA Est 2
-* Centre-Nord des États-Unis
-* États-Unis - partie centrale méridionale
-* USA Centre
-* USA Ouest
-* USA Ouest 2
-* USA Centre
-* France Centre
-* Europe Ouest
-* Europe Nord
-* Brésil Sud
-* Ouest du Royaume-Uni
-* Sud du Royaume-Uni
-* Australie Est
-* Sud-Australie Est
-* Asie Est
-* Asie Sud-Est
-* Centre de la Corée
-* Inde centrale
-* Japon Est
-* Gouvernement américain - Virginie
-* Chine orientale 2
+:::row:::
+   :::column span="":::
+      Centre de l’Australie  
+      Australie Est  
+      Sud-Australie Est  
+      Brésil Sud  
+      Centre du Canada  
+      Inde centrale  
+      USA Centre  
+      Chine orientale 2  
+      Asie Est  
+      USA Est  
+   :::column-end:::
+   :::column span="":::
+      USA Est 2  
+      USA Est 2 (EUAP)  
+      France Centre  
+      Allemagne Centre-Ouest  
+      Japon Est  
+      Centre de la Corée  
+      Centre-Nord des États-Unis  
+      Europe Nord  
+      Afrique du Sud Nord  
+      États-Unis - partie centrale méridionale  
+   :::column-end:::
+   :::column span="":::
+      Asie Sud-Est  
+      Suisse Nord  
+      Suisse Ouest  
+      Émirats arabes unis Centre  
+      Sud du Royaume-Uni  
+      Ouest du Royaume-Uni  
+      USGov Arizona  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+   :::column-end:::
+   :::column span="":::
+      USSec Est  
+      USSec Ouest  
+      Centre-USA Ouest  
+      Europe Ouest  
+      USA Ouest  
+      USA Ouest 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Prérequis
 

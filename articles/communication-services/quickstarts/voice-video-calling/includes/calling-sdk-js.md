@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930657"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91779057"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -72,19 +72,19 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Passer un appel 1:n avec des utilisateurs et un RTC
-> [!WARNING]
-> L’appel RTC est actuellement en préversion privée. Pour l’accès, [appliquez le programme Utilisateur précoce](https://aka.ms/ACS-EarlyAdopter).
+
 Pour passer un appel 1 : n à un utilisateur et un numéro RTPC, vous devez spécifier un CommunicationUser et un numéro de téléphone pour les deux appelés.
+
 Votre ressource Communication Services doit être configurée pour autoriser l’appel RTC.
 ```js
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Passer un appel 1:1 avec une caméra vidéo
+### <a name="place-a-11-call-with-video-camera"></a>Passer un appel 1:1 avec une caméra vidéo
 > [!WARNING]
 > Il ne peut actuellement y avoir qu’un seul flux vidéo local sortant.
 Pour passer un appel vidéo, vous devez énumérer des caméras locales à l’aide de l’API `getCameraList` de DeviceManager.
@@ -95,7 +95,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -104,7 +104,7 @@ Pour démarrer un nouvel appel de groupe ou rejoindre un appel de groupe, utilis
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -113,19 +113,19 @@ const call = callClient.join(context);
 Vous pouvez accéder à toutes les propriétés et effectuer différentes opérations lors d’un appel pour gérer les paramètres liés à la vidéo et à l’audio.
 
 ### <a name="call-properties"></a>Propriétés d’appel
-* Obtenir l’ID unique de cet appel.
+* Obtenez l’ID unique (string) de cet appel.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* Pour en savoir plus sur les autres participants à l’appel, examinez la collection `remoteParticipant` sur l’instance `call`.
+* Pour en savoir plus sur les autres participants à l’appel, examinez la collection `remoteParticipant` sur l’instance `call`. Le tableau contient la liste des objets `RemoteParticipant`.
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* L’identité de l’appelant si l’appel est entrant.
+* L’identité de l’appelant si l’appel est entrant. L’identité correspond à l’un des types `Identifier`
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +135,7 @@ const callerIdentity = call.callerIdentity;
 * Obtenir l’état de l’appel.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 Retourne une chaîne représentant l’état actuel d’un appel :
@@ -153,35 +153,34 @@ Retourne une chaîne représentant l’état actuel d’un appel :
 * Pour connaître la raison pour laquelle un appel donné s’est terminé, inspectez la propriété `callEndReason`.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Pour savoir si l’appel en cours est un appel entrant, inspectez la propriété `isIncoming`. Elle retourne un `Boolean`.
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  Pour vérifier si le microphone actuel est désactivé, inspectez la propriété `muted`. Elle retourne un `Boolean`.
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* Pour savoir si l’appel en cours est un appel entrant, inspectez la propriété `isIncoming`
+* Pour voir si le flux de partage d’écran est envoyé à partir d’un point de terminaison donné, vérifiez la propriété `isScreenSharingOn`. Elle retourne un `Boolean`.
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  Pour vérifier si le microphone actuel est désactivé, inspectez la propriété `muted` :
+* Pour inspecter les flux vidéo actifs, vérifiez la collection `localVideoStreams`. Elle contient des objets `LocalVideoStream`.
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* Pour voir si le flux de partage d’écran est envoyé à partir d’un point de terminaison donné, vérifiez la propriété `isScreenSharingOn` :
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* Pour inspecter les flux vidéo actifs, vérifiez la collection `localVideoStreams` :
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +193,7 @@ Pour activer ou désactiver le son du point de terminaison local, vous pouvez ut
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +205,7 @@ Pour démarrer une vidéo, vous devez énumérer les caméras à l’aide de la 
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -254,15 +253,16 @@ Un participant distant dispose d’un ensemble de propriétés et de collections
 * Obtenez l’identificateur de ce participant distant.
 L’identité est l’un des types d’identificateurs :
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Obtenez l’état de ce participant distant.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 Il peut s’agir de l’un des états suivants :
 * « Inactif » – état initial
@@ -275,28 +275,27 @@ Il peut s’agir de l’un des états suivants :
 Pour savoir pourquoi le participant a quitté l’appel, inspectez lz propriété `callEndReason` :
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Pour vérifier si ce participant distant est muet ou non, inspectez la propriété `isMuted`. Elle retourne un `Boolean`.
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* Pour vérifier si ce participant distant parle ou non, inspectez la propriété `isSpeaking`. Elle retourne un `Boolean`.
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* Pour vérifier si ce participant distant est muet ou non, inspectez la propriété `isMuted` :
+* Pour inspecter tous les flux vidéo qu’un participant donné envoie dans cet appel, vérifiez la collection `videoStreams`. Elle contient des objets `RemoteVideoStream`.
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* Pour vérifier si ce participant distant parle ou non, inspectez la propriété `isSpeaking` :
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* Pour inspecter tous les flux vidéo qu’un participant donné envoie dans cet appel, vérifiez la collection `videoStreams` :
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,13 +311,12 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Supprimer un participant d’un appel
 
 Pour supprimer un participant d’un appel (un utilisateur ou un numéro de téléphone), vous pouvez appeler `removeParticipant`.
-Vous devez passer l’un des types d’identificateurs, ce qui sera résolu de façon asynchrone une fois le participant supprimé de l’appel.
+Vous devez passer l’un des types « Identificateur », ce qui sera résolu de façon asynchrone une fois le participant supprimé de l’appel.
 Le participant sera également supprimé de la collection `remoteParticipants`.
 
 ```js
@@ -333,7 +331,6 @@ await call.removeParticipant(pstnIdentifier);
 Pour répertorier les flux vidéo et les flux de partage d’écran des participants distants, inspectez les collections `videoStreams` :
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```
@@ -365,12 +362,12 @@ if (remoteParticipantStream.isAvailable) {
 ### <a name="remote-video-stream-properties"></a>Propriétés du flux vidéo distant
 Les flux vidéo distants ont les propriétés suivantes :
 
-* `Id` – ID d’un flux vidéo distant
+* `Id` - ID d’un flux vidéo distant
 ```js
 const id: number = remoteVideoStream.id;
 ```
 
-* `StreamSize` – taille (largeur/hauteur) d’un flux vidéo distant
+* `StreamSize` - taille (largeur/hauteur) d’un flux vidéo distant
 ```js
 const size: {width: number; height: number} = remoteVideoStream.size;
 ```

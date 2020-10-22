@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: c488daeafefce23d1fc65fe61e8c0f39cd1c0490
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646713"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710683"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Créer une offre Dynamics 365 for Customer Engagement et PowerApps
 
@@ -36,7 +36,8 @@ Avant de commencer, [créez un compte Place de marché commerciale dans l’Espa
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- L’ID d’offre associé à l’ID d’éditeur doit contenir moins de 40 caractères.
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut contenir des traits d’union et des traits de soulignement, mais pas d’espaces. Par exemple, si votre ID d’éditeur est testpublisherid et que vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -56,11 +57,11 @@ Sélectionnez l’option que vous souhaitez utiliser pour cette offre.
 
 #### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
 
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/my-app`.
+Référencez votre offre gratuitement pour les clients.
 
 #### <a name="free-trial-listing"></a>Essai gratuit (annonce)
 
-Répertoriez votre offre en tant qu’essai gratuit pour les clients en fournissant une URL valide (qui commence par `http` ou `https`) où ils peuvent accéder obtenir un essai.  Par exemple : `https://contoso.com/trial/my-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
+Référencez votre offre pour les clients avec un lien vers un essai gratuit. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
 
 > [!NOTE]
 > Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure Active Directory (Azure AD) pour automatiser la création de comptes dans votre application. Les comptes Microsoft ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
@@ -190,17 +191,17 @@ Fournissez ici entrez un et trois documents marketing d’accompagnement, comme 
 
 Fournissez des logos et des images pour votre offre. Toutes les images doivent être au format .png.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème de chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour le logo de **grande** taille. L’Espace partenaires s’en servira pour créer un logo de **petite taille**. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image.
+Fournissez un fichier PNG pour le logo de **grande taille**. L’Espace partenaires s’en servira pour créer un logo de **petite taille**. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image.
 
-- **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
-- **Petite taille** (48 x 48 px, facultatif)
+- **Grand** (de 216 x 216 à 350 x 350 px, obligatoire)
+- **Petit** (48 x 48 px, facultatif)
 
 Ces logos sont utilisés à différents emplacements dans la liste :
 

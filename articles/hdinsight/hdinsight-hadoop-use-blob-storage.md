@@ -8,29 +8,32 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7941748f7f917847e551b0cf5cd0a7bf926d31a9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086974"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855665"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
-Vous pouvez stocker des données dans [Stockage Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) ou [Azure Data Lake Store Gen 2](../storage/blobs/data-lake-storage-introduction.md). Vous pouvez également choisir une combinaison de ces options. Ces options de stockage vous permettent de supprimer des clusters HDInsight servant aux calculs, sans perte de données utilisateur.
+Vous pouvez stocker des données dans [Stockage Blob Azure](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) ou [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). Vous pouvez également choisir une combinaison de ces options. Ces options de stockage vous permettent de supprimer des clusters HDInsight servant aux calculs, sans perte de données utilisateur.
 
-Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur de blobs dans Stockage Azure comme système de fichiers par défaut. Sinon, utilisez HDInsight 3.6 pour sélectionner Stockage Azure ou Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 comme système de fichiers par défaut, avec quelques exceptions. Pour la prise en charge de l’utilisation de Data Lake Store Gen 1 en tant que stockage associé et par défaut, consultez [Disponibilités pour le cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur de blobs dans Stockage Azure comme système de fichiers par défaut. Sinon, utilisez HDInsight 3.6 pour sélectionner Stockage Blob Azure ou Azure Data Lake Storage Gen1/Azure Data Lake Storage Gen2 comme système de fichiers par défaut avec quelques exceptions. Pour la prise en charge de l’utilisation de Data Lake Storage Gen1 en tant que stockage associé et par défaut, consultez [Disponibilité pour le cluster HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen1.md#availability-for-hdinsight-clusters).
 
-Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des clusters HDInsight. Pour savoir comment Data Lake Storage Gen 1 fonctionne avec les clusters HDInsight, consultez [Utiliser Azure Data Lake Storage avec des clusters HDInsight](hdinsight-hadoop-use-data-lake-store.md). Pour plus d’informations sur la création d’un cluster HDInsight, consultez [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des clusters HDInsight. 
+* Pour savoir comment Data Lake Storage Gen1 fonctionne avec les clusters HDInsight, consultez [Utiliser Azure Data Lake Storage Gen1 avec des clusters HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen1.md).
+* Pour savoir comment Data Lake Storage Gen2 fonctionne avec les clusters HDInsight, consultez [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2.md).
+* Pour plus d’informations sur la création d’un cluster HDInsight, consultez [Créer des clusters Apache Hadoop dans HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!IMPORTANT]  
 > Le type de compte de stockage **BlobStorage** peut uniquement être utilisé comme stockage secondaire pour les clusters HDInsight.
 
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge |Niveaux de performances non pris en charge| Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (usage général v2)  | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Objet blob     | Standard                    |Premium| N/A                    |
-| BlobStorage                    | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
+| StorageV2 (usage général v2)  | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | standard                    |Premium| N/A                    |
+| BlobStorage                    | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
@@ -169,9 +172,9 @@ Dans cet article, vous avez appris à utiliser un stockage Azure compatible avec
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Bien démarrer avec Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
-* [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
+* [Démarrage rapide : Créer un cluster Apache Hadoop](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Tutoriel : Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
 * [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)

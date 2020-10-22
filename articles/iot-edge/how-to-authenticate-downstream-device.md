@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447844"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046721"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -59,7 +59,7 @@ Lorsque vous créez une identité d’appareil, fournissez les informations suiv
 
 * Sélectionnez **Clé symétrique** comme type d’authentification.
 
-* Si vous le souhaitez, vous pouvez choisir de **Définir un appareil parent**, puis sélectionner l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Cette étape est facultative pour l’authentification par clé symétrique. Toutefois, elle est recommandée, car la configuration d’un appareil parent permet d’utiliser des [fonctionnalités hors connexion](offline-capabilities.md) sur votre appareil en aval. Vous pourrez ajouter ou modifier les informations concernant le parent ultérieurement.
+* Sélectionnez **Définir un appareil parent**, puis sélectionnez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Cette étape permet d’activer des [fonctionnalités hors connexion](offline-capabilities.md) pour l’appareil en aval. Vous pourrez toujours changer de parent par la suite.
 
    ![Créer un ID d’appareil avec une authentification par clé symétrique dans le portail](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -110,7 +110,7 @@ Pour l’authentification par certificat X.509 autosigné, parfois appelée aut
 
 4. Copiez les certificats d’appareil principal et secondaire et leurs clés vers n’importe quel emplacement sur l’appareil en aval. Déplacez également une copie du certificat d’autorité de certification racine partagée qui a généré le certificat de périphérique d’appareil de passerelle et les certificats d’appareil en aval.
 
-   Vous allez référencer ces fichiers de certificat dans les applications d’appareil en aval qui se connectent à IoT Hub. Vous pouvez utiliser un service comme [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer les fichiers de certificats.
+   Vous allez référencer ces fichiers de certificat dans les applications d’appareil en aval qui se connectent à IoT Hub. Vous pouvez utiliser un service comme [Azure Key Vault](../key-vault/index.yml) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer les fichiers de certificats.
 
 5. Selon votre langue par défaut, consultez des exemples de référencement de certificats X.509 dans des applications IoT :
 
@@ -156,7 +156,7 @@ Cette section est basée sur les instructions de l’article IoT Hub [Configurer
 
 5. Copiez le certificat et les clés d’appareil dans n’importe quel emplacement sur l’appareil en aval. Déplacez également une copie du certificat d’autorité de certification racine partagée qui a généré le certificat de périphérique d’appareil de passerelle et les certificats d’appareil en aval.
 
-   Vous allez référencer ces fichiers dans les applications d’appareil en aval qui se connectent à IoT Hub. Vous pouvez utiliser un service comme [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer les fichiers de certificats.
+   Vous allez référencer ces fichiers dans les applications d’appareil en aval qui se connectent à IoT Hub. Vous pouvez utiliser un service comme [Azure Key Vault](../key-vault/index.yml) ou une fonction comme [SCP (Secure Copy Protocol)](https://www.ssh.com/ssh/scp/) pour déplacer les fichiers de certificats.
 
 6. Selon votre langue par défaut, consultez des exemples de référencement de certificats X.509 dans des applications IoT :
 
@@ -201,7 +201,7 @@ Ou :
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Si vous avez établi une relation parent/enfant pour l’appareil en aval, vous pouvez simplifier la chaîne de connexion en appelant la passerelle directement en tant qu’hôte de connexion. Les relations parent/enfant sont obligatoires pour l’authentification X.509, mais facultatives pour l’authentification par clé symétrique. Par exemple :
+Grâce à la relation parent/enfant, vous pouvez simplifier la chaîne de connexion en appelant directement la passerelle en tant qu’hôte de connexion. Par exemple :
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

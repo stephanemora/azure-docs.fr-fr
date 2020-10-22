@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613767"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893558"
 ---
 # <a name="color-materials"></a>Matériaux couleur
 
@@ -36,6 +36,8 @@ Ces propriétés sont communes à tous les matériaux :
 * **useVertexColor :** si le maillage comprend des couleurs :::no-loc text="vertex"::: et que cette option est activée, la couleur :::no-loc text="vertex"::: des maillages est multipliée par *albedoColor* et *albedoMap*. Par défaut *useVertexColor* est désactivée.
 
 * **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [ rendu :::no-loc text="Single-sided":::](single-sided-rendering.md).
+
+* **TransparencyWritesDepth :** Si l’indicateur TransparencyWritesDepth est défini sur le matériau et que celui-ci est transparent, les objets utilisant ce matériau contribueront également au tampon de profondeur final. Consultez la propriété des matériaux de couleur *transparencyMode* dans la section suivante. L’activation de cette fonctionnalité est recommandée si votre cas d’usage a besoin d’une [Reprojection en phase tardive](late-stage-reprojection.md) plus plausible des scènes entièrement transparentes. Pour les scènes opaques/transparentes mixtes, ce réglage peut introduire un comportement ou des artefacts de reprojection invraisemblables. Pour cette raison, le réglage par défaut et recommandé pour le cas d’usage général est de désactiver cet indicateur. Les valeurs de profondeur écrites sont extraites de la couche de profondeur par pixel de l’objet qui est le plus proche de l’appareil photo.
 
 ## <a name="color-material-properties"></a>Propriétés des matériaux de couleur
 

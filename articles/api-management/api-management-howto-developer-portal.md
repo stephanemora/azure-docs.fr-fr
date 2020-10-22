@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614062"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715454"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -172,7 +172,7 @@ Vous pouvez également activer CORS manuellement.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Quelles sont les autorisations requises pour modifier le portail des développeurs ?
 
-Si l’erreur `Oops. Something went wrong. Please try again later.` apparaît lorsque vous ouvrez le portail en mode d’administration, vous ne disposez peut-être pas des autorisations requises (RBAC).
+Si l’erreur `Oops. Something went wrong. Please try again later.` apparaît lorsque vous ouvrez le portail en mode d’administration, vous ne disposez peut-être pas des autorisations requises (Azure RBAC).
 
 Les portails hérités exigeaient l’autorisation `Microsoft.ApiManagement/service/getssotoken/action` sur l’étendue du service (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) pour que l’administrateur d’utilisateurs puisse y accéder. Le nouveau portail exige l’autorisation `Microsoft.ApiManagement/service/users/token/action` sur l’étendue `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 

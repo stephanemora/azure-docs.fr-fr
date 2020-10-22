@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602385"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970637"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -35,10 +35,12 @@ Vous pouvez effectuer des tâches de gestion sur les ressources déléguées dir
 
 La [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Azure PowerShell affiche les attributs `HomeTenantId` et `ManagedByTenantIds` de chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient à un locataire géré ou à votre locataire gérant.
 
-De même, des commandes Azure CLI comme [az account list](/cli/azure/account#az-account-list) affichent les attributs `homeTenantId` et `managedByTenants`.
+De même, des commandes Azure CLI comme [az account list](/cli/azure/account#az-account-list) affichent les attributs `homeTenantId` et `managedByTenants`. Si vous ne voyez pas ces valeurs lors de l’utilisation d'Azure CLI, essayez d’effacer votre cache en exécutant `az account clear`, puis `az login --identity`.
 
-> [!TIP]
-> Si vous ne voyez pas ces valeurs lors de l’utilisation d'Azure CLI, essayez d’effacer votre cache en exécutant `az account clear`, puis `az login --identity`.
+Dans l’API REST Azure, les commandes [Abonnements – Get](/rest/api/resources/subscriptions/get) et [Abonnements – List](/rest/api/resources/subscriptions/list) incluent `ManagedByTenant`.
+
+> [!NOTE]
+> En plus des informations sur les locataires liées à Azure Lighthouse, les locataires indiqués par ces API peuvent également refléter les locataires partenaires des applications managées Azure ou Azure Databricks.
 
 Nous fournissons également des API spécifiques pour l'exécution de tâches Azure Lighthouse. Pour plus d’informations, voir la section **Référence**.
 
@@ -48,7 +50,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Arc](../../azure-arc/index.yml) :
 
-- Gérer des serveurs hybrides à grande échelle – [Serveurs activés par Azure Arc (préversion)](../../azure-arc/servers/overview.md) :
+- Gérer des serveurs hybrides à grande échelle – [Serveurs compatibles Azure Arc](../../azure-arc/servers/overview.md) :
   - [Gérer des machines Windows Server ou Linux en dehors d’Azure, qui sont connectées](../../azure-arc/servers/onboard-portal.md) à des abonnements et/ou à des groupes de ressources délégués dans Azure
   - Gérer des machines connectées à l’aide de constructions Azure, comme Azure Policy et le marquage
   - S’assurer que le même ensemble de stratégies est appliqué dans les environnements hybrides des clients
@@ -120,6 +122,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
   - Renforcer la configuration du groupe de sécurité réseau avec le renforcement du réseau adaptatif
   - S’assurer que les serveurs exécutent uniquement les applications et processus qu’ils doivent exécuter avec des contrôles d’application adaptatifs
   - Surveiller les modifications apportées aux fichiers et aux entrées de Registre importants avec le monitoring d’intégrité de fichier
+- À savoir : l’intégralité de l’abonnement doit être déléguée au locataire gérant ; les scénarios Azure Security Center ne sont pas pris en charge avec les groupes de ressources délégués.
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md) :
 

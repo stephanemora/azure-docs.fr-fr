@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812554"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319724"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -42,7 +42,7 @@ Cette rubrique présente une vue d’ensemble du rapport d’approvisionnement.
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
-* Propriétaires d'applications
+* Propriétaires d’applications (peuvent afficher les journaux des applications qu’ils possèdent)
 * Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Administrateur d’application et Administrateur d’application cloud
 * Les administrateurs généraux
 
@@ -56,7 +56,7 @@ Votre client doit avoir une licence Azure AD Premium associée pour afficher to
 Les journaux d’approvisionnement fournissent des réponses aux questions suivantes :
 
 * Quels groupes ont été créés avec succès dans ServiceNow ?
-* Comment les rôles ont été importés à partir d’Amazon Web Services ?
+* Quels rôles ont été importés d’Amazon Web Services ?
 * Quels utilisateurs n’ont pas été créés avec succès dans DropBox ?
 
 Vous pouvez accéder aux journaux d’approvisionnement en sélectionnant **Provisionner des journaux** dans la section **Surveillance** du panneau **Azure Active Directory** dans le [Portail Azure](https://portal.azure.com). L’affichage de certains enregistrements d’approvisionnement dans le portail peut prendre jusqu’à deux heures.
@@ -211,11 +211,11 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-- Le portail Azure stocke les données d’approvisionnement signalées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux d’activité d’approvisionnement peuvent être publiés dans l’analytique des journaux d'activité pour être conservés au-delà de 30 jours. 
+- Le Portail Azure stocke les données de provisionnement rapportées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux de provisionnement peuvent être publiés dans [Log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) pour être conservés au-delà de 30 jours. 
 
 - Vous pouvez utiliser l’attribut Changer l’ID comme identificateur unique. C’est, par exemple, utile lors de l’interaction avec le support technique.
 
-- Il n’existe actuellement aucune option permettant de télécharger les données de configuration en tant que fichier CSV, mais vous pouvez exporter les données à l’aide de [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Il n’existe actuellement aucune option permettant de télécharger les données de configuration en tant que fichier CSV, mais vous pouvez exporter les données à l’aide de [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Vous pouvez voir des événements ignorés pour les utilisateurs qui ne sont pas dans l’étendue. Cela est prévu, en particulier lorsque l’étendue de synchronisation est définie sur tous les utilisateurs et groupes. Notre service évalue tous les objets du locataire, y compris ceux qui sont en dehors de l’étendue. 
 
@@ -245,10 +245,10 @@ Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreu
 |DuplicateSourceEntries | L’opération n’a pas pu aboutir car plusieurs utilisateurs ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double ou reconfigurez vos mappages d’attributs comme décrit [ici](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Lors de l'évaluation de chaque utilisateur, nous essayons d'importer celui-ci à partir du système source. Cette erreur se produit généralement lorsque la propriété correspondante n'a pas été attribuée à l'utilisateur importé dans vos mappages d'attributs. En l'absence de valeur sur l'objet utilisateur pour l'attribut correspondant, nous ne pouvons pas évaluer l'étendue et la correspondance, ni exporter les modifications. Remarque : la présence de cette erreur n'indique pas que l'utilisateur se trouve dans l'étendue car nous n'avons pas encore évalué l'étendue de l'utilisateur.|
 |EntrySynchronizationSkipped | Le service d'approvisionnement a interrogé le système source et identifié l'utilisateur. Aucune autre mesure n'a été prise à l'égard de l'utilisateur et il a été ignoré. L'omission peut être due au fait que l'utilisateur est hors étendue, ou qu'il figure déjà dans le système cible et qu'aucune autre modification n'est nécessaire.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Lors de l’exécution d’une requête GET pour récupérer un utilisateur ou un groupe, nous avons reçu plusieurs utilisateurs ou groupes dans la réponse. Nous nous attendions à ne recevoir qu’un seul utilisateur ou groupe dans la réponse. Si, [par exemple](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), nous effectuons une requête GET pour récupérer un groupe et fournir un filtre permettant d’exclure des membres et que votre point de terminaison SCIM retourne les membres, nous lèverons cette erreur.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Lors de l’exécution d’une requête GET pour récupérer un utilisateur ou un groupe, nous avons reçu plusieurs utilisateurs ou groupes dans la réponse. Nous nous attendions à ne recevoir qu’un seul utilisateur ou groupe dans la réponse. Si, [par exemple](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), nous effectuons une requête GET pour récupérer un groupe et fournir un filtre permettant d’exclure des membres et que votre point de terminaison SCIM retourne les membres, nous lèverons cette erreur.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vérifier l’état de l’approvisionnement d’utilisateurs](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem.md)
-* [Provisionnement de journaux de l’API Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Provisionnement de journaux de l’API Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

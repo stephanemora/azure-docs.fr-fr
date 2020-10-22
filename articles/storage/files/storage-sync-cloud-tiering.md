@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033119"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939151"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
@@ -48,9 +48,9 @@ Pour les agents de version 9 et ultérieures, la taille minimale d’un fichier
 |8 Ko (8192)                 | 16 Ko   |
 |16 Ko (16384)               | 32 Ko   |
 |32 ko (32 768)               | 64 Ko   |
-|64 ko (65 536)               | 128 Ko  |
+|64 ko (65 536)    | 128 Ko  |
 
-Avec Windows Server 2019 et l’agent Azure File Sync version 12 et ultérieures, les tailles de cluster allant jusqu’à 2 Mo sont également prises en charge et la hiérarchisation sur ces tailles de cluster plus volumineuses fonctionne de la même façon. Les versions antérieures du système d’exploitation ou de l’agent prennent en charge des tailles de cluster allant jusqu’à 64 ko.
+Les tailles de clusters sont actuellement prises en charge jusqu’à 64 Ko. Pour les tailles supérieures, la hiérarchisation cloud ne fonctionne pas.
 
 Tous les systèmes de fichiers utilisés par Windows organisent votre disque dur en fonction de la taille du cluster (également appelée taille d’unité d’allocation). La taille du cluster représente la plus petite quantité d’espace disque qui peut être utilisée pour contenir un fichier. Lorsque les tailles de fichiers ne correspondent pas à un multiple de la taille du cluster, plus d’espace est nécessaire pour conserver le fichier (jusqu’au multiple supérieur de la taille du cluster).
 
@@ -85,11 +85,23 @@ Quand il y a plusieurs point de terminaison de serveur sur un volume, le seuil d
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Comment la stratégie de hiérarchisation de dates fonctionne-t-elle conjointement à la stratégie de hiérarchisation d’espace disponible sur le volume ? 
 Lorsque vous activez la hiérarchisation cloud sur un point de terminaison de serveur, vous définissez une stratégie d’espace disponible sur le volume. Elle est toujours prioritaire sur toutes les autres stratégies, y compris la stratégie de date. Si vous le souhaitez, vous pouvez activer une stratégie de date pour chaque point de terminaison de serveur sur ce volume. Cette stratégie prévoit que seuls les fichiers consultés (c’est-à-dire les lectures ou les écritures) dans la plage de jours que cette stratégie décrit sont conservés en local. Les fichiers qui ne sont pas consultés pendant le nombre de jours spécifié sont hiérarchisés. 
 
-La hiérarchisation cloud utilise l’heure du dernier accès pour déterminer les fichiers à hiérarchiser. Le pilote de filtre de la hiérarchisation cloud (storagesync.sys) effectue le suivi de l’heure du dernier accès et enregistre les informations dans le magasin chaud de la hiérarchisation cloud. Vous pouvez voir le magasin chaud à l’aide d’une cmdlet PowerShell locale.
+La hiérarchisation cloud utilise l’heure du dernier accès pour déterminer les fichiers à hiérarchiser. Le pilote de filtre de la hiérarchisation cloud (storagesync.sys) effectue le suivi de l’heure du dernier accès et enregistre les informations dans le magasin chaud de la hiérarchisation cloud. Vous pouvez récupérer l’accumulateur de chaleur et l’enregistrer dans un fichier CSV à l’aide d’une cmdlet PowerShell serveur-locale.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]

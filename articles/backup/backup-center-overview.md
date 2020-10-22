@@ -2,13 +2,13 @@
 title: Vue d’ensemble du Centre de sauvegarde
 description: Cet article fournit une vue d’ensemble du Centre de sauvegarde pour Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992701"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91614278"
 ---
 # <a name="overview-of-backup-center"></a>Vue d’ensemble du Centre de sauvegarde
 
@@ -39,7 +39,11 @@ La vignette **Travaux** affiche une synthèse de tous les travaux de sauvegarde 
 
 La vignette **Instances de sauvegarde** affiche une synthèse de toutes les instances de sauvegarde dans votre espace de sauvegarde. Par exemple, vous pouvez voir le nombre d’instances de sauvegarde en état de suppression réversible par rapport au nombre d’instances toujours configurées pour la protection. La sélection de l’un des nombres figurant dans cette vignette vous permet d’afficher des informations supplémentaires sur les instances de sauvegarde pour un type de source de données et un état de protection spécifiques.
 
-Pour comprendre les différentes fonctionnalités qu’offre le Centre de sauvegarde et la manière dont vous pouvez les utiliser pour gérer efficacement votre espace de sauvegarde, procédez de la manière décrite ci-dessous.
+Regardez la vidéo suivante pour comprendre les fonctionnalités du Centre de sauvegarde :
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Effectuez les [étapes suivantes](#next-steps) pour comprendre les différentes fonctionnalités qu’offre le Centre de sauvegarde et la manière de les utiliser pour gérer efficacement votre espace de sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

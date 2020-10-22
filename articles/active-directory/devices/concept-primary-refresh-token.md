@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965911"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
-Un jeton d’actualisation principal (PRT) est un artefact clé d’authentification Azure AD sur Windows 10, iOS et les appareils Android. Il s’agit d’un jeton JSON Web Token (JWT) émis spécialement pour les brokers à jetons Microsoft internes, qui permet d’activer l’authentification unique (SSO) sur les applications utilisées sur ces appareils. Cet article explique en détail comment un PRT est émis, utilisé et protégé sur les appareils Windows 10.
+Un jeton d’actualisation principal (PRT) est un artefact clé d’authentification Azure AD sur les appareils Windows 10, Windows Server 2016 et versions ultérieures, iOS et Android. Il s’agit d’un jeton JSON Web Token (JWT) émis spécialement pour les brokers à jetons Microsoft internes, qui permet d’activer l’authentification unique (SSO) sur les applications utilisées sur ces appareils. Cet article explique en détail comment un PRT est émis, utilisé et protégé sur les appareils Windows 10.
 
 Cet article suppose que vous connaissez déjà les différents états des appareils disponibles dans Azure AD ainsi que le fonctionnement de l’authentification unique sous Windows 10. Pour plus d’informations sur les appareils dans Azure AD, consultez l’article [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).
 
@@ -199,6 +199,9 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 | D | Le plug-in CloudAP crée le cookie de PRT, se connecte avec la clé de session liée au TPM et le renvoie à l’hôte de client natif. Comme le cookie est signé par la clé de session, il ne peut pas être altéré. |
 | E | L’hôte de client natif renvoie ce cookie de PRT au navigateur, qui l’inclut dans l’en-tête de demande x-ms-RefreshTokenCredential et demande les jetons à Azure AD. |
 | F | Azure AD valide la signature de clé de session sur le cookie de PRT, vérifie la valeur à usage unique, s’assure que l’appareil est valide dans le locataire et émet un jeton d’ID pour la page web et un cookie de session chiffré pour le navigateur. |
+
+> [!NOTE]
+> Le flux d’authentification unique du navigateur décrit aux étapes ci-dessus ne s’applique pas aux sessions dans les modes privés tels que InPrivate dans Microsoft Edge ou Incognito dans Google Chrome (lors de l’utilisation de l’extension Comptes Microsoft).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

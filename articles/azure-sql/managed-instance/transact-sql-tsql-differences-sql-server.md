@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617874"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973306"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ Les instructions DBCC non documentées qui sont activées dans SQL Server ne son
 
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
-MSDTC et les [transactions élastiques](../database/elastic-transactions-overview.md) ne sont actuellement pas pris en charge dans SQL Managed Instance.
+La prise en charge partielle des [transactions distribuées](../database/elastic-transactions-overview.md) est actuellement en préversion publique. Les scénarios pris en charge sont les suivants :
+* Transactions où les participants sont uniquement des instances Azure SQL Managed Instance qui font partie du [groupe d’approbations de serveurs](https://aka.ms/mitrusted-groups).
+* Transactions lancées à partir de .NET (classe TransactionScope) et de Transact-SQL.
+
+Actuellement, Azure SQL Managed Instance ne prend pas en charge d’autres scénarios qui sont régulièrement pris en charge par MSDTC, localement ou dans des machines virtuelles Azure.
 
 ### <a name="extended-events"></a>Événements étendus
 

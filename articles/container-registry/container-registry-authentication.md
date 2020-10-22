@@ -3,12 +3,12 @@ title: Options d’authentification du Registre
 description: Options d’authentification pour un registre de conteneurs Azure privé, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657081"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148557"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Authentification avec un registre de conteneurs Azure
 
@@ -20,24 +20,25 @@ Les méthodes recommandées incluent l’authentification à un registre par le 
 
 Le tableau suivant liste les méthodes d’authentification disponibles et les scénarios typiques. Pour plus d’informations, suivez les liens.
 
-| Méthode                               | Comment s’authentifier                                           | Scénarios                                                            | RBAC                             | Limites                                |
+| Méthode                               | Comment s’authentifier                                           | Scénarios                                                            | Contrôle d’accès en fonction du rôle Azure (Azure RBAC)                             | Limites                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
-| [Identité AD individuelle](#individual-login-with-azure-ad)                | `az acr login` dans Azure CLI                             | Push/pull interactif par des développeurs ou des testeurs                                    | Oui                              | Le jeton AD doit être renouvelé toutes les 3 heures     |
-| [Principal de service AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` dans Azure CLI<br/><br/> Paramètres de connexion au registre dans les API ou les outils<br/><br/> [Secret d’extraction Kubernetes](container-registry-auth-kubernetes.md)                                           | Push sans assistance à partir d’un pipeline CI/CD<br/><br/> Pull sans assistance vers Azure ou des services externes  | Oui                              | Le mot de passe SP par défaut est valable 1 an       |                                                           
-| [Intégrer à AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attacher le registre quand un cluster AKS est créé ou mis à jour  | Pull sans assistance vers un cluster AKS                                                  | Non, accès pull uniquement             | Disponible uniquement avec le cluster AKS            |
-| [Identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` dans Azure CLI                                       | Push sans assistance à partir d’un pipeline CI/CD Azure<br/><br/> Pull sans assistance vers les services Azure<br/><br/>   | Oui                              | À utiliser uniquement à partir de services Azure [prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [Utilisateur administrateur](#admin-account)                            | `docker login`                                          | Push/pull interactif par un développeur ou un testeur individuel<br/><br/>Déploiement du portail de l’image à partir du registre vers Azure App Service ou Azure Container Instances                      | Non, toujours un accès pull et push  | Compte unique par registre, non recommandé pour plusieurs utilisateurs         |
-| [Jeton d’accès délimité au dépôt](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` dans Azure CLI   | Push/pull interactif dans le dépôt par un développeur ou un testeur individuel<br/><br/> Push/pull sans assistance vers le dépôt par un système individuel ou un périphérique externe                  | Oui                              | Pas actuellement intégré à l’identité AD  |
+| [Identité AD individuelle](#individual-login-with-azure-ad)                 | `az acr login` dans Azure CLI                              | Push/pull interactif par des développeurs ou des testeurs                                    | Oui                              | Le jeton AD doit être renouvelé toutes les 3 heures     |
+| [Principal de service AD](#service-principal)                   | `docker login`<br/><br/>`az acr login` dans Azure CLI<br/><br/> Paramètres de connexion au registre dans les API ou les outils<br/><br/> [Secret d’extraction Kubernetes](container-registry-auth-kubernetes.md)                                               | Push sans assistance à partir d’un pipeline CI/CD<br/><br/> Pull sans assistance vers Azure ou des services externes  | Oui                              | Le mot de passe SP par défaut est valable 1 an       |                                                           
+| [Intégrer à AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                     | Attacher le registre quand un cluster AKS est créé ou mis à jour  | Pull sans assistance vers un cluster AKS                                                  | Non, accès pull uniquement             | Disponible uniquement avec le cluster AKS            |
+| [Identité managée pour les ressources Azure](container-registry-authentication-managed-identity.md)   | `docker login`<br/><br/> `az acr login` dans Azure CLI                                       | Push sans assistance à partir d’un pipeline CI/CD Azure<br/><br/> Pull sans assistance vers les services Azure<br/><br/>   | Oui                              | À utiliser uniquement à partir de services Azure [prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Utilisateur administrateur](#admin-account)                             | `docker login`                                          | Push/pull interactif par un développeur ou un testeur individuel<br/><br/>Déploiement du portail de l’image à partir du registre vers Azure App Service ou Azure Container Instances                      | Non, toujours un accès pull et push  | Compte unique par registre, non recommandé pour plusieurs utilisateurs         |
+| [Jeton d’accès délimité au dépôt](container-registry-repository-scoped-permissions.md)                | `docker login`<br/><br/>`az acr login` dans Azure CLI   | Push/pull interactif dans le dépôt par un développeur ou un testeur individuel<br/><br/> Push/pull sans assistance vers le dépôt par un système individuel ou un périphérique externe                  | Oui                              | Pas actuellement intégré à l’identité AD  |
 
 ## <a name="individual-login-with-azure-ad"></a>Connexion individuelle avec Azure AD
 
-Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis une station de travail de développement vers un registre que vous avez créé, authentifiez-vous à l’aide de votre identité Azure individuelle. Exécutez la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) dans la [CLI Azure](/cli/azure/install-azure-cli) :
+Si vous utilisez directement votre registre, par exemple si vous extrayez des images et en envoyez depuis une station de travail de développement vers un registre que vous avez créé, authentifiez-vous à l’aide de votre identité Azure individuelle. Connectez-vous à [Azure CLI](/cli/azure/install-azure-cli) avec [az login](/cli/azure/reference-index#az-login), puis exécutez la commande [az acr login](/cli/azure/acr#az-acr-login) :
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté [az login](/cli/azure/reference-index#az-login) pour authentifier en toute transparence votre session avec votre registre. Pour terminer le flux d’authentification, le client Docker doit être installé et en cours d’exécution dans votre environnement. `az acr login` utilise le client Docker pour définir un jeton Azure Active Directory dans le fichier `docker.config`. Lorsque vous vous connectez à l'aide de cette méthode, vos informations d'identification sont mises en cache, et les commandes `docker` suivantes de votre session ne nécessitent ni nom d'utilisateur ni mot de passe.
+Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier en toute transparence votre session avec votre registre. Pour terminer le flux d’authentification, le client Docker doit être installé et en cours d’exécution dans votre environnement. `az acr login` utilise le client Docker pour définir un jeton Azure Active Directory dans le fichier `docker.config`. Lorsque vous vous connectez à l'aide de cette méthode, vos informations d'identification sont mises en cache, et les commandes `docker` suivantes de votre session ne nécessitent ni nom d'utilisateur ni mot de passe.
 
 > [!TIP]
 > Utilisez également `az acr login` pour authentifier une identité individuelle quand vous souhaitez envoyer (push) ou tirer (pull) des artefacts autres que des images Docker dans votre registre, par exemple des [artefacts OCI](container-registry-oci-artifacts.md).  
@@ -105,7 +106,7 @@ docker login myregistry.azurecr.io
 
 Pour connaître les meilleures pratiques de gestion des informations d'identification, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) dans Azure CLI :
+Pour activer l’utilisateur administrateur pour un registre existant, vous pouvez utiliser le paramètre `--admin-enabled` de la commande [az acr update](/cli/azure/acr#az-acr-update) dans Azure CLI :
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

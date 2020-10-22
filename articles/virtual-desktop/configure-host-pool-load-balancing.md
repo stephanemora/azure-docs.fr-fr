@@ -3,15 +3,15 @@ title: Configurer l’équilibrage de charge de Windows Virtual Desktop – Azur
 description: Comment configurer la méthode d’équilibrage de charge pour un environnement Windows Virtual Desktop ?
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010104"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951653"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
 
@@ -51,13 +51,19 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>Configurer l’équilibrage de charge de profondeur
 
-L’équilibrage de charge de profondeur répartit les nouvelles sessions utilisateur vers l'hôte de session disponible doté du plus grand nombre de connexions, sans avoir atteint sa limite maximale de sessions. Quand vous configurez l’équilibrage de charge en profondeur d’abord, vous devez définir une limite maximale de sessions par hôte de session du pool.
+L’équilibrage de charge de profondeur répartit les nouvelles sessions utilisateur vers l'hôte de session disponible doté du plus grand nombre de connexions, sans avoir atteint sa limite maximale de sessions.
+
+>[!IMPORTANT]
+>Quand vous configurez l’équilibrage de charge en profondeur d’abord, vous devez définir une limite maximale de sessions par hôte de session du pool.
 
 Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de profondeur, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> L’algorithme d’équilibrage de charge en profondeur d’abord distribue les sessions aux hôtes de session en fonction de la limite maximale de ces derniers (`-MaxSessionLimit`). La valeur par défaut de ce paramètre est `999999`, ce qui correspond également au plus grand nombre qu’il soit possible d’affecter à cette variable. Ce paramètre est obligatoire avec l’algorithme d’équilibrage de charge en profondeur d’abord. Pour une expérience utilisateur optimale, veillez à définir le paramètre de limite maximale des hôtes de session sur le nombre le plus adapté à votre environnement.
 
 Pour vérifier que le paramètre a été mis à jour, exécutez cette applet de commande :
 

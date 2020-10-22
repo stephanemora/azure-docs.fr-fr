@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 453eaa816ad48626b476fa392999f44e3c1a10cd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534071"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714554"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec l’interface Azure CLI
 
@@ -36,7 +36,7 @@ Pour créer une SAP de délégation d’utilisateur à l’aide d’Azure CLI, a
 
 Connectez-vous à l’interface de ligne de commande Azure avec vos informations d’identification Azure AD. Pour plus d’informations, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## <a name="assign-permissions-with-rbac"></a>Assigner des autorisations avec le RBAC
+## <a name="assign-permissions-with-azure-rbac"></a>Attribuer des autorisations avec le contrôle d’accès en fonction du rôle (RBAC) Azure
 
 Pour créer une SAP de délégation d’utilisateur à partir d’Azure PowerShell, le compte Azure AD utilisé pour se connecter à l’interface de ligne de commande Azure doit se voir attribuer un rôle incluant l’action **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Cette autorisation permet au compte Azure AD de demander la *clé de délégation d’utilisateur*. La clé de délégation d’utilisateur est utilisée pour signer les SAP de délégation d’utilisateur. Le rôle qui fournit l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** doit être attribué au niveau du compte de stockage, du groupe de ressources ou de l’abonnement.
 

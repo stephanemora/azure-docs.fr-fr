@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607478"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708592"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
-Cet article explique comment configurer votre offre pour qu’elle soit disponible au sein du programme des fournisseurs de solutions Cloud (CSP). Outre la publication de vos offres via les [magasins en ligne de la place de la place de marché commerciale](comparing-appsource-azure-marketplace.md), vous pouvez également vendre par le biais du programme CSP pour atteindre les millions de clients Microsoft qualifiés faisant partie du programme.
+Cet article explique comment configurer votre offre pour qu’elle soit disponible au sein du programme des fournisseurs de solutions Cloud (CSP). Outre la publication de vos offres via les [magasins en ligne de la place de la place de marché commerciale](overview.md#commercial-marketplace-online-stores), vous pouvez également vendre par le biais du programme CSP pour atteindre les millions de clients Microsoft qualifiés faisant partie du programme.
 
 Vous pouvez configurer des offres nouvelles ou existantes pour les rendre disponibles aux clients donnant leur consentement dans le programme CSP. Cela permet aux partenaires de vendre vos produits et de créer des solutions groupées pour les clients.
 
@@ -60,7 +60,7 @@ Choisissez parmi les trois options suivantes :
 
 En choisissant cette option, vous choisissez les partenaires du programme CSP qui peuvent revendre votre offre.
 
-Pour choisir les partenaires, cliquez sur **Sélectionner des partenaires CSP** et un menu s’affiche pour vous permettre d’effectuer une recherche par nom de partenaire ou ID de locataire CSP Azure Active Directory (AAD).
+Pour choisir les partenaires, sélectionnez **Sélectionner des partenaires CSP** : un menu s’affiche pour vous permettre d’effectuer une recherche par nom de partenaire ou ID de locataire CSP Azure Active Directory (Azure AD).
 
 ![Menu Sélectionner CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ Sélectionnez **Enregistrer le brouillon** pour enregistrer vos modifications.
 Si cette offre n’est pas publiée, vous devez publier votre offre afin de la rendre disponible pour vos partenaires sélectionnés.
 
 >[!NOTE]
->Si vous autorisez un partenaire dans le programme CSP dans une région donnée, celui-ci peut vendre l’offre à n’importe quel client appartenant à cette région spécifique. Pour plus d’informations sur la façon dont les offres CSP sont classées par région, consultez [Marchés régionaux et devise du programme Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>Si vous autorisez un partenaire dans le programme CSP dans une région donnée, celui-ci peut vendre l’offre à n’importe quel client appartenant à cette région spécifique. Pour plus d’informations sur la façon dont les offres CSP sont classifiées par région, consultez [Marchés régionaux et devise du programme Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/regional-authorization-overview).
 
 Si vous mettez à jour la liste CSP pour une offre déjà publiée, ajoutez les partenaires supplémentaires et sélectionnez **Synchroniser l’audience CSP**.
 
@@ -170,14 +170,11 @@ Pour aider les partenaires du programme CSP à identifier votre offre et à coll
 
 ### <a name="partner-center-csp-channel"></a>Canal CSP de l’Espace partenaires
 
-Si vous vous êtes abonné au canal CSP dans l’Espace partenaires, les éditeurs doivent entrer une URL qui héberge des documents marketing pertinents et des informations de contact de canal relatives au canal CSP dans le module d’annonce d’offre :
+Si vous vous êtes abonné au canal CSP dans l’Espace partenaires, les éditeurs doivent entrer une URL qui héberge des supports marketing appropriés et des informations de contact de canal dans le module de référencement des offres.
 
 ![Informations collatérales CSP dans l’Espace partenaires](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [Guide de l’éditeur Place de marché Azure et AppSource](marketplace-publishers-guide.md).
-
-Pour en savoir plus sur les services GTM de la place de marché, consultez [Services de commercialisation](https://partner.microsoft.com/reach-customers/gtm).
-
-Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
+- Découvrez-en plus sur les [services Go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
+- Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.

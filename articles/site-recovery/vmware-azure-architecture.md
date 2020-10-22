@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498950"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626494"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
@@ -50,6 +50,8 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 | Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |
 
+Pour obtenir une liste exhaustive des URL à filtrer pour la communication entre l’infrastructure Azure Site Recovery locale et les services Azure, reportez-vous à la [section relative à la configuration réseau requise dans l’article sur les prérequis](vmware-azure-deploy-configuration-server.md#prerequisites).
+
 ## <a name="replication-process"></a>Processus de réplication
 
 1. Lorsque vous activez la réplication pour une machine virtuelle, la réplication initiale vers Stockage Azure commence, conformément à la stratégie de réplication spécifiée. Notez les points suivants :
@@ -82,6 +84,54 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 5. Par défaut, la resynchronisation est planifiée pour s’exécuter automatiquement en dehors des heures de bureau. Si vous ne souhaitez pas attendre la resynchronisation par défaut en dehors des heures de bureau, vous pouvez resynchroniser une machine virtuelle manuellement, Pour ce faire, accédez au portail Azure, sélectionnez la machine virtuelle > **Resynchroniser**.
 6. Si la resynchronisation par défaut échoue en dehors des heures de bureau et qu’une intervention manuelle est nécessaire, une erreur est générée sur la machine spécifique dans le portail Azure. Vous pouvez résoudre l’erreur et déclencher la resynchronisation manuellement.
 7. Une fois la resynchronisation terminée, la réplication des modifications différentielles reprend.
+
+## <a name="replication-policy"></a>Stratégie de réplication 
+
+Par défaut, lorsque vous activez la réplication de machines virtuelles Azure, Site Recovery crée une stratégie de réplication avec les paramètres par défaut qui sont répertoriés dans le tableau.
+
+**Paramètre de stratégie** | **Détails** | **Par défaut**
+--- | --- | ---
+**Conservation des points de récupération** | Spécifie la durée pendant laquelle Site Recovery conserve les points de récupération. | 24 heures
+**Fréquence des instantanés de cohérence des applications** | Fréquence à laquelle Site Recovery prend des instantanés de cohérence des applications. | Toutes les quatre heures
+
+### <a name="managing-replication-policies"></a>Gestion des stratégies de réplication
+
+Vous pouvez gérer et modifier les paramètres des stratégies de réplication par défaut de la façon suivante :
+- Vous pouvez modifier les paramètres lorsque vous activez la réplication.
+- Vous pouvez créer une stratégie de réplication à tout moment, puis l’appliquer lorsque vous activez la réplication.
+
+### <a name="multi-vm-consistency"></a>Cohérence multimachine virtuelle
+
+Si vous souhaitez que plusieurs machines virtuelles soient répliquées en même temps et que celles-ci partagent les mêmes points de récupération de cohérence des applications et de cohérence en cas d’incident au moment du basculement, vous pouvez les rassembler dans un groupe de réplication. La cohérence multimachine virtuelle impacte les performances des charges de travail, et doit uniquement être utilisée pour les machines virtuelles qui exécutent des charges de travail nécessitant la cohérence de toutes les machines. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>Captures instantanées et points de récupération
+
+Les points de récupération sont créés à partir de captures instantanées des disques des machines virtuelles qui sont prises à un moment précis dans le temps. Lorsque vous basculez une machine virtuelle, vous utilisez un point de récupération pour restaurer la machine virtuelle à l’emplacement cible.
+
+Lorsque nous effectuons un basculement, nous souhaitons garantir que la machine virtuelle démarre sans perte ni altération des données, et que les données soient cohérentes à la fois sur le système d’exploitation et dans les applications qui s’exécutent sur la machine virtuelle. Cela dépend du type des captures instantanées qui sont prises.
+
+Site Recovery prend des captures instantanées de la façon suivante :
+
+1. Par défaut, Site Recovery prend des instantanés de cohérence en cas d’incident à partir des données ainsi que des instantanés de cohérence des applications si vous spécifiez une fréquence pour ces instantanés.
+2. Les points de récupération sont créés à partir de captures instantanées et sont stockés conformément aux paramètres de conservation de la stratégie de réplication.
+
+### <a name="consistency"></a>Cohérence
+
+Le tableau suivant explique les différents types de cohérence.
+
+### <a name="crash-consistent"></a>Cohérence en cas d’incident
+
+**Description** | **Détails** | **Recommandation**
+--- | --- | ---
+Un instantané de cohérence en cas d’incident capture les données qui se trouvaient sur le disque lorsque l’instantané a été pris. Il n’ajoute aucune donnée en mémoire.<br/><br/> Il contient l’équivalent des données qui étaient présentes sur le disque lorsque la machine virtuelle a planté ou lorsque le cordon d’alimentation a été retiré du serveur au moment où l’instantané a été pris.<br/><br/> La cohérence en cas d’incident ne garantit pas la cohérence des données sur le système d’exploitation ou dans les applications présentes sur la machine virtuelle. | Par défaut, Site Recovery crée des points de récupération de cohérence en cas d’incident toutes les cinq minutes. Ce paramètre ne peut pas être modifié.<br/><br/>  | Aujourd’hui, la plupart des applications peuvent récupérer correctement à partir de points de cohérence en cas d’incident.<br/><br/> Les points de récupération de cohérence en cas d’incident sont généralement suffisants pour la réplication des systèmes d’exploitation et des applications telles que les serveurs DHCP et les serveurs d’impression.
+
+### <a name="app-consistent"></a>Cohérence des applications
+
+**Description** | **Détails** | **Recommandation**
+--- | --- | ---
+Les points de récupération de cohérence des applications sont créés à partir d’instantanés de cohérence des applications.<br/><br/> Un instantané de cohérence des applications contient toutes les informations d’un instantané de cohérence en cas d’incident ainsi que toutes les données en mémoire et les transactions en cours. | Les instantanés de cohérence des applications utilisent le service de cliché instantané de volume (VSS) :<br/><br/>   1) Azure Site Recovery utilise la méthode de sauvegarde de copie uniquement (VSS_BT_COPY) qui ne change pas le numéro de séquence et l’heure de la sauvegarde de fichier journal de Microsoft SQL </br></br> 2) Lorsqu’un instantané est lancé, le service VSS effectue une opération de copie pour écriture sur le volume.<br/><br/>   3) Avant d’effectuer l’opération de copie pour écriture, le service VSS informe chaque application de l’ordinateur qu’il a besoin de vider ses données résidant en mémoire sur le disque.<br/><br/>   4) VSS permet ensuite à l’application de sauvegarde ou de récupération d’urgence (ici, Site Recovery) de lire les données d’instantanés et de poursuivre. | Les instantanés de cohérence des applications sont réalisés selon la fréquence que vous avez spécifiée. Cette fréquence doit toujours être inférieure à celle que vous définissez pour conserver les points de récupération. Par exemple, si vous conservez les points de récupération à l’aide du paramètre par défaut (24 heures), vous devez définir une fréquence inférieure à 24 heures.<br/><br/>Ces instantanés sont plus complexes et plus longs à réaliser que les instantanés de cohérence en cas d’incident.<br/><br/> Ils affectent les performances des applications qui s’exécutent sur les machines virtuelles où est activée la réplication. 
 
 ## <a name="failover-and-failback-process"></a>Processus de basculement et de restauration automatique
 

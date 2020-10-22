@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533419"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91613920"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
 
@@ -133,7 +133,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
 11. Dans la section **Mappages des attributs**, passez en revue les attributs d’utilisateurs qui sont synchronisés entre Azure AD et Tableau Online. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Tableau Online pour les opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **Enregistrer**.
 
-    ![Tableau Online : mise en correspondance des attributs utilisateur](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau Online : mise en correspondance des attributs utilisateur](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Tableau Online**.
 
@@ -162,6 +162,9 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs o
 Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers le rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Tableau Online.
 
 Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="change-log"></a>Journal des modifications
+* 30/09/2020 : Ajout de la prise en charge de l’attribut « authSetting » pour les utilisateurs.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

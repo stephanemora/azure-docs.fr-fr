@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553901"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019135"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
 Azure Automation et les runbooks PowerShell vous permettent d’effectuer des opérations d’actualisation de données automatiques sur vos modèles tabulaires Azure Analysis.  
 
-L’exemple de cet article utilise le [module SqlServer PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Un exemple de runbook PowerShell illustrant l’actualisation d’un modèle est fourni plus loin dans cet article.  
+L’exemple de cet article utilise le [module SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Un exemple de runbook PowerShell illustrant l’actualisation d’un modèle est fourni plus loin dans cet article.  
 
 ## <a name="authentication"></a>Authentification
 
@@ -54,15 +54,15 @@ Le principal du service que vous créez doit disposer d’autorisations d’admi
 
 1. Dans le compte Automation, créez une ressources **Informations d’identification** qui sera utilisée pour stocker le principal de service en toute sécurité.
 
-    ![Créer des informations d’identification](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Capture d’écran de la page « Informations d’identification » avec l’action « Ajouter des informations d’identification » sélectionnée](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Entrez les détails des informations d’identification. Dans **Nom d’utilisateur**, entrez l’ID d’application du principal du service (appid), puis, dans **Mot de passe**, entrez le secret du principal du service.
+2. Entrez les détails des informations d’identification. Dans **Nom d’utilisateur**, entrez l’ID de l’application du principal de service (appid). Ensuite, entrez le secret du principal de service dans **Mot de passe**.
 
     ![Créer des informations d’identification](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importer le runbook Automation
+3. Importez le runbook Automation.
 
-    ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Capture d’écran de la page « Runbooks » avec l’action « Importer un runbook » sélectionnée](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Recherchez le fichier [Refresh-Model.ps1](#sample-powershell-runbook), fournissez un **nom** et une **description**, puis cliquez sur **Créer**.
 
@@ -80,7 +80,7 @@ Le principal du service que vous créez doit disposer d’autorisations d’admi
 
 6. Testez le runbook en cliquant sur **Démarrer**.
 
-    ![Démarrer le runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Capture d’écran de la page « Vue d’ensemble » avec l’action « Démarrer » sélectionnée](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Renseignez les paramètres **DATABASENAME**, **ANALYSISSERVER** et **REFRESHTYPE**, puis cliquez sur **OK**. Le paramètre **WEBHOOKDATA** n’est pas obligatoire lorsque le runbook est exécuté manuellement.
 
@@ -202,7 +202,7 @@ $_Credential = Get-AutomationPSCredential -Name "ServicePrincipal"
 
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData)
-{ 
+{ 
     # Retrieve AAS details from Webhook request body
     $atmParameters = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
     Write-Output "CredentialName: $($atmParameters.CredentialName)"
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Exemples](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

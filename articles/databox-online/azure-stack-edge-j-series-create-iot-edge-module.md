@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891189"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952197"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Développer un module IoT Edge en C# pour déplacer des fichiers vers Azure Stack Edge Pro
 
@@ -259,7 +259,7 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
  
 3. Une fois les informations d’identification fournies, vous pouvez transmettre l’image de votre module au registre Azure Container Registry. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **module.json** et sélectionnez **Build and Push IoT Edge solution** (Générer et envoyer (push) la solution IoT Edge).
 
-    ![Générer et envoyer (push) la solution IoT Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Créer et envoyer (push) la solution IoT Edge 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Lorsque vous indiquez à Visual Studio Code de générer votre solution, il exécute deux commandes dans le terminal intégré : docker build et docker push. Ces deux commandes génèrent votre code, mettent votre module CSharpModule.dll en conteneur, puis envoient le code au registre de conteneurs que vous avez spécifié lors de l’initialisation de la solution.
 

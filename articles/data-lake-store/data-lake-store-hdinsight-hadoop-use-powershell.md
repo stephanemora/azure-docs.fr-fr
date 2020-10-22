@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7cb9d5c5c2ca850678d3f3194a9af8de526ada4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048853"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103388"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Utiliser Azure PowerShell pour créer un cluster HDInsight avec Azure Data Lake Storage Gen1 (comme stockage complémentaire)
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser Azure PowerShell pour configurer un cluster HDInsigh
 > Si vous vous apprêtez à utiliser Data Lake Storage Gen1 en tant que stockage supplémentaire pour le cluster HDInsight, nous vous recommandons vivement de procéder ainsi lorsque vous créez le cluster comme décrit dans cet article. L’ajout de Data Lake Storage Gen1 en tant que stockage supplémentaire à un cluster HDInsight existant est un processus complexe sujet aux erreurs.
 >
 
-Pour les types de clusters pris en charge, Data Lake Storage Gen1 est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Storage Gen1 est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours Azure Storage Blob (WABS), et les fichiers associés au cluster (par exemple, les journaux d’activité, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans un compte Data Lake Storage Gen1. L’utilisation de Data Lake Storage Gen1 en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
+Pour les types de clusters pris en charge, Data Lake Storage Gen1 est utilisé comme compte de stockage par défaut ou supplémentaire. Lorsque Data Lake Storage Gen1 est utilisé comme espace de stockage supplémentaire, le compte de stockage par défaut pour les clusters est toujours le Stockage Blob Azure (WASB), et les fichiers associés au cluster (par exemple, les journaux d’activité, etc.) sont écrits dans le stockage par défaut, tandis que les données que vous souhaitez traiter peuvent être stockées dans Data Lake Storage Gen1. L’utilisation de Data Lake Storage Gen1 en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture/écriture sur le stockage à partir du cluster.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Utilisation de Data Lake Storage Gen1 pour le stockage de cluster HDInsight
 
@@ -39,7 +39,7 @@ Voici quelques considérations importantes pour l’utilisation de HDInsight ave
 
 Pour configurer HDInsight afin qu’il fonctionne avec Data Lake Storage Gen1 à l’aide de PowerShell, la procédure est la suivante :
 
-* Créer un compte Data Lake Storage Gen1
+* Créer un compte Data Lake Storage Gen1 
 * Configurer l’authentification pour définir un accès à Data Lake Storage Gen1 en fonction du rôle
 * Créer un cluster HDInsight avec authentification à Data Lake Storage Gen1
 * Lancer une tâche de test sur le cluster
@@ -57,7 +57,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
     **Si vous n’êtes pas administrateur Azure AD**, vous ne pouvez pas effectuer les étapes nécessaires à la création d’un principal du service. Dans ce cas, votre administrateur Azure AD doit d’abord créer un principal de service. Vous pourrez ensuite créer un cluster HDInsight avec Data Lake Storage Gen1. En outre, le principal du service doit être créé à l’aide d’un certificat, comme décrit dans [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) (Créer un principal du service avec certificat).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Créer un compte Data Lake Storage Gen1
+## <a name="create-a-data-lake-storage-gen1-account"></a>Créer un compte Data Lake Storage Gen1 
 Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
 
 1. Sur votre bureau, ouvrez une nouvelle fenêtre Azure PowerShell et entrez l'extrait de code suivant. Lorsque vous êtes invité à vous connecter, vérifiez que vous vous connectez en tant qu’administrateur/propriétaire de l’abonnement :
@@ -77,10 +77,10 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
     ```
 
    > [!NOTE]
-   > Si vous recevez une erreur similaire à `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Storage Gen1, il est possible que votre abonnement ne figure pas dans la liste approuvée pour Data Lake Storage Gen1. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Storage Gen1 en suivant ces [instructions](data-lake-store-get-started-portal.md).
+   > Si vous recevez une erreur similaire à `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` pendant l’inscription du fournisseur de ressources Data Lake Storage Gen1, il est possible que votre abonnement n’ait pas été approuvé pour Data Lake Storage Gen1. Veillez à activer votre abonnement Azure pour la version préliminaire publique de Data Lake Storage Gen1 en suivant ces [instructions](data-lake-store-get-started-portal.md).
    >
    >
-2. Un compte Data Lake Storage Gen1 est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
+2. Un compte de stockage Data Lake Storage Gen1 est associé à un groupe de ressources Azure. Commencez par créer un groupe de ressources Azure.
 
     ```azurepowershell
     $resourceGroupName = "<your new resource group name>"
@@ -97,10 +97,10 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
     ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
     ```
 
-3. Créer un compte Data Lake Storage Gen1. Le nom de compte que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
+3. Créez un compte de stockage avec Data Lake Storage Gen1. Le nom de compte que vous spécifiez doit contenir uniquement des lettres minuscules et des chiffres.
 
     ```azurepowershell
-    $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
+    $dataLakeStorageGen1Name = "<your new storage account with Data Lake Storage Gen1 name>"
     New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
     ```
 
@@ -132,7 +132,7 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit.
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Configurer l’authentification pour définir un accès à Data Lake Storage Gen1 en fonction du rôle
 
-Chaque abonnement Azure est associé à un Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l’abonnement avec le portail Azure ou l’API Azure Resource Manager doivent au préalable s’authentifier avec cette application Azure Active Directory. L’accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure.  Pour les services, un principal du service identifie le service dans Azure Active Directory (AAD). Cette section montre comment accorder l’accès à une ressource Azure (le compte Data Lake Storage Gen1 créé précédemment) à un service d’application, comme HDInsight, en créant un principal du service pour l’application et en lui attribuant des rôles avec Azure PowerShell.
+Chaque abonnement Azure est associé à un Azure Active Directory. Les utilisateurs et services qui accèdent aux ressources de l’abonnement avec le portail Azure ou l’API Azure Resource Manager doivent au préalable s’authentifier avec cette application Azure Active Directory. L’accès est accordé aux abonnements et services Azure en leur affectant le rôle approprié sur une ressource Azure.  Pour les services, un principal de service identifie le service dans Azure Active Directory (Azure AD). Cette section montre comment accorder l’accès à une ressource Azure (le compte de stockage Data Lake Storage Gen1 créé précédemment) à un service d’application, comme HDInsight, en créant un principal de service pour l’application et en lui attribuant des rôles avec Azure PowerShell.
 
 Pour configurer l’authentification Active Directory pour Data Lake Storage Gen1, vous devez effectuer les tâches suivantes.
 
@@ -197,7 +197,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
      $objectId = $servicePrincipal.Id
     ```
 
-3. Accordez au principal du service l’accès au dossier et au fichier Data Lake Storage Gen1 auxquels vous accéderez à partir du cluster HDInsight. L’extrait de code ci-dessous fournit l’accès à la racine du compte Data Lake Storage Gen1 (où vous avez copié l’exemple de fichier de données) et le fichier lui-même.
+3. Accordez au principal du service l’accès au dossier et au fichier Data Lake Storage Gen1 auxquels vous accéderez à partir du cluster HDInsight. L’extrait de code ci-dessous fournit l’accès à la racine du compte de stockage Data Lake Storage Gen1 (où vous avez copié l’exemple de fichier de données) et le fichier lui-même.
 
     ```azurepowershell
     Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
@@ -206,7 +206,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Créer un cluster Linux HDInsight avec Data Lake Storage Gen1 comme stockage par supplémentaire
 
-Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lake Storage Gen1 comme stockage supplémentaire. Pour cette version, le cluster HDInsight et le compte Data Lake Storage Gen1 doivent se situer au même emplacement.
+Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lake Storage Gen1 comme stockage supplémentaire. Pour cette version, le cluster HDInsight et le compte de stockage avec Data Lake Storage Gen1 doivent se trouver au même emplacement.
 
 1. Commencez par récupérer l’ID du client de l’abonnement. Vous en aurez besoin ultérieurement.
 
@@ -214,7 +214,7 @@ Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lak
     $tenantID = (Get-AzContext).Tenant.TenantId
     ```
 
-2. Pour cette version, pour un cluster Hadoop, Data Lake Storage Gen1 ne peut être utilisé que comme stockage supplémentaire pour le cluster. Le stockage par défaut sera toujours les objets blob Azure Storage (WASB). Par conséquent, nous allons tout d'abord créer le compte de stockage et les conteneurs de stockage requis par le cluster.
+2. Pour cette version, pour un cluster Hadoop, Data Lake Storage Gen1 ne peut être utilisé que comme stockage supplémentaire pour le cluster. Le stockage par défaut sera toujours le Stockage Blob Azure (WASB). Par conséquent, nous allons tout d'abord créer le compte de stockage et les conteneurs de stockage requis par le cluster.
 
     ```azurepowershell
     # Create an Azure storage account
@@ -245,12 +245,12 @@ Dans cette section, nous créons un cluster HDInsight Hadoop Linux avec Data Lak
     Après exécution de l'applet de commande, le résultat énumère les détails du cluster.
 
 
-## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-storage-gen1-account"></a>Exécuter des tâches de test sur le cluster HDInsight pour utiliser le compte Data Lake Storage Gen1
-Après avoir configuré un cluster HDInsight, vous pouvez exécuter des travaux test sur le cluster pour vérifier que le cluster HDInsight peut accéder à Data Lake Storage Gen1. Pour ce faire, nous allons exécuter un exemple de tâche Hive qui crée une table avec les exemples de données que vous avez téléchargés précédemment dans votre compte Data Lake Storage Gen1.
+## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-storage-gen1"></a>Exécuter des tâches de test sur le cluster HDInsight pour utiliser Data Lake Storage Gen1
+Après avoir configuré un cluster HDInsight, vous pouvez exécuter des travaux test sur le cluster pour vérifier que le cluster HDInsight peut accéder à Data Lake Storage Gen1. Pour ce faire, nous allons exécuter un exemple de tâche Hive qui crée une table avec les exemples de données que vous avez chargés précédemment dans votre compte de stockage avec Data Lake Storage Gen1.
 
 Dans cette section, vous allez utiliser SSH dans le cluster HDInsight Linux que vous avez créé et exécuter l’exemple de requête Hive.
 
-* Si vous utilisez un client Windows pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si vous utilisez un client Windows pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Si vous utilisez un client Linux pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
@@ -287,13 +287,13 @@ Une fois que vous avez configuré le cluster HDInsight pour qu’il utilise Data
 
 Dans cette section, vous allez utiliser SSH dans le cluster HDInsight Linux que vous avez créé et exécuter les commandes HDFS.
 
-* Si vous utilisez un client Windows pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Si vous utilisez un client Windows pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Si vous utilisez un client Linux pour utiliser SSH dans le cluster, consultez la rubrique [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Une fois connecté, utilisez la commande du système de fichiers HDFS suivante pour répertorier les fichiers dans le compte Data Lake Storage Gen1.
+Une fois connecté, utilisez la commande suivante du système de fichiers HDFS pour lister les fichiers du compte de stockage avec Data Lake Storage Gen1.
 
 ```azurepowershell
-hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
+hdfs dfs -ls adl://<storage account with Data Lake Storage Gen1 name>.azuredatalakestore.net:443/
 ```
 
 Le fichier que vous avez téléchargé dans Data Lake Storage Gen1 doit y figurer.
@@ -307,8 +307,8 @@ Found 1 items
 Vous pouvez également utiliser la commande `hdfs dfs -put` pour charger des fichiers dans Data Lake Storage Gen1, puis utiliser `hdfs dfs -ls` pour vérifier si les fichiers ont été chargés avec succès.
 
 ## <a name="see-also"></a>Voir aussi
-* [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portail : créer un cluster HDInsight pour utiliser Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

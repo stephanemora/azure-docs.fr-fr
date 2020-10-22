@@ -3,12 +3,12 @@ title: Déployer Horizon sur Azure VMware Solution
 description: Découvrez comment déployer VMware Horizon sur Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729047"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078882"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Déployer Horizon sur Azure VMware Solution 
 
@@ -110,17 +110,17 @@ Dans cet exemple de base, vous pouvez connecter votre contrôleur de domaine Act
 
 Une variante de l’exemple de base abordé peut être la prise en charge de la connectivité pour les ressources locales. Il peut s’agir d’utilisateurs qui accèdent aux bureaux et génèrent du trafic d’application de bureau virtuel ou se connectent à un pod local à l’aide de la CPA.
 
-Le diagramme ci-dessous montre comment procéder. Pour connecter votre réseau d’entreprise au réseau virtuel Azure, vous aurez besoin d’un ExpressRoute. Vous devez également connecter votre réseau d’entreprise à chacun des clouds/SDDC privés à l’aide de Global Reach, ce qui permet la connectivité du SDDC aux ressources ExpressRoute et locales.
+Le diagramme ci-dessous montre comment procéder.  Pour connecter votre réseau d’entreprise au réseau virtuel Azure, vous aurez besoin d’un ExpressRoute.  Vous devez également connecter votre réseau d’entreprise à chacun des clouds/SDDC privés à l’aide de Global Reach, ce qui permet la connectivité du SDDC aux ressources ExpressRoute et locales.
 
 :::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Les différences entre Horizon sur Azure VMware Solution et Horizon Cloud sur Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Plusieurs modules Horizon sur Azure VMware Solution dans plusieurs régions
 
-Pour un autre exemple de pod Horizon, examinons un exemple qui illustre la mise à l’échelle sur plusieurs pods. Dans cet exemple, vous déployez deux modules Horizon dans deux régions différentes et les fédérez à l’aide de la CPA. La configuration réseau est similaire à l’exemple précédent, avec quelques liens supplémentaires entre les régions. 
+Pour un autre exemple de pod Horizon, examinons un exemple qui illustre la mise à l’échelle sur plusieurs pods.  Dans cet exemple, vous déployez deux modules Horizon dans deux régions différentes et les fédérez à l’aide de la CPA.  La configuration réseau est similaire à l’exemple précédent, avec quelques liens supplémentaires entre les régions. 
 
-Vous devez connecter le réseau virtuel Azure de chaque région aux clouds privés/SDDC dans l’autre région, ce qui permet aux serveurs de connexion Horizon qui font partie de la fédération de la CPA de se connecter à tous les bureaux sous gestion. L’ajout de clouds privés/SDDC supplémentaires à cette configuration vous permet de mettre à l’échelle vers 24 000 sessions au total. 
+Vous devez connecter le réseau virtuel Azure de chaque région aux clouds privés/SDDC dans l’autre région, ce qui permet aux serveurs de connexion Horizon qui font partie de la fédération de la CPA de se connecter à tous les bureaux sous gestion.  L’ajout de clouds privés/SDDC supplémentaires à cette configuration vous permet de mettre à l’échelle vers 24 000 sessions au total. 
 
-Bien que cet exemple montre plusieurs régions, le même principe s’applique si vous souhaitez déployer deux pods Horizon dans la même région. Notez que vous devez vous assurer que le deuxième pod est déployé dans un *réseau virtuel Azure distinct*. Enfin, comme vous le feriez dans l’exemple à pod unique précédent, vous pouvez connecter votre réseau d’entreprise et votre pod local à cet exemple de pods multiples/région à l’aide des instances d’ExpressRoute et de Global Reach du client.
+Bien que cet exemple montre plusieurs régions, le même principe s’applique si vous souhaitez déployer deux pods Horizon dans la même région. Notez que vous devez vous assurer que le deuxième pod est déployé dans un *réseau virtuel Azure distinct*.  Enfin, comme vous le feriez dans l’exemple à pod unique précédent, vous pouvez connecter votre réseau d’entreprise et votre pod local à cet exemple de pods multiples/région à l’aide des instances d’ExpressRoute et de Global Reach du client.
 
 :::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Les différences entre Horizon sur Azure VMware Solution et Horizon Cloud sur Azure" border="false":::
 
@@ -173,7 +173,7 @@ Pour cet exemple, le nombre total d’hôtes a pour valeur 18, ce qui donne une 
 
 ## <a name="horizon-on-azure-vmware-solution-licensing"></a>Frais de licence Horizon sur Azure VMware Solution 
 
-Il y a quatre composants pour les coûts globaux d’exécution d’Horizon sur Azure VMware Solution. 
+Il y a quatre composants pour les coûts globaux d’exécution d’Horizon sur Azure VMware Solution. 
 
 ### <a name="azure-vmware-solution-capacity-cost"></a>Coût de la capacité Azure VMware Solution
 
@@ -197,11 +197,14 @@ Collaborez avec votre équipe commerciale VMware EUC pour déterminer le coût d
 
 Sur la base de l’architecture de déploiement standard, les machines virtuelles de l’infrastructure Horizon sont constituées de serveurs de connexion, d’UAG et de gestionnaires de volume d’application, et sont déployées dans le réseau virtuel Azure du client. Des instances Azure natives supplémentaires sont requises pour prendre en charge les services de haute disponibilité (HA), Microsoft SQL ou Microsoft Active Directory (AD) sur Azure. La liste suivante répertorie les instances Azure basées sur un exemple de déploiement de 2 000 bureaux. 
 
+>[!NOTE]
+>Pour être en mesure de gérer la défaillance, déployez un serveur de plus qu’il n’est requis pour le nombre de connexions (n+1). Le nombre minimal recommandé d’instances du serveur de connexion, d’UAG et du gestionnaire de volume d’application est 2, et le nombre requis augmente en fonction du nombre d’utilisateurs que l’environnement prendra en charge.  Un serveur de connexion unique prend en charge un maximum de 4 000 sessions, même si 2 000 sont recommandées comme bonne pratique. Jusqu’à sept serveurs de connexion sont pris en charge par pod, avec une recommandation de 12 000 sessions actives au total par pod. Pour obtenir les nombres les plus récents, consultez l’article de base de connaissances VMware sur les [limites et recommandations de dimensionnement d’Horizon 7](https://kb.vmware.com/s/article/2150348).
+
 | Composant d'infrastructure Horizon | Instance Azure | Nombre d’instances nécessaires (pour 2 000 bureaux)    | Comment  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Serveur de connexion                | D4sv3          | 2       | *Comprend 1 instance pour la haute disponibilité*             |    
-| UAG                              | F2sv2          | 2       | *Comprend 1 instance pour la haute disponibilité*             |
-| Gestionnaire des volumes d’application              | D4sv3          | 2       | *Comprend 1 instance pour la haute disponibilité*             |
+| Serveur de connexion                | D4sv3          | 2       | *Voir la remarque ci-dessus*                         |    
+| UAG                              | F2sv2          | 2       | *Voir la remarque ci-dessus*                         |
+| Gestionnaire des volumes d’application              | D4sv3          | 2       | *Voir la remarque ci-dessus*                         |
 | Connecteur cloud                  | D4sv3          | 1       |                                          |
 | Contrôleur AD                    | D4sv3          | 2       | *Option pour utiliser le service AD MSFT sur Azure* |
 | Base de données MS-SQL                  | D4sv3          | 2       | *Option permettant d’utiliser le service SQL sur Azure*     |

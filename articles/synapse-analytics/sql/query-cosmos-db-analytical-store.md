@@ -1,5 +1,5 @@
 ---
-title: Interroger des données d’Azure Cosmos DB à l’aide de SQL à la demande dans Azure Synapse Link (préversion)
+title: Interroger des données d’Azure Cosmos DB à l’aide de SQL serverless dans Azure Synapse Link (préversion)
 description: Cet article explique comment interroger Azure Cosmos DB à l’aide de SQL à la demande dans Azure Synapse Link (préversion).
 services: synapse analytics
 author: jovanpop-msft
@@ -9,45 +9,50 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c64a42c66a3b1c1810c17347e18979d599b36b6f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930051"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057805"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB à l’aide de SQL à la demande dans Azure Synapse Link (préversion)
+# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB à l’aide de SQL serverless dans Azure Synapse Link (préversion)
 
-SQL serverless (précédemment SQL à la demande) vous permet d’analyser les données de vos conteneurs Azure Cosmos DB activés avec [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en quasi-temps réel sans affecter les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du [magasin analytique](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), et une connectivité intégrée à un vaste éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL.
+Synapse SQL serverless (précédemment SQL serverless) vous permet d’analyser les données de vos conteneurs Azure Cosmos DB activés avec [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) en quasi-temps réel sans affecter les performances de vos charges de travail transactionnelles. Il offre une syntaxe T-SQL familière pour interroger les données du [magasin analytique](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), et une connectivité intégrée à un vaste éventail d’outils décisionnels et d’interrogation ad hoc via l’interface T-SQL.
 
 > [!NOTE]
-> La prise en charge de l’interrogation du magasin analytique d’Azure Cosmos DB avec SQL à la demande est actuellement disponible en préversion contrôlée. 
+> La prise en charge de l’interrogation du magasin analytique d’Azure Cosmos DB avec SQL serverless est actuellement disponible en préversion contrôlée. L’ouverture de la préversion publique sera annoncée dans la page des [mises à jour du service Azure](https://azure.microsoft.com/updates/?status=nowavailable&category=databases).
 
-Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actuellement, vous ne pouvez pas stocker les résultats d’une requête SQL à la demande dans Azure Cosmos DB à l’aide de [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Pour l’interrogation d’Azure Cosmos DB, tout la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) est prise en charge via la fonction [OPENROWSET](develop-openrowset.md), y compris la majorité des [fonctions et opérateurs SQL](overview-features.md). Vous pouvez également stocker les résultats de la requête qui lit des données d’Azure Cosmos DB ainsi que des données du Stockage Blob Azure ou d’Azure Data Lake Storage à l’aide de la commande [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). Actuellement, vous ne pouvez pas stocker les résultats d’une requête SQL serverless dans Azure Cosmos DB à l’aide de [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
-Cet article explique comment écrire une requête à l’aide de SQL à la demande, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues SQL à la demande sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. 
+Cet article explique comment écrire une requête à l’aide de SQL serverless, qui interrogera les données de conteneurs Azure Cosmos DB pour lesquels la fonctionnalité Synapse Link est activée. [Ce tutoriel](./tutorial-data-analyst.md) fournit également des informations supplémentaires sur la création de vues SQL serverless sur des conteneurs Azure Cosmos DB, et leur connexion à des modèles Power BI. 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Pour prendre en charge l’interrogation et l’analyse des données d’un magasin analytique Azure Cosmos DB, SQL à la demande utilise la syntaxe `OPENROWSET` suivante :
+Pour prendre en charge l’interrogation et l’analyse des données d’un magasin analytique Azure Cosmos DB, SQL serverless utilise la syntaxe `OPENROWSET` suivante :
 
 ```sql
 OPENROWSET( 
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-La chaîne de connexion Azure Cosmos DB spécifie le nom du compte Azure Cosmos DB, le nom de la base de données, la clé principale du compte de base de données et un nom de région facultatif pour la fonction `OPENROWSET`. Le format de la chaîne de connexion est le suivant :
+La chaîne de connexion Azure Cosmos DB spécifie le nom du compte Azure Cosmos DB, le nom de la base de données, la clé principale du compte de base de données et un nom de région facultatif pour la fonction `OPENROWSET`. 
+
+> [!IMPORTANT]
+> Veillez à utiliser l’alias après `OPENROWSET`. Il existe un [problème connu](#known-issues) qui provoque un problème de connexion à un point de terminaison Synapse serverless SQL si vous ne spécifiez pas l’alias après la fonction `OPENROWSET`.
+
+Le format de la chaîne de connexion est le suivant :
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
 
-Le nom du conteneur Azure Cosmos DB est spécifié sans guillemets dans la syntaxe `OPENROWSET`. Si le nom du conteneur contient des caractères spéciaux (par exemple, un tiret « - »), le nom doit être encapsulé entre crochets `[]` dans la syntaxe `OPENROWSET`.
+Le nom du conteneur Azure Cosmos DB est spécifié sans guillemets dans la syntaxe `OPENROWSET`. Si le nom du conteneur contient des caractères spéciaux (par exemple un tiret « - »), le nom doit être encapsulé entre crochets `[]` dans la syntaxe `OPENROWSET`.
 
 > [!NOTE]
-> SQL à la demande ne prend pas en charge l’interrogation du magasin transactionnel d’Azure Cosmos DB.
+> SQL serverless ne prend pas en charge l’interrogation du magasin transactionnel d’Azure Cosmos DB.
 
 ## <a name="sample-data-set"></a>Exemple de jeu de données
 
@@ -55,14 +60,14 @@ Les exemples de cet article sont basés sur des données relatives aux [Cas de C
 
 Vous pouvez voir la licence et la structure des données sur ces pages, et télécharger des exemples de données pour les jeux de données [CEPCM](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) et [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json).
 
-Pour suivre cet article montrant comment interroger les données de Cosmos DB données avec SQL à la demande, veilles à créer les ressources suivantes :
+Pour suivre cet article montrant comment interroger les données de Cosmos DB avec SQL serverless, veillez à créer les ressources suivantes :
 * un compte de base de données Azure Cosmos DB [compatible Synapse Link](../../cosmos-db/configure-synapse-link.md) ;
 * une base de données Azure Cosmos DB nommée `covid` ;
 * deux conteneurs Azure Cosmos DB nommés `EcdcCases` et `Cord19` avec les exemples de jeux de données ci-dessus chargés.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Explorer des données d’Azure Cosmos DB avec une inférence de schéma automatique
 
-Le moyen le plus simple d’explorer des données dans Azure Cosmos DB consiste à tirer parti de la fonctionnalité d’inférence de schéma automatique. En omettant la clause `WITH` de l’instruction `OPENROWSET`, vous pouvez donner pour instruction à SQL à la demande de détecter automatiquement (inférer) le schéma du magasin analytique du conteneur Azure Cosmos DB.
+Le moyen le plus simple d’explorer des données dans Azure Cosmos DB consiste à tirer parti de la fonctionnalité d’inférence de schéma automatique. En omettant la clause `WITH` de l’instruction `OPENROWSET`, vous pouvez donner pour instruction à SQL serverless de détecter automatiquement (inférer) le schéma du magasin analytique du conteneur Azure Cosmos DB.
 
 ```sql
 SELECT TOP 10 *
@@ -71,7 +76,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-Dans l’exemple ci-dessus, nous donnons pour instruction à SQL à la demande de se connecter à la base de données `covid` dans un compte Azure Cosmos DB `MyCosmosDbAccount` authentifié à l’aide de la clé Azure Cosmos DB (factice dans l’exemple ci-dessus). Nous accédons ensuite au magasin analytique `EcdcCases` du conteneur dans la région `West US 2`. Étant donné qu’il n’y a aucune projection de propriétés spécifiques, la fonction `OPENROWSET` retourne toutes les propriétés des éléments d’Azure Cosmos DB.
+Dans l’exemple ci-dessus, nous donnons pour instruction à SQL serverless de se connecter à la base de données `covid` dans un compte Azure Cosmos DB `MyCosmosDbAccount` authentifié à l’aide de la clé Azure Cosmos DB (factice dans l’exemple ci-dessus). Nous accédons ensuite au magasin analytique `EcdcCases` du conteneur dans la région `West US 2`. Étant donné qu’il n’y a aucune projection de propriétés spécifiques, la fonction `OPENROWSET` retourne toutes les propriétés des éléments d’Azure Cosmos DB.
 
 Si vous devez explorer les données de l’autre conteneur dans la même base de données Azure Cosmos DB, vous pouvez utiliser la même chaîne de connexion et le conteneur de référence requis comme troisième paramètre :
 
@@ -118,7 +123,7 @@ Pour plus d’informations sur les types SQL à utiliser pour la valeur Azure Co
 
 ## <a name="querying-nested-objects-and-arrays"></a>Interrogation d’objets et de tableaux imbriqués
 
-Azure Cosmos DB vous permet de représenter des modèles de données plus complexes en les composant en tant qu’objets ou tableaux imbriqués. La fonctionnalité de synchronisation automatique de Synapse Link pour Azure Cosmos DB gère la représentation de schéma dans le magasin analytique prêt à l’emploi qui comprend la gestion des types de données imbriqués, ce qui permet d’effectuer des requêtes enrichies à partir de SQL à la demande.
+Azure Cosmos DB vous permet de représenter des modèles de données plus complexes en les composant en tant qu’objets ou tableaux imbriqués. La fonctionnalité de synchronisation automatique de Synapse Link pour Azure Cosmos DB gère la représentation de schéma dans le magasin analytique prêt à l’emploi qui comprend la gestion des types de données imbriqués, ce qui permet d’effectuer des requêtes enrichies à partir de SQL serverless.
 
 Par exemple, le jeu de données [CORD-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) contient des documents JSON suivant la structure suivante :
 
@@ -170,7 +175,7 @@ FROM
     ) AS docs;
 ```
 
-Apprenez-en davantage sur l’analyse de [types de données complexes dans Synapse Link](../how-to-analyze-complex-schema.md) et les [structures imbriquées dans SQL à la demande](query-parquet-nested-types.md).
+Apprenez-en davantage sur l’analyse des [types de données complexes dans Synapse Link](../how-to-analyze-complex-schema.md) et les [structures imbriquées dans SQL serverless](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > Si vous voyez des caractères inattendus dans votre texte, par exemple `MÃƒÂ©lade` au lieu de `Mélade`, cela signifie que votre classement de base de données n’est pas défini sur le classement [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8). 
@@ -179,7 +184,7 @@ Apprenez-en davantage sur l’analyse de [types de données complexes dans Synap
 
 ## <a name="flattening-nested-arrays"></a>Aplatissement de tableaux imbriqués
 
-Il se peut que les données Azure Cosmos DB comprennent des sous-tableaux imbriqués tels que le tableau authors du jeu de données [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
+Il se peut que les données Azure Cosmos DB comprennent des sous-tableaux imbriqués tels que le tableau d’auteurs du jeu de données [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
 
 ```json
 {
@@ -201,7 +206,7 @@ Il se peut que les données Azure Cosmos DB comprennent des sous-tableaux imbriq
 }
 ```
 
-Dans certains cas, il se peut que vous deviez « joindre » les propriétés de l’élément supérieur (métadonnées) à tous les éléments du tableau (authors). SQL à la demande vous permet d’aplatir des structures imbriquées en appliquant la fonction `OPENJSON` au tableau imbriqué :
+Dans certains cas, il se peut que vous deviez « joindre » les propriétés de l’élément supérieur (métadonnées) à tous les éléments du tableau (authors). SQL serverless vous permet d’aplatir des structures imbriquées en appliquant la fonction `OPENJSON` au tableau imbriqué :
 
 ```sql
 SELECT
@@ -236,7 +241,7 @@ Informations supplémentaires An eco-epidemi… | `[{"first":"Nicolas","last":"4
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Mappages de type Azure Cosmos DB à SQL
 
-Il est important de commencer par noter que, si le magasin transactionnel Azure Cosmos DB est indépendant du schéma, le magasin analytique est schématisé afin de l’optimiser pour les performances de requête analytique. Avec la fonctionnalité de synchronisation automatique de Synapse Link, Azure Cosmos DB gère la représentation de schéma dans le magasin analytique prêt à l’emploi qui comprend la gestion des types de données imbriqués. Étant donné que SQL à la demande interroge le magasin analytique, il est important de comprendre comment mapper des types de données d’entrée Azure Cosmos DB à des types de données SQL.
+Il est important de commencer par noter que, si le magasin transactionnel Azure Cosmos DB est indépendant du schéma, le magasin analytique est schématisé afin de l’optimiser pour les performances de requête analytique. Avec la fonctionnalité de synchronisation automatique de Synapse Link, Azure Cosmos DB gère la représentation de schéma dans le magasin analytique prêt à l’emploi qui comprend la gestion des types de données imbriqués. Étant donné que SQL serverless interroge le magasin analytique, il est important de comprendre comment mapper des types de données d’entrée Azure Cosmos DB à des types de données SQL.
 
 Les comptes Azure Cosmos DB de l’API SQL (Core) prennent en charge les types de propriété JSON nombre, chaîne, booléen, null, objet imbriqué ou tableau. Vous devez choisir des types SQL correspondant à ces types JSON si vous utilisez `WITH` dans la clause `OPENROWSET`. Consultez les types de colonnes SQL ci-dessous à utiliser pour les différents types de propriétés dans Azure Cosmos DB.
 
@@ -247,11 +252,18 @@ Les comptes Azure Cosmos DB de l’API SQL (Core) prennent en charge les types d
 | Decimal | float |
 | String | varchar (classement de base de données UTF8) |
 | Date et heure (chaîne au format ISO) | varchar(30) |
-| Date et heure (horodateur Unix) | bigint |
+| Date et heure (horodatage Unix) | bigint |
 | Null | `any SQL type` 
 | Objet ou tableau imbriqués | varchar(max) (classement de base de données UTF8), sérialisé en tant que texte JSON |
 
 Pour interroger des comptes Azure Cosmos DB du type d’API Mongo DB, apprenez-en davantage sur la représentation du schéma de fidélité optimale dans le magasin analytique, et sur les noms de propriétés étendues à utiliser [ici](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+## <a name="known-issues"></a>Problèmes connus
+
+- L’alias **DOIT** être spécifié après la fonction `OPENROWSET` (par exemple, `OPENROWSET (...) AS function_alias`). L’omission de l’alias peut entraîner un problème de connexion, et le point de terminaison Synapse serverless SQL risque d’être temporairement indisponible. Ce problème sera résolu en novembre 2020.
+- Synapse serverless SQL ne prend actuellement pas en charge le [schéma de fidélité complète Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Utilisez Synapse serverless SQL uniquement pour accéder à un schéma bien défini Cosmos DB.
+
+Vous pouvez nous faire part de vos suggestions et signaler des problèmes dans la [page de commentaires Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

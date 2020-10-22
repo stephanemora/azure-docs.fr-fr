@@ -5,16 +5,16 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997164"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857722"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autorisation et authentification auprès d’Azure Spatial Anchors
 
@@ -22,7 +22,7 @@ Dans cette section, nous allons aborder les différentes façons de s’authenti
 
 ## <a name="overview"></a>Vue d’ensemble
 
-![Une vue d’ensemble de l’authentification auprès d’Azure Spatial Anchors](./media/spatial-anchors-authentication-overview.png)
+![Diagramme montrant une vue d’ensemble de l’authentification auprès d’Azure Spatial Anchors.](./media/spatial-anchors-authentication-overview.png)
 
 Pour accéder à un compte Azure Spatial Anchors donné, les clients doivent d’abord obtenir un jeton d’accès à partir du service d’émission de jeton de sécurité (STS, Security Token Service) Azure Mixed Reality. Les jetons obtenus à partir du service STS ont une durée de vie de 24 heures, et contiennent des informations permettant aux services Spatial Anchors de prendre des décisions d’autorisation sur le compte. Ils garantissent que seuls les principaux autorisés peuvent accéder à ce compte.
 
@@ -39,7 +39,7 @@ Les jetons d’authentification Azure AD peuvent être obtenus de deux façons 
 
 Le recours à des clés de compte pour l’accès à votre compte Azure Spatial Anchors est la façon la plus simple de bien démarrer. Vous trouverez vos clés de compte dans le portail Azure. Accédez à votre compte, puis sélectionnez l’onglet « Clés ».
 
-![Une vue d’ensemble de l’authentification auprès d’Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Capture d’écran montrant la page « Clés » avec le bouton « Copier » de la « Clé primaire » mis en évidence.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Deux clés sont mises à disposition. Toutes deux sont simultanément valides pour l’accès au compte Spatial Anchors. Nous vous recommandons de mettre régulièrement à jour la clé que vous utilisez pour accéder au compte. Le fait d’avoir deux clés valides distinctes permet d’effectuer ces mises à jour sans temps d’arrêt ; il vous suffit de mettre alternativement à jour la clé primaire et la clé secondaire.
 
@@ -95,28 +95,28 @@ Une fois cette opération effectuée, le SDK gère l’échange de la clé de co
 Pour les applications ciblant les utilisateurs Azure Active Directory, l’approche recommandée consiste à utiliser un jeton Azure AD pour l’utilisateur, que vous pouvez obtenir à l’aide de la [bibliothèque MSAL](../../active-directory/develop/msal-overview.md). Vous devez suivre les étapes indiquées dans le [guide de démarrage rapide Inscrire une application](../../active-directory/develop/quickstart-register-app.md), notamment :
 
 1. Configuration dans le portail Azure
-    1.  Inscrivez votre application dans Azure AD en tant qu’**Application native**. Dans le cadre de l’inscription, vous devez déterminer si votre application doit être multilocataire ou non, et fournir les URL de redirection autorisées pour votre application.
+    1.    Inscrivez votre application dans Azure AD en tant qu’**Application native**. Dans le cadre de l’inscription, vous devez déterminer si votre application doit être multilocataire ou non, et fournir les URL de redirection autorisées pour votre application.
         1.  Basculer sur l’onglet **Autorisations de l’API**
         2.  Sélectionner **Ajouter une autorisation**
-            1.  Sous l’onglet **API utilisées par mon organisation**, sélectionnez **Microsoft Mixed Reality**
+            1.  Sélectionner **Fournisseur de ressources Azure Mixed Reality** sous l’onglet **API utilisées par mon organisation**
             2.  Sélectionner **Autorisations déléguées**
             3.  Cochez la case **mixedreality.signin** sous **mixedreality**
             4.  Sélectionner **Ajouter des autorisations**
         3.  Sélectionner **Accorder le consentement administrateur**
-    2.  Accordez à votre application ou aux utilisateurs l’accès à votre ressource :
-        1.  Accédez à votre ressource Spatial Anchors dans le portail Azure.
-        2.  Accédez à l’onglet **Contrôle d’accès (IAM)** .
-        3.  Cliquez sur **Ajouter une attribution de rôle**.
-            1.  [Sélectionnez un rôle](#role-based-access-control).
-            2.  Dans le champ **Sélectionner**, entrez le nom des utilisateurs, groupes et/ou applications auxquels vous souhaitez accorder l’accès.
-            3.  Cliquez sur **Enregistrer**.
+    2.    Accordez à votre application ou aux utilisateurs l’accès à votre ressource :
+        1.    Accédez à votre ressource Spatial Anchors dans le portail Azure.
+        2.    Accédez à l’onglet **Contrôle d’accès (IAM)** .
+        3.    Cliquez sur **Ajouter une attribution de rôle**.
+            1.    [Sélectionnez un rôle](#role-based-access-control).
+            2.    Dans le champ **Sélectionner**, entrez le nom des utilisateurs, groupes et/ou applications auxquels vous souhaitez accorder l’accès.
+            3.    Cliquez sur **Enregistrer**.
 2. Dans votre code :
-    1.  Veillez à utiliser l’**ID d’application** et l’**URI de redirection** de votre propre application Azure AD comme paramètres d’**ID client** et d’**Uri de redirection** dans la bibliothèque MSAL
-    2.  Définissez les informations sur le locataire :
-        1.  Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire** (par exemple contoso.microsoft.com).
-        2.  Si votre application prend en charge les **Comptes dans un annuaire organisationnel**, remplacez cette valeur par **Organizations**.
-        3.  Si votre application prend en charge **Tous les utilisateurs de compte Microsoft**, remplacez cette valeur par **Common**.
-    3.  Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  ». Cette étendue indique à Azure AD que votre application demande un jeton pour le service d’émission de jeton de sécurité (STS) Mixed Reality.
+    1.    Veillez à utiliser l’**ID d’application** et l’**URI de redirection** de votre propre application Azure AD comme paramètres d’**ID client** et d’**Uri de redirection** dans la bibliothèque MSAL
+    2.    Définissez les informations sur le locataire :
+        1.    Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire** (par exemple contoso.microsoft.com).
+        2.    Si votre application prend en charge les **Comptes dans un annuaire organisationnel**, remplacez cette valeur par **Organizations**.
+        3.    Si votre application prend en charge **Tous les utilisateurs de compte Microsoft**, remplacez cette valeur par **Common**.
+    3.    Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  ». Cette étendue indique à Azure AD que votre application demande un jeton pour le service d’émission de jeton de sécurité (STS) Mixed Reality.
 
 Avec cela, votre application doit pouvoir obtenir un jeton Azure AD de la part de la bibliothèque MSAL. Vous pouvez définir ce jeton Azure AD en tant qu’**authenticationToken** sur votre objet de configuration de session cloud.
 
@@ -170,24 +170,24 @@ Ici, nous partons du principe que votre application utilise son propre mécanism
 
 Le jeton d’accès Azure AD est récupéré à l’aide de la [bibliothèque MSAL](../../active-directory/develop/msal-overview.md). Vous devez suivre les étapes indiquées dans le [guide de démarrage rapide Inscrire une application](../../active-directory/develop/quickstart-register-app.md), notamment :
 
-1.  Configuration dans le portail Azure
-    1.  Inscrivez votre application dans Azure AD :
-        1.  Dans le portail Azure, accédez à **Azure Active Directory** et sélectionnez **Inscriptions d’applications**.
-        2.  Sélectionnez **Nouvelle inscription d’application**.
-        3.  Entrez le nom de votre application, sélectionnez **Application/API web** comme type d’application, puis entrez l’URL d’authentification pour votre service. Cliquez sur **Créer**.
-        4.  Dans cette application, cliquez sur **Paramètres**, puis sélectionnez l’onglet **Certificats et secrets**. Créez une clé secrète client, sélectionnez une durée, puis cliquez sur **Ajouter**. Veillez à enregistrer la valeur du secret, car vous devrez l’inclure dans le code de votre service web.
-    2.  Accordez à votre application et/ou aux utilisateurs l’accès à votre ressource :
-        1.  Accédez à votre ressource Spatial Anchors dans le portail Azure.
-        2.  Accédez à l’onglet **Contrôle d’accès (IAM)** .
-        3.  Cliquez sur **Ajouter une attribution de rôle**.
-        1.  [Sélectionnez un rôle](#role-based-access-control).
-        2.  Dans le champ **Sélectionner**, entrez le nom des applications que vous avez créées et auxquelles vous souhaitez accorder l’accès. Si vous souhaitez que les utilisateurs de votre application aient différents rôles sur le compte Spatial Anchors, vous devez inscrire plusieurs applications dans Azure AD et attribuer à chacune un rôle distinct. Ensuite, implémentez votre logique d’autorisation afin d’utiliser le rôle approprié pour vos utilisateurs.
-        3.  Remarque : Dans la sélection **Ajouter une attribution de rôle**, vous voudrez que le paramètre **Attribuer l’accès à** soit défini sur « Utilisateur, groupe ou principal du service Azure AD ».
-    3.  Cliquez sur **Enregistrer**.
-2.  Dans votre code (Remarque : Vous pouvez utiliser l’exemple de service fourni sur GitHub) :
-    1.  Veillez à utiliser l’ID d’application, le secret d’application et l’URI de redirection de votre propre application Azure AD comme paramètres d’ID client, de secret et d’URI de redirection dans la bibliothèque MSAL
-    2.  Définissez comme ID de locataire votre propre ID de locataire Azure ADD dans le paramètre d’autorité dans la bibliothèque MSAL.
-    3.  Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  »
+1.    Configuration dans le portail Azure
+    1.    Inscrivez votre application dans Azure AD :
+        1.    Dans le portail Azure, accédez à **Azure Active Directory** et sélectionnez **Inscriptions d’applications**.
+        2.    Sélectionnez **Nouvelle inscription d’application**.
+        3.    Entrez le nom de votre application, sélectionnez **Application/API web** comme type d’application, puis entrez l’URL d’authentification pour votre service. Cliquez sur **Créer**.
+        4.    Dans cette application, cliquez sur **Paramètres**, puis sélectionnez l’onglet **Certificats et secrets**. Créez une clé secrète client, sélectionnez une durée, puis cliquez sur **Ajouter**. Veillez à enregistrer la valeur du secret, car vous devrez l’inclure dans le code de votre service web.
+    2.    Accordez à votre application et/ou aux utilisateurs l’accès à votre ressource :
+        1.    Accédez à votre ressource Spatial Anchors dans le portail Azure.
+        2.    Accédez à l’onglet **Contrôle d’accès (IAM)** .
+        3.    Cliquez sur **Ajouter une attribution de rôle**.
+        1.    [Sélectionnez un rôle](#role-based-access-control).
+        2.    Dans le champ **Sélectionner**, entrez le nom des applications que vous avez créées et auxquelles vous souhaitez accorder l’accès. Si vous voulez que les utilisateurs de votre application aient différents rôles sur le compte Spatial Anchors, vous devez inscrire plusieurs applications dans Azure AD et attribuer à chacune un rôle distinct. Ensuite, implémentez votre logique d’autorisation afin d’utiliser le rôle approprié pour vos utilisateurs.
+        3.    Remarque : Dans la sélection **Ajouter une attribution de rôle**, vous voudrez que le paramètre **Attribuer l’accès à** soit défini sur « Utilisateur, groupe ou principal du service Azure AD ».
+    3.    Cliquez sur **Enregistrer**.
+2.    Dans votre code (Remarque : Vous pouvez utiliser l’exemple de service fourni sur GitHub) :
+    1.    Veillez à utiliser l’ID d’application, le secret d’application et l’URI de redirection de votre propre application Azure AD comme paramètres d’ID client, de secret et d’URI de redirection dans la bibliothèque MSAL
+    2.    Définissez comme ID de locataire votre propre ID de locataire Azure ADD dans le paramètre d’autorité dans la bibliothèque MSAL.
+    3.    Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  »
 
 Avec cela, votre service back-end peut récupérer un jeton Azure AD. Il peut ensuite l’échanger contre un jeton MR qu’il renverra au client. L’utilisation d’un jeton Azure AD pour récupérer un jeton MR s’effectue par le biais d’un appel REST. Voici un exemple d’appel :
 

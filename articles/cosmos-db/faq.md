@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213089"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570363"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB figurent da
 
 Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent aux conditions suivantes :
 
-* L'accès peut être octroyé aux comptes Microsoft personnels (MSA). Évitez d'utiliser des comptes Active Directory (AAD) ou des comptes appartenant à des locataires AAD d'entreprise, car ceux-ci peuvent présenter des limitations susceptibles de bloquer l'octroi de l'accès.
+* L'accès peut être octroyé aux comptes Microsoft personnels (MSA). Évitez d’utiliser des comptes Azure Active Directory (Azure AD) ou des comptes appartenant à des locataires Azure AD d’entreprise, car ceux-ci peuvent présenter des limitations susceptibles de bloquer l’octroi de l’accès.
 * Un seul [conteneur avec débit provisionné](./set-throughput.md#set-throughput-on-a-container) par abonnement pour les comptes SQL, API Gremlin et Table.
 * Jusqu’à trois [collections avec débit provisionné](./set-throughput.md#set-throughput-on-a-container) par abonnement pour les comptes MongoDB.
 * Une [base de données avec débit provisionné](./set-throughput.md#set-throughput-on-a-database) par abonnement. Les bases de données avec débit provisionné peuvent inclure un nombre illimité de conteneurs.
@@ -102,9 +102,9 @@ Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent 
 
 Azure Cosmos DB est disponible dans le portail Azure. Tout d’abord, souscrivez un abonnement Azure. Une fois que vous êtes inscrit, vous pouvez ajouter un compte Azure Cosmos DB à votre abonnement Azure.
 
-### <a name="what-is-a-master-key"></a>Qu'est-ce qu’une clé principale ?
+### <a name="what-is-a-primary-key"></a>Qu’est-ce qu’une clé primaire ?
 
-Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Soyez prudent lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau **Clés** du [Portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](manage-with-cli.md#list-account-keys).
+Une clé primaire est un jeton de sécurité permettant d’accéder à toutes les ressources d’un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Soyez prudent lorsque vous distribuez des clés primaires. La clé primaire et la clé secondaire sont disponibles dans le panneau **Clés** du [portail Azure][azure-portal]. Pour plus d’informations sur les clés, consultez la rubrique [Affichage, copie et régénération de clés d’accès](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quelles sont les régions configurables pour PreferredLocations ?
 

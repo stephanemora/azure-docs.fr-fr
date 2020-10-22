@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086570"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930830"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
@@ -59,7 +59,7 @@ Suivez ces étapes pour créer une métrique qui effectue le suivi des requêtes
 
 Une fois que vous avez configuré la métrique, les demandes anonymes commencent à s’afficher sur le graphique. L’illustration suivante montre les demandes anonymes agrégées sur les trente dernières minutes.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Capture d’écran montrant les demandes anonymes agrégées sur le stockage Blob":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
 
 Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes anonymes sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -70,6 +70,9 @@ Les journaux du stockage Azure capturent des détails sur les demandes effectué
 Pour journaliser les demandes dans votre compte de stockage Azure afin d’évaluer les demandes anonymes, vous pouvez utiliser la journalisation du stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../common/monitor-storage.md).
 
 La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+
+> [!NOTE]
+> La préversion de la journalisation Stockage Azure dans Azure Monitor est prise en charge uniquement dans le cloud public Azure. Les clouds du secteur public ne prennent pas en charge la journalisation pour Stockage Azure avec Azure Monitor.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Créer un paramètre de diagnostic dans le portail Azure
 
@@ -85,7 +88,7 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 1. Sous **Détails de la catégorie**, dans la section **Journal**, choisissez les types de demandes à journaliser. Toutes les demandes anonymes étant des demandes de lecture, sélectionnez **StorageRead** pour capturer les demandes anonymes.
 1. Sous **Détails de la destination**, sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment créer un paramètre de diagnostic pour la journalisation des demandes":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
 
 Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -178,16 +181,16 @@ Si vous avez un grand nombre de comptes de stockage, il se peut que vous deviez 
 
 ### <a name="create-a-policy-with-an-audit-effect"></a>Créer une stratégie avec un effet d’audit
 
-Azure Policy prend en charge les effets qui déterminent ce qui se produit quand une règle de stratégie est évaluée par rapport à une ressource. L’effet d’audit crée un avertissement quand une ressource n’est pas conforme, mais n’arrête pas la requête. Pour plus d’informations, consultez [Comprendre les effets d’Azure Policy](../../governance/policy/concepts/effects.md).
+Azure Policy prend en charge les effets qui déterminent ce qui se produit quand une règle de stratégie est évaluée par rapport à une ressource. L’effet d’audit crée un avertissement quand une ressource n’est pas conforme, mais n’arrête pas la demande. Pour plus d’informations, consultez [Comprendre les effets d’Azure Policy](../../governance/policy/concepts/effects.md).
 
 Pour créer une stratégie avec un effet d’audit pour le paramètre d’accès public d’un compte de stockage avec le portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, accédez au service Azure Policy.
 1. Dans la section **Création**, sélectionnez **Définitions**.
 1. Sélectionnez **Ajouter une définition de stratégie** pour créer une nouvelle définition de stratégie.
-1. Pour le champ **Emplacement de la définition**, sélectionnez le bouton **Autres** pour spécifier l’emplacement de la ressource de stratégie d’audit.
+1. Pour le champ **emplacement de la définition**, sélectionnez le bouton **Autres** pour spécifier l’emplacement de la ressource de stratégie d’audit.
 1. Spécifiez un nom pour la stratégie. Vous pouvez éventuellement spécifier une description et une catégorie.
-1. Sous **Règle de stratégie**, ajoutez la définition de stratégie suivante à la section **policyRule**.
+1. Sous **Règle de stratégie**, ajoutez la définition de stratégie suivante à la section **policyrule**.
 
     ```json
     {
@@ -215,7 +218,7 @@ Pour créer une stratégie avec un effet d’audit pour le paramètre d’accès
 
 ### <a name="assign-the-policy"></a>Affecter la stratégie
 
-Ensuite, attribuez la stratégie à une ressource. L’étendue de la stratégie correspond à cette ressource et à toute ressource sous-jacente. Pour plus d’informations sur l’attribution de stratégie, consultez [Structure d’attribution d’Azure Policy](../../governance/policy/concepts/assignment-structure.md).
+Ensuite, attribuez la stratégie à une ressource. L’étendue de la stratégie correspond à cette ressource et à toutes les ressources qu’elle contient. Pour plus d’informations sur l’attribution de stratégie, consultez [Structure d’affectation d’Azure Policy](../../governance/policy/concepts/assignment-structure.md).
 
 Pour attribuer la stratégie avec le portail Azure, procédez comme suit :
 
@@ -223,7 +226,7 @@ Pour attribuer la stratégie avec le portail Azure, procédez comme suit :
 1. Dans la section **Création**, sélectionnez **Attributions**.
 1. Sélectionnez **Attribuer une stratégie** pour créer une attribution de stratégie.
 1. Pour le champ **Étendue**, sélectionnez l’étendue de l’attribution de stratégie.
-1. Pour le champ **Définition de stratégie**, sélectionnez le bouton **Autres**, puis la stratégie que vous avez définie dans la section précédente à partir de la liste.
+1. Pour le champ **Définition de stratégie**, sélectionnez le bouton **Autres**, puis la stratégie que vous avez définie dans la section précédente dans la liste.
 1. Entrez un nom pour l’attribution de stratégie. La description est facultative.
 1. Laissez l’option **Application de stratégie** définie sur *Activée*. Ce paramètre n’a aucun effet sur la stratégie d’audit.
 1. Sélectionnez **Vérifier + créer** pour créer l’attribution.
@@ -234,14 +237,14 @@ Une fois que vous avez attribué la stratégie, vous pouvez afficher le rapport 
 
 La disponibilité du rapport de conformité peut prendre plusieurs minutes après la création de l’attribution de stratégie.
 
-Pour afficher le rapport de conformité dans le portail Azure, procédez comme suit :
+Pour afficher le rapport de conformité dans le Portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, accédez au service Azure Policy.
 1. Sélectionnez **Conformité**.
-1. Filtrez les résultats sur le nom de l’attribution de stratégie que vous avez créée à l’étape précédente. Le rapport indique le nombre de ressources qui ne sont pas conformes à la stratégie.
+1. Filtrez les résultats pour le nom de l’attribution de stratégie que vous avez créée à l’étape précédente. Le rapport indique le nombre de ressources qui ne sont pas conformes à la stratégie.
 1. Vous pouvez explorer le rapport pour obtenir des détails supplémentaires, notamment une liste des comptes de stockage qui ne sont pas conformes.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Capture d’écran montrant le rapport de conformité de la stratégie d’audit pour l’accès public aux blobs":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Utiliser Azure Policy pour appliquer l’accès autorisé
 
@@ -277,7 +280,7 @@ Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez 
 
 L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage qui autorise l’accès public (valeur par défaut pour un nouveau compte) lorsqu’une stratégie avec effet de refus exige que l’accès public soit interdit.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant comment configurer une métrique pour additionner les transactions blob":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

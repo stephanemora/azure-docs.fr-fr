@@ -5,19 +5,19 @@ description: Les groupes de basculement automatique vous permettent de gérer la
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076512"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91627225"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
   
 - **Amorçage initial**
 
-  Lorsque vous ajoutez des bases de données, des pools élastiques ou des instances gérées à un groupe de basculement, il y a d’abord une phase d’amorçage initiale avant le démarrage de la réplication des données. La phase d’amorçage initiale est l’opération la plus longue et la plus coûteuse. Une fois l’amorçage initial terminé, les données sont synchronisées, puis seules les modifications de données ultérieures sont répliquées. Le temps nécessaire à la réalisation de l’amorçage initial dépend de la taille de vos données, du nombre de bases de données répliquées et de la vitesse de la liaison entre les entités dans le groupe de basculement. Dans des circonstances normales, la vitesse d’amorçage classique est de 50 à 500 Go par heure pour Azure SQL Database, et de 18 à 35 Go par heure pour une instance SQL Managed Instance. L’amorçage est effectué pour toutes les bases de données en parallèle. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données et la taille totale des données pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données.
+  Lorsque vous ajoutez des bases de données, des pools élastiques ou des instances gérées à un groupe de basculement, il y a d’abord une phase d’amorçage initiale avant le démarrage de la réplication des données. La phase d’amorçage initiale est l’opération la plus longue et la plus coûteuse. Une fois l’amorçage initial terminé, les données sont synchronisées, puis seules les modifications de données ultérieures sont répliquées. Le temps nécessaire à la réalisation de l’amorçage initial dépend de la taille de vos données, du nombre de bases de données répliquées et de la vitesse de la liaison entre les entités dans le groupe de basculement. Dans des circonstances normales, la vitesse d’amorçage possible peut atteindre 500 Go par heure pour SQL Database, et 360 Go par heure pour SQL Managed Instance. L’amorçage est effectué pour toutes les bases de données en parallèle.
 
-  Pour les instances SQL Managed Instance, la vitesse de la liaison Express Route entre les deux instances doit également être prise en compte lors de l’estimation de la durée de la phase d’amorçage initiale. Si la vitesse de la liaison entre les deux instances est plus lente que nécessaire, la durée de l’amorçage risque d’être sensiblement perturbée. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données, la taille totale des données et la vitesse de liaison pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données. Par exemple, pour une seule base de données de 100 Go, la phase initiale de la valeur initiale prendrait de 2,8 à 5,5 heures si la liaison peut atteindre 35 Go par heure. Si la liaison ne peut transférer que 10 Go par heure, l’amorçage d’une base de données de 100 Go prendra environ 10 heures. S’il faut répliquer plusieurs bases de données, l’amorçage est effectué en parallèle et, lorsqu’il est associé à une vitesse de liaison lente, la phase d’amorçage initiale peut prendre beaucoup plus de temps. Cela est particulièrement vrai si l’amorçage parallèle des données de toutes les bases de données est supérieur à la bande passante de liaison disponible. Si la bande passante réseau entre deux instances est limitée et que vous ajoutez plusieurs instances gérées à un groupe de basculement, ajoutez-les de manière successive, une par une.
+  Pour SQL Managed Instance, prenez en compte la vitesse de la liaison Express Route entre les deux instances lors de l’estimation de la durée de la phase d’amorçage initiale. Si la vitesse de la liaison entre les deux instances est plus lente que nécessaire, la durée de l’amorçage risque d’être sensiblement perturbée. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données, la taille totale des données et la vitesse de liaison pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données. Par exemple, pour une base de données individuelle de 100 Go, la phase d’amorçage initiale prendrait environ 1,2 heure si la liaison est en mesure d’envoyer (push) 84 Go par heure, et si aucune autre base de données n’est en cours d’amorçage. Si la liaison ne peut transférer que 10 Go par heure, l’amorçage d’une base de données de 100 Go prendra environ 10 heures. S’il faut répliquer plusieurs bases de données, l’amorçage est effectué en parallèle et, lorsqu’il est associé à une vitesse de liaison lente, la phase d’amorçage initiale peut prendre beaucoup plus de temps. Cela est particulièrement vrai si l’amorçage parallèle des données de toutes les bases de données est supérieur à la bande passante de liaison disponible. Si la bande passante réseau entre deux instances est limitée et que vous ajoutez plusieurs instances gérées à un groupe de basculement, ajoutez-les de manière successive, une par une. Étant donné une référence SKU de passerelle de taille appropriée entre les deux instances managées, si la bande passante du réseau d’entreprise le permet, il est possible d’atteindre des vitesses allant jusqu’à 360 Go par heure.  
 
 - **Zone DNS**
 
@@ -153,7 +153,7 @@ Pour faire basculer un groupe de basculement, vous devez disposer d’un accès 
 
 Le groupe de basculement automatique doit être configuré sur le serveur primaire, qu’il connectera au serveur secondaire dans une autre région Azure. Les groupes peuvent inclure une partie ou la totalité des bases de données dans ces serveurs. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec plusieurs bases de données et un groupe de basculement automatique.
 
-![basculement automatique](./media/auto-failover-group-overview/auto-failover-group.png)
+![Le diagramme montre une configuration standard d’une application cloud géoredondante utilisant plusieurs bases de données et un groupe de basculement automatique.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Voir [Ajouter une base de données Azure SQL Database à un groupe de basculement](failover-group-add-single-database-tutorial.md) pour obtenir un didacticiel détaillé sur l’ajout d’une base de données SQL Database à un groupe de basculement.
@@ -217,7 +217,7 @@ Le groupe de basculement automatique doit être configuré sur l’instance prim
 
 Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec une instance managée et un groupe de basculement automatique.
 
-![basculement automatique](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![Diagramme du basculement automatique](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Voir [Ajouter une instance gérée à un groupe de basculement](../managed-instance/failover-group-add-instance-tutorial.md) pour obtenir un didacticiel détaillé sur l’ajout d’une instance SQL Managed Instance afin d’utiliser un groupe de basculement.
@@ -232,6 +232,10 @@ Pour garantir une connectivité ininterrompue à l’instance SQL Managed Instan
 > La première instance gérée créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.
 
 Pour plus d’informations sur la création de l’instance SQL Managed Instance secondaire dans la même zone DNS que l’instance principale, voir [Créer une instance managée secondaire](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Utilisation de régions jumelées géographiquement
+
+Déployez les deux instances managées dans des [régions jumelées](../../best-practices-availability-paired-regions.md) pour des raisons de performances. Les instances managées résidant dans des régions jumelées géographiquement offrent des performances nettement meilleures que celles résidant dans des régions non jumelées. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Activation du trafic de réplication entre deux instances
 
@@ -355,7 +359,11 @@ Lorsque vous configurez un groupe de basculement entre les instances SQL Managed
 - Les deux instances SQL Managed Instance doivent se trouver dans différentes régions Azure.
 - Ces deux instances doivent avoir le même niveau de service et la même capacité de stockage.
 - Votre instance SQL Managed Instance secondaire doit être vide (aucune base de données utilisateur).
-- Les réseaux virtuels utilisés par les instances SQL Managed Instance doivent être connectés via une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’homologation Global VNet Peering n’est pas prise en charge.
+- Les réseaux virtuels utilisés par les instances SQL Managed Instance doivent être connectés via une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’appairage de réseaux virtuels mondiaux est pris en charge avec la limitation décrite dans la note ci-dessous.
+
+   > [!IMPORTANT]
+   > [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+
 - Les adresses IP des deux réseaux virtuels SQL Managed Instance ne peuvent pas se chevaucher.
 - Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et la plage 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Ceci est destiné à autoriser le trafic de réplication entre les instances.
 

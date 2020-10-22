@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 1a1ce22cd700368d630d70912ea266d16fd772bf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925207"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91744166"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Options de câblage de votre Azure Data Box
 
@@ -105,7 +105,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
    - **Adresse IP** 192.168.100.5
    - **Sous-réseau** 255.255.255.0.
 
-     ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Configuration à deux ports avec un commutateur 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse : 192.168.100.10. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 4. Assignez des adresses IP statiques aux ports de données que vous avez configurés.
@@ -125,7 +125,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 
 1. Utilisez un câble RJ45 ou SFP+ via un commutateur (où le serveur DHCP est accessible) sur le serveur.
 
-    ![Configuration à deux ports avec un commutateur](media/data-box-cable-options/cabling-dhcp-data-only.png)
+    ![Configuration à deux ports avec un commutateur 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
 2. Utilisez un serveur DHCP ou un serveur DNS pour identifier l’adresse IP.
 3. À partir d’un serveur sur le même réseau, accédez à l’interface utilisateur web locale de l’appareil à l’aide de l’adresse IP assignée par le serveur DHCP. Connectez-vous et déverrouillez le Data Box à l’aide du mot de passe de déverrouillage du portail Azure.
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: c9da97607961a7d701851c6892393cdf537b9a32
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008030"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838668"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
@@ -21,11 +21,11 @@ Cette rubrique explique comment effectuer des tâches d’administration comme l
 ## <a name="reboot"></a>Reboot
 Le panneau **Redémarrer** vous permet de redémarrer un ou plusieurs nœuds de votre cache. Cette fonctionnalité de redémarrage vous permet de tester votre application pour garantir la résilience en cas de panne d’un nœud de cache.
 
-![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+![Capture d’écran qui met en évidence l’option de menu Redémarrer.](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Sélectionnez les nœuds à redémarrer, puis cliquez sur **Redémarrage**.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)
+![Capture d’écran montrant les nœuds que vous pouvez redémarrer.](./media/cache-administration/redis-cache-reboot.png)
 
 Si vous avez un cache premium avec activation du clustering, vous pouvez sélectionner les partitions du cache à redémarrer.
 

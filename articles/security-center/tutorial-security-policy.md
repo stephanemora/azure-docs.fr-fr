@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894574"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342278"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -33,7 +33,7 @@ Azure Security Center émet ses recommandations de sécurité en fonction des st
 
 Security Center offre les options suivantes pour l’utilisation des stratégies de sécurité :
 
-* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, une initiative intégrée nommée « ASC par défaut » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center. Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
+* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, une initiative intégrée nommée « ASC par défaut » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center. Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](./policy-reference.md).
 
 * **Ajouter vos propres stratégies personnalisées** : si vous souhaitez personnaliser les initiatives de sécurité appliquées à votre abonnement, vous pouvez le faire dans Security Center. Vous recevez ensuite des recommandations si vos machines ne suivent pas les stratégies que vous créez. Pour obtenir des instructions sur la création et l’attribution de stratégies personnalisées, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
 
@@ -46,7 +46,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 1. Dans le tableau de bord **Security Center**, sélectionnez **Stratégie de sécurité**.
 
-    ![Le volet Gestion des stratégies](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Page Gestion des stratégies":::
 
    Dans l’écran **Gestion de stratégie**, vous pouvez voir le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
 
@@ -68,8 +68,8 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
     1. Pour afficher et modifier la stratégie par défaut, sélectionnez **Afficher la stratégie actuelle**, puis procédez comme décrit ci-dessous. 
 
-       ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Page Gestion des stratégies":::
+
        L’écran **Stratégie de sécurité** reflète l’action effectuée par les stratégies affectées sur l’abonnement ou le groupe d’administration que vous avez sélectionnés.
        
        * Utilisez les liens fournis en haut pour ouvrir une **attribution de stratégie** s’appliquant à l’abonnement ou au groupe d’administration. Ces liens vous permettent d’accéder à l’attribution et de modifier ou désactiver la stratégie. Par exemple, si vous voyez qu’une attribution de stratégie particulière refuse effectivement la protection du point de terminaison, utilisez le lien pour modifier ou désactiver la stratégie.
@@ -131,8 +131,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article a décrit les stratégies de sécurité. Pour accéder à des informations connexes, voir les articles suivants :
 
-* Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Pour obtenir des instructions sur la façon de modifier une stratégie de sécurité dans Azure Policy, voir [Créer et gérer des stratégies pour appliquer la conformité](../governance/policy/tutorials/create-and-manage.md).
-
-* Pour obtenir des instructions sur la manière de définir une stratégie sur des abonnements ou des groupes d’administration à l’aide d’Azure Policy, voir [Présentation d’Azure Policy](../governance/policy/overview.md)
+- [Découvrez comment définir des stratégies avec PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Découvrez comment modifier une stratégie de sécurité dans Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Découvrez comment définir une stratégie qui couvre plusieurs abonnements ou s’applique à des groupes d’administration avec Azure Policy](../governance/policy/overview.md)
+- [Découvrez comment activer Security Center sur tous les abonnements d’un groupe d’administration](onboard-management-group.md)

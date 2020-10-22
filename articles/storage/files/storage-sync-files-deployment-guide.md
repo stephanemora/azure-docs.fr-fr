@@ -4,15 +4,15 @@ description: Apprenez à déployer Azure File Sync, du début à la fin, à l’
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 10/14/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 012b5c76a025e6dc6ae1fbd5aedddf9ea3d2a4f0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069626"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057822"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -509,28 +509,27 @@ Si vous voulez configurer Azure File Sync pour qu’il fonctionne avec des param
 Voici les étapes recommandées pour intégrer Azure File Sync sans aucun temps d’arrêt tout en préservant toute la fidélité du fichier et la liste de contrôle d’accès (ACL) :
  
 1. Déployez un service de synchronisation du stockage.
-2. Créez un groupe de synchronisation.
-3. Installez l’agent Azure File Sync sur le serveur comportant le jeu de données complet.
-4. Inscrivez ce serveur et créez un point de terminaison de serveur sur le partage. 
-5. Laissez la synchronisation effectuer la totalité du chargement sur le partage de fichiers Azure (point de terminaison cloud).  
-6. Une fois le chargement initial terminé, installez l’agent Azure File Sync sur chacun des serveurs restants.
-7. Créez de nouveaux partages de fichiers sur tous les serveurs restants.
-8. Créez des points de terminaison de serveur sur les nouveaux partages de fichiers avec une stratégie de hiérarchisation cloud, si vous le souhaitez. (Cette étape requiert du stockage supplémentaire disponible pour la configuration initiale.)
-9. Laissez l’agent Azure File Sync effectuer une restauration rapide de l’espace de noms complet sans transfert de données réel. Après la synchronisation de l’espace de noms complet, le moteur de synchronisation remplira l’espace disque local en fonction de la stratégie de hiérarchisation cloud du point de terminaison de serveur. 
-10. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez. 
-11. Redirigez les utilisateurs et les applications vers ce nouveau partage.
-12. Il est possible quoique non obligatoire de supprimer les partages en double sur les serveurs.
+1. Créez un groupe de synchronisation.
+1. Installez l’agent Azure File Sync sur le serveur comportant le jeu de données complet.
+1. Inscrivez ce serveur et créez un point de terminaison de serveur sur le partage. 
+1. Laissez la synchronisation effectuer la totalité du chargement sur le partage de fichiers Azure (point de terminaison cloud).  
+1. Une fois le chargement initial terminé, installez l’agent Azure File Sync sur chacun des serveurs restants.
+1. Créez de nouveaux partages de fichiers sur tous les serveurs restants.
+1. Créez des points de terminaison de serveur sur les nouveaux partages de fichiers avec une stratégie de hiérarchisation cloud, si vous le souhaitez. (Cette étape requiert du stockage supplémentaire disponible pour la configuration initiale.)
+1. Laissez l’agent Azure File Sync effectuer une restauration rapide de l’espace de noms complet sans transfert de données réel. Après la synchronisation de l’espace de noms complet, le moteur de synchronisation remplira l’espace disque local en fonction de la stratégie de hiérarchisation cloud du point de terminaison de serveur. 
+1. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez. 
+1. Redirigez les utilisateurs et les applications vers ce nouveau partage.
+1. Il est possible quoique non obligatoire de supprimer les partages en double sur les serveurs.
  
 Si vous n’avez pas de stockage supplémentaire pour l’intégration initiale et que vous souhaitez utiliser les partages existants, vous pouvez préamorcer les données dans les partages de fichiers Azure. Cette approche est proposée si et seulement si vous êtes en mesure d’accepter des temps d’arrêt et de garantir l’absence totale de modification des données sur les partages du serveur pendant le processus d’intégration initial. 
  
 1. Vérifiez que les données des différents serveurs ne changent pas pendant le processus d’intégration.
-2. Préamorcez les partages de fichiers Azure avec les données du serveur à l’aide d’un outil de transfert de données sur le SMB, par exemple Robocopy ou une copie SMB Direct. AzCopy ne chargeant pas les données sur le SMB, il ne peut pas être utilisé pour le préamorçage.
-3. Créez une topologie Azure File Sync avec les points de terminaison de serveur souhaités pointant sur les partages existants.
-4. Laissez la synchronisation terminer le processus de rapprochement sur tous les points de terminaison. 
-5. Une fois le rapprochement terminé, vous pourrez ouvrir les partages pour les modifier.
+1. Préamorcez les partages de fichiers Azure avec les données du serveur à l’aide d’un outil de transfert de données sur le protocole SMB. Par exemple, Robocopy. Vous pouvez également utiliser AzCopy sur REST. Veillez à utiliser AzCopy avec les commutateurs appropriés pour préserver les horodatages et les attributs des listes de contrôle d’accès.
+1. Créez une topologie Azure File Sync avec les points de terminaison de serveur souhaités pointant sur les partages existants.
+1. Laissez la synchronisation terminer le processus de rapprochement sur tous les points de terminaison. 
+1. Une fois le rapprochement terminé, vous pourrez ouvrir les partages pour les modifier.
  
 L’approche par préamorçage a actuellement quelques limitations. 
-- La fidélité optimale sur les fichiers n’est pas conservée. Par exemple, les fichiers perdent les ACL et les timestamps.
 - Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation ne soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
 - Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
 
@@ -551,7 +550,7 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 
 Les instantanés VSS portent sur un volume entier. Par défaut, jusqu’à 64 instantanés peuvent être présents pour un volume donné, sous réserve d'espace suffisant pour stocker ces instantanés. VSS gère cela automatiquement. Par défaut, deux instantanés sont prévus quotidiennement, du lundi au vendredi. Cette planification peut être configurée à l’aide d’une tâche planifiée Windows. La cmdlet PowerShell ci-dessus effectue deux opérations :
 1. Elle configure la hiérarchisation cloud Azure file Sync sur le volume spécifié à des fins de compatibilité avec les versions précédentes et garantit la restauration d'un fichier à partir d’une version précédente, même si celui-ci faisait l'objet d'une hiérarchisation cloud sur le serveur. 
-2. Elle active la planification VSS par défaut. Vous pouvez cependant la modifier ultérieurement. 
+1. Elle active la planification VSS par défaut. Vous pouvez cependant la modifier ultérieurement. 
 
 > [!Note]  
 > Deux points importants sont à prendre en considération :

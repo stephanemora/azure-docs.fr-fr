@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/22/2018
+ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: babe24d0c934cffac00a5100d1da7ee252d147da
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399053"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91630608"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 
@@ -27,37 +27,38 @@ Cet article explique comment résoudre certains des problèmes de routage couran
 
 ### <a name="symptom"></a>Symptôme
 
-- Les demandes ordinaires envoyées au back-end sans passer par Front Door réussissent, mais le passage par Front Door génère des réponses d’erreur 503.
-
-- L’échec lié à Front Door s’affiche après quelques secondes (généralement après 30 secondes environ)
+* Les demandes ordinaires envoyées au back-end sans passer par Front Door réussissent, mais le passage par Front Door génère des réponses d’erreur 503.
+* L’échec lié à Front Door s’affiche après quelques secondes (généralement après 30 secondes environ)
 
 ### <a name="cause"></a>Cause
 
-Ce problème se produit quand le back-end met plus de temps que ne le prévoit la configuration du délai d’expiration (par défaut, 30 secondes) pour recevoir la demande provenant de Front Door ou s’il met plus que cette valeur de temps pour envoyer une réponse à la demande provenant de Front Door. 
+La cause de ce problème peut être l’une des deux possibilités suivantes :
+ 
+* Votre back-end prend plus de temps que le délai d’expiration configuré (la valeur par défaut est de 30 secondes) pour recevoir la requête de l’instance Front Door.
+* Le temps nécessaire pour envoyer une réponse à la requête provenant de Front Door prend plus de temps que la valeur du délai d’attente. 
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
-- Envoyez la demande directement au back-end (sans passer par Front Door) et vérifiez le temps de réponse habituel du back-end.
-- Envoyez la demande via Front Door et vérifiez si vous voyez des réponses 503. Si ce n’est pas le cas, il est possible qu’il ne s’agisse pas d’un problème de délai d’expiration. Contactez le support.
-- Si le passage par Front Door entraîne le code de réponse d’erreur 503, configurez le champ sendReceiveTimeout pour votre porte d’entrée de manière à étendre le délai d’expiration par défaut jusqu’à 4 minutes (240 secondes). Le paramètre se trouve sous `backendPoolSettings` et est appelé `sendRecvTimeoutSeconds`. 
+* Envoyez la demande directement au back-end (sans passer par Front Door) et vérifiez le temps de réponse habituel du back-end.
+* Envoyez la requête via Front Door et vérifiez si vous obtenez des réponses 503. Si ce n’est pas le cas, il est possible qu’il ne s’agisse pas d’un problème de délai d’expiration. Contactez le support technique.
+* Si le passage par Front Door aboutit au code de réponse d’erreur 503, configurez le champ `sendReceiveTimeout` pour votre instance Front Door. Vous pouvez étendre le délai d’expiration par défaut jusqu’à 4 minutes (240 secondes). Le paramètre se trouve sous `backendPoolSettings` et est appelé `sendRecvTimeoutSeconds`. 
 
 ## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Les demandes envoyées au domaine personnalisé retournent le code d’état 400
 
 ### <a name="symptom"></a>Symptôme
 
-- Vous avez créé une porte d’entrée, mais une demande au domaine ou à l’hôte front-end retourne un code d’état HTTP 400.
-
-- Vous avez créé un mappage DNS à partir d’un domaine personnalisé à l’hôte frontend que vous avez configuré. Toutefois, l’envoi d’une requête au nom d’hôte du domaine personnalisé retourne un code d’état HTTP 400 et ne semble pas router vers le ou les backends que vous avez configurés.
+* Vous avez créé une instance Front Door, mais une requête auprès du domaine ou de l’hôte front-end retourne un code d’état HTTP 400.
+* Vous avez créé un mappage DNS pour un domaine personnalisé vers l’hôte front-end que vous avez configuré. Toutefois, l’envoi d’une requête auprès du nom d’hôte du domaine personnalisé retourne un code d’état HTTP 400. Ce qui ne semble pas router vers le back-end que vous avez configuré.
 
 ### <a name="cause"></a>Cause
 
-Ce symptôme peut se produire si vous n’avez pas configuré une règle de routage pour le domaine personnalisé que vous avez ajouté comme hôte frontend. Une règle de routage doit être ajoutée explicitement pour cet hôte frontend, même si une règle a déjà été configurée pour l’hôte frontend sous le sous-domaine Front Door (*.azurefd.net) auquel votre domaine personnalisé a un mappage DNS.
+Le problème se produit si vous n’avez pas configuré de règle de routage pour le domaine personnalisé qui a été ajouté en tant qu’hôte front-end. Une règle de routage doit être explicitement ajoutée pour cet hôte front-end. Et ce, même si une règle a déjà été configurée pour l’hôte front-end sous le sous-domaine Front Door (*.azurefd.net).
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
-Ajoutez une règle de routage du domaine personnalisé vers le pool de backends de votre choix.
+Ajoutez une règle de routage pour le domaine personnalisé, afin de diriger le trafic vers le pool de back-ends sélectionné.
 
-## <a name="front-door-is-not-redirecting-http-to-https"></a>Front Door ne redirige pas le trafic HTTP vers HTTPS
+## <a name="front-door-doesnt-redirect-http-to-https"></a>Front Door ne redirige pas HTTP vers HTTPS
 
 ### <a name="symptom"></a>Symptôme
 
@@ -65,7 +66,7 @@ Votre porte d’entrée a une règle de routage qui indique de rediriger le traf
 
 ### <a name="cause"></a>Cause
 
-Ce comportement peut se produire si vous n’avez pas correctement configuré les règles de routage pour votre porte d’entrée. En gros, votre configuration actuelle n’est pas spécifique et a peut-être des règles en conflit.
+Ce comportement peut se produire si vous n’avez pas configuré les règles de routage correctement pour votre instance Front Door. En gros, votre configuration actuelle n’est pas spécifique et a peut-être des règles en conflit.
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
@@ -73,36 +74,34 @@ Ce comportement peut se produire si vous n’avez pas correctement configuré le
 
 ### <a name="symptom"></a>Symptôme
 
-- Vous avez créé une porte d’entrée et configuré un hôte frontend, un pool de backends contenant au moins un backend, ainsi qu’une règle de routage qui connecte l’hôte frontend au pool de backends. Votre contenu ne semble pas être disponible quand une requête est envoyée à l’hôte frontend configuré, car un code d’état HTTP 404 est retourné.
+ Vous avez créé une instance Front Door en configurant un hôte front-end, un pool de back-ends contenant au moins un back-end, ainsi qu’une règle de routage qui connecte l’hôte front-end au pool de back-ends. Votre contenu n’est pas disponible quand vous effectuez une requête auprès de l’hôte front-end configuré, par conséquent un code d’état HTTP 404 est retourné.
 
 ### <a name="cause"></a>Cause
 
 Ce symptôme peut avoir plusieurs causes :
 
-- Le back-end n’est pas un back-end destiné au public et n’est pas visible pour la porte d’entrée.
-- Le back-end est mal configuré. De ce fait, la porte d’entrée envoie la mauvaise requête (autrement dit, votre back-end accepte uniquement les requêtes HTTP, mais comme vous n’avez pas désactivé l’autorisation du trafic HTTPS, Front Door tente de transférer des requêtes HTTPS).
-- Le backend rejette l’en-tête d’hôte qui a été transféré avec la requête au backend.
-- La configuration du backend n’a pas encore été entièrement déployée.
+* Le back-end n’est pas un back-end destiné au public et n’est pas visible pour l’instance Front Door.
+* Le back-end n’est pas correctement configuré, ce qui amène l’instance Front Door à envoyer une requête incorrecte. En d’autres termes, votre back-end accepte uniquement le protocole HTTP et vous n’avez pas désactivé l’autorisation du protocole HTTPS. Front Door tente donc de transférer des requêtes HTTPS.
+* Le backend rejette l’en-tête d’hôte qui a été transféré avec la requête au backend.
+* La configuration du back-end n’a pas encore été entièrement déployée.
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 
 1. Moment du déploiement
-   - Veillez attendre environ 10 minutes pour que la configuration soit déployée.
+   * Veillez à attendre environ 10 minutes pour que la configuration soit déployée.
 
 2. Vérifier les paramètres du backend
-    - Accédez au pool de backends vers lequel la requête doit router (dépend de la configuration de la règle de routage) et vérifiez que le _type de l’hôte backend_ et que le nom de l’hôte backend sont corrects. Si le backend est un hôte personnalisé, vérifiez que vous l’avez orthographié correctement. 
+    * Accédez au pool de back-ends vers lequel la requête doit router (dépend de la configuration de la règle de routage). Vérifiez que le *type de l’hôte back-end* et le nom de l’hôte back-end sont corrects. Si le back-end est un hôte personnalisé, vérifiez que vous l’avez orthographié correctement. 
 
-    - Vérifiez vos ports HTTP et HTTPS. Dans la plupart des cas, 80 et 443 (respectivement) sont appropriés et aucun changement n’est nécessaire. Toutefois, il est possible que votre backend ne soit pas configuré de cette façon et qu’il écoute sur un autre port.
+    * Vérifiez vos ports HTTP et HTTPS. Dans la plupart des cas, 80 et 443 (respectivement) sont appropriés et aucun changement n’est nécessaire. Toutefois, il est possible que votre back-end ne soit pas configuré de cette façon et qu’il écoute sur un autre port.
 
-        - Vérifiez _l’en-tête de l’hôte backend_  configuré pour les backends vers lesquels l’hôte frontend doit router. Dans la plupart des cas, cet en-tête doit être identique au _nom de l’hôte backend_. Toutefois, une valeur incorrecte peut provoquer différents codes d’état HTTP 4xx si le backend attend autre chose. Si vous entrez l’adresse IP de votre backend, vous devrez peut-être définir le nom d’hôte du backend comme _en-tête de l’hôte backend_.
+        * Vérifiez _l’en-tête de l’hôte backend_  configuré pour les backends vers lesquels l’hôte frontend doit router. Dans la plupart des cas, cet en-tête doit être identique au *nom de l’hôte backend*. Toutefois, une valeur incorrecte peut provoquer différents codes d’état HTTP 4xx si le backend attend autre chose. Si vous entrez l’adresse IP de votre backend, vous devrez peut-être définir le nom d’hôte du backend comme *en-tête de l’hôte backend*.
 
+3. Vérifier les paramètres de la règle de routage
+    * Accédez à la règle de routage qui doit router du nom d’hôte frontend en question vers un pool backend. Assurez-vous que les protocoles acceptés sont configurés correctement lors du transfert de la requête. Le champ des *protocoles acceptés* détermine quelles requêtes Front Door doit accepter. Le *protocole de transfert* détermine quel protocole Front Door doit utiliser pour transférer la requête au back-end.
+         * Par exemple, si le backend accepte uniquement les requêtes HTTP, les configurations suivantes sont valides :
+            * Les *Protocoles acceptés* sont HTTP et HTTPS. Le *Protocole de transfert* est HTTP. La mise en correspondance de la requête ne fonctionnera pas, car HTTPS est un protocole autorisé et si une requête est arrivée sous la forme HTTPS, Front Door tentera de la transférer en utilisant HTTPS.
 
-3. Vérifier les paramètres de règle de routage
-    - Accédez à la règle de routage qui doit router du nom d’hôte frontend en question vers un pool backend. Vérifiez que les protocoles acceptés sont correctement configurés, ou dans le cas contraire, vérifiez que le protocole que Front Door utilisera lors du transfert de la requête est correctement configuré. Le champ _Protocoles acceptés_ détermine quelles requêtes Front Door doit accepter et le _Protocole de transfert_ détermine quel protocole Front Door doit utiliser pour transférer la requête au back-end.
-         - Par exemple, si le backend accepte uniquement les requêtes HTTP, les configurations suivantes sont valides :
-            - Les _Protocoles acceptés_ sont HTTP et HTTPS. Le _Protocole de transfert_ est HTTP. La mise en correspondance de la requête ne fonctionnera pas, car HTTPS est un protocole autorisé et si une requête est arrivée en tant que HTTPS, Front Door tente de la transférer en utilisant HTTPS.
+            * Les *Protocoles acceptés* sont HTTP. La valeur de *Protocole de transfert* est soit la correspondance de la requête, soit HTTP.
 
-            - Les _Protocoles acceptés_ sont HTTP. La valeur de _Protocole de transfert_ est soit la correspondance de la requête, soit HTTP.
-
-    - Le champ _Réécriture d’URL_ est désactivé par défaut, et vous devez l’utiliser uniquement si vous souhaitez limiter les ressources hébergées par le backend que vous souhaitez rendre disponibles. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible que ce champ soit mal configuré et que Front Door demande une ressource du backend qui n’est pas disponible, ce qui retourne un code d’état HTTP 404.
-
+    - Le champ *Réécriture d’URL* est désactivé par défaut. Ce champ n’est utilisé que si vous voulez limiter l’étendue des ressources que vous souhaitez rendre disponibles et qui sont hébergées par le back-end. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible de configurer ce champ de façon incorrecte. Ainsi, lorsque Front Door demande une ressource du back-end qui n’est pas disponible, un code d’état HTTP 404 est retourné.

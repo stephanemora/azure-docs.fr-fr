@@ -8,18 +8,21 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326572"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045293"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Intégrer à Logic Apps à l’aide d’un connecteur personnalisé
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) est un service cloud qui vous permet d’automatiser les flux de travail entre les applications et les services. En connectant Logic Apps aux API Azure Digital Twins, vous pouvez créer de tels flux automatisés autour d’Azure Digital Twins et des données connexes.
 
-Azure Digital Twins ne dispose pas actuellement d’un connecteur certifié (pré-construit) pour Logic Apps. À la place, le processus actuel d’utilisation de Logic Apps avec Azure Digital Twins propose de créer un [**connecteur Logic Apps personnalisé**](../logic-apps/custom-connector-overview.md), à l’aide d’un fichier [Swagger Azure Digital Twins personnalisé](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) qui a été modifié pour fonctionner avec Logic Apps.
+Azure Digital Twins ne dispose pas actuellement d’un connecteur certifié (pré-construit) pour Logic Apps. À la place, le processus actuel d’utilisation de Logic Apps avec Azure Digital Twins propose de créer un [**connecteur Logic Apps personnalisé**](../logic-apps/custom-connector-overview.md), à l’aide d’un fichier [Swagger Azure Digital Twins personnalisé](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) qui a été modifié pour fonctionner avec Logic Apps.
+
+> [!NOTE]
+> Il existe plusieurs versions de Swagger contenues dans l’exemple de Swagger personnalisé lié ci-dessus. La version la plus récente se trouve dans le sous-dossier avec la date la plus récente, mais les versions antérieures contenues dans l’exemple continuent également d’être prises en charge.
 
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com) pour **créer un connecteur personnalisé** qui peut être utilisé pour connecter Logic Apps à une instance Azure Digital Twins. Vous allez ensuite **créer une application logique** qui utilise cette connexion pour obtenir un exemple de scénario, dans lequel des événements déclenchés par un minuteur mettent automatiquement à jour un jumeau dans votre instance Azure Digital Twins. 
 
@@ -90,9 +93,14 @@ Vous serez dirigé vers la page de déploiement pour le connecteur. Une fois le 
 
 Ensuite, vous allez configurer le connecteur que vous avez créé pour atteindre Azure Digital Twins.
 
-Tout d’abord, téléchargez un fichier Swagger Azure Digital Twins personnalisé qui a été modifié pour fonctionner avec Logic Apps. Téléchargez les exemples de **Swaggers personnalisés Azure Digital Twins** à partir de [ce lien](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) en cliquant sur le bouton *Télécharger le ZIP*. Accédez au dossier téléchargé *Azure_Digital_Twins_Custom_Swaggers.zip* et décompressez-le. L’exemple de Swagger personnalisé pour ce tutoriel se trouve à cet emplacement *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*.
+Tout d’abord, téléchargez un fichier Swagger Azure Digital Twins personnalisé qui a été modifié pour fonctionner avec Logic Apps. Téléchargez les exemples de **Swaggers personnalisés Azure Digital Twins** à partir de [**ce lien**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) en cliquant sur le bouton *Télécharger le ZIP*. Accédez au dossier téléchargé *Azure_Digital_Twins_Custom_Swaggers.zip* et décompressez-le. 
 
-Ensuite, accédez à la page Vue d’ensemble de votre connecteur dans le *portail Azure*, puis cliquez sur [Modifier](https://portal.azure.com).
+L’exemple de Swagger personnalisé pour ce tutoriel se trouve dans le dossier _**Azure_Digital_Twins_Custom_Swaggers\LogicApps**_. Ce dossier contient des sous-dossiers appelés *stable* et *preview*, qui contiennent des versions différentes de Swagger organisées par date. Le dossier dont la date est la plus récente contient la copie la plus récente de Swagger. Quelle que soit la version que vous sélectionnez, le fichier Swagger est nommé _**digitaltwins.json**_.
+
+> [!NOTE]
+> À moins que vous ne travailliez avec une fonctionnalité d’évaluation, il est généralement recommandé d’utiliser la version *stable* le plus récente de Swagger. Toutefois, les versions antérieures et les préversions des Swagger continuent également d’être prises en charge. 
+
+Ensuite, accédez à la page Vue d’ensemble de votre connecteur dans le [portail Azure](https://portal.azure.com), puis cliquez sur *Modifier*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vue dans le portail de l’inscription d’une application Azure AD. L’option « Certificats et secrets » est mise en surbrillance dans le menu de la ressource, tout comme la page « Nouveau secret client »":::
 
@@ -100,7 +108,7 @@ Dans la page *Modifier le connecteur personnalisé Logic Apps* qui suit, configu
 * **Connecteurs personnalisés**
     - Point de terminaison d’API : REST (conservez la valeur par défaut)
     - Mode d’importation : Fichier OpenAPI (conservez la valeur par défaut)
-    - Fichier : Il s’agit du fichier Swagger personnalisé que vous avez téléchargé précédemment. Cliquez sur *Importer*, localisez le fichier sur votre machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*), puis cliquez sur *Ouvrir*.
+    - Fichier : Il s’agit du fichier Swagger personnalisé que vous avez téléchargé précédemment. Cliquez sur *Importer*, localisez le fichier sur votre machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\...\digitaltwins.json*), puis cliquez sur *Ouvrir*.
 * **Informations générales**
     - Icône : Téléchargez une icône qui vous plaît
     - Couleur d’arrière-plan de l’icône : Entrez le code hexadécimal au format « #xxxxxx » pour votre couleur.
@@ -193,7 +201,7 @@ Vous serez peut-être invité à entrer vos informations d’identification Azur
 Dans la nouvelle zone *DigitalTwinsAdd*, renseignez les champs comme suit :
 * _ID_ : Renseignez *l’ID de jumeau* du jumeau numérique dans votre instance que l’application logique doit mettre à jour.
 * _jumeau_ : Ce champ vous permet d’entrer le corps requis par la demande d’API choisie. Pour *DigitalTwinsUpdate*, ce corps est sous la forme d’un code de correctif JSON. Pour plus d’informations sur la structuration d’un correctif JSON afin de mettre à jour votre jumeau, consultez la section [Mettre à jour un jumeau numérique](how-to-manage-twin.md#update-a-digital-twin) dans *Procédure : Gestion des jumeaux numériques*.
-* _api-version_ : Dans la préversion publique actuelle, cette valeur est *2020-05-31-preview*
+* _api-version_ : Version la plus récente de l’API. Dans la préversion publique actuelle, cette valeur est *2020-05-31-preview*
 
 Appuyez sur *Enregistrer* dans le Concepteur Logic Apps.
 
@@ -205,7 +213,7 @@ Vous pouvez choisir d’autres opérations en sélectionnant _+ Nouvelle étape_
 
 Maintenant que votre application logique a été créée, l’événement de mise à jour du jumeau que vous avez défini dans le Concepteur Logic Apps doit se produire avec une récurrence toutes les trois secondes. Cela signifie qu’au bout de trois secondes, vous devriez être en mesure d’interroger votre jumeau et de voir les nouvelles valeurs corrigées.
 
-Vous pouvez interroger votre jumeau par le biais de la méthode de votre choix (par exemple, une [application cliente personnalisée](tutorial-command-line-app.md), [l’exemple d’application Azure Digital Twins Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), les [SDK et les API](how-to-use-apis-sdks.md) ou la [CLI](how-to-use-cli.md)). 
+Vous pouvez interroger votre jumeau par le biais de la méthode de votre choix (par exemple, une [application cliente personnalisée](tutorial-command-line-app.md), [l’exemple d’application Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), les [SDK et les API](how-to-use-apis-sdks.md) ou la [CLI](how-to-use-cli.md)). 
 
 Pour plus d’informations sur l’interrogation de votre instance Azure Digital Twins, consultez [*Procédure : Interroger le graphique de jumeaux*](how-to-query-graph.md).
 

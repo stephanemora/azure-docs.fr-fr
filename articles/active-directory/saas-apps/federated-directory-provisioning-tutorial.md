@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319943"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851269"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutoriel : Configurer un répertoire fédéré pour l’attribution automatique d’utilisateurs
 
@@ -53,24 +53,24 @@ Avant de configurer un répertoire fédéré pour l’attribution automatique d�
 
 1. Connectez-vous à la [console d’administration de votre répertoire fédéré](https://federated.directory/of)
 
-    ![Didacticiel de répertoire fédéré](media/federated-directory-provisioning-tutorial/companyname.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
 
 2. Accédez à **Répertoires > Répertoires utilisateur** et sélectionnez votre locataire. 
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
 
 3.  Pour générer un jeton du porteur permanent, accédez à **Clés de répertoire > Créer une nouvelle clé.** 
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/federated01.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
 
 4. Créez une clé de répertoire. 
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/federated02.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
     
 
 5. Copiez la valeur **Jeton d’accès**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application de répertoire fédéré dans le portail Azure. 
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/federated03.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Ajouter un répertoire fédéré à partir de la galerie
 
@@ -96,15 +96,15 @@ Avant de configurer un répertoire fédéré pour l’attribution automatique d�
 
 5. Accédez à l’**URL** mise en évidence ci-dessous dans un autre navigateur. 
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
 
 6. Cliquez sur **Ouvrir une session**.
 
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/federated04.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
 
 7.  Comme Répertoire fédéré est une application OpenIDConnect, choisissez de vous connecter au répertoire fédéré à l’aide de votre compte professionnel Microsoft.
     
-    ![répertoire fédéré](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
  
 8. Une fois l’authentification réussie, acceptez l’invite de consentement pour la page de consentement. L’application est alors automatiquement ajoutée à votre client et vous serez redirigé vers votre compte de répertoire fédéré.
 
@@ -146,12 +146,12 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec un répertoire fédéré**.
 
-    ![Didacticiel de répertoire fédéré](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
     
     
 11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et le répertoire fédéré. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans le répertoire fédéré à des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Didacticiel de répertoire fédéré](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Capture d’écran de la console d’administration Répertoire fédéré montrant un champ permettant d’entrer un nom de société. Les boutons de connexion sont également visibles." border="false":::
     
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

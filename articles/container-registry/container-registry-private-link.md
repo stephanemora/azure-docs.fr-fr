@@ -2,13 +2,13 @@
 title: Configurer une liaison privée
 description: Configurez un point de terminaison privé sur un registre de conteneurs et activez l’accès sur une liaison privée dans un réseau virtuel local. L’accès à la liaison privée est une fonctionnalité du niveau de service Premium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/01/2020
+ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488743"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91743639"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link
 
@@ -79,7 +79,7 @@ az network vnet subnet update \
 
 ### <a name="configure-the-private-dns-zone"></a>Configurer la zone DNS privée
 
-Créez une zone DNS privée pour le domaine du registre de conteneurs Azure privé. Dans les étapes ultérieures, vous allez créer des enregistrements DNS pour votre domaine de registre dans cette zone DNS.
+Créez une [zone DNS privée](../dns/private-dns-privatednszone.md) pour le domaine du registre de conteneurs Azure privé. Dans les étapes ultérieures, vous allez créer des enregistrements DNS pour votre domaine de registre dans cette zone DNS.
 
 Pour utiliser une zone privée afin de remplacer la résolution DNS par défaut pour votre registre de conteneurs Azure, la zone doit être nommée **privatelink.azurecr.io**. Exécutez la commande [az network private-dns zone create][az-network-private-dns-zone-create] suivante pour créer la zone privée :
 
@@ -306,28 +306,46 @@ Vous devez vérifier que les ressources contenues dans le sous-réseau du point 
 
 Pour valider la connexion de liaison privée, utilisez SSH sur la machine virtuelle que vous avez configurée dans le réseau virtuel.
 
-Exécutez la commande `nslookup` pour résoudre l’adresse IP de votre registre via la liaison privée :
+Exécutez un utilitaire tel que `nslookup` ou `dig` pour rechercher l’adresse IP de votre registre via la liaison privée. Par exemple :
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 L’exemple de sortie montre l’adresse IP du registre dans l’espace d’adressage du sous-réseau :
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-Comparez ce résultat avec l’adresse IP publique dans la sortie `nslookup` pour le même registre via un point de terminaison public :
+Comparez ce résultat avec l’adresse IP publique dans la sortie `dig` pour le même registre via un point de terminaison public :
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.  2881    IN  CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881 IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.    300 IN  CNAME   xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN CNAME   xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10  IN A 20.45.122.144
+
+[...]
 ```
 
 ### <a name="registry-operations-over-private-link"></a>Opérations de registre via la liaison privée
@@ -361,9 +379,15 @@ Quand vous configurez une connexion de point de terminaison privé via la procé
 
 ## <a name="add-zone-records-for-replicas"></a>Ajouter des enregistrements de zone pour les réplicas
 
-Comme indiqué dans cet article, quand vous ajoutez une connexion de point de terminaison privé à un registre, des enregistrements DNS dans la zone `privatelink.azurecr.io` sont créés pour le registre et ses points de terminaison de données dans les régions où le registre est [répliqué](container-registry-geo-replication.md). 
+Comme cet article l’indique, quand vous ajoutez une connexion de point de terminaison privé à un registre, vous créez des enregistrements DNS dans la zone `privatelink.azurecr.io` pour le registre et ses points de terminaison de données dans les régions où le registre est [répliqué](container-registry-geo-replication.md). 
 
 Si vous ajoutez par la suite un nouveau réplica, vous devez ajouter manuellement un nouvel enregistrement de zone pour le point de terminaison de données dans cette région. Par exemple, si vous créez un réplica *myregistry* dans l’emplacement *northeurope*, ajoutez un enregistrement de zone pour `myregistry.northeurope.data.azurecr.io`. Pour connaître les étapes à suivre, consultez [Créer des enregistrements DNS dans la zone privée](#create-dns-records-in-the-private-zone) dans cet article.
+
+## <a name="dns-configuration-options"></a>Options de configuration DNS
+
+Le point de terminaison privé de cet exemple s’intègre à une zone DNS privée associée à un réseau virtuel de base. Cette configuration utilise directement le service DNS fourni par Azure pour résoudre le nom de domaine complet public du registre en son adresse IP privée dans le réseau virtuel. 
+
+La liaison privée prend en charge des scénarios de configuration DNS supplémentaires qui utilisent la zone privée, y compris des solutions DNS personnalisées. Par exemple, vous pouvez avoir une solution DNS personnalisée déployée dans le réseau virtuel, ou localement dans un réseau que vous connectez au réseau virtuel à l’aide d’une passerelle VPN. Pour résoudre le nom de domaine complet public du registre en adresse IP privée dans ces scénarios, vous devez configurer un redirecteur au niveau du serveur vers le service DNS fourni par Azure (168.63.129.16). Les options et les étapes exactes de configuration dépendent de vos réseaux et DNS existants. Pour obtenir des exemples, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

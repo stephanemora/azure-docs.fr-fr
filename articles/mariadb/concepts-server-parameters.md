@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392724"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91626392"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Paramètres de serveur dans Azure Database pour MariaDB
 
@@ -28,6 +28,12 @@ Azure Database pour MariaDB expose la possibilité de modifier la valeur des dif
 La liste des paramètres de serveur pris en charge s’allonge en permanence. Utilisez l’onglet Paramètres du serveur du Portail Azure pour afficher la liste complète et configurer les valeurs des paramètres du serveur.
 
 Reportez-vous aux sections suivantes pour en savoir plus sur les limites des différents paramètres de serveur couramment mis à jour. Les limites sont déterminées par le niveau tarifaire et vCores du serveur.
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+Dans Azure Database for MariaDB, les journaux binaires sont toujours activés (c.-à-d. que `log_bin` est défini sur ON). Si vous souhaitez utiliser des déclencheurs, vous obtenez une erreur similaire à *Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous pouvez utiliser la variable `log_bin_trust_function_creators` moins sécurisée)* .
+
+Le format de journalisation binaire est toujours **ROW** et toutes les connexions au serveur utilisent **TOUJOURS** la journalisation binaire basée sur les lignes. Avec la journalisation binaire basée sur les lignes, les problèmes de sécurité n’existent pas et la journalisation binaire ne peut pas s’arrêter, ce qui vous permet de définir [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) sur **TRUE** de manière sécurisée.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -135,17 +141,17 @@ Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-var
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|16777216|16384|268435455|
-|Usage général|4|16777216|16384|536870912|
-|Usage général|8|16777216|16384|1073741824|
-|Usage général|16|16777216|16384|2147483648|
-|Usage général|32|16777216|16384|4294967295|
-|Usage général|64|16777216|16384|4294967295|
-|Mémoire optimisée|2|16777216|16384|536870912|
-|Mémoire optimisée|4|16777216|16384|1073741824|
-|Mémoire optimisée|8|16777216|16384|2147483648|
-|Mémoire optimisée|16|16777216|16384|4294967295|
-|Mémoire optimisée|32|16777216|16384|4294967295|
+|Usage général|2|16 777 216|16384|268435455|
+|Usage général|4|16 777 216|16384|536870912|
+|Usage général|8|16 777 216|16384|1073741824|
+|Usage général|16|16 777 216|16384|2147483648|
+|Usage général|32|16 777 216|16384|4294967295|
+|Usage général|64|16 777 216|16384|4294967295|
+|Mémoire optimisée|2|16 777 216|16384|536870912|
+|Mémoire optimisée|4|16 777 216|16384|1073741824|
+|Mémoire optimisée|8|16 777 216|16384|2147483648|
+|Mémoire optimisée|16|16 777 216|16384|4294967295|
+|Mémoire optimisée|32|16 777 216|16384|4294967295|
 
 ### <a name="query_cache_size"></a>query_cache_size
 
@@ -157,7 +163,7 @@ Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-var
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|0|0|16777216|
+|Usage général|2|0|0|16 777 216|
 |Usage général|4|0|0|33554432|
 |Usage général|8|0|0|67108864|
 |Usage général|16|0|0|134217728|
@@ -179,12 +185,12 @@ Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-var
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
 |Usage général|2|524 288|32 768|4 194 304|
 |Usage général|4|524 288|32 768|8388608|
-|Usage général|8|524 288|32 768|16777216|
+|Usage général|8|524 288|32 768|16 777 216|
 |Usage général|16|524 288|32 768|33554432|
 |Usage général|32|524 288|32 768|33554432|
 |Usage général|64|524 288|32 768|33554432|
 |Mémoire optimisée|2|524 288|32 768|8388608|
-|Mémoire optimisée|4|524 288|32 768|16777216|
+|Mémoire optimisée|4|524 288|32 768|16 777 216|
 |Mémoire optimisée|8|524 288|32 768|33554432|
 |Mémoire optimisée|16|524 288|32 768|33554432|
 |Mémoire optimisée|32|524 288|32 768|33554432|
@@ -197,17 +203,17 @@ Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-var
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|
-|Usage général|2|16777216|1 024|67108864|
-|Usage général|4|16777216|1 024|134217728|
-|Usage général|8|16777216|1 024|268435456|
-|Usage général|16|16777216|1 024|536870912|
-|Usage général|32|16777216|1 024|1073741824|
-|Usage général|64|16777216|1 024|1073741824|
-|Mémoire optimisée|2|16777216|1 024|134217728|
-|Mémoire optimisée|4|16777216|1 024|268435456|
-|Mémoire optimisée|8|16777216|1 024|536870912|
-|Mémoire optimisée|16|16777216|1 024|1073741824|
-|Mémoire optimisée|32|16777216|1 024|1073741824|
+|Usage général|2|16 777 216|1 024|67108864|
+|Usage général|4|16 777 216|1 024|134217728|
+|Usage général|8|16 777 216|1 024|268435456|
+|Usage général|16|16 777 216|1 024|536870912|
+|Usage général|32|16 777 216|1 024|1073741824|
+|Usage général|64|16 777 216|1 024|1073741824|
+|Mémoire optimisée|2|16 777 216|1 024|134217728|
+|Mémoire optimisée|4|16 777 216|1 024|268435456|
+|Mémoire optimisée|8|16 777 216|1 024|536870912|
+|Mémoire optimisée|16|16 777 216|1 024|1073741824|
+|Mémoire optimisée|32|16 777 216|1 024|1073741824|
 
 ### <a name="time_zone"></a>time_zone
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270663"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054761"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -29,9 +29,9 @@ Si l’extension Azure AD ne fonctionne pas pour vous, il peut y avoir deux rais
 
 Azure AD et Azure AD B2C sont deux offres de produits distinctes qui ne peuvent pas coexister dans le même locataire. Un locataire Azure AD représente une organisation. Un locataire Azure AD B2C représente une collection d’identités à utiliser avec des applications par partie de confiance. En ajoutant un **Nouveau fournisseur OpenID Connect** sous **Azure AD B2C > Fournisseurs d’identité** ou avec des stratégies personnalisées, Azure AD B2C peut fédérer pour Azure AD en autorisant l’authentification des employés dans une organisation.
 
-### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Puis-je utiliser Azure AD B2C pour activer la connexion à des réseaux sociaux (Facebook et Google+) dans Office 365 ?
+### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-microsoft-365"></a>Puis-je utiliser Azure AD B2C pour activer la connexion à des réseaux sociaux (Facebook et Google+) dans Microsoft 365 ?
 
-Vous ne pouvez pas utiliser Azure AD B2C pour authentifier les utilisateurs pour Microsoft Office 365. Azure AD est la solution Microsoft permettant de gérer l’accès des employés aux applications SaaS. Elle présente des fonctionnalités conçues à cet effet, telles que l’accès conditionnel et la gestion des licences. Azure AD B2C fournit une plateforme de gestion des identités et des accès pour la création d’applications web et mobiles. Quand Azure AD B2C est configuré pour établir la fédération avec un locataire Azure AD, le locataire Azure AD gère l’accès des employés aux applications qui s’appuient sur Azure AD B2C.
+Vous ne pouvez pas utiliser Azure AD B2C pour authentifier les utilisateurs pour Microsoft 365. Azure AD est la solution Microsoft permettant de gérer l’accès des employés aux applications SaaS. Elle présente des fonctionnalités conçues à cet effet, telles que l’accès conditionnel et la gestion des licences. Azure AD B2C fournit une plateforme de gestion des identités et des accès pour la création d’applications web et mobiles. Quand Azure AD B2C est configuré pour établir la fédération avec un locataire Azure AD, le locataire Azure AD gère l’accès des employés aux applications qui s’appuient sur Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Que sont les comptes locaux dans Azure AD B2C ? En quoi sont-ils différents des comptes professionnels ou scolaires dans Azure AD ?
 
@@ -149,7 +149,6 @@ Vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’appl
 1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur *Administrateur d’abonnements* sous lequel vous êtes connecté actuellement). Sélectionnez **Supprimer** en bas de la page, puis **Oui** lorsque vous y êtes invité.
 1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
 1. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
-1. Le cas échéant, sous **Connexions au compte LinkedIn**, sélectionnez **Non**, puis **Enregistrer**.
 1. Sous **Gérer**, sélectionnez **Propriétés**.
 1. Sous **Gestion de l’accès pour les ressources Azure**, sélectionnez **Oui**, puis **Enregistrer**.
 1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous pour actualiser votre accès.

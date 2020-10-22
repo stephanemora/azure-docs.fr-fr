@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3818ce9ebae8e6af6ee8bb5ed30c7ab446a6f6b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562336"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855172"
 ---
 # <a name="apache-spark-guidelines"></a>Instructions Apache Spark
 
@@ -62,8 +62,8 @@ Cet article présente différentes instructions pour l’utilisation d’Apache 
 
 | Option | Documents |
 |---|---|
-| Data Lake Storage Gen2 | [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Data Lake Storage Gen 1 | [Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md) |
+| Azure Data Lake Storage Gen2 | [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Azure Data Lake Storage Gen1 | [Utilisation d’Azure Data Lake Storage Gen1 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Stockage Blob Azure | [Utiliser Stockage Azure avec des clusters Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes

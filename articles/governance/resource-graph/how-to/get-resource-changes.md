@@ -1,14 +1,14 @@
 ---
 title: Obtenir les changements des ressources
 description: Découvrez comment savoir quand une ressource a été modifiée, obtenir une liste des propriétés modifiées et évaluer les différences.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056565"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057567"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -279,7 +279,7 @@ La réponse se présente ainsi :
 }
 ```
 
-**beforeSnapshot** et **afterSnapshot** donnent chacun l’heure à laquelle la capture instantanée a été effectuée et les propriétés à ce moment-là. La modification a eu lieu à un moment donné entre ces captures instantanées. L’exemple ci-dessus montre que la propriété modifiée est **supportsHttpsTrafficOnly**.
+**beforeSnapshot** et **afterSnapshot** donnent chacun l’heure à laquelle la capture instantanée a été effectuée et les propriétés à ce moment-là. La modification a eu lieu à un moment donné entre ces captures instantanées. L’exemple précédent montre que la propriété modifiée est **supportsHttpsTrafficOnly**.
 
 Pour comparer les résultats, utilisez la propriété **changes** de **resourceChanges** ou évaluez la partie **content** de chaque instantané dans **resourceChangeDetails** pour déterminer les différences. Si vous comparez les instantanés, le **timestamp** s’affiche toujours comme une différence, même si cela est attendu.
 

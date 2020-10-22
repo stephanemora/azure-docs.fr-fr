@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983208"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91772802"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
 Le journal d’activité est un [journal de plateforme](platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
@@ -226,7 +226,7 @@ Vous trouverez ci-dessous un exemple de script PowerShell pour créer un profil 
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -399,4 +399,5 @@ Vous ne pourrez bientôt plus ajouter la solution Activity Log Analytics à votr
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Lire une vue d’ensemble des journaux de plateforme](platform-logs-overview.md)
+* [Examiner le schéma d’événements du journal d’activité](activity-log-schema.md)
 * [Créer un paramètre de diagnostic pour envoyer des journaux d’activité à d’autres destinations](diagnostic-settings.md)

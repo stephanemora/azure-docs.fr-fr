@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791144"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282107"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Créer des conteneurs et des bases de données Azure Cosmos en débit de mise à l’échelle automatique
 
@@ -77,7 +77,7 @@ Pour plus d’informations, consultez cette [documentation](how-to-choose-offer.
 | **Débit approvisionné (RU/s)** | Approvisionné manuellement. | Mise à l’échelle automatique et instantanée en fonction des modèles d’utilisation de la charge de travail. |
 | **Limitation du nombre de demandes/opérations (429)**  | Peut intervenir si la consommation dépasse la capacité approvisionnée. | Cela ne se produira pas si vous consommez des unités de requête/s dans la plage de débit de mise à l’échelle automatique que vous avez définie.    |
 | **Planification de la capacité** |  Vous devez procéder à une planification de la capacité et approvisionner le débit exact dont vous avez besoin. |    Le système prend automatiquement en charge la planification et la gestion de la capacité. |
-| **Tarification** | Vous payez pour l’unité de requête/s approvisionnée manuellement par heure, à l’aide de [l’unité de requête/s standard (manuelle) par taux horaire](https://azure.microsoft.com/pricing/details/cosmos-db/). | Vous payez par heure pour l’unité de requête/s la plus élevée pour laquelle le système effectue un scale-up dans l’heure. <br/><br/> Pour les comptes à une seule région d’écriture, vous payez pour l’unité de requête/s utilisée sur une base horaire, en utilisant [l’unité de requête/s de mise à l’échelle automatique par taux horaire](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Pour les comptes à plusieurs régions d’écriture, aucuns frais supplémentaires ne s’appliquent au mode de mise à l’échelle automatique. Vous payez le débit utilisé sur une base horaire en utilisant le même [taux de RU/s multimaître par taux horaire](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Tarification** | Vous payez pour l’unité de requête/s approvisionnée manuellement par heure, à l’aide de [l’unité de requête/s standard (manuelle) par taux horaire](https://azure.microsoft.com/pricing/details/cosmos-db/). | Vous payez par heure pour l’unité de requête/s la plus élevée pour laquelle le système effectue un scale-up dans l’heure. <br/><br/> Pour les comptes à une seule région d’écriture, vous payez pour l’unité de requête/s utilisée sur une base horaire, en utilisant [l’unité de requête/s de mise à l’échelle automatique par taux horaire](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Pour les comptes à plusieurs régions d’écriture, aucuns frais supplémentaires ne s’appliquent au mode de mise à l’échelle automatique. Vous payez le débit utilisé sur une base horaire en utilisant le même [taux horaire de RU/s pour les écritures multirégions](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Idéal pour les types de charges de travail** |  Charges de travail prévisibles et stables|   Charges de travail imprévisibles et variables  |
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -85,6 +85,6 @@ Pour plus d’informations, consultez cette [documentation](how-to-choose-offer.
 * Examinez le [FAQ sur la mise à l’échelle automatique](autoscale-faq.md).
 * Découvrez comment [choisir entre le débit manuel et de mise à l’échelle automatique](how-to-choose-offer.md).
 * Découvrez comment [approvisionner le débit de mise à l’échelle automatique sur une base de données ou un conteneur Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* En savoir plus sur le [partitionnement](partition-data.md) dans Azure Cosmos DB.
+* En savoir plus sur le [partitionnement](partitioning-overview.md) dans Azure Cosmos DB.
 
 

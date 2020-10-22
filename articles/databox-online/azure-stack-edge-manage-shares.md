@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904465"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91777205"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utiliser le Portail Azure pour gérer les partages sur votre Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les partages sur Azure Stack Edge Pro
 
 Cet article explique comment gérer les partages sur votre Azure Stack Edge Pro. Vous pouvez gérer Azure Stack Edge Pro par le biais du Portail Azure ou de l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, supprimer, actualiser les partages ou synchroniser la clé de stockage du compte de stockage associé aux partages.
 
@@ -74,7 +74,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 
 1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
 
-   ![Sélectionner Ajouter un partage](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Sélectionner Ajouter un partage 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. Dans **Ajouter un partage**, spécifiez les paramètres du partage. Indiquez un nom unique pour votre partage.
     
@@ -106,7 +106,7 @@ Si vous avez créé un partage avant de configurer le calcul sur votre appareil 
 
 1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**. Dans la liste des partages, sélectionnez le partage que vous souhaitez monter. La colonne **Utilisé pour le computing** affiche l’état **Désactivé** pour le partage sélectionné.
 
-   ![Sélectionner un partage](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Sélectionner un partage 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Sélectionnez **Monter**.
 
@@ -130,7 +130,7 @@ Effectuez les étapes suivantes dans le portail Azure pour démonter un partage.
 
 1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**.
 
-   ![Sélectionner un partage](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Sélectionner un partage 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. Dans la liste des partages, sélectionnez le partage que vous souhaitez démonter. Vous devez vous assurer que le partage à démonter n’est pas utilisé par un module. Si le partage est utilisé par un module, vous verrez apparaître des problèmes avec le module correspondant. Sélectionnez **Démonter**.
 
@@ -150,7 +150,7 @@ Pour supprimer un partage, procédez comme suit dans le Portail Azure.
 
 1. Dans la liste des partages, sélectionnez et cliquez sur le partage que vous souhaitez supprimer.
 
-   ![Sélectionner un partage](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Sélectionner un partage 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Cliquez sur **Supprimer**.
 
@@ -175,7 +175,7 @@ Pour actualiser un partage, procédez comme suit dans le Portail Azure.
 
 1. Accédez à **Partages** dans le Portail Azure. Sélectionnez et cliquez sur le partage que vous souhaitez actualiser.
 
-   ![Sélectionner un partage](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Sélectionner un partage 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Cliquez sur **Actualiser**.
 

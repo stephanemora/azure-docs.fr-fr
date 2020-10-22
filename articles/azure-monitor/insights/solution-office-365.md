@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999747"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498795"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>Q : Que va-t-il se passer le 31 octobre ? Dois-je faire l’intégration avant cette date ?
 > 
-> - Vous ne pourrez plus recevoir de données de la solution **Office 365**. La solution ne sera plus disponible sur la Place de marché.
+> - Vous ne pourrez plus recevoir de données de la solution **Office 365**. La solution sera supprimée de votre espace de travail et ne sera plus disponible sur la Place de marché.
 > - Pour les clients d’Azure Sentinel, la **solution Office 365** de l’espace de travail Log Analytics sera incluse dans la solution Azure Sentinel **SecurityInsights**.
-> - Si vous ne retirez pas votre solution manuellement, vos données seront déconnectées automatiquement le 31 octobre.
+> - Si vous ne retirez pas votre solution manuellement avant le 31 octobre, vos données seront déconnectées automatiquement et la table **OfficeActivity** sera supprimée. Vous pourrez toujours restaurer la table en activant le connecteur Office 365 dans Azure Sentinel (voir ci-dessous).
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q : Mes données seront-elles transférées vers la nouvelle solution ?
 > Oui. Quand vous supprimerez la solution **Office 365** de votre espace de travail, les données associées seront temporairement indisponibles en raison de la suppression du schéma. Lorsque vous activerez le nouveau connecteur **Office 365** dans Sentinel, le schéma sera restauré dans l’espace de travail et toutes les données déjà collectées seront disponibles. 

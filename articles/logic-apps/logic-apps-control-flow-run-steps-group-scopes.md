@@ -6,22 +6,22 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520899"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91575008"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Exécuter des actions en fonction de l’état du groupe à l’aide d’étendues dans Azure Logic Apps
 
 Pour exécuter des actions uniquement après l’échec ou la réussite d’un groupe d’actions, placez ce groupe dans une *étendue*. Cette structure est utile lorsque vous souhaitez organiser les actions en tant que groupe logique, évaluer l’état de ce groupe et effectuer des actions qui sont basées sur l’état de l’étendue. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère également son propre état. Par exemple, vous pouvez utiliser des étendues lorsque vous souhaitez implémenter la [gestion des erreurs et des exceptions](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Pour vérifier l’état d’une étendue, vous pouvez utiliser les mêmes critères que ceux utilisés pour déterminer l’état d’exécution des applications logiques, tels que « Réussi », « Échec », « Annulé », etc. Par défaut, lorsque toutes les actions de l’étendue réussissent, l’état de l’étendue est défini sur « Réussi ». Mais lorsqu’une action dans l’étendue échoue ou est annulée, l’état de l’étendue est défini sur « Échec ». Pour les limites sur les étendues, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md). 
+Pour vérifier l’état d’une étendue, vous pouvez utiliser les mêmes critères que ceux utilisés pour déterminer l’état d’exécution des applications logiques, tels que **Réussi**, **Échec**, **Annulé**, etc. Par défaut, quand toutes les actions de l’étendue réussissent, l’état de l’étendue est marqué comme **Réussi**. Mais quand une action dans l’étendue échoue ou est annulée, l’état de l’étendue est défini sur **Échec**. Pour les limites sur les étendues, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
-Par exemple, voici une application logique de haut niveau qui utilise une étendue pour exécuter des actions spécifiques et une condition pour vérifier l’état de l’étendue. Si des actions de l’étendue échouent ou se ferment de façon inattendue, l’étendue est définie sur « Échec » ou « Abandonné », respectivement ; l’application logique envoie un message « Scope failed » (Échec de l’étendue). Si toutes les actions de l’étendue réussissent, l’application logique envoie un message « Scope succeeded » (Réussite de l’étendue).
+Par exemple, voici une application logique de haut niveau qui utilise une étendue pour exécuter des actions spécifiques et une condition pour vérifier l’état de l’étendue. Si des actions de l’étendue échouent ou se ferment de façon inattendue, l’étendue est définie sur **Échec** ou **Abandonné**, respectivement ; l’application logique envoie un message « Scope failed » (Échec de l’étendue). Si toutes les actions de l’étendue réussissent, l’application logique envoie un message « Scope succeeded » (Réussite de l’étendue).
 
-![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagramme montrant le flux de l’étendue de l’application logique avec des exemples d’échec et de réussite de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -192,7 +192,7 @@ Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spéc
    
       `result('Scope')[0]['status']`
 
-      ![Ajouter l’expression qui vérifie l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Capture d’écran montrant la zone « Expression » avec mise en évidence de l’expression de résultat](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Pour les deux lignes, sélectionnez **est égal à** comme opérateur. 
    

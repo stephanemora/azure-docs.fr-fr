@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606913"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91567857"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -102,11 +102,11 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 * Au cours d’un mois comptant 720 heures, si le débit provisionné pendant 300 heures est de 120 000 unités de requête/seconde et que pour les 420 heures restantes, le débit provisionné est de 155 000 unités de requête/seconde, votre facture mensuelle est la suivante : 300 x 9,60 $/heure + 420 x 12,40 $/heure = 2 880 $ + 5 208 $ = 8 088 $ /mois. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit partagé":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemple de facturation d’un débit dédié":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemples de facturation avec géo-réplication et multimaître  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemples de facturation avec géoréplication et écritures multirégions  
 
-Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit approvisionné (une seule région d’écriture) coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration multimaître) coûte 0,016 $/heure et pour 100 RU/seconde (voir la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
+Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit provisionné (une seule région d’écriture) coûte 0,008 USD/heure pour 100 RU/s et le débit provisionné avec plusieurs régions accessibles en écriture (configuration d’écritures multirégions) coûte 0,016 USD/heure pour 100 RU/s (voir la [Page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemple de facturation : compte Azure Cosmos avec plusieurs régions et une seule région d’écriture
 
@@ -136,9 +136,9 @@ Supposons que vous créez un conteneur Azure Cosmos dans la région USA Ouest. L
 
 *Supposons également que vous faites sortir 100 Go de données chaque mois du conteneur dans la région USA Ouest afin de répliquer les données dans les régions USA Est, Europe Nord et Asie Est. Vous êtes facturé pour les sorties en fonction du tarif des transferts de données.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemple de facturation : Compte Azure Cosmos avec un débit multimaître au niveau de la base de données et mode de débit dédié pour certains conteneurs
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Exemple de facturation : Compte Azure Cosmos avec un débit d’écritures multirégions au niveau de la base de données et mode de débit dédié pour certains conteneurs
 
-Prenons l’exemple suivant, où nous avons un compte Azure Cosmos sur plusieurs régions et où toutes les régions sont accessibles en écriture (configuration multimaître). Par souci de simplicité, supposons que la taille du stockage reste constante et qu’elle n’évolue pas. Nous allons ici l’omettre pour simplifier notre exemple. Le débit approvisionné au cours du mois évolue comme suit (en supposant 30 jours ou 720 heures) : 
+Prenons l’exemple suivant, où nous avons un compte Azure Cosmos multirégion où toutes les régions sont accessibles en écriture (configuration de plusieurs régions d’écriture). Par souci de simplicité, supposons que la taille du stockage reste constante et qu’elle n’évolue pas. Nous allons ici l’omettre pour simplifier notre exemple. Le débit approvisionné au cours du mois évolue comme suit (en supposant 30 jours ou 720 heures) : 
 
 [0-100 heures] :  
 
@@ -192,7 +192,7 @@ Prenons l’exemple suivant, où nous avons un compte Azure Cosmos sur plusieurs
 
 Les modifications apportées au débit total approvisionné pendant 720 heures pour le mois sont représentées visuellement dans la figure ci-dessous : 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemple concret":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemple de facturation d’un débit dédié":::
 
 La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures par mois) sera calculée comme suit :
 
@@ -215,7 +215,7 @@ La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures
 || |**Coût mensuel total**  | |**38 688 $**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Exemples de facturation avec des comptes de niveau gratuit
-Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte. Les RU/s et le stockage au-delà de 400 RU/s et de 5 Go sont facturés selon les tarifs standard indiqués dans la page des tarifs. Sur la facture, vous ne voyez pas de coût ni de ligne pour les 400 RU/s et les 5 Go gratuits, mais seulement les RU/s et le stockage au-delà de ce qui est couvert par le niveau gratuit. Les 400 RU/s s’appliquent à tous les types de RU/s – débit provisionné, mise à l’échelle automatique et multimaître.  
+Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte. Les RU/s et le stockage au-delà de 400 RU/s et de 5 Go sont facturés selon les tarifs standard indiqués dans la page des tarifs. Sur la facture, vous ne voyez pas de coût ni de ligne pour les 400 RU/s et les 5 Go gratuits, mais seulement les RU/s et le stockage au-delà de ce qui est couvert par le niveau gratuit. Les 400 RU/s s’appliquent à tous les types de RU/s – débit provisionné, mise à l’échelle automatique et écritures multirégions.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemple de facturation – conteneur ou base de données avec débit provisionné
 - Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 400 RU/s et 5 Go de stockage.
@@ -231,16 +231,16 @@ Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 4
 - Tout stockage au-delà des 5 premiers Go est facturé au tarif de stockage normal. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Exemple de facturation – compte multirégion, avec une seule région d’écriture
-- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte à maître unique (une seule région d’écriture).
+- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte monorégion d’écriture.
 - Au total, sans niveau gratuit, il nous serait facturé 3 * 1 200 RU/s = 3 600 RU/s et 3 * 10 Go = 30 Go de stockage.
 - Avec la remise du niveau gratuit, après avoir enlevé 400 RU/s et 5 Go de stockage, il nous est facturé un débit provisionné de 3 200 RU/s (32 unités) au tarif de la région d’écriture unique et 25 Go de stockage.
 - Le coût mensuel pour les RU/s est le suivant : 32 unités * 0,008 USD * 24 heures * 31 jours = 190,46 USD. Le coût mensuel du stockage est le suivant : 25 Go * 0,25 USD/Go = 6,25 USD. Le coût total est de 190,46 USD + 6,25 USD = 196,71 USD.
 - Remarque : Si le prix unitaire pour les RU/s ou le stockage diffère dans les régions, les 400 RU/s et 5 Go du niveau gratuit reflètent les tarifs de la région dans laquelle le compte a été créé.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Exemple de facturation – compte multirégion, multimaître (plusieurs régions d’écriture)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Exemple de facturation – multirégion, compte avec plusieurs régions d’écriture
 
-Cet exemple reflète le [tarif multimaître](https://azure.microsoft.com/pricing/details/cosmos-db/) pour les comptes créés après le 1er décembre 2019. 
-- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte multimaître (plusieurs régions d’écriture). 
+Cet exemple reflète les [tarifs pour écritures multirégions](https://azure.microsoft.com/pricing/details/cosmos-db/) pour les comptes créés après le 1er décembre 2019. 
+- Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 1 200 RU/s et 10 Go de stockage. Nous répliquons le compte dans 3 régions et nous disposons d’un compte multirégion d’écriture. 
 - Au total, sans niveau gratuit, il nous serait facturé 3 * 1 200 RU/s = 3 600 RU/s et 3 * 10 Go = 30 Go de stockage.
 - Avec la remise du niveau gratuit, après avoir enlevé 400 RU/s et 5 Go de stockage, il nous est facturé un débit provisionné de 3200 RU/s (32 unités) au tarif des multiples régions d’écriture et 25 Go de stockage.
 - Le coût mensuel pour les RU/s est le suivant : 32 unités * 0,016 USD * 24 heures * 31 jours = 380,93 USD. Le coût mensuel du stockage est le suivant : 25 Go * 0,25 USD/Go = 6,25 USD. Le coût total est de 380,93 USD + 6,25 USD = 387,18 USD.

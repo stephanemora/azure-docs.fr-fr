@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526882"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964433"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Pour configurer les paramètres de verrouillage de compte, renseignez les param�
 
 ## <a name="block-and-unblock-users"></a>Bloquer et débloquer des utilisateurs
 
-Si l’appareil d’un utilisateur a été perdu ou volé, vous pouvez bloquer les tentatives d’authentification pour le compte associé. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
+Si l’appareil d’un utilisateur a été perdu ou volé, vous pouvez bloquer les tentatives Azure Multi-Factor Authentication pour le compte associé. Toutes les tentatives Azure Multi-Factor Authentication des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
 
 ### <a name="block-a-user"></a>Bloquer un utilisateur
 
@@ -85,7 +85,7 @@ La fonctionnalité d’alerte de fraude permet aux utilisateurs de signaler les 
 
 Les options de configuration des alertes de fraude suivantes sont disponibles :
 
-* **Bloquer automatiquement les utilisateurs qui signalent une fraude** : si un utilisateur fait l’objet d’un signalement de fraude, son compte est bloqué pendant 90 jours ou jusqu’à ce qu’un administrateur le débloque. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
+* **Bloquer automatiquement les utilisateurs qui signalent une fraude** : Si un utilisateur signale une fraude, les tentatives d’authentification Azure MFA pour le compte d’utilisateur sont bloquées pendant 90 jours ou jusqu’à ce qu’un administrateur débloque son compte. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
 * **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique pour effectuer l’authentification multifacteur, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#** . Ce code est **0** par défaut, mais vous pouvez le personnaliser.
 
    > [!NOTE]

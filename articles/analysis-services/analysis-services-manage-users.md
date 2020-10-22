@@ -7,38 +7,38 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926176"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014900"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 
-Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/fundamentals/active-directory-administer.md) dans le même abonnement.
+Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/fundamentals/active-directory-whatis.md) dans le même abonnement.
 
-Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Avec B2B, les utilisateurs extérieurs à une organisation peuvent être invités en tant qu’utilisateurs invités dans un répertoire Azure AD. Les invités peuvent être issus d’un autre répertoire client Azure AD ou n’importe quelle adresse e-mail valide. Une fois l’utilisateur invité et accepte l’invitation envoyée par e-mail à partir d’Azure, l’identité de l’utilisateur est ajoutée au répertoire client. Ces identités peuvent être ajoutées aux groupes de sécurité ou en tant que membres d’un rôle d’administrateur de serveur ou de base de données.
+Azure Analysis Services prend en charge [la collaboration Azure AD B2B](../active-directory/external-identities/what-is-b2b.md). Avec B2B, les utilisateurs extérieurs à une organisation peuvent être invités en tant qu’utilisateurs invités dans un répertoire Azure AD. Les invités peuvent être issus d’un autre répertoire client Azure AD ou n’importe quelle adresse e-mail valide. Une fois l’utilisateur invité et accepte l’invitation envoyée par e-mail à partir d’Azure, l’identité de l’utilisateur est ajoutée au répertoire client. Ces identités peuvent être ajoutées aux groupes de sécurité ou en tant que membres d’un rôle d’administrateur de serveur ou de base de données.
 
 ![Architecture de l’authentification Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Authentication
 
-Tous les outils et les applications clientes utilisent une ou plusieurs [bibliothèques clientes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) des Services d’analyse (AMO, MSOLAP, ADOMD) pour se connecter à un serveur. 
+Tous les outils et les applications clientes utilisent une ou plusieurs [bibliothèques clientes](/analysis-services/client-libraries?view=azure-analysis-services-current) des Services d’analyse (AMO, MSOLAP, ADOMD) pour se connecter à un serveur. 
 
 Les trois bibliothèques clientes prennent en charge les deux flux interactif d’Azure AD et les méthodes d’authentification non interactive. Les deux méthodes non-interactives, les méthodes de mot de passe Active Directory et d’authentification intégrée Active Directory peuvent être utilisées dans les applications qui utilisent AMOND et MSOLAP. Ces deux méthodes n’entraînent jamais l’affichage de boîtes de dialogue contextuelles.
 
-Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et l’extension de projets Analysis Services pour Visual Studio installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Les extensions de projets Power BI Desktop, SSMS et Analysis Services sont mises à jour chaque mois. Excel est [mis à jour avec Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Office 365 sont moins fréquentes et certaines organisations utilisent le canal différé, c’est-à-dire que les mises sont différées d’au moins trois mois.
+Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et l’extension de projets Analysis Services pour Visual Studio installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Les extensions de projets Power BI Desktop, SSMS et Analysis Services sont mises à jour chaque mois. Excel est [mis à jour avec Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Microsoft 365 sont moins fréquentes. Par ailleurs, certaines organisations utilisent le canal différé, c’est-à-dire que les mises à jour sont reportées de trois mois maximum.
 
 En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
 
 Power BI Desktop, Visual Studio et SSMS prennent en charge l’authentification universelle Active Directory, une méthode interactive prenant également en charge Azure Multi-Factor Authentication (MFA). Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en fournissant un processus de connexion simple. Il permet une authentification forte avec plusieurs options de vérification (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile). L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation. **L’authentification universelle est recommandée**.
 
-Dans le cas d’une connexion à Azure avec un compte Windows et si l’authentification universelle n’est pas sélectionnée ou disponible (Excel), [les services de fédération Active Directory (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) sont obligatoires. Avec la fédération, les utilisateurs Azure AD et Office 365 sont authentifiés à l’aide des informations d’identification locales et ils peuvent accéder aux ressources Azure.
+Dans le cas d’une connexion à Azure avec un compte Windows et si l’authentification universelle n’est pas sélectionnée ou disponible (Excel), [les services de fédération Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) sont obligatoires. Avec la fédération, les utilisateurs Azure AD et Microsoft 365 s’authentifient avec des informations d’identification locales et peuvent accéder aux ressources Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Les serveurs Azure Analysis Services prennent en charge les connexions depuis [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et versions ultérieures à l’aide de l’authentification Windows, l’authentification du mot de passe Active Directory et l’authentification universelle Active Directory. En général, il est recommandé d'utiliser l’authentification universelle Active Directory, car :
+Les serveurs Azure Analysis Services prennent en charge les connexions depuis [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) et versions ultérieures à l’aide de l’authentification Windows, l’authentification du mot de passe Active Directory et l’authentification universelle Active Directory. En général, il est recommandé d'utiliser l’authentification universelle Active Directory, car :
 
 *  Elle prend en charge les méthodes d’authentification interactive et non interactive.
 
@@ -81,4 +81,4 @@ Les rôles à ce niveau s’appliquent aux utilisateurs ou comptes qui doivent e
 [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gérer les utilisateurs et rôles de bases de données](analysis-services-database-users.md)  
 [Gérer les administrateurs de serveur](analysis-services-server-admins.md)  
-[Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)  
+[Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)

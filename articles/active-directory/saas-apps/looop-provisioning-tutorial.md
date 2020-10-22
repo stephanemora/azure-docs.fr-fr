@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333560"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850691"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutoriel : Configurer Looop pour l’affectation automatique d’utilisateurs
 
@@ -55,11 +55,11 @@ Avant de configurer Looop pour le provisionnement automatique d’utilisateurs a
 
 1. Connectez-vous à votre [Console d’administration Looop](https://app.looop.co/#/login) et sélectionnez **Account** (Compte). Sous **Account Settings**, sélectionnez **Authentication**.
 
-    ![Looop - Ajouter SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Capture d’écran de la console d’administration Looop. L’onglet Account est mis en évidence et ouvert. Sous Account settings, Authentication est mis en évidence." border="false":::
 
 2. Générez un jeton en cliquant sur **Reset Token** (Réinitialiser le jeton) sous **SCIM Integration**.
 
-    ![Looop - Ajouter SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Capture d’écran de la console d’administration Looop. L’onglet Account est mis en évidence et ouvert. Sous Account settings, Authentication est mis en évidence." border="false":::
 
 3. Copiez le **Point de terminaison SCIM** et le **Jeton**. Ces valeurs doivent être entrées dans les champs **URL de locataire** et **Jeton secret** de l’onglet Provisionnement, dans votre application Looop sur le portail Azure. 
 
