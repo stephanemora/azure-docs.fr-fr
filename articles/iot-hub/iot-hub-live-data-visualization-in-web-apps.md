@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327563"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146680"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Ajouter un groupe de consommateurs à votre instance IoT Hub
 
-Les [Groupes de consommateurs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fournissent des vues indépendantes dans le flux d’événements qui permettent aux applications et services Azure de consommer indépendamment des données à partir du même point de terminaison Event Hub. Dans cette section, vous ajoutez un groupe de consommateurs au point de terminaison intégré de votre hub IoT, point à partir duquel l’application web lira les données.
+Les [Groupes de consommateurs](../event-hubs/event-hubs-features.md#event-consumers) fournissent des vues indépendantes dans le flux d’événements qui permettent aux applications et services Azure de consommer indépendamment des données à partir du même point de terminaison Event Hub. Dans cette section, vous ajoutez un groupe de consommateurs au point de terminaison intégré de votre hub IoT, point à partir duquel l’application web lira les données.
 
 Exécutez la commande suivante pour ajouter un groupe de consommateurs au point de terminaison intégré de votre hub IoT :
 
@@ -156,11 +156,11 @@ Vous devez également voir la sortie dans la console qui affiche les messages qu
 
 ## <a name="host-the-web-app-in-app-service"></a>Héberger l’application web dans App Service
 
-La [fonctionnalité Web Apps d’Azure App Service](https://docs.microsoft.com/azure/app-service/overview) fournit une plateforme en tant que service (PAAS) pour l’hébergement d’applications web. Les applications web hébergées dans Azure App Service peuvent bénéficier de puissantes fonctionnalités Azure, telles qu’une sécurité supplémentaire, l’équilibrage de charge et la scalabilité, ainsi que des solutions DevOps proposées par Azure et les partenaires, comme le déploiement continu, la gestion des packages, etc. Azure App Service prend en charge les applications web développées dans de nombreux langages connus, et déployées sur une infrastructure Windows ou Linux.
+La [fonctionnalité Web Apps d’Azure App Service](../app-service/overview.md) fournit une plateforme en tant que service (PAAS) pour l’hébergement d’applications web. Les applications web hébergées dans Azure App Service peuvent bénéficier de puissantes fonctionnalités Azure, telles qu’une sécurité supplémentaire, l’équilibrage de charge et la scalabilité, ainsi que des solutions DevOps proposées par Azure et les partenaires, comme le déploiement continu, la gestion des packages, etc. Azure App Service prend en charge les applications web développées dans de nombreux langages connus, et déployées sur une infrastructure Windows ou Linux.
 
-Dans cette section, vous provisionnez une application web dans App Service et y déployez votre code à l’aide de commandes Azure CLI. Les détails des commandes utilisées se trouvent dans la documentation [az webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest). Avant de commencer, assurez-vous que vous avez suivi les étapes pour [ajouter un groupe de ressources à votre hub IoT](#add-a-consumer-group-to-your-iot-hub), [obtenir une chaîne de connexion de service pour votre hub IoT](#get-a-service-connection-string-for-your-iot-hub) et [télécharger l’application web à partir de GitHub](#download-the-web-app-from-github).
+Dans cette section, vous provisionnez une application web dans App Service et y déployez votre code à l’aide de commandes Azure CLI. Les détails des commandes utilisées se trouvent dans la documentation [az webapp](/cli/azure/webapp?view=azure-cli-latest). Avant de commencer, assurez-vous que vous avez suivi les étapes pour [ajouter un groupe de ressources à votre hub IoT](#add-a-consumer-group-to-your-iot-hub), [obtenir une chaîne de connexion de service pour votre hub IoT](#get-a-service-connection-string-for-your-iot-hub) et [télécharger l’application web à partir de GitHub](#download-the-web-app-from-github).
 
-1. Un [plan App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application hébergée dans App Service. Dans ce tutoriel, nous utilisons le niveau Développeur/Gratuit pour héberger l’application web. Avec le niveau Gratuit, votre application web s’exécute sur des ressources Windows partagées avec d’autres applications App Service, y compris les applications d’autres clients. Azure propose également des plans App Service pour déployer des applications web sur des ressources de calcul Linux. Vous pouvez ignorer cette étape si vous disposez déjà d’un plan App Service que vous souhaitez utiliser.
+1. Un [plan App Service](../app-service/overview-hosting-plans.md) définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application hébergée dans App Service. Dans ce tutoriel, nous utilisons le niveau Développeur/Gratuit pour héberger l’application web. Avec le niveau Gratuit, votre application web s’exécute sur des ressources Windows partagées avec d’autres applications App Service, y compris les applications d’autres clients. Azure propose également des plans App Service pour déployer des applications web sur des ressources de calcul Linux. Vous pouvez ignorer cette étape si vous disposez déjà d’un plan App Service que vous souhaitez utiliser.
 
    Pour créer un plan App Service par l’intermédiaire du niveau gratuit de Windows, exécutez la commande suivante. Utilisez le même groupe de ressources que celui dans lequel se trouve votre hub IoT. Le nom de votre plan de service peut contenir des lettres majuscules et minuscules, des chiffres et des traits d’union.
 
@@ -187,7 +187,7 @@ Dans cette section, vous provisionnez une application web dans App Service et y 
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Pour déployer le code sur App Service, vous allez utiliser vos [informations d’identification de déploiement au niveau utilisateur](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Vos informations d’identification de déploiement au niveau de l’utilisateur sont différentes de vos informations d’identification Azure ; elles sont utilisées pour les déploiements FTP et Git local vers une application web. Une fois définies, elles sont valides sur l’ensemble de vos applications App Service, dans tous les abonnements de votre compte Azure. Si vous avez précédemment configuré des informations d’identification de déploiement au niveau utilisateur, vous pouvez les utiliser.
+5. Pour déployer le code sur App Service, vous allez utiliser vos [informations d’identification de déploiement au niveau utilisateur](../app-service/deploy-configure-credentials.md). Vos informations d’identification de déploiement au niveau de l’utilisateur sont différentes de vos informations d’identification Azure ; elles sont utilisées pour les déploiements FTP et Git local vers une application web. Une fois définies, elles sont valides sur l’ensemble de vos applications App Service, dans tous les abonnements de votre compte Azure. Si vous avez précédemment configuré des informations d’identification de déploiement au niveau utilisateur, vous pouvez les utiliser.
 
    Si vous ne l’avez pas fait, ou si vous avez oublié votre mot de passe, exécutez la commande suivante. Le nom d’utilisateur de déploiement doit être unique dans Azure, et il ne doit pas contenir le symbole « @ » pour les push Git locaux. Lorsque vous y êtes invité, entrez et confirmez votre nouveau mot de passe. Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles.
 

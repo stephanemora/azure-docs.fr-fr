@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488301"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279024"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -4767,7 +4767,21 @@ xpath('<xml>', '<xpath>')
 
 Supposons que vous avez la chaîne XML `'items'` : 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Cet exemple transmet l’expression XPath, `'/produce/item/name'`, pour rechercher les nœuds qui correspondent au nœud `<name></name>` dans la chaîne XML `'items'`, et retourne un tableau avec ces valeurs de nœud :
 
@@ -4799,7 +4813,21 @@ Voici le résultat : `Honeycrisp`
 
 Dans cet exemple, supposons que votre chaîne XML `items` contient également les attributs `expired='true'` et `expired='false'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Cet exemple transmet l’expression XPath, `'//name[@expired]'`, pour rechercher tous les éléments `name` dotés de l’attribut `expired` :
 
@@ -4811,7 +4839,21 @@ Voici le résultat : `[ Gala, Honeycrisp ]`
 
 Dans cet exemple, supposons que votre chaîne XML `items` contient uniquement l’attribut `expired = 'true'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Cet exemple transmet l’expression XPath, `'//name[@expired = 'true']'`, pour rechercher tous les éléments `name` dotés de l’attribut `expired = 'true'` :
 
@@ -4826,7 +4868,21 @@ Dans cet exemple, supposons que votre chaîne XML `items` contient également le
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Cet exemple transmet l’expression XPath, `'//name[price>35]'`, pour rechercher tous les éléments `name` dotés de `price > 35` :
 
@@ -4838,7 +4894,21 @@ Voici le résultat : `Honeycrisp`
 
 Dans cet exemple, supposons que votre chaîne XML `items` est identique à celle de l’exemple 1 :
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Cet exemple recherche les nœuds qui correspondent au nœud `<count></count>` et ajoute ces valeurs de nœud avec la fonction `sum()` :
 
@@ -4850,7 +4920,9 @@ Voici le résultat : `30`
 
 Dans cet exemple, supposons que vous avez cette chaîne XML, qui comprend l’espace de noms du document XML, `xmlns="http://contoso.com"` :
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 Ces expressions utilisent une expression XPath, `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, pour rechercher les nœuds qui correspondent au nœud `<location></location>`. Ces exemples illustrent la syntaxe que vous utilisez dans le concepteur d’application logique ou dans l’éditeur d’expressions :
 

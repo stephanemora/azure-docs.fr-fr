@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992857"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145289"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -291,11 +291,7 @@ Azure Active Directory vous permet de créer des [emplacements nommés](location
 
 ### <a name="plan-your-policy-deployment"></a>Planifier votre déploiement de stratégies
 
-Lorsque de nouvelles stratégies sont prêtes pour votre environnement, prenez soin de passer en revue chacune d’elle avant sa publication pour éviter des résultats indésirables. Consultez la documentation suivante pour comprendre les informations importantes qui se rapportent à la façon dont les stratégies sont appliquées et aux moyens d’éviter des problèmes
-
-* [Ce que vous devez savoir](best-practices.md)
-
-* [Ce que vous devez éviter](best-practices.md)
+Lorsque de nouvelles stratégies sont prêtes pour votre environnement, prenez soin de passer en revue chacune d’elle avant sa publication pour éviter des résultats indésirables.
 
 ## <a name="common-policies"></a>Stratégies courantes
 
@@ -462,10 +458,6 @@ Les [Contrôles personnalisés](controls.md) redirigent vos utilisateurs vers un
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
 Avant qu’ils n’accèdent à certaines applications cloud de votre environnement, vous pouvez obtenir le consentement des utilisateurs par l’acceptation de vos conditions d’utilisation. Suivez ce guide de démarrage rapide [pour créer des conditions d’utilisation](require-tou.md).
-
-### <a name="classic-policies"></a>Stratégies classiques
-
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez trouver vos stratégies d’accès conditionnel sous Azure Active Directory > Sécurité > Accès conditionnel. Votre organisation peut également disposer d’anciennes stratégies d’accès conditionnel qui n’ont pas été créées à l’aide de cette page. Ces stratégies sont désignées sous l’expression « stratégies classiques ». Nous vous conseillons d’[envisager la migration de ces stratégies classiques dans le portail Azure](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Résoudre les problèmes d’accès conditionnel
 

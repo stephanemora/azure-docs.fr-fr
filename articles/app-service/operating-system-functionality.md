@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080196"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150165"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
-Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
+Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](./overview.md). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
 
 > [!NOTE] 
 > Les [applications Linux](overview.md#app-service-on-linux) dans App Service s’exécutent dans leurs propres conteneurs. Aucun accès au système d’exploitation hôte n’est autorisé, car vous n’avez pas d’accès racine au conteneur. De même, pour les [applications qui s’exécutent dans des conteneurs Windows](quickstart-custom-container.md?pivots=container-windows), vous disposez d’un accès administratif au conteneur mais pas d’un accès au système d’exploitation hôte. 
@@ -126,4 +126,3 @@ App Service ne fournit pas l’accès au Bureau à distance aux instances de mac
 ## <a name="more-information"></a>Informations complémentaires
 
 [Bac à sable Azure App Service](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) : informations les plus récentes sur l’environnement d’exécution d’App Service. L’équipe de développement d’App Service gère cette page directement.
-

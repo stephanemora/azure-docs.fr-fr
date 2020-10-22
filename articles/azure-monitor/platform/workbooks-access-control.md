@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932547"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143841"
 ---
 # <a name="access-control"></a>Contrôle d’accès
 
@@ -38,4 +38,4 @@ Ajoutez `microsoft.insights/workbooks/write` pour enregistrer les workbooks part
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Commencez](./workbooks-overview.md#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.

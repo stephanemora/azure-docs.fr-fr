@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281332"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148287"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -454,7 +454,7 @@ Voici les principales étapes du schéma de service de jeton :
 4. L’appareil/le module utilise le jeton directement avec le hub IoT.
 
 > [!NOTE]
-> Vous pouvez utiliser la classe .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) ou la classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) pour créer un jeton dans votre service de jeton.
+> Vous pouvez utiliser la classe .NET [SharedAccessSignatureBuilder](/dotnet/api/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder) ou la classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) pour créer un jeton dans votre service de jeton.
 
 Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. Quand le jeton expire, le hub IoT interrompt la connexion. L’appareil/le /module doit ensuite demander un nouveau jeton au service de jeton. Un délai d’expiration court accroît la charge de l’appareil/du module et du service de jeton.
 

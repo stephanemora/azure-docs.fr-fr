@@ -12,18 +12,16 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434535"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217199"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
 Pour inscrire une application monopage dans la plateforme d’identité Microsoft, procédez comme suit. Les étapes d’inscription diffèrent entre MSAL.js 1.0, qui prend en charge le flux d’octroi implicite, et MSAL.js 2.0, qui prend en charge le flux du code d’autorisation avec PKCE.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Créer l’inscription d’application
 

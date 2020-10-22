@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932394"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143639"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -97,7 +97,7 @@ Si vous sélectionnez le bouton modifier se trouvant immédiatement sous la gril
 
 ![Capture d’écran de la requête Kusto sous-jacente](./media/workbooks-overview/kusto.png)
 
-En cliquant sur les autres boutons **Modifier** sur la droite, vous pouvez afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](workbooks-visualizations.md#text) des éléments d’interface utilisateur pour la [sélection de paramètres](workbooks-parameters.md) et d’autres [types de graphiques ou de visualisations](workbooks-visualizations.md). 
+En cliquant sur les autres boutons **Modifier** sur la droite, vous pouvez afficher un certain nombre de composants principaux qui composent les classeurs, comme des [zones de texte](workbooks-text-visualizations.md) des éléments d’interface utilisateur pour la [sélection de paramètres](workbooks-parameters.md) et d’autres [types de graphiques ou de visualisations](#visualizations). 
 
 Explorez les modèles prédéfinis en mode édition, puis modifiez-les en fonction de vos besoins et enregistrez votre propre classeur personnalisé pour commencer à découvrir ce qui est possible avec les classeurs Azure Monitor.
 
@@ -129,5 +129,5 @@ Une fois que vous avez commencé à créer vos propres modèles de classeur, vou
 
 ## <a name="next-step"></a>Étape suivante
 
-* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Commencez](#visualizations) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

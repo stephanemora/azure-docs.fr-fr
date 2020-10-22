@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710105"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143895"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Résolution des problèmes de l’extension de machine virtuelle Log Analytics dans Azure Monitor
 Cet article présente les problèmes qui peuvent survenir avec l’extension de machine virtuelle Log Analytics sur les machines virtuelles Windows et Linux en cours d’exécution sur Microsoft Azure, puis propose des solutions possibles pour les résoudre.
@@ -52,7 +52,7 @@ Si l’extension de machine virtuelle *Agent Log Analytics pour Linux* ne s’in
 
 1. Si l’état de l’extension est *Inconnu*, vérifiez si l’agent de machine virtuelle Azure est installé et fonctionne correctement en examinant le fichier journal de l’agent de machine virtuelle `/var/log/waagent.log`
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
-   * [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation).
+   * [Installez l’agent de machine virtuelle Azure sur les machines virtuelles Linux](../../virtual-machines/extensions/agent-linux.md#installation).
 2. Pour les autres états défectueux, examinez les fichiers journaux d’activité de l’extension de machine virtuelle Agent Log Analytics pour Linux dans `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` et `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Si l’extension est intègre, mais que les données ne sont pas chargées, examinez les fichiers journaux de l’Agent Log Analytics pour Linux dans `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
@@ -60,5 +60,4 @@ Pour plus d’informations, consultez [Résolution des problèmes des extensions
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir d’autres conseils de dépannage de l’Agent Log Analytics pour Linux hébergé sur des ordinateurs en dehors d’Azure, consultez [Dépanner l’agent Linux Azure Log Analytics](agent-linux-troubleshoot.md).  
-
+Pour obtenir d’autres conseils de dépannage de l’Agent Log Analytics pour Linux hébergé sur des ordinateurs en dehors d’Azure, consultez [Dépanner l’agent Linux Azure Log Analytics](agent-linux-troubleshoot.md).

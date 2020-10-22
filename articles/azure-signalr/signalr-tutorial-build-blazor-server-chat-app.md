@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90525014"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150893"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutoriel : Créer une application de conversation sur un serveur Blazor Server
 
@@ -361,7 +361,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
 
 ## <a name="publish-to-azure"></a>Publication dans Azure
 
-   Pour l’instant, l’application Blazor fonctionne sur un service SignalR local et, lors du déploiement sur Azure App Service, il est suggéré d’utiliser [Azure SignalR Service](https://docs.microsoft.com/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) qui permet d’effectuer un scale-up d’une application Blazor Server vers un grand nombre de connexions SignalR simultanées. De plus, la portée générale et les centres de données hautes performances du service SignalR contribuent de manière significative à réduire la latence en raison de la zone géographique.
+   Pour l’instant, l’application Blazor fonctionne sur un service SignalR local et, lors du déploiement sur Azure App Service, il est suggéré d’utiliser [Azure SignalR Service](/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) qui permet d’effectuer un scale-up d’une application Blazor Server vers un grand nombre de connexions SignalR simultanées. De plus, la portée générale et les centres de données hautes performances du service SignalR contribuent de manière significative à réduire la latence en raison de la zone géographique.
 
 > [!IMPORTANT]
 > Dans l’application Blazor Server, les états de l’interface utilisateur sont conservés côté serveur, ce qui signifie qu’un serveur permanent est nécessaire dans ce cas. S’il existe un seul serveur d’applications, le serveur permanent est garanti par conception. Toutefois, s’il y a plusieurs serveurs d’applications, il est possible que la négociation et la connexion du client aillent vers d’autres serveurs et que cela génère des erreurs d’interface utilisateur dans une application Blazor. Vous devez donc activer le serveur rémanent comme ci-dessous dans `appsettings.json` :
@@ -385,7 +385,7 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
 
    La dépendance de service effectue les opérations mentionnées ci-dessous pour permettre à votre application de basculer automatiquement vers Azure SignalR Service quand vous êtes sur vous êtes sur Azure.
 
-   * Mettez à jour [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) pour utiliser Azure SignalR Service.
+   * Mettez à jour [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) pour utiliser Azure SignalR Service.
    * Ajoutez une référence de package NuGet Azure SignalR Service.
    * Mettez à jour les propriétés de profil pour enregistrer les paramètres de dépendance.
    * C’est vous qui choisissez de configurer, ou non, le magasin de secrets.
@@ -423,10 +423,10 @@ Ce tutoriel vous montre comment créer et modifier une application Blazor Server
    }
    ```
 
-1. Configurer `ConnectionString` d’Azure SignalR Service dans `appsetting.json` ou avec l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=visual-studio#secret-manager)
+1. Configurer `ConnectionString` d’Azure SignalR Service dans `appsetting.json` ou avec l’outil [Secret Manager](/aspnet/core/security/app-secrets?tabs=visual-studio&view=aspnetcore-3.1#secret-manager)
 
 > [!NOTE]
-> L’étape 2 peut être remplacée en utilisant [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) sur le SDK SignalR.
+> L’étape 2 peut être remplacée en utilisant [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) sur le SDK SignalR.
 > 
 > 1. Ajouter une configuration pour activer Azure SignalR Service dans `appsetting.json`
 >    ```js
@@ -470,4 +470,4 @@ En savoir plus sur la haute disponibilité.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)
+* [ASP.NET Core Blazor](/aspnet/core/blazor)

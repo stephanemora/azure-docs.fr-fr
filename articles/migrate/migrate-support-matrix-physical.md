@@ -3,12 +3,12 @@ title: Prise en charge pour l’évaluation de serveurs physiques dans Azure Mig
 description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660344"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319300"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -74,4 +74,4 @@ L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préparer l’évaluation des serveurs physiques](tutorial-prepare-physical.md).
+[Préparer l’évaluation des serveurs physiques](./tutorial-discover-physical.md).

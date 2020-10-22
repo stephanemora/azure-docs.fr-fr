@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: c3862cae096adc2284469750cefd5538493cf653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3f45a9d62a9d131583c133440ac8a311a468d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302857"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151426"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Node.js)
 
@@ -217,4 +217,4 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 
 * [Prise en main de la gestion d’appareils](iot-hub-node-node-device-management-get-started.md)
 
-* [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Bien démarrer avec IoT Edge](../iot-edge/quickstart-linux.md)

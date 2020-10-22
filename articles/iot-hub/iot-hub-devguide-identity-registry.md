@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029832"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147722"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -84,7 +84,7 @@ Utilisez des opérations asynchrones sur le [point de terminaison du fournisseur
 
 Pour plus d’informations sur l’importation et l’exportation d’API, consultez [API REST du fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource). Pour en savoir plus sur l’exécution des travaux d’importation et d’exportation, consultez [Gestion en bloc des identités d’appareils IoT Hub](iot-hub-bulk-identity-mgmt.md).
 
-Les identités des appareils peuvent également être exportées et importées à partir d’un hub IoT via l’API de service par le biais de l’[API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de l’un des [SDK de service](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) IoT Hub.
+Les identités des appareils peuvent également être exportées et importées à partir d’un hub IoT via l’API de service par le biais de l’[API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de l’un des [SDK de service](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) IoT Hub.
 
 ## <a name="device-provisioning"></a>Approvisionnement des appareils
 

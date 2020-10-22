@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294592"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164548"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Gestionnaires personnalisés Azure Functions (préversion)
 
@@ -566,7 +566,7 @@ L’hôte Functions sort des messages de journal supplémentaires, notamment des
 
 Localement, les journaux sont imprimés dans la console.
 
-Dans Azure, [interrogez les traces Application Insights](functions-monitoring.md#query-telemetry-data) pour afficher les messages du journal. Si votre application produit un grand nombre de journaux, seul un sous-ensemble des messages de journal est envoyé à Application Insights. [Désactivez l’échantillonnage](functions-monitoring.md#configure-sampling) pour faire en sorte que tous les messages soient journalisés.
+Dans Azure, [interrogez les traces Application Insights](analyze-telemetry-data.md#query-telemetry-data) pour afficher les messages du journal. Si votre application produit un grand nombre de journaux, seul un sous-ensemble des messages de journal est envoyé à Application Insights. [Désactivez l’échantillonnage](configure-monitoring.md#configure-sampling) pour faire en sorte que tous les messages soient journalisés.
 
 ### <a name="test-custom-handler-in-isolation"></a>Tester le gestionnaire personnalisé en isolation
 

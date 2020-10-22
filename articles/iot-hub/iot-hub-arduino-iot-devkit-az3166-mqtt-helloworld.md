@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8bf593568825793a1a205a2955599b16fa78cf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356024"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151756"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Envoyer des messages à un serveur MQTT
 
@@ -31,7 +31,7 @@ Dans ce projet, vous allez apprendre :
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-Suivez le [Guide de mise en route](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) pour :
+Suivez le [Guide de mise en route](./iot-hub-arduino-iot-devkit-az3166-get-started.md) pour :
 
 * Connecter votre DevKit au Wi-Fi
 * Préparer l’environnement de développement
@@ -88,4 +88,4 @@ Si vous rencontrez des problèmes, consultez le [FAQ sur le DevKit IoT](https://
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à configurer votre DevKit IoT MXChip en tant que client MQTT et à utiliser la bibliothèque de client MQTT pour envoyer des messages à un répartiteur MQTT, nous vous recommandons l’étape suivante : [Vue d’ensemble des accélérateurs de solution de supervision à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+Maintenant que vous avez appris à configurer votre DevKit IoT MXChip en tant que client MQTT et à utiliser la bibliothèque de client MQTT pour envoyer des messages à un répartiteur MQTT, nous vous recommandons l’étape suivante : [Vue d’ensemble des accélérateurs de solution de supervision à distance Azure IoT](/azure/iot-suite/)

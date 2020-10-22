@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 08/14/2020
-ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318592"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -28,8 +28,8 @@ Le tableau ci-dessous détaille les sources de données prises en charge pour Az
 | Stockage Blob Azure |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |Version préliminaire publique | |
-| Azure Synapse Analytics (anciennement Azure SQL DW) |Version préliminaire publique | |
+| Azure SQL Database |✓ | |
+| Azure Synapse Analytics (anciennement Azure SQL DW) |✓ | |
 | Explorateur de données Azure | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice de prise en charge des magasins de données

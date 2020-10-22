@@ -3,12 +3,12 @@ title: Fonction Azure en tant que gestionnaire d’événements pour des événe
 description: Décrit comment utiliser des fonctions Azure en tant que gestionnaires d’événements pour des événements Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873725"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145757"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Fonction Azure en tant que gestionnaire d’événements pour des événements Event Grid
 
@@ -72,13 +72,13 @@ Vous pouvez mettre à jour ces valeurs pour un abonnement existant sous l’ongl
 :::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Activer le traitement par lot au moment de la création d’un abonnement":::
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
-Vous pouvez définir **maxEventsPerBatch** et **preferredBatchSizeInKilobytes** dans un modèle Resource Manager. Pour plus d’informations, consultez [Référence sur le modèle Microsoft.EventGrid eventSubscriptions](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
+Vous pouvez définir **maxEventsPerBatch** et **preferredBatchSizeInKilobytes** dans un modèle Resource Manager. Pour plus d’informations, consultez [Référence sur le modèle Microsoft.EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### <a name="azure-cli"></a>Azure CLI
-Vous pouvez utiliser la commande [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes`.
+Vous pouvez utiliser la commande [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes`.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Vous pouvez utiliser la cmdlet [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes`.
+Vous pouvez utiliser la cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes`.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md). 
+Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md).

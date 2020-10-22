@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497044"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127078"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
 
@@ -44,14 +44,14 @@ Dans ce tutoriel, vous allez apprendre à :
 
 * Un modèle d'application de surveillance continue des patients Azure IoT Central. Si vous n'en avez pas encore, vous pouvez suivre les étapes de [Déploiement d'un modèle d'application](overview-iot-central-healthcare.md).
 
-* Un [espace de noms Azure Event Hubs et un hub d'événements](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Un [espace de noms Azure Event Hubs et un hub d'événements](../../event-hubs/event-hubs-create.md).
 
-* L'application logique à partir de laquelle vous souhaitez accéder à votre hub d'événements. Pour démarrer votre application logique avec un déclencheur Azure Event Hubs, vous devez disposer d'une [application logique vierge](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* L'application logique à partir de laquelle vous souhaitez accéder à votre hub d'événements. Pour démarrer votre application logique avec un déclencheur Azure Event Hubs, vous devez disposer d'une [application logique vierge](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Un compte de service Power BI. Si vous n'en avez pas encore, vous pouvez [créer un compte d'essai gratuit pour le service Power BI](https://app.powerbi.com/). Si vous n'avez encore jamais utilisé Power BI, n'hésitez pas à consulter [Prise en main de Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Un compte de service Power BI. Si vous n'en avez pas encore, vous pouvez [créer un compte d'essai gratuit pour le service Power BI](https://app.powerbi.com/). Si vous n'avez encore jamais utilisé Power BI, n'hésitez pas à consulter [Prise en main de Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurer une exportation continue des données vers Azure Event Hubs
-Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
+Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](../core/howto-export-data.md) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Créer un jeu de données de streaming Power BI
 
@@ -72,10 +72,10 @@ Vous devez d'abord configurer une exportation continue des données de votre mod
     >[!div class="mx-imgBorder"] 
     >![Entrez les valeurs du jeu de données](media/enter-dataset-values.png)
 
-Pour en savoir plus sur les jeux de données de streaming dans Power BI, vous pouvez lire ce document consacré à la [diffusion en temps réel dans Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Pour en savoir plus sur les jeux de données de streaming dans Power BI, vous pouvez lire ce document consacré à la [diffusion en temps réel dans Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Connecter votre application logique à Azure Event Hubs
-Pour connecter votre application logique à Azure Event Hubs, vous pouvez suivre les instructions fournies dans ce document sur l'[Envoi d'événements avec Azure Event Hubs et Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Voici quelques suggestions de paramètres :
+Pour connecter votre application logique à Azure Event Hubs, vous pouvez suivre les instructions fournies dans ce document sur l'[Envoi d'événements avec Azure Event Hubs et Azure Logic Apps](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Voici quelques suggestions de paramètres :
 
 |Paramètre|Valeur|
 |---|---|
@@ -91,7 +91,7 @@ Pour connecter votre application logique à Azure Event Hubs, vous pouvez suivre
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Diffuser des données vers Power BI à partir de votre application logique
 L'étape suivante consistera à analyser les données provenant de votre hub d'événements pour les diffuser dans les jeux de données Power BI que vous avez créés précédemment.
 
-1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
+1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](../core/howto-export-data.md#telemetry-format) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
 
 **Données de télémétrie du dispositif Smart Vitals Patch**
 

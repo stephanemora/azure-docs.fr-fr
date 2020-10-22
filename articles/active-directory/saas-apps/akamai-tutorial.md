@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329514"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319012"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai
 
@@ -26,9 +26,9 @@ Dans ce tutoriel, vous allez apprendre à intégrer Akamai à Azure Active Direc
 * Permettre à vos utilisateurs de se connecter automatiquement à Akamai avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-L’intégration d’Azure Active Directory et d’Akamai Enterprise Application Access permet un accès transparent aux applications héritées hébergées dans le cloud ou localement. La solution intégrée tire parti de toutes les fonctionnalités modernes d’Azure Active Directory, comme l’[accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) et [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview), pour l’accès aux applications héritées sans installation d’agent ou modification des applications.
+L’intégration d’Azure Active Directory et d’Akamai Enterprise Application Access permet un accès transparent aux applications héritées hébergées dans le cloud ou localement. La solution intégrée tire parti de toutes les fonctionnalités modernes d’Azure Active Directory, comme l’[accès conditionnel Azure AD](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) et [Azure AD Identity Governance](../governance/identity-governance-overview.md), pour l’accès aux applications héritées sans installation d’agent ou modification des applications.
 
 L’image ci-dessous décrit comment Akamai EAA s’intègre au scénario d’accès sécurisé hybride plus large.
 
@@ -589,14 +589,14 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Akamai
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Akamai dans le panneau d’accès, vous devez être connecté automatiquement à l’application Akamai pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Akamai dans le panneau d’accès, vous devez être connecté automatiquement à l’application Akamai pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
 
 - [Essayer Akamai avec Azure AD](https://aad.portal.azure.com/)

@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974422"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126735"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)
 
@@ -63,7 +63,7 @@ Lorsque vous choisissez un Service Bus comme destination d’exportation, les se
 
 En l’absence de compte de stockage Azure vers lequel exporter, suivez ces étapes :
 
-1. Créez un [compte de stockage sur le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Découvrez comment créer des [comptes de stockage Blob Azure](https://aka.ms/blobdocscreatestorageaccount) ou des [comptes de stockage Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). L’exportation de données peut uniquement écrire des données dans des comptes de stockage qui prennent en charge les objets blob de blocs. La liste suivante répertorie les types de compte de stockage compatibles connus :
+1. Créez un [compte de stockage sur le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Découvrez comment créer des [comptes de stockage Blob Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) ou des [comptes de stockage Azure Data Lake Storage v2](../../storage/common/storage-account-create.md). L’exportation de données peut uniquement écrire des données dans des comptes de stockage qui prennent en charge les objets blob de blocs. La liste suivante répertorie les types de compte de stockage compatibles connus :
 
     |Niveau de performances|Type de compte|
     |-|-|
@@ -156,7 +156,7 @@ L’exemple suivant montre un message reçu d’une file d’attente ou rubrique
 
 Ce message n’inclut pas l’ID d’appareil de l’appareil émetteur.
 
-Pour récupérer l’ID de l’appareil à partir des données du message dans une requête Azure Stream Analytics, utilisez la fonction [GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue). Par obtenir un exemple, consultez la requête [Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid](./howto-create-custom-rules.md).
+Pour récupérer l’ID de l’appareil à partir des données du message dans une requête Azure Stream Analytics, utilisez la fonction [GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue). Par obtenir un exemple, consultez la requête [Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid](./howto-create-custom-rules.md).
 
 Pour récupérer l’ID d’appareil dans un espace de travail Azure Databricks ou Apache Spark, utilisez [systemProperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md). Pour obtenir un exemple, consultez l’espace de travail Databricks dans [Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks](./howto-create-custom-analytics.md).
 
@@ -557,7 +557,7 @@ Cet exemple d’instantané montre un message contenant les données d’apparei
 
 Si vous avez déjà une exportation de données dans votre application en préversion, dans laquelle les flux *Appareils* et *Modèles d’appareil* sont activés, mettez à jour votre exportation d’ici le **30 juin 2020**. Cette condition s’applique aux exportations vers le stockage Blob Azure, Azure Event Hubs et Azure Service Bus.
 
-À partir du 3 février 2020, toutes les nouvelles exportations des applications où sont activés les appareils et les modèles d’appareils auront le format de données décrit plus haut. Toutes les exportations créées avant cette date sont conservées dans l’ancien format de données jusqu’au 30 juin 2020. Après cela, ces exportations seront automatiquement migrées au nouveau format de données. Le nouveau format de données correspond aux objets de type [appareil](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [propriété d’appareil](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [propriété cloud d’appareil](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) et [modèle d’appareil](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) dans l’API publique IoT Central.
+À partir du 3 février 2020, toutes les nouvelles exportations des applications où sont activés les appareils et les modèles d’appareils auront le format de données décrit plus haut. Toutes les exportations créées avant cette date sont conservées dans l’ancien format de données jusqu’au 30 juin 2020. Après cela, ces exportations seront automatiquement migrées au nouveau format de données. Le nouveau format de données correspond aux objets de type [appareil](/rest/api/iotcentral/devices/get), [propriété d’appareil](/rest/api/iotcentral/devices/getproperties), [propriété cloud d’appareil](/rest/api/iotcentral/devices/getcloudproperties) et [modèle d’appareil](/rest/api/iotcentral/devicetemplates/get) dans l’API publique IoT Central.
 
 Pour les **appareils**, les différences notables entre l’ancien format de données et le nouveau sont les suivantes :
 - L’`@id` a été supprimé pour les appareils, `deviceId` a été remplacé par `id` 

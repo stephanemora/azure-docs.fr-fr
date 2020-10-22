@@ -1,18 +1,16 @@
 ---
 title: Bien démarrer avec le langage U-SQL dans Azure Data Lake Analytics
 description: Découvrez les principes de base du langage U-SQL dans Azure Data Lake Analytics. Écrivez votre première requête à l’aide de variables sur des données supplémentaires provenant de fichiers, transformez l’ensemble de lignes et agrégez les données.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128843"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219919"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Bien démarrer avec U-SQL dans Azure Data Lake Analytics
 
@@ -21,7 +19,7 @@ U-SQL est un langage qui combine le langage SQL déclaratif avec le langage C# i
 ## <a name="learning-resources"></a>Ressources d’apprentissage
 
 * Le [Didacticiel U-SQL](https://aka.ms/usqltutorial) fournit une procédure pas à pas pour la plupart du langage U-SQL. La lecture de ce document est recommandée pour tous les développeurs qui veulent apprendre le langage U-SQL.
-* Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](https://docs.microsoft.com/u-sql/).
+* Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](/u-sql/).
 * Pour comprendre la [philosophie de conception d’U-SQL](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/), consultez l’article de blog Visual Studio **Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data**.
 
 ## <a name="prerequisites"></a>Conditions préalables requises

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 0d8e10a18436b0b52820dd0bf15ad0b2de969b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337940"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148787"
 ---
 # <a name="mxchip-iot-devkit"></a>DevKit IoT MXChip
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser cet exemple pour surveiller les informations relatives au W
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Configurez votre environnement de développement en suivant le [Guide de prise en main](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Configurez votre environnement de développement en suivant le [Guide de prise en main](./iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 - À partir de votre fenêtre de terminal GitBash (ou d’une autre interface de ligne de commande Git), tapez les commandes suivantes :
 
@@ -114,4 +114,4 @@ Vous avez appris à effectuer les actions suivantes :
 - Connecter un appareil DevKit IoT MXChip à votre accélérateur de solution de supervision à distance Azure IoT.
 - Utilisation la fonction de jumeaux d’appareil Azure IoT pour détecter et contrôler la couleur du voyant RVB du Kit de développement.
 
-Voici la prochaine étape suggérée : [Vue d’ensemble des accélérateurs de solution de supervision à distance Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+Voici la prochaine étape suggérée : [Vue d’ensemble des accélérateurs de solution de supervision à distance Azure IoT](/azure/iot-suite/)

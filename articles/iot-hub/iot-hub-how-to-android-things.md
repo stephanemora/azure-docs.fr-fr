@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673398"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151718"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Développer pour la plateforme Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT
 
-Les [Kits de développement logiciel (SDK) Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) assurent la prise en charge de premier niveau pour les plateformes populaires telles que Windows, Linux, OSX, MBED ainsi que les plateformes mobiles telles qu’iOS et Android.  Dans le cadre de notre engagement à offrir davantage de choix et de flexibilité dans les déploiements IoT, le Kit de développement logiciel (SDK) Java prend également en charge la plateforme [Android Things](https://developer.android.com/things/).  Les développeurs peuvent tirer parti des avantages du système d’exploitation Android Things côté appareil, tout en utilisant [Azure IoT Hub](about-iot-hub.md) en tant que plateforme de messagerie centrale qui se met à l’échelle de millions d’appareils connectés simultanément.
+Les [Kits de développement logiciel (SDK) Azure IoT Hub](./iot-hub-devguide-sdks.md) assurent la prise en charge de premier niveau pour les plateformes populaires telles que Windows, Linux, OSX, MBED ainsi que les plateformes mobiles telles qu’iOS et Android.  Dans le cadre de notre engagement à offrir davantage de choix et de flexibilité dans les déploiements IoT, le Kit de développement logiciel (SDK) Java prend également en charge la plateforme [Android Things](https://developer.android.com/things/).  Les développeurs peuvent tirer parti des avantages du système d’exploitation Android Things côté appareil, tout en utilisant [Azure IoT Hub](about-iot-hub.md) en tant que plateforme de messagerie centrale qui se met à l’échelle de millions d’appareils connectés simultanément.
 
 Ce didacticiel décrit les étapes à suivre pour créer une application côté appareil sur Android Things à l’aide du Kit de développement logiciel (SDK) Java Azure IoT.
 

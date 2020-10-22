@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397298"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151962"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -87,7 +87,7 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 >
 
 > [!NOTE]
-> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Cette propriété n’est pas prise en charge avec SQL Azure. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour des bases de données relationnelles SQL Server *locales*, qui ne possèdent pas de propriété **Description** de première classe, l’outil d’inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Cette propriété n’est pas prise en charge avec SQL Azure. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ Data Catalog est un service cloud qui peut fonctionner avec des sources de donn
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que j’inscris ?
 Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Si vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
+Si vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
 Sélectionnez les ressources de données dans Data Catalog, puis cliquez sur le bouton **Appropriation**. Les propriétaires de ressources de données dans Data Catalog peuvent modifier les paramètres de visibilité pour autoriser tous les utilisateurs à découvrir les ressources leur appartenant, ou pour limiter la visibilité à des utilisateurs spécifiques. Pour plus d’informations, consultez [Gérer les ressources de données dans Azure Data Catalog](data-catalog-how-to-manage.md).

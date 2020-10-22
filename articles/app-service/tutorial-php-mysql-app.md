@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974266"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150216"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutoriel : Générer une application PHP et MySQL dans Azure App Service
 
@@ -153,7 +153,7 @@ Pour arrêter PHP, tapez `Ctrl + C` dans le terminal.
 
 ## <a name="create-mysql-in-azure"></a>Création de MySQL dans Azure
 
-Dans cette étape, vous allez créer une base de données MySQL dans [Azure Database pour MySQL](/azure/mysql). Ensuite, vous configurerez l’application PHP pour la connexion à cette base de données.
+Dans cette étape, vous allez créer une base de données MySQL dans [Azure Database pour MySQL](../mysql/index.yml). Ensuite, vous configurerez l’application PHP pour la connexion à cette base de données.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -163,7 +163,7 @@ Dans cette étape, vous allez créer une base de données MySQL dans [Azure Data
 
 Dans Cloud Shell, créez un serveur dans Azure Database pour MySQL avec la commande [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create).
 
-Dans la commande suivante, remplacez l’espace réservé *\<mysql-server-name>* par un nom de serveur unique, l’espace réservé *\<admin-user>* par un nom d’utilisateur et l’espace réservé *\<admin-password>* par un mot de passe. Le nom de serveur est utilisé dans votre point de terminaison MySQL (`https://<mysql-server-name>.mysql.database.azure.com`). C’est pourquoi, il doit être unique parmi l’ensemble des serveurs dans Azure. Pour plus d’informations sur la sélection de la référence (SKU) de base de données MySQL, consultez [Créer un serveur de base de données Azure pour MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+Dans la commande suivante, remplacez l’espace réservé *\<mysql-server-name>* par un nom de serveur unique, l’espace réservé *\<admin-user>* par un nom d’utilisateur et l’espace réservé *\<admin-password>* par un mot de passe. Le nom de serveur est utilisé dans votre point de terminaison MySQL (`https://<mysql-server-name>.mysql.database.azure.com`). C’est pourquoi, il doit être unique parmi l’ensemble des serveurs dans Azure. Pour plus d’informations sur la sélection de la référence (SKU) de base de données MySQL, consultez [Créer un serveur de base de données Azure pour MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
