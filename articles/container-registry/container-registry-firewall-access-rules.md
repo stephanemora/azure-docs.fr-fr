@@ -3,12 +3,12 @@ title: Règles d’accès du pare-feu
 description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu, en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de données, ou à des plages d’adresses IP spécifiques du service (« mise en liste verte »).
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246977"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148511"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 
@@ -113,7 +113,7 @@ Recherchez la région spécifique, par exemple **Storage.AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Autoriser l’accès par balise de service
 
-Dans un réseau virtuel Azure, utilisez les règles de sécurité réseau pour filtrer le trafic d’une ressource, telle qu’une machine virtuelle, vers un registre de conteneurs. Pour simplifier la création des règles de réseau Azure, utilisez l’**étiquette de service** [AzureContainerRegistry](../virtual-network/security-overview.md#service-tags). Une balise de service représente un groupe de préfixes d’adresses IP permettant d'accéder à un service Azure globalement ou par région Azure. La balise est automatiquement mise à jour lorsque les adresses changent. 
+Dans un réseau virtuel Azure, utilisez les règles de sécurité réseau pour filtrer le trafic d’une ressource, telle qu’une machine virtuelle, vers un registre de conteneurs. Pour simplifier la création des règles de réseau Azure, utilisez l’**étiquette de service** [AzureContainerRegistry](../virtual-network/network-security-groups-overview.md#service-tags). Une balise de service représente un groupe de préfixes d’adresses IP permettant d'accéder à un service Azure globalement ou par région Azure. La balise est automatiquement mise à jour lorsque les adresses changent. 
 
 Par exemple, créez une règle de groupe de sécurité réseau sortante avec la destination **AzureContainerRegistry** pour autoriser le trafic vers un registre de conteneurs Azure. Pour autoriser l’accès à la balise de service uniquement dans une région spécifique, indiquez la région au format suivant : **AzureContainerRegistry**.[*nom de la région*].
 
@@ -183,7 +183,7 @@ Si vous devez accéder à Microsoft Container Registry (MCR) derrière un pare-f
 
 * En savoir plus sur les [meilleures pratiques Azure pour la sécurité réseau](../security/fundamentals/network-best-practices.md)
 
-* En savoir plus sur les [groupes de sécurité](../virtual-network/security-overview.md) dans un réseau virtuel Azure
+* En savoir plus sur les [groupes de sécurité](../virtual-network/network-security-groups-overview.md) dans un réseau virtuel Azure
 
 * En savoir plus sur la configuration de [liaison privée](container-registry-private-link.md) pour un registre de conteneurs
 

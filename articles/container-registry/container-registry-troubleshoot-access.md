@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743367"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148453"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -103,7 +103,7 @@ Liens connexes :
 
 ### <a name="configure-service-access"></a>Configurer l’accès au service
 
-Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
+Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
 
 * Azure DevOps Services 
 * Azure Container Instances
@@ -113,7 +113,7 @@ Si l’accès ou l’intégration de ces services Azure à votre registre de con
 
 Liens connexes :
 
-* [Analyse d’images Azure Container Registry par Security Center](../security-center/azure-container-registry-integration.md)
+* [Analyse d’images Azure Container Registry par Security Center](../security-center/defender-for-container-registries-introduction.md)
 * Fournir des [commentaires](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 * [Configurer des règles de réseau IP public](container-registry-access-selected-networks.md)
 * [Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link](container-registry-private-link.md)
@@ -138,7 +138,5 @@ Si vous ne résolvez pas votre problème ici, consultez les options suivantes.
   * [Résoudre les problèmes de connexion au registre](container-registry-troubleshoot-login.md) 
   * [Résoudre les problèmes de performances de registre](container-registry-troubleshoot-performance.md)
 * Options de [support de la communauté](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Ouvrir un ticket de support](https://azure.microsoft.com/support/create-ticket/)
-
-

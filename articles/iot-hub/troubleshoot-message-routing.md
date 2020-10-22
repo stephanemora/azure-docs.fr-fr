@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793280"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150585"
 ---
 # <a name="troubleshooting-message-routing"></a>Résoudre les problèmes de routage des messages
 
@@ -42,7 +42,7 @@ Toutes les [métriques IoT Hub](iot-hub-devguide-endpoints.md) liées au routage
 Observez les **routes** des [journaux de diagnostic](iot-hub-monitor-resource-health.md#routes) pour obtenir plus d’informations sur les [opérations](#operation-names) de routage et de point de terminaison ou identifier les erreurs et le [code d’erreur](#common-error-codes) correspondant pour mieux comprendre le problème. Par exemple, le nom de l’opération **RouteEvaluationError** dans le journal indique que l’itinéraire n’a pas pu être évalué en raison d’un problème avec le format du message. Utilisez les conseils fournis pour les [noms d’opération](#operation-names) spécifiques pour résoudre le problème. Lorsqu’un événement est consigné comme une erreur, le journal fournit également plus d’informations sur la raison de l’échec de l’évaluation. Par exemple, si le nom de l’opération est **EndpointUnhealthy**, un [code d’erreur](#common-error-codes) de 403004 indique que l’espace du point de terminaison est insuffisant.
 
 #### <a name="the-health-of-the-endpoint"></a>L’intégrité du point de terminaison
-Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. L’API *Obtenir l’intégrité du point de terminaison* fournit également des informations sur la dernière fois qu’un message a bien été envoyé au point de terminaison, la [dernière erreur connue](#last-known-errors-for-iot-hub-routing-endpoints), l’heure de la dernière erreur connue et la dernière fois qu’une tentative d’envoi a été effectuée pour ce point de terminaison. Utilisez la résolution possible proposée pour la [dernière erreur connue](#last-known-errors-for-iot-hub-routing-endpoints) spécifique.
+Vous pouvez utiliser l’API REST [Obtenir l’intégrité du point de terminaison](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour récupérer l’[état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. L’API *Obtenir l’intégrité du point de terminaison* fournit également des informations sur la dernière fois qu’un message a bien été envoyé au point de terminaison, la [dernière erreur connue](#last-known-errors-for-iot-hub-routing-endpoints), l’heure de la dernière erreur connue et la dernière fois qu’une tentative d’envoi a été effectuée pour ce point de terminaison. Utilisez la résolution possible proposée pour la [dernière erreur connue](#last-known-errors-for-iot-hub-routing-endpoints) spécifique.
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>J’ai soudainement cessé de recevoir des messages au point de terminaison intégré
 
@@ -52,9 +52,9 @@ Pour résoudre ce problème, analysez les éléments suivants.
 Une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. Pour garantir que la circulation des messages vers le point de terminaison intégré malgré l’ajout d’une nouvelle route, configurez une route vers le point de terminaison *d’événements*. 
 
 #### <a name="was-the-fallback-route-disabled"></a>L’itinéraire de secours a-t-elle été désactivée ?
-L’itinéraire de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux [hubs d’événements existants](iot-hub-devguide-messages-read-builtin.md) (messages/événements), compatible avec [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
+L’itinéraire de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux [hubs d’événements existants](iot-hub-devguide-messages-read-builtin.md) (messages/événements), compatible avec [Event Hubs](../event-hubs/index.yml). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré.
 
-Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
+Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Les dernières erreurs connues pour les points de terminaison de routage IoT Hub
 

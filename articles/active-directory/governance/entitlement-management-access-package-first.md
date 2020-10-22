@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597497"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362805"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -42,7 +42,7 @@ Pour obtenir une démonstration pas à pas du processus de déploiement de la ge
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-Vous pouvez également créer un package d’accès par programme à l’aide de Microsoft Graph. Pour obtenir un tutoriel qui montre comment créer un package d’accès par programme, consultez [API de gestion des droits d’utilisation](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+Vous pouvez également créer un package d’accès par programme à l’aide de Microsoft Graph. Pour obtenir un tutoriel qui montre comment créer un package d’accès par programme, consultez [API de gestion des droits d’utilisation](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -118,10 +118,10 @@ Un *package d’accès* est un bundle de ressources dont une équipe ou un proje
 
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >Les groupes avec attribution de rôle ajoutés à un package d’accès sont indiqués à l’aide du sous-type **Attribuables aux rôles**. Pour plus d’informations sur les groupes attribuables aux rôles Azure AD, reportez-vous à [Créer un groupe avec attribution de rôle](../users-groups-roles/roles-groups-create-eligible.md) dans Azure Active Directory. Si vous ne voyez aucun groupe avec attribution de rôle à ajouter ou si vous ne pouvez pas l’ajouter, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à un utilisateur doté des rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Les groupes avec attribution de rôle ajoutés à un package d’accès sont indiqués à l’aide du sous-type **Attribuables aux rôles**. Pour plus d’informations sur les groupes attribuables aux rôles Azure AD, reportez-vous à [Créer un groupe avec attribution de rôle](../roles/groups-create-eligible.md) dans Azure Active Directory. Si vous ne voyez aucun groupe avec attribution de rôle à ajouter ou si vous ne pouvez pas l’ajouter, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à un utilisateur doté des rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
-    > Quand vous utilisez des [groupes dynamiques](../users-groups-roles/groups-create-rule.md), vous ne voyez pas d’autres rôles disponibles en plus du propriétaire. C'est la procédure normale.
+    > Quand vous utilisez des [groupes dynamiques](../enterprise-users/groups-create-rule.md), vous ne voyez pas d’autres rôles disponibles en plus du propriétaire. C'est la procédure normale.
     > ![Vue d’ensemble du scénario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 

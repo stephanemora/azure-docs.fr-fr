@@ -3,12 +3,12 @@ title: Définir l’étendue de la découverte de machines virtuelles VMware ave
 description: Décrit comment définir l’étendue de la découverte pour l’évaluation et la migration de machines virtuelles VMware avec Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919724"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314026"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Définir l’étendue de la découverte des machines virtuelles VMware
 
@@ -21,7 +21,7 @@ Quand vous configurez l’appliance, elle se connecte à vCenter Server et déma
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Si vous n’avez pas configuré de compte d’utilisateur vCenter utilisé par Azure Migrate pour la découverte, faites-le maintenant pour l’[évaluation](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) ou la [migration sans agent](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Si vous n’avez pas configuré de compte d’utilisateur vCenter utilisé par Azure Migrate pour la découverte, faites-le maintenant pour l’[évaluation](./tutorial-discover-vmware.md#prepare-vmware) ou la [migration sans agent](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Affecter des autorisations et des rôles

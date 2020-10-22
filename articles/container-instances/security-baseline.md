@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393426"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148622"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez la [Vue d’ensemble des bases de référe
 
 * [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/threat-protection.md)
+* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
 * [Présentation de la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 * [Présentation et utilisation des balises de service](../virtual-network/service-tags-overview.md) 
 
-* [Présentation et utilisation des groupes de sécurité d’application](../virtual-network/security-overview.md#application-security-groups)
+* [Présentation et utilisation des groupes de sécurité d’application](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [Déployer sur un réseau virtuel - Azure Container Instances](./container-instances-vnet.md)
 
@@ -159,13 +159,13 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Exemples Azure Policy pour le réseau](/azure/governance/policy/samples/#network)
+* [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
 * [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -498,7 +498,7 @@ Associez des étiquettes et des versions aux images conteneur pour simplifier le
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -613,7 +613,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Éléments à prendre en compte en matière de sécurité pour Azure Container Instances](./container-instances-image-security.md)
 
-* [Intégration d’Azure Container Registry avec Security Center](../security-center/azure-container-registry-integration.md)
+* [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -652,7 +652,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 * [Éléments à prendre en compte en matière de sécurité pour Azure Container Instances](./container-instances-image-security.md)
 
-* [Intégration d’Azure Container Registry avec Security Center](../security-center/azure-container-registry-integration.md)
+* [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -664,7 +664,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 * [Éléments à prendre en compte en matière de sécurité pour Azure Container Instances](./container-instances-image-security.md)
 
-* [Intégration d’Azure Container Registry avec Security Center](../security-center/azure-container-registry-integration.md)
+* [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -707,7 +707,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -755,7 +755,7 @@ Supervisez les journaux Azure Container Instances pour détecter les comportemen
 * [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 * [Éléments à prendre en compte en matière de sécurité pour Azure Container Instances](./container-instances-image-security.md)
-* [Intégration d’Azure Container Registry avec Security Center](../security-center/azure-container-registry-integration.md)
+* [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Supervisez les journaux Azure Container Instances pour détecter les comportemen
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -825,7 +825,7 @@ Gérez et vérifiez l’accès aux ressources Azure Container Instances à l’a
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Déployer sur un réseau virtuel - Azure Container Instances](./container-instances-vnet.md)
 
@@ -847,7 +847,7 @@ Gérez et vérifiez l’accès aux ressources Azure Container Instances à l’a
 
 * [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -900,7 +900,7 @@ Utilisez une solution tierce ou personnalisée pour corriger les images conteneu
 
 * [Recommandations de sécurité relatives à la supervision et à l’analyse des conteneurs pour Azure Container Instances](./container-instances-image-security.md)
 
-* [Intégration d’Azure Container Registry avec Security Center](../security-center/azure-container-registry-integration.md)
+* [Intégration d’Azure Container Registry avec Security Center](../security-center/defender-for-container-registries-introduction.md)
 * [À propos des mises à jour des images de base pour les tâches Azure Container Registry](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -1018,7 +1018,7 @@ Utilisez Azure Policy pour appliquer des restrictions quant au type de ressource
 
 * [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1105,7 +1105,7 @@ Sauvegardez éventuellement les images conteneur en les important d’un registr
 
 **Aide** : Vous pouvez activer la suppression réversible dans Azure Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-* [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 

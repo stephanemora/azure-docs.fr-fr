@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121637"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314639"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Résoudre les problèmes des projets Azure Migrate
 
@@ -52,7 +52,7 @@ Si vous essayez de créer un projet et que vous rencontrez une erreur de déploi
 - Si vous recevez l’erreur « Les requêtes doivent contenir des en-têtes d’identité d’utilisateur », cela peut indiquer que vous n’avez pas accès au locataire Azure Active Directory (Azure AD) de l’organisation. Dans ce cas :
     - Quand vous êtes ajouté à un locataire Azure AD pour la première fois, vous recevez une invitation par e-mail pour rejoindre le locataire.
     - Acceptez l’invitation pour être ajouté au locataire.
-    - Si vous ne voyez pas l’e-mail, contactez un utilisateur disposant d’un accès au locataire et demandez-lui de vous [renvoyer l’invitation](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users).
+    - Si vous ne voyez pas l’e-mail, contactez un utilisateur disposant d’un accès au locataire et demandez-lui de vous [renvoyer l’invitation](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users).
     - Après avoir reçu l’e-mail d’invitation, ouvrez-le et sélectionnez le lien pour accepter l’invitation. Ensuite, déconnectez-vous du Portail Azure et reconnectez-vous. (l’actualisation du navigateur ne fonctionnera pas). Vous pourrez ensuite créer le projet de migration.
 
 ## <a name="how-do-i-delete-a-project"></a>Comment supprimer un projet

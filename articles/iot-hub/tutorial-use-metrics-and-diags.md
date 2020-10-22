@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b24d9e1cbbcf875d7b4bde3981b28d8999ba8d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019128"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149188"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
 
@@ -190,7 +190,7 @@ Nous allons à présent configurer certaines métriques à surveiller quand des 
 
 Accédez au hub dans le portail. Cliquez sur **Groupes de ressources**, puis sélectionnez *ContosoResources* et le hub IoT *ContosoTestHub*. 
 
-IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](/azure/azure-monitor/platform/data-collection#metrics), vous devez utiliser des [alertes classiques](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](../azure-monitor/platform/data-platform.md#metrics), vous devez utiliser des [alertes classiques](../azure-monitor/platform/alerts-classic.overview.md).
 
 1. Sous **Supervision**, cliquez sur **Alertes** pour afficher l’écran principal des alertes. 
 
@@ -369,7 +369,7 @@ Cliquez sur **Télécharger** pour le télécharger et l’ouvrir. Vous voyez le
 
 Pour supprimer toutes les ressources que vous avez créées dans ce tutoriel, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans le cas présent, le hub IoT, le compte de stockage et le groupe de ressources sont supprimés. Si vous avez épinglé des métriques au tableau de bord, vous devez les supprimer manuellement. Pour cela, cliquez sur les trois points situés dans le coin supérieur droit de chaque métrique et sélectionnez **Supprimer**.
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

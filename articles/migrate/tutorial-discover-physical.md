@@ -4,12 +4,12 @@ description: Apprenez à découvrir des serveurs physiques locaux avec l’outil
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442282"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314086"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutoriel : Découvrir les serveurs physiques avec Server Assessment
 
@@ -208,7 +208,7 @@ Configurez l’appliance pour la première fois.
    
    La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion établie, revenez à l’application web. 
-4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-physical.md) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations]() adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l’inscription de l’appliance terminée, vous pouvez consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
 
 
@@ -245,5 +245,3 @@ Une fois la découverte terminée, vous pouvez vérifier que les serveurs appara
 
 - [Évaluer des serveurs physiques](tutorial-assess-physical.md) en vue de leur migration vers des machines virtuelles Azure
 - [Passer en revue les données](migrate-appliance.md#collected-data---physical) que l’appliance collecte pendant la découverte
-
-

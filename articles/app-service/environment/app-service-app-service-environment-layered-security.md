@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e9a776aad966bb74e22f6d7fb8d66530e4b4db92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255194"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150236"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implémentation d’une architecture de sécurité en couche avec les environnements App Service
 Dans la mesure où les environnements App Service fournissent un environnement d’exécution isolé déployé dans un réseau virtuel, les développeurs peuvent créer une architecture de sécurité en couche offrant différents niveaux d’accès réseau pour chaque couche application physique.
@@ -115,7 +115,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 Avec le NSG appliqué au sous-réseau, seuls les trois environnements App Service en amont et l’environnement App Service contenant l’API principale sont autorisés à appeler dans l’environnement « apiase ».
 
 ## <a name="additional-links-and-information"></a>Informations et liens supplémentaires
-Informations sur les [groupes de sécurité réseau](../../virtual-network/security-overview.md).
+Informations sur les [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md).
 
 Présentation des [adresses IP sortantes][NetworkArchitecture] et des environnements App Service.
 

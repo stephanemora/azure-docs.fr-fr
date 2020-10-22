@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842816"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150551"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
 Vous devrez peut-être mettre à jour le microprogramme sur les appareils connectés à votre hub IoT. Par exemple, il peut être nécessaire d’ajouter de nouvelles fonctionnalités au microprogramme ou d’appliquer des correctifs de sécurité. Dans de nombreux scénarios IoT, il est difficile d’intervenir physiquement puis d’appliquer manuellement les mises à jour du microprogramme à vos appareils. Ce tutoriel montre comment démarrer et surveiller le processus de mise à jour du microprogramme à distance via une application back-end connectée à votre hub.
 
-Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La [gestion automatique des appareils](iot-hub-auto-device-config.md) IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_. L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
+Pour créer et surveiller le processus de mise à jour du microprogramme, l’application back-end de ce tutoriel crée une _configuration_ dans votre hub IoT. La [gestion automatique des appareils](./iot-hub-automatic-device-management.md) IoT Hub utilise cette configuration pour mettre à jour un ensemble de _propriétés souhaitées du jumeau d’appareil_ sur tous vos appareils de refroidissement. Les propriétés souhaitées spécifient les détails de la mise à jour du microprogramme requise. Pendant que les appareils de refroidissement exécutent le processus de mise à jour du microprogramme, ils signalent leur état à l’application back-end à l’aide des _propriétés signalées du jumeau d’appareil_. L’application back-end peut utiliser la configuration pour surveiller les propriétés signalées envoyées depuis l’appareil et suivre le processus de mise à jour du microprogramme jusqu'à la fin :
 
 ![Processus de mise à jour du microprogramme](media/tutorial-firmware-update/Process.png)
 

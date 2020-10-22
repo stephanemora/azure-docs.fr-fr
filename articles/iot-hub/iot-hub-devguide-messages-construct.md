@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766979"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147688"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -24,7 +24,7 @@ Pour prendre en charge une interopérabilité transparente entre les différents
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub implémente les messages appareil-à-cloud à l’aide d’un modèle de messagerie en streaming. Les messages appareil-à-cloud d’IoT Hub s’apparentent plus à des *événements* [Event Hubs](/azure/event-hubs/) qu’à des *messages* [Service Bus](/azure/service-bus-messaging/), dans la mesure où de nombreux événements passant à travers le service peuvent être lus par plusieurs lecteurs.
+IoT Hub implémente les messages appareil-à-cloud à l’aide d’un modèle de messagerie en streaming. Les messages appareil-à-cloud d’IoT Hub s’apparentent plus à des *événements* [Event Hubs](../event-hubs/index.yml) qu’à des *messages* [Service Bus](../service-bus-messaging/index.yml), dans la mesure où de nombreux événements passant à travers le service peuvent être lus par plusieurs lecteurs.
 
 Un message IoT Hub comprend les éléments suivants :
 

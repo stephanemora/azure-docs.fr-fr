@@ -4,12 +4,12 @@ description: Déployez une application web basée sur Linux sur deux régions Az
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328687"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148425"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutoriel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 
@@ -27,7 +27,7 @@ L’article suivant de la série explique comment mettre à jour l’application
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Déploiement automatique sur Web App pour conteneurs
 
-Azure Container Registry prend en charge le déploiement d’applications en conteneur directement vers [Web App pour conteneurs](../app-service/containers/index.yml). Ce didacticiel explique comment utiliser le portail Azure pour déployer l’image conteneur créée dans le didacticiel précédent vers deux plans d’application web situés dans des régions Azure différentes.
+Azure Container Registry prend en charge le déploiement d’applications en conteneur directement vers [Web App pour conteneurs](../app-service/index.yml). Ce didacticiel explique comment utiliser le portail Azure pour déployer l’image conteneur créée dans le didacticiel précédent vers deux plans d’application web situés dans des régions Azure différentes.
 
 Lorsque vous déployez une application web à partir d’une image de conteneur dans votre registre, et que vous avez un registre géorépliqué dans la même région, Azure Container Registry crée un [webhook](container-registry-webhook.md) de déploiement d’image pour vous. Lorsque vous envoyez une nouvelle image au référentiel de votre conteneur, le webhook récupère la modification et déploie automatiquement la nouvelle image de conteneur vers votre application web.
 

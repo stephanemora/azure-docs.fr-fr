@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888478"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090707"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
@@ -22,7 +22,7 @@ Cet article explique comment configurer un déploiement intermédiaire à l’ai
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article part du principe que vous avez déjà déployé l’application PiggyMetrics à partir de notre [tutoriel sur le lancement d’une application Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprend trois applications : « Gateway », « account-service » et « auth-service ».  
+Cet article part du principe que vous avez déjà déployé l’application PiggyMetrics à partir de notre [tutoriel sur le lancement d’une application Azure Spring Cloud](./spring-cloud-quickstart.md). PiggyMetrics comprend trois applications : « Gateway », « account-service » et « auth-service ».  
 
 Si vous voulez utiliser une autre application pour cet exemple, vous devez effectuer un changement simple dans une partie publique de l’application.  Ce changement permet de différencier votre déploiement de préproduction de la production.
 

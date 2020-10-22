@@ -4,12 +4,12 @@ description: Apprenez à découvrir des instances AWS avec Azure Migrate Server 
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275453"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311274"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutoriel : Découvrir des instances AWS avec Server Assessment
 
@@ -224,7 +224,7 @@ Configurez l’appliance pour la première fois.
    
    La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion établie, revenez à l’application web. 
-4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-physical.md) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](./tutorial-discover-physical.md) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l’inscription de l’appliance terminée, vous pouvez consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
 
 

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331197"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311218"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -73,7 +73,7 @@ Dans ce projet, vous allez définir le public qui doit utiliser et superviser le
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](https://aka.ms/deploymentplans). Veillez également à ce qu’elles comprennent bien leur rôle dans le projet, en dressant la liste de leurs contributions et de leurs responsabilités.
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md). Veillez également à ce qu’elles comprennent bien leur rôle dans le projet, en dressant la liste de leurs contributions et de leurs responsabilités.
 
 ### <a name="plan-communications"></a>Planifier les communications
 
@@ -133,7 +133,7 @@ Découvrez comment [installer et utiliser les vues Log Analytics pour les journa
 
 Le routage des journaux vers un hub d’événements Azure permet leur intégration à des outils SIEM tiers. Cette intégration vous permet d’associer les données du journal d’activité d’Azure AD à d’autres données gérées par votre SIEM pour offrir des insights plus fournis sur votre environnement. 
 
-Découvrez comment [transmettre les journaux d’activité à un Event Hub](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Découvrez comment [transmettre les journaux d’activité à un Event Hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planifier les opérations et la sécurité pour la création de rapports et la supervision Azure AD
 

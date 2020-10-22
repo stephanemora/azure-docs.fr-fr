@@ -8,16 +8,16 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908288"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088633"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
-Avec les outils de suivi distribué d’Azure Spring Cloud, vous pouvez facilement déboguer et superviser les problèmes complexes. Azure Spring Cloud intègre Azure [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
+Avec les outils de suivi distribué d’Azure Spring Cloud, vous pouvez facilement déboguer et superviser les problèmes complexes. Azure Spring Cloud intègre Azure [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](../azure-monitor/app/app-insights-overview.md) d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
 
 ::: zone pivot="programming-language-csharp"
 Dans cet article, vous allez apprendre à activer une application .NET Core Steeltoe pour utiliser le traçage distribué.
@@ -144,15 +144,15 @@ Si vous avez déjà créé et déployé une application, vous pouvez modifier le
 
 ## <a name="view-the-application-map"></a>Ouvrir la Cartographie d’application
 
-Revenez à la page **Suivi distribué** et sélectionnez **Afficher la cartographie d’application**. Passez en revue la représentation visuelle de votre application et les paramètres de supervision. Pour savoir comment utiliser la cartographie d’application, consultez [Cartographie d’application : trier des applications distribuées](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Revenez à la page **Suivi distribué** et sélectionnez **Afficher la cartographie d’application**. Passez en revue la représentation visuelle de votre application et les paramètres de supervision. Pour savoir comment utiliser la cartographie d’application, consultez [Cartographie d’application : trier des applications distribuées](../azure-monitor/app/app-map.md).
 
 ## <a name="use-search"></a>Utiliser la recherche
 
-Utilisez la fonction de recherche pour interroger certaines données de télémétrie. Dans la page **Suivi distribué**, sélectionnez **Rechercher**. Pour plus d’informations sur l’utilisation de la fonction de recherche, consultez [Utilisation de la recherche dans Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Utilisez la fonction de recherche pour interroger certaines données de télémétrie. Dans la page **Suivi distribué**, sélectionnez **Rechercher**. Pour plus d’informations sur l’utilisation de la fonction de recherche, consultez [Utilisation de la recherche dans Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## <a name="use-application-insights"></a>Utiliser Application Insights
 
-En plus des fonctionnalités de cartographie d’application et de recherche, Application Insights fournit des fonctions de supervision. Recherchez le nom de votre application dans le portail Azure, puis ouvrez une page Application Insights pour accéder aux informations de supervision. Pour plus d’informations sur l’utilisation de ces outils, consultez [Requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+En plus des fonctionnalités de cartographie d’application et de recherche, Application Insights fournit des fonctions de supervision. Recherchez le nom de votre application dans le portail Azure, puis ouvrez une page Application Insights pour accéder aux informations de supervision. Pour plus d’informations sur l’utilisation de ces outils, consultez [Requêtes de journal Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ## <a name="disable-application-insights"></a>Désactiver Application Insights
 
