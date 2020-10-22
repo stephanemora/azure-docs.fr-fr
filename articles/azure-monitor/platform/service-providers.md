@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921088"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143848"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 
@@ -35,7 +35,7 @@ Dans cette architecture, un espace de travail est déployé dans le locataire du
 
 Il existe deux façons pour les administrateurs de fournisseurs de services d’accéder à un espace de travail Log Analytics dans un locataire client :
 
-- Un client peut ajouter des utilisateurs individuels à partir du fournisseur de services en tant qu’[utilisateurs invités (B2B) Azure Active Directory](../../active-directory/b2b/what-is-b2b.md). Pour accéder à ces espaces de travail, l’administrateur du fournisseur de services doit se connecter à l’annuaire de chaque client, dans le Portail Microsoft Azure. Cela requiert également que les clients gèrent un accès individuel pour chaque administrateur de fournisseur de services.
+- Un client peut ajouter des utilisateurs individuels à partir du fournisseur de services en tant qu’[utilisateurs invités (B2B) Azure Active Directory](../../active-directory/external-identities/what-is-b2b.md). Pour accéder à ces espaces de travail, l’administrateur du fournisseur de services doit se connecter à l’annuaire de chaque client, dans le Portail Microsoft Azure. Cela requiert également que les clients gèrent un accès individuel pour chaque administrateur de fournisseur de services.
 - Pour une plus grande extensibilité et flexibilité, les fournisseurs de services peuvent utiliser la fonctionnalité de [gestion déléguée des ressources Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) d’[Azure Lighthouse](../../lighthouse/overview.md) pour accéder au locataire du client. Avec cette méthode, les administrateurs de fournisseurs de services sont inclus dans un groupe d’utilisateurs Azure AD dans le locataire du fournisseur de services, et ce groupe se voit accorder un accès pendant le processus d’intégration pour chaque client. Ces administrateurs peuvent ensuite accéder aux espaces de travail de chaque client à partir de leur propre locataire du fournisseur de services, au lieu de se connecter individuellement au locataire de chaque client. Accéder de cette manière aux ressources des espaces de travail Log Analytics des clients réduit le travail requis côté client et peut faciliter la collecte et l’analyse des données sur plusieurs clients gérés par le même fournisseur de services via des outils tels que les [classeurs Azure Monitor](./workbooks-overview.md). Pour plus d’informations, consultez [Surveiller les ressources client à l’échelle](../../lighthouse/how-to/monitor-at-scale.md).
 
 Les avantages de l’architecture distribuée sont les suivants :
@@ -81,7 +81,7 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Automatiser la création et la configuration des espaces de travail à l’aide de [modèles Resource Manager](template-workspace-configuration.md)
+* Automatiser la création et la configuration des espaces de travail à l’aide de [modèles Resource Manager](../samples/resource-manager-workspace.md)
 
 * Automatiser la création des espaces de travail à l’aide de [PowerShell](./powershell-workspace-configuration.md)
 

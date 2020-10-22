@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532599"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342074"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs
 
@@ -29,7 +29,7 @@ Lorsque le scanner signale des vulnérabilités à Security Center, ce dernier p
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour les registres de conteneurs** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
 |Registres et images pris en charge :|![Oui](./media/icons/yes-icon.png) Registres Azure Container Registry hébergés sur Linux qui sont accessibles à partir de l’Internet public et qui fournissent un accès à l’interpréteur de commandes.<br>![Non](./media/icons/no-icon.png) Registres Azure Container Registry hébergés sur Windows.<br>![No](./media/icons/no-icon.png) Registres « privés » : Security Center exige que vos registres soient accessibles à partir de l’Internet public. Security Center ne peut actuellement pas se connecter à des registres dont l’accès est limité par un pare-feu, à un point de terminaison de service ou à des points de terminaison privés tels qu’Azure Private Link, ni les analyser.<br>![Non](./media/icons/no-icon.png) Images super-minimalistes, telles que les images [de base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement une application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.|
-|Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Rôles et autorisations obligatoires :|**Lecteur de sécurité** et [rôle de lecteur Azure Container Registry](../container-registry/container-registry-roles.md)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 

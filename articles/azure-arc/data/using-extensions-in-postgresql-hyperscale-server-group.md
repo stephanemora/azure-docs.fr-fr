@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 58386786266c48c6e721094f9f2837709bb684e5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 3b9c3c66e58ae51773a959aba0b2c76d97b44445
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631764"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309490"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utiliser les extensions PostgreSQL dans votre groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale
 
@@ -57,7 +57,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 #### <a name="get-the-list-of-extensions-enabled"></a>Obtenir la liste des extensions activées :
 Exécutez une des commandes suivantes.
 
-##### <a name="with-azdata"></a>Avec azdata
+##### <a name="with-azure-data-cli-azdata"></a>Avec [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 ```console
 azdata arc postgres server show -n <server group name>
 ```

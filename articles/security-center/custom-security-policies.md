@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448389"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341887"
 ---
 # <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
 
@@ -21,7 +21,7 @@ Pour vous aider à sécuriser vos systèmes et votre environnement, Azure Securi
 
 Avec cette fonctionnalité, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation, comme décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
 
-Comme nous l’avons vu dans la [documentation Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
+Comme nous l’avons vu dans la [documentation Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Pour ajouter une initiative personnalisée à votre abonnement 
 
@@ -136,7 +136,7 @@ Voici un exemple de stratégie personnalisée incluant la propriété metadata/s
 }
   ```
 
-Pour obtenir un autre exemple d’utilisation de la propriété securityCenter, consultez [cette section de la documentation de l’API REST](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+Pour obtenir un autre exemple d’utilisation de la propriété securityCenter, consultez [cette section de la documentation de l’API REST](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -146,4 +146,4 @@ Dans cet article, vous avez appris à créer des stratégies de sécurité perso
 Pour d’autres informations connexes, consultez les articles suivants : 
 
 - [La vue d’ensemble des stratégies de sécurité](tutorial-security-policy.md)
-- [Liste des stratégies de sécurité intégrées](security-center-policy-definitions.md)
+- [Liste des stratégies de sécurité intégrées](./policy-reference.md)

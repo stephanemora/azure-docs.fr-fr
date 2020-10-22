@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873300"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127043"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutoriel : Créer une instance d'IoT Edge pour l'analytique vidéo (Intel NUC)
 
@@ -37,13 +37,13 @@ Dans ce tutoriel, vous allez apprendre à :
 
 * Avant de commencer, vous devez avoir suivi le tutoriel précédent [Créer une application d’analytique vidéo en direct dans Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) ou [Créer une application d’analytique vidéo dans Azure IoT Central (OpenVINO)&trade;](tutorial-video-analytics-create-app-openvino.md).
 * Un appareil, de type Intel NUC par exemple, exécutant Linux, capable d'exécuter des conteneurs Docker et disposant d'une puissance de traitement suffisante pour l'analytique vidéo.
-* [Runtime IoT Edge installé](../../iot-edge/how-to-install-iot-edge-linux.md) et en cours d'exécution sur l'appareil.
+* [Runtime IoT Edge installé](../../iot-edge/how-to-install-iot-edge.md) et en cours d'exécution sur l'appareil.
 * Pour pouvoir vous connecter à l'appareil IoT Edge à partir de votre ordinateur Windows, vous devez disposer du [client PuTTY SSH](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) ou d'un utilitaire équivalent.
 * Vous devez également disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un gratuitement dans la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="configure-the-iot-edge-device"></a>Configurer un appareil IoT Edge
 
-Si le runtime IoT Edge n'est pas installé sur votre machine Intel NUC, consultez les instructions de l'article [Installer le runtime Azure IoT Edge sur les systèmes Linux basés sur Debian](../../iot-edge/how-to-install-iot-edge-linux.md).
+Si le runtime IoT Edge n'est pas installé sur votre machine Intel NUC, consultez les instructions de l'article [Installer le runtime Azure IoT Edge sur les systèmes Linux basés sur Debian](../../iot-edge/how-to-install-iot-edge.md).
 
 Pour mettre à jour le runtime IoT Edge :
 

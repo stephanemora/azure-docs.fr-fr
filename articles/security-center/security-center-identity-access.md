@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946216"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341260"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -30,7 +30,7 @@ Le fait de surveiller les activités et les paramètres de configuration liés �
 
 Le Centre de sécurité Azure dispose de deux contrôles de sécurité dédiés pour vous assurer de respecter les exigences en matière d’identité et de sécurité de votre organisation : 
 
- - **Gérer l’accès et les autorisations** : nous vous encourageons à adopter le [modèle d’accès Privilège minimum](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et à accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour effectuer leur travail. Ce contrôle comprend également des recommandations pour implémenter le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) pour contrôler l’accès à vos ressources.
+ - **Gérer l’accès et les autorisations** : nous vous encourageons à adopter le [modèle d’accès Privilège minimum](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et à accorder à vos utilisateurs uniquement l’accès dont ils ont besoin pour effectuer leur travail. Ce contrôle comprend également des recommandations pour implémenter le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) pour contrôler l’accès à vos ressources.
  
  - **Activer la MFA** : lorsque [MFA](https://www.microsoft.com/security/business/identity/mfa) est activée, vos comptes sont plus sûrs et les utilisateurs peuvent toujours s’authentifier auprès de presque n’importe quelle application avec l’authentification unique.
 
@@ -84,7 +84,7 @@ Pour connaître les comptes pour lesquels la MFA n’est pas activée, utilisez 
     > Les comptes sont représentés par un ID d’objet plutôt qu’un nom de compte pour garantir la confidentialité des titulaires de compte.
 
 > [!TIP]
-> Vous pouvez également utiliser la méthode [Assessments - Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get) de l’API REST du Centre de sécurité.
+> Vous pouvez également utiliser la méthode [Assessments - Get](/rest/api/securitycenter/assessments/get) de l’API REST du Centre de sécurité.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

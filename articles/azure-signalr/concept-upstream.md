@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514235"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143243"
 ---
 # <a name="upstream-settings"></a>Paramètres en amont
 
@@ -88,7 +88,7 @@ Lorsque vous sélectionnez `ManagedIdentity`, vous devez activer une identité m
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Créer des paramètres en amont via un modèle Resource Manager
 
-Pour créer des paramètres en amont à l’aide d’un [modèle de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), définissez la propriété `upstream` dans la propriété `properties`. L’extrait de code suivant montre comment définir la propriété `upstream` pour la création et la mise à jour de paramètres en amont.
+Pour créer des paramètres en amont à l’aide d’un [modèle de Azure Resource Manager](../azure-resource-manager/templates/overview.md), définissez la propriété `upstream` dans la propriété `properties`. L’extrait de code suivant montre comment définir la propriété `upstream` pour la création et la mise à jour de paramètres en amont.
 
 ```JSON
 {

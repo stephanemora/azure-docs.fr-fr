@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 335b564225bc2b7a4c2217c1d912f952239ecf24
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951432"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127197"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Tutoriel : Utiliser Data Box Heavy pour importer des données en tant que disques managés dans Azure
 
@@ -38,7 +38,7 @@ Avant de commencer, assurez-vous que :
 4. Vous avez pris connaissance des informations suivantes :
 
     - [tailles de disques managés prises en charge dans la section sur les limites de taille des objets Azure](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introduction aux disques managés Azure](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduction aux disques managés Azure](../virtual-machines/managed-disks-overview.md). 
 
 ## <a name="connect-to-data-box-heavy"></a>Se connecter à Data Box Heavy
 
@@ -182,4 +182,3 @@ Passez au tutoriel suivant pour découvrir comment réexpédier votre Data Box H
 
 > [!div class="nextstepaction"]
 > [Expédier votre Azure Data Box Heavy à Microsoft](./data-box-heavy-deploy-picked-up.md)
-
