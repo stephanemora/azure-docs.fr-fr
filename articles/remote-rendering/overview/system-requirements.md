@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323723"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207408"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -80,7 +80,7 @@ Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloque
 Les logiciels suivants doivent être installés :
 
 * La dernière version de **Visual Studio 2019** [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Outils Visual Studio pour Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
+* [Outils Visual Studio pour Mixed Reality](/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
   * **Développement Desktop en C++**
   * **Développement de la plateforme Windows universelle (UWP)**
 * **Le SDK Windows 10.0.18362.0** [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

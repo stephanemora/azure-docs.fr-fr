@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Créer une offre de conteneur Azure
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Offre de machine virtuelle Azure
+    - name: Offres de machines virtuelles Azure
       items:
         - name: Planifier une offre de machine virtuelle
           href: marketplace-virtual-machines.md
         - name: Créer et publier une offre de machine virtuelle
           items:
+            - name: Créer une offre de machine virtuelle
+              href: azure-vm-create.md
+            - name: Configurer les propriétés d’une offre de machine virtuelle
+              href: azure-vm-create-properties.md
+            - name: Configurer l’annonce d’une offre de machine virtuelle
+              href: azure-vm-create-listing.md
+            - name: Créer des plans de machine virtuelle
+              href: azure-vm-create-plans.md
+            - name: Ajouter un public pour la préversion
+              href: azure-vm-create-preview.md
             - name: Créer des ressources techniques pour les machines virtuelles
               items:
                 - name: Créer une machine virtuelle à partir d’une base approuvée
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Résolution des problèmes de certification de machines virtuelles
                   href: azure-vm-create-certification-faq.md
-            - name: Créer une offre de machine virtuelle
-              href: azure-vm-create.md
-            - name: Configurer les propriétés d’une offre de machine virtuelle
-              href: azure-vm-create-properties.md
-            - name: Configurer l’annonce d’une offre de machine virtuelle
-              href: azure-vm-create-listing.md
-            - name: Créer des plans de machine virtuelle
-              href: azure-vm-create-plans.md
-            - name: Ajouter un public pour la préversion
-              href: azure-vm-create-preview.md
     - name: Services de conseil
       items:
         - name: Planifier une offre de services de conseil

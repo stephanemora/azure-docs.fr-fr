@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: Déployer les mises à niveau avec un modèle
       href: quickstart-deployment-template-workspaces.md
-    - name: Utiliser Synapse Studio
-      href: quickstart-synapse-studio.md
     - name: Lier un espace de travail Power BI
       href: quickstart-power-bi.md
     - name: Créer des pools

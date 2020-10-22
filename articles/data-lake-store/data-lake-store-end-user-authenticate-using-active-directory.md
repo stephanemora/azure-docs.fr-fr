@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578544"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103779"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de l’utilisateur final auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Azure Data Lake Storage Gen1 utilise Azure Active Directory pour l’authentific
 
 En raison de ces deux options, votre application est fournie avec un jeton OAuth 2.0, qui est attaché à chaque requête adressée à Data Lake Storage Gen1 ou Azure Data Lake Analytics.
 
-Cet article traite de la création d’une **application native Azure AD pour l’authentification de l’utilisateur final**. Pour obtenir des instructions sur la configuration de l’application Azure AD pour l’authentification de service à service, consultez [Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+Cet article traite de la création d’une **application native Azure AD pour l’authentification de l’utilisateur final**. Pour obtenir des instructions sur la configuration de l’application Azure AD pour l’authentification de service à service, consultez [Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Prérequis
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).

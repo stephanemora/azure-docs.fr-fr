@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568095"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282311"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -57,6 +57,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 |Filipino|  `fil`   |
 |Finnois|   `fi`    |
 |Français|    `fr`    |
+|Français (Canada)|   `fr-ca` |
 |Allemand|    `de`    |
 |Grec| `el`    |
 |Goudjrati|  `gu`    |
@@ -364,6 +365,7 @@ Convertissez la parole en texte afin d’effectuer la traduction dans la langue 
 |Anglais|
 |Finnois|
 |Français|
+|Français (Canada)|
 |Allemand|
 |Goudjrati|
 |Hindi|
@@ -401,6 +403,7 @@ Convertir du texte en parole. La synthèse vocale est utilisée pour ajouter une
 |Anglais|
 |Finnois|
 |Français|
+|Français (Canada)|
 |Allemand|
 |Grec|
 |Hébreu|

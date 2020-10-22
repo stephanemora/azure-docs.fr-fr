@@ -126,7 +126,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -186,7 +186,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -206,7 +206,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -214,7 +214,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -222,7 +222,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -230,7 +230,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -240,7 +240,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -406,8 +406,6 @@
           href: backup-encryption.md
         - name: Chiffrement à l’aide de clés gérées par le client
           href: encryption-at-rest-with-cmk.md
-        - name: Contrôles de sécurité intégrés
-          href: backup-security-controls.md
         - name: Contrôles de sécurité par Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

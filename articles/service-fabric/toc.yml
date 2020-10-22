@@ -148,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Sécurité d’un cluster Service Fabric
           href: service-fabric-cluster-security.md
-        - name: Contrôles de sécurité intégrés
-          href: service-fabric-security-controls.md
         - name: Authentification par certificat dans Service Fabric
           href: cluster-security-certificates.md
         - name: Gestion des certificats dans Service Fabric

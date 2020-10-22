@@ -3,12 +3,12 @@ title: Isolement réseau dans Azure DevTest Labs
 description: Découvrir l’isolement réseau dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875431"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149160"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Isolement réseau dans DevTest Labs
 
@@ -57,7 +57,7 @@ Consultez également les articles suivants :
  
    > [!div class="mx-imgBorder"]
    > ![Test Contoso](./media/network-isolation/contoso-test.png)
-1. Sur le compte de stockage, accédez à Pare-feux et réseaux virtuels et vérifiez que la case Autoriser les services Microsoft approuvés à accéder à ce compte de stockage est cochée. Étant donné que [DevTest Labs est un service Microsoft approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), cette option permet au labo de fonctionner normalement en mode isolé du réseau. 
+1. Sur le compte de stockage, accédez à Pare-feux et réseaux virtuels et vérifiez que la case Autoriser les services Microsoft approuvés à accéder à ce compte de stockage est cochée. Étant donné que [DevTest Labs est un service Microsoft approuvé](../storage/common/storage-network-security.md#trusted-microsoft-services), cette option permet au labo de fonctionner normalement en mode isolé du réseau. 
 
    > [!div class="mx-imgBorder"]
    > ![Pare-feu de Contoso lab](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ Avec cela, le stockage Azure autorise des connexions entrantes à partir du rés
 
 Vous pouvez également choisir d’automatiser ces étapes afin de configurer ce paramètre pour plusieurs laboratoires. 
 
-[En savoir plus sur la gestion des règles d’accès réseau par défaut pour le stockage Azure à l’aide de PowerShell et de l’interface CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[En savoir plus sur la gestion des règles d’accès réseau par défaut pour le stockage Azure à l’aide de PowerShell et de l’interface CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Points à retenir lors de l’utilisation d’un labo en mode isolé du réseau
 
@@ -82,7 +82,7 @@ Vous pouvez également choisir d’automatiser ces étapes afin de configurer ce
 
 Dans un laboratoire isolé du réseau, pour des actions telles que le chargement d’un disque dur virtuel vers le compte de stockage du labo afin de créer des images personnalisées, le propriétaire du labo devra activer explicitement l’accès au compte de stockage à partir d’un point de terminaison autorisé. Pour ce faire, vous pouvez créer une machine virtuelle et accéder en toute sécurité au compte de stockage du labo à partir de cette machine virtuelle. 
 
-[En savoir plus sur l’accès privé à un compte de stockage à partir d’une machine virtuelle](../private-link/create-private-endpoint-storage-portal.md)
+[En savoir plus sur l’accès privé à un compte de stockage à partir d’une machine virtuelle](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>Exportation des données d’utilisation à partir du labo 
 

@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358961"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104799"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gérer les états des alertes et des groupes intelligents
 
-Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et d’une condition de surveillance](https://aka.ms/azure-alerts-overview), même chose pour les groupes intelligents qui ont un [état de groupe intelligent](https://aka.ms/smart-groups). Les changements d’état sont désormais inscrits dans l’historique associé à l’alerte ou au groupe intelligent correspondant. Cet article va vous expliquer comment changer l’état d’une alerte ou d’un groupe intelligent.
+Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et d’une condition de surveillance](./alerts-overview.md), même chose pour les groupes intelligents qui ont un [état de groupe intelligent](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Les changements d’état sont désormais inscrits dans l’historique associé à l’alerte ou au groupe intelligent correspondant. Cet article va vous expliquer comment changer l’état d’une alerte ou d’un groupe intelligent.
 
 ## <a name="change-the-state-of-an-alert"></a>Changer l’état d’une alerte
 
@@ -46,4 +46,3 @@ Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et 
 
 1. Une fois l’opération terminée, le changement d’état est enregistré dans l’historique du groupe intelligent correspondant. Vous pouvez accéder à cette information en ouvrant la page Détails correspondante et en recherchant dans l’historique.     
 ![Capture d'écran présentant l'historique des modifications apportées au groupe intelligent.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

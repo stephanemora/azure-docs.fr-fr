@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f67d1bb1e4502d918cd7af6d98ce5ed5f76c969
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273745"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutoriel : Intégration d’Azure Active Directory à RStudio Connect
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD auprès de RStudio Connect,
 
 4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes, en remplaçant `<example.com>` par l’adresse et le port de votre serveur RStudio Connect :
 
-    ![Informations d’authentification unique dans Domaine et URL RStudio Connect](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<example.com>/__login__/saml`
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD auprès de RStudio Connect,
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL RStudio Connect](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<example.com>/`
 

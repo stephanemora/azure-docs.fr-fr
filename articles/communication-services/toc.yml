@@ -93,7 +93,7 @@
 - name: Références
   items:
     - name: Documentation des API REST
-      href: 'https://docs.microsoft.com/rest/api/azure/'
+      href: 'https://docs.microsoft.com/rest/api/communication/'
     - name: Bibliothèque d’appel (Android/Java)
       href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
     - name: Bibliothèque d’appel (JS)
