@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600498"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308940"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -60,7 +60,7 @@ Pour accéder aux rapports sur les **utilisateurs avec indicateur de risque** da
 Effectuez les actions suivantes pour aider à rectifier les comptes affectés et à sécuriser votre environnement :
 
 1.  [Validez les informations correctes](https://aka.ms/MFAValid) pour l’authentification multifacteur et la réinitialisation de mot de passe libre-service. 
-2.  [Activez l’authentification multifacteur](https://aka.ms/MFAuth) pour tous les utilisateurs. 
+2.  [Activez l’authentification multifacteur](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) pour tous les utilisateurs. 
 3.  Utilisez ce [script de correction](https://aka.ms/remediate) pour chaque compte affecté afin d'effectuer les étapes suivantes : 
 
     a. Réinitialisez le mot de passe pour sécuriser le compte et éliminez les sessions actives.
@@ -85,8 +85,8 @@ Effectuez les actions suivantes pour aider à rectifier les comptes affectés et
 
 De plus, vous devez :
 
-- Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](https://aka.ms/fixaccount). 
-- [Activer le pipeline d’audit](https://aka.ms/improvesecurity) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](https://aka.ms/sccsearch). 
+- Lire et implémenter ce [conseil sur la gestion d’activités inhabituelles](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Activer le pipeline d’audit](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) pour vous aider à analyser l’activité sur votre abonnement. Une fois fini, votre banque d’informations d’audit commence à remplir les journaux d’activités. À ce stade, vous pouvez également tirer parti de la [ressource de recherche et d'enquête du centre de sécurité et de conformité](https://aka.ms/sccsearch). 
 - Vérifiez les autorisations des délégués et les règles d’envoi de courrier pour toutes vos boîtes aux lettres. Vous pouvez utiliser ce [script PowerShell](https://aka.ms/delegateforwardrules) pour réaliser cette tâche. 
 
 ## <a name="next-steps"></a>Étapes suivantes

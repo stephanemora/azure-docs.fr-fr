@@ -7,15 +7,15 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958324"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147538"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Corriger les erreurs HTTP « 502 Passerelle incorrecte » et « 503 Service indisponible » sur Azure App Service
-Les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » sont courantes dans les applications hébergées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous permet de résoudre ces erreurs.
+Les erreurs « 502 Passerelle incorrecte » et « 503 Service indisponible » sont courantes dans les applications hébergées sur [Azure App Service](./overview.md). Cet article vous permet de résoudre ces erreurs.
 
 Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
 

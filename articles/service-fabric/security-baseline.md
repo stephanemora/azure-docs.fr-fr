@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227710"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309155"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Base de référence de sécurité Azure pour Service Fabric
 
@@ -78,7 +78,7 @@ Déployez un pare-feu d'applications web Azure pour protéger les applications w
 
 * [Guide pratique pour configurer la protection DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/threat-protection.md)
+* [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -182,7 +182,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 * [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -306,7 +306,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Instructions** : Configurez manuellement la journalisation de console au niveau de chaque nœud.
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -488,7 +488,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -530,7 +530,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 * [Guide de résolution des problèmes liés à Service Fabric pour la configuration TLS](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -572,7 +572,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 * [Présentation du chiffrement au repos dans Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Guide pratique pour configurer des clés de chiffrement gérées par le client](../storage/common/storage-encryption-keys-portal.md)
+* [Guide pratique pour configurer des clés de chiffrement gérées par le client](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Utilisez une solution tierce pour effectuer des évaluations des vulnérabilité
 
 * [Induire un chaos contrôlé dans les clusters Service Fabric](./service-fabric-controlled-chaos.md)
 
-* [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Implémenter les recommandations d'évaluation des vulnérabilités d'Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -698,7 +698,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 * [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+* [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -716,7 +716,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
+**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 Types de ressources non autorisés
 
@@ -1042,7 +1042,7 @@ Si vous utilisez des clés gérées par le client, vérifiez que la suppression 
 
 * [Chiffrement du Stockage Azure au repos](../storage/common/storage-service-encryption.md)
 
-* [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 

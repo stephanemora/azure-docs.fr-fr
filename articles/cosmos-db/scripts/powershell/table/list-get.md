@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/31/2020
 ms.author: mjbrown
-ms.openlocfilehash: c882b16733b19619f5df5d4e9e0c440a6711c1fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab4313f02d233b3eac33b7da202fca559bffa147
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281927"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Répertorier et obtenir des tables pour Azure Cosmos DB - API Table
 
@@ -48,5 +48,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Vous trouverez des exemples supplémentaires de scripts Azure Cosmos DB PowerShell sur la page [Scripts PowerShell Azure Cosmos DB](../../../powershell-samples.md).

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798055"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282536"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Utiliser des collections dans le portail Mes applications
 
@@ -32,7 +32,7 @@ Les collections sont les différentes vues d’application que vous pouvez voir 
 
 La liste des collections du portail **Mes applications** affiche par défaut un espace **Toutes les applications**, avec toutes les applications auxquelles vous avez accès :
 
-![Page Toutes les applications, dans le portail Mes applications](media/my-applications-portal-workspaces/my-apps-all.png)
+![Page Toutes les applications, dans le portail Mes applications](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Toutes les autres collections que vous voyez dans cette liste ont été créées par votre administrateur et partagées avec vous. Vous pouvez choisir une de ces collections pour voir un ensemble plus délimité d’applications, comme le *Support* dans l’exemple suivant :
 

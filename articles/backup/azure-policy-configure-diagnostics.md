@@ -3,12 +3,12 @@ title: Configuration à grande échelle des paramètres de diagnostic de coffre
 description: Configurez les paramètres de diagnostic Log Analytics pour tous les coffres d’une étendue donnée avec Azure Policy.
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293082"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171522"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuration à grande échelle des paramètres de diagnostic de coffre
 
@@ -27,6 +27,8 @@ Pour simplifier la création de paramètres de diagnostic à grande échelle (av
 * L’étendue du groupe d’administration n’est pas prise en charge pour le moment.
 
 * La stratégie intégrée n’est actuellement pas disponible dans les clouds nationaux.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>Attribution de la stratégie intégrée à une étendue
 

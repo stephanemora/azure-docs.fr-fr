@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506625"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171456"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -437,7 +437,7 @@ Si la machine virtuelle Azure est déjà sauvegardée, vous pouvez spécifier la
 > [!IMPORTANT]
 > Le corps de la demande ci-dessus est toujours la copie finale des disques de données à exclure ou à inclure. Cela n’*ajoute* rien à la configuration précédente. Par exemple : si vous mettez d’abord à jour la protection avec « Exclure le disque de données 1 », puis répétez l’opération avec « Exclure le disque de données 2 », *seul le disque de données 2 est exclu* dans les sauvegardes suivantes, et le disque de données 1 sera inclus. C’est toujours la dernière liste qui sera incluse/exclue dans les sauvegardes ultérieures.
 
-Pour récupérer la liste actuelle des disques qui sont exclus ou inclus, récupérez les informations relatives aux éléments protégés comme indiqué [ici](https://docs.microsoft.com/rest/api/backup/protecteditems/get). La réponse fournira la liste des numéros d’unités logiques de disques de données et indiquera s’ils sont inclus ou exclus.
+Pour récupérer la liste actuelle des disques qui sont exclus ou inclus, récupérez les informations relatives aux éléments protégés comme indiqué [ici](/rest/api/backup/protecteditems/get). La réponse fournira la liste des numéros d’unités logiques de disques de données et indiquera s’ils sont inclus ou exclus.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrêter la protection tout en conservant les données existantes
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3e0869e045db0a791bc25f4b81db2efdc1b1645d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 699bdeb34d4a7134cd9fc4938427a2bd813069fa
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504903"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282623"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-api"></a>Créer une base de données et un conteneur pour Azure Cosmos DB – API SQL
 
@@ -58,5 +58,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Vous trouverez des exemples supplémentaires de scripts Azure Cosmos DB PowerShell sur la page [Scripts PowerShell Azure Cosmos DB](../../../powershell-samples.md).

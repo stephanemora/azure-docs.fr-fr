@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 32ebbb43fc02a3aa3d5129ea66ebe8640d11b0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f49f2541ea150719f4145708f1811c8ceed42a4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504793"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282697"
 ---
 # <a name="create-a-database-and-container-with-autoscale-for-azure-cosmos-db---sql-api"></a>Créer une base de données et un conteneur avec mise à l’échelle automatique pour Azure Cosmos DB - API SQL
 
@@ -51,5 +51,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).
-
-Vous trouverez des exemples supplémentaires de scripts Azure Cosmos DB PowerShell sur la page [Scripts PowerShell Azure Cosmos DB](../../../powershell-samples.md).

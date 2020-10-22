@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3acac0c85aa6f3e3725dcf54a646f8ac16250e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324044"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149170"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 
@@ -38,7 +38,7 @@ Cet article, vous initie à l’architecture du kit de développement logiciel (
 
 ## <a name="sdk-architecture"></a>Architecture du kit de développement logiciel (SDK)
 
-Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](/azure/iot-hub/iot-c-sdk-ref/).
 
 Vous trouverez la dernière version des bibliothèques dans la branche **maître** du référentiel :
 
@@ -587,4 +587,4 @@ Pour en savoir plus sur le développement pour IoT Hub, consultez les [Kits de d
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/quickstart-linux.md)

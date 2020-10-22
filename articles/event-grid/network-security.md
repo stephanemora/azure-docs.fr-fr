@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326454"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148936"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
@@ -23,7 +23,7 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 ## <a name="service-tags"></a>Balises de service
 Une étiquette de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les balises de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
 
-Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur les [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **AzureEventGrid**) dans le champ *Source* ou *Destination*  approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur les [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **AzureEventGrid**) dans le champ *Source* ou *Destination*  approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|

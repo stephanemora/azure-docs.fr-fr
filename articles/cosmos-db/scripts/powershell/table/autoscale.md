@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: e5ee56beb33800c4eaa8f6f171f9e636b0056615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c52a03209ca4f6b8c580df9e9576ebf350d7ab28
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504815"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281958"
 ---
 # <a name="create-a-table-with-autoscale-for-azure-cosmos-db---table-api"></a>Créer une table avec mise à l’échelle automatique pour Azure Cosmos DB - API Table
 
@@ -48,5 +48,3 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).
-
-Vous trouverez des exemples supplémentaires de scripts Azure Cosmos DB PowerShell sur la page [Scripts PowerShell Azure Cosmos DB](../../../powershell-samples.md).

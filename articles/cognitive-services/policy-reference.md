@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Cognitive Services
 description: Liste les définitions de stratégie intégrées Azure Policy pour Azure Cognitive Services. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 612c288df1b9329b20088d42843239197e9be8d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c234e0a2b3fe47fd444919ccff6ea38aca77731e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826571"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309321"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Définitions de stratégie intégrées Azure Policy pour Azure Cognitive Services
 

@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines virtuelles AWS ver
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651829"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310740"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -40,7 +40,7 @@ Avant de migrer vers Azure, nous vous recommandons d’effectuer une évaluation
 
 Configurez une évaluation comme suit :
 
-1. Suivez le [tutoriel](./tutorial-prepare-physical.md) pour configurer Azure et préparer vos machines virtuelles AWS à une évaluation. Notez les points suivants :
+1. Suivez le [tutoriel](./tutorial-discover-physical.md) pour configurer Azure et préparer vos machines virtuelles AWS à une évaluation. Notez les points suivants :
 
     - Azure Migrate utilise l’authentification par mot de passe lors de la découverte des instances AWS. Les instances AWS ne prennent pas en charge l’authentification par mot de passe par défaut. Avant de pouvoir découvrir l’instance, vous devez activer l’authentification par mot de passe.
         - Pour les machines Windows, autorisez le port WinRM 5985 (HTTP). Cela permet les appels WMI distants.
@@ -370,7 +370,7 @@ Après avoir vérifié que le test de migration fonctionne comme prévu, vous po
     - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [Plus d’informations](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Pour renforcer la sécurité :
     - Verrouillez et limitez l’accès du trafic entrant avec l’[administration juste-à-temps d’Azure Security Center](../security-center/security-center-just-in-time.md).
-    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/security-overview.md).
+    - Limitez le trafic réseau vers les points de terminaison de gestion avec des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
     - Déployez [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :

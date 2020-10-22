@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: f91cdaa81e18105eb39af442ab6152bfd2888ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319705"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168139"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
@@ -99,7 +99,7 @@ Pour activer l’émission d’événements de relecture d’orchestration déta
 ```
 
 > [!NOTE]
-> Par défaut, les données de télémétrie Application Insights sont échantillonnées par le runtime Azure Functions pour éviter un transfert trop fréquent de données. Cela peut entraîner une perte des informations de suivi si de nombreux événements de cycle de vie se produisent sur une courte période. L’article sur [la surveillance d’Azure Functions](../functions-monitoring.md#configure-sampling) explique comment configurer ce comportement.
+> Par défaut, les données de télémétrie Application Insights sont échantillonnées par le runtime Azure Functions pour éviter un transfert trop fréquent de données. Cela peut entraîner une perte des informations de suivi si de nombreux événements de cycle de vie se produisent sur une courte période. L’article sur [la surveillance d’Azure Functions](../configure-monitoring.md#configure-sampling) explique comment configurer ce comportement.
 
 ### <a name="single-instance-query"></a>Requête d’instance unique
 

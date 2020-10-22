@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser Azure Communication Services 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91339072"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145832"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Azure Communication Services comme source Event Grid
 
@@ -23,7 +23,7 @@ Cet article décrit les propriétés et le schéma des événements Azure Commun
 
 ### <a name="available-event-types"></a>Types d’événement disponibles
 
-Event Grid utilise les [abonnements aux événements](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. 
+Event Grid utilise les [abonnements aux événements](./concepts.md#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. 
 
 Azure Communication Services émet les types d’événements suivants :
 
@@ -45,7 +45,7 @@ Azure Communication Services émet les types d’événements suivants :
 
 ## <a name="event-subjects"></a>Objets des événements
 
-Le champ `subject` de tous les événements Communication Services identifie l’utilisateur, le numéro de téléphone ou l’entité que l’événement cible. Les préfixes courants sont utilisés pour autoriser un [filtrage Event Grid](https://docs.microsoft.com/azure/event-grid/event-filtering) simple.
+Le champ `subject` de tous les événements Communication Services identifie l’utilisateur, le numéro de téléphone ou l’entité que l’événement cible. Les préfixes courants sont utilisés pour autoriser un [filtrage Event Grid](./event-filtering.md) simple.
 
 | Préfixe de l’objet                              | Entité du service de communication |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
-* Pour obtenir une présentation des concepts d’Azure Event Grid, consultez [Concepts utilisés dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
-* Pour obtenir une présentation des rubriques système d’Azure Event Grid, consultez [Rubriques système dans Azure Event Grid](https://docs.microsoft.com/azure/event-grid/system-topics).
+* Pour une présentation d’Azure Event Grid, consultez [Présentation d’Event Grid](./overview.md).
+* Pour obtenir une présentation des concepts d’Azure Event Grid, consultez [Concepts utilisés dans Azure Event Grid](./concepts.md).
+* Pour obtenir une présentation des rubriques système d’Azure Event Grid, consultez [Rubriques système dans Azure Event Grid](./system-topics.md).

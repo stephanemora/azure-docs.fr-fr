@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514719"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143256"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Mode de service dans Azure SignalR Service
 
@@ -51,11 +51,11 @@ En outre, il n’existe pas de connexion au serveur dans ce mode : si vous essa
 > [!NOTE]
 > Ces deux méthodes, par API REST et par WebSocket, sont prises en charge par le [Kit de développement logiciel (SDK) de gestion](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md) du service SignalR. Si vous utilisez un langage autre que .NET, vous pouvez également appeler manuellement les API REST en suivant ce [spec](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> Si vous utilisez Azure Functions, vous pouvez utiliser des [liaisons de service SignalR pour Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (ci-après appelées liaison de fonction) pour envoyer des messages en tant que liaison de sortie.
+> Si vous utilisez Azure Functions, vous pouvez utiliser des [liaisons de service SignalR pour Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (ci-après appelées liaison de fonction) pour envoyer des messages en tant que liaison de sortie.
 
 Il est également possible pour votre application serveur de recevoir des messages et des événements de connexion des clients. Le service remet les messages et les événements de connexion à des points de terminaison préconfigurés (appelés amont) à l’aide de webhooks. Par rapport au mode par défaut, il n’y a aucune garantie d’adhérence et les requêtes HTTP peuvent être moins efficaces que les connexions WebSocket.
 
-Pour plus d’informations sur la configuration en amont, consultez ce [document](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Pour plus d’informations sur la configuration en amont, consultez ce [document](./concept-upstream.md).
 
 Vous trouverez ci-dessous un diagramme illustrant le fonctionnement du mode serverless :
 

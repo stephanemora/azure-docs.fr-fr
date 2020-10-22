@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a44848e81e974d8294b84471d68ded8509f4ddf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067608"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282821"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB
 
@@ -119,7 +119,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
   
   Voici quelques conseils de programmation importants lors de l’utilisation du mode direct :
   
-  * **Utilisez le multithreading dans votre application pour bénéficier d’un transfert de données TCP efficace** : après avoir effectué une requête, votre application doit s’abonner pour recevoir les données sur un autre thread. Sinon, une opération « semi-duplex » imprévue est effectuée et les requêtes suivantes sont bloquées en attendant la réponse de la requête précédente.
+  **Utilisez le multithreading dans votre application pour bénéficier d’un transfert de données TCP efficace** : après avoir effectué une requête, votre application doit s’abonner pour recevoir les données sur un autre thread. Sinon, une opération « semi-duplex » imprévue est effectuée et les requêtes suivantes sont bloquées en attendant la réponse de la requête précédente.
   
   * **Exécutez les charges de travail nécessitant beaucoup de ressources système sur un thread dédié** : pour des raisons similaires à celles du conseil précédent, il est conseillé de placer les opérations comme le traitement de données complexes dans un thread distinct. Une requête qui extrait des données d’un autre magasin de données (par exemple, si le thread utilise simultanément des magasins de données Azure Cosmos DB et Spark) risque de subir une plus grande latence ; nous vous recommandons de créer un thread supplémentaire qui attend une réponse de l’autre magasin de données.
   
@@ -137,13 +137,13 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-  * ***Optimisation de setMaxBufferedItemCount\:***
+  ***Optimisation de setMaxBufferedItemCount\:***
     
     Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Définir le paramètre setMaxBufferedItemCount sur le nombre de résultats retournés attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
 
     La pré-extraction fonctionne de la même façon, quel que soit le paramètre MaxDegreeOfParallelism, et il existe une seule mémoire tampon pour les données de toutes les partitions.
 
-* **Implémentation de l’interruption à intervalles définis par getRetryAfterInMilliseconds**
+**Implémentation de l’interruption à intervalles définis par getRetryAfterInMilliseconds**
 
   Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application client doit s’interrompre pour l’intervalle de nouvelle tentative spécifié sur le serveur. Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative.
 
@@ -304,4 +304,4 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partition-data.md).
+Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partitioning-overview.md).

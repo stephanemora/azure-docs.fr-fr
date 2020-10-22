@@ -3,12 +3,12 @@ title: Configurer un labo pour utiliser une passerelle des services Bureau à di
 description: Découvrez comment configurer un labo dans Azure DevTest Labs avec une passerelle des services Bureau à distance afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288074"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144697"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -79,7 +79,7 @@ Configurer le labo pour utiliser l’authentification du jeton à l’aide des �
 1. **Enregistrez** les changements.
 
     > [!NOTE] 
-    > En cliquant sur **Enregistrer**, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](https://aka.ms/rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > En cliquant sur **Enregistrer**, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 S’il est préférable de configurer le labo par le biais de l’automatisation, consultez [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) pour obtenir un exemple de script PowerShell permettant de définir les paramètres de **nom d’hôte de passerelle** et de **secret du jeton de passerelle**. Le [dépôt GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fournit également un modèle Azure Resource Manager qui crée ou met à jour un labo avec les paramètres de **nom d’hôte de passerelle** et de **secret du jeton de passerelle**.
@@ -94,7 +94,7 @@ Voici un exemple de groupe de sécurité réseau qui autorise uniquement le traf
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Exemple pour créer une passerelle des services Bureau à distance
 
 > [!NOTE] 
-> En utilisant les exemples de modèles, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](https://aka.ms/rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> En utilisant les exemples de modèles, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 Le [dépôt GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fournit quelques exemples destinés à vous aider à configurer les ressources nécessaires pour utiliser l’authentification du jeton et la passerelle des services Bureau à distance avec DevTest Labs. Ces exemples incluent des modèles Azure Resource Manager pour les machines de passerelle, les paramètres de labo et l’application de fonction.
 

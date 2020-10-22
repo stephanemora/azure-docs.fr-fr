@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252984"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282561"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB : exemples .NET pour l’API SQL
 
@@ -53,7 +53,7 @@ Un abonnement Azure ou un compte d’essai de Cosmos DB gratuit
 > 
 
 ## <a name="database-examples"></a>Exemples de base de données
-La méthode [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) de l’exemple de projet *DatabaseManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les bases de données Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
+La méthode [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) de l’exemple de projet *DatabaseManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les bases de données Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -63,7 +63,7 @@ La méthode [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Supprimer une base de données](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>Exemples de collection
-La méthode [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) de l’exemple de projet *CollectionManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les collections Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
+La méthode [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) de l’exemple de projet *CollectionManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les collections Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
@@ -74,7 +74,7 @@ La méthode [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet
 | [Supprimer une collection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Exemples de document
-La méthode [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) de l’exemple de projet *DocumentManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les documents Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md). 
+La méthode [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) de l’exemple de projet *DocumentManagement* explique comment effectuer les tâches suivantes. Pour en savoir plus sur les documents Azure Cosmos avant d’exécuter les exemples suivants, consultez [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
