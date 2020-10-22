@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254345"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173772"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -65,7 +65,7 @@ Les points de terminaison privés vous permettent de vous connecter en toute sé
 
 ### <a name="nsg-tags"></a>Balises NSG
 
-Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/security-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
+Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
 1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 
@@ -75,7 +75,7 @@ Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de 
 
 1. Sélectionnez **Ajouter** pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
 
-De même, vous pouvez créer des [règles de sécurité de trafic sortant NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) pour Stockage Azure et Azure AD. Pour plus d’informations sur les balises de service, consultez [cet article](../virtual-network/service-tags-overview.md).
+De même, vous pouvez créer des [règles de sécurité de trafic sortant NSG](../virtual-network/network-security-groups-overview.md#service-tags) pour Stockage Azure et Azure AD. Pour plus d’informations sur les balises de service, consultez [cet article](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Balises Pare-feu Azure
 

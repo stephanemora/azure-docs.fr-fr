@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613930"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202886"
 ---
 # <a name="entities"></a>Entités
 
@@ -139,10 +139,10 @@ La requête fonctionne même si l’objet ne contient pas de métadonnées.
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [Entity, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
-* [RemoteManager.CreateEntity(), C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
-* [Entity, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
-* [RemoteManager::CreateEntity(), C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
+* [Entity, classe C#](/dotnet/api/microsoft.azure.remoterendering.entity)
+* [RemoteManager.CreateEntity(), C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Entity, classe C++](/cpp/api/remote-rendering/entity)
+* [RemoteManager::CreateEntity(), C++](/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

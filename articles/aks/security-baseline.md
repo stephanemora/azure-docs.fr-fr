@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072864"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201696"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de référence de sécurité Azure pour Azure Kubernetes Service
 
@@ -767,7 +767,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -854,7 +854,7 @@ Suivez les configurations de vos ordinateurs pour vous aider à identifier les p
 
 - [Guide pratique pour utiliser le monitoring d’intégrité des fichiers](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Présentation d’Azure Change Tracking](../automation/change-tracking.md)
+- [Présentation d’Azure Change Tracking](../automation/change-tracking/overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1039,7 +1039,7 @@ Reportez-vous à la liste des contrôles du CIS (Center for Internet Security) q
 
 - [Présentation du durcissement de la sécurité des hôtes de machines virtuelles AKS](security-hardened-vm-host-image.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

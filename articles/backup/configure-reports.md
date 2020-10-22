@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567432"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172458"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -30,6 +30,8 @@ Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise
 - Si vous utilisez [Azure Lighthouse](../lighthouse/index.yml) avec un accès délégué aux abonnements de vos clients, vous pouvez utiliser ces rapports avec Azure Lighthouse afin de les consulter pour tous vos locataires.
 - Actuellement, les données peuvent être affichées dans Rapports de sauvegarde sur un maximum de 100 espaces de travail Log Analytics (sur tous les locataires).
 - Les données des travaux de sauvegarde de fichier journal ne sont pas affichées dans les rapports.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="get-started"></a>Bien démarrer
 

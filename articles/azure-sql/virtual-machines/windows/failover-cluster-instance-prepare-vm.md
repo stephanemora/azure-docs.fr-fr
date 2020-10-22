@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272495"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164242"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Une fois que vous avez annulé l’inscription auprès du fournisseur de ressour
 
 Sur chaque machine virtuelle, ouvrez le port TCP du pare-feu Windows utilisé par SQL Server. Par défaut, il s'agit du port 1433. Toutefois, vous pouvez modifier le port SQL Server sur un déploiement de machine virtuelle Azure. Pour ce faire, ouvrez le port que SQL Server utilise dans votre environnement. Ce port s’ouvre automatiquement sur les images SQL Server déployées à partir de la place de marché Azure. 
 
-Si vous utilisez un [équilibreur de charge](hadr-vnn-azure-load-balancer-configure.md), vous devez également ouvrir le port utilisé par la sonde d’intégrité. Par défaut, ce port est le port 59999. Mais il peut s’agir de n’importe quel port TCP que vous spécifiez lorsque vous créez l’équilibreur de charge. 
+Si vous utilisez un [équilibreur de charge](failover-cluster-instance-vnn-azure-load-balancer-configure.md), vous devez également ouvrir le port utilisé par la sonde d’intégrité. Par défaut, ce port est le port 59999. Mais il peut s’agir de n’importe quel port TCP que vous spécifiez lorsque vous créez l’équilibreur de charge. 
 
 Ce tableau détaille les ports que vous devrez peut-être ouvrir, en fonction de la configuration de votre FCI : 
 
    | Objectif | Port | Notes
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Port normal pour les instances par défaut de SQL Server. Si vous avez utilisé une image de la galerie, ce port s’ouvre automatiquement. </br> </br> **Utilisé par** : toutes les configurations de l’instance FCI. |
-   | Sonde d’intégrité | TCP 59999 | Tout port TCP ouvert. Configurez la [sonde d’intégrité](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) de l’équilibreur de charge et le cluster pour qu’ils utilisent ce port. </br> </br> **Utilisé par** : Instance FCI avec l’équilibreur de charge. |
+   | Sonde d’intégrité | TCP 59999 | Tout port TCP ouvert. Configurez la [sonde d’intégrité](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) de l’équilibreur de charge et le cluster pour qu’ils utilisent ce port. </br> </br> **Utilisé par** : Instance FCI avec l’équilibreur de charge. |
    | Partage de fichiers | UDP 445 | Port utilisé par le service de partage de fichiers. </br> </br> **Utilisé par** : Instance FCI avec partage de fichiers Premium. |
 
 ## <a name="join-the-domain"></a>Joindre le domaine

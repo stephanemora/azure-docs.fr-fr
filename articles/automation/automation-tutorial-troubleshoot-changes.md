@@ -7,12 +7,12 @@ keywords: modification, suivi, suivi des modifications, change tracking, invento
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530537"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204246"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure
 
@@ -238,4 +238,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Accédez ensuite à la présentation de la fonctionnalité Change Tracking and Inventory pour en savoir plus.
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble de Change Tracking and Inventory](./change-tracking.md)
+> [Vue d’ensemble de Change Tracking and Inventory](change-tracking/overview.md)

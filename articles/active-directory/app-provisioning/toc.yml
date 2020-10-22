@@ -5,6 +5,8 @@
   items:
     - name: "Qu’est-ce que le provisionnement d’application\_?"
       href: user-provisioning.md
+    - name: Nouveautés dans la documentation
+      href: whats-new-docs.md
 - name: Tutoriels
   expanded: true
   items:
