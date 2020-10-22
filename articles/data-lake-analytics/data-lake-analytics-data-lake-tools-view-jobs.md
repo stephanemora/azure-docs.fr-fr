@@ -2,15 +2,14 @@
 title: Utiliser l’Explorateur de travaux et la Vue des travaux - Azure Data Lake Analytics
 description: Cet article explique comment utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282610"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218678"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utiliser l’Explorateur de travaux et la Vue des travaux pour Azure Data Lake Analytics
 Le service Azure Data Lake Analytics archive les travaux soumis dans un magasin de requêtes. Dans cet article, vous allez apprendre à utiliser l’Explorateur de travaux et la Vue des travaux dans Azure Data Lake Tools pour Visual Studio pour trouver les informations d’historique des travaux. 

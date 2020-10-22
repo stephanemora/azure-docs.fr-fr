@@ -1,21 +1,18 @@
 ---
 title: Guide pratique pour tester votre code Azure Data Lake Analytics
 description: Découvrez comment ajouter des cas de test pour U-SQL et un code C# étendu pour Azure Data Lake Analytics.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 08/30/2019
-ms.openlocfilehash: 44426598daf1808ef0aee233968b04d2dc7c165f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7310c67ef20a4134d4f613ea969c96802958bf62
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129914"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219205"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Tester votre code Azure Data Lake Analytics
 
@@ -112,7 +109,7 @@ Après avoir généré le projet, sélectionnez **Test** > **Windows** > **Explo
 
 ## <a name="run-test-cases-in-azure-pipelines"></a>Exécuter des cas de test dans Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
-Les **projets de test du script U-SQL** et les **projets de test C# UDO** héritent des projet de test unitaire C#. La [tâche Visual Studio Test](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) dans Azure Pipelines peut exécuter ces cas de test.
+Les **projets de test du script U-SQL** et les **projets de test C# UDO** héritent des projet de test unitaire C#. La [tâche Visual Studio Test](/azure/devops/pipelines/test/getting-started-with-continuous-testing) dans Azure Pipelines peut exécuter ces cas de test.
 
 ### <a name="run-u-sql-test-cases-in-azure-pipelines"></a>Exécuter des cas de test U-SQL dans Azure Pipelines
 

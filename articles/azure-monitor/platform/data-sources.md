@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802059"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107944"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -20,7 +20,7 @@ Cet article décrit les différentes sources de données de surveillance recueil
 
 ## <a name="application-tiers"></a>Couches de l'application
 
-Les sources de données de surveillance des applications Azure peuvent être organisées en niveaux, les niveaux les plus élevés représentant votre application elle-même, et les niveaux inférieurs des composants de la plate-forme Azure. La méthode d'accès aux données de chaque niveau varie. Les niveaux d'application sont résumés dans le tableau ci-dessous, et les sources des données de surveillance pour chaque niveau sont présentées dans les sections suivantes. Consultez [Emplacements des données de surveillance dans Azure](data-locations.md) pour une description de chaque emplacement de données et comment accéder à ses données.
+Les sources de données de surveillance des applications Azure peuvent être organisées en niveaux, les niveaux les plus élevés représentant votre application elle-même, et les niveaux inférieurs des composants de la plate-forme Azure. La méthode d'accès aux données de chaque niveau varie. Les niveaux d'application sont résumés dans le tableau ci-dessous, et les sources des données de surveillance pour chaque niveau sont présentées dans les sections suivantes. Consultez [Emplacements des données de surveillance dans Azure](../monitor-reference.md) pour une description de chaque emplacement de données et comment accéder à ses données.
 
 
 ![Niveaux de surveillance](../media/overview/overview.png)
@@ -208,4 +208,4 @@ D'autres services Azure écrivent les données sur la plate-forme de données Az
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Apprenez-en davantage sur les [types de données de supervision collectés par Azure Monitor](data-platform.md) et sur l’affichage et l’analyse de ces données.
-- Énumérez les [différents endroits où les ressources Azure stockent les données](data-locations.md) et comment vous pouvez y accéder. 
+- Énumérez les [différents endroits où les ressources Azure stockent les données](../monitor-reference.md) et comment vous pouvez y accéder.

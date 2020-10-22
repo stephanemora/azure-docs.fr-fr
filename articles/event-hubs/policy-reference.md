@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Event Hubs
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Event Hubs. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: da5d9be9e7684e3f3ab83856f2477824d9239f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6525d1a2ea474fadd9257b5583b910127cd31634
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819128"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318406"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Définitions intégrées d’Azure Policy pour Azure Event Hubs
 

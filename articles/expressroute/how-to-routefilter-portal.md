@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5d5f46c4f078038b91881000cf8a6b67000683e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078627"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109134"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutoriel : Configurer des filtres de routage pour l’homologation Microsoft à l’aide du portail Azure
 
@@ -126,7 +126,7 @@ Pour dissocier un circuit du filtre de routage, cliquez avec le bouton droit sur
 :::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
 
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez supprimer un filtre de routage en sélectionnant le bouton **Supprimer**. Avant de procéder, assurez-vous que le filtre de routage n’est associé à aucun circuit.
 

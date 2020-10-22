@@ -4,12 +4,12 @@ description: Les groupes intelligents sont des regroupements d’alertes qui vou
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77665491"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108777"
 ---
 # <a name="smart-groups"></a>Groupes intelligents
 
@@ -33,7 +33,7 @@ Les états de groupe intelligent suivants sont pris en charge.
 | Reconnu | Un administrateur a révisé le groupe intelligent et a commencé à y travailler. |
 | Fermés | Le problème a été résolu. Après qu’un groupe intelligent a été fermé, vous pouvez le rouvrir en modifiant son état. |
 
-[Découvrez comment modifier l’état de votre groupe intelligent.](https://aka.ms/managing-alert-smart-group-states)
+[Découvrez comment modifier l’état de votre groupe intelligent.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
 > [!NOTE]
 >  La modification de l'état d'un groupe intelligent ne modifie pas l'état des alertes de membre individuelles.
@@ -58,7 +58,5 @@ Le nom d’un groupe intelligent correspond au nom de sa première alerte. Vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer les groupes intelligents](https://aka.ms/managing-smart-groups)
-- [Modifier les états des alertes et des groupes intelligents](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [Gérer les groupes intelligents](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Modifier les états des alertes et des groupes intelligents](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)

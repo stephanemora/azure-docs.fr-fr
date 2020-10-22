@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578102"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108811"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -119,7 +119,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 ## <a name="payload-schema"></a>Schéma de la charge utile
 
 > [!NOTE]
-> Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma d’alerte commun.](https://aka.ms/commonAlertSchemaDefinitions)
+> Vous pouvez également utiliser le [schéma d’alerte commun](./alerts-common-schema.md), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma d’alerte commun.](./alerts-common-schema-definitions.md)
 
 
 L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes plus récentes basées sur des métriques lorsqu’un [groupe d’action](./action-groups.md) configuré de manière appropriée est utilisé :
@@ -180,4 +180,3 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 * En savoir plus sur la nouvelle [expérience Alertes](./alerts-overview.md).
 * En savoir plus sur les [alertes de journal dans Azure](./alerts-unified-log.md).
 * En savoir plus sur les [alertes dans Azure](./alerts-overview.md).
-

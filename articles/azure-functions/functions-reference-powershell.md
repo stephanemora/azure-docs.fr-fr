@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071157"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108471"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -143,7 +143,7 @@ Les paramètres communs suivants sont également pris en charge :
 * `PipelineVariable`
 * `OutVariable` 
 
-Pour plus d’informations, consultez [À propos des paramètres communs](https://go.microsoft.com/fwlink/?LinkID=113216).
+Pour plus d’informations, consultez [À propos des paramètres communs](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Exemple de Push-OutputBinding : Réponses HTTP
 
@@ -560,7 +560,7 @@ Il existe plusieurs modèles de concurrence que vous pouvez explorer en fonction
 
 Vous définissez ces variables d’environnement dans les [paramètres d’application](functions-app-settings.md) de votre application de fonction.
 
-Selon votre cas d’usage, Durable Functions peut considérablement améliorer la scalabilité. Pour plus d’informations, consultez les [modèles d’application Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Selon votre cas d’usage, Durable Functions peut considérablement améliorer la scalabilité. Pour plus d’informations, consultez les [modèles d’application Durable Functions](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Il est possible que vous receviez des avertissements de type « les requêtes sont mises en file d’attente en l’absence d’instances d’exécution disponibles ». Notez qu’il ne s’agit pas d’une erreur. Ce message vous informe que les requêtes sont en file d’attente et qu’elles seront gérées au terme des requêtes précédentes.

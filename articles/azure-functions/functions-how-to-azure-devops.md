@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210224"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108233"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 
@@ -256,7 +256,7 @@ Pour créer un pipeline de build dans Azure, utilisez la [commande](/cli/azure/f
 
     - Vous devez être l’administrateur de projet dans Azure DevOps.
 
-    - Vous devez disposer des autorisations nécessaires pour créer un jeton d’accès personnel GitHub disposant d’autorisations suffisantes. Pour plus d’informations, consultez [Autorisations requises du jeton d’accès personnel GitHub](https://aka.ms/azure-devops-source-repos).
+    - Vous devez disposer des autorisations nécessaires pour créer un jeton d’accès personnel GitHub disposant d’autorisations suffisantes. Pour plus d’informations, consultez [Autorisations requises du jeton d’accès personnel GitHub](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication).
 
     - Vous devez disposer des autorisations nécessaires pour valider dans la branche principale de votre référentiel GitHub pour valider le fichier YAML généré automatiquement.
 

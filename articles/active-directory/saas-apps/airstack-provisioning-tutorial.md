@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3990f9533aa6746011b1f070139b39ec884711c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb971cd0bd0addd3190e2a3a5f9c6740494b7fd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305832"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318959"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Airstack pour l’approvisionnement automatique des utilisateurs
 
@@ -89,7 +89,7 @@ Avant de configurer Airstack pour l’approvisionnement automatique d’utilisat
 Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans Airstack en fonction des attributions d’utilisateurs et/ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Airstack en suivant les instructions fournies dans le [didacticiel sur l’authentification unique pour Airstack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
+> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Airstack en suivant les instructions fournies dans le [didacticiel sur l’authentification unique pour Airstack](./airstack-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent
 
 ### <a name="to-configure-automatic-user-provisioning-for-airstack-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Airstack dans Azure AD :
 
@@ -153,4 +153,3 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
-

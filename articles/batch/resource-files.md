@@ -3,12 +3,12 @@ title: Création et utilisation de fichiers de ressources
 description: Découvrez comment créer des fichiers de ressources Batch à partir de diverses sources d’entrée. Cet article décrit quelques méthodes courantes pour les créer et les placer sur une machine virtuelle.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230940"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109287"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Une alternative à la génération d’une URL SAS consiste à activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé. L’accès en lecture public est généralement utilisé dans les situations où vous voulez conférer à certains objets blob un accès en lecture anonyme permanent. Si ce scénario convient à votre solution, consultez l’article [Accès anonyme aux objets Blob](../storage/blobs/storage-manage-access-to-resources.md) article pour en savoir plus sur la gestion de l’accès à vos données d’objet blob.
+Une alternative à la génération d’une URL SAS consiste à activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé. L’accès en lecture public est généralement utilisé dans les situations où vous voulez conférer à certains objets blob un accès en lecture anonyme permanent. Si ce scénario convient à votre solution, consultez l’article [Accès anonyme aux objets Blob](../storage/blobs/anonymous-read-access-configure.md) article pour en savoir plus sur la gestion de l’accès à vos données d’objet blob.
 
 ### <a name="storage-container-name"></a>Nom de conteneur de stockage
 

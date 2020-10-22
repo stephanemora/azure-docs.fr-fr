@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016091"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107604"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 
@@ -29,22 +29,6 @@ Pour Azure Analysis Services, la première configuration de la passerelle se dé
 - **Créer une ressource de passerelle dans Azure** - Dans cette étape, vous créez une ressource de passerelle dans Azure.
 
 - **Connecter la ressource de passerelle aux serveurs** - Quand vous disposez d’une ressource de passerelle, vous pouvez commencer à y connecter des serveurs. Vous pouvez y connecter plusieurs serveurs et d’autres ressources, pourvu qu’ils soient dans la même région.
-
-
-
-## <a name="how-it-works"></a>Fonctionnement
-La passerelle que vous installez sur un ordinateur de votre organisation s’exécute comme un service Windows, **Passerelle de données locale**. Ce service local est inscrit auprès du service cloud de passerelle via Azure Service Bus. Vous créez ensuite une ressource de passerelle de données locale pour un abonnement Azure. Vos serveurs Azure Analysis Services sont alors connectés à vos ressources de passerelle Azure. Lorsque des modèles sur votre serveur doivent se connecter à vos sources de données locales pour des requêtes ou un traitement, un flux de données et de requête parcourt la ressource de passerelle, Azure Service Bus, le service de passerelle de données locale et vos sources de données. 
-
-![Fonctionnement](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Requêtes et flux de données :
-
-1. Une requête est créée par le service cloud avec les informations d’identification chiffrées de la source de données locale. Elle est ensuite envoyée dans une file d’attente pour être traitée par la passerelle.
-2. Le service cloud de la passerelle analyse la requête et envoie la requête vers [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. La passerelle de données locale interroge Azure Service Bus pour connaître les requêtes en attente.
-4. La passerelle reçoit la requête, déchiffre les informations d’identification et se connecte aux sources de données avec ces informations d’identification.
-5. La passerelle envoie la requête à la source de données pour exécution.
-6. Les résultats sont renvoyés de la source de données vers la passerelle, puis vers le service cloud et votre serveur.
 
 ## <a name="installing"></a>Installation
 
@@ -76,16 +60,6 @@ Voici les noms de domaine complets utilisés par la passerelle.
 | *.msftncsi.com |443 |Permet de tester la connectivité internet si la passerelle est inaccessible par le service Power BI. |
 | *.microsoftonline-p.com |443 |Utilisé pour l’authentification en fonction de la configuration. |
 | dc.services.visualstudio.com    |443 |Utilisé par AppInsights pour collecter les données de télémétrie. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Forcer les communications HTTPS avec Azure Service Bus
-
-Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’aide de HTTPS au lieu de TCP direct ; toutefois, cela peut affecter considérablement les performances. Vous pouvez modifier le fichier *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* en remplaçant la valeur `AutoDetect` par `Https`. Ce fichier se trouve généralement dans *C:\Program Files\On-premises data gateway*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

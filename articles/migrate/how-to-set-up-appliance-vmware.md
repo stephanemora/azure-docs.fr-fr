@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate pour VMware
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318221"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
@@ -58,7 +58,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces [paramètres](./tutorial-assess-vmware.md#verify-security).
+3. Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces [paramètres](./tutorial-discover-vmware.md#verify-security).
 
 
 
@@ -117,7 +117,7 @@ Configurez l’appliance pour la première fois.
    
    La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion établie, revenez à l’application web. 
-4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](tutorial-prepare-vmware.md#prepare-azure) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
+4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](./tutorial-discover-vmware.md#prepare-an-azure-user-account) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l’inscription de l’appliance terminée, vous pouvez consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
 
 
@@ -126,7 +126,7 @@ Configurez l’appliance pour la première fois.
 L’appliance doit se connecter à vCenter Server pour découvrir les données de configuration et de performances des machines virtuelles.
 
 1. À l’**Étape 1 : Fournir les informations d’identification vCenter Server**, cliquez sur **Ajouter des informations d’identification** pour attribuer un nom convivial aux informations d’identification, puis ajoutez un **nom d’utilisateur** et un **mot de passe** pour le compte vCenter Server dont se servira l’appliance pour détecter les machines virtuelles sur l’instance vCenter Server.
-    - Vous devez avoir configuré un compte avec les autorisations nécessaires dans le [tutoriel précédent](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Vous devez avoir configuré un compte avec les autorisations nécessaires dans le [tutoriel précédent](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter).
     - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou machines virtuelles individuelles), passez en revue les instructions contenues dans [cet article](set-discovery-scope.md) pour restreindre le compte utilisé par Azure Migrate.
 1. À l’**Étape 2 : Fournir les détails de vCenter Server**, cliquez sur **Ajouter une source de découverte** pour sélectionner le nom convivial des informations d’identification dans la liste déroulante, puis spécifiez l’**adresse IP/nom de domaine complet** de l’instance vCenter Server. Vous pouvez laisser le **port** par défaut (443) ou spécifier un port personnalisé sur lequel vCenter Server est à l’écoute, puis cliquez sur **Enregistrer**.
 1. Dès que vous cliquez sur Enregistrer, l’appliance tente de valider la connexion à vCenter Server avec les informations d’identification indiquées et affiche l’**état de validation** dans le tableau pour l’adresse IP/le nom de domaine complet de vCenter Server.
@@ -145,4 +145,4 @@ La découverte fonctionne comme ceci :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue les tutoriels pour l'[évaluation VMware](tutorial-assess-vmware.md) et la [migration sans agent](tutorial-migrate-vmware.md).
+Passez en revue les tutoriels pour l'[évaluation VMware](./tutorial-assess-vmware-azure-vm.md) et la [migration sans agent](tutorial-migrate-vmware.md).

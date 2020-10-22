@@ -4,12 +4,12 @@ description: Quelle taille de machine virtuelle choisir parmi celles disponibles
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271305"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107502"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -24,7 +24,7 @@ Quelques exceptions et limites s’appliquent quant au choix d’une taille de m
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools dans la configuration de la machine virtuelle
 
-Les pools Batch dans la configuration de la machine virtuelle prennent en charge presque toutes les tailles de machine virtuelle ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Consultez le tableau suivant pour en savoir plus sur les tailles prises en charge et les restrictions.
+Les pools Batch dans la configuration de la machine virtuelle prennent en charge presque toutes les tailles de machine virtuelle ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). Consultez le tableau suivant pour en savoir plus sur les tailles prises en charge et les restrictions.
 
 | Série de la machine virtuelle  | Tailles prises en charge |
 |------------|---------|

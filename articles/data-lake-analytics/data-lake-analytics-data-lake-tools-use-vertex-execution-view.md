@@ -1,17 +1,15 @@
 ---
 title: Vue d’exécution du vertex dans Data Lake Tools pour Visual Studio
 description: Cet article décrit comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331945"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215856"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilisation de la vue d’exécution du vertex dans Azure Data Lake Tools pour Visual Studio
 Découvrez comment utiliser la vue d’exécution du vertex pour examiner des travaux Data Lake Analytics.

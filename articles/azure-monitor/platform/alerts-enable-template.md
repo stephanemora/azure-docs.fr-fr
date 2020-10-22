@@ -6,12 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb44b7133e5644991d7413f4f824a8b55ffdd75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87849017"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108369"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure classique avec un modèle Resource Manager
 
@@ -400,6 +400,5 @@ Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les alertes](alerts-overview.md)
-* [Ajout de paramètres de diagnostic](./diagnostic-settings-template.md) à votre modèle Resource Manager
+* [Ajout de paramètres de diagnostic](../samples/resource-manager-diagnostic-settings.md) à votre modèle Resource Manager
 * Pour les propriétés et la syntaxe JSON, consultez la référence de modèle [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
-

@@ -3,12 +3,12 @@ title: Chiffrer la source de votre application au repos
 description: Chiffrez les données de votre application dans le Stockage Azure et déployez-la en tant que fichier de package.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282328"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108029"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Chiffrer vos données d’application au repos avec des clés gérées par le client
 
@@ -22,7 +22,7 @@ Le chiffrement des données au repos de votre application de fonction nécessite
 
 ### <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
-Tout d’abord, [créez un compte de stockage Azure](../storage/common/storage-account-create.md) et [chiffrez-le avec des clés gérées par le client](../storage/common/encryption-customer-managed-keys.md). Une fois le compte de stockage créé, utilisez l’[Explorateur Stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger les fichiers de package.
+Tout d’abord, [créez un compte de stockage Azure](../storage/common/storage-account-create.md) et [chiffrez-le avec des clés gérées par le client](../storage/common/customer-managed-keys-overview.md). Une fois le compte de stockage créé, utilisez l’[Explorateur Stockage Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger les fichiers de package.
 
 Ensuite, utilisez l’Explorateur Stockage pour [générer une URL SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

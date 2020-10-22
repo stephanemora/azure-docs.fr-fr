@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 31a8457b4b1ac069cafbfd9713f15fdad7142d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e233c7c4eb76e79e73d0c5fc386a9d908f0e35b5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87445801"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216689"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
 
-Azure [Change Tracking](../../automation/change-tracking.md) vous permet d’identifier facilement les changements, tandis que [Update Management](../../automation/update-management/update-mgmt-overview.md) vous permet de gérer les mises à jour du système d’exploitation de vos machines virtuelles Linux Azure.
+Azure [Change Tracking](../../automation/change-tracking/overview.md) vous permet d’identifier facilement les changements, tandis que [Update Management](../../automation/update-management/overview.md) vous permet de gérer les mises à jour du système d’exploitation de vos machines virtuelles Linux Azure.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -115,10 +115,10 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | --- | --- |
 | Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
-| Groupes à mettre à jour |Pour des machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les machines non-Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines non-Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](../../automation/update-management/update-mgmt-groups.md)|
+| Groupes à mettre à jour |Pour des machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les machines non-Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines non-Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](../../automation/update-management/configure-groups.md)|
 | Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
-|Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) |
+|Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
 | Préscripts + postscripts|Sélectionnez les scripts à exécuter avant et après votre déploiement|
 | Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures |

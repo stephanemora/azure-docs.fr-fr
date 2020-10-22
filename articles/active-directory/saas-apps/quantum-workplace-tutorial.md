@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552250"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Tutoriel : Intégration d’Azure Active Directory à Quantum Workplace
 
@@ -99,11 +99,11 @@ Pour configurer l’authentification unique Azure AD avec Quantum Workplace, eff
 
 4. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-    ![Informations d’authentification unique dans Domaine et URL Quantum Workplace](common/preintegrated.png)
+    ![Capture d’écran montrant Basic SAML Configuration.](common/preintegrated.png)
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Quantum Workplace](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://auth.quantumworkplace.com/Account/Login`
 

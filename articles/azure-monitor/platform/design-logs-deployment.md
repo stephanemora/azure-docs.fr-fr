@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534197"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107876"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -91,7 +91,7 @@ Les utilisateurs disposent de deux options pour accéder aux données :
     > - Service Fabric
     > - Application Insights
     >
-    > Vous pouvez tester si les journaux sont correctement associés à leurs ressources en exécutant une requête et en inspectant les enregistrements qui vous intéressent. Si l’ID de ressource correct se trouve dans la propriété [_ResourceId](log-standard-properties.md#_resourceid), les données sont disponibles pour les requêtes centrées sur la ressource.
+    > Vous pouvez tester si les journaux sont correctement associés à leurs ressources en exécutant une requête et en inspectant les enregistrements qui vous intéressent. Si l’ID de ressource correct se trouve dans la propriété [_ResourceId](./log-standard-columns.md#_resourceid), les données sont disponibles pour les requêtes centrées sur la ressource.
 
 Azure Monitor détermine automatiquement le mode approprié en fonction du contexte à partir duquel vous effectuez la recherche dans les journaux. L’étendue est toujours affichée en haut à gauche de Log Analytics.
 
@@ -164,4 +164,3 @@ Lors de la planification de votre migration vers ce modèle, prenez en compte le
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour implémenter les contrôles et les autorisations de sécurité recommandés dans ce guide, consultez [Gérer l’accès aux journaux](manage-access.md).
-

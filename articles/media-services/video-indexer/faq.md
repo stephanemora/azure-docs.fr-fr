@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046959"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217726"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Forum Aux Questions sur Video Indexer
 
@@ -183,7 +183,7 @@ Actuellement, des fonctionnalités sont disponibles à la fois dans l’API Vide
 
 L’API Video Indexer contient une API Autorisations et une API Opérations. L’API Autorisations contient des appels qui vous donnent un jeton d’accès. Chaque appel à l’API Opérations doit être associé à un jeton d’accès correspondant à l’étendue d’autorisation de l’appel.
 
-Les jetons d’accès sont nécessaires pour utiliser les API Video Indexer pour des raisons de sécurité. Cela garantit que tous les appels proviennent de vous ou des personnes qui ont des autorisations d’accès à votre compte. 
+Les jetons d’accès sont nécessaires pour utiliser les API Video Indexer pour des raisons de sécurité. Cela garantit que tous les appels proviennent de vous ou des personnes qui ont des autorisations d’accès à votre compte. 
 
 ### <a name="what-is-the-difference-between-account-access-token-user-access-token-and-video-access-token"></a>Quelle est la différence entre le jeton d’accès Compte, le jeton d’accès Utilisateur et le jeton d’accès Vidéo ?
 
@@ -217,4 +217,5 @@ Oui. Video Indexer propose un essai gratuit qui offre des fonctionnalités compl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d'ensemble](video-indexer-overview.md)
+* [Vue d'ensemble](video-indexer-overview.md)
+* [Stack Overflow](https://stackoverflow.com/search?q=video-indexer)
