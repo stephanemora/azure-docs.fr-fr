@@ -160,6 +160,8 @@
       items:
         - name: Comprendre le portail des développeurs
           href: api-management-howto-developer-portal.md
+        - name: Migrer depuis le portail déprécié vers le nouveau portail des développeurs
+          href: developer-portal-deprecated-migration.md
         - name: S’authentifier avec Azure AD
           href: api-management-howto-aad.md
         - name: S’authentifier avec Azure AD B2C
@@ -170,13 +172,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Activer la prise en charge de la console OAuth
           href: api-management-howto-oauth2.md
-        - name: Portail hérité - personnaliser le portail
+        - name: Portail déprécié - personnaliser le portail
           href: api-management-customize-styles.md
-        - name: Portail hérité - modifier les pages et les dispositions
+        - name: Portail déprécié - modifier les pages et les dispositions
           href: api-management-modify-content-layout.md
-        - name: Portail hérité - personnaliser avec des modèles
+        - name: Portail déprécié - personnaliser avec des modèles
           href: api-management-developer-portal-templates.md
-    - name: Modèles du portail hérité
+    - name: Modèles du portail déprécié
       items:
         - name: Référence du modèle de données
           href: api-management-template-data-model-reference.md

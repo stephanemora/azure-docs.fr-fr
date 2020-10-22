@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300100"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104136"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -243,7 +243,7 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 
 Le **RBAC au niveau table** vous permet de définir un contrôle plus précis sur les données dans un espace de travail Log Analytics en plus des autres autorisations. Avec ce contrôle, vous pouvez définir des types de données spécifiques qui sont accessibles uniquement à un ensemble spécifique d’utilisateurs.
 
-Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder l’accès à des [tables](../log-query/logs-structure.md) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode) est en fonction du contexte de l’espace de travail ou en fonction du contexte de la ressource, quel que soit le [mode d’accès](design-logs-deployment.md#access-mode) de l’utilisateur.
+Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder l’accès à des [tables](./data-platform-logs.md) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode) est en fonction du contexte de l’espace de travail ou en fonction du contexte de la ressource, quel que soit le [mode d’accès](design-logs-deployment.md#access-mode) de l’utilisateur.
 
 Créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md) avec les actions suivantes pour définir le contrôle d’accès à une table.
 

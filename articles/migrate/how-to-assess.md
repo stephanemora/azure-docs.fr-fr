@@ -3,12 +3,12 @@ title: Ajouter des outils d’évaluation dans Azure Migrate
 description: Découvrez comment ajouter des outils d’évaluation dans Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122113"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317366"
 ---
 # <a name="add-assessment-tools"></a>Ajouter des outils d’évaluation
 
@@ -60,4 +60,4 @@ Cet article explique comment ajouter des outils d’évaluation dans [Azure Migr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez une évaluation avec Azure Migrate Server Assessment pour les machines virtuelles [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md) ou les [serveur physiques](tutorial-prepare-physical.md).
+Essayez une évaluation avec Azure Migrate Server Assessment pour les machines virtuelles [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) ou les [serveur physiques](./tutorial-discover-physical.md).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191396"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104034"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accéder à Azure Data Lake Storage Gen1 à partir de machines virtuelles au sein d’un réseau virtuel Azure
 Azure Data Lake Storage Gen1 est un service PaaS qui s’exécute sur des adresses IP Internet publiques. En général, tout serveur qui peut se connecter à l’Internet public peut également se connecter aux points de terminaison Azure Data Lake Storage Gen1. Par défaut, toutes les machines virtuelles qui se trouvent dans des réseaux virtuels Azure peuvent accéder à Internet et, ainsi, accéder à Azure Data Lake Storage Gen1. Toutefois, il est possible de configurer des machines virtuelles dans un réseau virtuel afin qu’elles n’aient pas accès à Internet. Pour ces machines virtuelles, l’accès à Azure Data Lake Storage Gen1 est également restreint. Bloquer l’accès à l’Internet public pour des machines virtuelles dans des réseaux virtuels Azure peut être effectué à l’aide d’une des approches suivantes :
@@ -46,7 +46,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Activation de la connectivité à partir de machines virtuelles restreintes à l’aide d’un groupe de sécurité réseau
-Quand une règle de groupe de sécurité réseau est utilisée pour bloquer l’accès à Internet, vous pouvez créer un autre groupe de sécurité réseau qui autorise l’accès à l’adresse IP de Data Lake Storage Gen1. Pour plus d’informations concernant les règles du groupe de sécurité réseau, consultez [Vue d’ensemble des groupes de sécurité réseau](../virtual-network/security-overview.md). Pour savoir comment créer des groupes de sécurité réseau, consultez [Créer un groupe de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md).
+Quand une règle de groupe de sécurité réseau est utilisée pour bloquer l’accès à Internet, vous pouvez créer un autre groupe de sécurité réseau qui autorise l’accès à l’adresse IP de Data Lake Storage Gen1. Pour plus d’informations concernant les règles du groupe de sécurité réseau, consultez [Vue d’ensemble des groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md). Pour savoir comment créer des groupes de sécurité réseau, consultez [Créer un groupe de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Activation de la connectivité à partir de machines virtuelles restreintes à l’aide d’un itinéraire défini par l’utilisateur ou d’ExpressRoute
 Quand des itinéraires, définis par l’utilisateur ou échangés par le biais de BGP, sont utilisés pour bloquer l’accès à Internet, un itinéraire spécial doit être configuré afin que les machines virtuelles dans ces sous-réseaux puissent accéder aux points de terminaison Data Lake Storage Gen1. Pour plus d’informations, consultez [Vue d’ensemble des itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md). Pour obtenir des instructions sur la création d’itinéraires définis par l’utilisateur, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
@@ -57,4 +57,3 @@ Quand un circuit ExpressRoute est configuré, les serveurs locaux peuvent accéd
 ## <a name="see-also"></a>Voir aussi
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Sécurisation des données stockées dans Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
-

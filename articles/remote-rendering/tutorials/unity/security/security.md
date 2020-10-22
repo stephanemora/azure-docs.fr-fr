@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650474"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207527"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles
 
@@ -188,11 +188,11 @@ Il nous reste un « mot de passe » (AccountKey) à supprimer de l’applicati
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Authentification Azure Active Directory (Azure AD)
 
-L’authentification AAD vous permet de mieux contrôler les individus ou les groupes qui utilisent ARR. ARR offre une prise en charge intégrée des [jetons d’accès ](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), qui peuvent être utilisés à la place d’une clé de compte. Vous pouvez considérer les jetons d’accès comme une clé utilisateur limitée dans le temps, qui déverrouille seulement certaines parties de la ressource pour laquelle elle a été demandée.
+L’authentification AAD vous permet de mieux contrôler les individus ou les groupes qui utilisent ARR. ARR offre une prise en charge intégrée des [jetons d’accès ](../../../../active-directory/develop/access-tokens.md), qui peuvent être utilisés à la place d’une clé de compte. Vous pouvez considérer les jetons d’accès comme une clé utilisateur limitée dans le temps, qui déverrouille seulement certaines parties de la ressource pour laquelle elle a été demandée.
 
 Le script **RemoteRenderingCoordinator** comporte un délégué nommé **ARRCredentialGetter**, dont l’une des méthodes retourne un objet **AzureFrontendAccountInfo**, qui sert à configurer la gestion des sessions à distance. Il est possible d’affecter une autre méthode à **ARRCredentialGetter**, nous permettant d’utiliser un flux de connexion Azure pour générer un objet **AzureFrontendAccountInfo** qui contient un jeton d’accès Azure. Ce jeton d’accès est propre à l’utilisateur qui se connecte.
 
-1. Suivez la [procédure : Configurer l’authentification – Authentification des applications déployées](../../../how-tos/authentication.md#authentication-for-deployed-applications), en particulier les instructions de la section [Authentification utilisateur Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) dans la documentation Azure Spatial Anchors. Cela implique d’inscrire une nouvelle application Azure Active Directory et de configurer l’accès à votre instance ARR.
+1. Suivez la [procédure : Configurer l’authentification – Authentification des applications déployées](../../../how-tos/authentication.md#authentication-for-deployed-applications), en particulier les instructions de la section [Authentification utilisateur Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) dans la documentation Azure Spatial Anchors. Cela implique d’inscrire une nouvelle application Azure Active Directory et de configurer l’accès à votre instance ARR.
 1. Après avoir configuré la nouvelle application AAD, vérifiez que votre application AAD se présente comme dans l’image suivante :
 
     **Application AAD -> Authentification** ![Authentification de l’application](./media/app-authentication-public.png)
@@ -361,7 +361,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
 
 Le code essaie dans un premier temps de récupérer le jeton en mode silencieux à l’aide de **AquireTokenSilent**. Cette tentative aboutira si l’utilisateur a préalablement authentifié cette application. Dans le cas contraire, adoptez une stratégie qui implique l’utilisateur.
 
-Pour ce code, nous utilisons le [flux de code d’appareil](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) pour obtenir un jeton d’accès. Ce flux permet à l’utilisateur de se connecter à son compte Azure sur un ordinateur ou un appareil mobile et d’avoir l’assurance que le jeton obtenu est renvoyé à l’application HoloLens.
+Pour ce code, nous utilisons le [flux de code d’appareil](../../../../active-directory/develop/v2-oauth2-device-code.md) pour obtenir un jeton d’accès. Ce flux permet à l’utilisateur de se connecter à son compte Azure sur un ordinateur ou un appareil mobile et d’avoir l’assurance que le jeton obtenu est renvoyé à l’application HoloLens.
 
 La partie la plus importante de ce cours du point de vue d’ARR est cette ligne :
 

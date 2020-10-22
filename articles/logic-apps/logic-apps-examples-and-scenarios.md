@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317374"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 
@@ -126,7 +126,7 @@ Vous pouvez développer et déployer des applications logiques entièrement avec
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Gérer les types de contenu, les conversions et les transformations
 
-Vous pouvez accéder à plusieurs types de contenu, les convertir et les transformer à l’aide des nombreuses fonctions du [langage de définition de flux de travail](https://aka.ms/logicappsdocs) d’Azure Logic Apps. Par exemple, vous pouvez effectuer des conversions entre une chaîne, JSON et XML avec les expressions de flux de travail `@json()` et `@xml()`. Le moteur Logic Apps préserve les types de contenu pour prendre en charge le transfert de contenu entre les services sans perte.
+Vous pouvez accéder à plusieurs types de contenu, les convertir et les transformer à l’aide des nombreuses fonctions du [langage de définition de flux de travail](./logic-apps-workflow-definition-language.md) d’Azure Logic Apps. Par exemple, vous pouvez effectuer des conversions entre une chaîne, JSON et XML avec les expressions de flux de travail `@json()` et `@xml()`. Le moteur Logic Apps préserve les types de contenu pour prendre en charge le transfert de contenu entre les services sans perte.
 
 * [Gérer les types de contenu dans Azure Logic Apps](../logic-apps/logic-apps-content-type.md), comme `application/`, `application/octet-stream` et `multipart/formdata`
 * [Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)

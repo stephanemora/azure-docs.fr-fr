@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651494"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206323"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurer la coexistence de connexions de site à site et ExpressRoute (classique)
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Vous pouvez choisir entre deux procédures différentes pour configurer vos conn
 Cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions de site à site et ExpressRoute appelées à coexister.
 
 1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/). Les applets de commande que vous utiliserez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
-2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](/previous-versions/azure/reference/jj157100(v=azure.100)).
    
     Lorsque vous créez votre schéma, veillez à utiliser les valeurs suivantes :
    
@@ -229,7 +229,7 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 4. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 ou un préfixe plus court (comme /26 ou /25). Consultez l’exemple qui suit. 
    
    > [!NOTE]
-   > S’il ne vous reste pas suffisamment d’adresses IP dans votre réseau virtuel pour augmenter la taille du sous-réseau de passerelle, vous devez augmenter l’espace d’adresses IP. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+   > S’il ne vous reste pas suffisamment d’adresses IP dans votre réseau virtuel pour augmenter la taille du sous-réseau de passerelle, vous devez augmenter l’espace d’adresses IP. Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](/previous-versions/azure/reference/jj157100(v=azure.100)).
    > 
    > 
    
@@ -253,4 +253,3 @@ Si le sous-réseau de passerelle est défini sur/27 ou plus et si le réseau vir
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md)
-

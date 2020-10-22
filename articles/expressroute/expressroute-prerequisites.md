@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fad1bca18d16ac3b6a654a3c289d0a14e3cd2e2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569626"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204790"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
@@ -34,14 +34,14 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 * **Routage** : selon la façon dont vous vous connectez à Microsoft Cloud, vous ou votre fournisseur pouvez avoir besoin de configurer et gérer les sessions BGP pour les [domaines de routage](expressroute-circuit-peerings.md). Certains fournisseurs de connectivité Ethernet ou fournisseurs d’échange cloud peuvent proposer la gestion BGP en tant que service à valeur ajoutée.
 * **Traduction d’adresses réseau (NAT)** : Microsoft accepte uniquement les adresses IP publiques par le biais du peering Microsoft. Si votre réseau local comporte des adresses IP privées, vous ou votre fournisseur devez traduire les adresses IP privées en adresses IP publiques [à l’aide de la traduction d’adresses réseau](expressroute-nat.md).
 * **Qualité de service (QoS)** : Skype Entreprise comprend différents services (par exemple, voix, vidéo, texte) nécessitant un traitement QoS différencié. Vous et votre fournisseur devez suivre la [configuration requise pour ExpressRoute QoS](expressroute-qos.md).
-* **Sécurité réseau** : pensez à la [sécurité réseau](../best-practices-network-security.md) lorsque vous vous connectez à Microsoft Cloud par le biais d’ExpressRoute.
+* **Sécurité réseau** : pensez à la [sécurité réseau](/azure/cloud-adoption-framework/reference/networking-vdc) lorsque vous vous connectez à Microsoft Cloud par le biais d’ExpressRoute.
 
 ## <a name="microsoft-365"></a>Microsoft 365
 Si vous prévoyez d’activer Microsoft 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur la configuration requise pour Microsoft 365.
 
 * [Azure ExpressRoute pour Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Routage avec ExpressRoute pour Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
-* [Haute disponibilité et basculement avec ExpressRoute](https://aka.ms/erhighavailability)
+* [Haute disponibilité et basculement avec ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 * [URL et plages d’adresses IP Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Planification réseau et optimisation des performances pour Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Planification réseau et planification de la migration pour Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)

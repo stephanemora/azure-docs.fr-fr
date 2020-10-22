@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49027899d66a2192cc311fb4dba66e441155b527
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613655"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206847"
 ---
 # <a name="scene-lighting"></a>Éclairage de la scène
 
@@ -72,14 +72,14 @@ Les sources de lumière ont un impact significatif sur les performances de rendu
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [LightComponentBase, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
-* [PointLightComponent, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
-* [SpotLightComponent, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
-* [DirectionalLightComponent, classe C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
-* [LightComponentBase, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
-* [PointLightComponent, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
-* [SpotLightComponent, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
-* [DirectionalLightComponent, classe C++](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
+* [LightComponentBase, classe C#](/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [PointLightComponent, classe C#](/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [SpotLightComponent, classe C#](/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [DirectionalLightComponent, classe C#](/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [LightComponentBase, classe C++](/cpp/api/remote-rendering/lightcomponentbase)
+* [PointLightComponent, classe C++](/cpp/api/remote-rendering/pointlightcomponent)
+* [SpotLightComponent, classe C++](/cpp/api/remote-rendering/spotlightcomponent)
+* [DirectionalLightComponent, classe C++](/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

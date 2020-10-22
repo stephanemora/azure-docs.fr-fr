@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021066"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203243"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutoriel : Affinage des matériaux, de l’éclairage et des effets
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Il est important d’offrir un retour visuel à l’utilisateur d’une application au titre de l’expérience utilisateur. Azure Remote Rendering propose des mécanismes de retour visuel à travers les [remplacements d’état hiérarchiques](../../../overview/features/override-hierarchical-state.md). Les remplacements d’état hiérarchiques sont implémentés à partir des composants attachés aux instances locales de modèles. Nous avons vu comment créer ces instances locales dans la section [Synchronisation du graphe d’objets distants dans la hiérarchie Unity](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy).
 
-Pour commencer, nous allons créer un wrapper autour du composant [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). **HierarchicalStateOverrideComponent** est le script local qui contrôle les remplacements au niveau de l’entité distante. Les [**ressources du tutoriel**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) comportent une classe de base abstraite appelée **BaseEntityOverrideController**, que nous allons développer pour créer le wrapper.
+Pour commencer, nous allons créer un wrapper autour du composant [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent). **HierarchicalStateOverrideComponent** est le script local qui contrôle les remplacements au niveau de l’entité distante. Les [**ressources du tutoriel**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) comportent une classe de base abstraite appelée **BaseEntityOverrideController**, que nous allons développer pour créer le wrapper.
 
 1. Créez un script sous le nom **EntityOverrideController** et remplacez son contenu par le code suivant :
 

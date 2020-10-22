@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309997"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207136"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 L’agent Azure Log Analytics collecte la télémétrie de machines virtuelles Windows et Linux dans n’importe quel cloud, sur des ordinateurs locaux et sur des ordinateurs surveillés par [System Center Operations Manager](/system-center/scom/), puis envoie les données collectées à votre espace de travail Log Analytics dans Azure Monitor. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [Azure Monitor pour machines virtuelles](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) et [Azure Automation](../../automation/automation-intro.md). Cet article propose une présentation détaillée des exigences en matière d’agent, de système et de réseau, ainsi que des méthodes de déploiement.
@@ -51,7 +51,7 @@ Vous pouvez configurer un espace de travail Log Analytics pour qu’il collecte 
 L’agent Log Analytics envoie des données à un espace de travail Log Analytics dans Azure Monitor. L’agent Windows peut être multirésident afin d’envoyer des données à plusieurs espaces de travail et groupes d’administration Operations Manager. L’agent Linux ne peut envoyer qu’à une seule destination, qu’il s’agisse d’un espace de travail ou d’un groupe d’administration.
 
 ## <a name="other-services"></a>Autres services
-L’agent pour Linux et Windows ne se connecte pas uniquement à Azure Monitor. D’autres services, tels qu’Azure Security Center et Azure Sentinel dépendent de l’agent et de son espace de travail Log Analytics connecté. L’agent prend également en charge Azure Automation pour héberger le rôle de travail Runbook Worker hybride, ainsi que d’autres services tels que [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/update-management/update-mgmt-overview.md) et [Azure Security Center](../../security-center/security-center-intro.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+L’agent pour Linux et Windows ne se connecte pas uniquement à Azure Monitor. D’autres services, tels qu’Azure Security Center et Azure Sentinel dépendent de l’agent et de son espace de travail Log Analytics connecté. L’agent prend également en charge Azure Automation pour héberger le rôle de travail Runbook Worker hybride, ainsi que d’autres services tels que [Change Tracking](../../automation/change-tracking/overview.md), [Update Management](../../automation/update-management/update-mgmt-overview.md) et [Azure Security Center](../../security-center/security-center-intro.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Limitations d’espace de travail et de groupe d’administration
 
@@ -148,4 +148,3 @@ Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 * Consultez les [sources de données](agent-data-sources.md) pour connaître les sources de données disponibles pour collecter des données sur votre système Windows ou Linux. 
 * Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions. 
 * Découvrez les [solutions de surveillance](../insights/solutions.md) qui ajoutent des fonctionnalités à Azure Monitor et collectent également des données dans l’espace de travail Log Analytics.
-

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55151ab965b13a944fee5517a2ca8b4f9eb64bb0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613707"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207238"
 ---
 # <a name="outline-rendering"></a>Rendu en mode contour
 
@@ -63,8 +63,8 @@ Le rendu en mode contour peut avoir un impact significatif sur les performances 
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [RemoteManager.OutlineSettings, propriété C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
-* [RemoteManager::OutlineSettings(), C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
+* [RemoteManager.OutlineSettings, propriété C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [RemoteManager::OutlineSettings(), C++](/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 52bfd76a12f431576d4fc3cc7a51c6e58c7551ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442749"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204216"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web
 
@@ -160,7 +160,7 @@ Pour activer l’authentification répartie pour Xamarin.iOS, suivez les étapes
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>Activer le répartiteur pour MSAL pour Android
 
-Pour plus d’informations sur l’activation d’un répartiteur sur Android, consultez [Authentification répartie sur Android](brokered-auth.md).
+Pour plus d’informations sur l’activation d’un répartiteur sur Android, consultez [Authentification répartie sur Android](msal-android-single-sign-on.md).
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Activer le répartiteur pour MSAL pour iOS et macOS
 

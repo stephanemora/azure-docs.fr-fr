@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: c84f168104be4ba4cb8af2e31be82eed0e2ae83a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776270"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205182"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -28,7 +28,7 @@ Le rôle Runbook Worker hybride dépend d’un espace de travail Azure Monitor L
 
 Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consultez le [guide de conception des journaux Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) avant de créer l’espace de travail.
 
-Si vous avez déjà un espace de travail, mais que celui-ci n’est pas lié à votre compte Automation, l’activation d’une fonctionnalité Automation ajoute certaines fonctionnalités pour Azure Automation, comme la prise en charge de la fonctionnalité Runbook Worker hybride. Quand vous activez l’une des fonctionnalités Azure Automation dans votre espace de travail Log Analytics, notamment [Update Management](update-management/update-mgmt-overview.md) ou [Change Tracking and Inventory](change-tracking.md), les composants Worker sont automatiquement poussés vers la machine agent.
+Si vous avez déjà un espace de travail, mais que celui-ci n’est pas lié à votre compte Automation, l’activation d’une fonctionnalité Automation ajoute certaines fonctionnalités pour Azure Automation, comme la prise en charge de la fonctionnalité Runbook Worker hybride. Quand vous activez l’une des fonctionnalités Azure Automation dans votre espace de travail Log Analytics, notamment [Update Management](update-management/update-mgmt-overview.md) ou [Change Tracking and Inventory](change-tracking/overview.md), les composants Worker sont automatiquement poussés vers la machine agent.
 
 Pour ajouter la fonctionnalité Update Management à votre espace de travail, exécutez l’applet de commande PowerShell suivante :
 

@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330874"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105989"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
-Cet article décrit les [définitions de schéma d’alerte courant](https://aka.ms/commonAlertSchemaDocs) pour Azure Monitor, y compris pour les webhooks, Azure Logic Apps, Azure Functions et les runbooks Azure Automation. 
+Cet article décrit les [définitions de schéma d’alerte courant](./alerts-common-schema.md) pour Azure Monitor, y compris pour les webhooks, Azure Logic Apps, Azure Functions et les runbooks Azure Automation. 
 
 Chaque instance d’alerte décrit la ressource affectée et la cause de l’alerte. Ces instances sont décrites dans le schéma commun dans les sections suivantes :
 * **Informations de base** : ensemble de champs standardisés, commun à tous les types d’alerte, qui décrivent quelle ressource est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
@@ -541,5 +541,5 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur le [schéma d’alerte courant](https://aka.ms/commonAlertSchemaDocs).
-- Découvrez [comment créer une application logique qui utilise le schéma d’alerte courant pour gérer toutes vos alertes](./alerts-common-schema-integrations.md). 
+- Apprenez-en davantage sur le [schéma d’alerte courant](./alerts-common-schema.md).
+- Découvrez [comment créer une application logique qui utilise le schéma d’alerte courant pour gérer toutes vos alertes](./alerts-common-schema-integrations.md).

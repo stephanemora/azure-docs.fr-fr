@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Résoudre les erreurs d’authentification unique basée sur SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Déboguer l’authentification unique basée sur SAML
+          href: debug-saml-sso-issues.md
         - name: Résoudre les problèmes de connexion utilisateur
           items:
             - name: Invite de consentement inattendue

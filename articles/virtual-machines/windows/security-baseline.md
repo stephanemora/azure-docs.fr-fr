@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978018"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205027"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -360,7 +360,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Informations sur Privileged Identity Manager](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -750,7 +750,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Présentation d’Azure Automation](../../automation/automation-intro.md)
 
-* [Suivre les changements dans votre environnement avec la solution Change Tracking](../../automation/change-tracking.md)
+* [Suivre les changements dans votre environnement avec la solution Change Tracking](../../automation/change-tracking/overview.md)
 
 * [Présentation d'Azure Automation State Configuration](../../automation/automation-dsc-overview.md)
 

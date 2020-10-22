@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Windows dans Azure Automation
 description: Cet article décrit comment déployer un Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des ordinateurs Windows de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a03d14fa272f5f86af1caf0ce9537bbb186d13cc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204515"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -28,7 +28,7 @@ Le rôle Runbook Worker hybride dépend d’un espace de travail Azure Monitor L
 
 Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consultez le [guide de conception des journaux Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) avant de créer l’espace de travail.
 
-Si vous avez déjà un espace de travail, mais que celui-ci n’est pas lié à votre compte Automation, l’activation d’une fonctionnalité Automation ajoute certaines fonctionnalités pour Azure Automation, comme la prise en charge de la fonctionnalité Runbook Worker hybride. Quand vous activez l’une des fonctionnalités Azure Automation dans votre espace de travail Log Analytics, notamment [Update Management](update-management/update-mgmt-overview.md) ou [Change Tracking and Inventory](change-tracking.md), les composants Worker sont automatiquement poussés vers la machine agent.
+Si vous avez déjà un espace de travail, mais que celui-ci n’est pas lié à votre compte Automation, l’activation d’une fonctionnalité Automation ajoute certaines fonctionnalités pour Azure Automation, comme la prise en charge de la fonctionnalité Runbook Worker hybride. Quand vous activez l’une des fonctionnalités Azure Automation dans votre espace de travail Log Analytics, notamment [Update Management](update-management/update-mgmt-overview.md) ou [Change Tracking and Inventory](change-tracking/overview.md), les composants Worker sont automatiquement poussés vers la machine agent.
 
 > [!NOTE]
 > Lors de l’activation de la fonctionnalité Update Management ou Change Tracking et Inventory, Azure Automation prend uniquement en charge certaines régions pour la liaison d’un espace de travail Log Analytics et d’un compte Automation. Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de régions pour un compte Automation et un espace de travail Log Analytics](how-to/region-mappings.md). Avant d’activer l’une ou l’autre fonctionnalité, passez en revue les informations sur les [tarifs Azure](https://azure.microsoft.com/pricing/details/automation/) pour Azure Automation.
@@ -175,7 +175,7 @@ Heartbeat
 
 Dans les résultats de la recherche, vous voyez en principe des enregistrements de pulsation pour la machine, ce qui indique que l’agent est connecté et qu’il rend compte au service. Par défaut, chaque agent transmet un enregistrement de pulsation à l’espace de travail qui lui est attribué. Utilisez les étapes suivantes pour effectuer l’installation et la configuration de l’agent.
 
-1. Activez la fonctionnalité pour ajouter l’ordinateur agent. Pour Update Management et Machines virtuelles Azure, consultez [Activer Update Management à partir d’un compte Automation](update-management/update-mgmt-enable-automation-account.md), [Activer Update Management à partir du portail Azure](update-management/update-mgmt-enable-portal.md), [Activer Update Management à partir d’un runbook](update-management/update-mgmt-enable-runbook.md) ou [Activer Update Management à partir d’une machine virtuelle Azure](update-management/update-mgmt-enable-vm.md). Pour la solution Change Tracking et les machines virtuelles Azure, consultez [Activer les machines virtuelles Azure](automation-enable-changes-from-auto-acct.md#enable-azure-vms) et, pour les machines virtuelles non Azure, consultez [Activer des machines dans l’espace de travail](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Activez la fonctionnalité pour ajouter l’ordinateur agent. Pour Update Management et Machines virtuelles Azure, consultez [Activer Update Management à partir d’un compte Automation](update-management/update-mgmt-enable-automation-account.md), [Activer Update Management à partir du portail Azure](update-management/update-mgmt-enable-portal.md), [Activer Update Management à partir d’un runbook](update-management/update-mgmt-enable-runbook.md) ou [Activer Update Management à partir d’une machine virtuelle Azure](update-management/update-mgmt-enable-vm.md). Pour la solution Change Tracking et les machines virtuelles Azure, consultez [Activer les machines virtuelles Azure](change-tracking/enable-from-automation-account.md#enable-azure-vms) et, pour les machines virtuelles non Azure, consultez [Activer des machines dans l’espace de travail](change-tracking/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 2. Pour confirmer la version du Runbook Worker hybride, accédez à `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` et notez la **version** du sous-dossier.
 
@@ -214,7 +214,7 @@ Les Runbooks peuvent utiliser toutes les activités et applets de commande défi
 
 Comme l’objectif principal de Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources, en particulier le module `PowerShellGet`. Pour plus d’informations sur l’installation des modules Windows PowerShell, consultez [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Les modules installés doivent se trouver dans un emplacement référencé par la variable d’environnement `PSModulePath` afin d’être importés automatiquement par le Worker hybride. Pour plus d’informations, consultez [Installer des modules dans PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Les modules installés doivent se trouver dans un emplacement référencé par la variable d’environnement `PSModulePath` afin d’être importés automatiquement par le Worker hybride. Pour plus d’informations, consultez [Installer des modules dans PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Supprimer la fonctionnalité Runbook Worker hybride d’un ordinateur Windows local
 

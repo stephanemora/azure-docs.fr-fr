@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083019"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104748"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personnaliser un point de terminaison HTTP dans Azure Functions
 
@@ -75,7 +75,7 @@ Dans la section suivante, vous ferez apparaître votre API par le biais d’un p
 Un proxy peut pointer vers n’importe quelle ressource HTTP, notamment :
 - Azure Functions 
 - Applications API dans [Azure App Service](../app-service/overview.md)
-- Conteneurs Docker dans [App Service sur Linux](../app-service/containers/app-service-linux-intro.md)
+- Conteneurs Docker dans [App Service sur Linux](../app-service/overview.md#app-service-on-linux)
 - Toute autre API hébergée
 
 Pour en savoir plus sur les proxys, consultez [Utilisation d’Azure Functions Proxies].

@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038881"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104238"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonnes standard dans les journaux Azure Monitor
-Les données des journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de colonnes. De nombreux types de données comportent des colonnes standard qui sont communes à plusieurs types. Cet article décrit ces colonnes et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
+Les données des journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](./data-platform-logs.md), chacun ayant un type de données particulier associé à un ensemble unique de colonnes. De nombreux types de données comportent des colonnes standard qui sont communes à plusieurs types. Cet article décrit ces colonnes et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
 
 Dans Application Insights, les applications basées sur un espace de travail stockent leurs données dans un espace de travail Log Analytics et utilisent les mêmes colonnes standard que les autres tables de l’espace de travail. Les applications classiques stockent leurs données séparément et présentent des colonnes standard différentes, comme spécifié dans cet article.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Découvrez-en plus sur le stockage des [données de journal Azure Monitor](../log-query/log-query-overview.md).
 - Obtenez une leçon sur [l'écriture de requêtes de journaux](../log-query/get-started-queries.md).
 - Obtenez une leçon sur l’[association de tables dans les requêtes de journaux](../log-query/joins.md).
-
