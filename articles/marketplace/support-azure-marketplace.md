@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329752"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275411"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support pour la place de marché commerciale Microsoft
 
@@ -45,6 +45,6 @@ Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Micros
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [page du guide de l’éditeur relatif à la place de marché commerciale](index.yml).
-* Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](partner-center-portal/support.md).
+* Apprenez-en davantage sur le [Support technique pour le programme Place de marché commerciale dans l’Espace partenaires](support.md).
 
 ---

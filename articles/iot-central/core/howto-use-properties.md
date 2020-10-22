@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999755"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123781"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilisation des propriétés dans une solution Azure IoT Central
 
@@ -152,7 +152,7 @@ Le code suivant illustre la définition d’un type de propriété Objet. Cet ob
 
 Par défaut, les propriétés sont en lecture seule. Les propriétés en lecture seule signifient que l’appareil signale des mises à jour de valeurs de propriété à votre application Azure IoT Central. Votre application Azure IoT Central ne peut pas définir la valeur d’une propriété en lecture seule.
 
-Azure IoT Central utilise les jumeaux d’appareil pour synchroniser les valeurs de propriété entre l’appareil et l’application Azure IoT Central. Les valeurs de propriété d’appareil utilisent les propriétés signalées du jumeau d’appareil. Pour plus d’informations, consultez la documentation relative aux [jumeaux d’appareil](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Azure IoT Central utilise les jumeaux d’appareil pour synchroniser les valeurs de propriété entre l’appareil et l’application Azure IoT Central. Les valeurs de propriété d’appareil utilisent les propriétés signalées du jumeau d’appareil. Pour plus d’informations, consultez la documentation relative aux [jumeaux d’appareil](../../iot-hub/tutorial-device-twins.md).
 
 L’extrait de code suivant d’un modèle de fonctions d’appareil affiche la définition d’un type de propriété en lecture seule :
 
@@ -250,7 +250,7 @@ Le message de réponse doit inclure les champs `ac` et `av`. Le champ `ad` est f
 | `'ac': 5xx` | Error | L’appareil a rencontré une erreur inattendue lors du traitement de la modification demandée. |
 
 
-Pour plus d’informations sur les jumeaux d'appareil, consultez [Configurer vos appareils à partir d’un service backend](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Pour plus d’informations sur les jumeaux d'appareil, consultez [Configurer vos appareils à partir d’un service backend](../../iot-hub/tutorial-device-twins.md).
 
 Quand l’opérateur définit une propriété inscriptible dans l’application Azure IoT Central, l’application utilise une propriété souhaitée du jumeau d’appareil pour envoyer la valeur à l’appareil. L’appareil répond alors en utilisant une propriété signalée du jumeau d’appareil. Quand Azure IoT Central reçoit la valeur de la propriété rapportée, il met à jour l’affichage des propriétés avec l’état **Accepté**.
 

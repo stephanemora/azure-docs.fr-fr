@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080996"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123335"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI
 
@@ -27,7 +27,7 @@ La Solution Power BI pour Azure IoT Central V3 vous permet de créer un tableau 
 - filtrer les données envoyées par des appareils spécifiques ;
 - afficher les données de télémétrie les plus récentes dans une table.
 
-Cette solution configure un pipeline qui lit les données à partir de l’[Exportation de données continue](howto-export-data-blob-storage.md) de votre compte de stockage d’objets blob Azure. Ce pipeline utilise Azure Functions, Azure Data Factory et Azure SQL Database pour traiter et transformer les données. Vous pouvez visualiser et analyser les données dans un rapport Power BI que vous téléchargez en tant que fichier PBIX. Toutes ces ressources étant créées dans votre abonnement Azure, vous pouvez personnaliser chaque composant en fonction de vos besoins.
+Cette solution configure un pipeline qui lit les données à partir de l’[Exportation de données continue](./howto-export-data.md) de votre compte de stockage d’objets blob Azure. Ce pipeline utilise Azure Functions, Azure Data Factory et Azure SQL Database pour traiter et transformer les données. Vous pouvez visualiser et analyser les données dans un rapport Power BI que vous téléchargez en tant que fichier PBIX. Toutes ces ressources étant créées dans votre abonnement Azure, vous pouvez personnaliser chaque composant en fonction de vos besoins.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +43,7 @@ La configuration de la solution requiert les ressources suivantes :
 - Power BI Pro (si vous souhaitez partager le tableau de bord avec d’autres utilisateurs).
 
 > [!NOTE]
-> Si vous utilisez une application de IoT Central version 2, consultez [Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) sur le site de documentation des versions précédentes.
+> Si vous utilisez une application de IoT Central version 2, consultez [Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI](/previous-versions/azure/iot-central/core/howto-connect-powerbi) sur le site de documentation des versions précédentes.
 
 ## <a name="install"></a>Installer
 

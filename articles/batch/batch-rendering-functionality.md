@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957458"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107468"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -75,7 +75,7 @@ Ligne de commande Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 
 Comme pour les autres charges de travail, les exigences système des applications de rendu varient, et les exigences de performances varient selon les travaux et les projets.  De nombreuses familles de machines virtuelles sont disponibles dans Azure, selon vos besoins : faible coût, meilleur rapport prix/performances, meilleures performances, etc.
 Certaines applications de rendu, telles qu’Arnold, sont basées sur le processeur. D’autres, telles que V-Ray et Blender Cycles, peuvent utiliser des UC et/ou des GPU.
-Pour obtenir la description des familles de machines virtuelles disponibles et de la taille des machines virtuelles, consultez [Types et tailles des machines virtuelles](../virtual-machines/windows/sizes.md).
+Pour obtenir la description des familles de machines virtuelles disponibles et de la taille des machines virtuelles, consultez [Types et tailles des machines virtuelles](../virtual-machines/sizes.md).
 
 ### <a name="low-priority-vms"></a>Machines virtuelles de faible priorité
 

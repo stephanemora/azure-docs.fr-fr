@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446172"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108845"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 
@@ -62,7 +62,7 @@ Avant que la métrique pour des journaux d’activité rassemblés sur des donn�
 
  Vous pouvez créer et gérer des alertes de métrique à l’aide du portail Azure, de modèles Resource Manager, de l’API REST, de PowerShell et d’Azure CLI. Étant donné que les alertes de métrique pour les journaux d’activité sont une variante des alertes de métrique, une fois que les conditions préalables sont remplies, vous pouvez créer une alerte de métrique pour les journaux d’activité de l’espace de travail Log Analytics spécifié. Toutes les caractéristiques et fonctionnalités des [alertes de métrique](./alerts-metric-near-real-time.md) sont également applicables aux alertes de métrique pour les journaux d’activité, notamment le schéma de charge utile, les limites de quota applicables et les prix facturés.
 
-Pour obtenir des exemples et des informations détaillées, consultez [Création et gestion des alertes de métrique](https://aka.ms/createmetricalert). Pour les alertes de métrique pour des journaux d’activité, suivez les instructions relatives à la gestion des alertes de métrique et vérifiez les points suivants :
+Pour obtenir des exemples et des informations détaillées, consultez [Création et gestion des alertes de métrique](./alerts-metric.md). Pour les alertes de métrique pour des journaux d’activité, suivez les instructions relatives à la gestion des alertes de métrique et vérifiez les points suivants :
 
 - La cible de l’alerte de métrique est un *espace de travail Log Analytics* valide.
 - Le signal choisi pour l’alerte de métrique pour l’*espace de travail Log Analytics* sélectionné est de type **Métrique**.
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - En savoir plus sur les [alertes de métrique](alerts-metric.md).
 - En savoir plus sur les [alertes de journal dans Azure](./alerts-unified-log.md).
 - En savoir plus sur les [alertes dans Azure](alerts-overview.md).
-

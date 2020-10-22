@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773890"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327652"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -27,9 +27,6 @@ Vous pouvez utiliser la plateforme d’identités Microsoft pour effectuer les o
 - Exiger un jeton d’accès pour accéder à une API web protégée.
 
 Cet article fournit une brève description et des liens vers des exemples pour le point de terminaison V2 de la plateforme d’identité Microsoft. Ces exemples vous montrent comment procéder, et fournissent des extraits de code que vous pouvez utiliser dans vos applications. Dans la page d’exemples de code, vous trouverez des rubriques Lisez-moi détaillées, qui offrent une aide relative à la configuration requise, à l’installation et à la configuration. Les commentaires figurant dans le code sont là pour vous aider à comprendre les sections critiques.
-
-> [!NOTE]
-> Si vous êtes intéressé par les exemples associés à la version 1.0, voir [Exemples de code Azure Active Directory (point de terminaison v1.0)](../azuread-dev/sample-v1-code.md).
 
 Pour comprendre le scénario de base pour chaque type d’exemple, voir [Types d’applications pour la plateforme d’identité Microsoft](v2-app-types.md).
 
@@ -142,5 +139,4 @@ Pour découvrir des [exemples](https://github.com/microsoftgraph/msgraph-communi
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Guide du développeur Azure Active Directory (v1.0)](../azuread-dev/v1-overview.md)
-- [Concept et référence de l’API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Concept et référence de l’API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

@@ -3,12 +3,12 @@ title: Évaluations de machines virtuelles Azure dans Azure Migrate Server Asses
 description: Apprenez-en davantage sur les évaluations dans l'outil Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275521"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319311"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers des machines virtuelles Azure)
 
@@ -54,7 +54,7 @@ Si vous déployez une appliance Azure Migrate pour découvrir des serveurs locau
 
 Une fois que l’appliance a commencé la découverte des machines, vous pouvez rassembler les machines que vous souhaitez évaluer au sein d’un groupe et exécuter une évaluation du groupe avec le type d’évaluation **Machine virtuelle Azure**.
 
-Pour essayer ces étapes, suivez nos tutoriels consacrés à [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md) ou aux [serveurs physiques](tutorial-prepare-physical.md).
+Pour essayer ces étapes, suivez nos tutoriels consacrés à [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) ou aux [serveurs physiques](./tutorial-discover-physical.md).
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Comment procéder à une évaluation à l'aide de données importées ?
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 et tous les Service Packs | Azure assure un support com
 Windows Server 2012 et tous les Service Packs | Azure assure un support complet. | Préparé pour Azure.
 Windows Server 2008 R2 avec tous les Service Packs | Azure assure un support complet.| Préparé pour Azure.
 Windows Server 2008 (32 bits et 64 bits) | Azure assure un support complet. | Préparé pour Azure.
-Windows Server 2003 et Windows Server 2003 R2 | Ces systèmes d’exploitation ont dépassé leur date de fin de support, et leur prise en charge dans Azure nécessite un [contrat de support personnalisé (CSA)](https://aka.ms/WSosstatement). | Préparé pour Azure sous condition Envisagez de mettre à niveau le système d’exploitation avant de migrer vers Azure.
+Windows Server 2003 et Windows Server 2003 R2 | Ces systèmes d’exploitation ont dépassé leur date de fin de support, et leur prise en charge dans Azure nécessite un [contrat de support personnalisé (CSA)](/troubleshoot/azure/virtual-machines/server-software-support). | Préparé pour Azure sous condition Envisagez de mettre à niveau le système d’exploitation avant de migrer vers Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1 et MS-DOS | La date de fin de support de ces systèmes d’exploitation est passée. La machine peut démarrer dans Azure, mais Azure ne fournit aucune prise en charge du système d’exploitation. | Préparé pour Azure sous condition Nous vous recommandons de mettre à niveau le système d’exploitation avant de migrer vers Azure.
 Windows 7, Windows 8 et Windows 10 | Azure assure un support avec un [abonnement Visual Studio uniquement](../virtual-machines/windows/client-images.md). | Préparé pour Azure sous condition
 Windows 10 Pro | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md). | Préparé pour Azure sous condition
@@ -297,6 +297,6 @@ Les coûts sont affichés dans la devise spécifiée dans les paramètres d’é
 
 [Passez en revue](best-practices-assessment.md) les meilleures pratiques pour la création d’évaluations. 
 
-- En savoir plus sur l’exécution d’évaluations pour les [machines virtuelles VMware](tutorial-prepare-vmware.md), les [machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md) et les [serveurs physiques](tutorial-prepare-physical.md).
-- En savoir plus sur l’évaluation de serveurs [importés avec un fichier CSV](tutorial-assess-import.md).
+- En savoir plus sur l’exécution d’évaluations pour les [machines virtuelles VMware](./tutorial-discover-vmware.md), les [machines virtuelles Hyper-V](./tutorial-discover-hyper-v.md) et les [serveurs physiques](./tutorial-discover-physical.md).
+- En savoir plus sur l’évaluation de serveurs [importés avec un fichier CSV](./tutorial-discover-import.md).
 - En savoir plus sur la configuration de la [visualisation des dépendances](concepts-dependency-visualization.md).

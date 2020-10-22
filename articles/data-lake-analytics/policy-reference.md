@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Data Lake Analytics
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Data Lake Analytics. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e603878484128d9d59f633b7117c755bc4965fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 871781a559b512691d6fa8283e60b95e7b147cfd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825035"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320637"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Définitions intégrées d’Azure Policy pour Azure Data Lake Analytics
 

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108403"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
 ![Icône de gestion des alertes](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor prend désormais en charge des fonctionnalités améliorées pour la [gestion de vos alertes à grande échelle](https://aka.ms/azure-alerts-overview), dont celles générées par des [outils de supervision tels que System Center Operations Manager, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor prend désormais en charge des fonctionnalités améliorées pour la [gestion de vos alertes à grande échelle](./alerts-overview.md), dont celles générées par des [outils de supervision tels que System Center Operations Manager, Zabbix ou Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 >  
 
 
@@ -120,4 +120,3 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Alertes dans Log Analytics](./alerts-overview.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.
-

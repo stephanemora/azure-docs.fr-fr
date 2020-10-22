@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873470"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124892"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutoriel : Modifier et créer des modules de passerelle d’analytique vidéo en direct
 
@@ -28,8 +28,8 @@ Pour suivre les étapes de ce tutoriel, vous devez disposer des éléments suiva
 * [Node.js](https://nodejs.org/en/download/) v10 ou version ultérieure ;
 * [Visual Studio Code](https://code.visualstudio.com/Download) avec l’extension [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) installée ;
 * moteur [Docker](https://www.docker.com/products/docker-desktop) ;
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) pour héberger vos versions des modules.
-* compte [Azure Media Services](https://docs.microsoft.com/azure/media-services/). Si vous avez suivi les tutoriels précédents, vous pouvez réutiliser celui que vous avez créé précédemment.
+* [Azure Container Registry](../../container-registry/index.yml) pour héberger vos versions des modules.
+* compte [Azure Media Services](../../media-services/index.yml). Si vous avez suivi les tutoriels précédents, vous pouvez réutiliser celui que vous avez créé précédemment.
 
 ## <a name="clone-the-repository"></a>Cloner le référentiel
 
