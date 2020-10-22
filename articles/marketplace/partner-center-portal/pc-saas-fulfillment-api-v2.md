@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931799"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275544"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -953,11 +953,11 @@ L’éditeur doit implémenter un webhook dans le service SaaS pour garantir la 
 
 Pour démarrer le processus de développement, nous vous recommandons de créer des réponses d’API factices côté éditeur.  Ces réponses peuvent reposer sur des exemples de réponses fournis dans ce document.
 
-Lorsque l’éditeur est prêt pour le test de bout en bout : 
+Lorsque l’éditeur est prêt pour le test de bout en bout :
 
 * Publiez une offre SaaS sur une audience en préversion limitée et conservez-la en phase de préversion.
-* Cette offre doit inclure un plan à un tarif de 0 pour éviter toute facturation de frais réels lors des tests.  Une autre solution consiste à définir un prix différent de 0 et à annuler tous les achats de test pendant 24 heures. 
-* Vérifiez que tous les flux sont appelés de bout en bout, exactement comme si un client achetait l’offre. 
+* Cette offre doit inclure un plan à un tarif de 0 pour éviter toute facturation de frais réels lors des tests.  Une autre solution consiste à définir un prix différent de 0 et à annuler tous les achats de test pendant 24 heures.
+* Vérifiez que tous les flux sont appelés de bout en bout, exactement comme si un client achetait l’offre.
 * Si le partenaire souhaite tester le flux complet d’achat et de facturation, utilisez une offre dont le prix est supérieur à 0.  L’achat sera facturé et une facture sera établie.
 
 Un flux d’achat peut être déclenché à partir du portail Azure ou de Microsoft AppSource, selon l’endroit où l’offre est publiée.
@@ -966,8 +966,7 @@ Les actions de *modification du plan*, *modification de quantité* et de *désab
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Pour afficher les options de support pour les éditeurs, consultez [Support technique pour le programme commercial de la Place de marché dans l’Espace partenaires](support.md).
-
+Pour afficher les options de support pour les éditeurs, consultez [Support technique pour le programme commercial de la Place de marché dans l’Espace partenaires](../support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305208"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107774"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -206,7 +206,7 @@ Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge r
 Pour apprendre à concevoir et déployer une instance d’Azure Load Balancer, veuillez consulter l’article [Qu’est-ce qu’Azure Load Balancer ?](../../load-balancer/load-balancer-overview.md). Pour déployer un équilibreur de charge de base, veuillez suivre les étapes décrites dans ce [guide de démarrage rapide](../../load-balancer/quickstart-load-balancer-standard-public-portal.md), excepté la procédure décrite dans la section **Créer des serveurs principaux**.   
 
 > [!NOTE]
-> Si vous souhaitez configurer Azure Load Balancer à l’aide de la **référence SKU De base**, vos machines virtuelles doivent appartenir à un groupe à haute disponibilité. Pour en savoir plus sur les groupes à haute disponibilité, veuillez consulter l’article [Gestion de la disponibilité des machines virtuelles Windows dans Azure](../../virtual-machines/windows/manage-availability.md). Pour ajouter des ordinateurs virtuels existants à un groupe à haute disponibilité, veuillez consulter l’article [Définir une machine virtuelle Azure Resource Manager dans un groupe à haute disponibilité](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Si vous souhaitez configurer Azure Load Balancer à l’aide de la **référence SKU De base**, vos machines virtuelles doivent appartenir à un groupe à haute disponibilité. Pour en savoir plus sur les groupes à haute disponibilité, veuillez consulter l’article [Gestion de la disponibilité des machines virtuelles Windows dans Azure](../../virtual-machines/manage-availability.md). Pour ajouter des ordinateurs virtuels existants à un groupe à haute disponibilité, veuillez consulter l’article [Définir une machine virtuelle Azure Resource Manager dans un groupe à haute disponibilité](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 Après avoir créé l’équilibreur de charge, vous devez créer un pool principal. Ce dernier distribuera le trafic vers un ou plusieurs serveurs de passerelle. Pour cela, veuillez suivre la procédure décrite dans la section du guide de démarrage rapide [Créer des ressources pour l’équilibreur de charge](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -389,4 +389,3 @@ Pour obtenir de l’aide, sélectionnez l’icône en forme de point d’interro
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Ajoutez des sources de données](./agent-data-sources.md) pour collecter des données provenant de vos sources connectées et les stocker dans votre espace de travail Log Analytics.
-

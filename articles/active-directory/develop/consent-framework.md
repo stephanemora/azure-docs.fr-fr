@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706130"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327547"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Infrastructure de consentement d’Azure Active Directory
 
@@ -64,5 +63,4 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [comment convertir une application multi-locataire](howto-convert-app-to-be-multi-tenant.md)
-* Pour plus de détails, découvrez [la façon dont le consentement est pris en charge au niveau de la couche du protocole OAuth 2.0 pendant le flux d’octroi de code d’autorisation.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
+Consultez [comment convertir une application multi-locataire](howto-convert-app-to-be-multi-tenant.md)

@@ -4,12 +4,12 @@ description: Comprendre le schéma d’alerte commun, pourquoi vous devez l’ut
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539480"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108828"
 ---
 # <a name="common-alert-schema"></a>Schéma d’alerte courant
 
@@ -39,7 +39,7 @@ Le schéma d’alerte commun se manifeste principalement dans vos notifications 
 
 En outre, le nouveau schéma enrichira l’expérience de consommation des alertes dans le portail Azure et Azure mobile app dans un futur proche. 
 
-[Découvrez-en plus sur les définitions de schéma pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](https://aka.ms/commonAlertSchemaDefinitions)
+[Découvrez-en plus sur les définitions de schéma pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > Les actions suivantes ne prennent pas en charge le schéma d’alerte commun : connecteur ITSM.
@@ -120,5 +120,5 @@ Par exemple, le corps de demande suivant apporté à l’API REST [Créer ou met
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.](./alerts-common-schema-integrations.md) 
+- [Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](./alerts-common-schema-definitions.md)
+- [Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.](./alerts-common-schema-integrations.md)

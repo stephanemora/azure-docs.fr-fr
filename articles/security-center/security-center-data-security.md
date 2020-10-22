@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018268"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339473"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données Azure Security Center
 
@@ -51,7 +51,7 @@ Microsoft utilise des modèles et des informations sur les menaces observées au
 ## <a name="manage-data-collection-from-machines"></a>Gérer la collecte de données à partir de machines
 Lorsque vous activez Security Center dans Azure, la collecte de données est activée pour chacun de vos abonnements Azure. Vous pouvez également activer la collecte de données pour vos abonnements dans le Centre de sécurité. Lorsque la collecte de données est activée, le Centre de sécurité approvisionne l’agent Log Analytics sur toutes les machines virtuelles Azure prises en charge préexistantes et nouvellement créées.
 
-L'agent Log Analytics analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [Suivi d’événements pour Windows (ETW)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. L'agent Log Analytics lit les entrées du journal des événements et les traces ETW, puis les copie dans vos espaces de travail à des fins d’analyse. L’agent Log Analytics active également les événements de création de processus et l’audit de ligne de commande.
+L'agent Log Analytics analyse diverses configurations de sécurité et crée des événements sous la forme de traces de [Suivi d’événements pour Windows (ETW)](/windows/win32/etw/event-tracing-portal). En outre, le système d’exploitation déclenche des événements du Journal des événements au cours de l’exécution de la machine. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP, utilisateur connecté et ID de locataire. L'agent Log Analytics lit les entrées du journal des événements et les traces ETW, puis les copie dans vos espaces de travail à des fins d’analyse. L’agent Log Analytics active également les événements de création de processus et l’audit de ligne de commande.
 
 Si vous n’utilisez pas Azure Defender, vous pouvez également désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte des données est obligatoire pour les abonnements protégés par Azure Defender. La collecte des artefacts et des captures instantanées des disques de machine virtuelle reste activée, même si la collecte de données est désactivée.
 
@@ -85,7 +85,7 @@ Les clients peuvent accéder à des données associées du Centre de sécurité 
 | [Journal d’activité Azure](../azure-monitor/platform/activity-log.md)                       | Toutes les alertes de sécurité, les requêtes approuvées d’accès [juste-à-temps](security-center-just-in-time.md) au Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptatifs](security-center-adaptive-application.md).|
 | [Journaux d’activité Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Toutes les alertes de sécurité.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Alertes de sécurité, recommandations de sécurité, résultats d’évaluation des vulnérabilités, informations sur le degré de sécurisation, état des vérifications de conformité, et bien plus encore.                                                                       |
-| [API REST Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Alertes de sécurité, recommandations de sécurité et bien plus encore.                                                                                                                                                                |
+| [API REST Azure Security Center](/rest/api/securitycenter/) | Alertes de sécurité, recommandations de sécurité et bien plus encore.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Étapes suivantes

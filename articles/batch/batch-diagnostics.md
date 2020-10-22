@@ -4,12 +4,12 @@ description: Enregistrez et analysez les événements du journal de diagnostic p
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848685"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108097"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -105,7 +105,7 @@ Pour créer un nouveau paramètre de diagnostic dans le Portail Azure, suivez le
 6. Sélectionnez **ServiceLog**, **AllMetrics** ou les deux.
 7. Sélectionnez **Enregistrer** pour créer le paramètre de diagnostic.
 
-Vous pouvez également [activer la collecte via Azure Monitor dans le Portail Azure](../azure-monitor/platform/diagnostic-settings.md) pour configurer les paramètres de diagnostic, en utilisant [un modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou avec Azure PowerShell ou Azure CLI. Pour plus d’informations, consultez [Vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md).
+Vous pouvez également [activer la collecte via Azure Monitor dans le Portail Azure](../azure-monitor/platform/diagnostic-settings.md) pour configurer les paramètres de diagnostic, en utilisant [un modèle Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md) ou avec Azure PowerShell ou Azure CLI. Pour plus d’informations, consultez [Vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accéder aux journaux de diagnostics dans le stockage
 

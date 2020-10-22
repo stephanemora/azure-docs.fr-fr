@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015634"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276986"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modèle de tirage (pull) du flux de modification dans Azure Cosmos DB
 
@@ -112,7 +112,7 @@ Voici un exemple qui montre comment obtenir une liste de plages pour votre conte
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-Lorsque vous obtenez la liste des FeedRanges pour votre conteneur, vous récupérez un `FeedRange` par [partition physique](partition-data.md#physical-partitions).
+Lorsque vous obtenez la liste des FeedRanges pour votre conteneur, vous récupérez un `FeedRange` par [partition physique](partitioning-overview.md#physical-partitions).
 
 À l’aide d’un `FeedRange`, vous pouvez ensuite créer un `FeedIterator` pour paralléliser le traitement du flux de modification sur plusieurs machines ou threads. Contrairement à l’exemple précédent qui illustrait comment obtenir un `FeedIterator` pour l’ensemble du conteneur ou pour une clé de partition unique, vous pouvez utiliser FeedRanges pour obtenir plusieurs FeedIterators qui peuvent traiter le flux de modification en parallèle.
 

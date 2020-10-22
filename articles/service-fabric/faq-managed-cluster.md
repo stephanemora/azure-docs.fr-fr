@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728996"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319823"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur les clusters Service Fabric managés
 
@@ -41,7 +41,7 @@ Le contrat SLA ne change pas par rapport au modèle actuel de ressources Service
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Quelle est la différence entre les clusters des niveaux tarifaires De base et Standard ?
 
-Un cluster de niveau tarifaire De base signifie que la plupart des configurations sont fournies par le fournisseur de ressources Service Fabric. Les clusters de niveau tarifaire De base sont destinés à être utilisés pour les tests et les environnements de préproduction. Un cluster de niveau tarifaire Standard permet aux utilisateurs de configurer le cluster en fonction de leurs besoins. Pour plus d’informations, consultez [SKU de cluster managé Service Fabric](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus).
+Un cluster de niveau tarifaire De base signifie que la plupart des configurations sont fournies par le fournisseur de ressources Service Fabric. Les clusters de niveau tarifaire De base sont destinés à être utilisés pour les tests et les environnements de préproduction. Un cluster de niveau tarifaire Standard permet aux utilisateurs de configurer le cluster en fonction de leurs besoins. Pour plus d’informations, consultez [SKU de cluster managé Service Fabric](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 
 ## <a name="cluster-deployment-and-management"></a>Déploiement et gestion de clusters
 
@@ -66,7 +66,7 @@ Dans la préversion, toutes les mises à niveau du runtime sont effectuées auto
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Existe-t-il une expérience de développement locale pour les clusters managés Service Fabric ?
 
-L’expérience de développement locale reste inchangée par rapport aux clusters Service Fabric existants. Pour plus d’informations sur l’expérience de développement locale, consultez [Créer une application .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet).
+L’expérience de développement locale reste inchangée par rapport aux clusters Service Fabric existants. Pour plus d’informations sur l’expérience de développement locale, consultez [Créer une application .NET](./service-fabric-quickstart-dotnet.md).
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Puis-je déployer mes applications en tant que ressource Azure Resource Manager ?
 

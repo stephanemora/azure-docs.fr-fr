@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330585"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279607"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 
@@ -288,8 +288,9 @@ Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas
 Découvrez plus en détail la gestion des conflits de données ou passez au concept clé suivant dans Azure Cosmos DB. Voir les articles suivants :
 
 * [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
-* [Gérer les conflits entre les régions](how-to-manage-conflicts.md)
 * [Partitionnement et distribution des données](partition-data.md)
+* [Gérer les conflits entre les régions](how-to-manage-conflicts.md)
+* [Partitionnement et distribution des données](partitioning-overview.md)
 * [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Haute disponibilité](high-availability.md)
 * [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

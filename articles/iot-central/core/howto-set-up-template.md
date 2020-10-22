@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803787"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122651"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -45,7 +45,7 @@ Dans une application IoT Central, un modèle d’appareil utilise un modèle de 
 - Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
 - Créez un modèle de capacité d’appareil à l’aide de Visual Studio Code. Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central à l’aide d’une première connexion à l’appareil. IoT Central recherche et importe pour vous le modèle de capacité d’appareil à partir du référentiel public. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin pour le modèle d’appareil.
 
-Vous pouvez également ajouter des modèles d’appareil à une application IoT Central à l’aide de l’[API REST](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) ou de l’interface [CLI](howto-manage-iot-central-from-cli.md).
+Vous pouvez également ajouter des modèles d’appareil à une application IoT Central à l’aide de l’[API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) ou de l’interface [CLI](howto-manage-iot-central-from-cli.md).
 
 Certains [modèles d’application](concepts-app-templates.md) incluent déjà des modèles d’appareil qui sont utiles dans le scénario pris en charge par le modèle d’application. Par exemple, consultez [Architecture de l’analytique en magasin](../retail/store-analytics-architecture.md).
 
