@@ -3,14 +3,14 @@ title: Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245364"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148534"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -37,7 +37,7 @@ Oui. Voici [un modèle](https://github.com/Azure/azure-quickstart-templates/tree
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe-t-il une analyse de sécurité des vulnérabilités pour les images dans ACR ?
 
-Oui. Consultez la documentation [d’Azure Security Center](../security-center/azure-container-registry-integration.md), [de Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) et [d’Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Oui. Consultez la documentation [d’Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [de Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) et [d’Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Comment configurer Kubernetes avec Azure Container Registry ?
 
@@ -259,10 +259,10 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Comment activer l’accès par tirage (pull) anonyme ?
 
-La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Si vous avez [des ressources de jeton ou de mappage d’étendue (utilisateur)](https://aka.ms/acr/repo-permissions) dans votre registre, supprimez-les avant de déclencher un ticket de support (les mappages d’étendue système peuvent être ignorés). Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Si vous avez [des ressources de jeton ou de mappage d’étendue (utilisateur)](./container-registry-repository-scoped-permissions.md) dans votre registre, supprimez-les avant de déclencher un ticket de support (les mappages d’étendue système peuvent être ignorés). Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Seules les API requises pour extraire une image connue sont accessibles de façon anonyme. Aucune autre API destinée à des opérations comme une liste d’étiquettes ou une liste de référentiels n’est accessible de manière anonyme.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostics et contrôles d’intégrité
 
@@ -443,7 +443,7 @@ Contactez votre administrateur réseau ou vérifiez la configuration et la conne
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?
 
 Voici quelques scénarios dans lesquels les opérations peuvent ne pas être autorisées :
-* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](https://aka.ms/acr/skus) pris en charge à l’aide de la commande [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou du portail Azure.
+* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](./container-registry-skus.md) pris en charge à l’aide de la commande [az acr update](/cli/azure/acr#az-acr-update) ou du portail Azure.
 * L’image ou le référentiel peuvent être verrouillés afin qu’il ne soit pas possible de les supprimer ou de les mettre à jour. Vous pouvez utiliser la commande [az acr show repository](./container-registry-image-lock.md) pour afficher les attributs actuels.
 * Certaines opérations ne sont pas autorisées si l’image est en contrôle. En savoir plus sur le [contrôle](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Votre registre a peut-être atteint sa [limite de stockage](container-registry-skus.md#service-tier-features-and-limits).

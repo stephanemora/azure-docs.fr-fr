@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658367"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91628670"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Questions fréquentes (FAQ) sur le provisionnement cloud Azure Active Directory Connect
 
@@ -83,6 +83,18 @@ Non, l’installation de l’agent sur Server Core n’est pas prise en charge.
 **Q :  Puis-je utiliser un serveur intermédiaire avec l’agent de provisionnement cloud ?**
 
 Non, les serveurs intermédiaires ne sont pas pris en charge.
+
+**Q :  Puis-je synchroniser des comptes d’utilisateurs invités ?**
+
+Non, la synchronisation des comptes d’utilisateur invités n’est pas prise en charge.
+
+**Q :  Que se passe-t-il si je déplace un utilisateur d’une unité d’organisation étendue à l’approvisionnement cloud vers une unité d’organisation étendue à Azure AD Connect ?**
+
+L’utilisateur sera supprimé et recréé.  Le déplacement d’un utilisateur d’une unité d’organisation dont l’étendue est définie pour l’approvisionnement cloud sera considéré comme une opération de suppression.  Si l’utilisateur est déplacé vers une unité d’organisation qui est gérée par Azure AD Connect, il sera à nouveau approvisionné pour Azure AD et un nouvel utilisateur sera créé.
+
+**Q :  Si je renomme ou déplace l’unité d’organisation qui se trouve dans l’étendue du filtre d’approvisionnement cloud, que se passe-t-il pour l’utilisateur qui a été créé dans Azure AD ?**
+
+Nothing.  Les utilisateurs ne seront pas supprimés si l’unité d’organisation est renommée ou déplacée.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

@@ -3,12 +3,12 @@ title: Modèle de données pour les événements de diagnostics de sauvegarde Az
 description: Ce modèle de données fait référence au mode spécifique à la ressource pour envoyer des événements de diagnostic à Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569587"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173971"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure
 
@@ -239,7 +239,7 @@ Chaque enregistrement figurant dans les tables ci-dessus possède un **nom d’o
 | AddonAzureBackupPolicy | Stratégie |  Représente un enregistrement contenant tous les détails d’une stratégie de sauvegarde et de conservation. Par exemple, l’ID, le nom, les paramètres de conservation, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Représente un mappage entre un élément de sauvegarde et la stratégie de sauvegarde qui lui est appliquée. |   
 
-Souvent, vous devez effectuer des jointures entre des tables différentes, ainsi que des jeux d’enregistrements différents qui font partie de la même table (différenciés par le nom d’opération), afin d’obtenir tous les champs requis pour votre analyse. Reportez-vous aux [exemples de requêtes](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) pour démarrer. 
+Souvent, vous devez effectuer des jointures entre des tables différentes, ainsi que des jeux d’enregistrements différents qui font partie de la même table (différenciés par le nom d’opération), afin d’obtenir tous les champs requis pour votre analyse. Reportez-vous aux [exemples de requêtes](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) pour démarrer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

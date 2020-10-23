@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585982"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91569819"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 
@@ -40,7 +40,7 @@ ms.locfileid: "88585982"
 | |  |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Prise en main**|[Bien démarrer avec le Kit de développement logiciel (SDK) Python](create-sql-api-python.md)|
 |**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585982"
 
 * Le constructeur de `CosmosClient` a été mis à jour :
 
-  * Le paramètre `auth` a été renommé `credential` et prendra maintenant un type d’authentification directement. Cela signifie que la valeur de clé principale, un dictionnaire de jetons de ressource ou une liste d’autorisations peuvent être transmis. Toutefois, l’ancien format de dictionnaire est toujours pris en charge.
+  * Le paramètre `auth` a été renommé `credential` et prendra maintenant un type d’authentification directement. Cela signifie que vous pouvez passer la valeur de clé primaire, un dictionnaire de jetons de ressources ou une liste d’autorisations. Toutefois, l’ancien format de dictionnaire est toujours pris en charge.
 
   * Le paramètre `connection_policy` a été transformé en paramètre de mot clé uniquement et, bien qu’il soit toujours pris en charge, chacun des attributs individuels de la stratégie peut désormais être transmis en tant qu’argument de mot clé explicite :
 

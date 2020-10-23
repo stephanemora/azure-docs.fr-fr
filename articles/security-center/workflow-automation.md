@@ -5,21 +5,21 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 09/12/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904646"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344030"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Création de réponses automatiques aux alertes et aux recommandations avec l’automatisation de workflow
 
 Chaque programme de sécurité comprend plusieurs workflows pour la réponse aux incidents. Ces processus peuvent inclure l’envoi de notifications aux parties prenantes concernées, le lancement d’un processus de gestion des changements et l’application d’étapes de correction spécifiques. Les experts en sécurité vous conseillent d’automatiser le plus possible les étapes de ces processus. D’une part, l’automatisation réduit votre charge de travail. D’autre part, elle contribue à renforcer votre sécurité en garantissant que les étapes des processus sont effectuées rapidement, de manière cohérente et selon vos exigences prédéfinies.
 
-Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Security Center. Cette fonctionnalité peut déclencher Logic Apps sur les alertes et recommandations de sécurité. Par exemple, vous pouvez définir que Security Center envoie un e-mail à un utilisateur donné quand une alerte se produit. Vous allez également apprendre à créer des applications logiques à l’aide du service [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Security Center. Cette fonctionnalité peut déclencher Logic Apps sur les alertes et recommandations de sécurité. Par exemple, vous pouvez définir que Security Center envoie un e-mail à un utilisateur donné quand une alerte se produit. Vous allez également apprendre à créer des applications logiques à l’aide du service [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > Si vous avez précédemment accédé à la vue Playbooks (préversion) dans la barre latérale, vous retrouverez les mêmes fonctionnalités regroupées avec les fonctionnalités étendues dans la nouvelle page Automatisation des workflows.
@@ -32,8 +32,8 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Gratuit|
-|Rôles et autorisations obligatoires :|**Rôle d’administrateur de sécurité** ou **Propriétaire** sur le groupe de ressources<br>Doit également disposer d’autorisations en écriture sur la ressource cible<br><br>Pour utiliser des workflows Azure Logic Apps, vous devez également disposer des autorisations/rôles Logic Apps suivants :<br> - Les autorisations [Opérateur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sont nécessaires pour lire/déclencher des applications logiques (ce rôle ne permet pas la création ni la modification d’applications logiques ; il sert uniquement à *exécuter* des applications existantes)<br> - Les autorisations [Contributeur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) sont requises pour la création et la modification d’applications logiques<br>Si vous souhaitez utiliser des connecteurs d’applications logiques, vous pouvez avoir besoin d’informations d’identification supplémentaires pour vous connecter à leurs services respectifs (par exemple, vos instances Outlook/Teams/Slack).|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Oui](./media/icons/yes-icon.png) Chine Gov, autres Gov|
+|Rôles et autorisations obligatoires :|**Rôle d’administrateur de sécurité** ou **Propriétaire** sur le groupe de ressources<br>Doit également disposer d’autorisations en écriture sur la ressource cible<br><br>Pour utiliser des workflows Azure Logic Apps, vous devez également disposer des autorisations/rôles Logic Apps suivants :<br> - Les autorisations [Opérateur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-operator) sont nécessaires pour lire/déclencher des applications logiques (ce rôle ne permet pas la création ni la modification d’applications logiques ; il sert uniquement à *exécuter* des applications existantes)<br> - Les autorisations [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) sont requises pour la création et la modification d’applications logiques<br>Si vous souhaitez utiliser des connecteurs d’applications logiques, vous pouvez avoir besoin d’informations d’identification supplémentaires pour vous connecter à leurs services respectifs (par exemple, vos instances Outlook/Teams/Slack).|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
 
@@ -53,7 +53,7 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
     1. Les déclencheurs qui lanceront l’exécution de ce workflow automatique. Par exemple, vous pouvez définir que votre application logique s’exécute quand une alerte de sécurité contenant « SQL » est générée.
     1. L’application logique à exécuter lorsque les conditions du déclencheur définies seront remplies. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Volet Ajouter des automations de workflow":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Liste d’automatisations de workflows":::
 
 1. Dans la section Actions, cliquez sur **Create a new one** (Créer) pour commencer le processus de création de l’application logique.
 
@@ -65,20 +65,18 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
 1. Dans votre nouvelle application logique, vous pouvez choisir des modèles prédéfinis intégrés dans la catégorie Sécurité. Vous pouvez aussi définir un workflow personnalisé des événements attendus au déclenchement de ce processus.
 
-    Dans le concepteur d’application logique, les déclencheurs suivants dans les connecteurs Security Center sont pris en charge :
+    Dans le concepteur d’application logique, les déclencheurs suivants des connecteurs Security Center sont pris en charge :
 
-    * **Quand une recommandation Azure Security Center est créée ou déclenchée**
-    * **Quand une alerte Azure Security Center est créée ou déclenchée** 
-    
-    > [!TIP]
-    > Vous pouvez personnaliser le déclencheur pour qu’il ne concerne que les alertes dont les niveaux de gravité vous intéressent.
+    * **Quand une recommandation Azure Security Center est créée ou déclenchée** : si votre application logique repose sur une recommandation qui est dépréciée ou remplacée, votre automatisation cesse de fonctionner et vous devez mettre à jour le déclencheur. Pour suivre les changements apportés aux recommandations, consultez les [notes de publication Azure Security Center](release-notes.md).
+
+    * **Quand une alerte Azure Security Center est créée ou déclenchée** : vous pouvez personnaliser le déclencheur pour qu’il ne concerne que les alertes dont les niveaux de gravité vous intéressent.
     
     > [!NOTE]
-    > Si vous utilisez le déclencheur hérité « Quand une réponse à une alerte Azure Security Center est déclenchée », votre application logique ne sera pas lancée par la fonctionnalité Automatisation des workflows. À la place, utilisez l’un des déclencheurs mentionnés ci-dessus. 
+    > Si vous utilisez le déclencheur hérité « Quand une réponse à une alerte Azure Security Center est déclenchée », votre application logique n’est pas lancée par la fonctionnalité Automatisation des workflows. À la place, utilisez l’un des déclencheurs mentionnés ci-dessus. 
 
     [![Exemple d’application logique](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. Après avoir défini votre application logique, revenez au volet de définition de l’automatisation de workflow (« Ajouter une automatisation de workflow »). Cliquez sur **Actualiser** afin de rendre votre nouvelle application logique disponible pour la sélection.
+1. Après avoir défini votre application logique, revenez au volet de définition de l’automatisation des workflows (« Ajouter une automatisation de workflow »). Cliquez sur **Actualiser** afin de rendre votre nouvelle application logique disponible pour la sélection.
 
     ![Actualiser](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
@@ -103,9 +101,9 @@ Dans cet article, vous avez appris à créer des applications logiques, à autom
 
 Consultez les documents connexes suivants : 
 
-- [Module Microsoft Learn sur la façon d’utiliser l’automatisation des workflows pour automatiser une réponse de sécurité](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [Module Microsoft Learn sur la façon d’utiliser l’automatisation des workflows pour automatiser une réponse de sécurité](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Recommandations de sécurité dans Azure Security Center](security-center-recommendations.md)
 - [Alertes de sécurité dans le Centre de sécurité Azure](security-center-alerts-overview.md)
-- [À propos d’Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Connecteurs d’applications logiques](https://docs.microsoft.com/connectors/)
+- [À propos d’Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+- [Connecteurs d’applications logiques](/connectors/)
 - [Schémas des types de données pour l’automatisation du workflow](https://aka.ms/ASCAutomationSchemas)

@@ -11,19 +11,22 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898109"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708393"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
 Dans cet article, vous allez découvrir comment créer et gérer des cibles de calcul dans Azure Machine Learning Studio.  Vous pouvez également créer et gérer des cibles de calcul avec :
 
-* Le [kit SDK Azure Machine Learning](how-to-create-attach-compute-sdk.md). 
-* L’[extension CLI](reference-azure-machine-learning-cli.md#resource-management) pour Azure Machine Learning.
+* Le SDK Azure Machine Learning ou l’extension CLI pour Azure Machine Learning
+  * [Instance de calcul](how-to-create-manage-compute-instance.md)
+  * [Cluster de calcul](how-to-create-attach-compute-cluster.md)
+  * [Cluster Azure Kubernetes Service](how-to-create-attach-kubernetes.md)
+  * [Autres ressources de calcul](how-to-attach-compute-targets.md)
 * L’[extension VS Code](how-to-manage-resources-vscode.md#compute-clusters) pour Azure Machine Learning.
 
 
@@ -56,11 +59,11 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 
 1. Si vous n’avez aucune cible de calcul, sélectionnez  **Créer** au milieu de la page.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Créer une cible de calcul":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Affichez la liste des cibles de calcul":::
 
 1. Si vous voyez une liste de ressources de calcul, sélectionnez **+ Nouveau** au-dessus de la liste.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Sélectionnez Nouveau":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Affichez la liste des cibles de calcul":::
 
 
 1. Remplissez le formulaire correspondant à votre type de calcul :
@@ -74,14 +77,14 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 
 1. Pour afficher l’état de l’opération de création, sélectionnez la cible de calcul dans la liste :
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Affichez l’état du calcul dans une liste":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Affichez la liste des cibles de calcul":::
 
 
 ### <a name="compute-instance"></a>Instance de calcul
 
 Utilisez les [étapes ci-dessus](#portal-create) pour créer l’instance de calcul.  Remplissez ensuite le formulaire comme suit :
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Créer une instance de calcul":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Affichez la liste des cibles de calcul":::
 
 
 |Champ  |Description  |
@@ -107,7 +110,7 @@ Créez un cluster de calcul à un seul ou plusieurs nœuds pour vos charges de t
 |Nombre maximal de nœuds | Nombre maximal de nœuds que vous souhaitez provisionner. Le calcul sera automatiquement mis à l’échelle jusqu’à ce nombre maximal de nœuds lors de l’envoi d’un travail. |
 |Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](how-to-enable-virtual-network.md#compute-instance) pour le réseau virtuel.   Attachez également des [identités managées](#managed-identity) pour accorder l’accès aux ressources.     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a>Configurer une identité managée
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a>Configurer une identité managée
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897460"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708252"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -42,10 +42,9 @@ Pour plus d’informations sur les techniques d’interprétabilité et les mod�
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Générer la valeur d’importance d’une caractéristique sur votre ordinateur personnel 
 L’exemple suivant montre comment utiliser le package d’interprétabilité sur votre ordinateur personnel sans contacter les services Azure.
 
-1. Installez les packages `azureml-interpret` et `azureml-contrib-interpret`.
+1. Installez le package `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Entraînez un exemple de modèle dans un notebook Jupyter local.
@@ -239,15 +238,14 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
 * Utilisez `ExplanationClient` dans l’exécution à distance pour télécharger le contexte d’interprétation.
 * Téléchargez le contexte ultérieurement dans un environnement local.
 
-1. Installez les packages `azureml-interpret` et `azureml-contrib-interpret`.
+1. Installez le package `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Créez un script d’entraînement dans un notebook Jupyter local. Par exemple : `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -275,12 +273,12 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [Créer des cibles de calcul avec le Kit de développement logiciel (SDK) Python](how-to-create-attach-compute-sdk.md#amlcompute). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
+1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [Créer et gérer des clusters de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
 
 1. Téléchargez l’explication dans votre Jupyter Notebook local.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -332,29 +330,12 @@ Vous pouvez charger le tracé des importances de caractéristique individuelle p
 
 [![Tableau de bord de visualisation - Tracés ICE](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Avant le démarrage du noyau Jupyter, veillez à activer les extensions de widget pour le tableau de bord de visualisation.
-
-* Notebooks Jupyter
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Pour charger le tableau de bord de visualisation, utilisez le code suivant.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisation dans Azure Machine Learning Studio
@@ -370,7 +351,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
   1. Sélectionnez une expérience particulière pour afficher toutes les exécutions de cette expérience.
   1. Sélectionnez une exécution, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
-   [![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Tableau de bord de visualisation - Importance d’une caractéristique locale dans AzureML Studio au sein des expériences](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Volet **Modèles**
   1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.

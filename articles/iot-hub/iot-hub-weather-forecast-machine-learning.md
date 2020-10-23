@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777154"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145779"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Prévision météo à l’aide des données de capteur d’un hub IoT Hub dans Azure Machine Learning studio (classique)
 
@@ -46,7 +46,7 @@ Vous allez apprendre à utiliser Azure Machine Learning studio (classique) pour 
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
 - Un compte [Azure Machine Learning Studio (classique)](https://studio.azureml.net/).
-- Un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts). Un **compte universel v2** est idéal, mais n’importe quel compte de stockage Azure prenant en charge le Stockage Blob Azure fait également l’affaire.
+- Un [compte de stockage Azure](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts). Un **compte universel v2** est idéal, mais n’importe quel compte de stockage Azure prenant en charge le Stockage Blob Azure fait également l’affaire.
 
 > [!Note]
 > Cet article utilise Azure Stream Analytics et plusieurs autres services payants. Des frais supplémentaires sont occasionnés dans Azure Stream Analytics lorsque les données doivent être transférées entre différentes régions Azure. C’est pourquoi il est judicieux de s’assurer que votre groupe de ressources, votre hub IoT et votre compte de stockage Azure, ainsi que l’espace de travail Machine Learning studio (classique) et le travail Azure Stream Analytics ajoutés dans la suite de ce tutoriel, se trouvent tous dans la même région Azure. Pour connaître la prise en charge régionale d’Azure Machine Learning studio (classique) et d’autres services Azure, consultez la page [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
@@ -215,7 +215,7 @@ Dans cette section, vous validez le modèle, vous configurez un service web pré
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```

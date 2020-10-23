@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955911"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570451"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
@@ -30,7 +30,7 @@ Quand une application utilisant Cosmos DB met à l’échelle le débit de faço
 
 Comme le montre l’illustration suivante, les données d’un conteneur sont distribuées en deux dimensions - dans une ou plusieurs régions, à l’échelle mondiale :  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Partitions physiques" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologie du système" border="false":::
 
 Une partition physique est implémentée par un groupe de réplicas appelé *jeu de réplicas*. Chaque machine héberge des centaines de réplicas correspondant à diverses partitions physiques au sein d’un ensemble fixe de processus, comme le montre l’illustration ci-dessus. Les réplicas correspondant aux partitions physiques sont distribués de façon dynamique, et leur charge est équilibrée sur les machines au sein d’un cluster, et sur les centres de données au sein d’une région.  
 
@@ -52,7 +52,7 @@ Une partition physique est matérialisée sous la forme d’un groupe de réplic
 
 Un groupe de partitions physiques, une de chacune des régions configurées avec la base de données Cosmos, est composé pour gérer le même ensemble de clés répliqué dans toutes les régions configurées. Cette primitive de coordination supérieure est appelée *groupe de partitions*. Il s’agit d’une superposition dynamique distribuée géographiquement de partitions physiques gérant un ensemble de clés donné. Si une partition physique (un jeu de réplicas) est circonscrite à l’intérieur d’un cluster, un groupe de partitions peut couvrir plusieurs clusters, centres de données et régions géographiques, comme le montre l’illustration ci-dessous :  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Jeux de partitions" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologie du système" border="false":::
 
 Vous pouvez considérer un jeu de partitions comme un « super jeu de réplicas » dispersé géographiquement, composé de plusieurs jeux de réplicas possédant le même ensemble de clés. De façon similaire à un jeu de réplicas, l’appartenance à un groupe de partitions est dynamique. Elle varie en fonction des opérations de gestion de partition physique implicites pour ajouter/supprimer des partitions dans un groupe de partitions donné (par exemple, quand vous effectuez un scale-out du débit sur un conteneur, ajoutez/supprimez une région pour votre base de données Cosmos ou en cas d’échec). Étant donné que chaque partition (d’un groupe de partitions) gère l’appartenance au groupe de partitions à l’intérieur de son propre jeu de réplicas, l’appartenance est entièrement décentralisée et hautement disponible. Lors de la reconfiguration d’un groupe de partitions, la topologie de la superposition entre les partitions physiques est également établie. La topologie est sélectionnée de façon dynamique en fonction du niveau de cohérence, de la distance géographique et de la bande passante réseau disponible entre les partitions physiques source et cible.  
 
@@ -62,7 +62,7 @@ Le service vous permet de configurer vos bases de données Cosmos avec une ou pl
 
 Notre conception de la propagation des mises à jour, de la résolution des conflits et du suivi de la causalité s’inspire de travaux antérieurs menés sur les [algorithmes épidémiques](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) et le système [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Si les noyaux des idées ont survécu et offrent un cadre de référence commode pour communiquer la conception de système de Cosmos DB, ils ont également subi une transformation importante au fur et à mesure de leur application au système Cosmos DB. Cela était nécessaire car les systèmes précédents n’étaient conçus ni avec la gouvernance des ressources, ni avec l’échelle à laquelle Cosmos DB doit opérer, ni pour offrir les capacités (par exemple, la cohérence en fonction de l’obsolescence limitée) et les contrats SLA rigoureux et complets que Cosmos DB offre à ses clients.  
 
-Rappelons qu’un groupe de partitions est distribué dans plusieurs régions et suit le protocole de réplication (multimaître) de Cosmos DB pour répliquer les données sur les partitions physiques constituant un groupe de partitions donné. Chaque partition physique (d’un groupe de partitions) accepte des écritures et sert des lectures, généralement aux clients locaux dans cette région. Les écritures acceptées par une partition physique à l’intérieur d’une région sont validées durablement et rendues hautement disponibles à l’intérieur de la partition physique avant d’être confirmées au client. Il s’agit d’écritures provisoires propagées à d’autres partitions physiques à l’intérieur du groupe de partitions à l’aide d’un canal anti-entropie. Les clients peuvent demander des écritures provisoires ou validées en transmettant un en-tête de requête. La propagation anti-entropie (y compris la fréquence de propagation) est dynamique, basée sur la topologie du groupe de partitions, la proximité régionale des partitions physiques et le niveau de cohérence configuré. À l’intérieur d’un groupe de partitions, Cosmos DB suit un schéma de validation principal avec une partition arbitre sélectionnée de manière dynamique. La sélection de l’arbitre est dynamique et fait partie intégrante de la reconfiguration du jeu de partitions en fonction de la topologie de la superposition. Les écritures validées (dont les mises à plusieurs lignes/par lots) sont garanties ordonnées. 
+Rappelons qu’un groupe de partitions est distribué dans plusieurs régions et suit le protocole de réplication (écritures multirégions) de Cosmos DB pour répliquer les données sur les partitions physiques constituant un groupe de partitions donné. Chaque partition physique (d’un groupe de partitions) accepte des écritures et sert des lectures, généralement aux clients locaux dans cette région. Les écritures acceptées par une partition physique à l’intérieur d’une région sont validées durablement et rendues hautement disponibles à l’intérieur de la partition physique avant d’être confirmées au client. Il s’agit d’écritures provisoires propagées à d’autres partitions physiques à l’intérieur du groupe de partitions à l’aide d’un canal anti-entropie. Les clients peuvent demander des écritures provisoires ou validées en transmettant un en-tête de requête. La propagation anti-entropie (y compris la fréquence de propagation) est dynamique, basée sur la topologie du groupe de partitions, la proximité régionale des partitions physiques et le niveau de cohérence configuré. À l’intérieur d’un groupe de partitions, Cosmos DB suit un schéma de validation principal avec une partition arbitre sélectionnée de manière dynamique. La sélection de l’arbitre est dynamique et fait partie intégrante de la reconfiguration du jeu de partitions en fonction de la topologie de la superposition. Les écritures validées (dont les mises à plusieurs lignes/par lots) sont garanties ordonnées. 
 
 Nous employons des horloges vectorielles codées (contenant un identificateur de région et des horloges logiques correspondant à chaque niveau de consensus respectivement du jeu de réplicas et du groupe de partitions) pour le suivi de la causalité et les vecteurs de version afin de détecter et résoudre les conflits de mises à jour. La topologie et l’algorithme de sélection de pair sont conçus pour assurer un stockage fixe minimal et une surcharge réseau minimale des vecteurs de version. L’algorithme garantit la propriété de convergence stricte.  
 

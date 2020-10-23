@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302041"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341921"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explorez et gérez vos ressources à l’aide des outils d’inventaire et de gestion des ressources
 
@@ -33,7 +33,7 @@ Utilisez cette vue et ses filtres pour répondre à des questions telles que les
 Les possibilités de gestion des ressources de cet outil sont considérables et continuent à se développer. 
 
 > [!TIP]
-> Les recommandations de sécurité sont les mêmes que celles de la page **Recommandations**, mais ici, elles sont filtrées selon le type de ressource spécifique que vous avez sélectionné. Pour plus d’informations sur l’application de recommandations, consultez l’article [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
+> Les recommandations de sécurité sur la page d’inventaire des ressources sont les mêmes que celles de la page **Recommandations**, mais ici, elles sont affichées selon la ressource affectée. Pour plus d’informations sur l’application de recommandations, consultez l’article [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Disponibilité
@@ -68,22 +68,22 @@ La page d’inventaire fournit les outils suivants :
     ![Options d’exportation de l’inventaire](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > La documentation KQL fournit une base de données avec quelques exemples de données ainsi que quelques requêtes simples pour vous faire une idée du langage. [Pour en savoir plus, consultez ce didacticiel KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > La documentation KQL fournit une base de données avec quelques exemples de données ainsi que quelques requêtes simples pour vous faire une idée du langage. [Pour en savoir plus, consultez ce didacticiel KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **Options de gestion des ressources** : L’inventaire vous permet d’effectuer des requêtes de détection complexes. Une fois que vous avez trouvé les ressources qui correspondent à vos requêtes, l’inventaire fournit des raccourcis pour les opérations telles que :
 
     - Attribuer des balises aux ressources filtrées : activez les cases à cocher à côté des ressources que vous souhaitez baliser.
     - Intégrer de nouveaux serveurs à Security Center : utilisez le bouton de barre d’outils **Ajouter des serveurs non-Azure**.
-    - Automatiser les charges de travail avec Azure Logic Apps : utilisez le bouton **Déclencher l’application logique** pour exécuter une application logique sur une ou plusieurs ressources. Vos applications logiques doivent être préparées à l’avance et accepter le type de déclencheur approprié (requête HTTP). [En savoir plus sur Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automatiser les charges de travail avec Azure Logic Apps : utilisez le bouton **Déclencher l’application logique** pour exécuter une application logique sur une ou plusieurs ressources. Vos applications logiques doivent être préparées à l’avance et accepter le type de déclencheur approprié (requête HTTP). [En savoir plus sur Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Fonctionnement de l’inventaire des ressources
 
-L’inventaire des ressources utilise [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), un service Azure qui permet d’interroger les données relatives à la posture de sécurité de Security Center sur plusieurs abonnements.
+L’inventaire des ressources utilise [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), un service Azure qui permet d’interroger les données relatives à la posture de sécurité de Security Center sur plusieurs abonnements.
 
 ARG est conçu pour permettre une exploration efficace des ressources avec la possibilité d’interroger à grande échelle.
 
-Grâce au [langage de requête Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), l’inventaire des ressources peut rapidement produire des informations détaillées en croisant les données ASC avec les propriétés d’autres ressources.
+Grâce au [langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/), l’inventaire des ressources peut rapidement produire des informations détaillées en croisant les données ASC avec les propriétés d’autres ressources.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Utilisation de l’inventaire des ressources
@@ -156,5 +156,5 @@ Cet article a décrit la page d’inventaire des ressources d’Azure Security C
 
 Pour plus d’informations sur les outils connexes, consultez les pages suivantes :
 
-- [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Langage de requête Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
+- [Langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/)

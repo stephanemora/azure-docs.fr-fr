@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 20674f5a793267c3a9e2fa078f95cbf96624df13
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550162"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) (ancien didacticiel)
 
@@ -30,7 +30,7 @@ L’intégration de Amazon Web Services (AWS) dans Azure AD vous offre les avant
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-![Amazon Web Services (AWS) dans la liste des résultats](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![Diagramme montrant Azure AD avec application AWS connectée à trois comptes AWS par le biais de l’authentification unique lancée par le fournisseur d’identité.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
 > Nous vous déconseillons de connecter une application AWS à tous vos comptes AWS. Nous vous recommandons plutôt d’utiliser [cette](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approche pour configurer plusieurs instances du compte AWS à plusieurs instances d’applications AWS dans Azure AD. Vous ne devez utiliser cette approche qu'en présence d'un nombre limité de comptes et de rôles AWS ; ce modèle n’est pas évolutif car les comptes et les rôles AWS au sein de ces comptes augmentent. Cette approche n’utilise pas la fonctionnalité d’importation de rôles AWS à l’aide de l’approvisionnement d’utilisateurs Azure AD, et vous devez donc ajouter/mettre à jour/supprimer manuellement les rôles. Pour d’autres limitations sur cette approche, consultez les détails ci-dessous.
@@ -118,7 +118,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. L’application Amazon Web Services (AWS) attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
 
-    ![image](common/edit-attribute.png)
+    ![Capture d’écran montrant Attributs utilisateur avec le contrôle d’édition activé.](common/edit-attribute.png)
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
@@ -130,9 +130,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![image](common/new-save-attribute.png)
+    ![Capture d’écran montrant Revendications des utilisateurs avec Ajouter une nouvelle revendication et Enregistrer activés.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Capture d’écran montrant Gérer les revendications des utilisateurs, où vous pouvez entrer les valeurs décrites à cette étape.](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -200,11 +200,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Recherchez **Accès administrateur** dans la barre de recherche, activez la case à cocher **AdministratorAccess**, puis cliquez sur **Suivant : Balises**.
 
-    ![Sélectionner l’accès administrateur](./media/aws-multi-accounts-tutorial/administrator-access.png)
+    ![Capture d’écran montrant Administrator Access sélectionné comme nom de stratégie.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
 1. Dans la section **Ajouter des balises (facultatif)** , procédez comme suit :
 
-    ![Sélectionner l’accès administrateur](./media/aws-multi-accounts-tutorial/config2.png)
+    ![Capture d’écran montrant le volet Add tags où vous pouvez ajouter des paires clé-valeur.](./media/aws-multi-accounts-tutorial/config2.png)
 
     a. Dans la zone de texte **Clé**, entrez le nom de la clé, par ex. : Azureadtest.
 
@@ -229,25 +229,25 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Prenez note de l’ID de compte pour ce compte AWS à partir des propriétés EC2 ou du tableau de bord IAM, comme indiqué ci-dessous :
 
-    ![Sélectionner l’accès administrateur](./media/aws-multi-accounts-tutorial/aws-accountid.png)
+    ![Capture d’écran montrant où l’ID de compte apparaît dans la fenêtre AWS.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
 1. Connectez-vous maintenant au [portail Azure](https://portal.azure.com/) et accédez à **Groupes**.
 
 1. Créez des groupes portant le même nom que ceux des rôles IAM créés précédemment et notez les **ID d’objet** de ces nouveaux groupes.
 
-    ![Sélectionner l’accès administrateur](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+    ![Capture d’écran montrant où entrer l’ID de compte dans le volet de vue d’ensemble. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Déconnectez-vous du compte AWS actuel et connectez-vous avec un autre compte pour lequel vous souhaitez configurer l’authentification unique avec Azure AD.
 
 1. Une fois tous les rôles créés dans les comptes, ils apparaissent dans la liste **Rôles** pour ces comptes.
 
-    ![Configuration des rôles](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
+    ![Capture d’écran montrant la liste des rôles avec le nom de rôle, la description et les entités approuvées.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
 1. Vous devez capturer l’ensemble des valeurs Role ARN et Trusted Entities pour tous les rôles dans tous les comptes, que nous devons mapper manuellement avec l’application Azure AD.
 
 1. Cliquez sur les rôles pour copier les valeurs **Role ARN** et **Trusted Entities**. Ces valeurs sont requises pour tous les rôles à créer dans Azure AD.
 
-    ![Configuration des rôles](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+    ![Capture d’écran montrant le volet Summary avec l’onglet Trust relationships sélectionné.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Exécutez l’étape ci-dessus pour tous les rôles dans tous les comptes, et stockez-les au format **Role ARN,Trusted entities** dans un bloc-notes.
 
@@ -257,11 +257,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Vous devez disposer des autorisations suffisantes pour créer les rôles. Cliquez sur **modifier les autorisations** pour obtenir les autorisations requises.
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Capture d’écran montrant la fenêtre d’autorisation Graph Explorer avec un lien pour modifier les autorisations.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et cliquez sur « Modifier les autorisations » 
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Capture d’écran montrant trois autorisations sélectionnées : Directory.AccessAsUser.All, Directory.Read.All et Directory.ReadWrite.All.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
     d. Vous serez alors invité à vous connecter à nouveau et à accepter le consentement. Après avoir accepté le consentement, vous êtes connecté à Microsoft Graph Explorer à nouveau.
 
@@ -271,17 +271,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Si vous utilisez plusieurs répertoires, alors vous pouvez utiliser le modèle suivant, qui contient votre domaine principal `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+    ![Capture d’écran montrant GET, beta et Exécuter la requête sélectionnés.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
     f. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Vous pouvez utiliser la requête suivante avec **l’ID de l’objet du principal du service** que vous avez copié à partir de la page Propriétés d’Azure AD pour accéder au principal du service respectif.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Capture d’écran montrant l’utilisation de la requête pour obtenir l’objet principal du service.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     g. Extrayez la propriété appRoles à partir de l’objet du principal du service.
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Capture d’écran montrant les détails de l’objet principal du service.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. À présent, vous devez générer de nouveaux rôles pour votre application. 
 
@@ -331,7 +331,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     j. Revenez à votre Microsoft Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle pour votre application Amazon Web Services.
 
-    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Capture d’écran montrant Graph Explorer avec la méthode Patch sélectionnée.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Une fois le principal du service corrigé avec d’autres rôles, vous pouvez assigner des utilisateurs/groupes aux rôles respectifs. Pour ce faire, accédez au portail et à l’application Amazon Web Services. Cliquez sur l’onglet **Utilisateurs et groupes** dans la partie supérieure.
 
@@ -339,14 +339,14 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Une fois que les groupes sont créés, sélectionnez le groupe et affectez-le à l’application.
 
-    ![Configurer l’authentification unique Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+    ![Capture d’écran montrant Ajouter une attribution avec Utilisateurs et groupes sélectionné pour ouvrir le volet Utilisateurs et groupes.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Les groupes imbriqués ne sont pas pris en charge lors de l’assignation de groupes.
 
 1. Pour assigner le rôle au groupe, sélectionnez le rôle et cliquez sur le bouton **Assigner** dans la partie inférieure de la page.
 
-    ![Configurer l’authentification unique Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Capture d’écran montrant Ajouter une attribution avec un groupe sélectionné.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
     > [!Note]
     > Notez que vous devez actualiser votre session dans le portail Azure pour afficher les nouveaux rôles.
@@ -357,11 +357,11 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Lorsque vous cliquez sur la vignette Amazon Web Services (AWS) dans le volet d’accès, vous devez obtenir la page de l’application Amazon Web Services (AWS) avec l’option de sélectionner le rôle.
 
-![Configurer l’authentification unique Add](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![Capture d’écran montrant la page d’application AWS, où vous pouvez sélectionner un rôle.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 Vous pouvez également vérifier la réponse SAML pour afficher les rôles transmis en tant que revendications.
 
-![Configurer l’authentification unique Add](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![Capture d’écran montrant une partie d’une réponse SAML avec des valeurs d’attributs.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
 

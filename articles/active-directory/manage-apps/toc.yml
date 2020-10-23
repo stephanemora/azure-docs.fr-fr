@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: "Qu’est-ce que l’authentification unique\_?"
       href: what-is-single-sign-on.md
+    - name: Nouveautés dans la documentation
+      href: whats-new-docs.md
 - name: Démarrages rapides
   expanded: true
   items:

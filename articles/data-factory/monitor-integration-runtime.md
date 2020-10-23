@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078193"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568891"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -258,13 +258,13 @@ Si vous joignez votre runtime Azure-SSIS IR à un réseau virtuel, la vignette *
 
 Sur la vignette **DIAGNOSTIQUER LA CONNECTIVITÉ** de la page de supervision de votre runtime Azure-SSIS IR, vous pouvez sélectionner le lien **Tester la connexion** pour ouvrir une fenêtre vous permettant de vérifier les connexions entre votre runtime Azure-SSIS IR et les magasins de packages/configuration/données correspondants, ainsi que les services de gestion, au moyen de leur nom de domaine complet (FQDN)/adresse IP et de leur port désigné (consultez [Test des connexions à partir d’un runtime Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Capture d’écran montrant où tester les connexions entre Azure-SSIS IR et les magasins de données, configurations et packages concernés.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Vignette ADRESSES IP PUBLIQUES STATIQUES
 
 Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
 
-![Supervision du runtime Azure-SSIS IR – Vignette DIAGNOSTIQUER](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Capture d’écran montrant où désigner votre première ou votre deuxième adresse IP publique statique.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Vignette MAGASINS DE PACKAGES
 

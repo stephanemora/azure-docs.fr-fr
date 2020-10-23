@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715408"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149028"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
+[Azure App Service](./overview.md) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ Pour désactiver l’accès d’authentification de base au port WebDeploy et au
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Pour confirmer que les informations d’identification du profil de publication sont bloquées sur WebDeploy, essayez de [publier une application web à l’aide de Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Pour confirmer que les informations d’identification du profil de publication sont bloquées sur WebDeploy, essayez de [publier une application web à l’aide de Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 ### <a name="disable-access-to-the-api"></a>Désactiver l’accès à l’API
 
-L’API de la section précédente est associée au contrôle d’accès en fonction du rôle Azure (Azure RBAC), ce qui signifie que vous pouvez [créer un rôle personnalisé](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) et affecter des utilisateurs moins privilégiés au rôle afin qu’ils ne puissent pas activer l’authentification de base sur des sites. Pour configurer le rôle personnalisé, [suivez ces instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+L’API de la section précédente est associée au contrôle d’accès en fonction du rôle Azure (Azure RBAC), ce qui signifie que vous pouvez [créer un rôle personnalisé](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) et affecter des utilisateurs moins privilégiés au rôle afin qu’ils ne puissent pas activer l’authentification de base sur des sites. Pour configurer le rôle personnalisé, [suivez ces instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 Vous pouvez également utiliser [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) pour auditer toutes les demandes d’authentification réussies et utiliser [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) pour appliquer cette configuration à tous les sites de votre abonnement.
 

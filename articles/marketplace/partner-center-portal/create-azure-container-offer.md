@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649264"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91709102"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Créer une offre de conteneur Azure dans la Place de marché Azure
 
@@ -80,10 +80,10 @@ Lors de la publication de votre offre sur la Place de marché commerciale avec l
 
 Voici des ressources de gestion des prospects supplémentaires :
 
-- [Vue d’ensemble de la gestion des prospects](commercial-marketplace-get-customer-leads.md)
-- [Questions fréquentes sur la gestion des prospects](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
+- [Prospects de votre offre de marketplace commercial](commercial-marketplace-get-customer-leads.md)
+- [Questions courantes sur la gestion des prospects](../lead-management-faq.md#common-questions-about-lead-management)
+- [Résolution des erreurs de configuration des prospects](../lead-management-faq.md#publishing-config-errors)
+- PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -180,7 +180,7 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact 
 
 Dans la section **Contact du support**, indiquez le **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
 
-Dans la section **Contact du programme du fournisseur de solutions Cloud**, indiquez le lien (**Ressources Marketing du programme CSP**) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
+Dans la section **Contact du programme du fournisseur de solutions Cloud**, fournissez le lien (**Ressources Marketing du programme CSP**) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
@@ -190,7 +190,7 @@ Pour plus d’informations sur la création d’annonces d’offres, consultez [
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
@@ -223,19 +223,19 @@ Les exemples suivants montrent où sont positionnés les champs de l’annonce d
 
 Voici la page **Description de l’offre** sur la Place de marché Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustre la page Description de l’offre dans la Place de marché Azure." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft." :::
 
 Voici les résultats de la recherche dans la Place de marché Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustre les résultats de la recherche dans la Place de marché Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 Voici la page **Description de l’offre** dans le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustre la page Description de l’offre dans le portail Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 Voici les résultats de la recherche dans le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustre les résultats de la recherche dans le portail Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 ## <a name="preview"></a>PRÉVERSION
 
@@ -328,11 +328,11 @@ Les exemples suivants montrent où sont positionnés les champs de la liste des 
 
 Voici les champs dans la Place de marché Azure lors de l’affichage des détails du plan :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustre les champs que vous voyez quand vous affichez les détails du plan dans la Place de marché Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 Voici les détails du plan sur le portail Azure :
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustre les détails du plan sur le portail Azure.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 ### <a name="plan-availability"></a>Disponibilité du plan
 
@@ -363,11 +363,11 @@ Fournissez les informations suivantes sous l’onglet **Détails du référentie
 
 **Nom d’utilisateur de l’administrateur pour Azure Container Registry** : indiquez le [nom d’utilisateur de l’administrateur](../../container-registry/container-registry-authentication.md#admin-account) qui est associé au registre Azure Container Registry contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustre la boîte de dialogue Mettre à jour le registre de conteneurs.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 **Mot de passe du registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustration du menu Clé d’accès.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustration de la case à cocher concernant l’utilisation du contrat Standard pour la Place de marché commerciale Microsoft.":::
 
 **Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](../../container-registry/container-registry-repositories.md).
 

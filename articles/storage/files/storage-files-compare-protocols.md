@@ -1,6 +1,6 @@
 ---
-title: Protocoles Azure Files disponibles
-description: Découvrez les protocoles disponibles avant de créer un partage de fichiers Azure.
+title: Protocoles Azure Files disponibles - NFS et SMB
+description: Découvrez les protocoles disponibles avant de créer un partage de fichiers Azure, notamment les protocoles SMB (Server Message Block) et NFS (Network File System).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708136"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568469"
 ---
 # <a name="azure-file-share-protocols"></a>Protocoles de partage de fichiers Azure
 
@@ -25,8 +25,8 @@ Azure Files offre deux protocoles pour la connexion et le montage de vos partage
 |---------|---------|---------|
 |Protocoles d’accès     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Systèmes d’exploitation pris en charge     |Noyau Linux version 4.3+         |Windows 2008 R2+, noyau Linux version 4.11+         |
-|Niveaux disponibles     |Stockage Premium         |Stockage Premium, stockage Standard, à chaud, à froid         |
-|Réplication     |LRS         |LRS, ZRS, GRS         |
+|[Niveaux disponibles](storage-files-planning.md#storage-tiers)     |Stockage Premium         |Stockage Premium, transaction optimisée, accès chaud, accès froid         |
+|[Redondance](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Authentification     |Authentification basée sur l’hôte uniquement        |Authentification basée sur l’identité, authentification basée sur l’utilisateur         |
 |Autorisations     |Autorisations de style UNIX         |Autorisations de style NTFS         |
 |Sémantique du système de fichiers     |Compatible POSIX         |Non compatible POSIX         |

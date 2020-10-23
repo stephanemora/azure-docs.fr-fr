@@ -1,5 +1,6 @@
 ---
-title: Intégration à Plateforme d’identités Microsoft
+title: Intégration à la plateforme d’identités Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez les avantages de l’intégration de votre application à Plateforme d’identités Microsoft et obtenez des ressources pour des fonctionnalités telles que la connexion simplifiée, la gestion d’identités, l’authentification multifacteur et le contrôle d’accès.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706164"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631407"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Intégration à Plateforme d’identités Microsoft
 
@@ -45,9 +46,9 @@ Il existe plusieurs façons d’intégrer votre application à Plateforme d’id
 
 **Utilisez Plateforme d’identités Microsoft pour le contrôle d’accès en fonction des rôles.**  Les administrateurs et les propriétaires d’applications peuvent affecter des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Plateforme d’identités Microsoft. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l’aide de l’API Microsoft Graph. En savoir plus sur [l’utilisation de Plateforme d’identités Microsoft pour l’autorisation](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil de l’utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil des utilisateurs, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
 
-**Plateforme d’identités Microsoft est le serveur d’autorisation pour Microsoft 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge Plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations de l’utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. En savoir plus sur l’[accès aux API Microsoft 365](/previous-versions/office/office-365-api/).
+**Plateforme d’identités Microsoft est le serveur d’autorisation pour Microsoft 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge Plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations de l’utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. Apprenez-en davantage sur [les API Microsoft 365](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promotion de votre application dans les Places de marché Azure et Microsoft 365
 

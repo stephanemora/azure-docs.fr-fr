@@ -2,14 +2,14 @@
 title: Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques | Microsoft Docs
 description: Cet article décrit comment mettre à jour Azure Monitor pour conteneurs afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618143"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309449"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
 
@@ -26,6 +26,7 @@ Les métriques activées dans le cadre de cette fonctionnalité sont les suivant
 | Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Comme mesures de*nœud* métriques, elles incluent *l’hôte* en tant que dimension. Elles incluent également<br> le nom du nœud comme valeur de la dimension *host*. |
 | Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Il s’agit de mesures de *pod* qui comprennent les dimensions suivantes : ControllerName, espace de noms Kubernetes, nom, phase. |
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Insights. Container/persistentvolumes | pvUsageExceededPercentage | |
 
 Pour prendre en charge ces nouvelles fonctionnalités, un nouvel agent en conteneur est inclus (version **microsoft/oms:ciprod05262020** pour AKS et version **microsoft/oms:ciprod09252020** pour les clusters Kubernetes avec Azure Arc). Les nouveaux déploiements d’AKS intègrent automatiquement ce changement de configuration et ces fonctionnalités. La mise à jour du cluster pour la prise en charge de cette fonctionnalité peut s’effectuer à partir du Portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure (Azure CLI). Avec Azure PowerShell et Azure CLI. Vous pouvez les activer par cluster ou pour tous les clusters de votre abonnement.
 

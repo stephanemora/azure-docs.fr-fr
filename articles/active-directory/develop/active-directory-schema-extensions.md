@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115609"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631271"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utiliser des attributs d’extension de schéma d’annuaire dans les revendications
 
@@ -35,7 +35,7 @@ L’identificateur d’un attribut d’extension de schéma d’annuaire se pré
 Les attributs d’extension de schéma d’annuaire peuvent être inscrits et renseignés d’une de ces deux façons :
 
 - En configurant AD Connect pour les créer et y synchroniser des données à partir de l’AD local. Consultez [Extensions d’annuaire de synchronisation Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Utilisation de Microsoft Graph pour l’inscription, la définition des valeurs et la lecture depuis les attributs d’extension de schéma d’annuaire [Extensions de schéma d’annuaire | Concepts de l’API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) et/ou PowerShell+ [Gestion des attributs d’extension avec les cmdlets AzureAD PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- En utilisant Microsoft Graph pour inscrire, définir les valeurs et lire à partir d’[extensions de schéma](/graph/extensibility-overview). Des [applets de commande PowerShell](/powershell/azure/active-directory/using-extension-attributes-sample) sont également disponibles.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Émission de revendications avec les données des attributs d’extension de schéma d’annuaire créés à l’aide d’AD Connect
 Les attributs de schéma d’extension d’annuaire créés et synchronisés à l’aide d’AD Connect sont toujours associés à l’ID d’application utilisé par AD Connect. Ils peuvent être utilisés comme source pour les revendications s’ils sont configurés comme des revendications dans la configuration **Applications d'entreprise** dans l’interface utilisateur du portail pour les applications SAML inscrites à l’aide de l’expérience de configuration de l’application galerie ou non-galerie sous **Applications d'entreprise** et via une stratégie de mappage des revendications pour les applications inscrites via l’expérience d’inscription d’application.  Une fois qu’un attribut d’extension d’annuaire créé via AD Connect figure dans l’annuaire, il affiche l’IU de la configuration des revendications SAML SSO.
@@ -58,7 +58,7 @@ Par exemple, voici la stratégie de mappage de revendications pour l’émission
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Lorsque *xxxxxxx* est l’ID d’application avec lequel l’extension a été i
 > Le paramètre « Id » dans le schéma des revendications utilisé pour les attributs de l’annuaire inclus est « ExtensionID » pour les attributs d’extension de l’annuaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez la procédure d’[ajout de revendications supplémentaires ou personnalisées aux jetons SAML 2.0 et JSON Web Token (JWT)](active-directory-optional-claims.md). 
+- Découvrez la procédure d’[ajout de revendications supplémentaires ou personnalisées aux jetons SAML 2.0 et JSON Web Token (JWT)](active-directory-optional-claims.md).
 - Découvrez la procédure de [personnalisation des revendications émises dans les jetons pour une application spécifique](active-directory-claims-mapping.md).

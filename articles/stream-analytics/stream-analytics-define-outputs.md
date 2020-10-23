@@ -6,13 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: contperfq1
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907149"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91708433"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Sorties d’Azure Stream Analytics
 
@@ -25,10 +26,10 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 | Type de sortie | Partitionnement | Sécurité | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Oui|Utilisateur Azure Active Directory </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Oui, doit être activé.|Auth utilisateur SQL </br> MSI (préversion)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Non|Auth utilisateur SQL|
+|[Azure SQL Database](sql-database-output.md)|Oui, facultatif.|Auth utilisateur SQL </br> MSI (préversion)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Oui|Auth utilisateur SQL|
 |[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|MSI </br> Clé d’accès|
-|[Azure Event Hubs](event-hubs-output.md)|Oui|Clé d’accès|
+|[Azure Event Hubs](event-hubs-output.md)|Oui, vous devez définir la colonne clé de partition dans la configuration de sortie.|Clé d’accès|
 |[Power BI](power-bi-output.md)|Non|Utilisateur Azure Active Directory </br> MSI|
 |[Stockage Table Azure](table-storage-output.md)|Oui|Clé de compte|
 |[Files d’attente Azure Service Bus](service-bus-queues-output.md)|Oui|Clé d’accès|
@@ -40,7 +41,7 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 
 Stream Analytics prend en charge les partitions pour toutes les sorties, à l’exception de Power BI. Pour plus d’informations sur les clés de partition et le nombre de générateurs de sortie, consultez l’article correspondant au type de sortie spécifique qui vous intéresse. Tous les articles de sortie sont liés dans la section précédente.  
 
-Le nombre d’enregistreurs de sortie peut être contrôlé à l’aide d’une clause `INTO <partition count>` (consultez [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) dans votre requête, ce qui permet d’atteindre la topologie de travail souhaitée. Si votre adaptateur de sortie n'est pas partitionné, l'absence de données dans une partition d'entrée entraîne un retard pouvant aller jusqu'au délai d'arrivée tardive. Dans ce cas, la sortie est fusionnée dans un seul enregistreur, ce qui peut créer des goulots d’étranglement dans votre pipeline. Pour en savoir plus sur la stratégie d’arrivée tardive, consultez l’article [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+De plus, pour un réglage avancé des partitions, vous pouvez contrôler le nombre d’enregistreurs de sortie à l’aide d’une clause `INTO <partition count>` (voir [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) dans votre requête, ce qui peut ête utile pour atteindre la topologie de travail souhaitée. Si votre adaptateur de sortie n'est pas partitionné, l'absence de données dans une partition d'entrée entraîne un retard pouvant aller jusqu'au délai d'arrivée tardive. Dans ce cas, la sortie est fusionnée dans un seul enregistreur, ce qui peut créer des goulots d’étranglement dans votre pipeline. Pour en savoir plus sur la stratégie d’arrivée tardive, consultez l’article [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891323"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91568350"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Résolution des erreurs de certificat
 
@@ -30,7 +30,6 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 |---|---|
 | CertificateManagement_UntrustedCertificate | Le certificat avec le nom d’objet {0} a une chaîne de certificats rompue. Téléchargez le certificat de chaîne de signature avant de charger ce certificat.|
 | CertificateManagement_DeviceNotRegistered| Votre appareil n’est pas activé. Vous pouvez télécharger un certificat de support uniquement après l’activation.|
-| CertificateManagement_EmptySAN | Le certificat avec le nom d’objet {0} n’a pas d’autre nom d’objet. Vérifiez les propriétés de votre certificat et apportez un nouveau certificat.|
 | CertificateManagement_ExpiredCertificate | Le certificat avec le type {0} a expiré ou arrive bientôt à expiration. Vérifiez l’expiration du certificat et, si nécessaire, apportez un nouveau certificat.|
 | CertificateManagement_FormatMismatch | Le format brut n'est pas pris en charge. Vérifiez le format du certificat et, si nécessaire, apportez un nouveau certificat.  {0} attendu, {1} trouvé. |
 | CertificateManagement_GenericError | Impossible d’effectuer l’opération de gestion des certificats. Recommencez cette opération après quelques minutes. Si le problème persiste, contactez le support technique Microsoft. |
@@ -42,7 +41,6 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 | CertificateManagement_KeySizeNotSufficient | Le certificat avec le nom d’objet {0} a une taille de clé insuffisante {1}. La taille de clé minimale est de 4096.|
 | CertificateManagement_MissingClientOid | Le certificat avec le nom d’objet {0} n’a pas d’OID d’authentification du client. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | Le certificat avec le nom d’objet {0} n’a pas de signature numérique dans l’utilisation de la clé. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat. |
-| CertificateManagement_MissingEntryInSAN | Le certificat avec le nom d’objet {0} n’a pas d’entrée de nom d’objet dans l’autre nom de l’objet. Vérifiez les propriétés de votre certificat et apportez un nouveau certificat. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | Le certificat avec le nom d’objet {0} n’a pas de signature de certificat dans l’utilisation de la clé. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | Le certificat avec le nom d’objet {0} n’a pas de chiffrement de clé dans l’utilisation de la clé. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat. |
 | CertificateManagement_MissingServerOid | Le certificat avec le nom d’objet {0} n’a pas d’OID d’authentification du serveur. Vérifiez les propriétés de votre certificat et, si nécessaire, apportez un nouveau certificat.|
@@ -55,6 +53,10 @@ Le tableau suivant répertorie les erreurs de certificat courantes et des inform
 | CertificateManagement_SubjectNamesInvalid | Le certificat avec le nom d’objet {0} ne possède pas le bon nom d’objet ou les bons autres noms d’objet le certificat {1}. Vérifiez le certificat que vous avez téléchargé et, si nécessaire, apportez un nouveau certificat. Vous devez également vérifier que le nom DNS correspond aux noms des SAN.|
 | CertificateManagement_UnreadableCertificate | Impossible de lire le certificat avec le type {0}. Cette erreur se produit lorsque le certificat est illisible ou endommagé. Apportez un nouveau certificat.|
 | CertificateSubjectNotFound | Le certificat avec le nom d’objet {0} est introuvable. Apportez un nouveau certificat.|
+| CertificateRotationGenericFailure | Échec d’une ou de plusieurs rotations de certificats. Réessayez dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft.|
+| CertificateImportFailure | Le certificat avec l’empreinte numérique {0} n’a pas été importé dans le nœud {1}. Si le problème persiste, contactez le support technique Microsoft. |
+| CertificateApplyFailure | Le certificat avec l’empreinte numérique {0} n’a pas été appliqué au nœud {1}. Si le problème persiste, contactez le support technique Microsoft.|
+| NodeNotReachable | Impossible de valider le certificat sur {0}. Vérifiez l’intégrité des composants et des logiciels du système.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

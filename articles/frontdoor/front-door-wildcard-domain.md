@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398747"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91570332"
 ---
 # <a name="wildcard-domains"></a>Domaines génériques
 
-En dehors des domaines et sous-domaines apex, vous pouvez mapper un nom de domaine générique à la liste d’hôtes frontend ou de domaines personnalisés de votre profil Azure Front Door. Le fait d’avoir des domaines génériques dans votre configuration Azure Front Door simplifie le comportement du routage du trafic de plusieurs sous-domaines pour une API, une application ou un site web à partir d’une même règle d’acheminement. Vous n’avez pas à modifier la configuration pour ajouter et/ou spécifier chaque sous-domaine séparément. Par exemple, vous pouvez définir le routage pour `customer1.contoso.com`, `customer2.contoso.com` et `customerN.contoso.com` à l’aide de la même règle d’acheminement en ajoutant le domaine générique `*.contoso.com`.
+En dehors des domaines et sous-domaines apex, vous pouvez également mapper un domaine générique aux hôtes front-end ou aux domaines personnalisés de votre profil Azure Front Door. Le fait d’avoir des domaines génériques dans votre configuration Azure Front Door simplifie le comportement du routage du trafic de plusieurs sous-domaines pour une API, une application ou un site web à partir d’une même règle d’acheminement. Vous n’avez pas à modifier la configuration pour ajouter et/ou spécifier chaque sous-domaine séparément. Par exemple, vous pouvez définir le routage pour `customer1.contoso.com`, `customer2.contoso.com` et `customerN.contoso.com` à l’aide de la même règle d’acheminement en ajoutant le domaine générique `*.contoso.com`.
 
 Les scénarios améliorés avec la prise en charge des domaines génériques comprennent les suivants :
 
@@ -47,7 +47,7 @@ Vous pouvez ajouter des domaines génériques et leurs sous-domaines avec certai
 - Si un domaine générique est ajouté à un profil Azure Front Door :
   - Le domaine générique ne peut pas être ajouté à un autre profil Azure Front Door.
   - Les sous-domaines de premier niveau du domaine générique ne peuvent pas être ajoutés à un autre profil Azure Front Door ou un profil Azure Content Delivery Network.
-- Si un sous-domaine d’un domaine générique est ajouté à un profil Azure Front Door ou un profil Azure Content Delivery Network, le domaine générique ne peut pas être ajouté à d’autres profils Azure Front Door.
+- Si un sous-domaine d’un domaine générique est déjà ajouté à un profil Azure Front Door ou un profil Azure Content Delivery Network, le domaine générique ne peut pas être utilisé pour un autre profil Azure Front Door.
 - Si deux profils (Azure Front Door ou Azure Content Delivery Network de Microsoft) possèdent plusieurs sous-domaines d’un domaine racine, les domaines génériques ne peuvent être ajoutés à aucun des deux profils.
 
 ## <a name="certificate-binding"></a>Liaison de certificats
@@ -59,7 +59,7 @@ Pour accepter le trafic HTTPS sur votre domaine générique, vous devez activer 
 
 Vous pouvez choisir d’utiliser le même certificat générique à partir d’Azure Key Vault ou des certificats gérés Azure Front Door pour les sous-domaines.
 
-Si un sous-domaine est ajouté pour un domaine générique auquel un certificat est déjà associé, le protocole HTTPS pour le sous-domaine ne peut pas être désactivé. Le sous-domaine utilise la liaison de certificat pour le domaine générique, à moins qu’une autre clé Key Vault ou un autre certificat géré par Azure Front Door ne le remplace.
+Si un sous-domaine est ajouté pour un domaine générique auquel un certificat est déjà associé, vous ne pouvez pas désactivé le protocole HTTPS pour le sous-domaine. Le sous-domaine utilise la liaison de certificat pour le domaine générique, à moins qu’une autre clé Key Vault ou un autre certificat géré par Azure Front Door ne le remplace.
 
 ## <a name="waf-policies"></a>Stratégies WAF
 
@@ -72,7 +72,7 @@ Si vous ne souhaitez pas qu’une stratégie de pare-feu d'applications web s’
 Lors de la configuration d’une règle d’acheminement, vous pouvez sélectionner un domaine générique comme hôte frontend. Vous pouvez également avoir un comportement de routage différent pour le domaine générique et pour les sous-domaines. Comme le décrit l’article [Fonctionnement des correspondances d’itinéraires Azure Front Door](front-door-route-matching.md), la correspondance la plus spécifique pour le domaine entre différentes règles d’acheminement est choisie au moment de l’exécution.
 
 > [!IMPORTANT]
-> Vous devez avoir des modèles de chemin d’accès correspondants à travers vos règles de routage, sans quoi vos clients verront des échecs. Par exemple, supposons que vous avez deux règles de routage, l’itinéraire 1 (`*.foo.com/*` mappé au pool principal A) et l’itinéraire 2 (`bar.foo.com/somePath/*` mappé au pool principal B). Une requête arrive alors pour `bar.foo.com/anotherPath/*`. Azure Front Door sélectionne l’itinéraire 2 au motif d’une correspondance de domaine plus spécifique, mais ne trouve aucun modèle de chemin d’accès correspondant dans les itinéraires.
+> Vous devez avoir des modèles de chemin d’accès correspondants à travers vos règles de routage, sans quoi vos clients verront des échecs. Par exemple, supposons que vous avez deux règles de routage, l’itinéraire 1 (`*.foo.com/*` mappé au pool principal A) et l’itinéraire 2 (`/bar.foo.com/somePath/*` mappé au pool principal B). Une requête arrive alors pour `bar.foo.com/anotherPath/*`. Azure Front Door sélectionne l’itinéraire 2 au motif d’une correspondance de domaine plus spécifique, mais ne trouve aucun modèle de chemin d’accès correspondant dans les itinéraires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

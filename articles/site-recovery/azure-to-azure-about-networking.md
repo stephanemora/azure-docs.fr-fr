@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527375"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91631339"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -46,7 +46,7 @@ Les réseaux sont généralement protégés à l’aide de pare-feu et de groupe
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez ces URL Site Recovery :
 
 >[!NOTE]
-> La mise en liste verte basée sur l’adresse IP ne doit pas être exécutée pour contrôler la connectivité sortante.
+> Le filtrage basé sur l’adresse IP ne doit pas être effectué pour contrôler la connectivité sortante.
 
 **URL** | **Détails**
 --- | ---
@@ -82,11 +82,11 @@ Cet exemple montre comment configurer des règles de groupes de sécurité rése
 
 1. Créez une règle de sécurité HTTPS sortante (443) pour « Storage.EastUS » sur le groupe de sécurité réseau comme indiqué dans la capture d’écran ci-dessous.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Capture d’écran montrant Ajouter une règle de sécurité de trafic sortant applicable à un groupe de sécurité réseau pour le point de stockage USA Est.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Créez une règle de sécurité HTTPS sortante (443) pour « AzureActiveDirectory » sur le groupe de sécurité réseau comme indiqué dans la capture d’écran ci-dessous.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Capture d’écran montrant Ajouter une règle de sécurité de trafic sortant applicable à un groupe de sécurité réseau pour Azure AD.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.CentralUS » sur le groupe de sécurité réseau qui correspond à la position cible. Celle-ci permet d’accéder à la supervision de Site Recovery.
 
