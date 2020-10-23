@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646618"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150150"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
-Cet article décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. La fonctionnalité d’intégration au réseau virtuel permet à vos applications d’accéder à des ressources dans ou via un réseau virtuel. Elle n’autorise pas l’accès privé à vos applications.
+Cet article décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](./overview.md). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. La fonctionnalité d’intégration au réseau virtuel permet à vos applications d’accéder à des ressources dans ou via un réseau virtuel. Elle n’autorise pas l’accès privé à vos applications.
 
 Azure App Service propose deux variantes de la fonctionnalité d’intégration au réseau virtuel :
 
@@ -54,6 +54,10 @@ Les applications contenues dans App Service sont hébergées dans des rôles de 
 
 Quand l’intégration au réseau virtuel régional est activée, votre application continue de passer des appels sortants vers Internet en empruntant les mêmes canaux que d’habitude. Les adresses sortantes figurant sur le portail des propriétés de l’application sont toujours les adresses qu’utilise votre application. Ce qui change pour votre application, c’est que les appels aux services sécurisés de point de terminaison de service ou aux adresses RFC 1918 accèdent à votre réseau virtuel. Si WEBSITE_VNET_ROUTE_ALL a la valeur 1, tout le trafic sortant peut être envoyé dans votre réseau virtuel.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` n’est actuellement pas pris en charge dans les conteneurs Windows.
+> 
+
 La fonctionnalité ne prend en charge qu’une seule interface virtuelle par Worker. Une interface virtuelle par Worker signifie une intégration au réseau virtuel régional par plan App Service. Toutes les applications d’un même plan App Service peuvent utiliser la même intégration de réseau virtuel. Si vous avez besoin d’une application pour vous connecter à un autre réseau virtuel, vous devez créer un autre plan App Service. L’interface virtuelle utilisée n’est pas une ressource à laquelle les clients peuvent accéder directement.
 
 Compte tenu du mode de fonctionnement de cette technologie, le trafic utilisé avec l’intégration au réseau virtuel n’apparaît pas dans les journaux de flux du groupe de sécurité réseau (NSG) ou d’Azure Network Watcher.
@@ -72,7 +76,8 @@ L’intégration au réseau virtuel avec passerelle obligatoire prend en charge 
 Vous ne pouvez pas utiliser l’intégration au réseau virtuel avec passerelle obligatoire :
 
 * Avec un réseau virtuel connecté au moyen d’Azure ExpressRoute.
-* À partir d’une application Linux
+* À partir d’une application Linux.
+* À partir d’un [conteneur Windows](quickstart-custom-container.md).
 * Pour accéder à des ressources sécurisées de points de terminaison de service.
 * Avec une passerelle de coexistence qui prend en charge à la fois les connexions ExpressRoute et les VPN de point à site ou site à site.
 
@@ -139,11 +144,15 @@ L’utilisation de la fonctionnalité d’intégration au réseau virtuel régio
 
 Trois types de frais sont appliqués en cas d’utilisation de la fonctionnalité d’intégration au réseau virtuel avec passerelle obligatoire :
 
-* **Frais liés au niveau tarifaire du plan App Service** : Vos applications doivent se trouver dans un plan App Service Standard, Premium ou PremiumV2. Pour plus d’informations sur ces frais, consultez [Tarification d’App Service][ASPricing].
+* **Frais liés au niveau tarifaire du plan App Service** : Vos applications doivent être dans un plan App Service Standard, Premium, PremiumV2 ou PremiumV3. Pour plus d’informations sur ces frais, consultez [Tarification d’App Service][ASPricing].
 * **Coût de transfert des données** : Les sorties de données engendrent des coûts, même si le réseau virtuel est dans le même centre de données. Ces coûts sont décrits dans [Détails de tarification des transferts de données][DataPricing].
 * **Coûts de la passerelle VPN** : La passerelle de réseau virtuel nécessaire pour la connexion VPN de point à site engendre un coût. Pour plus d’informations, consultez [Tarification Passerelle VPN][VNETPricing].
 
 ## <a name="troubleshooting"></a>Dépannage
+
+> [!NOTE]
+> L’intégration au réseau virtuel n’est pas prise en charge pour les scénarios Docker Compose dans App Service.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

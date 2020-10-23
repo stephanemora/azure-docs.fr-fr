@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183976"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710343"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple comme cible de sauvegarde avec Veeam
 
@@ -274,7 +274,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
 1.  Dans la console Veeam de sauvegarde et de réplication, sous **Repository Tools (Outils de référentiel)** , accédez à **Backup Infrastructure (Infrastructure de sauvegarde)** . Cliquez avec le bouton droit sur **Backup Repositories (Référentiels de sauvegarde)** , puis sélectionnez **Add Backup Repository (Ajouter un référentiel de sauvegarde)** .
 
-    ![Console d’administration de Veeam, page du référentiel de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Capture d’écran qui montre la console de gestion Veeam et met en évidence l’option Add Backup Repository.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  Dans la boîte de dialogue **New Backup Repository (Nouveau référentiel sauvegarde)** , entrez un nom et une description pour le référentiel. Sélectionnez **Suivant**.
 
@@ -295,7 +295,7 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
 6.  Dans la boîte de dialogue **New Backup Repository (Nouveau référentiel de sauvegarde)** , cochez la case **Enable vPower NFS service on the mount server (recommended) (Activer le service NFS vPower sur le serveur de montage (recommandé))** . Sélectionnez **Suivant**.
 
-    ![Console d’administration de Veeam, page du référentiel de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Capture d’écran montrant la console de gestion Veeam dans laquelle vous pouvez ajouter un nouveau référentiel de sauvegarde.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Passez en revue les paramètres, puis sélectionnez **Suivant**.
 
@@ -335,11 +335,11 @@ Pour le scénario de cible de sauvegarde principale, créez un travail quotidien
 
 2.  Dans la boîte de dialogue **New Backup Job (Nouveau travail de sauvegarde)** , entrez un nom et une description pour le travail de sauvegarde quotidien.
 
-    ![Console d’administration de Veeam, page du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Capture d’écran de la console de gestion Veeam dans laquelle vous ajoutez le nom et la description.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Sélectionnez une machine virtuelle sur laquelle effectuer la sauvegarde.
 
-    ![Console d’administration de Veeam, page du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Capture d’écran montrant la console de gestion Veeam dans laquelle vous sélectionnez la machine virtuelle.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Sélectionnez les valeurs souhaitées pour **Backup proxy (Proxy de sauvegarde)** et **Backup repository (Référentiel de sauvegarde)** . Sélectionnez une valeur pour **Restore points to keep on disk (Points de restauration à conserver sur le disque)** conformément aux définitions des objectifs RPO et RTO de votre environnement sur le stockage connecté localement. Sélectionnez **Avancé**.
 
@@ -347,7 +347,7 @@ Pour le scénario de cible de sauvegarde principale, créez un travail quotidien
 
 5. Dans la boîte de dialogue **Advanced Settings (Paramètres avancés)** , dans l’onglet **Backup (Sauvegarde)** , sélectionnez **Incremental (Incrémentielle)** . Assurez-vous que la case **Create synthetic full backups periodically (Créer régulièrement des sauvegardes intégrales synthétiques)** est désactivée. Cochez la case **Create active full backups periodically (Créer périodiquement des sauvegardes complètes actives)** . Sous **Active full backup (Sauvegarde complète active)** , cochez la case **Weekly on selected days (Hebdomadaire pour les jours sélectionnés)** pour le samedi.
 
-    ![Console d’administration de Veeam, page de paramètres avancés du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Capture d’écran montrant la console de gestion Veeam, plus spécifiquement la page des paramètres avancés du nouveau travail de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. Dans l’onglet **Storage (Stockage)** , vérifiez que la case **Enable inline data deduplication (Activer la déduplication des données en ligne)** est désactivée. Cochez la case **Exclude swap file blocks (Exclure les blocs de fichiers d’échange)** et cochez la case **Exclude deleted file blocks (Exclure les blocs de fichiers supprimés)** . Définissez **Compression level (Niveau de compression)** sur **None (Aucun)** . Définissez l’option **Storage optimization (Optimisation du stockage)** sur **LAN target (Cible LAN)** pour équilibrer les performances et la déduplication. Sélectionnez **OK**.
 
@@ -408,11 +408,11 @@ planification de rotation GFS hebdomadaire, mensuelle et annuelle
 
 1.  Dans la console Veeam de sauvegarde et de réplication, sélectionnez **Backup & Replication (Sauvegarde et réplication)** . Cliquez avec le bouton droit sur **Backup (Sauvegarde)** , puis sélectionnez **VMware** ou **Hyper-V** en fonction de votre environnement.
 
-    ![Console d’administration de Veeam, page de nouveau travail de copie de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Capture d’écran montrant la console de gestion Veeam avec les options VMware et Hyper-V que vous pouvez sélectionner.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  Dans la boîte de dialogue **New Backup Copy Job (Nouveau travail de copie de sauvegarde)** , entrez un nom et une description pour le travail.
 
-    ![Console d’administration de Veeam, page de nouveau travail de copie de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Capture d’écran montrant la console de gestion Veeam dans laquelle vous entrez le nom et la description du travail.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Sélectionnez les machines virtuelles à traiter. Sélectionnez l’option From backups (À partir des sauvegardes), puis sélectionnez la sauvegarde quotidienne créée précédemment.
 
@@ -422,13 +422,13 @@ planification de rotation GFS hebdomadaire, mensuelle et annuelle
 
 5.  Sélectionnez votre référentiel de sauvegarde, puis définissez une valeur pour **Restore points to keep (Points de restauration à conserver)** . N’oubliez pas de cocher la case **Keep the following restore points for archival purposes (Conserver les points de restauration ci-dessous à des fins d’archivage)** . Définissez la fréquence de sauvegarde, puis sélectionnez **Advanced (Avancé)** .
 
-    ![Console d’administration de Veeam, page de nouveau travail de copie de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Capture d’écran montrant où vous définissez la fréquence de sauvegarde.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Spécifiez les paramètres avancés suivants :
 
     * Dans l’onglet **Maintenance**, désactivez la protection contre l’altération des niveaux de stockage.
 
-    ![Console d’administration de Veeam, page de paramètres avancés du nouveau travail de copie de sauvegarde](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Capture d’écran montrant l’onglet Maintenance dans la console de gestion Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * Dans l’onglet **Storage (Stockage)** , assurez-vous que la déduplication et la compression sont désactivées.
 

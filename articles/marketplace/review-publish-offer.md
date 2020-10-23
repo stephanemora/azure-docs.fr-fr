@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375876"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976441"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
 
@@ -170,6 +170,84 @@ Maintenant que vous avez choisi de mettre en service votre offre, ce qui la rend
     Nous vérifions que votre offre est publiquement disponible dans la place de marché.
 
 Une fois ces vérifications terminées, votre offre est publiée sur la place de marché.
+
+## <a name="publishing-history"></a>Historique de publication
+
+La page **Historique** dans Espace partenaires affiche les événements de publication de vos offres sur le marketplace commercial. Pour chaque événement, la page affiche l’utilisateur qui a initié l’action, le type d’événement et la date et l’heure de l’événement. Les [étapes de validation et de publication](#validation-and-publishing-steps) sont répertoriées avec la date et l’heure d’achèvement.
+
+Pour afficher l’historique de votre offre :
+
+1.    Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+2.    Dans le menu de navigation situé à gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.
+3.    Sélectionnez votre offre.
+4.    Sélectionnez l’onglet **Historique** dans le menu de navigation à gauche. La page fournit des détails sur les événements suivants, en fonction de votre offre :
+
+|Événement    |Description    |
+|---------|---------------|
+|Offre créée    |L’offre a été créée dans Espace partenaires. Un utilisateur a sélectionné le type d’offre, l’ID d’offre et l’alias d’offre dans **Marketplace commercial** > **Vue d’ensemble**.    |
+|Plan créé : *nom du plan*    |Un utilisateur a créé un nouveau plan en entrant l’ID et le nom du plan dans l’onglet **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Plan supprimé    |Un utilisateur a supprimé un plan brouillon qui n’avait pas été publié en sélectionnant **Supprimer le brouillon** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Initiation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a initié un plan de fin de vente en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Annulation d’un plan de fin de vente : *nom du plan*    |Un utilisateur a annulé un plan de fin de vente en sélectionnant **Annuler la fin de vente** dans la page **Vue d’ensemble du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans*.    |
+|Offre soumise à la préversion    |Un utilisateur a soumis l’offre à la préversion en sélectionnant **Publier** dans la page **Vérifier et publier**.    |
+|Annulation de la soumission initiée à la préversion    |Un utilisateur a demandé l’annulation de la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
+|Annulation de la soumission à la préversion    |Un utilisateur a annulé la publication de l’offre en préversion en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après la soumission à la préversion.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
+|Approbation de la mise en ligne    |Un utilisateur a publié l’offre sur le marketplace commercial en sélectionnant **Mise en ligne** dans la page **Vue d’ensemble de l’offre**.    |
+|Annulation de la publication initiée sur le marketplace    |Un utilisateur a demandé l’annulation de la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche lorsque la demande d’annulation est en cours de traitement*.    |
+|Annulation de la publication sur le marketplace commercial    |Un utilisateur a annulé la publication de l’offre en sélectionnant **Annuler la publication** dans la page **Vue d’ensemble de l’offre** après l’approbation de la mise en ligne.</br>*Cet événement s’affiche une fois que la demande d’annulation a été traitée*.    |
+|Synchronisation des audiences privées    |Un utilisateur a mis à jour et synchronisé l’audience privée en sélectionnant **Synchroniser l’audience privée** dans la page **Vue d’ensemble du plan** dans la page **Tarification et disponibilité du plan**.</br>*Cet événement s’applique uniquement aux types d’offres qui prennent en charge les plans privés*.    |
+|Arrêt de la vente du plan    |Un utilisateur a interrompu la vente de l’offre en sélectionnant **Arrêter la vente** dans la page **Vue d’ensemble de l’offre**.    |
+
+> [!NOTE]
+> La page Historique n’indique pas quand un brouillon d’offre a été enregistré.
+
+### <a name="filter-options"></a>Options de filtre
+
+Vous pouvez utiliser des filtres pour réduire l’historique complet de votre offre à des événements de publication spécifiques :
+
+1.    Sélectionnez le bouton de filtre situé dans l’angle supérieur droit de la page.
+2.    Choisissez un filtre, puis sélectionnez **Appliquer** pour voir quels événements d’historique correspondent aux critères que vous avez sélectionnés.
+3.    Sélectionnez **Effacer les filtres** pour revenir à l’historique complet de votre offre.
+
+Il existe quatre filtres :
+* Événements
+* Utilisateurs
+* Date
+* Pages
+
+Lorsque vous choisissez le filtre **Pages**, vous pouvez sélectionner n’importe quelle page d’Espace partenaires applicable à votre type d’offre. Lorsqu’il est appliqué, le filtre **Pages** affiche tous les événements **Offre soumise à la préversion** avec les modifications apportées à la page que vous avez sélectionnée.
+
+* Pour toutes les offres, la page **Configuration de l’offre** est incluse par défaut pour chaque événement d’envoi.
+* Pour les offres qui prennent en charge les plans, la page **Vue d’ensemble du plan** est incluse pour chaque événement d’envoi.
+* Pour les offres qui prennent en charge les versions d’évaluation, la page **Version d’évaluation** est incluse pour chaque événement d’envoi.
+
+### <a name="users"></a>Utilisateurs
+
+Si un événement a été initié par un utilisateur, la page Historique indique l’utilisateur selon les scénarios suivants :
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>L’événement a été initié par l’éditeur
+
+Les utilisateurs ayant des autorisations de publication pour une offre verront leur nom affiché pour les événements de publication qu’ils initient.
+
+[![The History page displays the name of users with publishing permissions.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>L’événement a été initié par Microsoft
+
+Vous pouvez accorder des autorisations aux administrateurs Microsoft pour lancer des actions en votre nom ou prendre des actions correctives après une erreur système inattendue. Le nom et le logo de Microsoft s’affichent pour les événements de publication initiés par Microsoft en votre nom.
+
+[![Example of how the History page displays events initiated by Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>L’événement a été initié par un utilisateur non identifié
+
+Les utilisateurs qui ne sont plus associés à un compte voient leur nom supprimé de la colonne **Initié par** après que leurs autorisations de publication leur ont été retirées.
+
+[![Example of how the History page displays events initiated by unidentified users.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Étapes de validation et de publication
+
+Aucun utilisateur n’est affiché pour les processus système qui correspondent aux [étapes de validation et de publication](#validation-and-publishing-steps). Ces événements sont codés par couleur en fonction de l’état d’achèvement de l’événement.
+
+[![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

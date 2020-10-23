@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408826"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123730"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Surveillance de la connectivité réseau à l'aide du Moniteur de connexion (préversion)
 
@@ -143,9 +143,7 @@ Les moniteurs de connexion présentent les limites suivantes en termes de mise �
 * Nombre maximum de moniteurs de connexion par abonnement et par région : 100
 * Nombre maximum de groupes de tests par moniteur de connexion : 20
 * Nombre maximum de sources et de destinations par moniteur de connexion : 100
-* Nombre maximum de configurations de test par moniteur de connexion : 
-    * 20 via ARMClient
-    * 2 via le portail Azure
+* Nombre maximum de configurations de test par moniteur de connexion :
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analyser les données de surveillance et définir des alertes
 

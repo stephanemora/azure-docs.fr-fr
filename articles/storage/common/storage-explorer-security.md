@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835440"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91714387"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guide de sécurité Explorateur Stockage Azure
 
@@ -42,11 +42,11 @@ Nous vous recommandons d’utiliser l’authentification Azure AD dans la mesure
 
 Cette section décrit les deux technologies basées sur Azure AD qui peuvent être utilisées pour sécuriser vos ressources de stockage.
 
-#### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) vous offre un contrôle d’accès affiné sur vos ressources Azure. Les autorisations et les rôles RBAC peuvent être gérés à partir du portail Azure.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) vous offre un contrôle d’accès affiné sur vos ressources Azure. Les autorisations et rôles RBAC Azure peuvent être gérés à partir du portail Azure.
 
-Explorateur Stockage prend en charge l’accès RBAC aux comptes de stockage, aux blobs et aux files d’attente. Si vous avez besoin d’accéder à des partages de fichiers ou à des tables, vous devez attribuer des rôles RBAC qui accordent l’autorisation de répertorier les clés de compte de stockage.
+L’Explorateur Stockage prend en charge l’accès RBAC Azure aux comptes de stockage, aux objets blobs et aux files d’attente. Si vous avez besoin d’accéder à des partages de fichiers ou à des tables, vous devez attribuer des rôles RBAC Azure qui accordent l’autorisation de lister les clés de compte de stockage.
 
 #### <a name="access-control-lists-acls"></a>Listes ACL
 
@@ -77,11 +77,11 @@ Lorsque vous utilisez une SAP dans Explorateur Stockage, nous vous recommandons 
 
 ### <a name="storage-account-keys"></a>Clés de compte de stockage
 
-Les clés de compte de stockage accordent un accès illimité aux services et aux ressources au sein d’un compte de stockage. Pour cette raison, nous vous recommandons de limiter l’utilisation des clés pour accéder aux ressources dans Explorateur Stockage. Utilisez plutôt des fonctionnalités RBAC ou SAP pour fournir l’accès.
+Les clés de compte de stockage accordent un accès illimité aux services et aux ressources au sein d’un compte de stockage. Pour cette raison, nous vous recommandons de limiter l’utilisation des clés pour accéder aux ressources dans Explorateur Stockage. Utilisez plutôt des fonctionnalités RBAC ou SAP Azure pour fournir l’accès.
 
-Certains rôles RBAC permettent de récupérer les clés de compte de stockage. Les personnes disposant de ces rôles peuvent contourner efficacement les autorisations accordées ou refusées par RBAC. Nous vous recommandons de ne pas accorder cette autorisation, sauf si elle est nécessaire.
+Certains rôles Azure accordent des autorisations pour récupérer des clés de compte de stockage. Les personnes disposant de ces rôles peuvent contourner efficacement les autorisations accordées ou refusées par le contrôle RBAC Azure. Nous vous recommandons de ne pas accorder cette autorisation, sauf si elle est nécessaire.
 
-Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres (**Services > Comptes de stockage > Désactiver l’utilisation des clés**). Certaines fonctionnalités ne prennent pas en charge RBAC, telles que l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
+Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres (**Services > Comptes de stockage > Désactiver l’utilisation des clés**). Certaines fonctionnalités ne prennent pas en charge le contrôle RBAC Azure, comme l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
 
 Si vous devez utiliser des clés pour accéder à vos ressources de stockage, nous vous recommandons de suivre les instructions suivantes :
 

@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646675"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91710649"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d’application Power BI
 
-Cet article explique comment créer une offre d’application Power BI et la publier sur Microsoft [AppSource](https://appsource.microsoft.com/).
+Cet article explique comment créer une offre d’application Power BI et la publier sur [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
@@ -55,10 +55,10 @@ La page montre une représentation visuelle des étapes nécessaires à la publi
 
 Elle contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
-- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer))
-- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval))
-- Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](update-existing-offer.md#cancel-publishing))
+- Si l’offre est un brouillon : [Supprimer le brouillon de l’offre](update-existing-offer.md#delete-a-draft-offer)
+- Si l’offre est publiée : [Arrêter de vendre l’offre](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si l’offre est disponible en préversion : [Mise en service](publishing-status.md#publisher-approval)
+- Si vous n’avez pas terminé la publication : [Annuler la publication](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
@@ -73,7 +73,7 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou un [point de terminaison HTTPS](commercial-marketplace-lead-management-instructions-https.md) pour stocker les données des prospects. Ensuite, exportez les données vers votre système CRM.
+    > Si votre système CRM ne figure pas dans la liste, utilisez une [table Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou un [point de terminaison HTTPS](commercial-marketplace-lead-management-instructions-https.md) pour stocker les données des prospects. Ensuite, exportez les données vers votre système CRM.
 
 2. Connectez votre offre à la destination de prospect tout en la publiant dans l’Espace partenaires.
 3. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l’Espace partenaires, nous validons la connexion et nous vous envoyons un prospect de test. Quand vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acheter vous-même l’offre dans l’environnement en version préliminaire.
@@ -81,9 +81,9 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
 
 Voici des ressources de gestion des prospects supplémentaires :
 
-- [Vue d’ensemble de la gestion des prospects](commercial-marketplace-get-customer-leads.md)
-- [Questions fréquentes sur la gestion des prospects](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Erreurs courantes de configuration des prospects](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Prospects de votre offre de marketplace commercial](commercial-marketplace-get-customer-leads.md)
+- [Questions courantes sur la gestion des prospects](../lead-management-faq.md#common-questions-about-lead-management)
+- [Résolution des erreurs de configuration des prospects](../lead-management-faq.md#publishing-config-errors)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
@@ -202,7 +202,7 @@ Fournissez au moins un et au plus trois documents marketing associés au format 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’Espace partenaires.
@@ -218,7 +218,7 @@ Ces logos sont utilisés à différents emplacements dans la liste :
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Captures d’écran.
 

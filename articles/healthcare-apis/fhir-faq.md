@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978613"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056853"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
@@ -44,6 +44,10 @@ Quand vous exécutez FHIR Server pour Azure, vous avez un accès direct aux serv
 
 Du point de vue du développement, chaque fonctionnalité est d’abord déployée sur l’implémentation open source de Microsoft FHIR Server pour Azure. Une fois la version open source validée, elle est mise en production sur la solution PaaS API Azure pour FHIR. Le délai de mise en production entre la version open source et la solution PaaS dépend de la complexité des fonctionnalités et d’autres priorités relatives à la feuille de route. 
 
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Où puis-je voir les nouveautés de l’API Azure pour FHIR ?
+
+Pour en savoir plus sur les nouveautés de l’API Azure pour FHIR, reportez-vous à la [version release](https://github.com/microsoft/fhir-server/releases) de FHIR Server open source. Nous avons ajouté l’étiquette Azure-API-for-FHIR aux éléments inclus dans la version du service managé, qui sont généralement disponibles deux semaines après leur affichage dans la page de mise en production en open source. Nous avons également inclus [ici](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) des instructions sur la façon de tester la build dans votre propre environnement, si vous le souhaitez. Nous sommes en train d’étudier le meilleur moyen de partager d’autres mises à jour du service managé.
+
 ### <a name="what-is-smart-on-fhir"></a>Qu’est-ce que SMART sur FHIR ?
 
 SMART (Substitutable Medical Applications and Reusable Technology) sur FHIR est un ensemble de spécifications ouvertes qui permettent d’intégrer les applications partenaires avec les serveurs FHIR et d’autres systèmes informatiques médicaux, par exemple les dossiers médicaux électroniques et les échanges d’informations médicales. En créant une application SMART sur FHIR, vous avez la garantie que votre application est accessible et exploitable par une multitude de systèmes distincts.
@@ -65,6 +69,23 @@ La limite actuelle sur le nombre est de 100.
 
 Pour l’exportation de groupe, vous exportez uniquement les références incluses à partir du groupe, et non toutes les caractéristiques de la [ressource de groupe](https://www.hl7.org/fhir/group.html).
 
+### <a name="can-i-post-a-bundle-to-the-azure-api-for-fhir"></a>Puis-je publier un bundle sur l’API Azure pour FHIR ?
+
+Nous autorisons la publication de [bundles par lot](https://www.hl7.org/fhir/valueset-bundle-type.html), mais pas de bundles transactionnels dans l’API Azure pour FHIR. Vous pouvez utiliser l’implémentation open source de FHIR Server avec SQL pour publier des bundles transactionnels.
+
+### <a name="how-can-i-get-all-resources-for-a-single-patient-in-the-azure-api-for-fhir"></a>Comment puis-je obtenir toutes les ressources associées à un patient spécifique dans l’API Azure pour FHIR ?
+
+Nous prenons en charge la [recherche par compartiment](https://www.hl7.org/fhir/compartmentdefinition.html) dans l’API Azure pour FHIR. Cela vous permet d’obtenir toutes les ressources associées à un patient spécifique. Notez que le compartiment contient maintenant toutes les ressources associées au patient, mais pas le patient lui-même. Vous devrez également effectuer une recherche pour obtenir le patient si vous avez besoin d’inclure la ressource patient dans vos résultats.
+
+Voici quelques exemples :
+
+* GET Patient/<id>/*
+* GET Patient/<id>/Observation
+* GET Patient/<id>/Observation?code=8302-2
+
+### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Où puis-je voir des exemples d’utilisation de l’API Azure pour FHIR dans un workflow ?
+
+Nous avons une collection d’architectures de référence disponibles dans la [page Health Architecture sur GitHub](https://github.com/microsoft/health-architectures).
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Connecteur Azure IoT pour FHIR (préversion)
 

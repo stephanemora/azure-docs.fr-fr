@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d04f95372eb050c3eea08d50d4c9bdbd3a0232b1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650984"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282337"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 
@@ -166,7 +166,7 @@ Les offres de la place de marché commerciale peuvent être achetées dans 141 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* Pour les clients au Brésil, la place de marché commerciale via les fournisseurs de solutions cloud (CSP) utilise l’USD.
+\* Pour les clients au Brésil, la place de marché commerciale, par l’intermédiaire des fournisseurs de solutions Cloud (CSP), utilise l’USD.
 
 \** Images de machines virtuelles gratuites et BYOL uniquement.
 
@@ -181,7 +181,7 @@ Pour ajuster un tarif avant sa publication, il vous suffit d’exporter la feuil
 
 Le prix d'une offre est toujours indiqué aux clients dans leur devise locale. Le prix que vous sélectionnez dans l'Espace partenaires est converti dans la devise locale des clients en fonction du taux de change en vigueur au moment où vous avez enregistré le prix dans l'Espace partenaires. Le prix indiqué aux clients dans les magasins en ligne ne change pas, sauf si vous republiez votre offre.
 
-Microsoft reçoit les paiements des clients dans leur devise locale et vous paie dans votre devise locale. Microsoft convertit la devise locale du client en votre devise locale en se basant sur le taux de change du jour de l'achat.
+Microsoft reçoit les paiements des clients dans leur devise locale et vous paie dans la devise que vous avez sélectionnée dans l’Espace partenaires. Microsoft convertit la devise locale du client en se fonction du taux de change du jour de l’achat.
 
 > [!NOTE]
 > Microsoft convertit les prix des offres en se basant sur les taux de change de Microsoft Treasury.
@@ -196,7 +196,7 @@ Pour plus d’informations sur la façon d’entrer les prix de certains types d
 
 - [Créer une offre Azure Application](partner-center-portal/create-new-azure-apps-offer.md)
 - [Créer une offre de conteneur Azure](partner-center-portal/create-azure-container-offer.md)
-- [Créer une offre de machine virtuelle Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Créer une offre de machine virtuelle Azure](azure-vm-create.md)
 - [Créer une offre de services de conseil](partner-center-portal/create-consulting-service-offer.md)
 - [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)

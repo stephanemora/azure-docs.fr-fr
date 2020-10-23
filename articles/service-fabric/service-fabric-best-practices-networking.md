@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948961"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91630700"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -59,7 +59,7 @@ La mise à l’échelle de l’infrastructure est requise pour activer la mise e
 
 ## <a name="network-security-rules"></a>Règles de sécurité du réseau
 
-Les règles de base sont le minimum pour un verrouillage de sécurité d’un cluster Service Fabric géré par Azure. Si vous ne parvenez pas à ouvrir les ports suivants ou à créer une liste verte, l’adresse IP/URL empêche le bon fonctionnement du cluster et risque de ne pas être prise en charge. Avec cette règle définie, il est strictement nécessaire d’utiliser des [mises à niveau automatiques de l’image du système d’exploitation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). Autrement, des ports supplémentaires doivent être ouverts.
+Les règles de base sont le minimum pour un verrouillage de sécurité d’un cluster Service Fabric géré par Azure. Ne pas ouvrir les ports suivants ou ne pas approuver l’adresse IP/l’URL empêche le bon fonctionnement du cluster et risque de ne pas être pris en charge. Avec cette règle définie, il est strictement nécessaire d’utiliser des [mises à niveau automatiques de l’image du système d’exploitation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). Autrement, des ports supplémentaires doivent être ouverts.
 
 ### <a name="inbound"></a>Entrant 
 |Priority   |Nom               |Port        |Protocol  |Source             |Destination       |Action   

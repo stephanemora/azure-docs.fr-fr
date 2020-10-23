@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575008"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314840"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Exécuter des actions en fonction de l’état du groupe à l’aide d’étendues dans Azure Logic Apps
 
@@ -31,7 +31,7 @@ Pour suivre l’exemple de cet article, vous avez besoin de ces éléments :
 
 * Un compte de messagerie de n’importe quel fournisseur de messagerie pris en charge par Logic Apps. Cet exemple utilise Outlook.com. Si vous utilisez un autre fournisseur, le flux général reste le même, mais votre interface utilisateur peut s’afficher différemment.
 
-* Une clé Bing Maps. Pour obtenir cette clé, consultez <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Getting a Bing Maps Key</a> (Obtention d’une clé Bing Maps).
+* Une clé Bing Maps. Pour obtenir cette clé, consultez <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Getting a Bing Maps Key</a> (Obtention d’une clé Bing Maps).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

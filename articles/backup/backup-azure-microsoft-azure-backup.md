@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975511"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056699"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -200,6 +200,9 @@ Une fois le processus d’extraction terminé, cochez la case pour lancer le fic
     ![Indiquer un emplacement d’installation des fichiers](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    La capacité requise pour le stockage sur disque dépend principalement de la taille des données protégées, de la taille du point de récupération quotidien, du volume attendu, du taux de croissance des données et des objectifs de durée de rétention. Nous vous recommandons de choisir une taille de stockage sur disque égale à deux fois celle des données protégées. Cela suppose une taille de point de récupération quotidien de 10 % de la taille des données protégées et une durée de rétention de 10 jours. Pour obtenir une bonne estimation de la taille, consultez [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Fournissez un mot de passe fort pour les comptes d’utilisateur local restreints et sélectionnez **Suivant**.
 
     ![Fournir un mot de passe fort](./media/backup-azure-microsoft-azure-backup/security-screen.png)
