@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090514"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938336"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -39,8 +39,10 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 |-|-|
 | [Module d’animation Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Bibliothèque complète d’animations à utiliser avec le kit de développement logiciel (SDK) web Azure Maps. |
 | [Module de contrôle de la géolocalisation Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit un contrôle utilisant l’API de géolocalisation du navigateur pour localiser l’utilisateur sur la carte. |
+| [Module de source de données en grille Azure Maps](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Module du kit SDK web Azure Maps fournissant une source de données qui met en cluster des points de données dans les cellules d’une grille. Cette opération est également connue sous d’autres noms : tessellation, facettisation, binning, etc.  |
 | [Module de contrôle du plein écran Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit un contrôle permettant d’afficher la carte en mode plein écran. |
 | [Module de contrôle de la sélection Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Module du Kit de développement logiciel (SDK) web Azure Maps qui fournit des contrôles permettant de sélectionner des données dans une source de données à l’aide d’outils de dessin ou en demandant un polygone de zone d’itinéraire. |
+| [Module de passage de carte Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Module du kit SDK web Azure Maps qui permet un balayage entre deux cartes superposées, idéal pour comparer deux jeux de données qui se chevauchent. |
 | [Module de synchronisation de carte Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Module du Kit de développement logiciel (SDK) web Azure Maps qui synchronise les caméras d’au moins deux cartes. |
 | [Module IU des services Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Ensemble de contrôles d’interface utilisateur web qui incluent dans un wrapper les services REST Azure Maps. |
 

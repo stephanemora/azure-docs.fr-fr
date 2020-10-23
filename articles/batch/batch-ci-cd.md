@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229393"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91760561"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
@@ -43,7 +43,7 @@ La structure du codebase utilisée dans cet exemple ressemble à celle-ci :
 
 * Un dossier **arm-templates** contenant un nombre de modèles Azure Resource Manager. Les modèles sont expliqués dans cet article.
 * Un dossier **client-application**, qui est une copie de l’exemple [Traitement des fichiers Azure Batch .NET avec ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial). Cela n’est pas nécessaire pour cet article.
-* Un dossier **hpc-application**, qui est la version Windows 64 bits de [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* Un dossier **hpc-application**, soit la version Windows 64 bits de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * Un dossier **pipelines**. Il contient un fichier YAML décrivant notre processus de génération. Ce sujet est abordé dans cet article.
 
 Cette section part du principe que vous êtes familiarisé avec la gestion de version et la conception de modèles Resource Manager. Si vous n’êtes pas familiarisé avec ces concepts, consultez les pages suivantes pour plus d’informations.
@@ -291,7 +291,7 @@ Vous trouverez également plus d’informations sur la [création de modèles Az
 
 L’infrastructure et le logiciel peuvent être définis en tant que code et figurer dans le même référentiel.
 
-Pour cette solution, le package ffmpeg est utilisé en tant que package d’application. Le package ffmpeg peut être téléchargé [ici](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+Pour cette solution, le package ffmpeg est utilisé en tant que package d’application. Le package ffmpeg peut être téléchargé [ici](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Exemple de structure de référentiel Git](media/batch-ci-cd/git-repository.jpg)
 

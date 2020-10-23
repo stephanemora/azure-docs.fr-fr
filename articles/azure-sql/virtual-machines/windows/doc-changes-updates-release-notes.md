@@ -1,5 +1,5 @@
 ---
-title: Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure | Microsoft Docs
+title: Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 description: Découvrez les nouvelles fonctionnalités et améliorations pour les différentes versions de SQL Server sur Machines virtuelles Microsoft Azure.
 services: virtual-machines-windows
 author: MashaMSFT
@@ -7,21 +7,28 @@ ms.author: mathoma
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.openlocfilehash: 5f0ba27a0964f08b32e1af19d6f578b3f41ee300
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/21/2020
+ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006412"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91758640"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les modifications apportées à la documentation en lien avec les nouvelles fonctionnalités et les améliorations introduites dans les mises en production récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="september-2020"></a>Septembre 2020
+
+| Modifications | Détails |
+| --- | --- |
+| **Inscription RP automatique** | Vous pouvez maintenant activer la fonctionnalité [Inscription automatique](sql-vm-resource-provider-automatic-registration.md) pour inscrire automatiquement toutes les machines virtuelles SQL Server déjà déployées sur votre abonnement, ainsi que toutes les machines virtuelles SQL Server qui seront ajoutées à l’avenir.  | 
+
 
 ## <a name="august-2020"></a>Août 2020
 
@@ -83,7 +90,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 | **Prise en charge d’instance nommée** | Vous pouvez maintenant utiliser l’[extension IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) avec une instance nommée si l’instance par défaut a été correctement désinstallée. | 
 | **Amélioration du portail** | L’expérience du portail Azure pour le déploiement d’une machine virtuelle SQL Server a été revisitée pour en améliorer son usage. Pour plus d’informations, consultez le court [Démarrage rapide](sql-vm-create-portal-quickstart.md) et un [Guide pratique](create-sql-vm-portal.md) plus détaillé pour déployer d’une machine virtuelle SQL Server.|
 | **Amélioration du portail** | Il est désormais possible de changer le modèle de licence d’une machine virtuelle SQL Server de « Paiement à l’utilisation » en « BYOL » (apportez votre propre licence) en utilisant le [portail Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Simplification du déploiement d’un groupe de disponibilité sur une machine virtuelle SQL Server par le biais d’Azure CLI** | Il est désormais plus facile que jamais de déployer un groupe de disponibilité sur une machine virtuelle SQL Server dans Azure. Vous pouvez utiliser [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) pour créer le cluster de basculement Windows, l’équilibreur de charge interne et les écouteurs de groupe de disponibilité, le tout à partir de la ligne de commande. Pour plus d’informations, consultez [Utiliser l’interface de ligne de commande Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](availability-group-az-cli-configure.md). | 
+| **Simplification du déploiement d’un groupe de disponibilité sur une machine virtuelle SQL Server par le biais d’Azure CLI** | Il est désormais plus facile que jamais de déployer un groupe de disponibilité sur une machine virtuelle SQL Server dans Azure. Vous pouvez utiliser [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) pour créer le cluster de basculement Windows, l’équilibreur de charge interne et les écouteurs de groupe de disponibilité, le tout à partir de la ligne de commande. Pour plus d’informations, consultez [Utiliser l’interface de ligne de commande Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](availability-group-az-cli-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 

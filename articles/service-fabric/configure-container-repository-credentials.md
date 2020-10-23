@@ -4,12 +4,12 @@ description: Configurer les informations d’identification au référentiel pou
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421422"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978677"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurer les informations d’identification au référentiel de votre applications pour télécharger des images du registre de conteneurs
 
@@ -83,10 +83,6 @@ Voici un exemple de ce qui peut être ajouté dans la section `Hosting` du fichi
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-        "name": "DefaultMSIEndpointForTokenAuthentication",
-        "value": "URI"
           }
         ]
       },
@@ -100,6 +96,9 @@ Service Fabric prend en charge l’utilisation de jetons en tant qu’informatio
 1. Vérifiez que l’option *Identité managée affectée par le système* est activée pour la machine virtuelle.
 
     ![Portail Azure : Créer une option d’identité de groupe de machines virtuelles identiques](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Pour une identité managée affectée par l’utilisateur, ignorez cette étape. Les étapes restantes ci-dessous fonctionnent de la même manière, à condition que le groupe identique ne soit associé qu’à une seule identité managée affectée par l’utilisateur.
 
 2. Accordez au groupe de machines virtuelles identiques les autorisations nécessaires pour extraire/lire des images à partir du Registre. Dans le panneau Access Control (IAM) de votre Azure Container Registry sur le Portail Azure, ajoutez une *attribution de rôle* pour votre machine virtuelle :
 
@@ -121,25 +120,6 @@ Service Fabric prend en charge l’utilisation de jetons en tant qu’informatio
 
     > [!NOTE]
     > L’indicateur `UseDefaultRepositoryCredentials` défini sur true alors que `UseTokenAuthenticationCredentials` a pour valeur true entraîne une erreur pendant le déploiement.
-
-### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Utiliser des informations d'identification de jeton en dehors d'Azure Global Cloud
-
-Lorsqu'il utilise des informations d'identification de registre basées sur des jetons, Service Fabric récupère un jeton au nom de la machine virtuelle pour le présenter à ACR. Par défaut, Service Fabric demande un jeton dont l'audience est le point de terminaison d'Azure Global Cloud. Si vous procédez à un déploiement sur une autre instance cloud, comme Azure Allemagne ou Azure Government, vous devrez remplacer la valeur par défaut du paramètre `DefaultMSIEndpointForTokenAuthentication`. Si le déploiement n'est pas effectué dans un environnement particulier, ne remplacez pas ce paramètre. En revanche, si le déploiement est effectué dans un environnement particulier, vous devez remplacer la valeur par défaut, à savoir
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-par le point de terminaison de ressource correspondant à votre environnement. Par exemple, pour [Azure Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), remplacez la valeur par défaut par : 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[Découvrez-en plus sur la récupération des jetons de groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

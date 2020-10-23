@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759068"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932581"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -52,8 +52,11 @@ Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécut
 
 Ce type d’autorisation est courant pour les démons et les comptes de service qui doivent accéder à des données qui appartiennent à des utilisateurs avec des comptes Microsoft personnels. Pour les données appartenant à des organisations, nous vous recommandons d’acquérir l’autorisation requise via les autorisations de l’application.
 
-> [!NOTE]
-> Pour activer ce modèle d’autorisation basé sur les listes de contrôle d’accès, Azure AD ne requiert pas que les applications soient autorisées à obtenir des jetons pour une autre application, de sorte que les jetons d’application uniquement peuvent être émis sans une revendication `roles`. Les applications qui exposent des API doivent implémenter des vérifications d’autorisation afin d’accepter les jetons.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>Contrôle des jetons sans la revendication `roles`
+
+Pour activer ce modèle d’autorisation par listes ACL, Azure AD n’impose pas que les applications soient autorisées à obtenir des jetons pour une autre application. Les jetons de type application uniquement peuvent ainsi être émis sans revendication `roles`. Les applications qui exposent des API doivent implémenter des vérifications d’autorisation afin d’accepter les jetons.
+
+Si vous souhaitez empêcher les applications d’obtenir des jetons d’accès de type application uniquement sans rôle pour votre application, [veillez à ce que les exigences d’affectation d’utilisateurs soient activées pour votre application](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Ainsi, les utilisateurs et les applications dépourvus de rôles ne pourront pas récupérer de jeton pour cette application. 
 
 ### <a name="application-permissions"></a>Autorisations de l’application
 

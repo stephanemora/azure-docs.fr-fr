@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: df78d11ce19c1d1fbbb04d2cd1718be74401cd83
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ca01397959aa50c77218742320f8ced128876bad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182154"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018676"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 et Dsv4
 
@@ -28,15 +28,13 @@ Les tailles de la série Dv4 s’exécutent sur Intel &reg;​​Xeon&reg; Plat
 
 Le stockage sur disque de données à distance est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dsv4. Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Dv4.
 
-ACU : 195-210
-
-Premium Storage :  Non pris en charge
-
-Mise en cache du Stockage Premium :  Non pris en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 195-210<br>
+[Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 1<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|
@@ -52,15 +50,13 @@ Mises à jour avec préservation de la mémoire : Prise en charge
 
 Les tailles de la série Dsv4 s’exécutent sur Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Elles offrent une combinaison de processeur virtuel, de mémoire et d’options de stockage distant adaptée à la plupart des charges de travail de production. Les machines virtuelles de série Dsv4 sont dotées de la technologie Hyper-Threading d’[Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
-ACU : 195-210
-
-Premium Storage :  Prise en charge
-
-Mise en cache du Stockage Premium :  Prise en charge
-
-Migration dynamique : Prise en charge
-
-Mises à jour avec préservation de la mémoire : Prise en charge
+[ACU](acu.md) : 195-210<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
+<br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
 |---|---|---|---|---|---|---|---|

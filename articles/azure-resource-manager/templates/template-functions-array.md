@@ -2,13 +2,13 @@
 title: Fonctions de modèle - tableaux
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677846"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979136"
 ---
 # <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
@@ -278,14 +278,13 @@ Crée un tableau à partir des paramètres.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
-| arguments supplémentaires |Non  |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
+| args |Non |Chaîne, entier, tableau ou objet |Valeurs dans le tableau. |
 
-### <a name="return-value"></a>Valeur retournée
+### <a name="return-value"></a>Valeur de retour
 
-Tableau.
+Tableau. Quand aucun paramètre n’est fourni, un tableau vide est retourné.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) suivant montre comment utiliser createArray avec différents types :
 
@@ -321,6 +320,10 @@ Tableau.
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>empty
 

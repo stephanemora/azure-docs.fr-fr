@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 6f1199b29e3bdaa2200aeb7fe4f76c4c9d0d8e19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930156"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047299"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Notes de publication concernant la disponibilité générale d’Azure Stack Edge Pro avec GPU
 
@@ -21,13 +21,11 @@ Les notes de publication suivantes identifient des problèmes critiques, résolu
 
 Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Avant de déployer votre appareil Azure Stack Edge Pro, lisez attentivement les informations contenues dans les notes de publication.
 
-Cet article s’applique à la version du logiciel **Azure Stack Edge Pro 2009**. 
-
-<!--- This software release corresponds to software version number **2.1.1328.1904**-->
+Cet article concerne la version **Azure Stack Edge Pro 2010** qui correspond au numéro de version logicielle **2.1.1377.2170**.
 
 ## <a name="whats-new"></a>Nouveautés
 
-Les nouvelles fonctionnalités suivantes sont disponibles dans Azure Stack Edge 2009. 
+Les nouvelles fonctionnalités suivantes sont disponibles dans Azure Stack Edge 2010. 
 
 - **Classes de stockage** : dans cette mise en production, des classes de stockage sont disponibles pour vous permettre d’approvisionner le stockage de façon dynamique. Pour plus d’informations, consultez [Gestion du stockage Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Tableau de bord Kubernetes avec serveur de métriques** – Dans cette mise en production, un tableau de bord Kubernetes est ajouté avec un module complémentaire serveur de métriques. Vous pouvez utiliser le tableau de bord pour obtenir une vue d’ensemble des applications en cours d’exécution sur votre appareil Azure Stack Edge Pro, afficher l’état des ressources de cluster Kubernetes et voir les erreurs qui se sont produites sur l’appareil. Le serveur de métriques agrège l’utilisation de l’UC et de la mémoire par les ressources Kubernetes sur l’appareil. Pour plus d’informations, consultez [Utiliser le tableau de bord Kubernetes pour superviser votre appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
