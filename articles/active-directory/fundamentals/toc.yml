@@ -69,6 +69,8 @@
               href: auth-remote-desktop-gateway.md
             - name: Authentication SAML
               href: auth-saml.md
+            - name: Authentification SSH
+              href: auth-ssh.md
             - name: Authentification Windows - KCD
               href: auth-kcd.md
             - name: Synchronisation de répertoires

@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
-            - name: Zones de disponibilité avec SQL Database
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: Zones de disponibilité avec SQL Database - Niveau usage général
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: Zones de disponibilité avec SQL Database - Niveaux premium et critique pour l’entreprise
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: Stockage
           items:
             - name: Stockage redondant interzone

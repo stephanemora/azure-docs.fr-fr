@@ -248,13 +248,13 @@
           href: move-partner-namespaces-across-regions.md
     - name: Sécuriser
       items:
-        - name: Configurer des points de terminaison privés
+        - name: Publier des événements de façon sécurisée via une liaison privée
           href: configure-private-endpoints.md
         - name: Configurer le pare-feu IP
           href: configure-firewall.md
         - name: Sécuriser un webhook avec Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: Remise d’événement avec une identité managée
+        - name: 'Remise d’événement, identité managée et liaison privée'
           href: managed-service-identity.md
     - name: Dépanner
       items:

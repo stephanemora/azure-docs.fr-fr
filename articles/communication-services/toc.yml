@@ -90,6 +90,8 @@
       href: samples/calling-hero-sample.md
     - name: Exemple de bannière de conversation de groupe
       href: samples/chat-hero-sample.md
+    - name: Exemple d’appel web
+      href: samples/web-calling-sample.md
 - name: Références
   items:
     - name: Documentation des API REST

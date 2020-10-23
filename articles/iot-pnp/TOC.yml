@@ -49,7 +49,7 @@
       href: tutorial-use-mqtt.md
     - name: Interagir avec un appareil MXChip (exemple)
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
-    - name: Migrer un appareil vers un module
+    - name: Connecter un module d’appareil
       href: tutorial-migrate-device-to-module.md
 - name: Concepts
   items:
@@ -85,8 +85,6 @@
       href: concepts-model-discovery.md
     - name: Analyseur de modèle
       href: concepts-model-parser.md
-    - name: Limites et quotas
-      href: concepts-limits-quotas.md
     - name: Glossaire
       href: iot-plug-and-play-glossary.md
 - name: Guides pratiques
