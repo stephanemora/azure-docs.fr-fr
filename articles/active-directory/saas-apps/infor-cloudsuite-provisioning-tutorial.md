@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305012"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850871"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutoriel : Configurer Infor CloudSuite pour l’approvisionnement automatique d’utilisateurs
 
@@ -68,11 +68,11 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
     
     ![Infor CloudSuite – Mot de passe](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![Infor CloudSuite – Identificateur](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Capture d’écran de la console d’administration Infor CloudSuite montrant une ligne de table mise en évidence. Cette ligne contient un identificateur d’utilisateur, des mots de passe et un horodatage." border="false":::
 
 5. Pour générer le jeton du porteur, copiez l’**identificateur d’utilisateur** et le **mot de passe SCIM**. Collez-les dans Notepad++ séparés par un deux-points. Encodez la valeur de chaîne en accédant à **Plug-ins > Outils MIME > Basic64 Encode**. 
 
-    ![Infor CloudSuite – Identificateur](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Capture d’écran de la console d’administration Infor CloudSuite montrant une ligne de table mise en évidence. Cette ligne contient un identificateur d’utilisateur, des mots de passe et un horodatage." border="false":::
 
 3.  Copiez le jeton du porteur. Vous devrez entrer cette valeur dans le champ Jeton secret dans l’onglet Approvisionnement de votre application CloudSuite dans le Portail Azure.
 

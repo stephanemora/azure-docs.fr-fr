@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326101"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761037"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -19,8 +19,8 @@ Vous pouvez utiliser la fonctionnalité Moniteur de connectivité de service dan
 
 Vous pouvez effectuer les fonctions suivantes avec Moniteur de connectivité de service : 
 
-- Surveiller la connectivité réseau à vos applications et aux services réseau à partir de plusieurs succursales ou sites. Les applications et services réseau incluent Office 365, Dynamics CRM, les applications métier internes et les bases de données SQL.
-- Utiliser des tests intégrés pour surveiller la connectivité réseau vers les points de terminaison Office 365 et Dynamics 365. 
+- Surveiller la connectivité réseau à vos applications et aux services réseau à partir de plusieurs succursales ou sites. Parmi les applications et services réseau figurent Microsoft 365, Dynamics CRM, les applications métier internes et les bases de données SQL.
+- Utiliser des tests intégrés pour surveiller la connectivité réseau vers les points de terminaison Microsoft 365 et Dynamics 365. 
 - Déterminer le temps de réponse, la latence du réseau et la perte de paquets rencontrée lors de la connexion au point de terminaison.
 - Déterminer si les performances médiocres des applications sont dues au réseau ou à un problème du côté du fournisseur de l’application.
 - Identifier les zones réactives sur le réseau qui peuvent être à l’origine des performances médiocres des applications en affichant la latence de chaque tronçon sur une carte topologique.
@@ -99,7 +99,7 @@ Déterminez si les performances médiocres de l’application sont dues au rése
 
 Une fois que vous avez déterminé que le problème provient du réseau, sélectionnez la vue **Topologie** pour identifier le tronçon problématique sur la carte topologique. L’image suivante en contient un exemple. 96 des 105 ms de latence totale entre le nœud et le point de terminaison d’application sont dues au tronçon marqué en rouge. Une fois que vous avez identifié le tronçon problématique, vous pouvez effectuer une action corrective. 
 
-![Tests Moniteur de connectivité de service](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologie des points de terminaison du Moniteur de connectivité de service](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostics 
 

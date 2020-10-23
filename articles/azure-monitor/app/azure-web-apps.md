@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759456"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875603"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -75,7 +75,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
+Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0 et ASP.NET Core 3.1.
 
 Le ciblage de l’infrastructure complète à partir de .NET Core, le déploiement autonome et les applications basées sur Linux ne sont actuellement **pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](./asp-net-core.md) avec le code peut être utilisée dans tous les scénarios précédents.)
 
@@ -90,7 +90,7 @@ Le ciblage de l’infrastructure complète à partir de .NET Core, le déploieme
 
      ![Instrumenter votre application web](./media/azure-web-apps/create-resource-01.png)
 
-2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. .NET Core prend en charge les niveaux de collecte **Recommandé** ou **Désactivé** pour .NET Core 2.0, 2.1, 2.2 et 3.0.
+2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. .NET Core propose les niveaux de collecte **Recommandé** et **Désactivé** pour ASP.NET Core 2.1, 2.2, 3.0 et 3.1.
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les pro
 
     ![Capture d’écran de la page de résultats https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Vérifiez que l’extension est en cours d’exécution (`Application Insights Extension Status` affiche `Pre-Installed Site Extension, version 2.8.12.1527, is running.`)
-        * Si elle ne l’est pas, suivez les [instructions pour activer la supervision Application Insights](#enable-application-insights)
+    * Vérifiez que l’extension est en cours d’exécution (`Application Insights Extension Status` affiche `Pre-Installed Site Extension, version 2.8.12.1527, is running.`) 
+    * Si elle ne l’est pas, suivez les [instructions pour activer la supervision Application Insights](#enable-application-insights)
 
     * Vérifiez la présence d’une source d’état similaire à cette valeur : `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * S’il n’y en a pas, cela signifie que l’application n’est pas en cours d’exécution ou n’est pas prise en charge. Pour vous assurer que l’application est en cours d’exécution, essayez d’accéder manuellement à l’URL ou aux points de terminaison de l’application, afin d’exposer les informations d’exécution.
@@ -406,6 +406,10 @@ Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellemen
 ### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
 
 Lorsque l’analyse sans code est utilisée, seule la chaîne de connexion est requise. Toutefois, nous vous recommandons quand même de définir la clé d’instrumentation pour préserver la compatibilité descendante avec les versions antérieures du SDK lorsque l’instrumentation manuelle est exécutée.
+
+## <a name="release-notes"></a>Notes de publication
+
+Pour obtenir les mises à jour et correctifs de bogues les plus récents, [consultez les notes de publication](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](./profiler.md).

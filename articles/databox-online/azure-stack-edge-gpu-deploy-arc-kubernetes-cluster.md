@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903195"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952214"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Arc sur un cluster Kubernetes sur votre appareil avec GPU Azure Stack Edge Pro
 
@@ -68,11 +68,11 @@ Avant d’activer Azure Arc sur le cluster Kubernetes, vous devez activer et ins
 
 1. Sélectionnez un fournisseur de ressources, puis, dans la partie supérieure de la barre de commandes, sélectionnez **Inscrire**. L’inscription prend quelques minutes. 
 
-    ![Inscrire des fournisseurs de ressources Kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Inscrire des fournisseurs de ressources Kubernetes 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. Actualisez l’interface utilisateur jusqu’à ce que le fournisseur de ressources soit inscrit. Répétez le processus pour les deux fournisseurs de ressources.
     
-    ![Inscrire des fournisseurs de ressources Kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Inscrire des fournisseurs de ressources Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pour plus d’information, consultez [Inscrire les deux fournisseurs pour Kubernetes à extension Azure Arc](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes).
 

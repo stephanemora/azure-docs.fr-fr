@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89470066"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078576"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Créer une sauvegarde d’application de cluster Azure Red Hat OpenShift 4
 
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 Une sauvegarde réussie génère `phase:Completed` et les objets se trouvent dans le conteneur du compte de stockage.
 
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Créer une sauvegarde avec Velero pour inclure des captures instantanées
+
+Pour créer une sauvegarde d’application avec Velero afin d’inclure les volumes persistants de votre application, vous devez inclure l’espace de noms dans lequel se trouve l’application ainsi que l’indicateur `snapshot-volumes=true` lors de la création de la sauvegarde.
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+Vous pouvez vérifier l’état de la sauvegarde en exécutant :
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+Une sauvegarde réussie génère `phase:Completed` et les objets se trouvent dans le conteneur du compte de stockage.
+
+Pour plus d’informations sur la création de sauvegardes et de restaurations à l’aide de Velero, consultez [Sauvegarde native des ressources OpenShift](https://www.openshift.com/blog/backup-openshift-resources-the-native-way).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, une application de cluster Azure Red Hat OpenShift 4 a été sauvegardée. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde d’application de cluster OpenShift v4 à l’aide de Velero
+> * Créer une sauvegarde d’application de cluster OpenShift v4 avec des captures instantanées à l’aide de Velero
 
 
 Passez à l’article suivant pour apprendre à créer une restauration d’application de cluster Azure Red Hat OpenShift 4.
 
 * [Créer une restauration d’application de cluster Azure Red Hat OpenShift 4](howto-create-a-restore.md)
+* [Créer une restauration d’application de cluster Azure Red Hat OpenShift 4 avec des captures instantanées](howto-create-a-restore.md)

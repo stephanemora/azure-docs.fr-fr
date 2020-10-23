@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.author: iainfou
-author: iainfoulds
+ms.date: 10/05/2020
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 695d47c839a9436f4fad9399f7995b3197e1c0eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052713"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964993"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -41,11 +41,13 @@ Le tableau suivant décrit les stratégies de nom d’utilisateur qui s’appliq
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Stratégies de mot de passe Azure AD
 
-Une stratégie de mot de passe est appliquée à tous les comptes d’utilisateur qui sont créés et gérés directement dans Azure AD. Cette stratégie de mot de passe ne peut pas être modifiée, même si vous pouvez [configurer des mots de passe interdits personnalisés pour la protection par mot de passe Azure AD](tutorial-configure-custom-password-protection.md).
+Une stratégie de mot de passe est appliquée à tous les comptes d’utilisateur qui sont créés et gérés directement dans Azure AD. Certains de ces paramètres de stratégie de mot de passe ne peuvent pas être modifiés, bien que vous puissiez [configurer des mots de passe interdits personnalisés pour la protection par mot de passe Azure AD](tutorial-configure-custom-password-protection.md) ou des paramètres de verrouillage de compte.
 
-La stratégie de mot de passe ne s’applique pas aux comptes d’utilisateur synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect, sauf si vous activez EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Par défaut, un compte est bloqué au bout de 10 tentatives de connexion infructueuses avec un mot de passe incorrect. L’utilisateur est verrouillé pendant une minute. La durée de blocage de l’utilisateur augmente au fil des nouvelles tentatives de connexion incorrectes. Le [verrouillage intelligent](howto-password-smart-lockout.md) suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé. Vous pouvez définir le seuil de verrouillage intelligent et la durée.
 
-Les options de stratégie de mot de passe suivantes sont définies :
+La stratégie de mot de passe Azure AD ne s’applique pas aux comptes d’utilisateur synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect, sauf si vous activez *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+Les options de stratégie de mot de passe Azure AD suivantes sont définies. Sauf indication contraire, vous ne pouvez pas modifier ces paramètres :
 
 | Propriété | Spécifications |
 | --- | --- |
@@ -57,11 +59,10 @@ Les options de stratégie de mot de passe suivantes sont définies :
 | Expiration du mot de passe (empêche le mot de passe d’expirer) |<ul><li>Valeur par défaut : **false** (indique que le mot de passe a une date d’expiration).</li><li>La valeur peut être configurée pour des comptes d’utilisateur individuels à l’aide de l’applet de commande `Set-MsolUser`.</li></ul> |
 | Historique de modification du mot de passe | Le dernier mot de passe *ne peut pas* être réutilisé lorsque l’utilisateur modifie un mot de passe. |
 | Historique de réinitialisation du mot de passe | Le dernier mot de passe *peut* être réutilisé lorsque l’utilisateur réinitialise un mot de passe oublié. |
-| Verrouillage de compte | Au bout de 10 tentatives de connexion infructueuses avec un mot de passe incorrect, l’utilisateur est bloqué pendant une minute. La durée de blocage de l’utilisateur augmente au fil des nouvelles tentatives de connexion incorrectes. Le [verrouillage intelligent](howto-password-smart-lockout.md) suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé. |
 
 ## <a name="administrator-reset-policy-differences"></a>Différences en matière de stratégie de réinitialisation par l’administrateur
 
-Microsoft applique par défaut une stratégie de réinitialisation de mot de passe fort *à deux verrous* pour tous les rôles d’administrateur Azure. Cette stratégie peut être différente de celle que vous avez définie pour vos utilisateurs et ne peut pas être modifiée. Vous devez toujours tester la fonctionnalité de réinitialisation de mot de passe en tant qu’utilisateur, sans qu’un rôle d’administrateur Azure vous soit affecté.
+Par défaut, les comptes d’administrateur sont activés pour la réinitialisation de mot de passe en libre-service, et une stratégie de réinitialisation de mot de passe *à deux portes* renforcée par défaut est appliquée. Cette stratégie peut être différente de celle que vous avez définie pour vos utilisateurs et ne peut pas être modifiée. Vous devez toujours tester la fonctionnalité de réinitialisation de mot de passe en tant qu’utilisateur, sans qu’un rôle d’administrateur Azure vous soit affecté.
 
 Avec une stratégie à deux verrous, les administrateurs n’ont pas la possibilité d’utiliser des questions de sécurité.
 
@@ -93,6 +94,8 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
 * Un domaine personnalisé a été configuré pour votre locataire Azure AD, par exemple *contoso.com* ; ou
 * Azure AD Connect synchronise les identités à partir de votre répertoire local
+
+Vous pouvez désactiver l’utilisation de SSPR pour les comptes d’administrateur à l’aide de l’applet de commande PowerShell [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). Le paramètre `-SelfServePasswordResetEnabled $False` désactive SSPR pour les administrateurs.
 
 ### <a name="exceptions"></a>Exceptions
 

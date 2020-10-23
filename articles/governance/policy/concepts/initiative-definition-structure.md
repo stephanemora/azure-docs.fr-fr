@@ -1,14 +1,14 @@
 ---
 title: Informations sur la structure d'une définition d'initiative
 description: Explique comment les définitions d'initiative de stratégie permettent de regrouper les définitions de stratégie à des fins de déploiement sur les ressources Azure de votre organisation.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048497"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876173"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Structure d'une définition d'initiative Azure Policy
 
@@ -248,19 +248,18 @@ Exemple de `policyDefinitions` comportant deux définitions de stratégie inclus
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Groupes de définitions de stratégie (préversion)
+## <a name="policy-definition-groups"></a>Groupes de définition de stratégie
 
-Dans le cadre de la fonctionnalité [Conformité réglementaire](./regulatory-compliance.md) (préversion) d'Azure Policy, les définitions de stratégie d'une définition d'initiative peuvent être regroupées. Ces informations sont définies dans la propriété `policyDefinitionGroups` _tableau_. Ces regroupements contiennent des détails supplémentaires tels que le **contrôle** et le **domaine de conformité** pour lesquels la définition de stratégie fournit une couverture.
-Des détails de regroupement supplémentaires sont disponibles dans un objet **policyMetadata** créé par Microsoft. Pour plus d'informations, consultez [Objets de métadonnées](#metadata-objects).
+Les définitions de stratégie dans une définition d’initiative peuvent être regroupées et classées par catégorie. La fonctionnalité [Conformité réglementaire](./regulatory-compliance.md) (préversion) d’Azure Policy utilise cette propriété pour regrouper les définitions dans des **contrôles** et des **domaines de conformité**. Ces informations sont définies dans la propriété `policyDefinitionGroups` _tableau_. Des détails de regroupement supplémentaires sont disponibles dans un objet **policyMetadata** créé par Microsoft. Pour plus d'informations, consultez [Objets de métadonnées](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Paramètres des groupes de définitions de stratégie
 
 Chaque élément du _tableau_ de `policyDefinitionGroups` doit disposer des deux propriétés suivantes :
 
-- `name` (chaîne) \[obligatoire\] : nom court du **contrôle**. La valeur de cette propriété est utilisée par `groupNames` dans `policyDefinitions`.
-- `category` (chaîne) : **domaine de conformité** du contrôle.
-- `displayName` (chaîne) : nom convivial du **contrôle**. Utilisé par le portail.
-- `description` (chaîne) : description de ce que fait le **contrôle**.
+- `name` (chaîne) \[obligatoire\] : Nom court du **groupe**. Dans Conformité réglementaire, le **contrôle**. La valeur de cette propriété est utilisée par `groupNames` dans `policyDefinitions`.
+- `category` (chaîne) : Hiérarchie à laquelle le groupe appartient. Dans Conformité réglementaire, le **domaine de conformité** du contrôle.
+- `displayName` (chaîne) : Nom convivial du **groupe** ou du **contrôle**. Utilisé par le portail.
+- `description` (chaîne) : Description de ce que couvre le **groupe** ou le **contrôle**.
 - `additionalMetadataId` (chaîne) : emplacement de l'objet [policyMetadata](#metadata-objects) contenant des détails supplémentaires sur le **contrôle** et le **domaine de conformité**.
 
   > [!NOTE]
