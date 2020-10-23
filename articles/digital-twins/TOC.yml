@@ -162,7 +162,7 @@
             - name: Kit SDK .NET (C#) - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: Kit SDK .NET (C#) - référence
-              href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
+              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview
             - name: Kit SDK .NET (C#) - source
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Kit SDK Java - Maven

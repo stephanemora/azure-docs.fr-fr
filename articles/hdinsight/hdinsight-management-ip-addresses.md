@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401637"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974666"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -85,6 +85,7 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Trafic entrant |
 | &nbsp; | Émirats arabes unis Nord | 65.52.252.96</br>65.52.252.97 | \*:443 | Trafic entrant |
+| &nbsp; | Émirats arabes unis Centre | 20.37.76.96</br>20.37.76.99 | \*:443 | Trafic entrant |
 
 Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 

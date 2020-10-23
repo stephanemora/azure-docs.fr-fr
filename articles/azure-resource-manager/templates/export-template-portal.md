@@ -3,12 +3,12 @@ title: Exporter le modèle dans le Portail Azure
 description: Utilisez le portail Azure pour exporter un modèle Azure Resource Manager à partir de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423233"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951755"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
@@ -49,11 +49,13 @@ Exportez le modèle avant le déploiement ou de l’historique, lorsque :
 
 Lors de l’exportation à partir d’un groupe de ressources ou d’une ressource, le modèle exporté est généré à partir des [schémas publiés](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) pour chaque type de ressource. Parfois, le schéma ne dispose pas de la dernière version d’un type de ressource. Vérifiez votre modèle exporté pour vous assurer qu’il comprend les propriétés dont vous avez besoin. Si nécessaire, modifiez le modèle exporté pour utiliser la version d’API dont vous avez besoin.
 
-La fonctionnalité d’exportation de modèle ne prend pas en charge l’exportation des ressources Azure Data Factory. Pour en savoir plus sur la façon dont vous pouvez exporter des ressources Data Factory, consultez [Copier ou cloner une fabrique de données dans Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+La fonctionnalité d’exportation de modèle ne prend pas en charge l’exportation des ressources Azure Data Factory. Pour en savoir plus sur la façon dont vous pouvez exporter des ressources Data Factory, consultez [Copier ou cloner une fabrique de données dans Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Pour exporter des ressources créées par le biais du modèle de déploiement classique, vous devez [les migrer vers le modèle de déploiement de Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
+Pour exporter des ressources créées par le biais du modèle de déploiement classique, vous devez [les migrer vers le modèle de déploiement de Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Si vous recevez un avertissement lors de l’exportation d’un modèle qui indique qu’un type de ressource n’a pas été exporté, vous pouvez toujours découvrir les propriétés pour cette ressource. Pour en savoir plus sur les différentes options d’affichage des propriétés des ressources, consultez [Découvrir les propriétés des ressources](view-resources.md). Vous pouvez également consulter l’[API REST Azure](/rest/api/azure/) pour le type de ressource.
+
+Le groupe de ressources pour lequel vous créez le modèle exporté est limité à 200 ressources. Si vous tentez d’exporter un groupe de ressources contenant plus de 200 ressources, le message d’erreur `Export template is not supported for resource groups more than 200 resources` s’affiche.
 
 ## <a name="export-template-from-a-resource-group"></a>Exportation du modèle à partir d’un groupe de ressources
 

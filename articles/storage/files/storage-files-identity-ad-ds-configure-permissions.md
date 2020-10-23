@@ -5,20 +5,42 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999613"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761139"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
 Avant de commencer à lire cet article, veillez à parcourir l’article précédent, intitulé [Attribuer des autorisations au niveau du partage à une identité](storage-files-identity-ad-ds-assign-permissions.md) pour vous assurer que vos autorisations de partage sont définies.
 
-Une fois que vous avez attribué des autorisations au niveau du partage avec RBAC, vous devez configurer les ACL Windows appropriées au niveau du fichier, du répertoire ou de la racine pour tirer parti du contrôle d’accès granulaire. Considérez les autorisations RBAC au niveau du partage comme un gardien de niveau supérieur qui détermine si un utilisateur peut accéder au partage. En revanche, les ACL Windows fonctionnent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier. Les autorisations au niveau du partage et au niveau du fichier/répertoire sont appliquées lorsqu’un utilisateur tente d’accéder à un fichier/répertoire. Par conséquent, s’il existe une différence entre ces deux niveaux, seules les autorisations dont le niveau est le plus restrictif sont appliquées. Par exemple, si un utilisateur dispose d’un accès en lecture/écriture au niveau du fichier, mais uniquement en lecture au niveau du partage, il peut uniquement lire ce fichier. Il en va de même dans le cas contraire : si un utilisateur avait un accès en lecture/écriture au niveau du partage, mais uniquement en lecture au niveau du fichier, il ne peut toujours que lire le fichier.
+Une fois que vous avez attribué des autorisations au niveau du partage avec Azure RBAC, vous devez configurer les ACL Windows appropriées au niveau du fichier, du répertoire ou de la racine pour tirer parti du contrôle d’accès granulaire. Considérez les autorisations Azure RBAC au niveau du partage comme un gardien de niveau supérieur qui détermine si un utilisateur peut accéder au partage. En revanche, les ACL Windows fonctionnent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier. Les autorisations au niveau du partage et au niveau du fichier/répertoire sont appliquées lorsqu’un utilisateur tente d’accéder à un fichier/répertoire. Par conséquent, s’il existe une différence entre ces deux niveaux, seules les autorisations dont le niveau est le plus restrictif sont appliquées. Par exemple, si un utilisateur dispose d’un accès en lecture/écriture au niveau du fichier, mais uniquement en lecture au niveau du partage, il peut uniquement lire ce fichier. Il en va de même dans le cas contraire : si un utilisateur avait un accès en lecture/écriture au niveau du partage, mais uniquement en lecture au niveau du fichier, il ne peut toujours que lire le fichier.
+
+## <a name="azure-rbac-permissions"></a>Autorisations Azure RBAC
+
+Le tableau suivant contient les autorisations Azure RBAC associées à cette configuration :
+
+
+| Rôle intégré  | Autorisations NTFS  | Accès obtenu  |
+|---------|---------|---------|
+|Lecteur de partage SMB de données de fichier de stockage | Contrôle total, Modifier, Lire, Écrire, Exécuter | Lire et exécuter  |
+|     |   Lire |     Lire  |
+|Contributeur de partage SMB de données de fichier de stockage  |  Contrôle total    |  Modifier, Lire, Écrire, Exécuter |
+|     |  Modifier         |  Modifier    |
+|     |  Lire et exécuter |  Lire et exécuter |
+|     |  Lire           |  Lire    |
+|     |  Write          |  Write   |
+|Contributeur élevé de partage SMB de données de fichier de stockage | Contrôle total  |  Modifier, Lire, Écrire, Édition, Exécuter |
+|     |  Modifier          |  Modifier |
+|     |  Lire et exécuter  |  Lire et exécuter |
+|     |  Lire            |  Lire   |
+|     |  Write           |  Write  |
+
+
 
 ## <a name="supported-permissions"></a>Autorisations prises en charge
 
@@ -63,7 +85,7 @@ else
 
 ```
 
-Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
+Si vous rencontrez des problèmes lors de la connexion à Azure Files, consultez [l’outil de dépannage que nous avons publié pour les erreurs de montage Azure Files sur Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Nous fournissons également des [conseils](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) pour contourner des situations où le port 445 est bloqué. 
 
 ## <a name="configure-windows-acls"></a>Configurer des ACL Windows
 

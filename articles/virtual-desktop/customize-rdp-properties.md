@@ -3,15 +3,15 @@ title: Personnaliser les propriétés de RDP avec PowerShell – Azure
 description: Comment personnaliser les propriétés de RDP pour Windows Virtual Desktop avec des applets de commande PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462222"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930694"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personnaliser les propriétés de Remote Desktop Protocol (RDP) pour un pool d’hôtes
 
@@ -28,8 +28,8 @@ Les fichiers RDP ont les propriétés suivantes par défaut :
 
 |Propriété RDP|Sur l’ordinateur de bureau|En tant qu’application distante|
 |---|---|---|
-|Mode à plusieurs écrans|activé|N/A|
-|Redirections de lecteur activées|Lecteurs, presse-papiers, imprimantes, ports COM, périphériques USB et cartes à puce|Lecteurs, presse-papiers et imprimantes|
+|Mode à plusieurs écrans|Désactivé|activé|
+|Redirections de lecteur activées|Lecteurs, presse-papiers, imprimantes, ports COM et cartes à puce|Lecteurs, presse-papiers et imprimantes|
 |Mode audio distant|Lire localement|Lire localement|
 
 ## <a name="prerequisites"></a>Prérequis
@@ -45,8 +45,9 @@ Pour configurer les propriétés RDP dans le portail Azure :
 3. Sous Services, sélectionnez **Windows Virtual Desktop**.
 4. Dans la page Windows Virtual Desktop, dans le menu sur le côté gauche de l’écran, sélectionnez **pools d’hôtes**.
 5. Sélectionnez le **nom du pool d’hôtes** que vous souhaitez mettre à jour.
-6. Dans le menu sur le côté gauche de l’écran, sélectionnez **Propriétés**.
-7. Dans l’onglet **Propriétés**, accédez à **Paramètres RDP** pour commencer à modifier les propriétés RDP. Les propriétés doivent suivre un format séparé par des points-virgules, comme les exemples PowerShell.
+6. Dans le menu situé sur le côté gauche de l’écran, sélectionnez **Propriétés RDP**.
+7. Définissez la propriété de votre choix.
+   - Vous pouvez également ouvrir l’onglet **Avancé** et ajouter vos propriétés RDP dans un format séparé par des points-virgules, comme les exemples PowerShell des sections suivantes.
 8. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour enregistrer vos paramètres.
 
 Les sections suivantes expliquent comment modifier manuellement des propriétés RDP personnalisées dans PowerShell.

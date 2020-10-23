@@ -7,24 +7,30 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 11e8a2fd709b40c68b90e5ed139f18997e4cb29e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396962"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91761309"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Cet article explique comment inscrire votre machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL. L’inscription auprès du fournisseur de ressources crée la _ressource_ de **machine virtuelle SQL** dans votre abonnement, qui est une ressource distincte de la ressource de machine virtuelle. Le fait de désinscrire votre machine virtuelle SQL Server du fournisseur de ressources va supprimer la _ressource_ de **machine virtuelle SQL**, mais pas la machine virtuelle elle-même. 
+Cet article explique comment inscrire votre machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL. 
+
+Cet article vous apprend à inscrire une machine virtuelle SQL Server individuelle auprès du fournisseur de ressources de machine virtuelle SQL. Vous pouvez également inscrire toutes les machines virtuelles SQL Server [automatiquement](sql-vm-resource-provider-automatic-registration.md) ou [scriptées en bloc](sql-vm-resource-provider-bulk-register.md).
+
+## <a name="overview"></a>Vue d’ensemble
+
+L’inscription auprès du fournisseur de ressources crée la _ressource_ de **machine virtuelle SQL** dans votre abonnement, qui est une ressource distincte de la ressource de machine virtuelle. Le fait de désinscrire votre machine virtuelle SQL Server du fournisseur de ressources va supprimer la _ressource_ de **machine virtuelle SQL**, mais pas la machine virtuelle elle-même.
 
 Pendant le déploiement d’une image de machine virtuelle SQL Server de la Place de marché Azure via le portail Azure, la machine virtuelle SQL Server est inscrite automatiquement auprès du fournisseur de ressources. Toutefois, si vous choisissez d’installer SQL Server sur une machine virtuelle Azure vous-même ou de provisionner une machine virtuelle Azure à partir d’un disque dur virtuel personnalisé, vous devez inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources pour les raisons suivantes :
 
@@ -58,7 +64,7 @@ Pour utiliser le fournisseur de ressources de machine virtuelle SQL, vous devez 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
-- Une [machine virtuelle SQL Server](create-sql-vm-portal.md) sur le modèle Azure Resource Manager déployée sur le cloud public ou le cloud Azure Government. 
+- Une [machine virtuelle Windows](../../../virtual-machines/windows/quick-create-portal.md) de modèle de ressource Azure avec [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads), déployée sur le cloud public ou le cloud Azure Government. 
 - La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli) ou de [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modes de gestion
@@ -328,11 +334,11 @@ Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fo
 
 1. Sélectionnez **Supprimer**. 
 
-   ![Supprimer le fournisseur de ressources de machine virtuelle SQL](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![Sélectionnez Supprimer dans la barre de navigation supérieure](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. Saisissez le nom de la machine virtuelle SQL et **désactivez la case à cocher à côte de celle-ci**.
 
-   ![Supprimer le fournisseur de ressources de machine virtuelle SQL](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![Décochez la machine virtuelle pour empêcher la suppression de la machine virtuelle réelle, puis sélectionnez Supprimer pour procéder à la suppression de la ressource de machine virtuelle SQL.](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Si vous ne désactivez pas la case à cocher en regard du nom de la machine virtuelle, vous *supprimez entièrement* celle-ci. Désactivez la case à cocher pour annuler l’inscription de la machine virtuelle SQL Server du fournisseur de ressources *sans supprimer la machine virtuelle proprement dite*. 
@@ -342,7 +348,7 @@ Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fo
 ### <a name="command-line"></a>Ligne de commande
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide d’Azure CLI, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
+Pour désinscrire votre machine virtuelle SQL Server du fournisseur de ressources à l’aide d’Azure CLI, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server, mais ne supprimera pas la machine virtuelle. 
 
 
 ```azurecli-interactive
@@ -400,7 +406,7 @@ Le mode de gestion SQL par défaut au moment de l’inscription auprès du fourn
 
 Oui, l’inscription auprès du fournisseur de ressources de machine virtuelle SQL installera un agent sur la machine virtuelle.
 
-L’extension IaaS SQL Server s’appuie sur l’agent pour interroger les métadonnées de SQL Server. La seule fois où un agent n’est pas installé est lorsque le fournisseur de ressources de machine virtuelle SQL est inscrit en mode NoAgent.
+L’extension IaaS SQL Server s’appuie sur l’agent pour interroger les métadonnées de SQL Server. La seule fois qu’un agent n’est pas installé est lorsque le fournisseur de ressources de machine virtuelle SQL est inscrit en mode NoAgent.
 
 **Est-ce que l’inscription auprès du fournisseur de ressources de machine virtuelle SQL permet de redémarrer SQL Server sur ma machine virtuelle ?**
 

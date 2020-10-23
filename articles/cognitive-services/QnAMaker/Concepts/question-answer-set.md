@@ -1,14 +1,16 @@
 ---
 title: Concevoir une base de connaissances – QnA Maker
-description: Une base de connaissances QnA Maker est composée d’un ensemble de paires de questions/réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
+description: Découvrez comment concevoir une base de connaissances - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91776899"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Concepts des paires question/réponse
 

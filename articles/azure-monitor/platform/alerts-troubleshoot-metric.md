@@ -3,15 +3,15 @@ title: Résolution des problèmes liés aux alertes de métrique Azure
 description: Problèmes couramment rencontrés avec les alertes de métrique Azure Monitor et solutions possibles
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 09/14/2020
+ms.topic: troubleshooting
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068760"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91715323"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -76,10 +76,15 @@ Pour plus d’informations sur la collecte de données à partir du système d�
 > [!NOTE] 
 > Si vous avez configuré les métriques invitées pour qu'elles soient envoyées à un espace de travail Log Analytics, ces métriques apparaissent sous la ressource de l'espace de travail Log Analytics. Elles commencent à afficher les données **uniquement** après la création d'une règle d'alerte qui les supervise. Pour ce faire, suivez les étapes permettant de [configurer une alerte de métrique pour les journaux](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> La surveillance d’une métrique invitée pour plusieurs machines virtuelles avec une seule règle d’alerte n’est actuellement pas prise en charge par les alertes de métrique. Vous pouvez réaliser cela avec une [règle d’alerte de journal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Pour ce faire, assurez-vous que les métriques invitées sont collectées dans un espace de travail Log Analytics et créez une règle d’alerte de journal sur cet espace de travail.
+
 ## <a name="cant-find-the-metric-to-alert-on"></a>Métrique introuvable pour déclencher l'alerte
 
-Si vous souhaitez déclencher une alerte sur une métrique spécifique mais ne voyez aucune métrique pour la ressource, [vérifiez si le type de ressource est pris en charge pour les alertes de métrique](./alerts-metric-near-real-time.md).
-Si des métriques existent pour la ressource mais qu'une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](./metrics-supported.md), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
+Si vous envisagez de déclencher une alerte sur une métrique spécifique, mais ne la voyez pas au moment de créer une règle d’alerte, vérifiez ce qui suit :
+- Si vous ne voyez aucune métrique pour la ressource, [vérifiez si le type de ressource est pris en charge pour les alertes de métrique](./alerts-metric-near-real-time.md).
+- Si des métriques existent pour la ressource mais qu’une métrique spécifique est introuvable, [vérifiez si cette métrique est disponible](./metrics-supported.md), et si oui, consultez sa description pour savoir si elle est uniquement disponible dans des versions ou éditions spécifiques de la ressource.
+- Si la métrique n’est pas disponible pour la ressource, elle peut être disponible dans les journaux de ressources et peut être supervisée à l’aide d’alertes de journal. Pour plus d’informations, consultez cet article sur la façon [de collecter et d’analyser les journaux des ressources à partir d’une ressources Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Dimension de métrique introuvable pour déclencher l'alerte
 
@@ -252,6 +257,12 @@ Par exemple :
     - J’aimerais mettre à jour la première condition et surveiller uniquement les transactions où la dimension **ApiName** est égale à *« GetBlob »*
     - Étant donné que les **Transactions** et les indicateurs de performance **SuccessE2ELatency** prennent en charge une dimension **ApiName**, je dois mettre à jour les deux conditions, et les deux doivent spécifier la dimension **ApiName** avec une valeur *« GetBlob »* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Définition de la période et de la fréquence de la règle d’alerte
+
+Nous vous recommandons de choisir une *granularité d’agrégation (période)* supérieure à la *fréquence d’évaluation* afin de réduire la probabilité de manquer la première évaluation de la série chronologique ajoutée dans les cas suivants :
+-   Règle d’alerte métrique qui surveille plusieurs dimensions : quand une combinaison de valeurs de dimension est ajoutée
+-   Règle d’alerte métrique qui surveille plusieurs ressources : quand une ressource est ajoutée à l’étendue
+-   Règle d’alerte métrique qui surveille une métrique qui n’est pas émise en continu (métrique éparse) : lorsque la métrique est émise après une période de plus de 24 heures pendant laquelle elle n’a pas été émise
 
 ## <a name="next-steps"></a>Étapes suivantes
 

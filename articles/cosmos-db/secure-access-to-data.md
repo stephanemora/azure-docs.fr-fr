@@ -1,18 +1,18 @@
 ---
 title: Sécuriser l’accès aux données Azure Cosmos DB
-description: Découvrez les concepts du contrôle d’accès dans Azure Cosmos DB, notamment les clés principales, les clés en lecture seule, les utilisateurs et les autorisations.
+description: Découvrez les concepts liés au contrôle d’accès dans Azure Cosmos DB, notamment les clés primaires, les clés en lecture seule, les utilisateurs et les autorisations.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017751"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91760867"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -22,31 +22,31 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 |Type de clé|Ressources|
 |---|---|
-|[Clés principales](#master-keys) |Utilisées pour les ressources d’administration : comptes de base de données, bases de données, utilisateurs et autorisations|
+|[Clés primaires](#primary-keys) |Utilisées pour les ressources d’administration : comptes de base de données, bases de données, utilisateurs et autorisations|
 |[Jetons de ressource](#resource-tokens)|Utilisés pour les ressources de l’application : conteneurs, documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l’utilisateur|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Clés principales
+## <a name="primary-keys"></a>Clés primaires
 
-Les clés principales fournissent un accès à toutes les ressources administratives du compte de base de données. Clés principales :
+Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Elles présentent les caractéristiques suivantes :
 
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
 - Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
 - Sont créées lors de la création d’un compte.
 - Peuvent être régénérées à tout moment.
 
-Chaque compte comporte deux clés principales : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données.
+Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données.
 
-Outre les deux clés principales du compte Azure Cosmos DB, il existe deux clés en lecture seule. Ces clés en lecture seule autorisent uniquement les opérations de lecture sur le compte. Les clés en lecture seule ne permettent pas de lire les ressources d’autorisation.
+Outre les deux clés primaires du compte Azure Cosmos DB, il existe deux clés en lecture seule. Ces clés en lecture seule autorisent uniquement les opérations de lecture sur le compte. Les clés en lecture seule ne permettent pas de lire les ressources d’autorisation.
 
-Les clés principales primaire, secondaire, en lecture seule et en lecture-écriture peuvent être récupérées et régénérées à l’aide du portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
+Les clés primaire, secondaire, en lecture seule, et en lecture et en écriture peuvent être récupérées et régénérées à l’aide du Portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL":::
 
 ### <a name="key-rotation"></a>Rotation des clés<a id="key-rotation"></a>
 
-Le processus de rotation de votre clé principale est simple. 
+Le processus de renouvellement de la clé primaire est simple. 
 
 1. Accédez au Portail Azure pour récupérer votre clé secondaire.
 2. Remplacez votre clé primaire par votre clé secondaire dans votre application. Assurez-vous que tous les clients Cosmos DB de tous les déploiements sont redémarrés rapidement et qu’ils démarrent à l’aide de la clé mise à jour.
@@ -54,11 +54,11 @@ Le processus de rotation de votre clé principale est simple.
 4. Vérifiez que la nouvelle clé primaire fonctionne sur toutes les ressources. Le processus de rotation des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
 5. Remplacez la clé secondaire par la nouvelle clé primaire.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
 
-### <a name="code-sample-to-use-a-master-key"></a>Exemple de code pour utiliser une clé principale
+### <a name="code-sample-to-use-a-primary-key"></a>Exemple de code utilisant une clé primaire
 
-L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Cosmos DB pour instancier un DocumentClient et créer une base de données :
+L’exemple de code suivant montre comment utiliser une clé primaire et un point de terminaison de compte Cosmos DB pour instancier un DocumentClient et créer une base de données :
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -71,7 +71,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-L’exemple de code suivant montre comment utiliser une clé principale et un point de terminaison de compte Azure Cosmos DB pour instancier un objet `CosmosClient` :
+L’exemple de code suivant montre comment utiliser une clé primaire et un point de terminaison de compte Azure Cosmos DB pour instancier un objet `CosmosClient` :
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -84,17 +84,17 @@ Les jetons de ressource fournissent un accès aux ressources d’application au 
 - Sont recréés lorsqu’une ressource d’autorisation est exécutée par un appel POST, GET ou PUT.
 - Utilisent un jeton de ressource de hachage créé spécifiquement pour l’utilisateur, la ressource et les autorisations.
 - Sont liés à une période de validité personnalisable. La durée de validité par défaut est d’une heure. La durée de vie du jeton peut cependant être définie de manière explicite (cinq heures maximum).
-- Offrent une alternative sûre pour céder la clé principale.
+- Évitent d’avoir à divulguer la clé primaire, pour plus de sécurité.
 - Permettent aux clients de lire, d’écrire et de supprimer des ressources dans le compte Azure Cosmos DB en fonction des autorisations qui leur ont été accordées.
 
-Vous pouvez utiliser un jeton de ressource (en créant des utilisateurs et des autorisations Azure Cosmos DB) lorsque vous voulez fournir un accès aux ressources dans votre compte Azure Cosmos DB à un client qui ne peut pas être approuvé avec la clé principale.  
+Vous pouvez utiliser un jeton de ressource (en créant des utilisateurs et des autorisations Cosmos DB) lorsque vous voulez donner accès aux ressources dans votre compte Cosmos DB à un client qui ne peut pas être approuvé avec la clé primaire.  
 
-Les jetons de ressource Azure Cosmos DB offrent une alternative sûre qui permet aux clients de lire, d’écrire et de supprimer des ressources dans votre compte Azure Cosmos DB en fonction des autorisations que vous avez octroyées, sans avoir besoin d’une clé principale ou en lecture seule.
+Les jetons de ressource Cosmos DB permettent aux clients de lire, d’écrire et de supprimer des ressources dans votre compte Cosmos DB de manière sécurisée, en fonction des autorisations que vous avez accordées et sans clé primaire ni clé en lecture seule.
 
 Voici un modèle de conception standard dans le cadre duquel des jetons de ressource peuvent être demandés, générés et fournis aux clients :
 
 1. Un service de niveau intermédiaire est configuré pour servir une application mobile pour partager les photos de l'utilisateur.
-2. Le service de niveau intermédiaire détient la clé principale du compte Azure Cosmos DB.
+2. Le service de niveau intermédiaire détient la clé primaire du compte Cosmos DB.
 3. L’application photo est installée sur les appareils mobiles des utilisateurs finaux.
 4. Lors de la connexion, l'application photo établit l'identité de l'utilisateur avec le service de niveau intermédiaire. Ce mécanisme d'identification dépend totalement de l'application.
 5. Une fois l'identité établie, le service de niveau intermédiaire demande des autorisations en fonction de l'identité.
@@ -102,9 +102,9 @@ Voici un modèle de conception standard dans le cadre duquel des jetons de resso
 7. Cette dernière peut continuer à utiliser le jeton de ressource pour accéder directement aux ressources Azure Cosmos DB avec les autorisations définies et pendant l’intervalle autorisé.
 8. À expiration du jeton de ressource, les demandes suivantes reçoivent une exception non autorisée 401.  L'application du téléphone établit alors de nouveau l'identité de l'utilisateur et demande un nouveau jeton de ressource.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Workflow de jetons de ressource Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
 
-La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Pour obtenir un exemple de service de niveau intermédiaire utilisé pour générer ou répartir les jetons de ressource, consultez [l’application ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 

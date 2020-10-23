@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536746"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856192"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
 Vous pouvez choisir parmi plusieurs services de stockage Azure lors de la création de clusters HDInsight :
 
-* [Stockage Azure](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
+* [Stockage Blob Azure avec HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2 avec HDInsight](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1 avec HDInsight](./overview-data-lake-storage-gen1.md)
 
 Cet article fournit une vue d’ensemble de ces types de stockage, ainsi que de leurs caractéristiques uniques.
 
@@ -58,7 +58,7 @@ Vous pouvez créer des clusters à l’aide de combinaisons de services pour le 
 | 4.0 | Data Lake Storage Gen 1 | Quelconque | Non |
 | 4.0 | Universel V1, Universel V2 | Data Lake Storage Gen 1 | Non |
 
-* = Il peut s’agir d’un ou de plusieurs comptes Data Lake Storage Gen2, à condition qu’ils sont tous configurés pour utiliser la même identité managée pour l’accès au cluster.
+* = Il peut s’agir d’un ou plusieurs Data Lake Storage Gen2, à condition qu’ils soient tous configurés pour utiliser la même identité managée pour l’accès au cluster.
 
 > [!NOTE]
 > Le stockage principal Data Lake Storage Gen2 n’est pas pris en charge pour les clusters Spark 2.1 ou 2.2.
@@ -71,8 +71,8 @@ Vous pouvez vérifier que HDInsight est correctement configuré pour stocker les
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de Stockage Azure](./overview-azure-storage.md)
-* [Vue d’ensemble d’Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
-* [Vue d’ensemble d’Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Vue d’ensemble de Stockage Azure dans HDInsight](./overview-azure-storage.md)
+* [Vue d’ensemble d’Azure Data Lake Storage Gen1 dans HDInsight](./overview-data-lake-storage-gen1.md)
+* [Vue d’ensemble d’Azure Data Lake Storage Gen2 dans HDInsight](./overview-data-lake-storage-gen2.md)
 * [Présentation d’Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction à Azure Storage](../storage/common/storage-introduction.md)

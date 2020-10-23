@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231229"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056138"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser les journaux d'activité Azure AD à l'aide des journaux Azure Monitor
 
@@ -100,16 +100,13 @@ Vous pouvez également définir des alertes sur votre requête. Par exemple, pou
 
 5. Une fois que vous avez défini l’alerte, sélectionnez **Créer l’alerte** pour l’activer. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Installer et utiliser les vues prédéfinies pour les journaux d’activité Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Utilisation de classeurs prédéfinis pour les journaux d’activité Azure AD
 
-Vous pouvez également télécharger les vues Log Analytics prédéfinies pour les journaux d’activité Azure AD. Les vues fournissent plusieurs rapports utilisés dans des scénarios courants impliquant des d’événements d’audit et de connexion. Vous pouvez aussi créer des alertes sur les données figurant dans ces rapports, en effectuant les étapes décrites dans la section précédente.
+Les classeurs fournissent plusieurs rapports liés à des scénarios courants impliquant des d’événements d’audit, de connexion et de provisionnement. Vous pouvez aussi créer des alertes sur les données figurant dans ces rapports, en effectuant les étapes décrites dans la section précédente.
 
-* **Événements de provisionnement de compte Azure AD** : Cette vue affiche les rapports d’audit de l’activité de provisionnement. Elle indique notamment le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution.    
-* **Événements de connexion** : Cette vue affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion, par exemple, les connexions par application, utilisateur et appareil, ainsi qu’un récapitulatif de l’ensemble des connexions effectuées.
-* **Consentement des utilisateurs** : Cette vue affiche les rapports relatifs au consentement des utilisateurs, comme le consentement donné par utilisateur, les connexions par les utilisateurs qui ont donné leur consentement ainsi que les connexions par application pour toutes les applications basées sur le consentement. 
-
-Découvrez comment [installer et utiliser les vues Log Analytics pour les journaux d’activité Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Analyse du provisionnement** : ce [classeur](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) affiche les rapports d’audit de l’activité de provisionnement (par exemple, le nombre de nouveaux utilisateurs attribués et les échecs d’attribution, le nombre d’utilisateurs mis à jour et les échecs de mise à jour, ainsi que le nombre d’utilisateurs dont l’attribution a été annulée et les échecs d’annulation d’attribution).    
+* **Événements de connexion** : ce classeur affiche les rapports les plus pertinents relatifs à la supervision de l’activité de connexion (par exemple, les connexions par application, par utilisateur et par appareil, ainsi qu’un récapitulatif de l’évolution du nombre de connexions).
+* **Insights sur l’accès conditionnel** : le [classeur](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) Insights et rapports sur l’accès conditionnel vous permet de comprendre l’évolution de l’impact des stratégies d’accès conditionnel sur votre organisation. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

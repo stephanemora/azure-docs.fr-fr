@@ -2,7 +2,7 @@
 title: Corriger des erreurs d’annuaire incompatible dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez ce que signifie une erreur d’annuaire incompatible et comment la résoudre dans Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: joflore
+ms.openlocfilehash: 0c2a6ee4ee5c92122e896e62485479d50c660c7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223480"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968070"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure Active Directory Domain Services existants
 
@@ -28,11 +28,11 @@ Cet article explique pourquoi l’erreur se produit et comment la résoudre.
 
 Une erreur d’annuaire incompatible se produit quand un domaine managé Azure AD DS et un réseau virtuel appartiennent à deux locataires Azure AD différents. Par exemple, vous pouvez avoir un domaine managé nommé *aaddscontoso.com* qui s’exécute dans le locataire Azure AD de Contoso. Toutefois, le réseau virtuel Azure pour le domaine managé fait partie du locataire Azure AD Fabrikam.
 
-Azure utilise le contrôle d’accès en fonction du rôle (RBAC) pour limiter l’accès aux ressources. Lorsque vous activez Azure AD DS dans un locataire Azure AD, les hachages des informations d’identification sont synchronisés avec le domaine managé. Pour effectuer cette opération, vous devez être un administrateur de locataire pour l’annuaire Azure AD et l’accès aux informations d’identification doit être contrôlé.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) sert à limiter l’accès aux ressources. Lorsque vous activez Azure AD DS dans un locataire Azure AD, les hachages des informations d’identification sont synchronisés avec le domaine managé. Pour effectuer cette opération, vous devez être un administrateur de locataire pour l’annuaire Azure AD et l’accès aux informations d’identification doit être contrôlé.
 
 Pour déployer des ressources sur un réseau virtuel Azure et contrôler le trafic, vous devez disposer de privilèges d’administrateur sur le réseau virtuel sur lequel vous déployez le domaine managé.
 
-Pour que RBAC fonctionne de manière cohérente et sécurise l’accès à toutes les ressources utilisées par Azure AD DS, le domaine managé et le réseau virtuel doivent appartenir au même locataire Azure AD.
+Pour qu’Azure RBAC fonctionne de manière cohérente et sécurise l’accès à toutes les ressources utilisées par Azure AD DS, le domaine managé et le réseau virtuel doivent appartenir au même locataire Azure AD.
 
 Les règles suivantes s’appliquent aux déploiements :
 

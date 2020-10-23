@@ -155,6 +155,8 @@
               href: concepts-infrastructure-double-encryption.md
             - name: Base de référence de la sécurité
               href: security-baseline.md
+        - name: Maintenance planifiée
+          href: concepts-planned-maintenance-notification.md
         - name: Continuité de l’activité
           items:
             - name: Introduction à la continuité de l’activité

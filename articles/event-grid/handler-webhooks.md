@@ -3,18 +3,19 @@ title: Webhooks en tant que gestionnaires d’événements pour les événements
 description: Décrit comment utiliser des webhooks en tant que gestionnaires d’événements pour des événements Azure Event Grid. Les runbooks et applications logiques Azure Automation sont pris en charge en tant que gestionnaires d’événements via des webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105606"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875799"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, runbooks Automation, applications logiques en tant que gestionnaires d’événements pour les événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer les événements. Vous pouvez également utiliser n’importe quel webhook pour la gestion des événements. À cette fin, il n’est pas nécessaire que le webhook soit hébergé dans Azure. Event Grid ne prend en charge que les points de terminaison Webhook HTTPS.
 
 > [!NOTE]
-> Les runbooks et applications logiques Azure Automation sont pris en charge en tant que gestionnaires d’événements via des webhooks. 
+> - Les runbooks et applications logiques Azure Automation sont pris en charge en tant que gestionnaires d’événements via des webhooks. 
+> - Même si vous pouvez utiliser **Webhook** en tant que **type de point de terminaison** pour configurer une fonction Azure en tant que gestionnaire d’événements, utilisez **Azure Function** comme type de point de terminaison. Pour en savoir plus, consultez [Fonction Azure en tant que gestionnaire d’événements](handler-functions.md).
 
 ## <a name="webhooks"></a>webhooks
 Consultez les articles suivants pour obtenir une vue d’ensemble et des exemples d’utilisation de webhooks en tant que gestionnaires d’événements. 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2c642b2441d1f30c31e707a237732e028f548ac5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 118e137f06a49f2c125b1ca156877514d65af86f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298179"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047061"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utiliser l’interface CLI Azure Digital Twins
 
@@ -35,13 +35,13 @@ En plus de la gestion générale de votre instance, l’interface CLI vous perm
 
 ## <a name="get-the-extension"></a>Obtient l’extension
 
-Les commandes Azure Digital Twins font partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez consulter la documentation de référence sur ces commandes dans le cadre du jeu de commandes `az iot` : [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+Les commandes Azure Digital Twins font partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez afficher la liste complète des commandes et leur utilisation dans le cadre de la documentation de référence pour l’ensemble de commandes `az iot` : [*az dt*, informations de référence sur la commande](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
 
-Vous pouvez vous assurer de disposer de la version la plus récente de l’extension en procédant comme suit. Vous pouvez exécuter ces commandes dans [Azure Cloud Shell](../cloud-shell/overview.md) ou dans une [interface de ligne de commande Azure locale](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Vous pouvez vous assurer de disposer de la version la plus récente de l’extension en procédant comme suit. Vous pouvez exécuter ces commandes dans [Azure Cloud Shell](../cloud-shell/overview.md) ou dans une [interface de ligne de commande Azure locale](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une alternative aux commandes CLI, découvrez comment gérer une instance Azure Digital Twins à l’aide des API et des SDK :
-* [*Guide pratique : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md)
+Explorez l’interface CLI et son ensemble complet de commandes via les documents de référence :
+* [*az dt*, informations de référence sur les commandes](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)

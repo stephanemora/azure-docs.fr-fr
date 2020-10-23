@@ -4,15 +4,15 @@ description: Découvrir comment configurer et gérer la durée de vie sur un con
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297893"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951925"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Définir la durée de vie sur un conteneur à l’aide du kit SDK
 
-Pour définir la durée de vie sur un conteneur, vous devez fournir un nombre positif non nul qui indique la durée en secondes. Selon la valeur de la TTL configurée, tous les éléments présents dans le conteneur sont supprimés après l’horodatage de la dernière modification de l’élément `_ts`.
+Pour définir la durée de vie sur un conteneur, vous devez fournir un nombre positif non nul qui indique la durée en secondes. Selon la valeur de la TTL configurée, tous les éléments présents dans le conteneur sont supprimés après l’horodatage de la dernière modification de l’élément `_ts`. Vous pouvez éventuellement définir `TimeToLivePropertyPath`, ce qui permet d’utiliser une autre propriété que la propriété `_ts` générée par le système pour déterminer les éléments à supprimer en fonction de la durée de vie.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> Kit de développement logiciel (SDK) .NET
 

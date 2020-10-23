@@ -9,7 +9,7 @@
         - name: Quel est l’accès utilisateur invité B2B ?
           href: what-is-b2b.md
         - name: "Qu’est-ce qu’Azure AD B2C\_?"
-          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
+          href: ../../active-directory-b2c/overview.md
     - name: Démarrages rapides
       items:
         - name: Ajouter des utilisateurs invités dans le portail
@@ -137,13 +137,13 @@
         - name: Questions fréquentes (FAQ)
           href: faq.md
         - name: Obtention d’une assistance
-          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md
         - name: Forum de commentaires Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Feuille de route Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: Page de questions Microsoft Q&A
-          href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+          href: /answers/topics/azure-active-directory.html
         - name: Tarifs
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Calculatrice de prix

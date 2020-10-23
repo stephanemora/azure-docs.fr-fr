@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611650"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054897"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de fournisseur d'identité SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -166,7 +166,7 @@ L’élément **CryptographicKeys** contient les attributs suivants :
 | Attribut |Obligatoire | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Oui | Certificat X509 (jeu de clés RSA) à utiliser pour signer les messages SAML. Azure AD B2C utilise cette clé pour signer les demandes et les envoyer au fournisseur d’identité. |
-| SamlAssertionDecryption |Oui | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer les messages SAML. Ce certificat doit être fourni par le fournisseur d’identité. Azure AD B2C utilise ce certificat pour déchiffrer les données envoyées par le fournisseur d’identité. |
+| SamlAssertionDecryption |Non | Certificat X509 (jeu de clés RSA). Un fournisseur d’identité SAML utilise la partie publique du certificat pour chiffrer l’assertion de la réponse SAML. Azure AD B2C utilise la partie privée du certificat pour déchiffrer l’assertion. |
 | MetadataSigning |Non | Certificat X509 (jeu de clés RSA) à utiliser pour signer les métadonnées SAML. Azure AD B2C utilise cette clé pour signer les métadonnées.  |
 
 ## <a name="saml-entityid-customization"></a>Personnalisation de l’entityID SAML

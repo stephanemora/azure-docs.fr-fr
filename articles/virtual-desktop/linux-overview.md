@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320237"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960641"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
-Vous pouvez accéder aux ressources de Windows Virtual Desktop à partir de vos appareils Linux avec les clients pris en charge suivants, fournis par nos partenaires clients légers Linux. Nous travaillons en collaboration avec un certain nombre de partenaires pour activer les clients Windows Virtual Desktop pris en charge sur d’autres systèmes d’exploitation et périphériques basés sur Linux. Si vous devez prendre en charge Windows Virtual Desktop sur une plateforme Linux qui n’est pas répertoriée ici, faites-le nous savoir sur notre [page UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Vous pouvez accéder aux ressources de Windows Virtual Desktop à partir de vos appareils Linux avec le [client web](connect-web.md) ou les clients pris en charge suivants, fournis par nos partenaires clients légers Linux. Nous travaillons en collaboration avec un certain nombre de partenaires pour activer les clients Windows Virtual Desktop pris en charge sur d’autres systèmes d’exploitation et appareils basés sur Linux. Si vous devez prendre en charge Windows Virtual Desktop sur une plateforme Linux qui n’est pas répertoriée ici, faites-le nous savoir sur notre [page UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Se connecter avec votre appareil Linux
 

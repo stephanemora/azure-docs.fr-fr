@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 413847b7858549dc6130f219829b220b2857c7e2
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743197"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938888"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Résoudre les problèmes survenant sur votre appareil Azure Stack Edge Pro avec GPU 
 
@@ -200,6 +200,7 @@ Voici les erreurs liées au stockage d’objets blob sur un appareil Azure Stack
 |The connection times out. (La connexion arrive à expiration.)|Connectez-vous à l’appareil Azure Stack Edge Pro, puis vérifiez qu’il est déverrouillé. Chaque fois que l’appareil redémarre, il reste verrouillé jusqu’à ce qu’un utilisateur se connecte.|
 
 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur les [problèmes connus de cette version](azure-stack-edge-gpu-2008-release-notes.md).
+- En savoir plus sur la façon de [Résoudre les problèmes d’activation d’appareil](azure-stack-edge-gpu-troubleshoot-activation.md).

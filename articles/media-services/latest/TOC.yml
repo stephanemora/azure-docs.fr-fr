@@ -215,7 +215,7 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Paginer, filtrer et classer des entités'
           href: entities-overview.md
-        - name: RBAC
+        - name: "Azure\_RBAC"
           href: rbac-overview.md
         - name: Codes d’erreur
           items:

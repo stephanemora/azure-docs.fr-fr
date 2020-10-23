@@ -2,23 +2,17 @@
 title: Vue d’ensemble d’agent de machine virtuelle Azure
 description: Vue d’ensemble d’agent de machine virtuelle Azure
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612829"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974904"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -70,11 +64,11 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Prérequis
 
-- L’agent de machine virtuelle Windows a besoin d’au moins Windows Server 2008 SP2 (64 bits) pour fonctionner avec le .NET Framework 4.0. Voir [Prise en charge de version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- L’agent de machine virtuelle Windows a besoin d’au moins Windows Server 2008 SP2 (64 bits) pour fonctionner avec .NET Framework 4.0. Voir [Prise en charge de version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-- Vérifiez que votre machine virtuelle a accès à l’adresse IP 168.63.129.16. Pour plus d’informations, consultez [Qu’est-ce que l’adresse 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
+- Vérifiez que votre machine virtuelle a accès à l’adresse IP 168.63.129.16. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
-- Vérifiez que le protocole DHCP est activé à l’intérieur de la machine virtuelle invitée. Il est nécessaire pour obtenir l’adresse de l’hôte ou de l’infrastructure à partir de DHCP pour que l’agent de machine virtuelle IaaS et les extensions fonctionnent. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le portail Azure ou PowerShell et vérifier que l’option DHCP dans la machine virtuelle est activée. [Apprenez-en davantage](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
+- Vérifiez que le protocole DHCP est activé à l’intérieur de la machine virtuelle invitée. Il est nécessaire pour obtenir l’adresse de l’hôte ou de l’infrastructure à partir de DHCP pour que l’agent de machine virtuelle IaaS et les extensions fonctionnent. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le portail Azure ou PowerShell et vérifier que l’option DHCP dans la machine virtuelle est activée. [Apprenez-en davantage](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Détecter l’agent de machine virtuelle
@@ -87,7 +81,7 @@ Avec le module PowerShell pour Azure Resource Manager, vous pouvez récupérer d
 Get-AzVM
 ```
 
-L’exemple de sortie condensée suivant montre la propriété *ProvisionVMAgent* imbriquée dans *OSProfile*. Cette propriété peut être utilisée pour déterminer si l’agent de machine virtuelle a été déployé sur la machine virtuelle :
+L’exemple de sortie condensée suivant montre la propriété *ProvisionVMAgent* imbriquée dans `OSProfile`. Cette propriété peut être utilisée pour déterminer si l’agent de machine virtuelle a été déployé sur la machine virtuelle :
 
 ```powershell
 OSProfile                  :
@@ -115,10 +109,19 @@ Lorsque vous êtes connecté à une machine virtuelle Windows, utilisez le Gesti
 
 
 ## <a name="upgrade-the-vm-agent"></a>Mettre à niveau l’agent de machine virtuelle
-L’agent de machine virtuelle Azure pour Windows est automatiquement mis à niveau sur les images déployées à partir du marketplace Azure. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent l’agent de machine virtuelle le plus récent au moment de leur provisionnement. Si vous avez installé l’agent manuellement ou si vous déployez des images de machine virtuelle personnalisées, vous devez effectuer une mise à jour manuelle pour inclure le nouvel agent de machine virtuelle au moment de la création de l’image.
+L’agent de machine virtuelle Azure pour Windows est automatiquement mis à niveau sur les images déployées à partir de la Place de marché Azure. Lorsque de nouvelles machines virtuelles sont déployées sur Azure, elles reçoivent l’agent de machine virtuelle le plus récent au moment de leur provisionnement. Si vous avez installé l’agent manuellement ou si vous déployez des images de machine virtuelle personnalisées, vous devez effectuer une mise à jour manuelle pour inclure le nouvel agent de machine virtuelle au moment de la création de l’image.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Collecte automatique des journaux de l’agent invité Windows
 L’agent invité Windows dispose d’une fonctionnalité qui permet de collecter automatiquement certains journaux. Cette fonctionnalité est contrôlée par le processus CollectGuestLogs. exe. Elle existe à la fois pour les services cloud PaaS et pour les machines virtuelles IaaS. Sa fonction est de collecter de façon rapide et automatique certains journaux de diagnostic à partir d’une machine virtuelle en vue d’une analyse hors connexion. Parmi les journaux collectés figurent les journaux des événements, les journaux du système d’exploitation, les journaux Azure et certaines clés de Registre. Elle génère un fichier ZIP qui est transféré à l’hôte de la machine virtuelle. Ce fichier ZIP peut ensuite être examiné par les équipes d’ingénieurs et les professionnels du support technique pour étudier les problèmes à la demande du client propriétaire de la machine virtuelle.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Agent invité et certificats OSProfile
+L’agent de machine virtuelle Azure est chargé d’installer les certificats référencés dans l’`OSProfile` d’une machine virtuelle ou d’un groupe de machines virtuelles identiques. Si vous supprimez manuellement ces certificats de la console MMC Certificats à l’intérieur de la machine virtuelle invitée, vous pouvez vous attendre à ce que l’agent invité les rajoute.
+Pour supprimer définitivement un certificat, vous devez le supprimer de l’`OSProfile`, puis le supprimer à partir du système d’exploitation invité.
+
+Pour une machine virtuelle, utilisez [Remove-AzVMSecret]() pour supprimer des certificats de l’`OSProfile`.
+
+Pour plus d’informations sur les certificats de groupe de machines virtuelles identiques, consultez [Groupes de machines virtuelles identiques - Comment supprimer des certificats obsolètes ?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les extensions de machine virtuelle, consultez [Vue d’ensemble des extensions et des fonctionnalités des machines virtuelles Azure](overview.md).

@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Proxy sortant
       href: load-balancer-outbound-connections.md
-    - name: Réinitialisation de TCP et délai d’inactivité de TCP
     - name: Règles de trafic sortant
       href: outbound-rules.md
     - name: Réinitialisation du protocole TCP pendant le délai d’inactivité

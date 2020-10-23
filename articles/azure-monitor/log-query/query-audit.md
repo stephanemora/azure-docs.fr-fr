@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458635"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91760159"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Requêtes d’audit dans les journaux Azure Monitor (préversion)
 Les journaux d’audit des requêtes de journaux fournissent des données de télémétrie sur les requêtes de journal exécutées dans Azure Monitor : par exemple, le moment où la requête a été exécutée, l’utilisateur qui l’a exécutée, l’outil utilisé, le texte de la requête et les statistiques de performances qui décrivent l’exécution de la requête.
@@ -64,9 +64,13 @@ Un enregistrement d’audit est créé chaque fois qu’une requête s’exécut
 
 ## <a name="considerations"></a>Considérations
 
+- Les requêtes sont journalisées uniquement lorsqu’elles sont exécutées dans un contexte utilisateur. Aucune requête de service à service dans Azure n’est journalisée. Les deux principaux ensembles de requêtes que cette exclusion englobe sont les calculs de facturation et les exécutions d’alertes automatisées. Dans le cas des alertes, seule la requête d’alerte planifiée elle-même n’est pas journalisée. L’exécution initiale de l’alerte dans l’écran de création d’alerte est effectuée dans un contexte utilisateur et disponible à des fins d’audit. 
 - Les statistiques de performances ne sont pas disponibles pour les requêtes provenant du proxy Azure Data Explorer. L’intégralité des autres données pour ces requêtes seront quand même remplies.
 - L’indicateur *h* sur les chaînes, qui [obfusque les littéraux de chaîne](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals), n’aura pas d’effet sur les journaux d’audit de requête. Les requêtes sont capturées exactement comme elles sont envoyées, sans que la chaîne soit obfusquée. Vous devez vous assurer que seuls les utilisateurs disposant de droits de conformité pour voir ces données, peuvent le faire au moyen des différents modes RBAC disponibles dans les espaces de travail Log Analytics.
 - Pour les requêtes qui comportent des données provenant de plusieurs espaces de travail, la requête sera uniquement capturée dans les espaces de travail auxquels l’utilisateur a accès.
+
+## <a name="costs"></a>Coûts  
+Il n’y a aucun coût lié à l’extension Diagnostics Azure, mais vous pouvez être facturé pour les données ingérées. Consultez les [tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) appliqués pour la destination dans laquelle vous collectez les données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

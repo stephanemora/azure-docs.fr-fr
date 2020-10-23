@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647213"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91757773"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
@@ -52,7 +52,7 @@ Chargez vos jeux de données étiquetés dans une tramedonnées pandas ou un jeu
 
 ### <a name="pandas-dataframe"></a>Tramedonnées Pandas
 
-Vous pouvez charger des jeux de données étiquetés dans une tramedonnées pandas avec la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la classe `azureml-contrib-dataset`. Installez la classe avec la commande d’interpréteur de commandes suivante : 
+Vous pouvez charger des jeux de données étiquetés dans une tramedonnées pandas avec la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) de la classe `azureml-contrib-dataset`. Installez la classe avec la commande d’interpréteur de commandes suivante : 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >L’espace de noms azureml.contrib change fréquemment car nous travaillons à améliorer le service. Par conséquent, tout ce qui est compris dans cet espace de noms doit être considéré comme une préversion et n’est pas entièrement pris en charge par Microsoft.
 
-Nous proposons les options de gestion de fichiers suivantes pour les flux de fichiers lors de la conversion en tramedonnées pandas.
+Azure Machine Learning propose les options de gestion de fichiers suivantes pour les flux de fichiers lors de la conversion en dataframes pandas.
 * Télécharger : Téléchargez vos fichiers de données vers un chemin d’accès local.
 * Monter : Montez vos fichiers de données sur un point de montage. Le montage fonctionne uniquement pour le calcul basé sur Linux, incluant les machines virtuelles de notebooks Azure Machine Learning et la capacité de calcul Azure Machine Learning.
 
+Dans le code suivant, le jeu de données `animal_labels` est la sortie d’un projet d’étiquetage enregistré dans l’espace de travail.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -80,10 +87,20 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Jeux de données Torchvision
 
-Vous pouvez charger des jeux de données étiquetés dans un jeu de données Torchvision avec la méthode [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) également à partir de la classe `azureml-contrib-dataset`. Pour pouvoir utiliser cette méthode, [PyTorch](https://pytorch.org/) doit être installé. 
+Vous pouvez charger des jeux de données étiquetés dans un jeu de données Torchvision avec la méthode [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) également à partir de la classe `azureml-contrib-dataset`. Pour pouvoir utiliser cette méthode, [PyTorch](https://pytorch.org/) doit être installé. 
+
+Dans le code suivant, le jeu de données `animal_labels` est la sortie d’un projet d’étiquetage enregistré dans l’espace de travail.
 
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

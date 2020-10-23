@@ -1,7 +1,7 @@
 ---
 title: Créer et utiliser des stratégies de groupe dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment modifier les objets de stratégie de groupe (GPO) intégrés et créer vos propres stratégies personnalisées dans un domaine managé Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963735"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrer la stratégie de groupe dans un domaine géré par Azure Active Directory Domain Services
 
@@ -90,7 +90,7 @@ Il existe deux objets de stratégie de groupe (GPO) intégrés dans un domaine m
 
 1. L’outil Éditeur de gestion des stratégies de groupe s’ouvre pour vous permettre de personnaliser l’objet de stratégie de groupe, comme *les stratégies de compte* :
 
-    ![Personnaliser l’objet de stratégie de groupe pour configurer les paramètres en fonction de vos besoins](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Capture d’écran de l’Éditeur de gestion des stratégies de groupe.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     Lorsque vous avez terminé, sélectionnez **Fichier > Enregistrer** pour enregistrer la stratégie. Les ordinateurs actualisent la stratégie de groupe par défaut toutes les 90 minutes et appliquent les modifications que vous avez apportées.
 

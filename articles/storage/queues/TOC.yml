@@ -267,7 +267,7 @@
         - name: Accessibilité de l’Explorateur Stockage Azure
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Stockage File d’attente sur Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
+      href: /answers/topics/azure-queue-storage.html
     - name: Stockage File d’attente sur Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Prix du stockage File d’attente
@@ -309,7 +309,7 @@
             - name: "Bibliothèque de client Stockage Azure version\_12.x"
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
             - name: "Objets blob, files d’attente et fichiers (version\_8)"
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+              href: /java/api/overview/azure/storage?view=azure-java-legacy
             - name: "Bibliothèque de client Stockage Azure versions\_8.x et antérieures"
               href: 'https://github.com/Azure/azure-storage-java'
         - name: Node.js

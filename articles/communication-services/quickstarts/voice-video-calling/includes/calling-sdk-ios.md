@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d889b7dabc5d97a36f8b12bcff90cf3ad2069fb7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90930654"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082276"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +31,7 @@ Dans Xcode, créez un projet iOS et sélectionnez le modèle **Single View App*
 Ajoutez la bibliothèque de client Appel Azure Communication Services et ses dépendances (AzureCore.framework et AzureCommunication.framework) à votre projet.
 
 > [!NOTE]
-> Avec la publication du kit SDK AzureCommunicationCalling, vous trouverez un script bash `BuildAzurePackages.sh`. Le script, lors de l’exécution de `sh ./BuildAzurePackages.sh`, vous donnera le chemin des packages de framework générés qui devront être importés dans l’exemple d’application à l’étape suivante. Notez que vous devrez configurer les outils en ligne de commande Xcode si vous ne l’avez pas fait avant d’exécuter le script : Démarrez Xcode et sélectionnez « Preferences -> Locations ». Choisissez votre version de Xcode pour les outils en ligne de commande.
+> Avec la publication du kit SDK AzureCommunicationCalling, vous trouverez un script bash `BuildAzurePackages.sh`. Le script, lors de l’exécution de `sh ./BuildAzurePackages.sh`, vous donnera le chemin des packages de framework générés qui devront être importés dans l’exemple d’application à l’étape suivante. Notez que vous devrez configurer les outils en ligne de commande Xcode si vous ne l’avez pas fait avant d’exécuter le script : Démarrez Xcode et sélectionnez « Preferences -> Locations ». Choisissez votre version de Xcode pour les outils en ligne de commande. **Notez que le script BuildAzurePackages.sh ne fonctionne qu’avec Xcode 11.5 et versions supérieures.**
 
 1. Téléchargez la bibliothèque de client Appel Communication Services pour iOS.
 2. Dans Xcode, cliquez sur votre fichier projet et sélectionnez la cible de build pour ouvrir l’éditeur de paramètres du projet.
@@ -39,9 +39,9 @@ Ajoutez la bibliothèque de client Appel Azure Communication Services et ses dé
 4. En bas à gauche de la boîte de dialogue, choisissez **Add Files** (Ajouter des fichiers) et accédez au répertoire **AzureCommunicationCalling.framework** du package de la bibliothèque de client décompressé.
     1. Répétez la dernière étape pour ajouter **AzureCore.framework** et **AzureCommunication.framework**.
 5. Ouvrez l’onglet **Build Settings** (Paramètres de build) de l’éditeur de paramètres du projet, puis faites défiler jusqu’à la section **Search Paths** (Chemins de recherche). Ajoutez une nouvelle entrée **Framework Search Paths** pour le répertoire contenant **AzureCommunicationCalling.framework**.
-    1. Ajoutez une autre entrée Framework Search Paths pointant vers le dossier qui contient les dépendances.
+    1. Ajoutez une autre entrée Framework Search Paths pointant vers le dossier contenant les dépendances.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Capture d’écran montrant la mise à jour des chemins de recherche de framework dans XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Capture d’écran représentant la fenêtre de création de projet dans Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Demander l’accès au microphone
 
@@ -113,7 +113,7 @@ Passe l’objet CommunicationUserCredential créé ci-dessus à ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ La notification Push mobile est la notification contextuelle que vous recevez su
 - Étape 2 : Xcode -> Signature et fonctionnalités -> Ajouter une fonctionnalité -> « Background Modes » (Modes d’arrière-plan)
 - Étape 3 : « Background Modes » (Modes d’arrière-plan) -> sélectionner « Voix sur IP » et « Remote notifications » (Notifications distantes)
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Capture d’écran montrant comment ajouter des fonctionnalités dans Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Capture d’écran représentant la fenêtre de création de projet dans Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Inscription aux notifications Push
 
@@ -424,6 +424,8 @@ targetRemoteParticipantView.update(ACSScalingMode.fit)
 ```swift
 // [Bool] isRendering - indicating if stream is being rendered
 remoteVideoRenderer.isRendering()
+// [Synchronous] dispose() - dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
+remoteVideoRenderer.dispose()
 ```
 
 ## <a name="device-management"></a>Gestion des appareils
@@ -445,7 +447,7 @@ self.callClient!.getDeviceManager(
 
 ### <a name="enumerate-local-devices"></a>Énumérer les appareils locaux
 
-Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur le Gestionnaire d’appareils. L’énumération est une action synchrone.
+Pour accéder aux appareils locaux, vous pouvez utiliser les méthodes d’énumération sur le gestionnaire d’appareils. L’énumération est une action synchrone.
 
 ```swift
 // enumerate local cameras
@@ -456,7 +458,7 @@ var localMicrophones = deviceManager.getMicrophoneList() // [ACSAudioDeviceInfo,
 var localSpeakers = deviceManager.getSpeakerList() // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ``` 
 
-### <a name="set-default-microphonespeaker"></a>Définir le microphone/le haut-parleur par défaut
+### <a name="set-default-microphonespeaker"></a>Définir le microphone/haut-parleur par défaut
 
 Le gestionnaire d’appareils vous permet de définir un appareil par défaut qui sera utilisé lors du démarrage d’un appel. Si les valeurs par défaut de la pile ne sont pas définies, Azure Communication Services bascule vers les valeurs par défaut du système d’exploitation.
 
@@ -509,7 +511,7 @@ localRenderer.dispose()
 
 ## <a name="eventing-model"></a>Modèle d’événement
 
-Vous pouvez vous abonner à la plupart des propriétés et des collections pour être averti en cas de modifications de valeurs.
+Vous pouvez vous abonner à la plupart des propriétés et collections pour être averti quand des valeurs changent.
 
 ### <a name="properties"></a>Propriétés
 Pour vous abonner à des événements `property changed` :
