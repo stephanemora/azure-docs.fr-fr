@@ -66,8 +66,16 @@
       items:
         - name: Superviser avec Grafana et Kibana
           href: monitor-grafana-kibana.md
-        - name: Charger des métriques et des journaux
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Charger sur Azure Monitor
+          items:
+            - name: Prérequis pour le chargement
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Charger les journaux
+              href: upload-logs.md
+            - name: Charger les métriques
+              href: upload-metrics.md
+            - name: Charger les données d’utilisation
+              href: upload-usage-data.md
         - name: Instances de base de données d’inventaire
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Obtenir le nom d’utilisateur et le mot de passe du contrôleur de données

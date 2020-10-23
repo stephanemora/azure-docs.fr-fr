@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91640655"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92323478"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -70,31 +70,7 @@ Azure Monitor est un service de données à grande échelle servant des milliers
 
 Quand vous envoyez des données vers un espace de travail à un débit supérieur à 80 % du seuil configuré dans votre espace de travail, un événement est envoyé au tableau *Opération* de votre espace de travail toutes les 6 heures pendant que le seuil continue d’être dépassé. Quand le débit de volume ingéré est plus élevé que le seuil, des données sont supprimées et un événement est envoyé toutes les 6 heures au tableau *Opération* de votre espace de travail pendant que le seuil continue d’être dépassé. Si votre débit de volume d’ingestion continue de dépasser le seuil ou si vous pensez l’atteindre bientôt, vous pouvez demander de l’augmenter en effectuant une demande de support. 
 
-Pour être notifié quand vous approchez ou atteignez la limite du débit de volume d’ingestion dans votre espace de travail, créez une [règle d’alerte de journal](../articles/azure-monitor/platform/alerts-log.md) à l’aide de la requête suivante avec une logique d’alerte basée sur le nombre de résultats supérieur à zéro, une période d’évaluation de 5 minutes et une fréquence de 5 minutes.
-
-Le débit du volume d’ingestion a franchi le seuil
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-Le débit du volume d’ingestion a franchi 80 % du seuil
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-Le débit du volume d’ingestion a franchi 70 % du seuil
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Consultez [Superviser l’intégrité de l’espace de travail Log Analytics dans Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) pour créer des règles d’alerte qui vous informeront de manière proactive si vous atteignez les limites d’ingestion.
 
 >[!NOTE]
 >En fonction de la durée pendant laquelle vous utilisez Log Analytics, vous pouvez avoir accès aux niveaux de tarification hérités. En savoir plus sur les [niveaux tarifaires hérités de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
