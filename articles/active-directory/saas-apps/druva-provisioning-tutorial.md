@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323513"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851150"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutoriel : Configurer Druva pour le provisionnement automatique d’utilisateurs
 
@@ -58,15 +58,15 @@ Avant de configurer Druva pour le provisionnement automatique d’utilisateurs a
 
 2. Accédez à **Manage (Gérer)**  > **Deployments (Déploiements)**  > **Users (Utilisateurs)** .
 
-    ![Druva : ajouter SCIM](media/druva-provisioning-tutorial/manage.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/manage.png" alt-text="Capture d’écran de la console d’administration Druva. L’option Manage est mise en évidence et le menu Manage est visible. Dans ce menu, sous Deployments, Users est mis en évidence." border="false":::
 
 3.  Accédez aux **Paramètres**. Cliquez sur **Generate Token** (Générer un jeton).
 
-    ![Druva : ajouter SCIM](media/druva-provisioning-tutorial/settings.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Capture d’écran de la console d’administration Druva. L’option Manage est mise en évidence et le menu Manage est visible. Dans ce menu, sous Deployments, Users est mis en évidence." border="false":::
 
 4.  Copiez la valeur du **jeton d’authentification**. Cette valeur devra être entrée dans le champ **Jeton secret** dans l’onglet Approvisionnement de votre application Druva dans le Portail Azure.
     
-    ![Druva : ajouter SCIM](media/druva-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Capture d’écran de la console d’administration Druva. L’option Manage est mise en évidence et le menu Manage est visible. Dans ce menu, sous Deployments, Users est mis en évidence." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Ajouter Druva à partir de la galerie
 

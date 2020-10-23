@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323794"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91851218"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutoriel : Configurer Dynamic Signal pour l’approvisionnement automatique d’utilisateurs
 
@@ -100,11 +100,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 6. Dans la console d’administration de Dynamic Signal, accédez à **Admin > Advanced > API** (Admin > Avancé > API).
 
-    ![Configuration de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Capture d’écran de la console d’administration Dynamic Signal. Advanced est mis en évidence dans le menu Admin. Le menu Advanced est également visible, avec API mis en évidence." border="false":::
 
     Copiez **l’URL de l’API SCIM** dans **Tenant URL** (URL de locataire). Cliquez sur **Générer un nouveau jeton** pour générer un **jeton du porteur**, puis copiez la valeur dans **Secret Token** (Jeton secret).
 
-    ![Configuration de Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Capture d’écran de la console d’administration Dynamic Signal. Advanced est mis en évidence dans le menu Admin. Le menu Advanced est également visible, avec API mis en évidence." border="false":::
 
 7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Dynamic Signal. Si la connexion échoue, vérifiez que votre compte Dynamic Signal dispose d’autorisations d’administrateur et réessayez.
 
