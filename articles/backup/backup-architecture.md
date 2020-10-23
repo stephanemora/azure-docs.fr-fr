@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614000"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173280"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -45,7 +45,7 @@ Les coffres présentent les fonctionnalités suivantes :
 - Vous spécifiez le mode de réplication des données dans le coffre pour la redondance :
   - **Stockage localement redondant (LRS)**  : Pour vous protéger contre des défaillances de centre de données, vous pouvez utiliser un stockage localement redondant. LRS réplique les données vers une unité d’échelle de stockage. [Plus d’informations](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Stockage géo-redondant (GRS)**  : Pour vous protéger contre des pannes régionales, vous pouvez utiliser un stockage géoredondant. Celui-ci réplique vos données dans une région secondaire. [Plus d’informations](../storage/common/storage-redundancy.md#geo-redundant-storage)
-  - **Stockage redondant interzone (ZRS)**  : réplique vos données dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. [En savoir plus](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Stockage redondant interzone (ZRS)**  : réplique vos données dans des [zones de disponibilité](../availability-zones/az-overview.md#availability-zones), garantissant ainsi la résidence et la résilience des données dans la même région. [En savoir plus](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Par défaut, les coffres Recovery Services utilisent un stockage géoredondant.
 
 Les coffres Recovery Services offrent les fonctionnalités supplémentaires suivantes :
