@@ -100,7 +100,9 @@
           href: rbac-migration.md
         - name: Résoudre les problèmes d’accès
           href: troubleshooting-access-issues.md
-    - name: Guide pratique pour activer la journalisation
+    - name: Activer la suppression réversible et la protection contre le vidage
+      href: key-vault-recovery.md
+    - name: Activation de la journalisation
       href: howto-logging.md
     - name: Développer
       items:
@@ -109,7 +111,7 @@
         - name: Utiliser Azure Resource Manager pour déployer Key Vault
           href: vault-create-template.md
         - name: Enregistrer des secrets d’application web
-          href: vs-secure-secret-appsettings.md
+          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
         - name: Authentification de service à service avec .NET
           href: service-to-service-authentication.md
         - name: Utiliser le service connecté Key Vault
@@ -134,14 +136,6 @@
           href: private-link-service.md
         - name: Accéder à Key Vault derrière un pare-feu - Azure Key Vault
           href: access-behind-firewall.md
-    - name: Suppression réversible
-      items:
-        - name: Récupération Key Vault (suppression réversible et protection contre le vidage)
-          href: key-vault-recovery.md
-        - name: Utiliser la suppression réversible avec CLI
-          href: soft-delete-cli.md
-        - name: Utiliser la suppression réversible avec Power​Shell
-          href: soft-delete-powershell.md
     - name: Déplacer un coffre de clés
       items:
         - name: Déplacer un coffre de clés dans un autre groupe de ressources
