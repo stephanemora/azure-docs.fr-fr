@@ -19,6 +19,7 @@
         - name: Utiliser l'interface CLI
           href: fhir-paas-cli-quickstart.md
         - name: Utilisation d’un modèle ARM
+          displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
     - name: Déployer le connecteur Azure IoT pour FHIR (préversion) - Portail
       href: iot-fhir-portal-quickstart.md

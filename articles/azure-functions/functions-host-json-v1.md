@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757520"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167716"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informations de référence sur le fichier host.json pour Azure Functions 1.x
 
@@ -230,7 +230,7 @@ Si vous partagez un compte de stockage entre plusieurs applications de fonction,
 
 ## <a name="logger"></a>logger
 
-Contrôle le filtrage des journaux d’activité écrits par un [objet ILogger](functions-monitoring.md#write-logs-in-c-functions) ou par [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Contrôle le filtrage des journaux d’activité écrits par un [objet ILogger](functions-dotnet-class-library.md#ilogger) ou par [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 
 *Version 1.x*
 
-Paramètres de configuration des journaux d’activité que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Paramètres de configuration des journaux d’activité que vous créez à l’aide d’un objet `TraceWriter`. Pour en savoir plus, consultez [Journalisation C#].
 
 ```json
 {

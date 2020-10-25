@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334835"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174130"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
@@ -132,7 +132,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Non applicable ; Microsoft conserve la source de temps utilisée pour les ressources Azure, par exemple, Sauvegarde Azure, pour les timestamps dans les journaux.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Microsoft
 
@@ -364,7 +364,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -436,7 +436,7 @@ Documents associés :
 
 - [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -486,7 +486,7 @@ Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les 
 
 - [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Utilisation du contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure](./backup-rbac-rs-vault.md)
+- [Utilisation du contrôle d’accès en fonction du rôle Azure pour gérer les points de récupération Sauvegarde Azure](./backup-rbac-rs-vault.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -542,7 +542,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -558,7 +558,7 @@ La plateforme sous-jacente est analysée et corrigée par Microsoft. Examinez le
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -612,7 +612,7 @@ En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de
 
 - [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create.md)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -660,7 +660,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -698,7 +698,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -818,9 +818,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 - [Créer un coffre de clés](../key-vault/secrets/quick-create-portal.md)
 
-* [Comment s’authentifier auprès de Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Comment s’authentifier auprès de Key Vault](../key-vault/general/authentication.md)
 
-* [Comment attribuer une stratégie d’accès Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Comment attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -854,7 +854,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Non applicable ; cette recommandation est destinée aux ressources de calcul. Microsoft Antimalware est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Sauvegarde Azure), mais il ne s’exécute pas sur le contenu client.
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Non applicable
 
@@ -868,7 +868,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 - [Présentation de Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md)
 
-- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](../security-center/threat-protection.md)
+- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](../security-center/azure-defender.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -906,7 +906,7 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 - [Présentation du chiffrement dans Sauvegarde Azure](./backup-encryption.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -924,7 +924,7 @@ Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
 **Aide** : Pour la sauvegarde sur site, le chiffrement au repos est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure. Pour les machines virtuelles Azure, les données sont chiffrées au repos à l’aide de Storage Service Encryption (SSE). Vous pouvez activer la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Supervision d’Azure Security Center** : Oui
 

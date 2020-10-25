@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076893"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107587"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) : applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.
 - [Stratégies d’intégration Dapr](api-management-dapr-policies.md)
     - [Envoyer une demande à un service](api-management-dapr-policies.md#invoke) : utilise le runtime Dapr pour localiser et communiquer de manière fiable avec un microservice Dapr.
-    -  [Envoyer un message à une rubrique Publier/S’abonner](api-management-dapr-policies.md#pubsub) : utilise le runtime Dapr pour publier un message dans une rubrique Publier/S’abonner. Pour plus d’informations sur les messages Publier/S’abonner dans Dapr, consultez ce fichier LISEZMOI(topic.publish-subscribe-messaging/README.md).
+    -  [Envoyer un message à une rubrique Publier/S’abonner](api-management-dapr-policies.md#pubsub) : utilise le runtime Dapr pour publier un message dans une rubrique Publier/S’abonner.
     -  [Déclencher la liaison de sortie](api-management-dapr-policies.md#bind) : utilise le runtime Dapr pour appeler un système externe par le biais d’une liaison de sortie.
 
 ## <a name="next-steps"></a>Étapes suivantes

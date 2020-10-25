@@ -1024,8 +1024,6 @@
               href: disks-benchmarks.md
             - name: Optimisation des performances
               href: optimization.md
-            - name: Configurer LVM
-              href: configure-lvm.md
         - name: Rechercher les disques non attachés - CLI
           href: find-unattached-disks.md
         - name: Rechercher les disques non attachés - Portail

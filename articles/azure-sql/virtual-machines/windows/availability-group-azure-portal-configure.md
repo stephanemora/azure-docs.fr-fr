@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482796"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164565"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure (Portail Azure – Préversion)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Utiliser le portail Azure pour configurer un groupe de disponibilité (en préversion) pour SQL Server sur une machine virtuelle Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Cet article explique comment utiliser le [portail Azure](https://portal.azure.com) pour configurer un groupe de disponibilité pour SQL Server sur des machines virtuelles Azure. 
 
 Utilisez le portail Azure pour créer un cluster ou intégrer un cluster existant, puis créez le groupe de disponibilité, l’écouteur et l’équilibreur de charge interne. 
 
-   > [!NOTE]
-   > Cette fonctionnalité est actuellement en préversion et en cours de déploiement. Par conséquent, si la région de votre choix n’est pas disponible, nous vous invitions à revérifier ultérieurement. 
+Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. 
+
+Bien que cet article utilise le portail Azure pour configurer l’environnement du groupe de disponibilité, vous pouvez également utiliser [PowerShell ou Azure CLI](availability-group-az-commandline-configure.md), les [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md) ou [le faire manuellement](availability-group-manually-configure-tutorial.md). 
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -177,7 +178,7 @@ Vous pouvez **ajouter des réplicas** au groupe de disponibilité, **configurer 
 
 ## <a name="remove-cluster"></a>Supprimer le cluster
 
-Supprimez toutes les machines virtuelles SQL Server du cluster pour le détruire, puis supprimez les métadonnées de cluster du fournisseur de ressources de machine virtuelle SQL. Pour ce faire, vous pouvez utiliser la version la plus récente d’[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou de PowerShell. 
+Supprimez toutes les machines virtuelles SQL Server du cluster pour le détruire, puis supprimez les métadonnées de cluster du fournisseur de ressources de machine virtuelle SQL. Pour ce faire, vous pouvez utiliser la version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli) ou de PowerShell. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

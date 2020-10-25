@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819391"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107621"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -43,7 +43,7 @@ Pour fournir aux utilisateurs B2B l’accès aux applications locales sécurisé
 - **Autorisation via un objet utilisateur B2B dans le répertoire local**. L’application doit être en mesure d’effectuer des contrôles d’accès utilisateur et d’accorder l’accès aux ressources appropriées. Pour finaliser cette autorisation, IWA et KCD exigent un objet utilisateur dans l’annuaire Windows Server Active Directory. Comme décrit dans [Fonctionnement de l’authentification unique avec KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), le Proxy d’application a besoin de cet objet utilisateur pour emprunter l’identité de l’utilisateur et obtenir un jeton Kerberos pour l’application. 
 
    > [!NOTE]
-   > Lorsque vous configurez le proxy d’application Azure AD, assurez-vous que l’option **Identité de connexion déléguée** est définie sur **Nom d’utilisateur principal** (valeur par défaut) pour l’authentification unique IWA.
+   > Lorsque vous configurez le proxy d’application Azure AD, assurez-vous que l’option **Identité de connexion déléguée** est définie sur **Nom principal de l’utilisateur** (valeur par défaut) dans la configuration de l’authentification unique pour l’Authentification Windows intégrée (IWA).
 
    Dans le scénario de l’utilisateur B2B, il existe deux méthodes que vous pouvez utiliser pour créer les objets utilisateur invité requis pour l’autorisation dans le répertoire local :
 

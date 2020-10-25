@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821952"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330408"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2308,6 +2308,9 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 | <*loop-count*> | Integer | Quantité limite de boucles que l’action peut exécuter. Pour plus d’informations sur la limite par défaut et la limite maximale, consultez [Limites and configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | String | Durée d’exécution maximale de la boucle. La valeur par défaut de `timeout` est `PT1H`, qui est le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) requis. |
 |||| 
+
+> [!NOTE]
+> Si l’expression dépend de la sortie d’une action dans la boucle Until, veillez à prendre en compte les échecs résultant de cette action.
 
 *Exemple*
 

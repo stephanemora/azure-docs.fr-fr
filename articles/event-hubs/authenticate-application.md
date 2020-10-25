@@ -3,12 +3,12 @@ title: Authentifier une application pour accéder aux ressources Azure Event Hub
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566327"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332482"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (Azure AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource pour demander un jeton est `https://eventhubs.azure.net/` (pour les clients Kafka, il s’agit de `https://<namespace>.servicebus.windows.net`). Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
@@ -16,7 +16,7 @@ Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ress
 Lorsqu’un rôle est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, de l’espace de noms Event Hubs ou de toute ressource sous-jacente. Un principal de sécurité Azure AD peut attribuer des rôles à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
-> Une définition de rôle est une collection d’autorisations. Le contrôle d’accès en fonction du rôle (RBAC) contrôle la façon dont ces autorisations sont appliquées par le biais de l’attribution de rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
+> Une définition de rôle est une collection d’autorisations. Le contrôle d’accès en fonction du rôle Azure (RBAC Azure) contrôle la façon dont ces autorisations sont appliquées par le biais de l’attribution de rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Rôles intégrés pour Azure Event Hubs
 Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès aux données Event Hubs à l’aide d’Azure AD et d’OAuth :
@@ -25,13 +25,13 @@ Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès aux
 - [Expéditeur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) : Utilisez ce rôle pour accorder un accès en envoi aux ressources Event Hubs.
 - [Récepteur de données Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) : Utilisez ce rôle pour accorder un accès en réception aux ressources Event Hubs.   
 
-Pour les rôles intégrés du registre de schémas, consultez [Rôles du registre de schémas](schema-registry-overview.md#role-based-access-control).
+Pour les rôles intégrés du registre de schémas, consultez [Rôles du registre de schémas](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > Notre préversion prenait en charge l’ajout de privilèges d’accès aux données Event Hubs au rôle Propriétaire ou Contributeur. Toutefois, les privilèges d’accès aux données pour le rôle Propriétaire et le rôle Contributeur ne sont plus respectés. Si vous utilisez le rôle Propriétaire ou Contributeur, passez à l’utilisation du rôle Propriétaire de données Azure Event Hubs.
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
-Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide de RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
+Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide d’Azure RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
 
 Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 
@@ -109,12 +109,12 @@ Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est 
     Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur le contrôle RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../role-based-access-control/overview.md).
+- Pour plus d’informations sur Azure RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) ?
 - Pour apprendre à attribuer et gérer les rôles Azure avec Azure PowerShell, Azure CLI ou l’API REST, consultez les articles suivants :
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec l’API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gérer le contrôle d’accès en fonction du rôle (RBAC) avec des modèles Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Ajouter des attributions de rôle Azure à l’aide de modèles Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Consultez les articles associés suivants :
 - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)

@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/27/2020
-ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.openlocfilehash: 0efcc82617c75089ff2bf396133f9fbc7ec701ea
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827854"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107689"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -48,6 +48,7 @@ Le flux de données de mappage suit une approche basée sur l’extraction, le c
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Common Data Model (préversion)](format-common-data-model.md#source-properties)<br>[Texte délimité](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta (version préliminaire)](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br/>-/✓<br>✓/-<br>-/✓<br>✓/✓<br>✓/-<br/>✓/✓<br/>✓/-<br>✓/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Managed Instance (preview)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 

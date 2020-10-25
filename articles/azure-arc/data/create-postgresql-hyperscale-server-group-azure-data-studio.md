@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273005"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310895"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Créer un PostgreSQL Hyperscale activé par Azure Arc à l’aide d’Azure Data Studio
 
@@ -62,7 +62,7 @@ Vous pouvez maintenant implémenter l’étape suivante.
 1. Sous l’onglet Connexions, cliquez sur les trois points situés en haut à gauche, puis choisissez Nouveau déploiement
 1. Dans les options de déploiement, sélectionnez **Groupe de serveurs PostgreSQL Hyperscale - Azure Arc**
     >[!NOTE]
-    > Vous pouvez être invité à installer la CLI `azdata` ici si elle n’est pas actuellement installée.
+    > Vous pouvez être invité à installer l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ici s’il n’est pas actuellement installé.
 1. Acceptez la déclaration de confidentialité et les termes du contrat de licence, puis cliquez sur **Sélectionner** en bas
 1. Dans le panneau Déployer le groupe de serveurs PostgreSQL Hyperscale - Azure Arc, entrez les informations suivantes :
    - Entrez un nom pour le groupe de serveur

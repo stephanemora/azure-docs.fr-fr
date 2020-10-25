@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570814"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314505"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accéder au tableau de bord web Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Connectez-vous au tableau de bord (kubernetes 1.16+)
 
 > [!IMPORTANT]
-> À partir de la version [v1.10.1 du tableau de bord Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou de Kubernetes v1.16+, le compte de service « kubernetes-dashboard » ne peut plus être utilisé pour récupérer des ressources en raison d’un [correctif de sécurité dans cette version](https://github.com/kubernetes/dashboard/pull/3400). Par conséquent, les requêtes sans informations d’authentification retournent une erreur 401 non autorisé. Un jeton de porteur récupéré à partir d’un compte de service peut toujours être utilisé comme dans cet [exemple de tableau de bord Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mais cela a un impact sur le déroulement de la connexion du module additionnel du tableau de bord par rapport aux versions antérieures.
+> À partir de la version [v1.10.1 du tableau de bord Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) ou de Kubernetes v1.16+, le compte de service « kubernetes-dashboard » ne peut plus être utilisé pour récupérer des ressources en raison d’un [correctif de sécurité dans cette version](https://github.com/kubernetes/dashboard/pull/3400). Par conséquent, les requêtes sans informations d’authentification retournent une [erreur 401 Non autorisé](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Un jeton de porteur récupéré à partir d’un compte de service peut toujours être utilisé comme dans cet [exemple de tableau de bord Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), mais cela a un impact sur le déroulement de la connexion du module additionnel du tableau de bord par rapport aux versions antérieures.
 >
 >Si vous continuez à exécuter une version antérieure à 1.16, vous pouvez toujours donner des autorisations au compte de service « kubernetes-dashboard », mais cela n’est **pas recommandé** :
 > ```console

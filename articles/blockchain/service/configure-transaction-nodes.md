@@ -4,12 +4,12 @@ description: Configuration des nœuds de transaction Azure Blockchain Service
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530384"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150875"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurer les nœuds de transaction Azure Blockchain Service
 
@@ -75,7 +75,7 @@ Pour accorder un contrôle d’accès Azure AD à votre point de terminaison :
 
 1. Sélectionnez **Enregistrer** pour ajouter l’attribution de rôle.
 
-Pour plus d’informations sur le contrôle d’accès Azure AD, consultez l’article [Gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour plus d’informations sur le contrôle d’accès Azure AD, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Pour plus d’informations sur la connexion à l’aide de l’authentification Azure AD, consultez l’article [Connect to your node using AAD authentication](configure-aad.md) (Se connecter à votre nœud à l’aide de l’authentification AAD).
 

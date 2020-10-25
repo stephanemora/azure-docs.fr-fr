@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946091"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341530"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -30,8 +30,8 @@ Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de f
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md).<br>La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
-|Rôles et autorisations obligatoires :|Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Le **lecteur** peut visualiser les résultats.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking.md).|
+|Rôles et autorisations obligatoires :|Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Le **lecteur** peut visualiser les résultats.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>En quoi consiste la fonctionnalité FIM dans Security Center ?
@@ -56,7 +56,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 En comparant l’état actuel de ces éléments à l’état pendant l’analyse précédente, FIM vous alerte si des modifications suspectes ont été apportées.
 
-La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Quand la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type **Solution**. Pour plus d’informations sur la fréquence de collecte de données, consultez [Détails de la collecte de données de suivi des modifications](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
+La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Quand la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type **Solution**. Pour plus d’informations sur la fréquence de collecte de données, consultez [Détails de la collecte de données de suivi des modifications](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Si vous supprimez la ressource **Change Tracking**, vous désactivez également la fonctionnalité FIM dans Security Center.
@@ -262,7 +262,7 @@ Dans cet article, vous avez appris à utiliser la fonctionnalité Monitoring d�
 
 * [Définition des stratégies de sécurité](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-* [Blog sur la sécurité Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): découvrez les dernières nouvelles et informations sur la sécurité Azure.
+* [Blog sur la sécurité Azure](/archive/blogs/azuresecurity/): découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

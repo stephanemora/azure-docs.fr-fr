@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8c8e7539b888141a22e92378d78282edd1ce6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326135"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208020"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -95,7 +95,7 @@ Si un tronçon est rouge, cela signifie qu’il fait partie d'au moins un chemin
 NPM utilise un mécanisme probabiliste pour attribuer des probabilités d'erreur à chaque chemin d'accès réseau, segment réseau, tronçon réseau qui les composent selon le nombre de chemins d'accès non sains dont ils font partie. Si les segments et tronçons réseau font partie d'un nombre plus important de chemins d'accès non sains, la probabilité d'erreurs augmente. Cet algorithme fonctionne mieux en présence de nombreux nœuds avec des agents connectés les uns aux autres, car cela augmente les points de données pour calculer les probabilités d'erreurs.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Comment puis-je créer des alertes dans NPM ?
-Actuellement, la création d’alertes à partir de l’interface utilisateur NPM échoue en raison d’un problème. Veuillez créer des alertes manuellement.
+Actuellement, la création d’alertes à partir de l’interface utilisateur NPM échoue en raison d’un problème connu. Veuillez [créer des alertes manuellement](../platform/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quelles sont les requêtes Log Analytics par défaut pour les alertes ?
 Requête de l’analyseur de performances

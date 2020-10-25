@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276961"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -60,7 +60,7 @@ DPM/MABS peut être déployé comme décrit dans le tableau suivant.
 
 **Déploiement** | **Support** | **Détails**
 --- | --- | ---
-**Déploiement local** | Serveur physique<br/><br/>Machine virtuelle Hyper-V<br/><br/> Machine virtuelle VMware | Si DPM/MABS est installé comme machine virtuelle VMware, seules les machines virtuelles VMware et les charges de travail qui s'exécutent sur celles-ci sont sauvegardées.
+**Déploiement local** | Serveur physique<br/><br/>Machine virtuelle Hyper-V<br/><br/> Machine virtuelle VMware | Pour plus d’informations, reportez-vous à la [matrice de protection](backup-mabs-protection-matrix.md). 
 **Déployé comme machine virtuelle Azure Stack** | MABS uniquement | Vous ne pouvez pas utiliser DPM pour sauvegarder des machines virtuelles Azure Stack.
 **Déployé comme machine virtuelle Azure** | Protège les machines virtuelles Azure et les charges de travail qui s'exécutent sur celles-ci. | DPM/MABS exécuté dans Azure ne peut pas sauvegarder les machines locales.
 

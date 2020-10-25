@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281189"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216672"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
 
@@ -50,7 +50,7 @@ Avec la fonctionnalité de réécriture d’URL d’Application Gateway, vous po
 
 Pour savoir comment réécrire une URL avec Application Gateway à l’aide du portail Azure, consultez [cette page](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Schéma décrivant le processus de réécriture d’une URL avec Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > La fonctionnalité de réécriture d’URL est en préversion et est disponible uniquement pour les références SKU Standard_v2 et WAF_v2 d’Application Gateway. Son utilisation n’est pas recommandée en environnement de production. Pour en savoir plus sur les préversions, consultez les [conditions d’utilisation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -1,18 +1,18 @@
 ---
 title: Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
-description: Cet article décrit le fonctionnement de la sauvegarde automatique et de la restauration de données à la demande, ainsi que la configuration de l’intervalle de sauvegarde et de la rétention dans Azure Cosmos DB.
+description: Cet article décrit le fonctionnement de la sauvegarde automatique et de la restauration de données à la demande, ainsi que la configuration de l’intervalle de sauvegarde et de la rétention. Il explique également comment contacter le support pour demander une restauration des données dans Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 08/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803872"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279504"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -34,15 +34,7 @@ Avec Azure Cosmos DB, vos données et leurs sauvegardes sont rendues hautement r
 
 * Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) provisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
 
-## <a name="options-to-manage-your-own-backups"></a>Options pour gérer vos propres sauvegardes
-
-Avec les comptes d’API SQL Azure Cosmos DB, vous pouvez également tenir à jour vos propres sauvegardes en adoptant l’une des approches suivantes :
-
-* Utiliser [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer régulièrement les données vers un stockage de votre choix
-
-* Utilisez le [flux de modification](change-feed.md) d’Azure Cosmos DB pour lire périodiquement les données pour des sauvegardes complètes ou des modifications incrémentielles, et les stocker dans votre propre stockage.
-
-## <a name="modify-the-backup-interval-and-retention-period"></a>Modifier l’intervalle de sauvegarde et la période de rétention
+## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modifier l’intervalle de sauvegarde et la période de rétention
 
 Azure Cosmos DB effectue automatiquement une sauvegarde complète de vos données toutes les 4 heures, quel que soit le moment. Les deux dernières sauvegardes sont stockées. Il s’agit de la configuration par défaut offerte sans coût supplémentaire. Vous pouvez modifier l’intervalle de sauvegarde et la période de rétention par défaut pendant ou après la création du compte Azure Cosmos. La configuration de la sauvegarde est définie au niveau du compte Azure Cosmos, et vous devez la configurer sur chaque compte. Une fois que vous avez configuré les options de sauvegarde pour un compte, la configuration est appliquée à tous les conteneurs de ce compte. Actuellement, vous pouvez modifier les options de sauvegarde uniquement à partir du portail Azure.
 
@@ -65,7 +57,32 @@ Si vous configurez les options de sauvegarde lors de la création du compte, vou
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS" border="true":::
 
-## <a name="restore-data-from-an-online-backup"></a>Restaurer des données à partir d’une sauvegarde en ligne
+## <a name="request-data-restore-from-a-backup"></a>Demander une restauration des données à partir d’une sauvegarde
+
+En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible uniquement pour certains plans, tels que **Standard**, **Développeur** et des plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/).
+
+Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
+Vous devez avoir les informations suivantes avant de demander une restauration :
+
+* Votre ID d’abonnement.
+
+* En fonction de la manière dont vos données ont été accidentellement supprimées ou modifiées, vous devez vous préparer à disposer d’informations supplémentaires. Nous vous recommandons d’avoir ces informations à portée de main à l’avance, afin de minimiser les aller-retours qui peuvent être préjudiciables dans certains cas d’urgence.
+
+* Si l’intégralité du compte Azure Cosmos DB est supprimé, vous devez fournir le nom du compte supprimé. Si vous créez un autre compte avec le même nom que le compte supprimé, partagez-le avec l’équipe de support, car cela aide à identifier le compte correct. Nous vous recommandons d’émettre différents tickets de support pour chaque compte supprimé, car cela permet de réduire la confusion de l’état de la restauration.
+
+* Si une ou plusieurs bases de données sont supprimées, vous devez fournir le compte Azure Cosmos ainsi que les noms des bases de données Azure Cosmos, et spécifier s’il existe une base de données portant le même nom.
+
+* Si un ou plusieurs conteneurs sont supprimés, vous devez fournir le nom du compte Azure Cosmos, les noms des bases de données et les noms des conteneurs. Spécifiez aussi s’il existe un conteneur portant le même nom.
+
+* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes. **Avant de créer une demande de support pour restaurer les données, veillez à [allonger la période de rétention des sauvegardes](#configure-backup-interval-retention) de votre compte à au moins sept jours. Il est préférable d’allonger la période de rétention dans les 8 heures qui suivent l’événement.** Ainsi, l’équipe de support Azure Cosmos DB disposera de suffisamment de temps pour restaurer votre compte.
+
+En plus du nom du compte Azure Cosmos, des noms de bases de données et des noms de conteneurs, vous devez spécifier le moment dans le temps auquel les données peuvent être restaurées. Il est important d’être aussi précis que possible, afin de nous aider à déterminer les sauvegardes disponibles à ce moment-là. **Il est également important de spécifier l’heure au format UTC.**
+
+La capture d’écran suivante illustre comment créer une demande de support pour un conteneur (collection/graphe/table) afin de restaurer des données à l’aide du portail Azure. Fournissez des détails supplémentaires tels que le type de données, l’objectif de la restauration et le moment auquel les données ont été supprimées, afin de nous aider à affecter une priorité à la demande.
+
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS":::
+
+## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Considérations relatives à la restauration des données à partir d’une sauvegarde
 
 Vous risquez d’effacer ou de modifier accidentellement vos données dans l’un des cas suivants :  
 
@@ -85,38 +102,48 @@ Quand vous supprimez accidentellement un compte Azure Cosmos, nous pouvons resta
 
 Quand vous supprimez accidentellement une base de données Azure Cosmos, nous pouvons restaurer la base de données entière ou un sous-ensemble des conteneurs à l’intérieur de celle-ci. Vous pouvez sélectionner des conteneurs spécifiques dans des bases de données et les restaurer sur un nouveau compte Azure Cosmos.
 
-Quand vous supprimez ou modifiez accidentellement un ou plusieurs éléments d’un conteneur (altération des données), vous devez spécifier l’heure à laquelle effectuer la restauration. L’heure est importante en cas d’altération des données. Le conteneur étant en ligne, la sauvegarde est toujours en cours d’exécution. Par conséquent, si vous attendez au-delà de la période de rétention (de huit heures par défaut), les sauvegardes seront remplacées. **Pour éviter le remplacement de la sauvegarde, allongez la période rétention de la sauvegarde de votre compte à au moins sept jours. Il est préférable d’allonger la période de rétention dans les 8 heures qui suivent l’altération des données.**
+Quand vous supprimez ou modifiez accidentellement un ou plusieurs éléments d’un conteneur (altération des données), vous devez spécifier l’heure à laquelle effectuer la restauration. L’heure est importante en cas d’altération des données. Le conteneur étant en ligne, la sauvegarde est toujours en cours d’exécution. Par conséquent, si vous attendez au-delà de la période de rétention (de huit heures par défaut), les sauvegardes seront remplacées. Pour éviter le remplacement de la sauvegarde, allongez la période de rétention de la sauvegarde de votre compte à au moins sept jours. Il est préférable d’allonger la période de rétention dans les 8 heures qui suivent l’altération des données.
 
 Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes. Ainsi, l’équipe de support Azure Cosmos DB disposera de suffisamment de temps pour restaurer votre compte.
 
 > [!NOTE]
 > Une fois les données restaurées, les fonctionnalités ou les paramètres source ne sont pas tous reportés sur le compte restauré. Les paramètres suivants ne sont pas reportés sur le nouveau compte :
-
 > * Listes de contrôle d'accès VNET
 > * Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 > * Paramètres multirégion  
 
 Si vous approvisionnez le débit au niveau de la base de données, le processus de sauvegarde et de restauration se produit au niveau de la base de données entière, non au niveau de conteneurs individuels. Dans ce cas, vous ne pouvez pas sélectionner un sous-ensemble de conteneurs à restaurer.
 
-## <a name="migrate-data-to-the-original-account"></a>Migration des données vers le compte d’origine
+## <a name="options-to-manage-your-own-backups"></a>Options pour gérer vos propres sauvegardes
 
-L’objectif principal de la restauration des données est de récupérer les données que vous avez supprimées ou modifiées accidentellement. Nous recommandons donc d’inspecter d’abord le contenu des données restaurées, afin de vous assurer qu’il correspond à vos attentes. Par la suite, vous pouvez de nouveau migrer les données vers le compte principal. Bien qu’il soit possible d’utiliser le compte restauré comme nouveau compte actif, cette option n’est pas recommandée si vous avez des charges de travail de production.  
+Avec les comptes d’API SQL Azure Cosmos DB, vous pouvez également tenir à jour vos propres sauvegardes en adoptant l’une des approches suivantes :
 
-Voici différentes méthodes pour migrer les données vers le compte Azure Cosmos d’origine :
+* Utiliser [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer régulièrement les données vers un stockage de votre choix
+
+* Utilisez le [flux de modification](change-feed.md) d’Azure Cosmos DB pour lire périodiquement les données pour des sauvegardes complètes ou des modifications incrémentielles, et les stocker dans votre propre stockage.
+
+## <a name="post-restore-actions"></a>Actions de post-restauration
+
+L’objectif principal de la restauration des données est de récupérer les données que vous avez supprimées ou modifiées accidentellement. Nous recommandons donc d’inspecter d’abord le contenu des données restaurées, afin de vous assurer qu’il correspond à vos attentes. Si tout semble correct, vous pouvez de nouveau migrer les données vers le compte principal. Bien qu’il soit possible d’utiliser le compte restauré comme nouveau compte actif, cette option n’est pas recommandée si vous avez des charges de travail de production. 
+
+Après avoir restauré les données, vous recevez une notification concernant le nom du nouveau compte (il est généralement au format `<original-name>-restored1`) et le moment auquel le compte a été restauré. Le compte restauré aura le même débit provisionné et les mêmes stratégies d’indexation, et il se trouvera dans la même région que le compte d’origine. Un utilisateur administrateur ou coadministrateur de l’abonnement peut voir le compte restauré.
+
+### <a name="migrate-data-to-the-original-account"></a>Migration des données vers le compte d’origine
+
+Voici différentes méthodes pour migrer les données vers le compte d’origine :
 
 * Vous utilisez l’[outil de migration de données Azure Cosmos DB](import-data.md).
 * Vous utilisez Le service [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 * Vous utilisez le [flux de modification](change-feed.md) dans Azure Cosmos DB.
 * Vous pouvez écrire votre propre code personnalisé.
 
-Veillez à supprimer les comptes restaurés dès la migration de vos données effectuée, afin d’éviter les frais qu’ils occasionnent.
+Nous vous conseillons de supprimer le conteneur ou la base de données immédiatement après la migration des données. Si vous ne supprimez pas les bases de données ou les conteneurs restaurés, ils génèreront des coûts de stockage, de sortie et d’unités de requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez maintenant découvrir comment restaurer des données à partir d’un compte Azure Cosmos, ou comment migrer des données vers un compte Azure Cosmos.
 
 * Pour effectuer une demande de restauration, [émettez un ticket à partir du portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* [Guide pratique pour restaurer des données à partir d’un compte Azure Cosmos](how-to-backup-and-restore.md)
 * [Utiliser le flux de modification Cosmos DB](change-feed.md) pour déplacer des données vers Azure Cosmos DB.
 * [Utiliser Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer des données vers Azure Cosmos DB.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332499"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -43,9 +43,11 @@ Pour obtenir la liste des distributions Linux que l’agent Log Analytics prend 
 >[!NOTE]
 >Si vous utilisez une distribution ou une version qui n’est pas prise en charge actuellement et qui ne s’aligne pas sur notre modèle de prise en charge, nous vous recommandons de dupliquer ce dépôt, en sachant que le support de Microsoft ne fournira aucune assistance sur les versions d’agent dupliqué.
 
-### <a name="python-2-requirement"></a>Exigence relative à Python 2
+### <a name="python-requirement"></a>Exigence relative à Python
 
- L’agent Log Analytics nécessite Python 2. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.
+À partir de la version de l’agent 1.13.27, l’agent Linux prend en charge à la fois Python 2 et 3. Nous vous recommandons toujours d’utiliser l’agent le plus récent. 
+
+Si vous utilisez une version antérieure de l’agent, vous devez faire en sorte que la machine virtuelle utilise Python 2 par défaut. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.
 
  - Red Hat, CentOS, Oracle : `yum install -y python2`
  - Ubuntu, Debian : `apt-get install -y python2`
