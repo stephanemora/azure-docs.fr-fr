@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840555"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309681"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 
@@ -59,6 +59,14 @@ Les pays/régions suivants sont en cours d’ajout à cette liste. Pour le momen
 
 > Argentine, Australie, Brésil, Chili, Colombie, Équateur, Iraq, Nouvelle-Zélande, Paraguay, Pérou, Uruguay et Venezuela.
 
+## <a name="remote-profile-solution"></a>Solution Profil distant
+
+Avec les [stratégies personnalisées](custom-policy-overview.md) Azure AD B2C, vous pouvez intégrer des [services API RESTful](custom-policy-rest-api-intro.md), ce qui vous permet de stocker et de lire des profils utilisateur à partir d’une base de données distante (telle qu’une base de données marketing, un système CRM ou une application métier).  
+- Au cours des flux d’inscription et de modification du profil, Azure AD B2C appelle une API REST personnalisée pour rendre le profil utilisateur persistant dans la source de données distante. Les informations d’identification de l’utilisateur sont stockées dans un répertoire Azure AD B2C. 
+- Après la connexion, une fois que les informations d’identification ont été validées avec un compte local ou social, Azure AD B2C appelle l’API REST, qui envoie l’identificateur unique de l’utilisateur en tant que clé primaire d’utilisateur (adresse e-mail ou objectId utilisateur). L’API REST lit les données de la base de données distante et retourne le profil utilisateur.  
+
+Une fois l’inscription, la modification de profil ou la connexion terminée, Azure AD B2C inclut le profil utilisateur dans le jeton d’accès qui est retourné à l’application. Pour plus d’informations, consultez l’[exemple de solution Profil distant Azure AD B2C](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) dans GitHub.
+
 ## <a name="preview-tenant"></a>Client de la version préliminaire
 
 Si vous avez créé un locataire B2C pendant la période de préversion d’Azure AD B2C, il est probable que votre **type de locataire** indique **Aperçu du client**.
@@ -70,3 +78,7 @@ Si c’est le cas, vous devez utiliser votre locataire UNIQUEMENT à des fins de
 Il existe des problèmes connus liés à la suppression d’un locataire B2C en préversion et à la recréation d’un locataire B2C à l’échelle de la production portant le même nom de domaine. *Vous devez créer un locataire B2C à l’échelle de la production portant un nom de domaine différent*.
 
 ![Capture d’écran d’un type de locataire, en tant que locataire en version préliminaire.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Créez un locataire Azure AD B2C](tutorial-create-tenant.md).
