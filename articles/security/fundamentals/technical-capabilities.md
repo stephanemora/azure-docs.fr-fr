@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399531"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168033"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -367,7 +367,8 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) En outre, vous pouvez utiliser les données de surveillance pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
+![Diagramme montrant comment vous pouvez utiliser les données de surveillance pour obtenir des informations détaillées sur votre application.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
 L’audit de sécurité de votre réseau est essentiel pour détecter ses vulnérabilités et assurer la conformité avec votre modèle de gouvernance réglementaire et de sécurité informatique. Grâce à l’affichage du groupe de sécurité, vous pouvez récupérer le groupe de sécurité réseau configuré et ses règles de sécurité, ainsi que les règles de sécurité en vigueur. Avec la liste des règles appliquées, vous pouvez identifier les ports ouverts et évaluer la vulnérabilité du réseau.
 
@@ -393,9 +394,9 @@ Il analyse les éléments suivants :
 
 - **Consultations de pages et performances de chargement** : indiquées par le navigateur de vos utilisateurs.
 
-- **Appels AJAX à partir de pages web** : taux, temps de réponse et taux d’échec.
+- **Appels AJAX à partir de pages web**  : taux, temps de réponse et taux d’échec.
 
-- **Nombre de sessions et d’utilisateurs**.
+- **Nombre de sessions et d’utilisateurs** .
 
 - **Compteurs de performances** de vos ordinateurs serveurs Windows ou Linux, par exemple le processeur, la mémoire et l’utilisation du réseau.
 
@@ -403,7 +404,7 @@ Il analyse les éléments suivants :
 
 - **Journaux d’activité de suivi des diagnostics** de votre application : pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
 
-- **Mesures et événements personnalisés**, vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
+- **Mesures et événements personnalisés** , vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
 
 L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe.
 

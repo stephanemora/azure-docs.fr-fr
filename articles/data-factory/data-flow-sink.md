@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/27/2020
-ms.openlocfilehash: 06d70012756694dca1fad8fa90db0293bb106bf9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.openlocfilehash: 81ce3fae74a14c91db23c991ab0b53accd6568a6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828148"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107706"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -32,7 +32,7 @@ Si un format est pris en charge à la fois inlined et dans les objets de jeu de 
 
 Les jeux de données inlined sont recommandés lors de l’utilisation de schémas flexibles, d’instances de récepteurs uniques ou de récepteurs paramétrables. Si votre récepteur est fortement paramétrable, les jeux de données inlined vous permettront de ne pas créer d’objet « factice ». Les jeux de données inlined sont basés sur Spark et leurs propriétés sont natives au flux de données.
 
-Pour utiliser un jeu de données inlined, sélectionnez le format souhaité à l’aide du sélecteur **Type de récepteur**. Au lieu de sélectionner un jeu de données récepteur, sélectionnez le service lié auquel vous souhaitez vous connecter.
+Pour utiliser un jeu de données inlined, sélectionnez le format souhaité à l’aide du sélecteur **Type de récepteur** . Au lieu de sélectionner un jeu de données récepteur, sélectionnez le service lié auquel vous souhaitez vous connecter.
 
 ![Inline dataset](media/data-flow/inline-selector.png "Jeu de données inlined")
 
@@ -47,16 +47,17 @@ Le flux de données de mappage suit une approche basée sur l’extraction, le c
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texte délimité](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (version préliminaire)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (préversion)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Managed Instance (préversion)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-Les paramètres spécifiques à ces connecteurs se trouvent dans l’onglet **Paramètres**. Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs. 
+Les paramètres spécifiques à ces connecteurs se trouvent dans l’onglet **Paramètres** . Vous trouverez des informations et des exemples de scripts de flux de données concernant ces paramètres dans la documentation relative aux connecteurs. 
 
 Azure Data Factory a accès à plus de [90 connecteurs natifs](connector-overview.md). Pour écrire des données sur ces autres sources à partir de votre flux de données, utilisez l’activité de copie pour charger ces données à partir d’un récepteur pris en charge.
 
 ## <a name="sink-settings"></a>Paramètres de récepteur
 
-Après avoir ajouté un récepteur, configurez-le via l'onglet **Récepteur**. Sous cet onglet, vous pouvez sélectionner ou créer le jeu de données dans lequel votre récepteur écrira. Les valeurs de développement des paramètres de jeux de données peuvent être configurées dans les [paramètres de débogage](concepts-data-flow-debug-mode.md) (nécessite l’activation du mode débogage).
+Après avoir ajouté un récepteur, configurez-le via l'onglet **Récepteur** . Sous cet onglet, vous pouvez sélectionner ou créer le jeu de données dans lequel votre récepteur écrira. Les valeurs de développement des paramètres de jeux de données peuvent être configurées dans les [paramètres de débogage](concepts-data-flow-debug-mode.md) (nécessite l’activation du mode débogage).
 
 Vous trouverez ci-dessous une vidéo expliquant un certain nombre d’options de récepteur pour les types de fichiers délimités par du texte :
 
@@ -70,7 +71,7 @@ Vous trouverez ci-dessous une vidéo expliquant un certain nombre d’options de
 
 ## <a name="field-mapping"></a>Mappages de champs
 
-Comme pour une transformation de sélection (Select), l'onglet **Mappage** du récepteur vous permet de choisir les colonnes entrantes dans lesquelles l'écriture interviendra. Par défaut, toutes les colonnes d'entrée, y compris les colonnes dérivées, sont mappées. C'est ce qu'on appelle le **mappage automatique**.
+Comme pour une transformation de sélection (Select), l'onglet **Mappage** du récepteur vous permet de choisir les colonnes entrantes dans lesquelles l'écriture interviendra. Par défaut, toutes les colonnes d'entrée, y compris les colonnes dérivées, sont mappées. C'est ce qu'on appelle le **mappage automatique** .
 
 Lorsque vous désactivez le mappage automatique, vous avez la possibilité d'ajouter des mappages basés sur des colonnes ou des mappages basés sur des règles. Les mappages basés sur des règles vous permettent d'écrire des expressions avec critères spéciaux, tandis que le mappage fixe mappe les noms de colonnes logiques et physiques. Pour plus d'informations sur le mappage basé sur des règles, consultez [Modèles de colonne dans le flux de données de mappage](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 

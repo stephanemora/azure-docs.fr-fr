@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 2f9f979e5871a4888978ff14362a7fb0082917d5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928681"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151191"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Définir des rôles Azure pour l’accès d’administration à Recherche cognitive Azure
 
 Azure offre un [modèle d’autorisation par rôle global](../role-based-access-control/role-assignments-portal.md) pour tous les services gérés via le portail ou les API Resource Manager. Les rôles Propriétaire, Contributeur et Lecteur définissent le niveau *d’administration des services* pour les utilisateurs, les groupes et les principaux de sécurité Active Directory assignés à chaque rôle. 
 
 > [!Note]
-> Il n’existe aucun contrôle d’accès en fonction du rôle (RBAC) pour sécuriser des parties d’un index ou d’un sous-ensemble de documents. Pour un accès en fonction de l’identité sur les résultats de recherche, vous pouvez créer des filtres de sécurité pour ajuster les résultats par identité, en supprimant les documents auxquels le demandeur ne doit pas avoir accès. Pour plus d’informations, consultez [Filtres de sécurité](search-security-trimming-for-azure-search.md) et [Sécuriser avec Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Il n’existe pas de contrôle d’accès en fonction du rôle (RBAC) pour la sécurisation du contenu sur le service. Vous allez utiliser une clé d’API d’administration ou une clé API de requête pour les demandes authentifiées auprès du service lui-même. Pour un accès en fonction de l’identité sur les résultats de recherche, vous pouvez créer des filtres de sécurité pour ajuster les résultats par identité, en supprimant les documents auxquels le demandeur ne doit pas avoir accès. Pour plus d’informations, consultez [Filtres de sécurité ](search-security-trimming-for-azure-search.md).
 
 ## <a name="management-tasks-by-role"></a>Tâches de gestion par rôle
 
@@ -29,9 +29,8 @@ Pour Recherche cognitive Azure, les rôles sont associés à des niveaux d’aut
 | Role | Tâche |
 | --- | --- |
 | Propriétaire |Création ou suppression du service ou de tout objet sur le service, y compris les clés API, les index, les indexeurs, les sources de données d’indexeur et les planifications de l’indexeur.<p>Afficher l’état du service, notamment des compteurs et la taille du stockage.<p>Ajout ou suppression d'appartenance à un rôle (seul un Propriétaire peut gérer l'appartenance à un rôle).<p>Les administrateurs d’abonnement et de service appartiennent automatiquement au rôle Propriétaire. |
-| Contributeur |Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles Azure. Par exemple, un Contributeur peut créer ou supprimer des objets ou afficher et régénérer des [clés API](search-security-api-keys.md), mais il ne peut pas modifier l’appartenance aux rôles. |
-| [Rôle intégré du Contributeur Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor) | Équivalent au rôle de contributeur. |
-| Lecteur |Affichez les bases et les métriques du service. Les membres de ce rôle ne peuvent pas afficher l’index, l’indexeur, la source de données ni les informations clés.  |
+| Contributeur | Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles Azure. Par exemple, un Contributeur peut créer ou supprimer des objets ou afficher et régénérer des [clés API](search-security-api-keys.md), mais il ne peut pas modifier l’appartenance aux rôles.<br><br>[Contributeur du service de recherche](../role-based-access-control/built-in-roles.md#search-service-contributor) est équivalent au rôle intégré de contributeur générique. |
+| Lecteur |Affichez les éléments essentiels du service, tels que le point de terminaison de service, l’abonnement, le groupe de ressources, la région, le niveau et la capacité. Vous pouvez également afficher les métriques de service, telles que la moyenne des requêtes par seconde, sous l’onglet Supervision. Les membres de ce rôle ne peuvent pas afficher l’index, l’indexeur, la source de données ni les informations de compétence. Cela comprend les données d’utilisation de ces objets, comme le nombre d’index qui existent sur le service. |
 
 Les rôles n’accordent pas de droits d’accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour plus d’informations, consultez [Gérer des clés API](search-security-api-keys.md).
 
@@ -39,18 +38,21 @@ Les rôles n’accordent pas de droits d’accès au point de terminaison de ser
 
 Le tableau suivant récapitule les opérations autorisées dans Recherche cognitive Azure, en indiquant la clé qui déverrouille l’accès à une opération particulière.
 
-| Opération | Autorisations |
-|-----------|-------------------------|
-| Créer un service | Détenteur de l'abonnement Azure |
-| Mettre à l’échelle un service | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource  |
-| Supprimer un service | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
-| Créer, modifier et supprimer des objets du service : <br>Index et composants (y compris les définitions de l’analyseur, les profils de scoring et les options CORS), indexeurs, sources de données, synonymes et générateurs de suggestions | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
-| Interroger un index | Clé d’administration ou clé de requête (RBAC non applicable) |
-| Interroger des informations système, telles que l’obtention de statistiques, de comptes et de listes d’objets | Clé d’administration, RBAC sur la ressource (Propriétaire, Collaborateur ou Lecteur) |
-| Gérer les clés d’administration | Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource |
-| Gérer les clés de requête |  Clé d’administration, Propriétaire ou Collaborateur RBAC sur la ressource  |
+Les autorisations RBAC s’appliquent aux opérations du portail et à la gestion des services (créer, supprimer ou modifier un service ou ses clés API). Les clés API sont créées après l’existence d’un service et s’appliquent aux opérations de contenu sur le service. En outre, pour les opérations liées au contenu dans le portail, telles que la création ou la suppression d’objets, un propriétaire ou un contributeur RBAC interagit avec le service avec une clé d’API d’administration implicite.
 
-## <a name="see-also"></a>Voir aussi
+| Opération | Contrôlé par |
+|-----------|-------------------------|
+| Créer un service | Autorisations RBAC : Propriétaire ou contributeur |
+| Mettre à l’échelle un service | Autorisations RBAC : Propriétaire ou contributeur|
+| Supprimer un service | Autorisations RBAC : Propriétaire ou contributeur |
+| Gérer les clés d’administration ou de requête | Autorisations RBAC : Propriétaire ou contributeur|
+| Afficher les informations de service dans le portail ou une API de gestion | Autorisations RBAC : Propriétaire, Contributeur ou Lecteur  |
+| Afficher les informations d’objet et les métriques dans le portail ou une API de gestion | Autorisations RBAC : Propriétaire ou contributeur |
+| Créer, modifier et supprimer des objets du service : <br>Index et composants (y compris les définitions de l’analyseur, les profils de scoring et les options CORS), indexeurs, sources de données, synonymes et générateurs de suggestions | Clé d’administration si vous utilisez une API, Propriétaire ou Contributeur RBAC si vous utilisez le portail |
+| Interroger un index | Clé d’administration ou de requête si vous utilisez une API, Propriétaire ou Contributeur RBAC si vous utilisez le portail |
+| Interroger des informations système à propos d’objets, telles que l’obtention de statistiques, de comptes et de listes d’objets | Clé d’administration si vous utilisez une API, Propriétaire ou Contributeur RBAC si vous utilisez le portail |
+
+## <a name="next-steps"></a>Étapes suivantes
 
 + [Gestion à l’aide de PowerShell](search-manage-powershell.md) 
 + [Performances et optimisation dans Recherche cognitive Azure](search-performance-optimization.md)

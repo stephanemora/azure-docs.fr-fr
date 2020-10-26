@@ -124,6 +124,8 @@
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Résoudre les problèmes d’utilisation de réservations
           href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Résoudre les problèmes de recommandations de réservation
+          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
 - name: Informations de référence
   items:
     - name: API REST de réservations

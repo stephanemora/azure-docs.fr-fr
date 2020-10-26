@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000105"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093393"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Débogage de votre application Service Fabric à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -24,9 +24,9 @@ ms.locfileid: "89000105"
 Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio 2019 ou 2015 peut déployer l’application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application. Vous devez exécuter Visual Studio en tant qu’administrateur pour connecter le débogueur.
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
-2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
+2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage** .
    
-    ![Démarrer le débogage d'une application][startdebugging]
+    ![Capture d'écran qui montre le menu Déboguer.][startdebugging]
 3. Définissez des points d’arrêt dans votre code et parcourez l’application en cliquant sur les commandes du menu **Déboguer** .
    
    > [!NOTE]
@@ -36,7 +36,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 4. La fenêtre **Événements de diagnostic** s’ouvre automatiquement et affiche les événements de diagnostic en temps réel.
    
     ![Afficher les événements de diagnostic en temps réel][diagnosticevents]
-5. Vous pouvez également ouvrir la fenêtre **Événements de diagnostic** dans Cloud Explorer.  Sous **Service Fabric**, cliquez avec le bouton droit sur n’importe quel nœud et choisissez **Afficher les traces de diffusion en continu**.
+5. Vous pouvez également ouvrir la fenêtre **Événements de diagnostic** dans Cloud Explorer.  Sous **Service Fabric** , cliquez avec le bouton droit sur n’importe quel nœud et choisissez **Afficher les traces de diffusion en continu** .
    
     ![Ouvrir la fenêtre des événements de diagnostic][viewdiagnosticevents]
    
@@ -72,15 +72,15 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
 > [!WARNING]
 > Le débogage à distance est destiné aux scénarios de développement/test et ne doit pas être utilisé dans des environnements de production, en raison de l’impact sur les applications exécutées.
 
-1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer le débogage**
+1. Accédez à votre cluster dans **Cloud Explorer** . Cliquez avec le bouton droit, puis choisissez **Activer le débogage**
    
     ![Activer le débogage à distance][enableremotedebugging]
    
     Cette action démarre le processus d’activation de l’extension de débogage à distance sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
-2. Cliquez avec le bouton droit sur le nœud de cluster dans **Cloud Explorer**, puis choisissez **Attacher le débogueur**.
+2. Cliquez avec le bouton droit sur le nœud de cluster dans **Cloud Explorer** , puis choisissez **Attacher le débogueur** .
    
     ![Attacher le débogueur][attachdebugger]
-3. Dans la boîte de dialogue **Attacher au processus**, choisissez le processus à déboguer, puis cliquez sur **Attacher**.
+3. Dans la boîte de dialogue **Attacher au processus** , choisissez le processus à déboguer, puis cliquez sur **Attacher** .
    
     ![Choisir le processus][chooseprocess]
    
@@ -98,7 +98,7 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
      > Actuellement, nous ne prenons pas en charge le débogage d’un cluster Service Fabric avec plusieurs instances du même nom d’exécutable de service.
      > 
      > 
-4. Une fois que vous avez terminé de déboguer votre application, vous pouvez désactiver l’extension de débogage à distance en cliquant avec le bouton droit sur le cluster dans **Cloud Explorer** et en choisissant **Désactiver le débogage**.
+4. Une fois que vous avez terminé de déboguer votre application, vous pouvez désactiver l’extension de débogage à distance en cliquant avec le bouton droit sur le cluster dans **Cloud Explorer** et en choisissant **Désactiver le débogage** .
    
     ![Désactiver le débogage à distance][disableremotedebugging]
 
@@ -116,12 +116,12 @@ Vous pouvez également diffuser des traces directement à partir d’un nœud de
 > Les traces de diffusion en continu sont destinées aux scénarios de développement/test et ne doivent pas être utilisées dans des environnements de production, en raison de l’impact sur les applications exécutées.
 > Dans un scénario de production, vous devez utiliser le transfert d’événements à l’aide de Diagnostics Azure.
 
-1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer les traces de streaming**
+1. Accédez à votre cluster dans **Cloud Explorer** . Cliquez avec le bouton droit, puis choisissez **Activer les traces de streaming**
    
     ![Activer les traces de diffusion en continu à distance][enablestreamingtraces]
    
     Cette action démarre le processus d’activation de l’extension des traces de streaming sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
-2. Développez l’élément **Nœuds** dans **Cloud Explorer**, cliquez avec le bouton droit sur le nœud à partir duquel diffuser les traces en continu, puis choisissez **Afficher les traces de diffusion en continu**.
+2. Développez l’élément **Nœuds** dans **Cloud Explorer** , cliquez avec le bouton droit sur le nœud à partir duquel diffuser les traces en continu, puis choisissez **Afficher les traces de diffusion en continu** .
    
     ![Afficher les traces de diffusion en continu à distance][viewremotestreamingtraces]
    
@@ -130,7 +130,7 @@ Vous pouvez également diffuser des traces directement à partir d’un nœud de
     Vous êtes maintenant en mesure de voir les traces émises par Service Fabric et vos services. Si vous souhaitez filtrer les événements pour afficher uniquement une application spécifique, tapez simplement le nom de l’application dans le filtre.
    
     ![Afficher les traces de diffusion en continu][viewingstreamingtraces]
-3. Lorsque vous avez terminé de diffuser les traces à partir de votre cluster, vous pouvez désactiver les traces de diffusion en continu à distance, en cliquant avec le bouton droit sur le cluster dans **Cloud Explorer** et en choisissant **Désactiver les traces de diffusion en continu**.
+3. Lorsque vous avez terminé de diffuser les traces à partir de votre cluster, vous pouvez désactiver les traces de diffusion en continu à distance, en cliquant avec le bouton droit sur le cluster dans **Cloud Explorer** et en choisissant **Désactiver les traces de diffusion en continu** .
    
     ![Désactiver les traces de diffusion en continu à distance][disablestreamingtraces]
 

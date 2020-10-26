@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714253"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170049"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -65,7 +65,7 @@ Pour récupérer les informations de connexion des appareils importés, [exporte
 
 ### <a name="set-up-your-devices"></a>Configurer vos appareils
 
-Utilisez les informations de connexion du fichier d’exportation dans le code de votre appareil pour permettre à vos appareils de se connecter et d’envoyer des données IoT à votre application IoT Central. Vous avez également besoin de l’**étendue de l’ID** de DPS pour votre application. Vous pouvez trouver cette valeur sous **Administration > Connexion de l’appareil**.
+Utilisez les informations de connexion du fichier d’exportation dans le code de votre appareil pour permettre à vos appareils de se connecter et d’envoyer des données IoT à votre application IoT Central. Vous avez également besoin de l’ **étendue de l’ID** de DPS pour votre application. Vous pouvez trouver cette valeur sous **Administration > Connexion de l’appareil** .
 
 > [!NOTE]
 > Pour savoir comment connecter des appareils sans les inscrire d’abord dans IoT Central, consultez [Se connecter sans enregistrer des appareils](#connect-without-registering-devices).
@@ -87,7 +87,7 @@ Un [groupe d’inscription](../../iot-dps/concepts-service.md#enrollment) désig
 - Dans un groupe d’inscription X.509, tous les appareils qui se connectent à IoT Central utilisent des certificats feuilles X.509 générés à partir du certificat racine ou intermédiaire dans le groupe d’inscription.
 - Dans un groupe d’inscription SAP, tous les appareils qui se connectent à IoT Central utilisent un jeton SAP généré à partir du jeton SAP dans le groupe d’inscription.
 
-Les deux groupes d’inscription par défaut de toutes les applications IoT Central sont des groupes d’inscription SAP : l’un pour les appareils IoT et l’autre pour les appareils Azure IoT Edge. Pour créer un groupe d’inscription X.509, accédez à la page **Connexion de l’appareil**, puis sélectionnez **+ Ajouter un groupe d’inscription** :
+Les deux groupes d’inscription par défaut de toutes les applications IoT Central sont des groupes d’inscription SAP : l’un pour les appareils IoT et l’autre pour les appareils Azure IoT Edge. Pour créer un groupe d’inscription X.509, accédez à la page **Connexion de l’appareil** , puis sélectionnez **+ Ajouter un groupe d’inscription**  :
 
 :::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Capture d’écran Ajouter un groupe d’inscription X.509":::
 
@@ -95,9 +95,9 @@ Les deux groupes d’inscription par défaut de toutes les applications IoT Cent
 
 Pour ajouter et vérifier un certificat racine ou intermédiaire à votre groupe d’inscription :
 
-1. Accédez au groupe d’inscription X.509 que vous venez de créer. Vous avez la possibilité d’ajouter des certificats X.509 principaux et secondaires. Sélectionnez **+ Gérer le certificat principal**.
+1. Accédez au groupe d’inscription X.509 que vous venez de créer. Vous avez la possibilité d’ajouter des certificats X.509 principaux et secondaires. Sélectionnez **+ Gérer le certificat principal** .
 
-1. Sur la page **Certificat principal**, chargez votre certificat X.509 principal. Il s’agit de votre certificat racine ou intermédiaire :
+1. Sur la page **Certificat principal** , chargez votre certificat X.509 principal. Il s’agit de votre certificat racine ou intermédiaire :
 
     :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Capture d’écran Ajouter un groupe d’inscription X.509":::
 
@@ -113,9 +113,9 @@ En cas de violation de la sécurité ou si votre certificat principal arrive à 
 
 ### <a name="register-and-connect-devices"></a>Inscrire et connecter des appareils
 
-Pour connecter des appareils en bloc avec des certificats X.509, inscrivez d’abord les appareils dans votre application en utilisant un fichier CSV pour [importer les ID et les noms des appareils](howto-manage-devices.md#import-devices). Les ID d’appareils doivent tous être en minuscules.
+Pour connecter des appareils en bloc avec des certificats X.509, inscrivez d’abord les appareils dans votre application en utilisant un fichier CSV pour [importer les ID et les noms des appareils](howto-manage-devices.md#import-devices). Un ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`.
 
-Générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez chargé dans votre groupe d’inscription X.509. Utilisez l’**ID d’appareil** en tant que valeur `CNAME` dans les certificats feuilles. Le code de votre appareil requiert la valeur **Étendue d’ID** pour votre application, l’**ID d’appareil** et le certificat d’appareil correspondant.
+Générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire que vous avez chargé dans votre groupe d’inscription X.509. Utilisez l’ **ID d’appareil** en tant que valeur `CNAME` dans les certificats feuilles. Le code de votre appareil requiert la valeur **Étendue d’ID** pour votre application, l’ **ID d’appareil** et le certificat d’appareil correspondant.
 
 #### <a name="sample-device-code"></a>Exemple de code d’appareil
 
@@ -145,23 +145,23 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Connecter des appareils qui utilisent des jetons SAS sans inscription
 
-1. Copiez la clé primaire du groupe à partir du groupe d’inscription **SAS-IoT-Devices** :
+1. Copiez la clé primaire du groupe à partir du groupe d’inscription **SAS-IoT-Devices**  :
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Capture d’écran Ajouter un groupe d’inscription X.509":::
 
-1. Utilisez la commande `az iot central device compute-device-key` pour générer les clés SAS des appareils. Utilisez la clé primaire de groupe de l’étape précédente. Les ID d’appareils doivent être en minuscules :
+1. Utilisez la commande `az iot central device compute-device-key` pour générer les clés SAS des appareils. Utilisez la clé primaire de groupe de l’étape précédente. L’ID d’appareil peut contenir des lettres, des chiffres et le caractère `-` :
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
-1. L’OEM dote chaque périphérique d’un ID d’appareil, d’une clé SAS d’appareil générée et de la valeur d'**étendue de l’ID** de l’application.
+1. L’OEM dote chaque périphérique d’un ID d’appareil, d’une clé SAS d’appareil générée et de la valeur d' **étendue de l’ID** de l’application.
 
 1. Lorsque vous basculez sur un appareil, il se connecte d’abord à DPS pour récupérer ses informations d’inscription à IoT Central.
 
-    Initialement, l’appareil a un état **Non associé** sur la page **Appareils** et n’est pas affecté à un modèle d’appareil. Sur la page **Appareils**, **Migrez** l’appareil vers le modèle d’appareil approprié. L’approvisionnement de l’appareil est maintenant terminé, l’état de l’appareil est désormais **Approvisionné**, et l’appareil peut commencer à envoyer des données.
+    Initialement, l’appareil a un état **Non associé** sur la page **Appareils** et n’est pas affecté à un modèle d’appareil. Sur la page **Appareils** , **Migrez** l’appareil vers le modèle d’appareil approprié. L’approvisionnement de l’appareil est maintenant terminé, l’état de l’appareil est désormais **Approvisionné** , et l’appareil peut commencer à envoyer des données.
 
-    Sur la page **Administration > Connexion de l’appareil**, l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
+    Sur la page **Administration > Connexion de l’appareil** , l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
 
     > [!NOTE]
     > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Associer automatiquement un appareil à un modèle d’appareil](#automatically-associate-with-a-device-template).
@@ -170,22 +170,22 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
 1. [Créez un groupe d’inscription](#create-an-enrollment-group), puis [ajoutez et vérifiez un certificat X.509 racine ou intermédiaire](#add-and-verify-a-root-or-intermediate-x509-certificate) dans votre application IoT Central.
 
-1. générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire ou racine que vous avez ajouté à votre application IoT Central. Utilisez des ID d’appareils en minuscules comme `CNAME` dans les certificats feuilles.
+1. générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire ou racine que vous avez ajouté à votre application IoT Central. Utilisez les ID d’appareils comme `CNAME` dans les certificats feuilles. Un ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`.
 
-1. L’OEM dote chaque périphérique d’un ID d’appareil, d’un certificat X.509 leaf généré et de la valeur d'**étendue de l’ID** de l’application.
+1. L’OEM dote chaque périphérique d’un ID d’appareil, d’un certificat X.509 leaf généré et de la valeur d' **étendue de l’ID** de l’application.
 
 1. Lorsque vous basculez sur un appareil, il se connecte d’abord à DPS pour récupérer ses informations d’inscription à IoT Central.
 
-    Initialement, l’appareil a un état **Non associé** sur la page **Appareils** et n’est pas affecté à un modèle d’appareil. Sur la page **Appareils**, **Migrez** l’appareil vers le modèle d’appareil approprié. L’approvisionnement de l’appareil est maintenant terminé, l’état de l’appareil est désormais **Approvisionné**, et l’appareil peut commencer à envoyer des données.
+    Initialement, l’appareil a un état **Non associé** sur la page **Appareils** et n’est pas affecté à un modèle d’appareil. Sur la page **Appareils** , **Migrez** l’appareil vers le modèle d’appareil approprié. L’approvisionnement de l’appareil est maintenant terminé, l’état de l’appareil est désormais **Approvisionné** , et l’appareil peut commencer à envoyer des données.
 
-    Sur la page **Administration > Connexion de l’appareil**, l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
+    Sur la page **Administration > Connexion de l’appareil** , l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
 
     > [!NOTE]
     > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Associer automatiquement un appareil à un modèle d’appareil](#automatically-associate-with-a-device-template).
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Connectivité de l’appareil pour chaque inscription
 
-Pour les clients qui connectent des appareils ayant chacun leurs propres informations d’authentification, utilisez les inscriptions individuelles. Il s’agit d’une entrée pour un seul appareil autorisé à se connecter. Les inscriptions individuelles peuvent utiliser des certificats feuilles X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée physique ou virtuel) comme mécanismes d’attestation. L’ID d’appareil (également appelé « ID d’inscription ») d’une inscription est au format alphanumérique. Il est constitué de lettres minuscules et peut contenir des traits d’union. Pour plus d’informations, consultez [Inscription DPS individuelle](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+Pour les clients qui connectent des appareils ayant chacun leurs propres informations d’authentification, utilisez les inscriptions individuelles. Il s’agit d’une entrée pour un seul appareil autorisé à se connecter. Les inscriptions individuelles peuvent utiliser des certificats feuilles X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée physique ou virtuel) comme mécanismes d’attestation. L’ID d’appareil (également appelé ID d’inscription) est une inscription individuelle. Un ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`. Pour plus d’informations, consultez [Inscription DPS individuelle](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Lorsque vous créez une inscription individuelle pour un appareil, elle prend la priorité sur les options d’inscription de groupe par défaut de votre application IoT Central.
@@ -194,17 +194,17 @@ Pour les clients qui connectent des appareils ayant chacun leurs propres informa
 
 IoT Central prend en charge les mécanismes d’attestation suivants pour les inscriptions individuelles :
 
-- **Attestation de clé symétrique :** L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance DPS. Pour créer une inscription individuelle qui utilise des clés symétriques, ouvrez la page **Connexion de l’appareil**, sélectionnez **Inscription individuelle** comme méthode de connexion, puis **Signature d’accès partagé (SAP)** comme mécanisme. Entrez les clés primaires et secondaires codées base64 et enregistrez vos modifications. Utilisez l'**étendue de l’ID**, l’**ID de l’appareil** et la clé primaire ou secondaire pour connecter votre appareil.
+- **Attestation de clé symétrique :** L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance DPS. Pour créer une inscription individuelle qui utilise des clés symétriques, ouvrez la page **Connexion de l’appareil** , sélectionnez **Inscription individuelle** comme méthode de connexion, puis **Signature d’accès partagé (SAP)** comme mécanisme. Entrez les clés primaires et secondaires codées base64 et enregistrez vos modifications. Utilisez l' **étendue de l’ID** , l’ **ID de l’appareil** et la clé primaire ou secondaire pour connecter votre appareil.
 
     > [!TIP]
     > À des fins de test, vous pouvez utiliser **OpenSSL** pour générer des clés codées base64 : `openssl rand -base64 64`
 
-- **Certificats X.509 :** Pour créer une inscription individuelle avec des certificats X.509, ouvrez la page **Connexion de l’appareil**, sélectionnez **Inscription individuelle** comme méthode de connexion et **Certificats (X.509)** comme mécanisme. Les certificats d’appareils utilisés avec une entrée d’inscription individuelle requièrent que le nom commun de l’émetteur et du sujet soit l’ID de l’appareil.
+- **Certificats X.509 :** Pour créer une inscription individuelle avec des certificats X.509, ouvrez la page **Connexion de l’appareil** , sélectionnez **Inscription individuelle** comme méthode de connexion et **Certificats (X.509)** comme mécanisme. Les certificats d’appareils utilisés avec une entrée d’inscription individuelle requièrent que le nom commun de l’émetteur et du sujet soit l’ID de l’appareil.
 
     > [!TIP]
     > À des fins de test, vous pouvez utiliser les [outils pour le kit de développement logiciel (SDK) d’appareil Azure IoT Device Provisioning pour Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) pour générer un certificat auto-signé : `node create_test_cert.js device "mytestdevice"`
 
-- **Attestation de module de plateforme sécurisée (TPM) :** Un [module de plateforme sécurisée](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) est un type de module de sécurité matériel. L’utilisation d’un module de plateforme sécurisée (TPM) est l’un des moyens les plus sécurisés pour connecter un appareil. Cet article suppose que vous utilisez un microprogramme discret, ou un module de plateforme sécurisée (TPM) intégré. Les TPM logiciels émulés sont parfaitement adaptés pour le prototypage ou le test, mais ils n’offrent pas le même niveau de sécurité que les modules de plateforme sécurisée (TPM) intégrés ou les microprogrammes discrets. N’utilisez pas de module de plateforme sécurisée (TPM) logiciel en production. Pour créer une inscription individuelle utilisant un module de plateforme sécurisée (TPM), ouvrez la page **Connexion de l’appareil**, sélectionnez **Inscription individuelle** comme méthode de connexion et **Module de plateforme sécurisée (TPM)** comme mécanisme. Entrez la paire de clés de type EK (Endorsement Key) et enregistrez les informations de connexion de l’appareil.
+- **Attestation de module de plateforme sécurisée (TPM) :** Un [module de plateforme sécurisée](../../iot-dps/concepts-tpm-attestation.md) est un type de module de sécurité matériel. L’utilisation d’un module de plateforme sécurisée (TPM) est l’un des moyens les plus sécurisés pour connecter un appareil. Cet article suppose que vous utilisez un microprogramme discret, ou un module de plateforme sécurisée (TPM) intégré. Les TPM logiciels émulés sont parfaitement adaptés pour le prototypage ou le test, mais ils n’offrent pas le même niveau de sécurité que les modules de plateforme sécurisée (TPM) intégrés ou les microprogrammes discrets. N’utilisez pas de module de plateforme sécurisée (TPM) logiciel en production. Pour créer une inscription individuelle utilisant un module de plateforme sécurisée (TPM), ouvrez la page **Connexion de l’appareil** , sélectionnez **Inscription individuelle** comme méthode de connexion et **Module de plateforme sécurisée (TPM)** comme mécanisme. Entrez la paire de clés de type EK (Endorsement Key) et enregistrez les informations de connexion de l’appareil.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associer automatiquement un modèle d’appareil
 
@@ -236,22 +236,22 @@ Voici le format pour les appareils qui utilisent le kit device SDK en préversio
 
 Quand un appareil réel se connecte à votre application IoT Central, son état change comme suit :
 
-1. L’état de l’appareil est d’abord **Inscrit**. Cet état signifie que l’appareil est créé dans IoT Central et a une identité d'appareil. Un appareil est inscrit quand :
-    - un nouvel appareil réel est ajouté à la page **Appareils** ;
-    - un ensemble d’appareils est ajouté avec **Importer** à la page **Appareils** ;
+1. L’état de l’appareil est d’abord **Inscrit** . Cet état signifie que l’appareil est créé dans IoT Central et a une identité d'appareil. Un appareil est inscrit quand :
+    - un nouvel appareil réel est ajouté à la page **Appareils**  ;
+    - un ensemble d’appareils est ajouté avec **Importer** à la page **Appareils**  ;
 
 1. L’état passe à **Approvisionné** lorsque l’appareil connecté à votre application IoT Central avec des informations d’identification valides termine l’étape de provisionnement. À cette étape, l’appareil utilise DPS pour récupérer automatiquement une chaîne de connexion à partir du hub IoT utilisé par votre application IoT Central. L’appareil peut maintenant se connecter à IoT Central et commencer à envoyer des données.
 
-1. Un opérateur peut bloquer un appareil. Quand un appareil est bloqué, il ne peut pas envoyer de données à votre application IoT Central. Les appareils bloqués affichent un état **Bloqué**. Un opérateur doit réinitialiser l’appareil avant que ce dernier puisse recommencer à envoyer des données. Quand un opérateur débloque un appareil, l’état revient à sa valeur précédente, à savoir **Inscrit** ou **Approvisionné**.
+1. Un opérateur peut bloquer un appareil. Quand un appareil est bloqué, il ne peut pas envoyer de données à votre application IoT Central. Les appareils bloqués affichent un état **Bloqué** . Un opérateur doit réinitialiser l’appareil avant que ce dernier puisse recommencer à envoyer des données. Quand un opérateur débloque un appareil, l’état revient à sa valeur précédente, à savoir **Inscrit** ou **Approvisionné** .
 
-1. Si l’état de l’appareil est **En attente d’approbation**, cela signifie que l’option **Approbation automatique** est désactivée. Un opérateur doit approuver explicitement un appareil avant qu’il ne commence à envoyer des données. Les appareils non enregistrés manuellement sur la page **Appareils**, mais connectés avec des informations d'identification valides afficheront l’état **En attente d'approbation**. Les opérateurs peuvent approuver ces appareils sur la page **Appareils** en utilisant le bouton **Approver**.
+1. Si l’état de l’appareil est **En attente d’approbation** , cela signifie que l’option **Approbation automatique** est désactivée. Un opérateur doit approuver explicitement un appareil avant qu’il ne commence à envoyer des données. Les appareils non enregistrés manuellement sur la page **Appareils** , mais connectés avec des informations d'identification valides afficheront l’état **En attente d'approbation** . Les opérateurs peuvent approuver ces appareils sur la page **Appareils** en utilisant le bouton **Approver** .
 
-1. Si l’état de l’appareil est **Non associé**, cela signifie que les appareils se connectant à IoT Central n’ont pas de modèle d’appareil associé. C’est généralement le cas dans les scénarios suivants :
+1. Si l’état de l’appareil est **Non associé** , cela signifie que les appareils se connectant à IoT Central n’ont pas de modèle d’appareil associé. C’est généralement le cas dans les scénarios suivants :
 
-    - Un ensemble d’appareils est ajouté en utilisant **Importer** sur la page **Appareils**, sans spécifier le modèle d’appareil.
+    - Un ensemble d’appareils est ajouté en utilisant **Importer** sur la page **Appareils** , sans spécifier le modèle d’appareil.
     - Un appareil a été inscrit manuellement sur la page **Appareils** sans spécifier le modèle d’appareil. L’appareil est alors connecté avec des informations d’identification valides.  
 
-    L'opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer**.
+    L'opérateur peut associer un appareil à un modèle d’appareil sur la page **Appareils** en utilisant le bouton **Migrer** .
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

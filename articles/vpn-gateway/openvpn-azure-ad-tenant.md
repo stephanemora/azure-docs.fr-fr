@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.author: alzam
+ms.openlocfilehash: 451323b8ea4006ba6e2b63d12cc54b2b7c0b60c6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91817302"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109032"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
 
@@ -48,7 +48,7 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
 
 2. Copiez l'ID du répertoire.
 
-3. Connectez-vous au portail Azure en tant qu'utilisateur doté du rôle d'**Administrateur général**.
+3. Connectez-vous au portail Azure en tant qu'utilisateur doté du rôle d' **Administrateur général** .
 
 4. Octroyez ensuite le consentement administrateur. Copiez et collez l'URL correspondant à votre emplacement de déploiement sur la barre d'adresse de votre navigateur :
 
@@ -75,16 +75,19 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+> [!NOTE]
+> Si vous utilisez un compte d’administrateur général qui n’est pas natif pour le locataire Azure AD pour fournir un consentement, remplacez « Common » par l’ID d’annuaire Azure AD dans l’URL. Dans d’autres cas, vous devrez peut-être également remplacer « Common » par votre ID d’annuaire.
+>
 
-5. Si vous y êtes invité, sélectionnez le compte d'**Administrateur général**.
+5. Si vous y êtes invité, sélectionnez le compte d' **Administrateur général** .
 
     ![ID du répertoire](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Lorsque vous y êtes invité, sélectionnez **Accepter**.
+6. Lorsque vous y êtes invité, sélectionnez **Accepter** .
 
     ![Capture d’écran montrant le message Autorisations demandées - Accepter pour votre organisation avec les détails et l’option d’acceptation.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-7. Sous votre instance d'Azure AD, dans **Applications d'entreprise**, vous pouvez voir que **VPN Azure** apparaît dans la liste.
+7. Sous votre instance d'Azure AD, dans **Applications d'entreprise** , vous pouvez voir que **VPN Azure** apparaît dans la liste.
 
     ![Capture d’écran représentant la page « Toutes les applications ».](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
@@ -93,7 +96,7 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
     > [!IMPORTANT]
     > La référence De base n’est pas prise en charge pour OpenVPN.
 
-9. Activez l’authentification Azure AD sur la passerelle VPN en accédant à **Configuration point à site** et en choisissant **OpenVPN (SSL)** comme **Type de tunnel**. Sélectionnez **Azure Active Directory** comme **Type d’authentification**, puis renseignez les informations sous la section **Azure Active Directory**.
+9. Activez l’authentification Azure AD sur la passerelle VPN en accédant à **Configuration point à site** et en choisissant **OpenVPN (SSL)** comme **Type de tunnel** . Sélectionnez **Azure Active Directory** comme **Type d’authentification** , puis renseignez les informations sous la section **Azure Active Directory** .
 
     ![VPN Azure](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
 
@@ -101,7 +104,7 @@ Utilisez les étapes décrites dans [cet article](../active-directory/fundamenta
    > [!NOTE]
    > Veillez à inclure une barre oblique finale à la fin de la valeur `AadIssuerUri`. À défaut, la connexion peut échouer.
 
-10. Créez et téléchargez le profil en cliquant sur le lien **Télécharger le client VPN**.
+10. Créez et téléchargez le profil en cliquant sur le lien **Télécharger le client VPN** .
 
 11. Extrayez le fichier zip téléchargé.
 

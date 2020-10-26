@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448528"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174163"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -46,9 +46,9 @@ Vous pouvez supprimer un espace de travail à l'aide de [PowerShell](/powershell
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**.
+2. Dans le portail Azure, sélectionnez **Tous les services** . Dans la liste de ressources, saisissez **Log Analytics** . Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics** .
 3. Dans la liste des espaces de travail Log Analytics, sélectionnez un espace de travail, puis cliquez sur **Supprimer** en haut du volet central.
-4. Une page de confirmation s’affiche, qui illustre l’ingestion de données dans l’espace de travail au cours de la semaine dernière. Tapez le nom de l’espace de travail pour confirmer, puis cliquez sur **Supprimer**.
+4. Une page de confirmation s’affiche, qui illustre l’ingestion de données dans l’espace de travail au cours de la semaine dernière. Tapez le nom de l’espace de travail pour confirmer, puis cliquez sur **Supprimer** .
 
    ![Confirmer la suppression d’un espace de travail](media/delete-workspace/workspace-delete.png)
 
@@ -83,7 +83,7 @@ Pendant la période de suppression réversible, vous pouvez récupérer votre es
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**. Vous voyez la liste des espaces de travail dont vous disposez dans l’étendue sélectionnée.
+2. Dans le portail Azure, sélectionnez **Tous les services** . Dans la liste de ressources, saisissez **Log Analytics** . Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics** . Vous voyez la liste des espaces de travail dont vous disposez dans l’étendue sélectionnée.
 3. Cliquez sur **Récupérer** dans le menu supérieur gauche pour ouvrir une page répertoriant les espaces de travail en état de suppression réversible qui sont récupérables.
 
    ![Capture d’écran de l’écran Espaces de travail Log Analytics dans le portail Azure avec Récupérer en surbrillance dans la barre de menus.](media/delete-workspace/recover-menu.png)
@@ -112,6 +112,9 @@ Vous devez disposer au moins des autorisations *Contributeur Log Analytics* pour
 * Si vous obtenez le message d’erreur *Ce nom d’espace de travail est déjà utilisé* ou un *conflit* s’est produit pendant la création d’un espace de travail ; en voici les raisons possibles :
   * Le nom de l’espace de travail n’est pas disponible et qu’il est utilisé par une personne de votre organisation ou par un autre client.
   * L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer définitivement votre espace de travail pour en créer un nouveau sous le même nom, suivez ces étapes afin de récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
-     1. [Récupérez](#recover-workspace) votre espace de travail.
-     2. [Supprimez définitivement](#permanent-workspace-delete) votre espace de travail.
-     3. Créez un espace de travail en reprenant le même nom d’espace de travail.
+    1. [Récupérez](#recover-workspace) votre espace de travail.
+    2. [Supprimez définitivement](#permanent-workspace-delete) votre espace de travail.
+    3. Créez un espace de travail en reprenant le même nom d’espace de travail.
+* Si vous voyez un code de réponse 204 qui indique *Ressource introuvable* , la cause peut être des tentatives répétées d’utiliser l’opération de suppression de l’espace de travail. 204 est une réponse vide, ce qui signifie généralement que la ressource n’existe pas. La suppression est donc terminée sans rien faire.
+  Une fois l’appel de suppression terminé sur la back end, vous pouvez restaurer l’espace de travail et terminer l’opération de suppression permanente dans l’une des méthodes suggérées précédemment.
+

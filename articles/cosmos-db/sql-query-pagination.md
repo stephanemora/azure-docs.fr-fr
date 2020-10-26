@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804195"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276101"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Pagination dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Dans Azure Cosmos DB, les requêtes peuvent comporter plusieurs pages de résul
 
 Les résultats d’une requête sont parfois répartis sur plusieurs pages. Les résultats de chaque page sont générés par une exécution de requête distincte. Lorsque les résultats de la requête ne peuvent pas être retournés en une seule exécution, Azure Cosmos DB répartit automatiquement les résultats sur plusieurs pages.
 
-Vous pouvez spécifier le nombre maximal d’éléments retournés par une requête en définissant `MaxItemCount`. `MaxItemCount` est spécifié par demande et garantit que le moteur de requête renverra ce nombre d’éléments au maximum. Vous pouvez définir `MaxItemCount` sur `-1` si vous ne voulez pas limiter le nombre de résultats par exécution de requête.
+Vous pouvez spécifier le nombre maximal d’éléments retournés par une requête en définissant `MaxItemCount`. `MaxItemCount` est spécifié par demande et indique que le moteur de requête renverra ce nombre d’éléments au maximum. Vous pouvez définir `MaxItemCount` sur `-1` si vous ne voulez pas limiter le nombre de résultats par exécution de requête.
 
 De plus, il existe d’autres raisons pour lesquelles le moteur de requête peut être amené à répartir les résultats d’une requête sur plusieurs pages. notamment :
 

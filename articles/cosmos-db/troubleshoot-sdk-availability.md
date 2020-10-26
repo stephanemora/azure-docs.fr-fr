@@ -3,17 +3,17 @@ title: Diagnostiquer et résoudre les problèmes de disponibilité des Kits de d
 description: Découvrez tout ce qu’il y a à savoir sur le comportement de disponibilité du Kit de développement logiciel (SDK) Azure Cosmos lors de son utilisation dans des environnements multirégionaux.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743962"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319362"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostiquer et résoudre les problèmes de disponibilité des Kits de développement logiciel (SDK) Azure Cosmos dans les environnements multirégionaux
 
@@ -34,7 +34,7 @@ Lorsque vous définissez la préférence régionale, le client se connecte à un
 | Région d’écriture unique | Région recommandée | Région primaire  |
 | Régions d’écriture multiples | Région recommandée | Région recommandée  |
 
-Si vous ne définissez pas de préférence régionale :
+Si vous **ne définissez pas de région préférée** , le client du Kit de développement logiciel (SDK) se connecte par défaut à la région primaire :
 
 |Type de compte |Lectures |Écritures |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Si vous ne définissez pas de préférence régionale :
 > [!NOTE]
 > La région primaire fait référence à la première région de la [liste des régions du compte Azure Cosmos](distribute-data-globally.md)
 
-Lorsque l’un des scénarios suivants se produit, le client qui utilise le Kit de développement logiciel (SDK) Azure Cosmos expose les journaux et inclut les informations relatives aux nouvelles tentatives dans le cadre des **informations de diagnostic de l’opération** :
+Dans des circonstances normales, le client du Kit de développement logiciel (SDK) se connecte à la région préférée (si une préférence régionale est définie) ou à la région primaire (si aucune préférence n’est définie) et les opérations sont limitées à cette région, sauf si l’un des scénarios ci-dessous se produit.
+
+Dans les cas suivants, le client qui utilise le Kit de développement logiciel (SDK) Azure Cosmos expose les journaux et inclut les informations relatives aux nouvelles tentatives dans le cadre des **informations de diagnostic de l’opération** :
 
 * La propriété *RequestDiagnosticsString* incluse dans les réponses dans le Kit de développement logiciel (SDK) .NET V2.
 * La propriété *Diagnostics* incluse dans les réponses et les exceptions dans le Kit de développement logiciel (SDK) .NET V3.
@@ -66,7 +68,7 @@ Si vous supprimez une région et la rajoutez ultérieurement au compte, si la r�
 
 Si vous configurez le client pour qu’il se connecte de préférence à une région que le compte Azure Cosmos ne possède pas, la région par défaut est ignorée. Si vous ajoutez cette région ultérieurement, le client la détecte et bascule définitivement vers cette région.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Basculement de la région d’écriture vers un compte à une seule région d’écriture
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Basculement de la région d’écriture vers un compte à une seule région d’écriture
 
 Si vous initiez un basculement de la région d’écriture actuelle, la demande d’écriture suivante échouera avec une réponse principale connue. Lorsque cette réponse est détectée, le client interroge le compte pour connaître la nouvelle région d’écriture, retente l’opération en cours et achemine définitivement toutes les futures opérations d’écriture vers la nouvelle région.
 
@@ -76,7 +78,7 @@ Si le compte dispose d’une seule région d’écriture et que la panne région
 
 ## <a name="session-consistency-guarantees"></a>Garanties de cohérence de session
 
-Lorsque vous utilisez la [cohérence de session](consistency-levels.md#guarantees-associated-with-consistency-levels), le client doit garantir qu’il peut lire ses propres écritures. Dans les comptes à une seule région d’écriture où la préférence pour la région de lecture est différente de la région d’écriture, il peut arriver que l’utilisateur génère une écriture et, lorsqu’il effectue une lecture à partir d’une région locale, que celle-ci n’ait pas encore reçu la réplication des données (contrainte de la vitesse de la lumière). Dans ce cas, le Kit de développement logiciel (SDK) détecte l’échec spécifique de l’opération de lecture et tente à nouveau la lecture sur la région du hub pour garantir la cohérence de la session.
+Lorsque vous utilisez la [cohérence de session](consistency-levels.md#guarantees-associated-with-consistency-levels), le client doit garantir qu’il peut lire ses propres écritures. Dans les comptes à une seule région d’écriture où la préférence pour la région de lecture est différente de la région d’écriture, il peut arriver que l’utilisateur génère une écriture et, lorsqu’il effectue une lecture à partir d’une région locale, que celle-ci n’ait pas encore reçu la réplication des données (contrainte de la vitesse de la lumière). Dans ce cas, le Kit de développement logiciel (SDK) détecte l’échec spécifique de l’opération de lecture et tente à nouveau la lecture sur la région primaire pour garantir la cohérence de la session.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problèmes de connectivité temporaires sur le protocole TCP
 

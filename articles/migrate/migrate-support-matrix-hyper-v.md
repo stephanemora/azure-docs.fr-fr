@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles Hyper-V à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318175"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331972"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Tableau de prise en charge pour l’évaluation Hyper-V
 
@@ -63,7 +63,7 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 **Appareil** | **Connection**
 --- | ---
 **Appliance** | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Connexions sortantes sur les ports 443 (HTTPS) pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
-**Hôte/cluster Hyper-V** | Connexions entrantes sur le port WinRM 5985 (HTTP) pour extraire les métadonnées et les données de performances des machines virtuelles Hyper-V en utilisant une session Common Information Model (CIM).
+**Hôte/cluster Hyper-V** | Connexions entrantes sur le port WinRM 5985 (HTTP) ou 5986 (HTTPS) pour extraire les métadonnées et les données de performances des machines virtuelles Hyper-V en utilisant une session Common Information Model (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Conditions requises de l’analyse des dépendances basées sur un agent
 
@@ -83,4 +83,4 @@ L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préparer l’évaluation des machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md)
+[Préparer l’évaluation des machines virtuelles Hyper-V](./tutorial-discover-hyper-v.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851220"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092781"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
 
@@ -26,8 +26,8 @@ Dans Gestion des API, les groupes permettent de gérer la visibilité des produi
 
 Le service Gestion des API possède les groupes système suivants, qui ne sont pas modifiables :
 
-* **Administrateurs** : les administrateurs des abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
-* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
+* **Administrateurs**  : les administrateurs des abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
+* **Développeurs**  : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
 * **Invités** : les utilisateurs non authentifiés du portail des développeurs, comme les prospects, qui consultent le portail des développeurs d’une instance d’API Management appartiennent à ce groupe. Ils peuvent recevoir certains accès en lecture seule, comme la possibilité d'afficher les API, mais pas de les appeler.
 
 Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés][leverage external groups in associated Azure Active Directory tenants]. Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
@@ -49,13 +49,13 @@ Effectuez les tâches indiquées dans cet article : [Créer une instance du serv
 Cette section montre comment ajouter un nouveau groupe à votre compte Gestion des API.
 
 1. Sélectionnez l’onglet **Groupes** à gauche de l’écran.
-2. Cliquez sur **+Ajouter**.
+2. Cliquez sur **+Ajouter** .
 3. Entrez un nom unique pour le groupe, et éventuellement une description.
-4. Appuyez sur **Créer**.
+4. Appuyez sur **Créer** .
 
     ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups001.png)
 
-Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour modifier le **nom** ou la **description** du groupe, cliquez sur le nom du groupe, puis sur **Paramètres**.<br/>Pour supprimer le groupe, cliquez sur son nom, puis appuyez sur **Supprimer**.
+Une fois le groupe créé, il est ajouté à la liste **Groupes** . <br/>Pour modifier le **nom** ou la **description** du groupe, cliquez sur le nom du groupe, puis sur **Paramètres** .<br/>Pour supprimer le groupe, cliquez sur son nom, puis appuyez sur **Supprimer** .
 
 Maintenant que le groupe est créé, il peut être associé à des produits et des développeurs.
 
@@ -63,15 +63,15 @@ Maintenant que le groupe est créé, il peut être associé à des produits et d
 
 1. Sélectionnez l’onglet **Produits** vers la gauche.
 2. Cliquez sur le nom du produit souhaité.
-3. Appuyez sur **Contrôle d’accès**.
-4. Cliquez sur **+ Ajouter un groupe**.
+3. Appuyez sur **Contrôle d’accès** .
+4. Cliquez sur **+ Ajouter un groupe** .
 
-    ![Associer un groupe à un produit](./media/api-management-howto-create-groups/groups002.png)
+    ![Capture d’écran mettant en évidence le bouton Ajouter un groupe.](./media/api-management-howto-create-groups/groups002.png)
 5. Sélectionnez le groupe que vous souhaitez ajouter.
 
-    ![Associer un groupe à un produit](./media/api-management-howto-create-groups/groups003.png)
+    ![Capture d’écran qui montre le groupe sélectionné et met en surbrillance le bouton Sélectionner.](./media/api-management-howto-create-groups/groups003.png)
 
-    Pour supprimer un groupe du produit, cliquez sur **Supprimer**.
+    Pour supprimer un groupe du produit, cliquez sur **Supprimer** .
 
     ![Supprimer un groupe](./media/api-management-howto-create-groups/groups004.png)
 
@@ -85,13 +85,13 @@ Une fois le produit associé à un groupe, les développeurs de ce groupe peuven
 Cette section montre comment associer des groupes à des membres.
 
 1. Sélectionnez l’onglet **Groupes** à gauche de l’écran.
-2. Sélectionnez **Membres**.
+2. Sélectionnez **Membres** .
 
     ![Ajouter un membre](./media/api-management-howto-create-groups/groups005.png)
 3. Appuyez sur **+Ajouter** et sélectionnez un membre.
 
-    ![Ajouter un membre](./media/api-management-howto-create-groups/groups006.png)
-4. Appuyez sur **Sélectionner**.
+    ![Capture d’écran qui met en surbrillance le bouton Ajouter, l’utilisateur sélectionné et le bouton Sélectionner.](./media/api-management-howto-create-groups/groups006.png)
+4. Appuyez sur **Sélectionner** .
 
 Une fois l’association entre le développeur et le groupe ajoutée, vous pouvez la consulter dans l’onglet **Utilisateurs** .
 

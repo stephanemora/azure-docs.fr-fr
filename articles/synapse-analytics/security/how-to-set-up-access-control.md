@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260153"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341547"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Sécuriser votre espace de travail Synapse (préversion)
+# <a name="secure-your-synapse-workspace-preview"></a>Sécuriser votre espace de travail Synapse (préversion) 
 
 Cet article vous apprend à utiliser des rôles et un contrôle d’accès pour contrôler les activités et l’accès aux données. Ces instructions simplifient le contrôle d’accès dans Azure Synapse Analytics. Vous devez uniquement ajouter et supprimer des utilisateurs dans l’un des trois groupes de sécurité.
 
@@ -31,7 +31,7 @@ Pour sécuriser un espace de travail Synapse (préversion), vous devez suivre un
   - Administrateur Apache Spark pour Azure Synapse Analytics
 - Contrôle d’accès pour les données dans Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Contrôle d’accès pour les bases de données SQL et Spark Synapse.
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Procédure de sécurisation d’un espace de travail Synapse
 
 Ce document utilise des noms standard pour simplifier les instructions. Remplacez-les par les noms de votre choix.
@@ -48,11 +48,11 @@ Ce document utilise des noms standard pour simplifier les instructions. Remplace
 
 Créez et remplissez trois groupes de sécurité pour votre espace de travail :
 
-- **WS1\_WSAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur l’espace de travail.
-- **WS1\_SparkAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects Spark de l’espace de travail.
-- **WS1\_SQLAdmins** : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects SQL de l’espace de travail.
-- Ajoutez **WS1\_WSAdmins** à **WS1\_SQLAdmins**.
-- Ajoutez **WS1\_WSAdmins** à **WS1\_SparkAdmins**.
+- **WS1\_WSAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur l’espace de travail.
+- **WS1\_SparkAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects Spark de l’espace de travail.
+- **WS1\_SQLAdmins**  : pour les utilisateurs qui ont besoin d’un contrôle total sur les aspects SQL de l’espace de travail.
+- Ajoutez **WS1\_WSAdmins** à **WS1\_SQLAdmins** .
+- Ajoutez **WS1\_WSAdmins** à **WS1\_SparkAdmins** .
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>ÉTAPE 2 : Préparer votre compte Azure Data Lake Storage Gen2.
 
@@ -65,17 +65,18 @@ Identifiez les informations ci-après sur votre stockage :
 
 - Sur le portail Azure, affectez les groupes de sécurité aux rôles suivants sur CNT1 :
 
-  - Affectez **WS1\_WSAdmins** au rôle **Contributeur de données du blob de stockage**.
-  - Affectez **WS1\_SparkAdmins** au rôle **Contributeur de données du blob de stockage**.
-  - Affectez **WS1\_SQLAdmins** au rôle **Contributeur de données du blob de stockage**.
+  - Affectez **WS1\_WSAdmins** au rôle **Contributeur de données du blob de stockage** .
+  - Affectez **WS1\_SparkAdmins** au rôle **Contributeur de données du blob de stockage** .
+  - Affectez **WS1\_SQLAdmins** au rôle **Contributeur de données du blob de stockage** .
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>ÉTAPE 3 : Créer et configurer votre espace de travail Synapse
 
-Dans le portail Azure, créez un espace de travail Synapse :
+ Dans le portail Azure, créez un espace de travail Synapse :
 
+- Sélectionnez votre abonnement
+- Sélectionnez votre groupe de ressources. Vous devez avoir accès à un groupe de ressources pour lequel vous avez le rôle **Propriétaire** .
 - Nommez l’espace de travail WS1.
-- Choisissez STG1 pour le compte de stockage.
-- Choisissez CNT1 pour le conteneur utilisé comme « système de fichiers ».
+- Choisissez STG1 pour le compte de stockage. Choisissez CNT1 pour le conteneur utilisé comme « système de fichiers ».
 - Ouvrez WS1 dans Synapse Studio.
 - Sélectionnez **Gérer** > **Contrôle d’accès** et affectez les groupes de sécurité aux rôles Synapse suivants.
   - Affectez **WS1\_WSAdmins** aux administrateurs d’espace de travail Synapse.
@@ -97,8 +98,8 @@ L’espace de travail Synapse a besoin d’accéder à STG1 et CNT1 pour pouvoir
 
 - Ouvrez le portail Azure
 - Accédez à WS1.
-- Sous **Paramètres**, sélectionnez **Administrateur SQL Active Directory**.
-- Sélectionnez **Définir l’administrateur**, puis choisissez WS1\_SQLAdmins.
+- Sous **Paramètres** , sélectionnez **Administrateur SQL Active Directory** .
+- Sélectionnez **Définir l’administrateur** , puis choisissez WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>ÉTAPE 6 : Gérer le contrôle d’accès
 

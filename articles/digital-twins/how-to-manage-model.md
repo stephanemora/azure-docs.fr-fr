@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057737"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102491"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -22,7 +22,7 @@ Les opérations de gestion incluent le chargement, la validation, la récupérat
 
 ## <a name="create-models"></a>Créer des modèles
 
-Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers *.JSON*. Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
+Les modèles pour Azure Digital Twins sont écrits en DTDL et enregistrés sous forme de fichiers *.JSON* . Il existe également une [extension DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible pour [Visual Studio Code](https://code.visualstudio.com/), offrant une validation de la syntaxe et d’autres fonctionnalités facilitant l’écriture de documents DTDL.
 
 Prenons l’exemple d’un hôpital souhaitant disposer d’une représentation numérique des pièces de son bâtiment. Chaque pièce contient un distributeur de savon intelligent permettant de contrôler le lavage des mains, et des capteurs pour suivre le trafic.
 
@@ -61,7 +61,7 @@ La première étape de la solution consiste à créer des modèles pour représe
 > [!NOTE]
 > Il s’agit d’un exemple de corps pour un fichier. JSON au sein duquel un modèle est défini et enregistré, et doit être téléchargé dans le cadre d’un projet client. En revanche, l’appel d’API REST prend un tableau de définitions de modèle comme celle ci-dessus (qui est mappée à un `IEnumerable<string>` dans le kit de développement logiciel .NET). Par conséquent, pour utiliser ce modèle dans l’API REST directement, entourez-le avec des crochets.
 
-Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main*). Le modèle définit également une relation *hasDevices*, qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle *Room* aux périphériques réels.
+Ce modèle définit un nom et un ID unique pour la chambre du patient, et les propriétés pour représenter le nombre de visiteurs et l’état du lavage à la main (ces compteurs seront mis à jour à partir des capteurs de mouvement et des distributeurs de savon intelligents, et ils seront utilisés ensemble pour calculer une propriété de *pourcentage de lavage de main* ). Le modèle définit également une relation *hasDevices* , qui sera utilisée pour connecter toute [représentation numérique](concepts-twins-graph.md) basée sur ce modèle *Room* aux périphériques réels.
 
 En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital entier, ou bien pour certaines zones.
 
@@ -174,10 +174,7 @@ Mais si vous voulez apporter des modifications à un modèle (par exemple, modif
 
 #### <a name="model-versioning"></a>Gestion des versions des modèles
 
-Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour les champs à modifier.
-
->[!NOTE]
->Pendant la période de préversion, l’avancement d’une version de modèle vous permet uniquement d’ajouter de nouveaux champs, pas d’en supprimer. Pour supprimer des champs, vous devez simplement [créer un modèle](#create-models).
+Pour créer une nouvelle version d’un modèle existant, commencez par le DTDL du modèle d’origine. Mettez à jour, ajoutez ou supprimez les champs à modifier.
 
 Ensuite, marquez ce modèle comme une version plus récente en mettant à jour son champ `id`. La dernière section de l’ID de modèle, après le point-virgule (`;`), représente le numéro de modèle. Pour indiquer qu’il s’agit maintenant d’une version plus à jour de ce modèle, incrémentez le nombre à la fin de la valeur `id` en un nombre supérieur au numéro de version actuel.
 
@@ -203,7 +200,7 @@ Quand vous créez un jumeau, étant donné que la nouvelle version du modèle et
 
 Cela signifie également que le chargement d’une nouvelle version d’un modèle n’affecte pas automatiquement les jumeaux existants. Les jumeaux existants vont simplement rester des instances de l’ancienne version du modèle.
 
-Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques*. Dans le même correctif, vous devez mettre à jour à la fois l’**ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle**.
+Vous pouvez mettre à jour ces jumeaux existants vers la nouvelle version du modèle à l’aide d’un correctif, comme décrit dans la section [*Mettre à jour le modèle d’un jumeau numérique*](how-to-manage-twin.md#update-a-digital-twins-model) de la rubrique *Guide pratique : Gestion des jumeaux numériques* . Dans le même correctif, vous devez mettre à jour à la fois l’ **ID du modèle** (vers la nouvelle version) et **tous les champs qui nécessitent une modification sur le jumeau pour le rendre conforme au nouveau modèle** .
 
 ### <a name="remove-models"></a>Supprimer des modèles
 
@@ -238,7 +235,7 @@ Le reste de cette section décompose la suppression du modèle plus en détails 
 
 En règle générale, les modèles peuvent être supprimés à tout moment.
 
-L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle *ConferenceRoom* étend un modèle *Room*, et qu’il possède un modèle *ACUnit* en tant que composant, vous ne pouvez pas supprimer *Room* ou *ACUnit* avant que *ConferenceRoom* ne supprime leurs références respectives. 
+L’exception concerne les modèles dont dépendent d’autres modèles, qu’il s’agisse d’une relation `extends` ou en tant que composant. Par exemple, si un modèle *ConferenceRoom* étend un modèle *Room* , et qu’il possède un modèle *ACUnit* en tant que composant, vous ne pouvez pas supprimer *Room* ou *ACUnit* avant que *ConferenceRoom* ne supprime leurs références respectives. 
 
 Pour ce faire, vous pouvez mettre à jour le modèle dépendant pour supprimer les dépendances ou bien supprimer complètement le modèle dépendant.
 

@@ -20,7 +20,7 @@ ms.locfileid: "91977865"
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services*. Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
+Il existe deux familles distinctes de bibliothèques de client Calling, pour les *clients* et pour les *services* . Les bibliothèques de client actuellement disponibles sont destinées à des expériences de l’utilisateur final : les sites web et les applications natives.
 
 Les bibliothèques de client de service ne sont pas encore disponibles et fournissent l’accès aux plans de données vocales et vidéo brutes, adaptés à une intégration avec des bots et d’autres services.
 

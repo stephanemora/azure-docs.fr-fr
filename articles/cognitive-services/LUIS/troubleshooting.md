@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542221"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149260"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -77,7 +77,7 @@ Découvrez-en plus sur les [erreurs d’importation de version](luis-how-to-mana
 
 ## <a name="collaborating-and-contributing"></a>Collaboration et contribution
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Comment permettre aux collaborateurs d'accéder à LUIS avec Azure Active Directory (Azure AD) ou le contrôle d'accès en fonction du rôle (RBAC) ?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-azure-role-based-access-control-azure-rbac"></a>Comment permettre aux collaborateurs d'accéder à LUIS avec Azure Active Directory (Azure AD) ou le contrôle d'accès en fonction du rôle Azure (Azure RBAC) ?
 
 Pour savoir comment octroyer l'accès aux collaborateurs, consultez [Ressources Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) et [Utilisateur locataire Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user).
 
@@ -95,7 +95,7 @@ Pour corriger cette erreur, vous devez [modifier votre niveau tarifaire](luis-ho
 
 Les solutions pour corriger cette erreur incluent :
 
-* Dans le [portail Microsoft Azure](https://portal.azure.com), sur votre ressource Language Understanding, dans **Gestion des ressources -> Niveau tarifaire**, remplacez votre niveau tarifaire par un niveau TPS supérieur. Vous n’avez aucune action à effectuer dans le portail Language Understanding si votre ressource est déjà attribuée à votre application Language Understanding.
+* Dans le [portail Microsoft Azure](https://portal.azure.com), sur votre ressource Language Understanding, dans **Gestion des ressources -> Niveau tarifaire** , remplacez votre niveau tarifaire par un niveau TPS supérieur. Vous n’avez aucune action à effectuer dans le portail Language Understanding si votre ressource est déjà attribuée à votre application Language Understanding.
 *  Si votre utilisation dépasse le niveau tarifaire le plus élevé, ajoutez plus de ressources Language Understanding avec un équilibreur de charge placé devant celles-ci. Le [conteneur Language Understanding](luis-container-howto.md) avec Kubernetes ou Docker Compose peut vous y aider.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>J’ai reçu un code d’état d’erreur HTTP 429. Comment la corriger ?
@@ -132,7 +132,7 @@ Votre système doit utiliser l’intention de score le plus élevée, quelle qu�
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Pourquoi ne vois-je pas les accès à mon point de terminaison sur le tableau de bord de mon application ?
 Le nombre total d’accès de point de terminaison est régulièrement mis à jour sur le tableau de bord de l’application, mais la fréquence de mise à jour est plus élevée pour les métriques associées à la clé du point de terminaison LUIS sur le Portail Azure.
 
-Si vous ne voyez pas les accès de point de terminaison mis à jour sur le tableau de bord, connectez-vous au Portail Azure et trouvez la ressource associée à la clé de votre point de terminaison LUIS, puis ouvrez **Métriques** pour sélectionner la métrique **Nombre total d’appels**. Si la clé de point de terminaison est utilisée pour plusieurs applications LUIS, la métrique du Portail Azure indique le nombre agrégé d’appels provenant de toutes les applications LUIS qui l’utilisent.
+Si vous ne voyez pas les accès de point de terminaison mis à jour sur le tableau de bord, connectez-vous au Portail Azure et trouvez la ressource associée à la clé de votre point de terminaison LUIS, puis ouvrez **Métriques** pour sélectionner la métrique **Nombre total d’appels** . Si la clé de point de terminaison est utilisée pour plusieurs applications LUIS, la métrique du Portail Azure indique le nombre agrégé d’appels provenant de toutes les applications LUIS qui l’utilisent.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>Existe-t-il une commande PowerShell pour connaître le quota de points de terminaison ?
 
@@ -190,7 +190,7 @@ Voir [Entraîner avec toutes les données](luis-how-to-train.md#train-with-all-d
 ## <a name="app-publishing"></a>Publication d’application
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qu’est-ce que l’ID de locataire dans la fenêtre « Add a key to your app » (Ajouter une clé à votre application) ?
-Dans Azure, un locataire représente le client ou l’organisation associé(e) à un service. Cherchez votre ID de locataire sur le portail Azure dans la zone **ID de répertoire** en sélectionnant **Azure Active Directory** > **Gérer** > **Propriétés**.
+Dans Azure, un locataire représente le client ou l’organisation associé(e) à un service. Cherchez votre ID de locataire sur le portail Azure dans la zone **ID de répertoire** en sélectionnant **Azure Active Directory** > **Gérer** > **Propriétés** .
 
 ![ID de locataire sur le portail Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -224,7 +224,7 @@ Les clés de création sont disponibles dans le portail LUIS après la [migratio
 ## <a name="app-management"></a>Gestion des applications
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Comment faire pour télécharger un journal d’énoncés d’utilisateurs ?
-Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications** et sélectionnez l'application. Dans la barre d’outils contextuelle, sélectionnez **Exporter les journaux d’activité du point de terminaison**. Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
+Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications** et sélectionnez l'application. Dans la barre d’outils contextuelle, sélectionnez **Exporter les journaux d’activité du point de terminaison** . Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Comment puis-je désactiver la journalisation des énoncés ?
 Vous pouvez désactiver la journalisation des énoncés des utilisateurs en définissant `log=false` dans l’URL de point de terminaison que votre application cliente utilise pour la interroger LUIS. Toutefois, la désactivation de la journalisation désactive la capacité de votre application LUIS à suggérer des énoncés ou à améliorer les performances sur la base d’un [apprentissage actif](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Si vous définissez `log=false` en raison de problèmes de confidentialité des données, vous ne pouvez pas télécharger un enregistrement de ces énoncés d’utilisateurs à partir de LUIS ou utiliser ces énoncés pour améliorer votre application.
@@ -274,11 +274,11 @@ Passer le même énoncé à LUIS à partir du [point de terminaison LUIS](luis-g
 
 Si vous utilisez Azure Bot Service et que le problème est que le **test dans la discussion Web** retourne `Sorry, my bot code is having an issue`, consultez vos journaux d’activité :
 
-1. Dans le portail Azure, pour votre bot, sélectionnez **Build** dans la section **Gestion du bot**.
+1. Dans le portail Azure, pour votre bot, sélectionnez **Build** dans la section **Gestion du bot** .
 1. Ouvrez l’éditeur de code en ligne.
 1. Dans la barre de navigation supérieure bleue, sélectionnez le nom du bot (le deuxième élément à droite).
-1. Dans la liste déroulante qui s’affiche, sélectionnez **Ouvrir la console Kudu**.
-1. Sélectionnez **LogFiles**, puis **Application**. Passez en revue tous les fichiers journaux. Si vous ne voyez pas l’erreur dans le dossier de l’application, passez en revue tous les fichiers journaux sous **LogFiles**.
+1. Dans la liste déroulante qui s’affiche, sélectionnez **Ouvrir la console Kudu** .
+1. Sélectionnez **LogFiles** , puis **Application** . Passez en revue tous les fichiers journaux. Si vous ne voyez pas l’erreur dans le dossier de l’application, passez en revue tous les fichiers journaux sous **LogFiles** .
 1. N’oubliez pas de régénérer votre projet si vous utilisez un langage compilé tel que C#.
 
 > [!Tip]

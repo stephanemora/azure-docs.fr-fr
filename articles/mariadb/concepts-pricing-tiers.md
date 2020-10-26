@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074802"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125779"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
@@ -71,7 +71,7 @@ Nous avons augmenté les limites de stockage dans nos niveaux de service Usage g
 | E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS| 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS |
 
 > [!IMPORTANT]
-> Le stockage volumineux est actuellement en préversion publique dans les régions suivantes : USA Est, USA Est 2, USA Centre, USA Ouest, USA Centre Nord, USA Centre Sud, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est, USA Ouest 2, USA Centre-Ouest, Canada Est et Canada Centre.
+> Le stockage volumineux est actuellement en préversion publique dans les régions suivantes : USA Est, USA Est 2, Brésil Sud, USA Centre, USA Ouest, USA Centre Nord, USA Centre Sud, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est, USA Ouest 2, USA Centre-Ouest, Canada Est et Canada Centre.
 >
 > Toutes les autres régions prennent en charge une capacité de stockage maximale de 4 TO et jusqu’à 6 000 IOPS.
 >
@@ -108,7 +108,7 @@ La mise à l’échelle du stockage et la modification de la période de rétent
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mariadb/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database for MariaDB**.
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/mariadb/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments** , développez la catégorie **Bases de données** , puis choisissez **Azure Database for MariaDB** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [Limitations de service](concepts-limits.md).

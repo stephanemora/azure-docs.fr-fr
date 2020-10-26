@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612980"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344013"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -65,7 +65,7 @@ Si vous avez uniquement besoin d’accéder au stockage Blob, vous pouvez utilis
 
 Un simple serveur DNS peut également être utilisé pour équilibrer la charge des connexions clientes entre tous les points de montage du cache disponibles.
 
-Pour plus d’informations sur les réseaux virtuels Azure et les configurations de serveur DNS, consultez [Résolution de noms des ressources dans les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Pour plus d’informations sur les réseaux virtuels Azure et les configurations de serveur DNS, consultez [Résolution de noms des ressources dans les réseaux virtuels Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Autorisations
 
@@ -73,7 +73,7 @@ Consultez les prérequis liés aux autorisations avant de créer votre cache.
 
 * L’instance de cache doit pouvoir créer des interfaces réseau virtuelles (NIC). L’utilisateur qui crée le cache doit disposer de privilèges suffisants dans l’abonnement pour créer des cartes réseau.
 
-* Si vous utilisez le stockage Blob, Azure HPC Cache a besoin d’une autorisation pour accéder à votre compte de stockage. Utilisez un contrôle d'accès basé sur le rôle (RBAC) pour permettre au cache d’accéder à votre stockage Blob. Deux rôles sont nécessaires : Contributeur de comptes de stockage et Contributeur aux données Blob du stockage.
+* Si vous utilisez le stockage Blob, Azure HPC Cache a besoin d’une autorisation pour accéder à votre compte de stockage. Utilisez le contrôle d’accès basé sur le rôle Azure (Azure RBAC) pour permettre au cache d’accéder à votre stockage Blob. Deux rôles sont nécessaires : Contributeur de comptes de stockage et Contributeur aux données Blob du stockage.
 
   Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
@@ -110,7 +110,7 @@ Si vous utilisez un système de stockage NFS (par exemple, un système NAS maté
 
 Pour plus d’informations, consultez [Résoudre les problèmes de configuration NAS et de cible de stockage NFS](troubleshoot-nas.md).
 
-* **Connectivité réseau :** Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués. Lisez les [restrictions de taille des paquets VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) pour obtenir de l'aide supplémentaire sur le dépannage des paramètres VPN.
+* **Connectivité réseau :** Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](../expressroute/index.yml) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués. Lisez les [restrictions de taille des paquets VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) pour obtenir de l'aide supplémentaire sur le dépannage des paramètres VPN.
 
 * **Accès au port :** Le cache a besoin d’accéder à des ports TCP/UDP spécifiques sur votre système de stockage. Les différents types de stockage ont des exigences de port différentes.
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326777"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169385"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour une base de données SQL à l’aide d’Azure Logic Apps
 
@@ -38,7 +38,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
   * Pour Azure SQL Database, vous trouverez ces informations dans la chaîne de connexion.
   
-    Par exemple, pour trouver cette chaîne dans le Portail Azure, ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés** :
+    Par exemple, pour trouver cette chaîne dans le Portail Azure, ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés**  :
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -67,9 +67,12 @@ Maintenant, effectuez les étapes suivantes :
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Se connecter à Azure SQL Database ou à Azure SQL Database Managed Instance
 
+Pour accéder à Azure SQL Managed Instance sans utiliser la passerelle de données locale ou l’environnement de service d’intégration, vous devez [configurer le point de terminaison public sur Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). Le point de terminaison public utilise le port 3342. Assurez-vous de spécifier ce numéro de port lorsque vous créez la connexion à partir de votre application logique.
+
+
 La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou une [action SQL](#add-sql-action), et que vous n’avez pas préalablement créé de connexion à votre base de données, vous êtes invité à effectuer ces étapes :
 
-1. Pour le **Type d’authentification**, sélectionnez l’authentification requise et activée sur votre base de données dans Azure SQL Database ou Azure SQL Managed Instance :
+1. Pour le **Type d’authentification** , sélectionnez l’authentification requise et activée sur votre base de données dans Azure SQL Database ou Azure SQL Managed Instance :
 
    | Authentification | Description |
    |----------------|-------------|
@@ -77,11 +80,11 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    | [**Authentification SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre base de données. <p>Pour plus d’informations, consultez les rubriques suivantes : <p>- [Vue d’ensemble de la sécurité Azure SQL : authentification](../azure-sql/database/security-overview.md#authentication) <br>- [Autoriser l’accès à la base de données Azure SQL : authentification et autorisation](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
-   Cet exemple se poursuit avec **Azure AD Integrated** :
+   Cet exemple se poursuit avec **Azure AD Integrated**  :
 
    ![Capture d’écran montrant la fenêtre de connexion « SQL Server » avec la liste « Type d’authentification » ouverte et l’option « Azure AD Integrated » sélectionnée.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Après avoir sélectionné **Azure AD Integrated**, sélectionnez **Se connecter**. Selon que vous utilisez Azure SQL Database ou Azure SQL Managed Instance, sélectionnez vos informations d’identification d’utilisateur pour l’authentification.
+1. Après avoir sélectionné **Azure AD Integrated** , sélectionnez **Se connecter** . Selon que vous utilisez Azure SQL Database ou Azure SQL Managed Instance, sélectionnez vos informations d’identification d’utilisateur pour l’authentification.
 
 1. Sélectionnez ces valeurs pour votre base de données :
 
@@ -93,7 +96,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    ||||
 
    > [!TIP]
-   > Ces informations se trouvent dans la chaîne de connexion de votre base de données. Par exemple, Dans le Portail Azure, recherchez et ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés**, d’où vous pouvez trouver cette chaîne :
+   > Ces informations se trouvent dans la chaîne de connexion de votre base de données. Par exemple, Dans le Portail Azure, recherchez et ouvrez votre base de données. Dans le menu de la base de données, sélectionnez **Chaînes de connexion** ou **Propriétés** , d’où vous pouvez trouver cette chaîne :
    >
    > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -113,7 +116,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
    Sinon, votre ressource de passerelle de données n’apparaîtra pas dans la liste de **Passerelle de connexion** lorsque vous créerez votre connexion.
 
-1. Pour le **Type d’authentification**, sélectionnez l’authentification requise et activée sur votre SQL Server :
+1. Pour le **Type d’authentification** , sélectionnez l’authentification requise et activée sur votre SQL Server :
 
    | Authentification | Description |
    |----------------|-------------|
@@ -121,7 +124,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
    | [**Authentification SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Prend en charge le connecteur SQL Server non-ISE et ISE. <p><p>- Requiert un nom d’utilisateur et un mot de passe sécurisé valides qui sont créés et stockés dans votre SQL Server. <p>Pour plus d’informations, consultez [Authentification SQL Server](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   Cet exemple se poursuit avec l’**authentification Windows** :
+   Cet exemple se poursuit avec l’ **authentification Windows**  :
 
    ![Sélectionnez le type d’authentification à utiliser](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
@@ -149,7 +152,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
    ![Créer une connexion SQL Server terminé](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-1. Quand vous êtes prêt, sélectionnez **Créer**.
+1. Quand vous êtes prêt, sélectionnez **Créer** .
 
 1. Maintenant, poursuivez avec les étapes que vous n’avez pas encore effectuées dans [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
 
@@ -167,13 +170,13 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
 1. Dans le déclencheur, spécifiez l’intervalle et la fréquence à laquelle le déclencheur vérifie la table.
 
-1. Pour ajouter d’autres propriétés disponibles pour ce déclencheur, ouvrez la liste **Ajouter un nouveau paramètre**.
+1. Pour ajouter d’autres propriétés disponibles pour ce déclencheur, ouvrez la liste **Ajouter un nouveau paramètre** .
 
    Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, continuez en ajoutant une [action du connecteur SQL](#add-sql-action) ou [une autre action](../connectors/apis-list.md) qui effectue la tâche suivante que vous souhaitez dans votre flux de travail d’application logique.
    
    Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
 
-1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer** .
 
    Bien que cette étape active et publie automatiquement votre application logique dynamique dans Azure, la seule action que votre application logique prend en compte est la vérification de votre base de données en fonction de l’intervalle et de la fréquence spécifiés.
 
@@ -185,25 +188,25 @@ Dans cet exemple, l’application logique commence par le [déclencheur de péri
 
 1. Dans le [Portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique. Cet exemple se poursuit avec le Portail Azure.
 
-1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape**.
+1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape** .
 
    ![Ajoutez une action à votre application logique](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Ou, pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Ou, pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action** .
 
-1. Sous **Choisir une action**, dans la zone de recherche, entrez `sql server`. Dans la liste des actions, sélectionnez l’action SQL souhaitée. Cet exemple utilise l’action **Obtenir la ligne**, qui obtient un enregistrement unique.
+1. Sous **Choisir une action** , dans la zone de recherche, entrez `sql server`. Dans la liste des actions, sélectionnez l’action SQL souhaitée. Cet exemple utilise l’action **Obtenir la ligne** , qui obtient un enregistrement unique.
 
    ![Sélectionnez l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
 
 1. Si vous vous connectez à votre base de données SQL pour la première fois, vous êtes invité à [créer dès à présent votre connexion à la base de données SQL](#create-connection). Après avoir créé cette connexion, vous pouvez passer à l’étape suivante.
 
-1. Sélectionnez le **nom de la table**, qui est `SalesLT.Customer` dans cet exemple. Entrez l’**identifiant de la ligne** pour l’enregistrement de votre choix.
+1. Sélectionnez le **nom de la table** , qui est `SalesLT.Customer` dans cet exemple. Entrez l’ **identifiant de la ligne** pour l’enregistrement de votre choix.
 
    ![Sélectionnez le nom de la table et spécifier l’identifiant de la ligne](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
    Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Ainsi, pour afficher les données dans cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
 
-1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer** .
 
    Cette étape active et publie automatiquement votre application logique dans Azure.
 
@@ -211,13 +214,13 @@ Dans cet exemple, l’application logique commence par le [déclencheur de péri
 
 Parfois, vous manipulez des jeux de résultats tellement volumineux que le connecteur ne peut pas renvoyer tous les résultats en même temps, ou vous souhaitez mieux contrôler la taille et la structure de vos jeux de résultats. Voici quelques façons de gérer ces grands jeux de résultats :
 
-* Pour mieux gérer les résultats sous forme de jeux plus petits, activez la *pagination*. Pour plus d’informations, voir [Obtenir des données en bloc, des enregistrements et des éléments à l’aide de la pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Pour mieux gérer les résultats sous forme de jeux plus petits, activez la *pagination* . Pour plus d’informations, voir [Obtenir des données en bloc, des enregistrements et des éléments à l’aide de la pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
 * Créez une procédure stockée qui trie les résultats comme vous le souhaitez.
 
   Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces lignes en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). Toutefois, lorsque votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple), vous devez réduire les coûts liés aux appels à la base de données.
 
-  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
+  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY** . Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
 
   Pour en savoir plus sur la solution, consultez les articles suivants :
 
@@ -233,20 +236,30 @@ Parfois, lorsque vous effectuez un appel à une procédure stockée au moyen du 
 
 1. Affichez le format de sortie en effectuant une série de tests. Copiez et enregistrez votre exemple de sortie.
 
-1. Dans le concepteur, sous l’action où vous appelez la procédure stockée, sélectionnez **Nouvelle étape**.
+1. Dans le concepteur, sous l’action où vous appelez la procédure stockée, sélectionnez **Nouvelle étape** .
 
-1. Sous **Choisir une action**, recherchez et sélectionnez l’action [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+1. Sous **Choisir une action** , recherchez et sélectionnez l’action [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
-1. Dans l’option **Analyser JSON**, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
+1. Dans l’option **Analyser JSON** , sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma** .
 
-1. Dans la zone **Entrer ou coller un exemple de charge utile JSON**, collez votre exemple de sortie, puis sélectionnez **Terminé**.
+1. Dans la zone **Entrer ou coller un exemple de charge utile JSON** , collez votre exemple de sortie, puis sélectionnez **Terminé** .
 
    > [!NOTE]
-   > Si vous recevez une erreur indiquant que Logic Apps ne peut pas générer de schéma, vérifiez que la syntaxe de votre exemple de sortie est correctement mise en forme. Si vous ne pouvez toujours pas générer le schéma dans la zone **Schéma**, entrez manuellement le schéma.
+   > Si vous recevez une erreur indiquant que Logic Apps ne peut pas générer de schéma, vérifiez que la syntaxe de votre exemple de sortie est correctement mise en forme. Si vous ne pouvez toujours pas générer le schéma dans la zone **Schéma** , entrez manuellement le schéma.
 
-1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer** .
 
 1. Pour référencer les propriétés de contenu JSON, cliquez à l’intérieur des zones d’édition où vous souhaitez référencer ces propriétés afin que la liste de contenu dynamique s’affiche. Dans la liste, sous l’en-tête [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), sélectionnez les jetons de données pour les propriétés de contenu JSON que vous souhaitez.
+
+## <a name="troubleshoot-problems"></a>Résoudre les problèmes
+
+Des problèmes de connexion peuvent se produire. Par conséquent, pour dépanner et résoudre ces types de problèmes, consultez [Résolution des erreurs de connexion à SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Voici quelques exemples :
+
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
@@ -255,4 +268,3 @@ Pour obtenir des informations techniques sur les déclencheurs, les actions et l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [tous les autres connecteurs pour Azure Logic apps](../connectors/apis-list.md)
-

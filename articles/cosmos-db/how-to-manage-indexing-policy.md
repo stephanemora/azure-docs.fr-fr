@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: f915f86fff340ba3c8c192809ef68997ea3c3fc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f006f249fce56171f8bbf471de013e015b5c4f92
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330483"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207773"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -357,9 +357,9 @@ Les conteneurs Azure Cosmos stockent leur stratégie d’indexation sous la form
 
 1. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données**, puis sélectionnez le conteneur avec lequel vous voulez travailler.
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
-1. Cliquez sur **Mise à l’échelle et paramètres**.
+1. Cliquez sur **Mise à l’échelle et paramètres** .
 
 1. Modifiez le document JSON de stratégie d’indexation (voir les exemples [ci-dessous](#indexing-policy-examples)).
 
@@ -748,6 +748,13 @@ Mettre à jour le conteneur avec les modifications
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+
+Récupérer la progression de la transformation d’index à partir des en-têtes de réponse
+```python
+container_client.read(populate_quota_info = True,
+                      response_hook = lambda h,p: print(h['x-ms-documentdb-collection-index-transformation-progress']))
+```
+
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -13,35 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aaed6cd789ca6178410c05b940a8f498e2c067a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930799"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090061"
 ---
-# <a name="get-started-with-defender-for-iot"></a>Bien démarrer avec Defender pour IoT
+# <a name="getting-started-with-azure-defender-for-iot"></a>Bien démarrer avec Azure Defender pour IoT
 
-Cet article fournit des explications sur les différents composants du service Defender pour IoT et vous présente les deux options de déploiement disponibles pour utiliser ce service.
+Cet article décrit les processus de déploiement et d’intégration nécessaires pour exécuter Azure Defender pour IoT. Des étapes supplémentaires sont nécessaires. Nous vous recommandons de bien comprendre ces étapes et de vous familiariser avec les informations des documents associés.
 
-Vous recherchez comment prendre en main le module de sécurité pour Azure RTOS ? Accédez à la section [Guide de démarrage rapide pour le module de sécurité pour Azure RTOS](quickstart-azure-rtos-security-module.md). 
+Une fois que vous avez terminé toutes les étapes, les capteurs Azure Defender pour IoT surveillent votre réseau. Selon la configuration que vous avez choisie pour votre solution, les détections peuvent également être envoyées à la console de gestion locale ou à l’IoT Hub.
 
-## <a name="deployment-options"></a>Options de déploiement
+Procédez comme suit pour qu’Azure Defender pour IoT soit opérationnel.
 
-Choisissez le scénario de service qui répond le mieux aux besoins de votre environnement et de vos appareils IoT.
+## <a name="1-set-up-azure"></a>1. Configurer Azure
 
-### <a name="built-in-deployment"></a>Déploiement intégré
+- Configurer un compte Azure. Pour plus d’informations, consultez [Créer un compte Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
 
-Grâce à l’option de déploiement intégrée transparente, Defender pour IoT peut être rapidement intégré à votre IoT Hub et fournir une analyse de sécurité sur la configuration IoT Hub, l’identité et la gestion de appareil et les modèles de communication de l’appareil Hub.
+- Pare-feu ou proxy : Si vous avez un pare-feu ou un périphérique réseau intervenant similaire qui est configuré pour autoriser des connexions spécifiques, vérifiez que *.azure-devices.net:443 est ouvert sur le pare-feu ou le proxy. Si les caractères génériques ne sont pas pris en charge ou si vous souhaitez davantage de contrôle, le nom de domaine complet IoT Hub spécifique doit être ouvert dans votre pare-feu ou proxy. Pour plus d’informations, consultez l’article [Référence - Points de terminaison IoT Hub](/azure/iot-hub/iot-hub-devguide-endpoints).
 
-Démarrez un [déploiement intégré](iot-hub-integration.md) comprenant la surveillance et les suggestions IoT Hub.
-    <br>
+## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Déployer du matériel, des logiciels et les intégrer au capteur
 
-### <a name="enhanced-deployment"></a>Déploiement amélioré
+- Achetez le matériel de capteur et installez le logiciel. Suivez les étapes décrites ici. Pour plus d’informations, consultez cet article et le [Guide du matériel Defender pour IoT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) ainsi que le [Guide d’installation](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
 
-Pour les fonctionnalités de sécurité améliorées, le déploiement d’agents Defender pour IoT en plus de l’activation de la sécurité IoT Hub permet la collecte, l’analyse et la détection des menaces des données de sécurité clés des événements basés sur agents pour vos appareils IoT, ainsi que des fonctionnalités de gestion complètes pour la posture de la sécurité.
+  - Après avoir installé votre capteur, enregistrez en toute sécurité les informations d’identification de connexion du capteur. Vous aurez besoin des informations d’identification pour charger le fichier d’activation vers le capteur.
 
-Démarrez un [déploiement amélioré](security-agents.md) comprenant une solution complète de gestion de la sécurité et de la protection des menaces basée sur agents.
+  - Si vous travaillez avec des capteurs gérés localement, enregistrez en toute sécurité l’adresse IP du capteur ou le nom du capteur défini lors de l’installation. Vous pouvez en avoir besoin lors de la création d’un nom de capteur pendant l’inscription du capteur dans le portail Defender pour IoT. Plus tard, vous pouvez les utiliser pour faciliter le suivi et la cohérence du nommage entre le nom d’inscription sur le portail Azure Defender pour IoT et l’adresse IP du capteur déployé affiché dans la console de capteur.
+
+- Inscrivez le capteur sur le portail Defender pour IoT et téléchargez un fichier d’activation de capteur.
+
+- Charger le fichier d’activation sur votre capteur.
+
+## <a name="3-perform-network-setup-for-sensor-monitoring-and-management"></a>3. Configurer le réseau pour la surveillance et la gestion du capteur
+
+- Connectez votre capteur au réseau. Décrit dans le [Guide de configuration du réseau](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+
+## <a name="4-start-discovering-your-network"></a>4. Découvrir votre réseau
+
+- Ajustez les paramètres système dans la console du capteur.
+
+- Connectez les capteurs à une console de gestion locale.
+
+Pour plus d’informations, reportez-vous au [Guide de l’utilisateur des capteurs Azure Defender pour IoT](https://aka.ms/AzureDefenderforIoTUserGuide) ainsi qu’au [Guide de l’utilisateur de la console de gestion locale Defender pour IoT](https://aka.ms/DefenderForIoTManagementConsole).
+
+## <a name="5-populate-azure-sentinel-with-alert-information"></a>5. Remplir Azure Sentinel avec les informations d’alerte
+
+- Pour envoyer des informations d’alerte à Azure Sentinel, configurez Azure Sentinel : [Connectez vos données Defender pour IoT à Azure Sentinel](how-to-configure-with-sentinel.md).
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

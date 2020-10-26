@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361464"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167914"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Résolution des problèmes d’une machine virtuelle Linux quand il n’y a aucun accès à la console série Azure et que la disposition du disque utilise LVM (Logical Volume Manager)
 
@@ -29,13 +29,13 @@ Ce guide de résolution des problèmes présente un avantage dans les scénarios
 
 Effectuer un instantané de la machine virtuelle concernée. 
 
-L’instantané est ensuite attaché à une machine virtuelle **de secours**. Suivez les instructions décrites [ici](../linux/snapshot-copy-managed-disk.md#use-azure-portal) sur la façon d’effectuer un **instantané**.
+L’instantané est ensuite attaché à une machine virtuelle **de secours** . Suivez les instructions décrites [ici](../linux/snapshot-copy-managed-disk.md#use-azure-portal) sur la façon d’effectuer un **instantané** .
 
 ## <a name="create-a-rescue-vm"></a>Créer une machine virtuelle de secours
 En règle générale, il est recommandé d’avoir une machine virtuelle de secours dont la version du système d’exploitation est identique ou similaire. Utiliser les mêmes **région** et **groupe de ressources** que la machine virtuelle concernée
 
 ## <a name="connect-to-the-rescue-vm"></a>Se connecter à la machine virtuelle de secours
-Se connecter à l’aide de SSH sur la machine virtuelle **de secours**. Élever les privilèges et devenir super utilisateur à l’aide de
+Se connecter à l’aide de SSH sur la machine virtuelle **de secours** . Élever les privilèges et devenir super utilisateur à l’aide de
 
 `sudo su -`
 
@@ -48,8 +48,8 @@ Portail Azure -> sélectionnez la machine virtuelle **de secours** -> **Disques*
 
 Renseignez les champs. Attribuez un nom à votre nouveau disque, sélectionnez le même groupe de ressources que l’instantané, la machine virtuelle concerné et la machine virtuelle de secours.
 
-Le **type de source** est **Instantané**.
-L’**Instantané source** est le nom de l’**instantané** précédemment créé.
+Le **type de source** est **Instantané** .
+L’ **Instantané source** est le nom de l’ **instantané** précédemment créé.
 
 ![créer le disque 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
@@ -71,11 +71,11 @@ Exécutez la commande **lsblk** pour voir les LVM de la machine virtuelle concer
 
 `lsblk`
 
-![Exécuter lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Capture d’écran montrant la sortie de la commande lsblk.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Vérifiez si les LVM de la machine virtuelle concernée s’affichent.
-Si ce n’est pas le cas, utilisez les commandes ci-dessous pour les activer et réexécutez **lsblk**.
+Si ce n’est pas le cas, utilisez les commandes ci-dessous pour les activer et réexécutez **lsblk** .
 Assurez-vous que les LVM du disque attaché sont visibles avant de continuer.
 
 ```
@@ -100,7 +100,7 @@ Procédez au montage de cet appareil sur le répertoire /rescue
 
 `mount /dev/rootvg/rootlv /rescue`
 
-Montez la partition qui a l’**indicateur de démarrage** défini sur /rescue/boot
+Montez la partition qui a l’ **indicateur de démarrage** défini sur /rescue/boot
 
 `
 mount /dev/sdc1 /rescue/boot
@@ -116,7 +116,7 @@ ou la commande **df -Th**
 
 ## <a name="gaining-chroot-access"></a>Obtention de l’accès chroot
 
-Obtenez l’accès **chroot**, ce qui vous permettra d’effectuer différents correctifs ; de légères variations existent pour chaque distribution Linux.
+Obtenez l’accès **chroot** , ce qui vous permettra d’effectuer différents correctifs ; de légères variations existent pour chaque distribution Linux.
 
 ```
  cd /rescue
@@ -138,7 +138,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 `
 
 > [!TIP]
-> Quand vous exécutez des commandes dans un environnement **chroot**, notez qu’elles sont exécutées sur le disque de système d’exploitation attaché, et non sur la machine virtuelle **de secours** locale. 
+> Quand vous exécutez des commandes dans un environnement **chroot** , notez qu’elles sont exécutées sur le disque de système d’exploitation attaché, et non sur la machine virtuelle **de secours** locale. 
 
 Les commandes peuvent être utilisées pour installer, supprimer et mettre à jour des logiciels. Détectez un problème sur les machines virtuelles afin de corriger les erreurs.
 
@@ -198,11 +198,11 @@ Quittez l’environnement **chroot** et montez le **volume logique** requis
 
 Tous les volumes logiques doivent être visibles en tant que partitions montées
 
-![Avancé](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Capture d’écran montrant les volumes logiques en tant que partitions montées.](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Interroger le **noyau** installé
 
-![Avancé](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Capture d’écran montrant comment interroger le noyau installé.](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Si nécessaire, supprimez ou mettez à niveau le **noyau**
 ![Avancé](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
@@ -213,7 +213,7 @@ Si l’accès à la console série Azure n’est pas possible, vérifiez les par
 
 ### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Exemple 4 : chargement du noyau avec un volume d’échange de LVM problématique
 
-Une machine virtuelle peut ne pas démarrer complètement et s’arrêter à l’invite **dracut**.
+Une machine virtuelle peut ne pas démarrer complètement et s’arrêter à l’invite **dracut** .
 Pour plus d’informations sur l’échec, accédez à la console série Azure ou accédez au portail Azure -> Diagnostics de démarrage -> Journal série
 
 

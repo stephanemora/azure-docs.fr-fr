@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/21/2020
-ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618486"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097573"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|320|640|1 280|1920|2560|
-|Taux de journalisation maximal (Mbits/s)|3.8|7.5|15|22,5|30|
+|Taux de journalisation maximal (Mbits/s)|4.5|9|18|27|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|
@@ -76,7 +76,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|3200|3840|4480|5120|
-|Taux de journalisation maximal (Mbits/s)|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|750|900|1050|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|
@@ -102,7 +102,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|12800|
-|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 350|1500|1800|2 400|3000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|
@@ -227,9 +227,9 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 
 #### <a name="notes"></a>Notes
 
-**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
+**Remarque 1**  : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Remarque 2** : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
+**Remarque 2**  : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
 de calcul local, qui met en cache la plupart des pages de données utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Usage général - calcul provisionné - Gen4
@@ -252,7 +252,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|320|640|960|1 280|1 600|1920|
-|Taux de journalisation maximal (Mbits/s)|3,75|7.5|11,25|15|18,75|22,5|
+|Taux de journalisation maximal (Mbits/s)|4.5|9|13,5|18|22,5|27|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -277,7 +277,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
 |Nombre maximal d’IOPS de données *|2240|2560|2880|3200|5120|7680|
-|Taux de journalisation maximal (Mbits/s)|26,3|30|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|31,5|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1800|2000|3200|4 800|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -304,7 +304,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|640|1 280|1920|2560|3200|3840|4480|
-|Taux de journalisation maximal (Mbits/s)|7.5|15|22,5|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|9|18|27|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -329,7 +329,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|5120|5760|6 400|7680|10240|12800|12800|
-|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|36|36|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -356,7 +356,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|2560|3200|3840|4480|5120|
-|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|400|500|600|700|800|
 |Nombre maximal de connexions simultanées|800|1 000|1200|1400|1 600|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
@@ -382,7 +382,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|11520|23040|
-|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|30|
+|Taux de journalisation maximal (Mbits/s)|36|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|900|1 000|1200|1 600|1800|3600|
 |Nombre maximal de connexions simultanées|1800|2000|2 400|3200|3600|7200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|

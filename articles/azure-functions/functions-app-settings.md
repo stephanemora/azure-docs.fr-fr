@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589298"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165762"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -23,7 +23,7 @@ Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functi
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING`. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md). 
+Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING`. Lorsque Application Insights s’exécute dans un cloud souverain, utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING`. Pour plus d’informations, consultez [Comment configurer la surveillance de Azure Functions](configure-monitoring.md). 
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -31,7 +31,12 @@ Clé d’instrumentation pour Application Insights. Utilisez `APPINSIGHTS_INSTRU
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Chaîne de connexion pour Application Insights. Utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING` au lieu de `APPINSIGHTS_INSTRUMENTATIONKEY` lorsque votre application de fonction requiert les personnalisations ajoutées prises en charge à l’aide de la chaîne de connexion. Pour plus d’informations, consultez [Chaînes de connexion](../azure-monitor/app/sdk-connection-string.md). 
+Chaîne de connexion pour Application Insights. Utilisez `APPLICATIONINSIGHTS_CONNECTION_STRING` au lieu de `APPINSIGHTS_INSTRUMENTATIONKEY` dans les cas suivants :
+
++ lorsque votre application de fonction requiert les personnalisations ajoutées prises en charge à l’aide de la chaîne de connexion. 
++ Lorsque votre instance d’Application Insights s’exécute dans un cloud souverain, qui requiert un point de terminaison personnalisé.
+
+Pour plus d’informations, consultez [Chaînes de connexion](../azure-monitor/app/sdk-connection-string.md). 
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -204,7 +209,7 @@ Pour en savoir plus, consultez [Dépendances personnalisées](functions-referenc
 
 _Ce paramètre est actuellement en préversion._  
 
-Ce paramètre contrôle la journalisation à partir du contrôleur d’échelle Azure Functions. Pour plus d’informations, consultez [Journaux du contrôleur d’échelle](functions-monitoring.md#scale-controller-logs-preview).
+Ce paramètre contrôle la journalisation à partir du contrôleur d’échelle Azure Functions. Pour plus d’informations, consultez [Journaux du contrôleur d’échelle](functions-monitoring.md#scale-controller-logs).
 
 |Clé|Exemple de valeur|
 |-|-|

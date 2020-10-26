@@ -1,5 +1,5 @@
 ---
-title: Créer une instance FCI avec des disques partagés Azure (préversion)
+title: Créer une instance FCI avec des disques partagés Azure
 description: Utiliser des disques partagés Azure pour créer une instance de cluster de basculement(FCI) avec SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272648"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168237"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 - Un abonnement Azure. Démarrer [gratuitement](https://azure.microsoft.com/free/). 
 - [Au moins deux machines virtuelles Windows Azure](failover-cluster-instance-prepare-vm.md). Les [groupes à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md) et les [groupes de placement de proximité](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG) sont tous pris en charge. Si vous utilisez un groupe PPG, tous les nœuds doivent exister dans le même groupe.
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
-- La dernière version de [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La dernière version de [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-azure-shared-disk"></a>Ajouter un disque partagé Azure
@@ -44,7 +44,7 @@ Déployez un disque SSD Premium managé avec la fonctionnalité de disque partag
 Ajoutez un disque partagé Azure en procédant comme suit : 
 
 
-1. Enregistrez le script suivant en tant que *SharedDiskConfig.json* : 
+1. Enregistrez le script suivant en tant que *SharedDiskConfig.json*  : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
 Pour valider le cluster à l’aide de l’interface utilisateur, procédez comme suit sur l’une des machines virtuelles :
 
-1. Sous **Gestionnaire de serveur**, sélectionnez **Outils**, puis **Gestionnaire du cluster de basculement**.
-1. Sous **Gestionnaire du cluster de basculement**, sélectionnez **Action**, puis **Valider la configuration**.
-1. Sélectionnez **Suivant**.
-1. Sous **Sélectionner des serveurs ou un cluster**, entrez le nom des deux machines virtuelles.
-1. Sous **Options de test**, sélectionnez **Exécuter uniquement les tests que je sélectionne**. 
-1. Sélectionnez **Suivant**.
-1. Sous **Sélection des tests**, sélectionnez tous les tests *à l’exception* **Stockage**
+1. Sous **Gestionnaire de serveur** , sélectionnez **Outils** , puis **Gestionnaire du cluster de basculement** .
+1. Sous **Gestionnaire du cluster de basculement** , sélectionnez **Action** , puis **Valider la configuration** .
+1. Sélectionnez **Suivant** .
+1. Sous **Sélectionner des serveurs ou un cluster** , entrez le nom des deux machines virtuelles.
+1. Sous **Options de test** , sélectionnez **Exécuter uniquement les tests que je sélectionne** . 
+1. Sélectionnez **Suivant** .
+1. Sous **Sélection des tests** , sélectionnez tous les tests *à l’exception* **Stockage**
 
 ## <a name="test-cluster-failover"></a>Tester le basculement de cluster
 
-Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
+Testez le basculement de votre cluster. Dans le **Gestionnaire du cluster de basculement** , cliquez avec le bouton droit sur votre cluster et sélectionnez **Autres actions** > **Déplacer une ressource de cluster principale** > **Sélectionner le nœud** et sélectionnez l’autre nœud du cluster. Déplacez la ressource de cluster principale vers chaque nœud du cluster, puis replacez-la sur le nœud principal. Si vous parvenez à déplacer le cluster vers chaque nœud, vous êtes prêt à installer SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testez le basculement du cluster en déplaçant la ressource principale sur les autres nœuds":::
 
@@ -171,15 +171,15 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 
 1. Se connecte au premier ordinateur virtuel à l’aide du protocole RDP (Remote Desktop Protocol).
 
-1. Dans le **Gestionnaire du cluster de basculement**, vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
+1. Dans le **Gestionnaire du cluster de basculement** , vérifiez que toutes les ressources principales du cluster se trouvent sur la première machine virtuelle. Si nécessaire, déplacez toutes les ressources vers cette machine virtuelle.
 
 1. Recherchez le support d’installation. Si la machine virtuelle utilise l’une des images Azure Marketplace, le support se situe sous `C:\SQLServer_<version number>_Full`. 
 
-1. Sélectionnez **Configuration**.
+1. Sélectionnez **Configuration** .
 
-1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation** .
 
-1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
+1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server** . Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
 Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur les disques partagés Azure. 
 
@@ -187,9 +187,9 @@ Les répertoires de données de l’instance de cluster de basculement doivent s
 
 1. Une fois que le programme d’installation a installé l’instance de cluster de basculement sur le premier nœud, connectez-vous au second nœud avec RDP.
 
-1. Dans le **Centre d’installation SQL Server**, sélectionnez **Installation**.
+1. Dans le **Centre d’installation SQL Server** , sélectionnez **Installation** .
 
-1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
+1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server** . Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
 
    >[!NOTE]
    >Si vous avez utilisé une image de la galerie de la Place de marché Azure avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé une de ces images, installez les outils de SQL Server séparément. Pour plus d’informations, consultez la page [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurer la connectivité 
 
-Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](hadr-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 CU2+ et Windows Server 2016 (ou version ultérieure), vous pouvez vous servir de la fonctionnalité en préversion de [nom de réseau distribué](hadr-distributed-network-name-dnn-configure.md). 
+Pour acheminer le trafic de manière appropriée vers le nœud principal actuel, configurez l’option de connectivité adaptée à votre environnement. Vous pouvez créer un [équilibreur de charge Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, si vous utilisez SQL Server 2019 CU2+ (ou version ultérieure) et Windows Server 2016 (ou version ultérieure), vous pouvez utiliser la fonctionnalité de [nom de réseau distribué](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 ## <a name="limitations"></a>Limites
 
@@ -221,12 +221,13 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne l’avez pas déjà fait, configurez la connectivité à votre instance FCI avec un [nom de réseau virtuel et un équilibrage de charge Azure](hadr-vnn-azure-load-balancer-configure.md) ou [le nom de réseau distribué (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Si vous ne l’avez pas déjà fait, configurez la connectivité à votre instance FCI avec un [nom de réseau virtuel et un équilibrage de charge Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou [le nom de réseau distribué (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Si les disques partagés Azure ne sont pas la solution de stockage FCI appropriée pour vous, envisagez de créer votre instance FCI à l’aide de [partages de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md) ou d’[espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) à la place. 
 
 Pour plus d’informations, consultez une présentation de [Instance FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [Meilleures pratiques de configuration de cluster](hadr-cluster-best-practices.md).
 
-Pour plus d’informations, consultez les pages suivantes : 
+Pour plus d'informations, consultez les pages suivantes : 
 - [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

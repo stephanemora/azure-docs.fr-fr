@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439844"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340599"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
 Les e-mails d’invitation sont un composant essentiel pour intégrer des partenaires comme utilisateurs de collaboration B2B dans Azure AD. Bien qu’il ne soit [pas obligatoire d’envoyer un e-mail pour inviter quelqu’un avec B2B Collaboration](add-user-without-invite.md), cela permet de donner à l’utilisateur toutes les informations dont il a besoin pour décider d’accepter ou non l’invitation. L’e-mail leur fournit également un lien qui pourra lui être utile lorsqu’il devra revenir consulter vos ressources.
 
 ![Capture d’écran montrant l’e-mail d’invitation B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Ce nouveau modèle d’e-mail étant toujours en cours de déploiement sur l’ensemble des locataires, certains d’entre eux utilisent encore une conception plus ancienne. À la fin du mois de mai 2020, les invitations de tous les locataires suivront ce modèle.
 
 ## <a name="explaining-the-email"></a>Explication de l’e-mail
 
@@ -52,17 +49,11 @@ L’e-mail commence par un bref avertissement sur l’hameçonnage, notifiant à
 
 ![Image de l’avertissement d’hameçonnage dans l’e-mail](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informations de l’inviteur
+### <a name="inviters-information-and-invitation-message"></a>Message d’informations et d’invitation de l’inviteur
 
-L’e-mail contient des informations sur l’inviteur et l’organisation à partir de laquelle il envoie l’invitation : nom et adresse e-mail de l’expéditeur, nom et domaine principal associés à l’organisation. Toutes ces informations doivent aider l’invité à prendre une décision informée concernant l’invitation.
+L’e-mail contient le nom et le domaine principal associés à l’organisation qui envoie l’invitation. Toutes ces informations doivent aider l’invité à prendre une décision informée concernant l’invitation. Si l’inviteur ajoute un message à l’invitation lorsqu’il [invite un utilisateur à l’annuaire, au groupe ou à l’application](add-users-administrator.md) ou lorsqu’il [utilise l’API d’invitation](customize-invitation-api.md), le message est mis en surbrillance dans la section principale de l’e-mail. Le nom et l’image de profil de l’inviteur sont également indiqué s’il les a définis. Le message lui-même est une zone de texte. Il ne traite donc pas les balises HTML pour des raisons de sécurité.
 
-![Image des informations de l’inviteur dans l’e-mail](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Message d’invitation
-
-Si l’inviteur ajoute un message à l’invitation lorsqu’il [invite un utilisateur à l’annuaire, au groupe ou à l’application](add-users-administrator.md) ou lorsqu’il [utilise l’API d’invitation](customize-invitation-api.md), le message est mis en surbrillance dans la section principale de l’e-mail. Le nom et l’image de profil de l’inviteur sont également indiqué s’il les a définis. Le message lui-même est une zone de texte. Il ne traite donc pas les balises HTML pour des raisons de sécurité.
-
-![Image du message d’invitation dans l’e-mail](media/invitation-email-elements/invitation-message.png)
+![Image du message d’invitation dans l’e-mail](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Bouton Accepter et URL de redirection
 
@@ -78,7 +69,7 @@ Le pied de page contient d’autres informations sur l’invitation envoyée. Il
 
 ### <a name="blocking-an-organization-unsubscribing"></a>Blocage d’une organisation (annulation d’abonnement)
 
-Dans l’invitation d’une organisation, le pied de page contient une option permettant de **bloquer les futures invitations**. Un utilisateur invité peut sélectionner ce lien pour bloquer les futures invitations de l’organisation. Cette action ajoute également l’organisation à la liste des utilisateurs désabonnés à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+Dans l’invitation d’une organisation, le pied de page contient une option permettant de **bloquer les futures invitations** . Un utilisateur invité peut sélectionner ce lien pour bloquer les futures invitations de l’organisation. Cette action ajoute également l’organisation à la liste des utilisateurs désabonnés à [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
 
 ### <a name="viewing-organizations-youve-blocked"></a>Affichage des organisations que vous avez bloquées
 
@@ -88,14 +79,14 @@ Un utilisateur invité peut suivre les étapes suivantes pour afficher ou export
 2. Entrez votre adresse e-mail et suivez les étapes de connexion pour l’authentification par code secret ponctuelle d’e-mail.
 3. Affichez les organisations que vous avez bloquées ou exportez les noms à l’aide d’une opérations de copier-coller.
    > [!NOTE]
-   > Si vous souhaitez autoriser une organisation que vous avez bloquée à vous inviter à nouveau, vous pouvez choisir l’organisation, puis sélectionner **Suivant**.
+   > Si vous souhaitez autoriser une organisation que vous avez bloquée à vous inviter à nouveau, vous pouvez choisir l’organisation, puis sélectionner **Suivant** .
 
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
 
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue.
 
 - Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
--   Propriété **preferredLanguage** spécifiée dans l'[objet utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) de l'invité
+-   Propriété **preferredLanguage** spécifiée dans l' [objet utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) de l'invité
 -   **Langue de notification** définie dans les propriétés du client de base de l'utilisateur invité (pour les clients Azure AD uniquement)
 -   **Langue de Notification** définie dans les propriétés du client de la ressource
 

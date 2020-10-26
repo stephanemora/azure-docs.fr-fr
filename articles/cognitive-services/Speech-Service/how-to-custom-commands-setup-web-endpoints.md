@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843122"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341955"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
@@ -54,14 +54,14 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
     > - Pour vous assurer que la valeur de l’en-tête est unique dans notre exemple de point de terminaison, prenez les 8 premiers chiffres de votre applicationId
     > - Dans le monde réel, le point de terminaison Web peut être le point de terminaison du [hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) qui gère vos appareils
 
-1. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer** .
 
 ## <a name="call-web-endpoints"></a>Appeler des points de terminaison Web
 
-1. Accédez à la commande **TurnOnOff**, sélectionnez **ConfirmationResponse** dans la règle d’exécution, puis **Add an action**.
-1. Sous **New Action-Type**, sélectionnez **Call web endpoint**
-1. Dans **Edit Action - Endpoints**, sélectionnez **UpdateDeviceState**, qui correspond au point de terminaison Web que nous avons créé.  
-1. Dans **Configuration**, entrez les valeurs suivantes : 
+1. Accédez à la commande **TurnOnOff** , sélectionnez **ConfirmationResponse** dans la règle d’exécution, puis **Add an action** .
+1. Sous **New Action-Type** , sélectionnez **Call web endpoint**
+1. Dans **Edit Action - Endpoints** , sélectionnez **UpdateDeviceState** , qui correspond au point de terminaison Web que nous avons créé.  
+1. Dans **Configuration** , entrez les valeurs suivantes : 
    > [!div class="mx-imgBorder"]
    > ![Appeler les paramètres d’action des points de terminaison Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -74,9 +74,9 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
     > [!NOTE]
     > - Les paramètres de la demande suggérés sont uniquement nécessaires pour l’exemple de point de terminaison
 
-1. Dans **On Success - Action to execute**, sélectionnez **Send speech response**.
+1. Dans **On Success - Action to execute** , sélectionnez **Send speech response** .
     
-    Dans **Éditeur simple**, entrez `{SubjectDevice} is {OnOff}`.
+    Dans **Éditeur simple** , entrez `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran montrant l’écran « On Success – Action to execute » (« Réussite – Action à effectuer »).](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
@@ -88,9 +88,9 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
    > [!NOTE]
    > - Vous pouvez également accéder directement aux champs de la réponse http en utilisant `{YourWebEndpointName.FieldName}`. Par exemple : `{UpdateDeviceState.TV}`
 
-1. Dans **On Failure - Action to execute**, sélectionnez **Send speech response**
+1. Dans **On Failure - Action to execute** , sélectionnez **Send speech response**
 
-    Dans **Éditeur simple**, entrez `Sorry, {WebEndpointErrorMessage}`.
+    Dans **Éditeur simple** , entrez `Sorry, {WebEndpointErrorMessage}`.
 
    > [!div class="mx-imgBorder"]
    > ![Action Appeler les points de terminaison Web en cas d’échec](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
@@ -115,13 +115,13 @@ Supprimer l’un des paramètres de la demande, enregistrer, effectuer un nouvel
 
 ## <a name="integrate-with-client-application"></a>Intégrer à l’application cliente
 
-Dans [Guide pratique : Envoyer l’activité à l’application cliente (préversion)](./how-to-custom-commands-send-activity-to-client.md), vous avez ajouté une action **Envoyer l’activité au client**. L’activité est envoyée à l’application cliente, que l’action **Appeler le point de terminaison Web** ait réussi ou non.
+Dans [Guide pratique : Envoyer l’activité à l’application cliente (préversion)](./how-to-custom-commands-send-activity-to-client.md), vous avez ajouté une action **Envoyer l’activité au client** . L’activité est envoyée à l’application cliente, que l’action **Appeler le point de terminaison Web** ait réussi ou non.
 Toutefois, dans la plupart des cas, vous souhaitez uniquement envoyer l’activité à l’application cliente lorsque l’appel au point de terminaison Web réussit. Cet exemple illustre un scénario où l’état de l’appareil est correctement mis à jour.
 
 1. Supprimez l’action **Envoyer l’activité au client** que vous avez ajoutée précédemment.
 1. Modifiez le point de terminaison Web de l’appel : 
-    1. Dans **Configuration**, vérifiez que le paramètre **Query Parameters** affiche `item={SubjectDevice}&&value={OnOff}`
-    1. Dans **On Success**, définissez **Action to execute** sur **Send activity to client**
+    1. Dans **Configuration** , vérifiez que le paramètre **Query Parameters** affiche `item={SubjectDevice}&&value={OnOff}`
+    1. Dans **On Success** , définissez **Action to execute** sur **Send activity to client**
     1. Copiez le fichier JSON ci-dessous dans **Contenu de l'activité**
    ```json
    {
@@ -149,7 +149,7 @@ Ajoutez le code XML suivant à `MainPage.xaml` au-dessus du bloc `"EnableMicroph
 
 ### <a name="sync-device-state"></a>Synchroniser l’état de l’appareil 
 
-Dans `MainPage.xaml.cs`, ajoutez la référence `using Windows.Web.Http;`. Ajoutez le code suivant à la classe `MainPage` . Cette méthode enverra une requête GET à l’exemple de point de terminaison, puis extraira l’état actuel de l’appareil pour votre application. Veillez à modifier `<your_app_name>` selon ce que vous avez utilisé dans l’**en-tête** du point de terminaison Web Commande personnalisée
+Dans `MainPage.xaml.cs`, ajoutez la référence `using Windows.Web.Http;`. Ajoutez le code suivant à la classe `MainPage` . Cette méthode enverra une requête GET à l’exemple de point de terminaison, puis extraira l’état actuel de l’appareil pour votre application. Veillez à modifier `<your_app_name>` selon ce que vous avez utilisé dans l’ **en-tête** du point de terminaison Web Commande personnalisée
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -206,4 +206,4 @@ Si vous avez testé l’application avec `turn on tv` dans la section précéden
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Activer un processus CI/CD pour votre application Commandes personnalisées](./how-to-custom-commands-deploy-cicd.md)
+> [Exporter une application Commandes personnalisées en tant que compétence distante](./how-to-custom-commands-integrate-remote-skills.md)

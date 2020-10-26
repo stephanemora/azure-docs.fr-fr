@@ -95,6 +95,8 @@
   items:
     - name: Gérer les comptes Maps
       items:
+        - name: Créer un compte avec un modèle ARM
+          href: how-to-create-template.md
         - name: Gérer les comptes
           href: how-to-manage-account-keys.md
         - name: Gérer l’authentification

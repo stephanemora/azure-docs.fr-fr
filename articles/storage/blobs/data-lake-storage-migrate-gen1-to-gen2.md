@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716145"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102640"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrer Azure Data Lake Storage de Gen1 vers Gen2
 
@@ -114,15 +114,15 @@ Choisissez un modèle de migration, puis modifiez le modèle en fonction des bes
 |||
 |---|---|
 |**Opération lift-and-shift**|Modèle le plus simple. Idéal si vos pipelines de données permettent des temps d’arrêt.|
-|**Copie incrémentielle**|Semblable au *lift-and-shift*, mais avec un temps d’arrêt moindre. Idéal pour les grandes quantités de données dont la copie prend plus de temps.|
+|**Copie incrémentielle**|Semblable au *lift-and-shift* , mais avec un temps d’arrêt moindre. Idéal pour les grandes quantités de données dont la copie prend plus de temps.|
 |**Double pipeline**|Idéal pour les pipelines qui ne peuvent pas se permettre de temps d’arrêt.|
-|**Synchronisation bidirectionnelle**|Semblable au *double pipeline*, mais avec une approche plus progressive, adaptée aux pipelines complexes.|
+|**Synchronisation bidirectionnelle**|Semblable au *double pipeline* , mais avec une approche plus progressive, adaptée aux pipelines complexes.|
 
 Examinons de plus près chacun de ces modèles.
  
 ### <a name="lift-and-shift-pattern"></a>Modèle lift-and-shift
 
-Il s’agit du modèle le plus simple.
+Il s’agit du modèle le plus simple. 
 
 1. Arrêtez toutes les écritures dans Gen1.
 
@@ -131,6 +131,8 @@ Il s’agit du modèle le plus simple.
 3. Faites pointer les opérations d’ingestion et les charges de travail vers Gen2.
 
 4. Désactivez Gen1.
+
+Consultez notre exemple de code pour le modèle lift-and-shift dans notre [exemple de migration lift-and-shift](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Modèle lift-and-shift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Il s’agit du modèle le plus simple.
 
 4. Désactivez Gen1.
 
+Consultez notre exemple de code pour le modèle de copie incrémentielle dans notre [exemple de migration de copie incrémentielle](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Modèle de copie incrémentielle](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Il s’agit du modèle le plus simple.
 
 4. Arrêtez toutes les écritures dans Gen1, puis désactivez Gen1.
 
+Consultez notre exemple de code pour le modèle de pipeline double dans notre [exemple de migration de pipeline double](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Modèle de pipeline double](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Il s’agit du modèle le plus simple.
 3. Lorsque tous les déplacements de données ont été effectués, arrêtez toutes les écritures dans Gen1, puis désactivez la réplication bidirectionnelle.
 
 4. Désactivez Gen1.
+
+Consultez notre exemple de code pour le modèle de synchronisation bidirectionnelle dans notre [exemple de migration de synchronisation bidirectionnelle](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Modèle de synchronisation bidirectionnelle](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

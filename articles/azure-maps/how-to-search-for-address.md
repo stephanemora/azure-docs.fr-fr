@@ -35,14 +35,14 @@ Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vo
 
 ## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Demander la latitude et la longitude d’une adresse (géocodage)
 
-Dans cet exemple, nous utilisons l’[API Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) d’Azure Maps pour convertir une adresse en coordonnées de latitude et de longitude. Ce processus est également appelé *géocodage*. En plus de retourner les coordonnées, la réponse retourne également des propriétés détaillées de l’adresse telles que la rue, le code postal, la commune et les informations relatives au pays ou à la région.
+Dans cet exemple, nous utilisons l’[API Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) d’Azure Maps pour convertir une adresse en coordonnées de latitude et de longitude. Ce processus est également appelé *géocodage* . En plus de retourner les coordonnées, la réponse retourne également des propriétés détaillées de l’adresse telles que la rue, le code postal, la commune et les informations relatives au pays ou à la région.
 
 >[!TIP]
 >Si vous avez un ensemble d’adresses à géocoder, vous pouvez utiliser l’[API Post Search Address Batch](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) pour envoyer un lot de requêtes en un seul appel d’API.
 
-1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer). Vous utiliserez ce regroupement pour le reste des exemples de ce document.
+1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection** .  Nommez la collection puis sélectionnez le bouton **Create** (Créer). Vous utiliserez ce regroupement pour le reste des exemples de ce document.
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer** .
 
 3. Sélectionnez la méthode HTTP **GET** sous l’onglet Générateur, puis entrez l’URL suivante. Dans cette requête, nous recherchons une adresse spécifique : `400 Braod St, Seattle, WA 98109`.
 
@@ -52,15 +52,15 @@ Dans cet exemple, nous utilisons l’[API Get Search Address](https://docs.micro
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-4. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les données d’un emplacement unique.
+4. Cliquez sur le bouton bleu **Envoyer** . Le corps de la réponse contient les données d’un emplacement unique.
 
-5. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params**, remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer**.
+5. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params** , remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer** .
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Rechercher une adresse":::
 
 6. Ensuite, essayez de définir la clé `query` sur `400 Broa`.
 
-7. Cliquez sur le bouton **Envoyer**.  Vous pouvez maintenant voir que la réponse comprend des réponses réparties dans plusieurs pays. Pour adapter des résultats en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement dans la requête.
+7. Cliquez sur le bouton **Envoyer** .  Vous pouvez maintenant voir que la réponse comprend des réponses réparties dans plusieurs pays. Pour adapter des résultats en fonction de la zone pertinente pour vos utilisateurs, ajoutez toujours un maximum de détails sur l’emplacement dans la requête.
 
 ## <a name="using-fuzzy-search-api"></a>Utilisation de l’API Recherche approximative
 
@@ -101,7 +101,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 
 5. Pour obtenir une recherche encore plus ciblée, vous pouvez effectuer une recherche dans l’étendue d’une paire de coordonnées latitude/longitude. Dans cet exemple, nous allons utiliser la latitude/longitude de la Space Needle de Seattle. Comme nous voulons uniquement retourner les résultats qui se trouvent dans un rayon de 400 mètres, nous allons ajouter le paramètre `radius`. Nous allons également ajouter le paramètre `limit` pour limiter les résultats aux cinq pizzerias les plus proches.
 
-    Dans la section **Params**, ajoutez les paires clé-valeur suivantes :
+    Dans la section **Params** , ajoutez les paires clé-valeur suivantes :
 
      | Clé | Valeur |
     |-----|------------|
@@ -110,7 +110,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
     | radius | 400 |
     | limit | 5|
 
-6. Cliquez sur **Envoyer**. La réponse comprend des résultats pour les pizzerias situées à proximité de la Space Needle de Seattle.
+6. Cliquez sur **Envoyer** . La réponse comprend des résultats pour les pizzerias situées à proximité de la Space Needle de Seattle.
 
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>Rechercher une adresse postale à l’aide d’une recherche d’adresse inverse
 
@@ -134,7 +134,7 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
 
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous devez voir un résultat de requête. La réponse inclut des informations d’adresse clés sur Safeco Field.
   
-4. À présent, nous allons ajouter les paires clé-valeur suivantes à la section **Params** :
+4. À présent, nous allons ajouter les paires clé-valeur suivantes à la section **Params**  :
 
     | Clé | Valeur | Retours
     |-----|------------|------|
@@ -151,7 +151,7 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Rechercher une adresse":::
 
-7. Cliquez sur **Envoyer**. Comparez les résultats à ceux retournés à l’étape 5.  Étant donné que le type d’entité demandé est désormais `municipality`, la réponse n’inclut pas d’informations sur l’adresse. En outre, la valeur `geometryId` retournée peut être utilisée pour demander un polygone de délimitation par le biais de l’[API Get Search Polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) d’Azure Maps.
+7. Cliquez sur **Envoyer** . Comparez les résultats à ceux retournés à l’étape 5.  Étant donné que le type d’entité demandé est désormais `municipality`, la réponse n’inclut pas d’informations sur l’adresse. En outre, la valeur `geometryId` retournée peut être utilisée pour demander un polygone de délimitation par le biais de l’[API Get Search Polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon) d’Azure Maps.
 
 >[!TIP]
 >Pour obtenir plus d’informations sur ces paramètres, ainsi que pour en connaître d’autres, consultez la section [Paramètres de recherche inversée](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).

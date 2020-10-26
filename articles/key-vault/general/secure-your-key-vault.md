@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019883"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309934"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur Key Vault, consultez [À propos d’Azure Key Vau
 
 ## <a name="access-model-overview"></a>Vue d’ensemble du modèle d’accès
 
-L’accès à un coffre de clés est contrôlé par le biais de deux interfaces : le **plan de gestion** et le **plan de données**. Le plan de gestion vous permet de gérer le coffre de clés. Dans ce plan, vous pouvez notamment créer et supprimer des coffres de clés, récupérer des propriétés Key Vault et mettre à jour des stratégies d’accès. Le plan de données vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
+L’accès à un coffre de clés est contrôlé par le biais de deux interfaces : le **plan de gestion** et le **plan de données** . Le plan de gestion vous permet de gérer le coffre de clés. Dans ce plan, vous pouvez notamment créer et supprimer des coffres de clés, récupérer des propriétés Key Vault et mettre à jour des stratégies d’accès. Le plan de données vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
 
 Les deux plans utilisent [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) et le plan de données utilise une [stratégie d’accès Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) et [Azure RBAC pour les opérations du plan de données Key Vault (préversion)](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 
@@ -36,7 +36,7 @@ Un principal de sécurité est un objet qui représente un utilisateur, un group
 
 * Un principal de sécurité **groupe** identifie un ensemble d’utilisateurs créés dans Azure Active Directory. Tous les rôles et autorisations attribués au groupe sont accordés à tous les utilisateurs du groupe.
 
-* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client**, lui sert de nom d’utilisateur. La **clé secrète client** ou le **certificat** du principal de service fonctionne comme un mot de passe. De nombreux services Azure prennent en charge l’attribution de l’[identité managée](/azure/active-directory/managed-identities-azure-resources/overview) avec la gestion automatisée de l’**ID client** et du **certificat**. L’identité managée est l’option la plus sécurisée et recommandée pour l’authentification dans Azure.
+* Un **principal de service** est un type de principal de sécurité qui identifie une application ou un service, c’est-à-dire un morceau de code plutôt qu’un utilisateur ou un groupe. L’ID d’objet d’un principal de service, appelé **ID client** , lui sert de nom d’utilisateur. La **clé secrète client** ou le **certificat** du principal de service fonctionne comme un mot de passe. De nombreux services Azure prennent en charge l’attribution de l’ [identité managée](/azure/active-directory/managed-identities-azure-resources/overview) avec la gestion automatisée de l’ **ID client** et du **certificat** . L’identité managée est l’option la plus sécurisée et recommandée pour l’authentification dans Azure.
 
 Pour plus d’informations sur l’authentification pour Key Vault, consultez [S’authentifier auprès d’Azure Key Vault](authentication.md)
 
@@ -44,8 +44,8 @@ Pour plus d’informations sur l’authentification pour Key Vault, consultez [S
 
 Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de l’abonnement. Tous les appelants dans les deux plans doivent s’inscrire auprès de ce locataire et s’authentifier pour accéder au coffre de clés. Dans les deux cas, les applications peuvent accéder au coffre de clés de trois manières :
 
-- **Application uniquement** : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
-- **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
+- **Application uniquement**  : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
+- **Utilisateur uniquement**  : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
 - **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC (préversion).
 
 Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
@@ -73,9 +73,9 @@ Dans le plan de gestion, vous utilisez le [contrôle d’accès en fonction du r
 
 Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles Azure appropriés. Pour accorder un accès à un utilisateur pour gérer des coffres de clés, vous attribuez un rôle [Contributeur Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle Azure :
 
-- **Abonnement**: Un rôle Azure attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
-- **Groupe de ressources** : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
-- **Ressource spécifique** : Un rôle Azure attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
+- **Abonnement** : Un rôle Azure attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
+- **Groupe de ressources**  : Un rôle Azure attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
+- **Ressource spécifique**  : Un rôle Azure attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
 
 Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). 
 
@@ -130,19 +130,19 @@ Pour plus d’informations sur le pare-feu et les réseaux virtuels Key Vault, c
 
 ## <a name="private-endpoint-connection"></a>Connexion de point de terminaison privé
 
-Si vous avez besoin de bloquer complètement l’exposition du coffre de clés au public, vous pouvez utiliser un point de terminaison privé Azure. Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à un service basé sur la technologie Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
+Si vous avez besoin de bloquer complètement l’exposition du Key Vault au public, vous pouvez utiliser un [point de terminaison privé Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à un service basé sur la technologie Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
 Scénarios courants d’utilisation d’une liaison privée pour les services Azure :
 
-- **Accès en privé aux services sur la plateforme Azure** : Connectez votre réseau virtuel à des services dans Azure sans adresse IP publique au niveau de la source ou de la destination. Les fournisseurs de services peuvent afficher leurs services dans leur propre réseau virtuel et les consommateurs peuvent accéder à ces services dans leur réseau virtuel local. La plateforme Liaison privée gère la connectivité entre le consommateur et les services sur le réseau principal Azure. 
+- **Accès en privé aux services sur la plateforme Azure**  : Connectez votre réseau virtuel à des services dans Azure sans adresse IP publique au niveau de la source ou de la destination. Les fournisseurs de services peuvent afficher leurs services dans leur propre réseau virtuel et les consommateurs peuvent accéder à ces services dans leur réseau virtuel local. La plateforme Liaison privée gère la connectivité entre le consommateur et les services sur le réseau principal Azure. 
  
-- **Réseaux locaux et appairés** : Accédez aux services s’exécutant dans Azure en local par le biais du peering privé ExpressRoute, de tunnels VPN et de réseaux virtuels appairés à l’aide de points de terminaison privés. Il n’est pas nécessaire de configurer le peering public ni de transiter par Internet pour atteindre le service. Private Link offre un moyen sécurisé de migrer des charges de travail vers Azure.
+- **Réseaux locaux et appairés**  : Accédez aux services s’exécutant dans Azure en local par le biais du peering privé ExpressRoute, de tunnels VPN et de réseaux virtuels appairés à l’aide de points de terminaison privés. Il n’est pas nécessaire de configurer le peering public ni de transiter par Internet pour atteindre le service. Private Link offre un moyen sécurisé de migrer des charges de travail vers Azure.
  
-- **Protection contre la fuite de données** : Un point de terminaison privé est mappé à une instance d’une ressource PaaS plutôt qu’au service entier. Les consommateurs peuvent se connecter uniquement à la ressource spécifique. L’accès à toute autre ressource du service est bloqué. Ce mécanisme offre une protection contre les risques de fuite de données. 
+- **Protection contre la fuite de données**  : Un point de terminaison privé est mappé à une instance d’une ressource PaaS plutôt qu’au service entier. Les consommateurs peuvent se connecter uniquement à la ressource spécifique. L’accès à toute autre ressource du service est bloqué. Ce mécanisme offre une protection contre les risques de fuite de données. 
  
-- **Global Reach** : Connectez-vous en privé à des services s’exécutant dans d’autres régions. Le réseau virtuel du consommateur peut se trouver dans la région A et se connecter aux services qui se trouvent derrière Private Link dans la région B.  
+- **Global Reach**  : Connectez-vous en privé à des services s’exécutant dans d’autres régions. Le réseau virtuel du consommateur peut se trouver dans la région A et se connecter aux services qui se trouvent derrière Private Link dans la région B.  
  
-- **Extension à vos propres services** : Activez les mêmes expériences et fonctionnalités pour afficher votre service en privé aux consommateurs dans Azure. En plaçant votre service derrière une instance Azure Load Balancer standard, vous pouvez l’activer pour Private Link. Le consommateur peut alors se connecter directement à votre service à l’aide d’un point de terminaison privé dans son propre réseau virtuel. Vous pouvez gérer les demandes de connexion à l’aide d’un flux d’appels d’approbation. Azure Private Link fonctionne pour les consommateurs et services appartenant à différents locataires Azure Active Directory. 
+- **Extension à vos propres services**  : Activez les mêmes expériences et fonctionnalités pour afficher votre service en privé aux consommateurs dans Azure. En plaçant votre service derrière une instance Azure Load Balancer standard, vous pouvez l’activer pour Private Link. Le consommateur peut alors se connecter directement à votre service à l’aide d’un point de terminaison privé dans son propre réseau virtuel. Vous pouvez gérer les demandes de connexion à l’aide d’un flux d’appels d’approbation. Azure Private Link fonctionne pour les consommateurs et services appartenant à différents locataires Azure Active Directory. 
 
 Pour plus d’informations sur les points de terminaison privés, consultez [Key Vault avec Azure Private Link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
 
@@ -151,15 +151,15 @@ Pour plus d’informations sur les points de terminaison privés, consultez [Key
 Dans cet exemple, nous développons une application qui utilise un certificat pour TLS/SSL, Stockage Azure pour stocker les données et une clé RSA 2 048 bits pour chiffrer les données dans Stockage Azure. Notre application s’exécute dans une machine virtuelle Azure (ou un groupe de machines virtuelles identiques). Nous pouvons utiliser un coffre de clés pour stocker les secrets de l’application. Nous pouvons stocker le certificat de démarrage utilisé par l’application pour s’authentifier auprès d’Azure AD.
 
 Nous avons besoin d’accéder aux clés et aux secrets stockés suivants :
-- **Certificat TLS/SSL** : Utilisé pour TLS/SSL.
-- **Clé de stockage** : utilisée pour accéder au compte de stockage.
-- **Clé RSA 2 048 bits** : utilisée pour la clé de chiffrement de données wrap/unwrap par Stockage Azure.
-- **Identité managée d’application** : utilisé pour s’authentifier auprès d’Azure AD. Une fois l’accès au coffre de clés accordé, l’application peut récupérer la clé de stockage et le certificat.
+- **Certificat TLS/SSL**  : Utilisé pour TLS/SSL.
+- **Clé de stockage**  : utilisée pour accéder au compte de stockage.
+- **Clé RSA 2 048 bits**  : utilisée pour la clé de chiffrement de données wrap/unwrap par Stockage Azure.
+- **Identité managée d’application**  : utilisé pour s’authentifier auprès d’Azure AD. Une fois l’accès au coffre de clés accordé, l’application peut récupérer la clé de stockage et le certificat.
 
 Nous devons définir les rôles suivants pour spécifier qui peut gérer, déployer et auditer notre application :
-- **Équipe de sécurité** : personnel informatique du bureau du chef de la sécurité ou contributeurs équivalents. L’équipe de sécurité est chargée de protéger les secrets. Les secrets peuvent inclure des certificats TLS/SSL, des clés RSA pour le chiffrement, des chaînes de connexion et des clés de compte de stockage.
-- **Développeurs et opérateurs** : équipe qui développe l’application et la déploie dans Azure. Les membres de cette équipe ne font pas partie de l’équipe de sécurité. Ils ne doivent pas avoir accès aux données sensibles, notamment les certificats TLS/SSL et les clés RSA. Seule l’application qu’ils déploient doit avoir accès à ces données sensibles.
-- **Auditeurs** : ce rôle s’applique aux contributeurs qui ne sont pas membres de l’équipe de développement ou du personnel informatique général. Ils passent en revue l’utilisation et la maintenance des certificats, clés et secrets pour assurer la conformité aux normes de sécurité.
+- **Équipe de sécurité**  : personnel informatique du bureau du chef de la sécurité ou contributeurs équivalents. L’équipe de sécurité est chargée de protéger les secrets. Les secrets peuvent inclure des certificats TLS/SSL, des clés RSA pour le chiffrement, des chaînes de connexion et des clés de compte de stockage.
+- **Développeurs et opérateurs**  : équipe qui développe l’application et la déploie dans Azure. Les membres de cette équipe ne font pas partie de l’équipe de sécurité. Ils ne doivent pas avoir accès aux données sensibles, notamment les certificats TLS/SSL et les clés RSA. Seule l’application qu’ils déploient doit avoir accès à ces données sensibles.
+- **Auditeurs**  : ce rôle s’applique aux contributeurs qui ne sont pas membres de l’équipe de développement ou du personnel informatique général. Ils passent en revue l’utilisation et la maintenance des certificats, clés et secrets pour assurer la conformité aux normes de sécurité.
 
 Il existe un autre rôle qui dépasse le cadre de notre application : l’administrateur d’abonnement (ou groupe de ressources). L’administrateur d’abonnement configure les autorisations d’accès initiales pour l’équipe de sécurité. Il accorde l’accès à l’équipe de sécurité à l’aide d’un groupe de ressources comprenant les ressources requises par l’application.
 
@@ -185,8 +185,8 @@ Le tableau suivant récapitule les autorisations d’accès pour nos rôles et n
 | Role | Autorisations de plan de gestion | Autorisations du plan de données - Stratégies d’accès au coffre | Autorisations du plan de données - Azure RBAC (préversion)  |
 | --- | --- | --- | --- |
 | Équipe de sécurité | [Contributeur Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | [Administrateur Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
-| Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque** : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None | None |
-| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur Key Vault (préversion)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque**  : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None | None |
+| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque**  : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur Key Vault (préversion)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
 | Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Service de chiffrement de Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
 | Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | [Lecteur Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Utilisateur secret Key Vault (préversion)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
@@ -199,11 +199,11 @@ Notre exemple décrit un scénario simple. Les scénarios réels peuvent être p
 
 ## <a name="resources"></a>Ressources
 
-[À propos d’Azure Key Vault](overview.md)
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-[Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
-[Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-[Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [À propos d’Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Liaison privée](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

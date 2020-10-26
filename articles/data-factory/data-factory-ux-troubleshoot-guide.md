@@ -42,11 +42,11 @@ L’expérience utilisateur ADF utilise des cookies de navigateurs pour conserve
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Autoriser uniquement l’expérience utilisateur ADF à utiliser des cookies
 Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser que l’expérience utilisateur ADF :
-1. Visitez **chrome://settings/cookies**.
+1. Visitez **chrome://settings/cookies** .
 1. Sélectionner **ajouter** sous l’option **Sites qui peuvent toujours utiliser des cookies** 
 
     ![Ajouter l’expérience utilisateur ADF aux sites autorisés dans Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
-1. Ajoutez le site **adf.azure.com**, cochez l’option **tous les cookies**, puis enregistrez. 
+1. Ajoutez le site **adf.azure.com** , cochez l’option **tous les cookies** , puis enregistrez. 
 
     ![Autoriser tous les cookies du site d’expérience utilisateur ADF](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
 1. Actualisez l’expérience utilisateur ADF, puis réessayez.
@@ -63,25 +63,25 @@ Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser q
 
 Si vous ne souhaitez pas autoriser tous les cookies, vous pouvez n’autoriser que l’expérience utilisateur ADF :
 
-1. Visitez **edge://settings/content/cookies**.
-1. Sous la section **Autoriser**, sélectionnez **Ajouter**, puis ajoutez le site **adf.azure.com**. 
+1. Visitez **edge://settings/content/cookies** .
+1. Sous la section **Autoriser** , sélectionnez **Ajouter** , puis ajoutez le site **adf.azure.com** . 
 
     ![Ajouter l’expérience utilisateur ADF aux sites autorisés dans Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
 1. Actualisez l’expérience utilisateur ADF, puis réessayez.
 
 ## <a name="connection-failed-on-adf-ux"></a>Échec de la connexion dans l’expérience utilisateur ADF
 
-Parfois, dans l’expérience utilisateur ADF, vous pouvez voir des erreurs « Échec de la connexion » similaires à la capture d’écran ci-dessous après avoir cliqué sur **Tester la connexion**, **Aperçu**, etc.
+Parfois, dans l’expérience utilisateur ADF, vous pouvez voir des erreurs « Échec de la connexion » similaires à la capture d’écran ci-dessous après avoir cliqué sur **Tester la connexion** , **Aperçu** , etc.
 
 ![Échec de la connexion](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 Dans ce cas, vous pouvez d’abord essayer la même opération avec le mode de navigation InPrivate dans votre navigateur.
 
-Si cela ne fonctionne toujours pas, dans le navigateur, appuyez sur F12 pour ouvrir **Outils de développement**. Accédez à l’onglet **Réseau**, cochez **Désactiver le cache**, recommencez l’opération qui a échoué et recherchez la requête ayant échoué (en rouge).
+Si cela ne fonctionne toujours pas, dans le navigateur, appuyez sur F12 pour ouvrir **Outils de développement** . Accédez à l’onglet **Réseau** , cochez **Désactiver le cache** , recommencez l’opération qui a échoué et recherchez la requête ayant échoué (en rouge).
 
 ![Requête ayant échoué](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Recherchez ensuite le **nom d’hôte** (dans ce cas, **dpnortheurope.svc.datafactory.azure.com**) à partir de **l’URL de requête** de la requête ayant échoué.
+Recherchez ensuite le **nom d’hôte** (dans ce cas, **dpnortheurope.svc.datafactory.azure.com** ) à partir de **l’URL de requête** de la requête ayant échoué.
 
 Tapez le **nom d’hôte** directement dans la barre d’adresses de votre navigateur. Si la mention 404 s’affiche dans le navigateur, cela signifie généralement que tout est correct côté client et que le problème se trouve au niveau du service ADF. Envoyez une demande de ticket de support avec **l’ID d’activité** provenant du message d’erreur dans l’expérience utilisateur ADF.
 
@@ -91,7 +91,7 @@ Si vous voyez une erreur similaire à celle ci-dessous dans le navigateur, cela 
 
 ![Erreur côté client](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Ouvrez **l’invite de commandes** et tapez **nslookup dpnortheurope.svc.datafactory.azure.com**. Une réponse normale doit ressembler à ce qui suit :
+Ouvrez **l’invite de commandes** et tapez **nslookup dpnortheurope.svc.datafactory.azure.com** . Une réponse normale doit ressembler à ce qui suit :
 
 ![Réponse de la commande 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 

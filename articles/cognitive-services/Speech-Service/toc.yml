@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: Transcription de conversation
           items:
-            - name: Vue d’ensemble
-              items:
-                - name: "Qu’est-ce que la transcription de conversation\_?"
-                  href: conversation-transcription.md
+            - name: Vue d’ensemble de la transcription de conversation
+              href: conversation-transcription.md
+            - name: Démarrage rapide sur la transcription de conversation en temps réel
+              href: how-to-use-conversation-transcription.md
             - name: Guides pratiques
               items:
                 - name: Gérer les scénarios de centre d’appels
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: Transcription de conversation en temps réel
-                  href: how-to-use-conversation-transcription.md
                 - name: Transcription de conversation asynchrone
                   href: how-to-async-conversation-transcription.md
             - name: Informations de référence
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: Conversation multi-appareil
           items:
-            - name: Vue d’ensemble
-              items:
-                - name: "Qu’est-ce qu’une conversation multi-appareil\_?"
-                  href: multi-device-conversation.md
-            - name: Démarrage rapide
-              items:
-                - name: Démarrer et rejoindre une conversation
-                  href: quickstarts/multi-device-conversation.md
+            - name: Vue d’ensemble de la conversation multi-appareil
+              href: multi-device-conversation.md
+            - name: Démarrage rapide sur la conversation multi-appareil
+              href: quickstarts/multi-device-conversation.md
             - name: Informations de référence
               items:
                 - name: Kit de développement logiciel (SDK) de reconnaissance vocale
@@ -363,12 +357,8 @@
       items:
         - name: Documentation sur les assistants vocaux
           href: index-voice-assistants.yml
-        - name: Vue d’ensemble
-          items:
-            - name: "Qu’est-ce qu’un Assistant vocal\_?"
-              href: voice-assistants.md
-            - name: Exemples d’assistant vocal (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Vue d’ensemble des assistants vocaux
+          href: voice-assistants.md
         - name: Commandes personnalisées
           items:
             - name: Présentation des commandes personnalisées

@@ -68,7 +68,7 @@ Pour vois comment cela fonctionne, découvrez comment l’analyse du comportemen
 
 ## <a name="entity-pages"></a>Pages d’entité
 
-Lorsque vous rencontrez une entité (les entités sont actuellement limitées à des utilisateurs et des hôtes) dans une recherche, une alerte ou une investigation, vous pouvez sélectionner l’entité et être redirigé vers une **page d’entité**, à savoir une feuille de données remplie d’informations utiles sur cette entité. Les types d’informations que contient cette page incluent des faits de base sur l’entité, une chronologie d’événements notables liés à cette entité, ainsi que des insights sur le comportement de l’entité.
+Lorsque vous rencontrez une entité (les entités sont actuellement limitées à des utilisateurs et des hôtes) dans une recherche, une alerte ou une investigation, vous pouvez sélectionner l’entité et être redirigé vers une **page d’entité** , à savoir une feuille de données remplie d’informations utiles sur cette entité. Les types d’informations que contient cette page incluent des faits de base sur l’entité, une chronologie d’événements notables liés à cette entité, ainsi que des insights sur le comportement de l’entité.
  
 Les pages d’entité se composent de trois parties :
 - Le volet gauche contient les informations d’identification de l’entité, collectées à partir de sources de données telles qu’Azure Active Directory, Azure Monitor, Azure Security Center et Microsoft Defender.
@@ -83,11 +83,11 @@ Les pages d’entité se composent de trois parties :
 
 La chronologie est une partie majeure de la contribution de la page d’entité à l’analyse du comportement dans Azure Sentinel. Elle présente l’historique des événements liés à l’entité, qui vous aide à comprendre l’activité de celle-ci dans un délai d’exécution spécifique.
 
-Vous pouvez choisir le **délai d’exécution** parmi plusieurs options prédéfinies (par exemple, *dernières 24 heures*), ou définir un délai d’exécution personnalisé. En outre, vous pouvez définir des filtres qui limitent les informations de la chronologie à des types spécifiques d’événements ou d’alertes.
+Vous pouvez choisir le **délai d’exécution** parmi plusieurs options prédéfinies (par exemple, *dernières 24 heures* ), ou définir un délai d’exécution personnalisé. En outre, vous pouvez définir des filtres qui limitent les informations de la chronologie à des types spécifiques d’événements ou d’alertes.
 
 Les types d’éléments suivants sont inclus dans la chronologie :
 
-- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’**entité mappée**. Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./tutorial-detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
+- Alertes – toute alerte dans laquelle l’entité est définie en tant qu’ **entité mappée** . Notez que, si votre organisation a créé des [alertes personnalisées utilisant des règles d’analyse](./tutorial-detect-threats-custom.md), vous devez vous assurer que le mappage d’entité des règles est correctement effectué.
 
 - Signets – signets incluant l’entité affichée sur la page.
 
@@ -154,7 +154,7 @@ BehaviorAnalytics
 
 Les métadonnées de pairs de l’utilisateur fournissent un contexte important pour les détections de menaces, l’investigation sur un incident et la chasse de menace potentielle. Les analystes de la sécurité peuvent observer les activités normales des pairs d’un utilisateur pour déterminer si les activités de l’utilisateur sont inhabituelles par rapport à celles de ses pairs.
 
-Azure Sentinel calcule et classe les pairs d’un utilisateur sur la base de l’appartenance à un groupe de sécurité Azure AD, de la liste de diffusion, etc. de l’utilisateur, et stocke les pairs classés de 1 à 20 dans la table **UserPeerAnalytics**. La capture d’écran ci-dessous montre le schéma de la table UserPeerAnalytics, avec les huit premiers pairs classés de l’utilisateur Kendall Collins. Azure Sentinel utilise l’algorithme *TF-IDF (Term Frequency-Inverse Document Frequency, fréquence de terme-fréquence inverse dans le document)* afin de normaliser la pondération pour le calcul du classement : plus le groupe est petit, plus le poids est élevé. 
+Azure Sentinel calcule et classe les pairs d’un utilisateur sur la base de l’appartenance à un groupe de sécurité Azure AD, de la liste de diffusion, etc. de l’utilisateur, et stocke les pairs classés de 1 à 20 dans la table **UserPeerAnalytics** . La capture d’écran ci-dessous montre le schéma de la table UserPeerAnalytics, avec les huit premiers pairs classés de l’utilisateur Kendall Collins. Azure Sentinel utilise l’algorithme *TF-IDF (Term Frequency-Inverse Document Frequency, fréquence de terme-fréquence inverse dans le document)* afin de normaliser la pondération pour le calcul du classement : plus le groupe est petit, plus le poids est élevé. 
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Architecture d’analyse du comportement des entités":::
 
@@ -164,7 +164,7 @@ Vous pouvez utiliser le [bloc-notes Jupyter](https://github.com/Azure/Azure-Sent
 
 L’analyse d’autorisation permet de déterminer l’impact potentiel de la compromission d’une ressource d’organisation par un attaquant. Cet impact est également appelé « rayon d’impact » de la ressource. Les analystes de la sécurité peuvent utiliser ces informations pour hiérarchiser les investigations et la gestion des incidents.
 
-Azure Sentinel détermine les droits d’accès direct et transitif aux ressources Azure détenus par un utilisateur donné, en évaluant les abonnements Azure auxquels l’utilisateur peut accéder directement ou via des groupes ou des principaux de service. Ces informations, ainsi que la liste complète d’appartenance de groupe de sécurité Azure AD de l’utilisateur, sont ensuite stockées dans la table **UserAccessAnalytics**. La capture d’écran ci-dessous montre un exemple de ligne dans la table UserAccessAnalytics pour l’utilisateur Alex Johnson. L’**entité source** est le compte d’utilisateur ou de principal de service, et l’**entité cible** est la ressource à laquelle l’entité source a accès. Les valeurs de **niveau d’accès** et de **type d’accès** dépendent du modèle de contrôle d’accès de l’entité cible. Vous pouvez voir qu’Alex dispose d’un accès contributeur à l’abonnement Azure du *Locataire Contoso Hotels*. Le modèle de contrôle d’accès de l’abonnement est RBAC.   
+Azure Sentinel détermine les droits d’accès direct et transitif aux ressources Azure détenus par un utilisateur donné, en évaluant les abonnements Azure auxquels l’utilisateur peut accéder directement ou via des groupes ou des principaux de service. Ces informations, ainsi que la liste complète d’appartenance de groupe de sécurité Azure AD de l’utilisateur, sont ensuite stockées dans la table **UserAccessAnalytics** . La capture d’écran ci-dessous montre un exemple de ligne dans la table UserAccessAnalytics pour l’utilisateur Alex Johnson. L’ **entité source** est le compte d’utilisateur ou de principal de service, et l’ **entité cible** est la ressource à laquelle l’entité source a accès. Les valeurs de **niveau d’accès** et de **type d’accès** dépendent du modèle de contrôle d’accès de l’entité cible. Vous pouvez voir qu’Alex dispose d’un accès contributeur à l’abonnement Azure du *Locataire Contoso Hotels* . Le modèle de contrôle d’accès de l’abonnement est RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Architecture d’analyse du comportement des entités":::
 
