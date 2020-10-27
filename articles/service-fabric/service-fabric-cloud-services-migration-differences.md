@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091166"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Découvrez les différences entre les services cloud et Service Fabric avant de migrer les applications.
 Microsoft Azure Service Fabric est la plateforme d’applications cloud nouvelle génération pour les applications distribuées hautement évolutives et fiables. Elle introduit de nombreuses nouvelles fonctionnalités d’empaquetage, de déploiement, de mise à niveau et de gestion des applications cloud distribuées. 
@@ -69,7 +69,7 @@ Avec la communication directe, les niveaux peuvent communiquer directement par l
 
 Service Fabric fournit un mécanisme de découverte de service, appelé service d’affectation de noms, qui peut être utilisé pour résoudre les adresses de point de terminaison des services. 
 
-![Communication directe Service Fabric][6]
+![Diagramme qui montre comment Service Fabric fournit un mécanisme de découverte de service, appelé service d’affectation de noms, qui peut être utilisé pour résoudre les adresses de point de terminaison des services.][6]
 
 ### <a name="queues"></a>Files d’attente
 Pour communiquer entre les niveaux dans des environnements sans état tels que les services cloud, il est courant d’utiliser une file d’attente de stockage externe pour enregistrer durablement les tâches de travail d’un niveau à l’autre. Il est fréquent qu’un niveau web envoie les travaux à un Service Bus ou à une file d’attente Azure où les instances de rôle de travail peuvent enlever les travaux de la file d’attente et les traiter.

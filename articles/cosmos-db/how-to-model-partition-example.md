@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818102"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277982"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret
 
@@ -22,7 +22,7 @@ Si vous travaillez habituellement avec des bases de données relationnelles, vou
 
 ## <a name="the-scenario"></a>Scénario
 
-Pour cet exercice, nous allons prendre en compte le domaine d’une plateforme de création de blogs où des *utilisateurs* peuvent créer des *publications*. Les utilisateurs peuvent également ajouter des mentions *j’aime* et des *commentaires* à ces publications.
+Pour cet exercice, nous allons prendre en compte le domaine d’une plateforme de création de blogs où des *utilisateurs* peuvent créer des *publications* . Les utilisateurs peuvent également ajouter des mentions *j’aime* et des *commentaires* à ces publications.
 
 > [!TIP]
 > Nous avons mis en *italique* certains mots pour identifier les types de « choses » que notre modèle devra manipuler.
@@ -327,7 +327,7 @@ Cette procédure stockée accepte l’ID de la publication et le corps du nouvea
 - remplace la publication
 - ajoute le nouveau commentaire
 
-Comme les procédures stockées sont exécutées en tant que transactions atomiques, il est garanti que la valeur de `commentCount` et le nombre réel de commentaires seront toujours synchronisés.
+Comme les procédures stockées sont exécutées en tant que transactions atomiques, la valeur de `commentCount` et le nombre réel de commentaires seront toujours synchronisés.
 
 Bien entendu, nous appelons une procédure stockée similaire lors de l’ajout de nouvelles mentions « j’aime » pour incrémenter `likeCount`.
 
@@ -586,6 +586,6 @@ Le flux de modification que nous utilisons pour distribuer des mises à jour aux
 
 Après cette introduction à la modélisation et au partitionnement des données pratiques, vous pouvez consulter les articles suivants pour passer en revue les concepts que nous avons abordés :
 
-- [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md)
+- [Utiliser des bases de données, des conteneurs et des éléments](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionnement dans Azure Cosmos DB)
 - [Flux de modification dans Azure Cosmos DB](change-feed.md)

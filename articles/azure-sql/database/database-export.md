@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443795"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328187"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exporter vers un fichier BACPAC - Azure SQL Database et SQL Managed Instance
 
@@ -48,15 +48,15 @@ L'exportation d'un fichier BACPAC de base de données à partir d'une instance d
 
 1. Pour exporter une base de données à l’aide du [portail Azure](https://portal.azure.com), ouvrez la page de votre base de données, puis cliquez sur **Exporter** dans la barre d’outils.
 
-   ![Exportation de base de données](./media/database-export/database-export1.png)
+   ![Capture d’écran mettant en évidence le bouton Exporter.](./media/database-export/database-export1.png)
 
 2. Spécifiez le nom du fichier BACPAC, sélectionnez un compte de stockage Azure existant ainsi que le conteneur pour l’exportation, puis fournissez les informations d’identification qui conviennent à des fins de connexion à la base de données source. Une **connexion d'administrateur SQL Server** est requise, même si vous êtes l'administrateur Azure, car un administrateur Azure ne dispose pas des mêmes autorisations dans Azure SQL Database ou Azure SQL Managed Instance.
 
     ![Exportation de base de données](./media/database-export/database-export2.png)
 
-3. Cliquez sur **OK**.
+3. Cliquez sur **OK** .
 
-4. Pour surveiller la progression de l'opération d'exportation, ouvrez la page du serveur qui contient la base de données en cours d'exportation. Sous **Paramètres**, cliquez sur **Historique d'importation/exportation**.
+4. Pour surveiller la progression de l'opération d'exportation, ouvrez la page du serveur qui contient la base de données en cours d'exportation. Sous **Paramètres** , cliquez sur **Historique d'importation/exportation** .
 
    ![historique d'exportation](./media/database-export/export-history.png)
 
@@ -89,7 +89,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Pour vérifier l’état de la requête d’exportation, utilisez la cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus). L’exécution immédiatement après la requête retourne généralement **État : En cours**. Lorsque **État : réussite** s’affiche, l’exportation est terminée.
+Pour vérifier l’état de la requête d’exportation, utilisez la cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus). L’exécution immédiatement après la requête retourne généralement **État : En cours** . Lorsque **État : réussite** s’affiche, l’exportation est terminée.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

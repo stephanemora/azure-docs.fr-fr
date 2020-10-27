@@ -3,12 +3,12 @@ title: Configurer une galerie d’images partagées dans Azure DevTest Labs | M
 description: Découvrez comment configurer une galerie d’images partagées dans Azure DevTest Labs, qui permet aux utilisateurs d’accéder à des images à partir d’un emplacement partagé lors de la création de ressources de laboratoire.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271037"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327975"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurer une galerie d’images partagées dans Azure DevTest Labs
 DevTest Labs prend à présent en charge la fonctionnalité [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Elle permet aux utilisateurs de labo d’accéder à des images provenant d’un emplacement partagé lors de la création de ressources de labo. Elle vous permet également de structurer et d’organiser vos images de machines virtuelles managées personnalisées. La fonctionnalité Shared Image Gallery prend en charge les opérations suivantes :
@@ -16,7 +16,7 @@ DevTest Labs prend à présent en charge la fonctionnalité [Shared Image Galler
 - Réplication globale et managée des images
 - Gestion des versions et regroupement d’images pour une gestion simplifiée
 - Rendre vos images hautement disponibles avec les comptes ZRS (stockage redondant interzone) dans les régions qui prennent en charge les zones de disponibilité. Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
-- Partage entre différents abonnements, et même entre locataires, à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+- Partage entre différents abonnements, et même entre locataires, à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 Pour plus d’informations, consultez la [documentation sur Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). 
  
@@ -33,25 +33,25 @@ Si vous avez un grand nombre d’images managées à gérer et que vous voulez q
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans le menu de navigation de gauche, sélectionnez **Tous les services**.
+1. Dans le menu de navigation de gauche, sélectionnez **Tous les services** .
 1. Sélectionnez **DevTest Labs** dans la liste.
-1. Dans la liste de labos, sélectionnez votre **labo**.
+1. Dans la liste de labos, sélectionnez votre **labo** .
 1. Sélectionnez **Configuration et stratégies** dans la section **Paramètres** du menu à gauche.
 1. Sélectionnez **Galeries d’images partagées** sous **Bases de machine virtuelle** dans le menu de gauche.
 
     ![Menu Galeries d’images partagées](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
-1. Attachez une galerie d’images partagées existante à votre labo en cliquant sur le bouton **Attacher**, puis en sélectionnant votre galerie dans la liste déroulante.
+1. Attachez une galerie d’images partagées existante à votre labo en cliquant sur le bouton **Attacher** , puis en sélectionnant votre galerie dans la liste déroulante.
 
     ![Joindre](./media/configure-shared-image-gallery/attach-options.png)
 1. Une fois la galerie d’images attachée, sélectionnez-la pour y accéder. Configurez votre galerie pour **activer ou désactiver** les images partagées pour la création de machine virtuelle. Sélectionnez une galerie d’images dans la liste pour la configurer. 
 
-    Par défaut, l’option **Autoriser l’utilisation de toutes les images comme bases de machine virtuelle** est définie sur **Oui**. Cela signifie que toutes les images disponibles dans la galerie d’images partagées attachée sont disponibles pour un utilisateur de labo lors de la création d’une machine virtuelle. Si l’accès à certaines images doit être restreint, définissez l’option **Autoriser l’utilisation de toutes les images comme bases de machine virtuelle** sur **Non**, sélectionnez les images que vous voulez autoriser lors de la création de machines virtuelles, puis sélectionnez le bouton **Enregistrer**.
+    Par défaut, l’option **Autoriser l’utilisation de toutes les images comme bases de machine virtuelle** est définie sur **Oui** . Cela signifie que toutes les images disponibles dans la galerie d’images partagées attachée sont disponibles pour un utilisateur de labo lors de la création d’une machine virtuelle. Si l’accès à certaines images doit être restreint, définissez l’option **Autoriser l’utilisation de toutes les images comme bases de machine virtuelle** sur **Non** , sélectionnez les images que vous voulez autoriser lors de la création de machines virtuelles, puis sélectionnez le bouton **Enregistrer** .
 
     :::image type="content" source="./media/configure-shared-image-gallery/enable-disable.png" alt-text="Activer ou désactiver des images":::
 
     > [!NOTE]
     > Les images généralisées et spécialisées dans la galerie d’images partagée sont prises en charge. 
-1. Les utilisateurs du labo peuvent alors créer une machine virtuelle avec les images activées en cliquant sur **+Ajouter**, puis en recherchant l’image dans la page de **choix de votre base**.
+1. Les utilisateurs du labo peuvent alors créer une machine virtuelle avec les images activées en cliquant sur **+Ajouter** , puis en recherchant l’image dans la page de **choix de votre base** .
 
     ![Utilisateurs de labo](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager

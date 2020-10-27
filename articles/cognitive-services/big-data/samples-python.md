@@ -33,7 +33,7 @@ Les exemples de cet article utilisent les services Cognitive Services suivants 
 1. Après avoir créé un notebook dans Azure Databricks, copiez le **code partagé** ci-dessous et collez-le dans une nouvelle cellule de votre notebook.
 1. Choisissez un exemple de service, ci-dessous, puis copiez-le et collez-le dans une deuxième nouvelle cellule de votre notebook.
 1. Remplacez l’un des espaces réservés de clé d’abonnement au service par votre propre clé.
-1. Cliquez sur le bouton Exécuter (icône de triangle) en haut à gauche de la cellule, puis sélectionnez **Exécuter la cellule**.
+1. Cliquez sur le bouton Exécuter (icône de triangle) en haut à gauche de la cellule, puis sélectionnez **Exécuter la cellule** .
 1. Consultez les résultats dans un tableau affiché sous la cellule.
 
 ## <a name="shared-code"></a>Code partagé
@@ -298,7 +298,7 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 
 | country   | réponse |
 |:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| br | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"BRA","iso2Code":"BR","name":"Brésil","region":{"id":"LCN","iso2code":"ZJ","value":"Amérique latine et Caraïbes "},"adminregion":{"id":"LAC","iso2code":"XJ","value":"Amérique latine et Caraïbes (à l’exception des revenus élevés)"},"incomeLevel":{"id":"UMC","iso2code":"XT","value":"Revenus moyens supérieurs"},"lendingType":{"id":"IBD","iso2code":"XF","value":"IBRD"},"capitalCity":"Brésil","longitude":"-47.9292","latitude":"-15.7801"}]] |
+| br | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"BRA","iso2Code":"BR","name":"Brésil","region":{"id":"LCN","iso2code":"ZJ","value":"Amérique latine et Caraïbes "},"adminregion":{"id":"LAC","iso2code":"XJ","value":"Amérique latine et Antilles (à l’exception des revenus élevés)"},"incomeLevel":{"id":"UMC","iso2code":"XT","value":"Revenus moyens supérieurs"},"lendingType":{"id":"IBD","iso2code":"XF","value":"IBRD"},"capitalCity":"Brésil","longitude":"-47.9292","latitude":"-15.7801"}]] |
 | usa  | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"USA","iso2Code":"US","name":"États-Unis","region":{"id":"NAC","iso2code":"XU","value":"Amérique du Nord"},"adminregion":{"id":"","iso2code":"","value":""},"incomeLevel":{"id":"HIC","iso2code":"XD","value":"Revenus élevés"},"lendingType":{"id":"LNX","iso2code":"XX","value":"Non classé"},"capitalCity":"Washington D.C.","longitude":"-77.032","latitude":"38.8895"}]] |
 
 ## <a name="see-also"></a>Voir aussi

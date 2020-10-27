@@ -1,15 +1,15 @@
 ---
 title: Raccourcis clavier dans le portail Azure pour l’Explorateur Azure Resource Graph
 description: L’Explorateur Azure Resource Graph dans le portail Azure prend en charge des raccourcis clavier pour vous aider à effectuer des actions et à naviguer.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146434"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340119"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Raccourcis clavier pour l’Explorateur Azure Resource Graph
 
@@ -24,7 +24,7 @@ Cet article répertorie les raccourcis clavier qui fonctionnent dans la page Exp
 |Augmenter le retrait |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd>+<kbd>]</kbd> |
 |Déplacer la ligne vers le bas |<kbd>ALT</kbd>+<kbd>↓</kbd> |<kbd>Option</kbd>+<kbd>↓</kbd> |
 |Déplacer la ligne vers le haut |<kbd>ALT</kbd>+<kbd>↑</kbd> |<kbd>Option</kbd>+<kbd>↑</kbd> |
-|Replace |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd> |
+|Replace |<kbd>CTRL</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd>+<kbd>H</kbd> |
 |Sélectionner tout |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd>+<kbd>A</kbd> |
 |Sélectionner vers le bas |<kbd>MAJ</kbd>+<kbd>↓</kbd> |<kbd>MAJ</kbd>+<kbd>↓</kbd> |
 |Sélectionner vers la droite |<kbd>MAJ</kbd>+<kbd>→</kbd> |<kbd>MAJ</kbd>+<kbd>→</kbd> |

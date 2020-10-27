@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948423"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148956"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -79,7 +79,7 @@ Pour l’authentification par clé de compte de stockage, Data Factory prend en 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage** (recommandé) ou **AzureStorage** (voir les remarques ci-dessous). |Oui |
-| connectionString | Pour vous connecter au Stockage, pour la propriété **connectionString**, spécifiez les informations requises. <br/> Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et l’article [Stocker les informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| connectionString | Pour vous connecter au Stockage, pour la propriété **connectionString** , spécifiez les informations requises. <br/> Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et l’article [Stocker les informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 >[!NOTE]
@@ -115,13 +115,13 @@ Pour l’authentification par clé de compte de stockage, Data Factory prend en 
         "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
-            "accountKey": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -141,7 +141,7 @@ Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signat
 Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
->- Azure Data Factory prend désormais en charge les *signatures d’accès partagé de service* et les *signatures d’accès partagé de compte*. Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
+>- Azure Data Factory prend désormais en charge les *signatures d’accès partagé de service* et les *signatures d’accès partagé de compte* . Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../storage/common/storage-sas-overview.md).
 >- Dans les configurations de jeu de données ultérieures, le chemin du dossier est le chemin absolu commençant au niveau du conteneur. Vous devez en configurer un qui soit aligné avec le chemin dans votre URI SAS.
 
 Pour l’authentification par signature d’accès partagé, Data Factory prend en charge les propriétés suivantes :
@@ -188,13 +188,13 @@ Pour l’authentification par signature d’accès partagé, Data Factory prend 
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.windows.net/>"
             },
-            "sasToken": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -223,22 +223,22 @@ Pour l’authentification de principal de service, effectuez les étapes suivant
     - Clé de l'application
     - ID client
 
-2. Accordez l’autorisation appropriée au principal de service dans le Stockage Blob Azure : Pour plus d’informations sur les rôles, consultez [Gérer les droits d’accès aux données de Stockage Azure avec RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Accordez l’autorisation appropriée au principal de service dans le Stockage Blob Azure : Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/common/storage-auth-aad-rbac-portal.md).
 
-    - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
-    - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
+    - **En tant que source** , dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage** .
+    - **En tant que récepteur** , dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage** .
 
 Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
+| type | La propriété **type** doit être définie sur **AzureBlobStorage** . |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage**ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage** . <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant dans l’angle supérieur droit du portail Azure. | Oui |
-| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l’authentification du principal du service, spécifiez le type d’environnement cloud Azure auprès duquel votre application Azure Active Directory est inscrite. <br/> Les valeurs autorisées sont **AzurePublic** , **AzureChina** , **AzureUsGovernment** et **AzureGermany** . Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 >[!NOTE]
@@ -280,10 +280,10 @@ Pour des informations générales sur l’authentification de Stockage Azure, co
 
 1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’ID d’objet d’identité managée générée en même temps que votre fabrique.
 
-2. Accordez l’autorisation d’identité managée dans le stockage d’objets blob Azure. Pour plus d’informations sur les rôles, consultez [Gérer les droits d’accès aux données de Stockage Azure avec RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Accordez l’autorisation d’identité managée dans le stockage d’objets blob Azure. Pour plus d’informations sur les rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../storage/common/storage-auth-aad-rbac-portal.md).
 
-    - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
-    - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
+    - **En tant que source** , dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage** .
+    - **En tant que récepteur** , dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage** .
 
 >[!IMPORTANT]
 >Si vous utilisez PolyBase pour charger des données à partir d’un stockage d’objets blob (source ou intermédiaire) dans Azure Synapse Analytics (anciennement SQL Data Warehouse), lorsque vous utilisez une authentification par identité managée pour le stockage d’objets blob, veillez également à suivre les étapes 1 et 2 de [ces conseils](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Ces étapes inscrivent votre serveur auprès d’Azure AD et attribuent le rôle de contributeur aux données de l’objet blob de stockage. Data Factory gère le reste. Si votre stockage d’objets blob est configuré avec un point de terminaison de réseau virtuel Azure, pour utiliser PolyBase afin de charger des données à partir de celui-ci, vous devez utiliser une authentification par identité managée comme l’exige PolyBase.
@@ -292,9 +292,9 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **AzureBlobStorage**. |Oui |
+| type | La propriété **type** doit être définie sur **AzureBlobStorage** . |Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage**ou **BlockBlobStorage**. <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage** . <br/> Lors de l’utilisation du service lié d’objet blob Azure dans un flux de données, l’authentification par identité managée ou principal de service n’est pas prise en charge lorsque le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 > [!NOTE]
@@ -332,7 +332,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | La propriété **type** de l’emplacement dans le jeu de données doit être définie sur **AzureBlobStorageLocation**. | Oui      |
+| type       | La propriété **type** de l’emplacement dans le jeu de données doit être définie sur **AzureBlobStorageLocation** . | Oui      |
 | conteneur  | Le conteneur d’objets blob.                                          | Oui      |
 | folderPath | Chemin d’accès au dossier sous le conteneur donné. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le conteneur et le chemin d’accès du dossier donnés. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez cela dans les paramètres de la source de l’activité. | Non       |
@@ -376,7 +376,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La propriété **type** sous `storeSettings` doit être définie sur **AzureBlobStorageReadSettings**. | Oui                                           |
+| type                     | La propriété **type** sous `storeSettings` doit être définie sur **AzureBlobStorageReadSettings** . | Oui                                           |
 | ***Recherchez les fichiers à copier :*** |  |  |
 | OPTION 1 : chemin d’accès statique<br> | Copie à partir du conteneur donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les blobs d’un conteneur ou d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe blob<br>- prefix | Préfixe du nom d’objet blob sous le conteneur donné configuré dans un jeu de données pour filtrer les objets blob sources. Les blobs dont le nom commence par `container_in_dataset/this_prefix` sont sélectionnés. Il utilise le filtre côté service pour le stockage d’objets blob, qui offre de meilleures performances qu’un filtre de caractères génériques. | Non                                                          |
@@ -384,11 +384,11 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le conteneur donné et chemin d’accès du dossier (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 4 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Lorsque vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
 | ***Paramètres supplémentaires :*** |  | |
-| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false** .<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
 | deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
-| modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. <br>Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée à un fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur **NULL**, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
+| modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. <br>Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée à un fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur **NULL** , ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
-| enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
+| enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true** . | Non                                            |
 | partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin d’accès racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin d’accès du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin d’accès configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le premier caractère générique.<br/>– Quand vous utilisez le préfixe, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le dernier « / ». <br/><br/>Par exemple, en supposant que vous configurez le chemin d’accès dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin d’accès racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin d’accès racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
 | maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
 
@@ -444,9 +444,9 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La propriété **type** sous `storeSettings` doit être définie sur **AzureBlobStorageWriteSettings**. | Oui      |
+| type                     | La propriété **type** sous `storeSettings` doit être définie sur **AzureBlobStorageWriteSettings** . | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
-| blockSizeInMB | Spécifiez la taille du bloc, en Mo, qui est utilisée pour écrire des données dans des objets blobs de blocs. En savoir plus sur les [objets blobs de blocs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs valides sont *comprises entre 4 et 100 Mo*. <br/>Par défaut, Data Factory détermine automatiquement la taille de bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans un stockage d’objets blob, la taille de bloc par défaut est de 100 Mo, ce qui permet de stocker jusqu’à 4,95 To de données. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez le runtime d’intégration auto-hébergé avec des connexions réseau médiocres qui entraînent des problèmes de délai d’expiration d’opération ou de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que `blockSizeInMB*50000` soit suffisamment grand pour stocker les données. Dans le cas contraire, l’exécution de l’activité Copy échoue. | Non |
+| blockSizeInMB | Spécifiez la taille du bloc, en Mo, qui est utilisée pour écrire des données dans des objets blobs de blocs. En savoir plus sur les [objets blobs de blocs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs valides sont *comprises entre 4 et 100 Mo* . <br/>Par défaut, Data Factory détermine automatiquement la taille de bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans un stockage d’objets blob, la taille de bloc par défaut est de 100 Mo, ce qui permet de stocker jusqu’à 4,95 To de données. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez le runtime d’intégration auto-hébergé avec des connexions réseau médiocres qui entraînent des problèmes de délai d’expiration d’opération ou de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que `blockSizeInMB*50000` soit suffisamment grand pour stocker les données. Dans le cas contraire, l’exécution de l’activité Copy échoue. | Non |
 | maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
 **Exemple :**
@@ -507,7 +507,7 @@ Supposons que vous disposez de la structure de dossiers sources suivante et que 
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Quelques exemples de valeurs recursive et copyBehavior
 
-Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs **recursive** et **copyBehavior**.
+Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs **recursive** et **copyBehavior** .
 
 | recursive | copyBehavior | Structure du dossier source | Cible obtenue |
 |:--- |:--- |:--- |:--- |
@@ -603,9 +603,9 @@ Dans la transformation de récepteur, vous pouvez écrire dans un conteneur ou u
 
 **Option de nom de fichier :** Détermine la façon dont les fichiers de destination sont nommés dans le dossier de destination. Les options de nom de fichier sont les suivantes :
    * **Par défaut** : Autorisez Spark à nommer les fichiers en fonction des valeurs par défaut de la partition.
-   * **Modèle** : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
-   * **Par partition** : Entrez un nom de fichier pour chaque partition.
-   * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin de dossier dans votre jeu de données, il sera remplacé.
+   * **Modèle**  : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
+   * **Par partition**  : Entrez un nom de fichier pour chaque partition.
+   * **Comme les données de la colonne**  : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination. Si vous avez un chemin de dossier dans votre jeu de données, il sera remplacé.
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en raison de la taille du nœud. Nous ne recommandons pas cette option pour les jeux de données volumineux.
 
 **Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets.
@@ -631,13 +631,13 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du jeu de données doit être définie sur **AzureBlob**. |Oui |
+| type | La propriété **type** du jeu de données doit être définie sur **AzureBlob** . |Oui |
 | folderPath | Chemin d’accès au conteneur et au dossier dans le stockage d’objets blob. <br/><br/>Le filtre de caractères génériques est pris en charge pour le chemin d’accès, à l’exclusion du nom du conteneur. Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br/><br/>Un exemple est myblobcontainer/myblobfolder/. Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). |Oui pour l’activité Copy ou Lookup, non pour l’activité GetMetadata |
-| fileName | Filtre de nom ou de caractères génériques pour les blobs sous la valeur **folderPath** spécifiée. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les objets blob du dossier. <br/><br/>Pour le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.<br/><br/>Lorsque **fileName** n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité Copy génère automatiquement le nom d’objet blob selon le modèle suivant : « *Data.[GUID d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]*  ». Par exemple : « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». <br/><br/>Si vous effectuez la copie à partir d’une source tabulaire à l’aide d’un nom de tableau au lieu d’une requête, le modèle du nom est «  *[nom_tableau].[format].[compression si configurée]*  ». Par exemple : « MyTable.csv ». |Non |
-| modifiedDatetimeStart | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que l’activation de ce paramètre affecte les performances globales du déplacement de données lorsque vous souhaitez filtrer d’énormes quantités de fichiers. <br/><br/> Les propriétés peuvent avoir la valeur **NULL**, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.| Non |
-| modifiedDatetimeEnd | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que l’activation de ce paramètre affecte les performances globales du déplacement de données lorsque vous souhaitez filtrer d’énormes quantités de fichiers. <br/><br/> Les propriétés peuvent avoir la valeur **NULL**, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.| Non |
-| format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers dans un format spécifique, les types de format de fichier suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
-| compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non |
+| fileName | Filtre de nom ou de caractères génériques pour les blobs sous la valeur **folderPath** spécifiée. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les objets blob du dossier. <br/><br/>Pour le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.<br/><br/>Lorsque **fileName** n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité Copy génère automatiquement le nom d’objet blob selon le modèle suivant : «  *Data.[GUID d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]*  ». Par exemple : « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». <br/><br/>Si vous effectuez la copie à partir d’une source tabulaire à l’aide d’un nom de tableau au lieu d’une requête, le modèle du nom est «  *[nom_tableau].[format].[compression si configurée]*  ». Par exemple : « MyTable.csv ». |Non |
+| modifiedDatetimeStart | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que l’activation de ce paramètre affecte les performances globales du déplacement de données lorsque vous souhaitez filtrer d’énormes quantités de fichiers. <br/><br/> Les propriétés peuvent avoir la valeur **NULL** , ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.| Non |
+| modifiedDatetimeEnd | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que l’activation de ce paramètre affecte les performances globales du déplacement de données lorsque vous souhaitez filtrer d’énormes quantités de fichiers. <br/><br/> Les propriétés peuvent avoir la valeur **NULL** , ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL** , les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.| Non |
+| format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers dans un format spécifique, les types de format de fichier suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
+| compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Les types pris en charge sont : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** .<br/>Les niveaux pris en charge sont **Optimal** et **Fastest** . |Non |
 
 >[!TIP]
 >Pour copier tous les objets blob d’un dossier, spécifiez **folderPath** uniquement.<br>Pour copier un seul objet blob avec un nom donné, spécifiez **folderPath** pour la partie dossier et **fileName** pour le nom du fichier.<br>Pour copier un sous-ensemble d’objets blob d’un dossier, spécifiez **folderPath** avec la partie dossier et **fileName** avec un filtre de caractères génériques. 
@@ -676,8 +676,8 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** de la source de l’activité Copy doit être définie sur **BlobSource**. |Oui |
-| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur.<br/>Les valeurs autorisées sont **true** (par défaut) et **false**. | Non |
+| type | La propriété **type** de la source de l’activité Copy doit être définie sur **BlobSource** . |Oui |
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur.<br/>Les valeurs autorisées sont **true** (par défaut) et **false** . | Non |
 | maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
 
 **Exemple :**
@@ -716,7 +716,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du récepteur de l’activité Copy doit être définie sur **BlobSink**. |Oui |
+| type | La propriété **type** du récepteur de l’activité Copy doit être définie sur **BlobSink** . |Oui |
 | copyBehavior | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non |
 | maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
 

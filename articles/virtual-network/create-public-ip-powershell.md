@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 6174d108fd80df9725ca5ef0fb9296dfffaf4a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10de2a4a00b716656626082a24ecbd56d0fcc3a4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300522"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127299"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Démarrage rapide : Créer une adresse IP publique à l’aide d’Azure PowerShell
 
@@ -36,7 +36,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez
 
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), créez un groupe de ressources nommé **myResourceGroup** dans l’emplacement **eastus2**.
+Avec la commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), créez un groupe de ressources nommé **myResourceGroup** dans l’emplacement **eastus2** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >La commande suivante est disponible pour l’API version 2020-08-01 ou ultérieure.  Pour plus d’informations sur la version de l’API actuellement utilisée, consultez [Fournisseurs et types de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique redondante interzone standard nommée **myStandardZRPublicIP** dans **myResourceGroup**.
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique redondante interzone standard nommée **myStandardZRPublicIP** dans **myResourceGroup** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -68,7 +68,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 > Avec des versions de l’API antérieures à 2020-08-01, exécutez la commande ci-dessus sans spécifier de paramètre de zone pour créer une adresse IP redondante interzone. 
 >
 
-Pour créer une adresse IP publique zonale standard dans la zone 2 nommée **myStandardZonalPublicIP** dans **myResourceGroup**, exécutez la commande suivante :
+Pour créer une adresse IP publique zonale standard dans la zone 2 nommée **myStandardZonalPublicIP** dans **myResourceGroup** , exécutez la commande suivante :
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -89,7 +89,7 @@ Notez que les sélections des options de zone ci-dessus sont valides uniquement 
 >[!NOTE]
 >La commande suivante est disponible pour l’API version 2020-08-01 ou ultérieure.  Pour plus d’informations sur la version de l’API actuellement utilisée, consultez [Fournisseurs et types de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique standard en tant que ressource non zonale nommée **myStandardPublicIP** dans **myResourceGroup**.
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique standard en tant que ressource non zonale nommée **myStandardPublicIP** dans **myResourceGroup** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -106,7 +106,7 @@ Cette sélection est valide dans toutes les régions. Il s’agit de la sélecti
 
 # <a name="basic-sku"></a>[**Référence De base**](#tab/option-create-public-ip-basic)
 
-Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique statique de base nommée **myStandardPublicIP** dans **myResourceGroup**.  Les adresses IP publiques de base n’intègrent pas le concept de zones de disponibilité.
+Utilisez la commande [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) pour créer une adresse IP publique statique de base nommée **myBasicPublicIP** dans **myResourceGroup** .  Les adresses IP publiques de base n’intègrent pas le concept de zones de disponibilité.
 
 ```azurepowershell-interactive
 ## Variables for the command ##

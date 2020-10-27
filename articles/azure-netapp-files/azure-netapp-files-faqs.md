@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932258"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089313"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -80,9 +80,9 @@ Oui, vous pouvez configurer jusqu'à cinq règles dans une même stratégie d’
 
 Non, actuellement vous ne pouvez pas appliquer de Groupes de sécurité réseau au sous-réseau délégué d’Azure NetApp Files ou aux interfaces réseau créées par le service.
 
-### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>Puis-je utiliser Azure IAM avec Azure NetApp Files ?
+### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Puis-je utiliser Azure RBAC avec Azure NetApp Files ?
 
-Oui, Azure NetApp Files prend en charge les fonctionnalités RBAC avec Azure IAM.
+Oui, Azure NetApp Files prend en charge les fonctionnalités Azure RBAC.
 
 ## <a name="performance-faqs"></a>Questions fréquentes relatives aux performances
 
@@ -150,7 +150,7 @@ Oui, vous devez créer une connexion Active Directory avant de déployer un volu
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Combien de connexions Active Directory sont prises en charge ?
 
-Azure NetApp Files ne prend pas en charge plusieurs connexions Active Directory (AD) dans une même et seule *région*, même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même *abonnement*, à condition que les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts. 
+Azure NetApp Files ne prend pas en charge plusieurs connexions Active Directory (AD) dans une même et seule *région* , même si les connexions AD se trouvent dans différents comptes NetApp. Vous pouvez cependant avoir plusieurs connexions AD dans un même *abonnement* , à condition que les connexions AD se trouvent dans des régions différentes. Si vous avez besoin de plusieurs connexions AD dans une même région, vous pouvez utiliser pour cela des abonnements distincts. 
 
 Une connexion AD est configurée par compte NetApp ; la connexion AD est visible seulement via le compte NetApp dans lequel elle est créée.
 

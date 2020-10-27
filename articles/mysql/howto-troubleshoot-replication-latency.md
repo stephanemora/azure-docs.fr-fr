@@ -1,116 +1,123 @@
 ---
 title: Résoudre les problèmes de latence de réplication - Azure Database pour MySQL
-description: Découvrez comment résoudre les problèmes de latence de réplication avec des réplicas en lecture Azure Database pour MySQL
+description: Découvrez comment résoudre les problèmes de latence de réplication à l’aide des réplicas en lecture d’Azure Database pour MySQL.
 keywords: mysql, résoudre des problèmes, latence de réplication en secondes
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/08/2020
-ms.openlocfilehash: 16a502a53b4441faf68ea342e0bc865731d38b1a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876807"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096094"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
-La fonctionnalité de [réplica en lecture](concepts-read-replicas.md) vous permet de répliquer les données d’un serveur Azure Database pour MySQL sur un serveur réplica en lecture seule. Les réplicas en lecture sont utilisés pour effectuer un scale-out de la charge de travail en acheminant des requêtes de lecture/rapport de l’application vers des serveurs réplicas. Cela réduit la pression sur le serveur principal et améliore les performances globales et la latence de l’application au fur et à mesure qu’elle est mise à l’échelle. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+La fonctionnalité de [réplica en lecture](concepts-read-replicas.md) vous permet de répliquer les données d’un serveur Azure Database pour MySQL sur un serveur réplica en lecture seule. Vous pouvez effectuer un scale-out des charges de travail en acheminant les requêtes de lecture et de rapport de l’application vers les serveurs de réplication. Cette configuration réduit la pression sur le serveur source. Il améliore également les performances globales et la latence de l’application au fur et à mesure qu’elle évolue. 
 
-Le décalage de réplication sur les réplicas en lecture secondaires dépend du nombre de facteurs, notamment, mais sans s’y limiter 
+Les réplicas sont mis à jour de façon asynchrone à l’aide de la technologie de réplication de fichier journal binaire native du moteur MySQL (binlog). Pour plus d’informations, consultez [vue d’ensemble de la configuration de la réplication basée sur la position des fichiers binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
-- Latence du réseau
-- Volume de transactions sur le serveur source
-- Niveau de calcul du serveur source et réplica en lecture secondaire
-- Requêtes en cours d’exécution sur le serveur principal et le serveur secondaire. 
+Le décalage de réplication sur les réplicas de lecture secondaires dépend de plusieurs facteurs. Ces facteurs incluent, sans s’y limiter, les éléments suivants : 
 
-Dans ce document, vous allez découvrir comment résolution des problèmes liés à la latence de réplication dans Azure Database pour MySQL. Vous allez également comprendre certaines des causes courantes de l’augmentation de la latence de réplication sur les serveurs réplicas.
+- Latence du réseau.
+- Volume de transactions sur le serveur source.
+- Niveau de calcul du serveur source et du serveur réplica de lecture secondaire.
+- Requêtes en cours d’exécution sur le serveur source et le serveur secondaire. 
+
+Dans cet article, vous allez apprendre à résoudre les problèmes de latence de réplication dans Azure Database pour MySQL. Vous comprendrez également certaines causes courantes de l’augmentation de la latence de réplication sur les serveurs de réplication.
 
 ## <a name="replication-concepts"></a>Concepts de réplication
 
-Lorsque le journal binaire est activé, le serveur source écrit la transaction validée dans le journal binaire qui est utilisé pour la réplication. Le journal binaire est activé par défaut pour tous les serveurs nouvellement approvisionnés qui prennent en charge jusqu’à 16 To de stockage. Sur les serveurs réplicas, deux threads s’exécutent par serveur réplica, l’un appelé le thread d’E/S et l’autre le thread SQL.
+Lorsqu’un journal binaire est activé, le serveur source écrit les transactions validées dans le journal binaire. Le journal binaire est utilisé pour la réplication. Il est activé par défaut pour tous les serveurs nouvellement approvisionnés qui prennent en charge jusqu’à 16 To de stockage. Sur les serveurs de réplication, deux threads s’exécutent sur chaque serveur de réplication. Un thread est *le thread d’e/s* et l’autre est le *thread SQL*  :
 
-- Le **thread d’E/S** se connecte au serveur source et demande les journaux binaires mis à jour. Une fois que ce thread a reçu les mises à jour du journal binaire, celles-ci sont enregistrées sur un serveur réplica dans un journal local appelé le journal de relais.
-- Le **thread SQL** lit le journal de relais et applique la ou les modifications de données sur les serveurs réplicas.
+- Le thread d’E/S se connecte au serveur source et demande les journaux binaires mis à jour. Ce thread reçoit les mises à jour des journaux binaires. Ces mises à jour sont enregistrées sur un serveur de réplication, dans un journal local appelé le *journal de relais* .
+- Le thread SQL lit le journal de relais, puis applique les modifications de données sur les serveurs de réplication.
 
 ## <a name="monitoring-replication-latency"></a>Surveillance de la latence de réplication
 
-Azure Database pour MySQL fournit la métrique Décalage de la réplication en secondes dans [Azure Monitor](concepts-monitoring.md). Cette métrique est disponible sur les serveurs réplicas uniquement. Cette métrique est calculée à l’aide de la métrique seconds_behind_master disponible dans MySQL. Pour comprendre la cause racine de l’augmentation de la latence de réplication, connectez-vous au serveur réplica à l’aide de [MySQL Workbench](connect-workbench.md) ou d’[Azure Cloud Shell](https://shell.azure.com) et exécutez la commande suivante :
+Azure Database pour MySQL fournit la mesure pour le décalage de réplication en secondes dans [Azure Monitor](concepts-monitoring.md). Cette mesure est disponible uniquement sur les serveurs de réplica en lecture. Il est calculé à partir de la mesure seconds_behind_master disponible dans MySQL. 
 
- Remplacez les valeurs par le nom réel de votre serveur réplica et le nom de la connexion d’utilisateur administrateur. Le nom d’utilisateur administrateur requiert « @\<servername> » pour Azure Database pour MySQL :
+Pour comprendre la cause de l’augmentation de la latence de réplication, connectez-vous au serveur de réplication à l’aide de [MySQL Workbench](connect-workbench.md) ou [Azure Cloud Shell](https://shell.azure.com). Exécutez ensuite la commande suivante.
 
-  ```azurecli-interactive
-  mysql --host=myreplicademoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
-  ```
+>[!NOTE] 
+> Dans votre code, remplacez les valeurs d’exemple par le nom de votre serveur de réplication et le nom d’utilisateur de l’administrateur. Le nom d’utilisateur de l’administrateur requiert `@\<servername>` pour Azure Database pour MySQL.
 
-  Voici comment se présente l’expérience utilisateur dans le terminal Cloud Shell
-  ```
-  Requesting a Cloud Shell.Succeeded.
-  Connecting terminal...
+```azurecli-interactive
+mysql --host=myreplicademoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
+```
 
-  Welcome to Azure Cloud Shell
+Voici comment se présente l’expérience utilisateur dans le terminal Cloud Shell :
 
-  Type "az" to use Azure CLI
-  Type "help" to learn about Cloud Shell
+```
+Requesting a Cloud Shell.Succeeded.
+Connecting terminal...
 
-  user@Azure:~$mysql -h myreplicademoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-  Enter password:
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 64796
-  Server version: 5.6.42.0 Source distribution
+Welcome to Azure Cloud Shell
 
-  Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+user@Azure:~$mysql -h myreplicademoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 64796
+Server version: 5.6.42.0 Source distribution
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-  mysql>
-  ```
-  Dans le même terminal Azure Cloud Shell, exécutez la commande suivante
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
-  ```
-  mysql> SHOW SLAVE STATUS;
-  ```
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-  Une sortie typique se présente comme suit :
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+mysql>
+```
+
+Dans le même terminal Cloud Shell, exécutez la commande suivante :
+
+```
+mysql> SHOW SLAVE STATUS;
+```
+
+Voici une sortie standard :
   
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Surveillance de la latence de réplication":::
 
 
-La sortie contient un grand nombre d’informations mais, en règle générale, il est important de se concentrer sur les colonnes suivantes :
+La sortie contient un grand nombre d’informations. Normalement, vous devez vous concentrer uniquement sur les lignes décrites dans le tableau suivant.
 
 |Métrique|Description|
 |---|---|
-|Slave_IO_State| État actuel du thread d’E/S. L’état est généralement « En attente de l’envoi d’un événement par le maître » s’il est en cours de synchronisation. Toutefois, si vous voyez un état tel que « Connexion au maître », cela signifie que le réplica a perdu la connexion au serveur maître. Vérifiez si le serveur maître est en cours d’exécution ou si un pare-feu bloque la connexion.|
-|Master_Log_File| Fichier journal binaire dans lequel le maître écrit.|
-|Read_Master_Log_Pos| Représente la position dans le fichier journal binaire ci-dessus dans lequel le maître écrit.|
-|Relay_Master_Log_File| Représente le fichier journal binaire que le serveur réplica lit à partir du maître.|
-|Slave_IO_Running| Indique si le thread d’E/S est en cours d’exécution. La valeur doit être « Oui ». Si la valeur est « Non », la réplication est probablement interrompue.|
-|Slave_SQL_Running| Indique si le thread SQL est en cours d’exécution. La valeur doit être « Oui ». Si la valeur est « Non », la réplication est probablement interrompue.|
-|Exec_Master_Log_Pos| Affiche la position de Relay_Master_Log_File que le réplica applique. En cas de latence, cette séquence de position doit être inférieure à Read_Master_Log_Pos.|
-|Relay_Log_Space|Affiche la limite supérieure de la taille du journal de relais. Vous pouvez vérifier la taille en interrogeant des variables globales telles que « relay_log_space_limit ».|
+|Slave_IO_State| Représente l’état actuel du thread d’e/s. En règle générale, l’état est « en attente de l’envoi d’un événement par le maître » si le serveur source (maître) est en cours de synchronisation. Un état tel que « Connexion au maître », indique que le réplica a perdu la connexion au serveur source. Assurez-vous que le serveur source est en cours d’exécution ou vérifiez si un pare-feu bloque la connexion.|
+|Master_Log_File| Représente le fichier journal binaire dans lequel le serveur source écrit.|
+|Read_Master_Log_Pos| Indique l’emplacement où le serveur source écrit dans le fichier journal binaire.|
+|Relay_Master_Log_File| Représente le fichier journal binaire que le serveur réplica lit à partir du serveur source.|
+|Slave_IO_Running| Indique si le thread d’E/S est en cours d’exécution. La valeur doit être `Yes`. Si la valeur est `NO`, alors la réplication est probablement rompue.|
+|Slave_SQL_Running| Indique si le thread SQL est en cours d’exécution. La valeur doit être `Yes`. Si la valeur est `NO`, alors la réplication est probablement rompue.|
+|Exec_Master_Log_Pos| Indique la position du Relay_Master_Log_File que le réplica applique. En cas de latence, cette séquence de positions doit être inférieure à Read_Master_Log_Pos.|
+|Relay_Log_Space|Indique la limite supérieure de la taille du journal de relais. Vous pouvez vérifier la taille en interrogeant `SHOW GLOBAL VARIABLES` comme `relay_log_space_limit`.|
 |Seconds_Behind_Master| Affiche la latence de réplication en secondes.|
-|Last_IO_Errno|Affiche le code d’erreur de thread d’E/S, le cas échéant. Pour plus d’informations sur ces codes, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
+|Last_IO_Errno|Affiche le code d’erreur de thread d’E/S, le cas échéant. Pour plus d’informations sur ces codes, consultez la [page de référence des messages d’erreur MySQL Server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Affiche le message d’erreur de thread d’E/S, le cas échéant.|
-|Last_SQL_Errno|Affiche le code d’erreur de thread SQL, le cas échéant. Pour plus d’informations sur ces codes, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
+|Last_SQL_Errno|Affiche le code d’erreur de thread SQL, le cas échéant. Pour plus d’informations sur ces codes, consultez la [page de référence des messages d’erreur MySQL Server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_SQL_Error|Affiche le message d’erreur de thread SQL, le cas échéant.|
-|Slave_SQL_Running_State| Indique l’état actuel du thread SQL. Notez que le message « Verrouillage du système » affiché dans cet état est un comportement normal. Il est normal de voir l’état « En attente de validation de transaction dépendante ». Celui-ci indique que le réplica attend que le maître mette à jour les transactions validées.|
+|Slave_SQL_Running_State| Indique l’état actuel du thread SQL. Dans cet état, `System lock` est normal. Il est également normal de voir un état de `Waiting for dependent transaction to commit`. Cet état indique que le réplica attend que le serveur source mette à jour les transactions validées.|
 
-Si Slave_IO_Running a la valeur Oui et que Slave_SQL_Running a la valeur Oui, la réplication s’exécute bien. 
+Si Slave_IO_Running est `Yes` et Slave_SQL_Running est `Yes`, la réplication s’exécute bien. 
 
-Vous devez ensuite vérifier les valeurs Last_IO_Errno, Last_IO_Error, Last_SQL_Errno et Last_SQL_Error.  Ces champs contiennent le numéro d’erreur et le message d’erreur de l’erreur la plus récente qui a provoqué l’arrêt du thread SQL. Un numéro d’erreur 0 et un message vide signifient qu’il n’y a pas d’erreur. Une valeur différente de zéro dans l’erreur doit être examinée de manière plus approfondie en recherchant le code d’erreur dans la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).
+Ensuite, vérifiez Last_IO_Errno, Last_IO_Error, Last_SQL_Errno et Last_SQL_Error.  Ces champs affichent le numéro d’erreur et le message d’erreur de l’erreur la plus récente qui a provoqué l’arrêt du thread SQL. Un numéro d’erreur de `0` et un message vide signifient qu’il n’y a pas d’erreur. Recherchez toute valeur d’erreur différente de zéro en vérifiant le code d’erreur dans les[informations de référence sur les messages d’erreur MySQL Server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).
 
 ## <a name="common-scenarios-for-high-replication-latency"></a>Scénarios courants de latence de réplication élevée
 
-### <a name="network-latency-or-high-cpu-on-source-server"></a>Latence du réseau ou processeur élevé sur le serveur source
+Les sections suivantes traitent des scénarios dans lesquels une latence de réplication élevée est courante.
 
-Si vous observez les valeurs suivantes, la cause la plus courante de la latence de réplication est une latence du réseau élevée ou une consommation élevée du processeur sur le serveur source. Dans ce cas, le thread d’E/S est en cours d’exécution et en attente sur le maître. Le maître (serveur source) a déjà écrit 20 lignes dans le fichier journal binaire alors que le réplica n’a reçu que jusqu’à 10 fichiers. Les principaux facteurs de latence de réplication élevée dans ce scénario sont la vitesse du réseau ou une utilisation élevée du processeur sur le serveur source.  Dans Azure, la latence du réseau au sein d’une région est généralement de l’ordre de millisecondes peut atteindre quelques secondes entre les régions. Dans la plupart des cas, le retard de connexion au serveur source dans le thread d’E/S est dû à une utilisation élevée du processeur sur le serveur source, ce qui entraîne un traitement lent du thread d’E/S. Cela peut être détecté en surveillant l’utilisation du processeur et en observant le nombre de connexions simultanées sur le serveur source à l’aide d’Azure Monitor.
+### <a name="network-latency-or-high-cpu-consumption-on-the-source-server"></a>Latence du réseau ou consommation élevée du processeur sur le serveur source
 
-Si vous ne voyez pas une utilisation élevée du processeur sur le serveur source, la latence du réseau peut être une cause possible. Si vous constatez une latence réseau anormalement et soudainement élevée, nous vous recommandons de consulter la [page de l’état Azure](https://status.azure.com/status) pour vous assurer qu’il n’y a pas de problèmes ou de pannes non connus. 
+Si vous observez les valeurs suivantes, la cause la plus courante de latence de réplication est une latence du réseau élevée ou une consommation élevée du processeur sur le serveur source. 
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -118,9 +125,17 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
 ```
 
-### <a name="heavy-burst-of-transactions-on-source-server"></a>Forte rafale de transactions sur le serveur source
+Dans ce cas, le thread d’e/s est en cours d’exécution et en attente sur le serveur source. Le serveur source a déjà écrit dans le fichier journal binaire numéro 20. Le réplica a reçu uniquement jusqu’au fichier numéro 10. Les principaux facteurs de latence de réplication élevée dans ce scénario sont la vitesse du réseau ou une utilisation élevée du processeur sur le serveur source.  
 
-Si vous observez les valeurs suivantes, la cause la plus courante de la latence de réplication est une forte rafale de transactions sur le serveur source. Dans la sortie ci-dessous, bien que le réplica puisse récupérer le journal binaire derrière le maître, le thread d’E/S du réplica indique que l’espace du journal de relais est déjà plein. La vitesse du réseau n’est donc pas à l’origine du retard, car le réplica a déjà essayé de rattraper le plus rapidement possible. Au lieu de cela, la taille du journal binaire mis à jour dépasse la limite supérieure de l’espace du journal de relais. Pour résoudre ce problème, le [journal des requêtes lentes](concepts-server-logs.md) doit être activé sur le serveur maître. Les journaux des requêtes lentes vous permettent d’identifier les transactions longues sur le serveur source. Les requêtes identifiées doivent être paramétrées pour réduire la latence sur le serveur. 
+Dans Azure, la latence du réseau au sein d’une région peut généralement être mesurée en millisecondes. Entre les régions, la latence est comprise entre les millisecondes et les secondes. 
+
+Dans la plupart des cas, le délai de connexion entre les threads d’e/s et le serveur source est dû à une utilisation élevée du processeur sur le serveur source. Les threads d’e/s sont traités lentement. Vous pouvez détecter ce problème à l’aide de Azure Monitor pour vérifier l’utilisation du processeur et le nombre de connexions simultanées sur le serveur source.
+
+Si vous ne voyez pas d’utilisation élevée du processeur sur le serveur source, le problème peut être lié à la latence du réseau. Si la latence du réseau est soudainement anormalement élevée, consultez la [page des états d’Azure](https://status.azure.com/status) pour connaître les problèmes connus ou les pannes. 
+
+### <a name="heavy-bursts-of-transactions-on-the-source-server"></a>Pics de transactions importants sur le serveur source
+
+Si les valeurs suivantes s’affichent, une forte rafale de transactions sur le serveur source est probablement à l’origine de la latence de réplication. 
 
 ```
 Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
@@ -128,15 +143,18 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
 ```
 
-Voici les causes courantes de la latence dans cette catégorie :
+La sortie indique que le réplica peut récupérer le journal binaire situé derrière le serveur source. Toutefois, le thread d’e/s de réplica indique que l’espace du journal de relais est déjà plein. 
 
-#### <a name="replication-latency-due-to-data-load-on-source-server"></a>Latence de réplication due au chargement charge de données sur le serveur source
-Dans certains cas, il existe des chargements de données hebdomadaires ou mensuels sur les serveurs sources. Malheureusement, la latence de réplication est inévitable dans ce cas. Dans ce scénario, les serveurs réplicas finissent par rattraper une fois le chargement de données sur le serveur source terminé.
+La vitesse du réseau n’est pas à l’origine du délai. Le réplica tente de rattraper son retard. Toutefois, la taille du journal binaire mise à jour dépasse la limite supérieure de l’espace du journal de relais. 
+
+Pour résoudre ce problème, activez le [journal des requêtes lentes](concepts-server-logs.md) sur le serveur source. Utilisez des journaux de requêtes lents pour identifier les transactions de longue durée sur le serveur source. Ajustez ensuite les requêtes identifiées pour réduire la latence sur le serveur. 
+
+La latence de réplication de ce tri est généralement causée par le chargement des données sur le serveur source. Lorsque les serveurs sources ont des chargements de données hebdomadaires ou mensuels, la latence de la réplication est malheureusement inévitable. Les serveurs de réplication finissent par se retrouver après la fin du chargement des données sur le serveur source.
 
 
 ### <a name="slowness-on-the-replica-server"></a>Lenteur du serveur réplica
 
-Si vous observez les valeurs suivantes, la cause la plus courante peut être un problème sur le serveur réplica qui nécessite une investigation plus approfondie. Dans ce scénario, comme indiqué dans la sortie, les threads d’E/S et SQL s’exécutent correctement et le réplica lit le même fichier journal binaire que celui que le maître écrit. Toutefois, une certaine latence se produit sur le serveur réplica pour refléter la même transaction du serveur source. 
+Si vous observez les valeurs suivantes, le problème peut être sur le serveur de réplication. 
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -149,15 +167,19 @@ Exec_Master_Log_Pos: The position of slave reads from master binary log file is 
 Seconds_Behind_Master: There is latency and the value here is greater than 0
 ```
 
-Voici les causes courantes de la latence dans cette catégorie :
+Dans ce scénario, la sortie indique que le thread d’e/s et le thread SQL s’exécutent correctement. Le réplica lit le même fichier de journal binaire que le serveur source écrit. Toutefois, une certaine latence sur le serveur de réplication reflète la même transaction à partir du serveur source. 
 
-#### <a name="no-primary-or-unique-key-on-a-table"></a>Aucune clé primaire ou unique sur une table
+Les sections suivantes décrivent les causes courantes de ce type de latence.
 
-Azure Database pour MySQL utilise la réplication basée sur les lignes. Avec la réplication basée sur les lignes, le serveur maître écrit des événements dans le journal binaire sur la modification de ligne de table individuelle. Le thread SQL applique à son tour ces modifications aux lignes de table correspondantes sur le serveur réplica. Aucune clé primaire ou unique sur une table n’est l’une des causes courantes de la latence de réplication. L’absence de clés primaires ou uniques provoque l’analyse de toutes les lignes de la table cible par le thread SQL pour appliquer les modifications.
+#### <a name="no-primary-key-or-unique-key-on-a-table"></a>Aucune clé primaire ou unique sur une table
 
-Dans MySQL, la clé primaire est un index associé qui garantit des performances des requêtes rapides, car il ne peut pas inclure de valeurs NULL. Avec le moteur de stockage InnoDB, les données de la table sont organisées physiquement pour effectuer des recherches ultra-rapides et être triées en fonction de la clé primaire. Par conséquent, il est recommandé d’ajouter une clé primaire sur les tables du serveur source avant de créer le serveur réplica. Dans ce scénario, vous devez ajouter des clés primaires sur le serveur source et recréer des réplicas en lecture pour améliorer la latence de réplication.
+Azure Database pour MySQL utilise la réplication basée sur les lignes. Le serveur source écrit les événements dans le journal binaire, en enregistrant les modifications dans les lignes individuelles de la table. Le thread SQL réplique ensuite ces modifications dans les lignes correspondantes de la table sur le serveur de réplication. Lorsqu’une table n’a pas de clé primaire ou de clé unique, le thread SQL analyse toutes les lignes de la table cible pour appliquer les modifications. Cette analyse peut entraîner une latence de réplication.
 
-Vous pouvez utiliser la requête suivante pour déterminer les tables dont la clé primaire est manquante sur le serveur source :
+Dans MySQL, la clé primaire est un index associé qui garantit des performances de requête rapides, car il ne peut pas inclure de valeurs NULL. Si vous utilisez le moteur de stockage InnoDB, les données de la table sont organisées de façon physique afin d’effectuer des recherches ultra-rapides et de les trier en fonction de la clé primaire. 
+
+Nous vous recommandons d’ajouter une clé primaire sur les tables du serveur source avant de créer le serveur de réplication. Dans ce scénario, vous devez ajouter des clés primaires sur le serveur source et recréer des réplicas en lecture pour améliorer la latence de réplication.
+
+Utilisez la requête suivante pour identifier les tables qui ne contiennent pas de clé primaire sur le serveur source :
 
 ```sql 
 select tab.table_schema as database_name, tab.table_name 
@@ -173,29 +195,47 @@ order by tab.table_schema, tab.table_name;
 
 ```
 
-#### <a name="replication-latency-due-to-long-running-queries-on-replica-server"></a>Latence de réplication due à des requêtes longues sur le serveur réplica
+#### <a name="long-running-queries-on-the-replica-server"></a>Requêtes de longue durée sur le serveur de réplication
 
-Il est possible que la charge de travail sur le serveur réplica empêche le thread SQL de suivre le thread d’E/S. C’est l’une des causes courantes de latence de réplication élevée en cas de requête longue sur le serveur réplica. Dans ce cas, le [journal des requêtes lentes](concepts-server-logs.md) doit être activé sur le serveur réplica pour aider à résoudre le problème. Les requêtes lentes peuvent augmenter l’utilisation ressources ou ralentir le serveur de telle sorte que le réplica ne soit pas en mesure de rattraper le maître. Dans ce scénario, vous devez paramétrer les requêtes lentes. Des requêtes plus rapides empêchent le blocage du thread SQL et améliorent considérablement la latence de réplication.
+La charge de travail sur le serveur de réplication peut décaler le thread SQL derrière le thread d’e/s. Les requêtes de longue durée sur le serveur de réplication sont l’une des causes les plus courantes de latence de réplication élevée. Pour résoudre ce problème, activez le [journal des requêtes lentes](concepts-server-logs.md) sur le serveur de réplication. 
+
+Les requêtes lentes peuvent augmenter la consommation des ressources ou ralentir le serveur afin que le réplica ne puisse pas rattraper le serveur source. Dans ce scénario, réglez les requêtes lentes. Des requêtes plus rapides empêchent le blocage du thread SQL et améliorent considérablement la latence de la réplication.
 
 
-#### <a name="replication-latency-due-to-ddl-queries-on-source-server"></a>Latence de réplication due à des requêtes DDL sur le serveur source
-Une commande DDL longue telle que [ALTER TABLE](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) est exécutée sur le serveur source et elle indique une durée d’exécution d’1 heure. Pendant ce temps, des milliers d’autres requêtes peuvent s’exécuter en parallèle sur le serveur source. Lorsque le DDL est répliqué sur le réplica, pour garantir la cohérence de la base de données, le moteur MySQL doit exécuter le DDL dans un thread de réplication unique. Toutes les autres requêtes répliquées seront alors bloquées et devront attendre une heure ou plus jusqu’à ce que l’opération DDL soit terminée sur le serveur réplica. Cela est vrai indépendamment de l’opération DDL en ligne. Avec les opérations DDL, la réplication est censée voir une latence de réplication supérieure.
+#### <a name="ddl-queries-on-the-source-server"></a>Requêtes DDL sur le serveur source
+Sur le serveur source, une commande DDL (Data Definition Language) comme [`ALTER TABLE`](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) peut prendre beaucoup de temps. Pendant l’exécution de la commande DDL, des milliers d’autres requêtes peuvent s’exécuter en parallèle sur le serveur source. 
 
-Si le [journal des requêtes lentes](concepts-server-logs.md) est activé sur le serveur source, ce scénario peut être détecté en consultant les journaux des requêtes lentes afin de déterminer si une commande DDL a été exécutée sur le serveur source. Bien que la suppression, le changement de nom et la création d’index doivent utiliser l’algorithme INPLACE pour ALTER TABLE, ceci peut impliquer la copie des données de la table, puis la régénération de la table. En règle générale, le DML simultané de l’algorithme INPLACE est pris en charge, mais un verrou de métadonnées exclusif sur la table peut être appliqué temporairement pendant les phases de préparation et d’exécution de l’opération. Ainsi, pour l’instruction CREATE INDEX, les clauses ALGORITHM et LOCK peuvent être utilisées pour influencer la méthode de copie de table et le niveau de concurrence pour la lecture et l’écriture, mais l’ajout d’un index FULLTEXT ou SPATIAL empêchera toujours les opérations DML. Voici un exemple de création d’un index avec des clauses ALGORITHM et LOCK :
+Lorsque le DDL est répliqué, pour garantir la cohérence de la base de données, le moteur MySQL exécute le DDL dans un thread de réplication unique. Au cours de cette tâche, toutes les autres requêtes répliquées sont bloquées et doivent attendre que l’opération DDL se termine sur le serveur de réplication. Même les opérations DDL en ligne provoquent ce retard. Les opérations DDL augmentent la latence de la réplication.
+
+Si vous avez activé le [journal des requêtes lentes](concepts-server-logs.md) sur le serveur source, vous pouvez détecter ce problème de latence en recherchant une commande DDL qui s’exécutait sur le serveur source. À l’aide de la suppression, du changement de nom et de la création d’index, vous pouvez utiliser l’algorithme InPlace pour l’instruction ALTER TABLE. Vous devrez peut-être copier les données de la table et reconstruire la table. 
+
+En règle générale, les DML simultanés sont pris en charge pour l’algorithme InPlace. Toutefois, vous pouvez rapidement prendre un verrou de métadonnées exclusif sur la table lorsque vous préparez et exécutez l’opération. Ainsi, pour l’instruction CREATe INDEX, vous pouvez utiliser l’ALGORITHMe et le verrou des clauses pour influencer la méthode de copie de table et le niveau de concurrence pour la lecture et l’écriture. Vous pouvez toujours empêcher les opérations DML en ajoutant un index de texte intégral ou un index SPATIAL. 
+
+L’exemple suivant crée un index à l’aide de clauses d’ALGORITHMe et de VERROUs.
 
 ```sql
 ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NONE;
 ```
 
-Malheureusement, pour une instruction DDL qui requiert un verrou, la latence de réplication ne peut pas être évitée. Au lieu de cela, ces types d’opérations DDL doivent être exécutés pendant les heures creuses, par exemple la nuit, afin de réduire l’impact potentiel.
+Malheureusement, pour une instruction DDL qui requiert un verrou, vous ne pouvez pas éviter la latence de réplication. Pour réduire les effets potentiels, effectuez ces types d’opérations DDL pendant les heures creuses, par exemple pendant la nuit.
 
-#### <a name="replication-latency-due-to-replica-server-lower-sku"></a>Latence de réplication due à une référence SKU inférieure du serveur réplica
+#### <a name="downgraded-replica-server"></a>Serveur réplica rétrogradé
 
-Dans Azure Database pour MySQL, les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Toutefois, si le serveur réplica est rétrogradé, la charge de travail peut entraîner une plus grande consommation de ressources qui, à son tour, peut entraîner une latence de réplication. Cela peut être observé en surveillant l’utilisation du processeur et de la mémoire du serveur réplica à partir d’Azure Monitor. Dans ce scénario, il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
+Dans Azure Database pour MySQL, les réplicas de lecture utilisent la même configuration de serveur que le serveur source. Vous pouvez modifier la configuration du serveur de réplication après qu’il a été créé. 
 
-#### <a name="improving-replication-latency-using-server-parameter-tuning-on-source-server"></a>Amélioration de la latence de réplication à l’aide du réglage des paramètres serveur sur le serveur source
+Si le serveur de réplication est rétrogradé, la charge de travail peut consommer plus de ressources, ce qui peut à son tour entraîner la latence de la réplication. Pour détecter ce problème, utilisez Azure Monitor pour vérifier la consommation de l’UC et de la mémoire du serveur de réplication. 
 
-Dans Azure Database pour MySQL, la réplication est optimisée pour s’exécuter par défaut avec des threads parallèles sur les réplicas. Pour les grands nombres de charges de travail simultanées sur le serveur source sur lequel le serveur réplica ne parvient pas à rattraper le problème, la latence de réplication peut être améliorée en configurant le paramètre binlog_group_commit_sync_delay sur le serveur source. Ce paramètre contrôle la durée en microsecondes de l’attente de la validation du journal binaire avant la synchronisation du fichier journal binaire. L’avantage est que, au lieu d’appliquer immédiatement chaque transaction validée, le maître envoie les mises à jour de journal binaire en bloc. Cela réduit les E/S sur le réplica et contribue à améliorer les performances. Dans ce scénario, il peut être utile de définir binlog_group_commit_sync_delay sur 1000 ou autre et de surveiller la latence de réplication. Ce paramètre doit être défini avec prudence et utilisé pour les grands nombres de charges de travail simultanées uniquement. Dans un scénario de faible concurrence avec de nombreuses transactions singleton, la définition de binlog_group_commit_sync_delay peut ajouter à la latence, car le thread d’E/S attend des mises à jour du journal binaire en bloc alors que seules quelques transactions peuvent être validées. 
+Dans ce scénario, nous vous recommandons de conserver la configuration du serveur de réplication à des valeurs égales ou supérieures aux valeurs du serveur source. Cette configuration permet au réplica de suivre le serveur source.
+
+#### <a name="improving-replication-latency-by-tuning-the-source-server-parameters"></a>Amélioration de la latence de la réplication en réglant les paramètres du serveur source
+
+Dans Azure Database pour MySQL, par défaut, la réplication est optimisée pour s’exécuter avec les threads parallèles sur les réplicas. Lorsque des charges de travail à forte concurrence sur le serveur source provoquent le basculement du serveur de réplication, vous pouvez améliorer la latence de réplication en configurant le paramètre binlog_group_commit_sync_delay sur le serveur source. 
+
+Le paramètre binlog_group_commit_sync_delay contrôle le nombre de microsecondes pendant lesquelles la validation du journal binaire attend avant de synchroniser le fichier journal binaire. L’avantage de ce paramètre est qu’au lieu d’appliquer immédiatement chaque transaction validée, le serveur source envoie les mises à jour binaires du journal en bloc. Ce délai réduit les e/s sur le réplica et contribue à améliorer les performances. 
+
+Il peut être utile de définir le paramètre binlog_group_commit_sync_delay sur 1000 ou environ. Ensuite, surveillez la latence de réplication. Définissez ce paramètre avec prudence et utilisez-le uniquement pour les charges de travail à fort accès concurrentiel. 
+
+Pour les charges de travail de faible concurrence qui incluent de nombreuses transactions Singleton, le paramètre binlog_group_commit_sync_delay peut augmenter la latence. La latence peut augmenter, car le thread d’e/s attend des mises à jour en bloc des journaux binaires, même si seules quelques transactions sont validées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur la [Vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Consultez la [vue d’ensemble de la réplication MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

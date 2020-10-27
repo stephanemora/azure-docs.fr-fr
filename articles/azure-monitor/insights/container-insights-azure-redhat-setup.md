@@ -3,14 +3,23 @@ title: Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conte
 description: Cet article explique comment configurer la supervision d’un cluster Kubernetes avec Azure Monitor hébergé sur Azure Red Hat OpenShift versions 3 et ultérieures.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994563"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216366"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conteneurs 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conteneurs
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 sera mis hors service en juin 2022.
+>
+> À partir d’octobre 2020, vous ne pourrez plus créer de clusters 3.11.
+> Les clusters 3.11 existants continueront de fonctionner jusqu’en juin 2022, mais ne seront plus pris en charge après cette date.
+>
+> Suivez ce guide pour [Créer un cluster Azure Red Hat OpenShift 4](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Si vous avez des questions spécifiques, [n’hésitez pas à nous contacter](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS. Cet article explique comment activer la supervision des clusters Kubernetes hébergés sur [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x et dernière évolution prise en charge de la version 3 pour obtenir une expérience de supervision similaire.
 
@@ -58,7 +67,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-1. Copiez la valeur de **SubscriptionId**.
+1. Copiez la valeur de **SubscriptionId** .
 
 1. Basculez vers l’abonnement qui héberge l’espace de travail Log Analytics en exécutant la commande suivante :
 
@@ -72,7 +81,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Dans la sortie, recherchez le nom de l’espace de travail, puis copiez l’ID de ressource complet de cet espace de travail Log Analytics sous le champ **ID**.
+1. Dans la sortie, recherchez le nom de l’espace de travail, puis copiez l’ID de ressource complet de cet espace de travail Log Analytics sous le champ **ID** .
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Activer pour un nouveau cluster à l’aide d’un modèle Resource Manager
 
@@ -161,11 +170,11 @@ Effectuez les étapes suivantes pour activer la surveillance d’un cluster Azur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le menu du Portail Azure ou dans la page Accueil, sélectionnez **Azure Monitor**. Sous la section **Insights**, sélectionnez **Conteneurs**.
+2. Dans le menu du Portail Azure ou dans la page Accueil, sélectionnez **Azure Monitor** . Sous la section **Insights** , sélectionnez **Conteneurs** .
 
-3. Dans la page **Monitor - Conteneurs**, sélectionnez **Clusters non analysés**.
+3. Dans la page **Monitor - Conteneurs** , sélectionnez **Clusters non analysés** .
 
-4. Dans la liste des clusters non surveillés, recherchez le cluster dans la liste et cliquez sur **Activer**. Vous pouvez identifier les résultats dans la liste en recherchant la valeur **ARO** sous la colonne **TYPE DE CLUSTER**.
+4. Dans la liste des clusters non surveillés, recherchez le cluster dans la liste et cliquez sur **Activer** . Vous pouvez identifier les résultats dans la liste en recherchant la valeur **ARO** sous la colonne **TYPE DE CLUSTER** .
 
 5. Dans la page **Onboarding to Container Health and Logs** (Intégration de l’intégrité des conteneurs et aux journaux), si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.  
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le cluster est déployé dans l’abonnement.
@@ -221,7 +230,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Modifiez le fichier de paramètre JSON **existingClusterParam.json** et mettez à jour les valeurs *aroResourceId* et *aroResourceLocation*. La valeur de **workspaceResourceId** est l’ID de ressource complet de votre espace de travail Log Analytics, qui inclut le nom de l’espace de travail.
+5. Modifiez le fichier de paramètre JSON **existingClusterParam.json** et mettez à jour les valeurs *aroResourceId* et *aroResourceLocation* . La valeur de **workspaceResourceId** est l’ID de ressource complet de votre espace de travail Log Analytics, qui inclut le nom de l’espace de travail.
 
 6. Pour effectuer un déploiement avec Azure CLI, exécutez les commandes suivantes :
 

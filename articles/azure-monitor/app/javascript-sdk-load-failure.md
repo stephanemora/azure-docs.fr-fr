@@ -144,9 +144,9 @@ Si cela n’apporte toujours rien, vous devez [signaler un problème sur GitHub]
 
 ## <a name="the-application-insights-javascript-cdn-has-been-blocked"></a>Blocage du CDN JavaScript Application Insights
 
-Le blocage du CDN est possible lorsqu’un point de terminaison CDN du Kit de développement logiciel (SDK) JavaScript Application Insights a été signalé ou identifié comme étant dangereux. Lorsque cela se produit, le point de terminaison est inscrit sur une liste noire publique et les consommateurs de ces listes commencent à bloquer tout accès.
+Le blocage du CDN est possible lorsqu’un point de terminaison CDN du Kit de développement logiciel (SDK) JavaScript Application Insights a été signalé ou identifié comme étant dangereux. Lorsque cela se produit, le point de terminaison est inscrit sur une liste rouge publique et les consommateurs de ces listes commencent à bloquer tout accès.
 
-Pour résoudre ce problème, le propriétaire du point de terminaison CDN doit travailler avec l’entité de la liste noire qui a marqué le point de terminaison comme dangereux afin qu’il puisse être retiré de la liste concernée.
+Pour résoudre ce problème, le propriétaire du point de terminaison CDN doit travailler avec l’entité de la liste rouge qui a marqué le point de terminaison comme dangereux afin qu’il puisse être retiré de la liste concernée.
 
 Vérifiez si le point de terminaison CDN a été identifié comme dangereux.
 - [Rapport de transparence Google](https://transparencyreport.google.com/safe-browsing/search)
@@ -169,7 +169,7 @@ Vérifiez si vos utilisateurs finaux ont :
 
 S’ils ont configuré l’une de ces options, vous devrez les aider à autoriser les points de terminaison CDN (ou fournir une documentation).
 
-Il est possible que le plug-in qu’ils ont installé utilise la liste noire publique. Si ce n’est pas le cas, il est probable qu’une autre solution soit configurée manuellement ou qu’il utilise une liste noire de domaine privé.
+Il est possible que le plug-in qu’ils ont installé utilise la liste rouge publique. Si ce n’est pas le cas, il est probable qu’une autre solution soit configurée manuellement ou qu’il utilise une liste rouge de domaine privé.
 
 #### <a name="add-exceptions-for-cdn-endpoints"></a>Ajouter des exceptions pour les points de terminaison CDN
 
@@ -183,7 +183,7 @@ Si vos utilisateurs finaux se trouvent sur un réseau d’entreprise, c’est pr
 
 #### <a name="add-exceptions-for-cdn-endpoints-for-corporations"></a>Ajouter des exceptions pour les points de terminaison CDN pour les entreprises
 
-  Cela est similaire à [l’ajout d’exceptions pour les utilisateurs finaux](#add-exceptions-for-cdn-endpoints), mais vous devez collaborer avec le service informatique de l’entreprise pour qu’il configure les points de terminaison CDN Application Insights à télécharger en les incluant (ou en les supprimant) dans tout service de liste noire ou de liste verte de domaine.
+  Cela est similaire à [l’ajout d’exceptions pour les utilisateurs finaux](#add-exceptions-for-cdn-endpoints), mais vous devez collaborer avec le service informatique de l’entreprise pour qu’il configure les points de terminaison CDN Application Insights à télécharger en les incluant (ou en les supprimant) dans tout service de liste rouge ou de liste verte de domaine.
 
   > [!WARNING]
   > Si votre utilisateur d’entreprise utilise un [cloud privé](https://azure.microsoft.com/overview/what-is-a-private-cloud/) et qu’il ne peut autoriser aucune forme d’exception pour fournir à ses utilisateurs internes un accès public pour les points de terminaison CDN, vous devez utiliser les [packages NPM d’Application Insights](https://www.npmjs.com/package/applicationinsights) ou héberger le Kit de développement logiciel (SDK) Application Insights sur votre propre CDN.  

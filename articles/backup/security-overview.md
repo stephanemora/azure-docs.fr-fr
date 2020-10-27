@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012549"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093342"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -16,7 +16,7 @@ L’une des mesures les plus importantes que vous puissiez prendre pour protége
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestion et contrôle des identités et des accès utilisateur
 
-Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Le service Sauvegarde Azure vous permet de contrôler les opérations managées avec une finesse de précision au niveau des accès à l’aide de la fonctionnalité de [contrôle d’accès en fonction du rôle (Azure RBAC)](./backup-rbac-rs-vault.md). Le contrôle d’accès en fonction du rôle vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
+Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Le service Sauvegarde Azure vous permet de contrôler les opérations managées avec une finesse de précision au niveau des accès à l’aide de la fonctionnalité de [contrôle d’accès en fonction du rôle (Azure RBAC)](./backup-rbac-rs-vault.md). Azure RBAC vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
 
 Le service Sauvegarde Azure fournit trois [rôles intégrés](../role-based-access-control/built-in-roles.md) pour contrôler les opérations de gestion des sauvegardes :
 
@@ -24,7 +24,7 @@ Le service Sauvegarde Azure fournit trois [rôles intégrés](../role-based-acce
 * Opérateur de sauvegarde : mêmes prérogatives que celles d’un contributeur, à l’exception de la suppression de sauvegardes et de la gestion des stratégies de sauvegarde
 * Lecteur de sauvegarde : autorisation d’afficher toutes les opérations de gestion des sauvegardes
 
-Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle pour gérer la Sauvegarde Azure](./backup-rbac-rs-vault.md).
+Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle Azure pour gérer Sauvegarde Azure](./backup-rbac-rs-vault.md).
 
 Le service Sauvegarde Azure dispose de plusieurs contrôles de sécurité intégrés pour empêcher, détecter et traiter les failles de sécurité. Apprenez-en davantage sur les [contrôles de sécurité pour le service Sauvegarde Azure](./backup-security-controls.md).
 

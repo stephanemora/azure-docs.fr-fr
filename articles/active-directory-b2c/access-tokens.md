@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115539"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309011"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Cet article présente comment demander un jeton d’accès pour une application 
 
 ## <a name="scopes"></a>Étendues
 
-Les étendues permettent de gérer les autorisations d’accès aux ressources protégées. Lorsqu’un jeton d’accès est demandé, l’application cliente doit spécifier les autorisations souhaitées dans le paramètre **d’étendue** de la requête. Par exemple, pour spécifier la **valeur d’étendue** de `read` pour l’API qui a l’**URI ID d’application** de `https://contoso.onmicrosoft.com/api`, l’étendue serait `https://contoso.onmicrosoft.com/api/read`.
+Les étendues permettent de gérer les autorisations d’accès aux ressources protégées. Lorsqu’un jeton d’accès est demandé, l’application cliente doit spécifier les autorisations souhaitées dans le paramètre **d’étendue** de la requête. Par exemple, pour spécifier la **valeur d’étendue** de `read` pour l’API qui a l’ **URI ID d’application** de `https://contoso.onmicrosoft.com/api`, l’étendue serait `https://contoso.onmicrosoft.com/api/read`.
 
-Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue** de la requête.
+Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’ **étendue** de la requête.
 
 L’exemple suivant présente des étendues décodées dans une URL :
 
@@ -50,10 +50,15 @@ L’exemple suivant présente des étendues encodées dans une URL :
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Si vous demandez plus d’étendues que ce qui est autorisé pour votre application cliente, l’appel réussit si au moins une autorisation est accordée. La revendication **scp** du jeton d’accès obtenue est remplie uniquement avec les autorisations qui ont été accordées. Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue. Les étendues suivantes représentent l'autorisation d'accès au profil de l'utilisateur :
+Si vous demandez plus d’étendues que ce qui est autorisé pour votre application cliente, l’appel réussit si au moins une autorisation est accordée. La revendication **scp** du jeton d’accès obtenue est remplie uniquement avec les autorisations qui ont été accordées. 
+
+### <a name="openid-connect-scopes"></a>Étendues OpenId Connect
+
+Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue. Les étendues suivantes représentent l'autorisation d'accès au profil de l'utilisateur :
 
 - **openid** : cette étendue demande un jeton d’ID.
-- **offline_access** : cette étendue demande un jeton d’actualisation à l’aide du [flux de code d’authentification](authorization-code-flow.md).
+- **offline_access**  : cette étendue demande un jeton d’actualisation à l’aide du [flux de code d’authentification](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** : l’utilisation de l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.
 
 Si le paramètre **response_type** dans une requête `/authorize` inclut `token`, le paramètre **scope** doit inclure au moins l’une des étendues de ressource (autre que `openid` et `offline_access`) qui sera accordée. Sinon, la demande `/authorize` échoue.
 

@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317174"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164820"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -107,13 +107,13 @@ Dans JavaScript, les [liaisons](functions-triggers-bindings.md) sont configurée
 
 ### <a name="inputs"></a>Entrées
 Les entrées sont réparties en deux catégories dans Azure Functions : l’une correspond à l’entrée du déclencheur et l’autre, à l’entrée supplémentaire. Le déclencheur et autres liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
- - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. La propriété `name` définie dans *function.json* n’a pas besoin de correspondre au nom de votre paramètre, même si c’est conseillé.
+ - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json* . La propriété `name` définie dans *function.json* n’a pas besoin de correspondre au nom de votre paramètre, même si c’est conseillé.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json*.
+ - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Une fonction peut écrire des données dans les sorties (liaisons de `direction 
 
 Vous pouvez assigner des données aux liaisons de sortie de l’une des manières suivantes (ne combinez pas ces méthodes) :
 
-- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
+- **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json* .
 
   ```javascript
   module.exports = async function(context) {
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Vous permet d’écrire dans les journaux d’activité de fonction de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire des journaux d’activité de fonction à d’autres niveaux de trace :
+Vous permet d’écrire dans les journaux d’activité de fonction de streaming au niveau de trace par défaut, avec d’autres niveaux de journalisation disponibles. La journalisation du suivi est décrite en détail dans la section suivante. 
 
+## <a name="write-trace-output-to-logs"></a>Écrire la sortie de trace dans les journaux
 
-| Méthode                 | Description                                |
-| ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Écrit dans la journalisation du niveau d’erreur, ou à un niveau inférieur.   |
-| **warn(_message_)**    | Écrit dans la journalisation du niveau d’avertissement, ou à un niveau inférieur. |
-| **info(_message_)**    | Écrit dans la journalisation du niveau d’information, ou à un niveau inférieur.    |
-| **verbose(_message_)** | Écrit dans la journalisation du niveau détaillé.           |
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans les journaux et la console. Lorsque vous appelez `context.log()`, votre message est écrit dans les journaux au niveau de trace par défaut, qui est le niveau de trace d’ _informations_ . Functions s’intègre à Azure Application Insights pour mieux capturer les journaux de vos applications de fonction. Application Insights, qui fait partie de Azure Monitor, fournit des fonctionnalités pour la collecte, le rendu visuel et l’analyse des données de télémétrie d’application et de vos sorties de trace. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
-L’exemple suivant écrit un journal au niveau de trace d’avertissement :
+L’exemple suivant écrit un journal au niveau de la trace des informations, y compris l’ID d’appel :
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Vous pouvez [configurer le seuil du niveau de trace pour la journalisation](#configure-the-trace-level-for-console-logging) dans le fichier host.json. Pour plus d’informations sur l’écriture de journaux d’activité, consultez [Écriture de sorties de trace](#writing-trace-output-to-the-console) plus loin.
-
-Consultez [Supervision des fonctions Azure](functions-monitoring.md) pour en savoir plus sur l’affichage et l’interrogation des journaux d’activité de fonction.
-
-## <a name="writing-trace-output-to-the-console"></a>Écrire la sortie de trace dans la console 
-
-Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. Dans Functions v2.x, les sorties de trace via `console.log` sont capturées au niveau de l’application Functions. Cela signifie que les sorties de `console.log` ne sont pas liées à un appel de fonction spécifique et qu’elles ne sont pas affichées dans les journaux d’activité d’une fonction spécifique. Elles sont, toutefois, propagées à Application Insights. Dans Functions v1.x, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
-
-Lorsque vous appelez `context.log()`, votre message est écrit dans la console au niveau de trace par défaut, qui est le niveau de trace d’_informations_. Le code suivant écrit dans la console au niveau de trace d’informations :
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Ce code est équivalent au code ci-dessus :
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Ce code écrit dans la console au niveau de trace d’erreur :
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Étant donné que le niveau d’_erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.
 
 Toutes les méthodes `context.log` prennent en charge le même format de paramètre que celui pris en charge par la [méthode util.format](https://nodejs.org/api/util.html#util_util_format_format) Node.js. Prenons le code suivant, qui écrit des journaux d’activité de fonction en utilisant le niveau de trace par défaut :
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configurer le niveau de trace pour la journalisation de la console
+> [!NOTE]  
+> N’utilisez pas `console.log` pour écrire des sorties de trace. Étant donné que la sortie de `console.log` est capturée au niveau de l’application de la fonction, elle n’est pas liée à un appel de fonction spécifique et n’est pas affichée dans les journaux d’une fonction spécifique. En outre, la version 1. x du runtime Functions ne prend pas en charge l’utilisation de `console.log` pour écrire dans la console.
 
-Functions 1.x vous permet de définir le niveau de trace du seuil pour écrire dans la console, ce qui facilite le contrôle de l’écriture des traces dans la console à partir de votre fonction. Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour définir le seuil de toutes les traces écrites dans la console. Ce paramètre s’applique à toutes les fonctions dans votre Function App. L’exemple suivant définit le seuil de trace permettant d’activer la journalisation détaillée :
+### <a name="trace-levels"></a>Niveaux de trace
+
+Outre le niveau par défaut, les méthodes de journalisation suivantes sont disponibles pour vous permettre d’écrire des journaux de fonctions à des niveaux de suivi spécifiques.
+
+| Méthode                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| **error( _message_ )**   | Écrit un événement au niveau de l’erreur dans les journaux.   |
+| **warn( _message_ )**    | Écrit un événement de niveau avertissement dans les journaux. |
+| **info( _message_ )**    | Écrit dans la journalisation du niveau d’information, ou à un niveau inférieur.    |
+| **verbose( _message_ )** | Écrit dans la journalisation du niveau détaillé.           |
+
+L’exemple suivant écrit le même journal au niveau de la trace d’avertissement, au lieu du niveau information :
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Étant donné que le niveau d’ _erreur_ constitue le niveau de trace le plus élevé, cette trace est écrite dans la sortie à tous les niveaux de trace tant que la journalisation est activée.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configurer le niveau de trace pour la journalisation
+
+Functions vous permet de définir le seuil de niveau de trace pour l’écriture dans les journaux ou la console. Les paramètres de seuil spécifiques dépendent de votre version du runtime Functions.
+
+# <a name="v2x"></a>[v2.x+](#tab/v2)
+
+Utilisez la propriété `logging.logLevel` dans le fichier host.json pour définir le seuil des traces écrites dans les journaux. Cet objet JSON vous permet de définir un seuil par défaut pour toutes les fonctions de votre application de fonction, et vous pouvez définir des seuils spécifiques pour les fonctions individuelles. Pour plus d’informations, consultez [Comment configurer la surveillance de Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+Utilisez la propriété `tracing.consoleLevel` dans le fichier host.json pour définir le seuil de toutes les traces écrites dans les journaux et la console. Ce paramètre s’applique à toutes les fonctions dans votre Function App. L’exemple suivant définit le seuil de trace permettant d’activer la journalisation détaillée :
 
 ```json
 {
@@ -360,7 +358,65 @@ Functions 1.x vous permet de définir le niveau de trace du seuil pour écrire d
 }  
 ```
 
-Les valeurs de **consoleLevel** correspondent aux noms des méthodes `context.log`. Pour désactiver toutes les journalisations de trace dans la console, définissez **consoleLevel** sur _désactivé_. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json-v1.md).
+Les valeurs de **consoleLevel** correspondent aux noms des méthodes `context.log`. Pour désactiver toutes les journalisations de trace dans la console, définissez **consoleLevel** sur _désactivé_ . Pour plus d’informations, consultez l’article de référence sur [host.json v1.x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Enregistrer une télémétrie personnalisée
+
+Par défaut, Functions écrit la sortie en tant que traces dans Application Insights. Pour plus de contrôle, vous pouvez utiliser à la place le kit de développement logiciel [Application Insights node.js](https://github.com/microsoft/applicationinsights-node.js) pour envoyer des données de télémétrie personnalisées à votre instance Application Insights. 
+
+# <a name="v2x"></a>[v2.x+](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+Le paramètre `tagOverrides` définit `operation_Id` sur l’ID d'appel de la fonction. Ce paramètre permet de mettre en corrélation toutes les données de télémétrie générées automatiquement et personnalisées pour un appel de fonction donné.
 
 ## <a name="http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP
 
@@ -489,12 +545,12 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 ### <a name="using-kudu"></a>Utilisation de Kudu
 1. Atteindre `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Cliquez sur **Console de débogage** > **CMD**.
+2. Cliquez sur **Console de débogage** > **CMD** .
 
 3. Accédez à `D:\home\site\wwwroot`, puis faites glisser le fichier package.json vers le dossier **wwwroot** dans la partie supérieure de la page.  
     Il existe d’autres manières de télécharger des fichiers dans votre Function App. Pour plus d’informations, consultez [Comment mettre à jour les fichiers du conteneur de fonctions](functions-reference.md#fileupdate). 
 
-4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**.  
+4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu** .  
     Les packages d’actions indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
 
 ## <a name="environment-variables"></a>Variables d'environnement

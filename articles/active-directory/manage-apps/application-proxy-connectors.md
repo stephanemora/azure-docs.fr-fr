@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319824"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282126"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -67,7 +67,7 @@ Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont
 
 Azure AD fournit les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](application-proxy-add-on-premises-application.md) afin d’obtenir les mises à jour.
 
-Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger**. Ce processus lance une mise à niveau du connecteur local.
+Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger** . Ce processus lance une mise à niveau du connecteur local.
 
 Pour les abonnés avec plusieurs connecteurs, les mises à jour automatiques ciblent un seul connecteur à la fois dans chaque groupe afin d’éviter les temps d’arrêt dans votre environnement.
 
@@ -161,8 +161,11 @@ Si un connecteur n’est pas connecté au service pendant plusieurs mois, ses ce
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+Pour les administrations, utilisez `-EnvironmentName "AzureUSGovernment"`. Pour plus de détails, consultez [Installer l’agent pour le cloud Azure Government](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+
 Pour en savoir plus sur la façon de vérifier le certificat et de résoudre les problèmes, consultez [Vérifier la prise en charge du certificat de confiance du proxy d’application par la machine et les composants back-end](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>Sous le capot
@@ -175,9 +178,9 @@ et les compteurs de performances Windows.
 
 ![Ajouter des compteurs au connecteur avec l’Analyseur de performances](./media/application-proxy-connectors/performance-monitor.png)
 
-Les connecteurs ont des journaux de **session** et d’**administration**. Le journal d’**administration** inclut les événements principaux et leurs erreurs. Le journal de **session** contient toutes les transactions et les détails de leur traitement.
+Les connecteurs ont des journaux de **session** et d’ **administration** . Le journal d’ **administration** inclut les événements principaux et leurs erreurs. Le journal de **session** contient toutes les transactions et les détails de leur traitement.
 
-Pour voir les journaux, ouvrez l’**Observateur d’événements** et accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur**. Pour rendre le journal de **session** visible, dans le menu **Affichage**, sélectionnez **Afficher les journaux d’analyse et de débogage**. Le journal de **session** est généralement utilisé pour la résolution des problèmes. Il est désactivé par défaut. Activez-le pour commencer à collecter des événements, et désactivez-le lorsqu’il n’est plus nécessaire.
+Pour voir les journaux, ouvrez l’ **Observateur d’événements** et accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** . Pour rendre le journal de **session** visible, dans le menu **Affichage** , sélectionnez **Afficher les journaux d’analyse et de débogage** . Le journal de **session** est généralement utilisé pour la résolution des problèmes. Il est désactivé par défaut. Activez-le pour commencer à collecter des événements, et désactivez-le lorsqu’il n’est plus nécessaire.
 
 Vous pouvez examiner l’état du service dans la fenêtre Services. Le connecteur se compose de deux services Windows : le connecteur lui-même et le programme de mise à jour. Tous deux doivent s’exécuter en permanence.
 
