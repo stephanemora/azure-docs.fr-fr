@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005930"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164793"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -23,7 +23,7 @@ Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’e
 
 Cet article explique comment créer un compte Video Indexer connecté à un abonnement Azure et un compte Azure Media Services. Cette rubrique indique les étapes permettant de se connecter à Azure via le flux automatique (par défaut). Elle explique également comment se connecter à Azure manuellement (option avancée).
 
-Si vous passez d’un compte Video Indexer en *version d’essai* à la *version payante*, vous pouvez choisir de copier toutes les vidéos et la personnalisation du modèle sur le nouveau compte, comme indiqué dans la section [Importer votre contenu à partir du compte d’essai](#import-your-content-from-the-trial-account).
+Si vous passez d’un compte Video Indexer en *version d’essai* à la *version payante* , vous pouvez choisir de copier toutes les vidéos et la personnalisation du modèle sur le nouveau compte, comme indiqué dans la section [Importer votre contenu à partir du compte d’essai](#import-your-content-from-the-trial-account).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ Si vous passez d’un compte Video Indexer en *version d’essai* à la *version
 
     Si vous n’avez pas de domaine Azure AD, créez-en un avec votre abonnement Azure. Pour plus d’informations, consultez la rubrique [Gestion des noms de domaine personnalisés dans Azure AD](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Un utilisateur de votre domaine Azure AD avec un rôle d'**administrateur d’application**. Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
+* Un utilisateur de votre domaine Azure AD avec un rôle d' **administrateur d’application** . Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
 
     Cet utilisateur doit être un utilisateur Azure AD avec un compte professionnel ou scolaire. N’utilisez pas un compte personnel comme outlook.com, live.com ou hotmail.com.
 
@@ -47,7 +47,7 @@ Si vous passez d’un compte Video Indexer en *version d’essai* à la *version
 
     Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
 
-    Cet utilisateur doit être membre de votre abonnement Azure avec un rôle de **Propriétaire** ou les rôles de **Contributeur** et **d’Administrateur de l’accès utilisateur**. Un utilisateur peut être ajouté à deux reprises, avec deux rôles. Une fois comme contributeur et une autre fois comme administrateur des accès utilisateur.
+    Cet utilisateur doit être membre de votre abonnement Azure avec un rôle de **Propriétaire** ou les rôles de **Contributeur** et **d’Administrateur de l’accès utilisateur** . Un utilisateur peut être ajouté à deux reprises, avec deux rôles. Une fois comme contributeur et une autre fois comme administrateur des accès utilisateur. Pour plus d’informations, consultez [Visualiser l’accès dont dispose un utilisateur aux ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![Contrôle d’accès](./media/create-account/access-control-iam.png)
 
@@ -55,9 +55,9 @@ Si vous passez d’un compte Video Indexer en *version d’essai* à la *version
 
 * Inscrivez le fournisseur de ressources EventGrid à l’aide du portail Azure.
 
-    Dans le [Portail Azure](https://portal.azure.com/), accédez à **Abonnements**-> [abonnement] ->**Fournisseurs de ressources**.
+    Dans le [Portail Azure](https://portal.azure.com/), accédez à **Abonnements** -> [abonnement] -> **Fournisseurs de ressources** .
 
-    Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’état « Inscrit », cliquez sur **Inscrire**. Quelques minutes sont nécessaires pour effectuer l’inscription.
+    Recherchez **Microsoft.Media** et **Microsoft.EventGrid** . S’il n’a pas l’état « Inscrit », cliquez sur **Inscrire** . Quelques minutes sont nécessaires pour effectuer l’inscription.
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -68,7 +68,7 @@ Si vous passez d’un compte Video Indexer en *version d’essai* à la *version
 
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 
-2. Sélectionnez le bouton **Créer un compte** :
+2. Sélectionnez le bouton **Créer un compte**  :
 
     ![Créer un compte Video Indexer](./media/create-account/connect-to-azure.png)
 
@@ -77,22 +77,22 @@ Si vous passez d’un compte Video Indexer en *version d’essai* à la *version
     ![Connexion de Video Indexer à Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
 4. Sélectionnez une région Azure parmi les lieux pris en charge : USA Ouest 2, Europe Nord et Asie-Pacifique.
-5. Sous **Compte Azure Media Services**, choisissez une des options suivantes :
+5. Sous **Compte Azure Media Services** , choisissez une des options suivantes :
 
-    * Pour créer un compte Media Services, sélectionnez **Créer un groupe de ressources**. Indiquez le nom de votre groupe de ressources.
+    * Pour créer un compte Media Services, sélectionnez **Créer un groupe de ressources** . Indiquez le nom de votre groupe de ressources.
 
         Azure crée ce compte dans votre abonnement, y compris un compte de stockage Azure. Votre nouveau compte Media Services a une configuration initiale par défaut avec un point de terminaison de streaming et 10 unités réservées S3.
-    * Pour utiliser un compte Media Services existant, sélectionnez **Utiliser une ressource existante**. Dans la liste des comptes, sélectionnez votre compte.
+    * Pour utiliser un compte Media Services existant, sélectionnez **Utiliser une ressource existante** . Dans la liste des comptes, sélectionnez votre compte.
 
         Votre compte Media Services doit avoir la même région que votre compte Video Indexer.
 
         > [!NOTE]
         > Pour réduire la durée d’indexation et améliorer le débit, il est fortement recommandé d’ajuster le type et le nombre [d’unités réservées](../previous/media-services-scale-media-processing-overview.md ) sur **10 unités réservées S3** dans votre compte Media Services. Consultez [Modification du type d’unité réservée](../previous/media-services-portal-scale-media-processing.md).
 
-    * Pour configurer manuellement votre connexion, sélectionnez le lien **Basculer vers la configuration manuelle**.
+    * Pour configurer manuellement votre connexion, sélectionnez le lien **Basculer vers la configuration manuelle** .
 
         Pour plus d’informations, consultez la section [Se connecter à Azure manuellement](#connect-to-azure-manually-advanced-option) (option avancée) ci-dessous.
-6. Lorsque vous avez terminé, choisissez **Connecter**. Cette opération peut prendre quelques minutes.
+6. Lorsque vous avez terminé, choisissez **Connecter** . Cette opération peut prendre quelques minutes.
 
     Une fois que vous êtes connecté à Azure, votre nouveau compte Video Indexer apparaît dans la liste des comptes :
 
@@ -121,17 +121,17 @@ En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le p
 2. Ajustez le type et le nombre [d’unités réservées](../previous/media-services-scale-media-processing-overview.md ) sur **10 unités réservées S3** dans le compte Media Services que vous avez créé. Consultez [Modification du type d’unité réservée](../previous/media-services-portal-scale-media-processing.md).
 3. Avant de pouvoir lire vos vidéos dans l’application web de Video Indexer, vous devez démarrer le **point de terminaison de streaming** par défaut du nouveau compte Media Services.
 
-    Dans le nouveau compte Media Services, sélectionnez **Points de terminaison de streaming**. Sélectionnez ensuite le point de terminaison de streaming, puis cliquez sur Démarrer.
+    Dans le nouveau compte Media Services, sélectionnez **Points de terminaison de streaming** . Sélectionnez ensuite le point de terminaison de streaming, puis cliquez sur Démarrer.
 
     ![Nouveau compte AMS](./media/create-account/create-ams-account2.png)
 
 4. Pour que Video Indexer puisse s’authentifier auprès de l’API Media Services, vous devez créer une application AD. Les étapes suivantes vous guident dans le processus d’authentification Azure AD décrit dans [Prise en main de l’authentification Azure AD à l’aide du portail Azure](../previous/media-services-portal-get-started-with-aad.md) :
 
-    1. Dans le nouveau compte Media Services, sélectionnez **Accès API**.
+    1. Dans le nouveau compte Media Services, sélectionnez **Accès API** .
     2. Sélectionnez [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md) (Méthode d’authentification de principal de service).
     3. Obtenir l’ID client et la clé secrète client
 
-        Après avoir sélectionné **Paramètres**->**Clés**, ajoutez une **Description** et cliquez sur **Enregistrer**. La valeur de clé est alors remplie automatiquement.
+        Après avoir sélectionné **Paramètres**->**Clés** , ajoutez une **Description** et cliquez sur **Enregistrer** . La valeur de clé est alors remplie automatiquement.
 
         Si la clé expire, le propriétaire du compte devra contacter le support de Video Indexer pour la renouveler.
 
@@ -140,23 +140,23 @@ En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le p
 
 ### <a name="connect-manually"></a>Se connecter manuellement
 
-Dans la boîte de dialogue **Connecter Video Indexer à un abonnement Azure** de la page [Video Indexer](https://www.videoindexer.ai/), sélectionnez le lien **Basculer vers la configuration manuelle**.
+Dans la boîte de dialogue **Connecter Video Indexer à un abonnement Azure** de la page [Video Indexer](https://www.videoindexer.ai/), sélectionnez le lien **Basculer vers la configuration manuelle** .
 
 Dans la boîte de dialogue, indiquez les informations suivantes :
 
 |Paramètre|Description|
 |---|---|
 |Région du compte Video Indexer|Nom de la région du compte Video Indexer. Pour améliorer les performances et réduire les coûts, il est fortement recommandé de spécifier le nom de la région où se trouvent la ressource Azure Media Services et le compte de stockage Azure. |
-|Client Azure AD|Nom du locataire Azure AD, par exemple contoso.onmicrosoft.com. Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite. Le nom est indiqué à droite du **domaine**.|
+|Client Azure AD|Nom du locataire Azure AD, par exemple contoso.onmicrosoft.com. Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite. Le nom est indiqué à droite du **domaine** .|
 |Identifiant d’abonnement|Abonnement Azure sous lequel cette connexion doit être créée. L’ID d’abonnement peut être récupéré à partir du portail Azure. Sélectionnez **Tous les services** dans le panneau gauche, puis recherchez « abonnements ». Sélectionnez **Abonnements** et choisissez l’ID voulu dans la liste de vos abonnements.|
 |Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel vous avez créé le compte Media Services.|
 |Nom de la ressource de service multimédia|Nom du compte Azure Media Services que vous avez créé dans la section précédente.|
 |ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé dans la section précédente.|
 |Clé de l'application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
 
-## <a name="import-your-content-from-the-trial-account"></a>Importer votre contenu à partir du compte d’*essai*
+## <a name="import-your-content-from-the-trial-account"></a>Importer votre contenu à partir du compte d’ *essai*
 
-Quand vous [créez un compte](#connect-to-azure), vous avez la possibilité d’importer votre contenu à partir du compte d’*essai* dans le nouveau compte. Si vous activez l’option d’*importation* dans la boîte de dialogue **Créer un compte sur un abonnement Azure**, toutes les personnalisations de modèle de contenu et de fichier multimédia sont copiées à partir du compte d’*essai* dans le nouveau compte.
+Quand vous [créez un compte](#connect-to-azure), vous avez la possibilité d’importer votre contenu à partir du compte d’ *essai* dans le nouveau compte. Si vous activez l’option d’ *importation* dans la boîte de dialogue **Créer un compte sur un abonnement Azure** , toutes les personnalisations de modèle de contenu et de fichier multimédia sont copiées à partir du compte d’ *essai* dans le nouveau compte.
 
 La possibilité d’importer le contenu est valide pour les approches automatisée et manuelle décrites ci-dessus.
 
