@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324406"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282364"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -118,7 +118,7 @@ La commande suivante crée un index générique sur toutes les propriétés dans
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête**. Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété.
+**Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête** . Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété.
 
 Vous pouvez créer les types d’index suivants à l’aide de la syntaxe des caractères génériques :
 
@@ -141,7 +141,7 @@ Les index génériques ne prennent pas en charge les types ou propriétés d’i
 - TTL
 - Unique
 
-**Contrairement à MongoDB**, dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
+**Contrairement à MongoDB** , dans l’API d’Azure Cosmos DB pour MongoDB, vous **ne pouvez pas** utiliser des index génériques pour les opérations suivantes :
 
 - Création d’un index générique incluant plusieurs champs spécifiques
 
@@ -320,11 +320,11 @@ Les détails de la progression de l’index affichent le pourcentage de progress
 
 ## <a name="background-index-updates"></a>Mises à jour d’index en arrière-plan
 
-Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan**, les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
+Quelle que soit la valeur spécifiée pour la propriété d’index **En arrière-plan** , les mises à jour d’index sont toujours effectuées en arrière-plan. Étant donné que les mises à jour d’index consomment des unités de requête (RU) à une priorité inférieure à celle des autres opérations de base de données, les modifications d’index n’entraînent aucun temps d’arrêt pour les écritures, les mises à jour ou les suppressions.
 
 Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout d’un nouvel index. Les requêtes utilisent uniquement les nouveaux index une fois la transformation d’index terminée. Pendant la transformation d’index, le moteur de requête continue d’utiliser les index existants, ce qui vous permet d’observer des performances de lecture similaires pendant la transformation d’indexation à ce que vous aviez observé avant de lancer la modification de l’indexation. Lors de l’ajout de nouveaux index, il n’y a pas non plus de risque de résultats de requête incomplets ou incohérents.
 
-Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes, il y a des filtres sur les index supprimés, les résultats peuvent être incohérents et incomplets jusqu’à la fin de la transformation d’index. Si vous supprimez des index, le moteur de requête ne garantit pas de résultats cohérents ou complets lorsque les requêtes appliquent des filtres sur ces index récemment supprimés. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
+Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes, il y a des filtres sur les index supprimés, les résultats peuvent être incohérents et incomplets jusqu’à la fin de la transformation d’index. Si vous supprimez des index, le moteur de requête ne fournit pas de résultats cohérents ou complets lorsque les requêtes appliquent des filtres sur ces index récemment supprimés. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
 
 > [!NOTE]
 > Vous pouvez [suivre la progression de l’index](#track-index-progress).

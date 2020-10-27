@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288917"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279074"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Utiliser des procédures stockées dans Synapse SQL
 
-Conseils relatifs à l’implémentation de procédures stockées dans un pool SQL Synapse à des fins de développement de solutions.
+Conseils sur l’implémentation des procédures stockées dans un pool Synapse SQL pour le développement de solutions.
 
 ## <a name="what-to-expect"></a>À quoi s’attendre
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT... EXECUTE
 
-Synapse SQL ne vous permet pas de consommer le jeu de résultats d’une procédure stockée avec une instruction INSERT. Pour cela, une autre méthode existe. Pour obtenir un exemple, consultez l’article sur les [tables temporaires](develop-tables-temporary.md).
+Synapse SQL ne vous permet pas de consommer le jeu de résultats d’une procédure stockée avec une instruction INSERT. Pour cela, une autre méthode existe. Pour obtenir un exemple, consultez l’article sur les [tables temporaires](develop-tables-temporary.md) pour le pool Synapse SQL approvisionné.
 
 ## <a name="limitations"></a>Limites
 

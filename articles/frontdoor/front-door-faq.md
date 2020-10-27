@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819035"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331581"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -24,7 +24,7 @@ Cet article répond aux questions courantes sur les fonctionnalités d’Azure F
 
 1. La section Commentaires de cet article
 2. [Azure Front Door UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Support Microsoft :** Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
+3. **Support Microsoft :** Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide** , sélectionnez le bouton **Aide et support** , puis **Nouvelle demande de support** .
 
 ## <a name="general"></a>Général
 
@@ -71,7 +71,7 @@ Azure Front Door est un service mondial ; il n’est pas lié à une région Az
 
 ### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Quels sont les points de présence pour Azure Front Door ?
 
-Azure Front Door a la même liste de points de présence (POP, Point of Presence) que Microsoft Azure CDN. Pour obtenir la liste complète de nos points de présence, consultez [Emplacements POP du CDN Azure par région](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Azure Front Door a la même liste de points de présence (POP, Point of Presence) que Microsoft Azure CDN. Pour obtenir la liste complète de nos points de présence, consultez [Emplacements POP du CDN Azure par région](../cdn/cdn-pop-locations.md).
 
 ### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Azure Front Door est-il un déploiement dédié à mon application ou est-il partagé entre les clients ?
 
@@ -91,14 +91,14 @@ Pour verrouiller votre application afin de n’accepter que le trafic provenant 
 
 - Configurez les ACL IP pour vos back-ends de manière à accepter le trafic en provenance uniquement de l’espace d’adressage IP back-end d’Azure Front Door et des services d’infrastructure d’Azure. Reportez-vous aux détails d’adresses IP ci-dessous afin de configurer les listes ACL pour votre back-end :
  
-    - Reportez-vous à la section *AzureFrontDoor.Backend* dans [Plages d’adresses IP Azure et étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519) pour la plage d’adresses IP back-end IPv4 de Front Door. Vous pouvez également utiliser l’étiquette de service *AzureFrontDoor.Backend* dans vos [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
+    - Reportez-vous à la section *AzureFrontDoor.Backend* dans [Plages d’adresses IP Azure et étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519) pour la plage d’adresses IP back-end IPv4 de Front Door. Vous pouvez également utiliser l’étiquette de service *AzureFrontDoor.Backend* dans vos [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules).
     - L’espace d’adresses IP back-end **IPv6** de Front Door, tout en étant couvert dans l’étiquette de service, n’est pas listé dans le fichier JSON des plages d’adresses IP Azure. Si vous recherchez une plage d’adresses IPv6 explicite, elle est limitée à `2a01:111:2050::/44`
-    - [Services d’infrastructure de base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) d’Azure par le biais des adresses IP hôte virtualisées : `168.63.129.16` et `169.254.169.254`
+    - [Services d’infrastructure de base](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) d’Azure par le biais des adresses IP hôte virtualisées : `168.63.129.16` et `169.254.169.254`
 
     > [!WARNING]
     > L’espace IP back-end de Front Door pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour.
 
--    Effectuez une opération GET sur votre porte d’entrée avec la version d’API `2020-01-01` ou une version ultérieure. Dans l’appel d’API, recherchez le champ `frontdoorID`. Filtrez sur l’en-tête entrant « **X-Azure-FDID** » envoyé par Front Door à votre back-end avec la valeur du champ `frontdoorID`. Vous pouvez également trouver la valeur `Front Door ID` sous la section Vue d’ensemble de la page du portail Front Door. 
+-    Effectuez une opération GET sur votre porte d’entrée avec la version d’API `2020-01-01` ou une version ultérieure. Dans l’appel d’API, recherchez le champ `frontdoorID`. Filtrez sur l’en-tête entrant «  **X-Azure-FDID**  » envoyé par Front Door à votre back-end avec la valeur du champ `frontdoorID`. Vous pouvez également trouver la valeur `Front Door ID` sous la section Vue d’ensemble de la page du portail Front Door. 
 
 - Appliquez un filtrage de règles sur votre serveur web principal pour limiter le trafic en fonction de la valeur obtenue de l’en-tête « X-Azure-FDID ».
 
@@ -156,11 +156,15 @@ Azure Front Door (AFD) nécessite une adresse IP publique ou un nom DNS pouvant 
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quels sont les différents délais d’attente et limites applicables à Azure Front Door ?
 
-Pour en savoir plus sur tous les délais d’attente et limites documentés pour Azure Front Door, consultez [cet article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+Pour en savoir plus sur tous les délais d’attente et limites documentés pour Azure Front Door, consultez [cet article](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
 
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Combien de temps faut-il pour qu’une règle prenne effet après avoir été ajoutée au moteur de règles Front Door ?
 
 La configuration du moteur de règles prend environ 10 à 15 minutes pour effectuer une mise à jour. Vous pouvez vous attendre à ce que la règle prenne effet dès que la mise à jour est terminée. 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>Puis-je configurer Azure CDN derrière mon profil Front Door ou vice versa ?
+
+Impossible de configurer ensemble Azure Front Door et Azure CDN, car ces deux services utilisent les mêmes sites de périphérie Azure pour répondre aux demandes. 
 
 ## <a name="performance"></a>Performances
 
@@ -179,7 +183,7 @@ Front Door prend en charge les versions TLS 1.0, 1.1 et 1.2. TLS 1.3 n’est p
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Quels sont les certificats pris en charge sur Azure Front Door ?
 
 Pour permettre au protocole HTTPS de distribuer le contenu de manière sécurisée sur un domaine personnalisé Front Door, vous pouvez choisir d’utiliser un certificat managé par Azure Front Door ou votre propre certificat.
-L'option managée par Front Door approvisionne un certificat TLS/SSL standard délivré par le biais de Digicert et stocké dans le coffre de clés Front Door. Si vous choisissez d'utiliser votre propre certificat, vous pouvez intégrer un certificat délivré par une autorité de certification prise en charge ; il peut s'agir d'un certificat TLS standard, d'un certificat de validation étendue ou même d'un certificat générique. Les certificats auto-signés ne sont pas pris en charge. Découvrez [comment activer le protocole HTTPS pour un domaine personnalisé](https://aka.ms/FrontDoorCustomDomainHTTPS).
+L'option managée par Front Door approvisionne un certificat TLS/SSL standard délivré par le biais de Digicert et stocké dans le coffre de clés Front Door. Si vous choisissez d'utiliser votre propre certificat, vous pouvez intégrer un certificat délivré par une autorité de certification prise en charge ; il peut s'agir d'un certificat TLS standard, d'un certificat de validation étendue ou même d'un certificat générique. Les certificats auto-signés ne sont pas pris en charge. Découvrez [comment activer le protocole HTTPS pour un domaine personnalisé](./front-door-custom-domain-https.md).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>Front Door prend-il en charge la rotation automatique des certificats ?
 
@@ -220,7 +224,7 @@ Quand vous utilisez des domaines personnalisés avec TLS 1.0/1.1 activé, les s
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Puis-je configurer la stratégie TLS de manière à contrôler les versions du protocole TLS ?
 
-Vous pouvez configurer une version TLS minimale dans Azure Front Door dans les paramètres HTTPS de domaine personnalisé par le biais du portail Azure ou de l’[API REST Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Actuellement, vous pouvez choisir entre 1.0 et 1.2.
+Vous pouvez configurer une version TLS minimale dans Azure Front Door dans les paramètres HTTPS de domaine personnalisé par le biais du portail Azure ou de l’[API REST Azure](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Actuellement, vous pouvez choisir entre 1.0 et 1.2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Puis-je configurer Front Door pour prendre en charge uniquement des suites de chiffrement spécifiques ?
 
@@ -238,16 +242,16 @@ Oui, Azure Front Door prend en charge le déchargement TLS/SSL et le protocole T
 
 Non, les certificats auto-signés ne sont pas pris en charge sur Front Door et cette restriction s’applique aux deux éléments suivants :
 
-1. **Back-ends** : vous ne pouvez pas utiliser de certificats auto-signés quand vous transférez le trafic en tant que trafic HTTPS ou sondes d’intégrité HTTPS ou que vous remplissez le cache à partir de l’origine pour les règles d’acheminement avec mise en cache activée.
-2. **Front-end** : vous ne pouvez pas utiliser de certificats auto-signés lorsque vous utilisez votre propre certificat TLS/SSL personnalisé pour activer HTTPS sur votre domaine personnalisé.
+1. **Back-ends**  : vous ne pouvez pas utiliser de certificats auto-signés quand vous transférez le trafic en tant que trafic HTTPS ou sondes d’intégrité HTTPS ou que vous remplissez le cache à partir de l’origine pour les règles d’acheminement avec mise en cache activée.
+2. **Front-end**  : vous ne pouvez pas utiliser de certificats auto-signés lorsque vous utilisez votre propre certificat TLS/SSL personnalisé pour activer HTTPS sur votre domaine personnalisé.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Pourquoi le trafic HTTPS vers mon back-end échoue ?
 
 Concernant les connexions HTTPS vers votre back-end, qu’il s’agisse de sondes d’intégrité ou de transferts de requêtes, le trafic HTTPS peut échouer pour deux raisons :
 
-1. **Incompatibilité du nom d’objet du certificat** : Pour les connexions HTTPS, Front Door s’attend à ce que votre back-end présente le certificat d’une autorité de certification valide avec un ou plusieurs noms d’objet correspondant au nom d’hôte du back-end. Par exemple, si le nom d'hôte de votre back-end est défini sur `myapp-centralus.contosonews.net` et que le certificat que votre back-end présente pendant la négociation TLS ne comporte ni `myapp-centralus.contosonews.net` ni `*myapp-centralus*.contosonews.net` dans le nom de l'objet, Front Door refuse la connexion et génère une erreur. 
-    1. **Solution**: Bien que ce ne soit pas recommandé du point de vue de la conformité, vous pouvez contourner cette erreur en désactivant la vérification du nom d’objet du certificat pour votre porte d’entrée. Cette option est présente sous Paramètres dans le portail Azure et sous BackendPoolsSettings dans l’API.
-2. **Certificat d’hébergement back-end issu d’une autorité de certification non valide** : seuls les certificats provenant d’[autorités de certification valides](/azure/frontdoor/front-door-troubleshoot-allowed-ca) peuvent être utilisés sur le back-end avec Front Door. Les certificats provenant d’autorités de certification internes ou les certificats auto-signés ne sont pas autorisés.
+1. **Incompatibilité du nom d’objet du certificat**  : Pour les connexions HTTPS, Front Door s’attend à ce que votre back-end présente le certificat d’une autorité de certification valide avec un ou plusieurs noms d’objet correspondant au nom d’hôte du back-end. Par exemple, si le nom d'hôte de votre back-end est défini sur `myapp-centralus.contosonews.net` et que le certificat que votre back-end présente pendant la négociation TLS ne comporte ni `myapp-centralus.contosonews.net` ni `*myapp-centralus*.contosonews.net` dans le nom de l'objet, Front Door refuse la connexion et génère une erreur. 
+    1. **Solution** : Bien que ce ne soit pas recommandé du point de vue de la conformité, vous pouvez contourner cette erreur en désactivant la vérification du nom d’objet du certificat pour votre porte d’entrée. Cette option est présente sous Paramètres dans le portail Azure et sous BackendPoolsSettings dans l’API.
+2. **Certificat d’hébergement back-end issu d’une autorité de certification non valide**  : seuls les certificats provenant d’ [autorités de certification valides](./front-door-troubleshoot-allowed-ca.md) peuvent être utilisés sur le back-end avec Front Door. Les certificats provenant d’autorités de certification internes ou les certificats auto-signés ne sont pas autorisés.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Puis-je utiliser l’authentification client/mutuelle avec Azure Front Door ?
 

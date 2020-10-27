@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930490"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205844"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -30,8 +30,8 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
 
 1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
-    > [!IMPORTANT]
-    > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/general/overview-vnet-service-endpoints.md)à moins que l’application ne soit hébergée au sein [de App Service Environment](./environment/intro.md).
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 
@@ -40,13 +40,13 @@ Une référence Key Vault est de la forme `@Microsoft.KeyVault({referenceString}
 > [!div class="mx-tdBreakAll"]
 > | Chaîne de référence                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_URI_secret_                                                       | L’**URI_secret** doit être l’URI complet du plan de données d’un secret dans Key Vault, y compris une version, par exemple, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_Nom_coffre_;SecretName=_Nom_secret_;SecretVersion=_Version_secret_ | Le **Nom_coffre** doit être le nom de votre ressource Key Vault. Le **Nom_secret** doit être le nom du secret cible. La **Version_secret** doit être la version du secret à utiliser. |
+> | SecretUri= _URI_secret_                                                       | L’ **URI_secret** doit être l’URI complet du plan de données d’un secret dans Key Vault, y compris une version, par exemple, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName= _Nom_coffre_ ;SecretName= _Nom_secret_ ;SecretVersion= _Version_secret_ | Le **Nom_coffre** doit être le nom de votre ressource Key Vault. Le **Nom_secret** doit être le nom du secret cible. La **Version_secret** doit être la version du secret à utiliser. |
 
 > [!NOTE] 
 > Les versions sont actuellement requises. Pendant la rotation des secrets, vous devez mettre à jour la version dans la configuration de votre application.
-
 Par exemple, une référence complète ressemble à ce qui suit :
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
@@ -191,15 +191,15 @@ Vous pouvez également utiliser l’un des détecteurs intégrés pour obtenir d
 ### <a name="using-the-detector-for-app-service"></a>Utilisation du détecteur pour App Service
 
 1. Dans le portail, accédez à votre application.
-2. Sélectionnez **Diagnostiquer et résoudre les problèmes**.
-3. Sélectionnez **Disponibilité et performances**, puis **Application web inactive**.
-4. Recherchez **Diagnostics des paramètres de l'application Key Vault** et cliquez sur **En savoir plus**.
+2. Sélectionnez **Diagnostiquer et résoudre les problèmes** .
+3. Sélectionnez **Disponibilité et performances** , puis **Application web inactive** .
+4. Recherchez **Diagnostics des paramètres de l'application Key Vault** et cliquez sur **En savoir plus** .
 
 
 ### <a name="using-the-detector-for-azure-functions"></a>Utilisation du détecteur pour Azure Functions
 
 1. Dans le portail, accédez à votre application.
-2. Accédez à **Fonctionnalités de la plateforme**.
-3. Sélectionnez **Diagnostiquer et résoudre les problèmes**.
-4. Sélectionnez **Disponibilité et performances**, puis **Function App cesse de fonctionner ou signale des erreurs**.
-5. Cliquez sur **Diagnostics des paramètres de l'application Key Vault**.
+2. Accédez à **Fonctionnalités de la plateforme** .
+3. Sélectionnez **Diagnostiquer et résoudre les problèmes** .
+4. Sélectionnez **Disponibilité et performances** , puis **Function App cesse de fonctionner ou signale des erreurs** .
+5. Cliquez sur **Diagnostics des paramètres de l'application Key Vault** .

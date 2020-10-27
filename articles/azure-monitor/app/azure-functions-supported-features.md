@@ -6,16 +6,16 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033511"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168577"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
-Azure Functions offre une [intégration prédéfinie](../../azure-functions/functions-monitoring.md) à Application Insights, elle est disponible via l’interface ILogger. La liste des fonctionnalités actuellement prises en charge est indiquée ci-dessous. Servez-vous du guide d’Azure Functions pour [Bien démarrer](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
+Azure Functions offre une [intégration prédéfinie](../../azure-functions/functions-monitoring.md) à Application Insights, elle est disponible via l’interface ILogger. La liste des fonctionnalités actuellement prises en charge est indiquée ci-dessous. Servez-vous du guide d’Azure Functions pour [Bien démarrer](../../azure-functions/configure-monitoring.md#enable-application-insights-integration).
 
 Pour plus d’informations sur les versions du runtime Functions, voir [ici](../../azure-functions/functions-versions.md).
 
@@ -47,7 +47,7 @@ Pour plus d’informations sur les versions compatibles d’Application Insights
 | &bull; EventHub                       |                   | Oui               | 
 | | | | 
 | **Configurable**                      |                   |                   |           
-| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
+| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
 
 
 ## <a name="performance-counters"></a>Compteurs de performance
@@ -61,11 +61,11 @@ Les critères de filtres personnalisés que vous spécifiez sont renvoyés au co
 
 ## <a name="sampling"></a>échantillonnage
 
-Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](../../azure-functions/functions-monitoring.md#configure-sampling).
+Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](../../azure-functions/configure-monitoring.md#configure-sampling).
 
 Si votre projet prend une dépendance sur le kit de développement logiciel (SDK) Application Insights pour effectuer un suivi télémétrique manuel, vous constaterez peut-être un comportement inhabituel en présence d'une configuration d’échantillonnage différente de la configuration d’échantillonnage de Functions. 
 
-Nous vous recommandons d’utiliser la même configuration que Functions. Avec **Functions v2**, vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
+Nous vous recommandons d’utiliser la même configuration que Functions. Avec **Functions v2** , vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
 
 ```csharp
 using Microsoft.ApplicationInsights;

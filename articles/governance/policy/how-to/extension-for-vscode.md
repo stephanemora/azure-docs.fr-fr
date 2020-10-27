@@ -1,20 +1,20 @@
 ---
 title: Extension Azure Policy pour Visual Studio Code
 description: Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des alias Azure Resource Manager.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077930"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317610"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utiliser l’extension Azure Policy pour Visual Studio Code
 
-> S’applique à l’extension Azure Policy **0.0.21** et aux versions ultérieures.
+> S’applique à l’extension Azure Policy, versions **0.1.0** et ultérieures
 
-Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des [alias](../concepts/definition-structure.md#aliases) et de vérifier les ressources et les stratégies. Tout d’abord, nous décrirons comment installer l’extension Azure Policy dans Visual Studio Code. Ensuite, nous étudierons comment rechercher des alias.
+Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des [alias](../concepts/definition-structure.md#aliases), d’examiner des ressources et stratégies, d’exporter des objets et d’évaluer des définitions de stratégie. Tout d’abord, nous décrirons comment installer l’extension Azure Policy dans Visual Studio Code. Ensuite, nous étudierons comment rechercher des alias.
 
 L’extension Azure Policy pour Visual Studio Code peut être installée sur toutes les plateformes prises en charge par Visual Studio Code : Windows, Linux et macOS.
 
@@ -34,11 +34,11 @@ Une fois tous les prérequis remplis, vous pouvez installer l’extension Azure 
 
 1. Ouvrez Visual Studio Code.
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Extensions**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Extensions** .
 
-1. Dans la zone de recherche, entrez **Azure Policy**.
+1. Dans la zone de recherche, entrez **Azure Policy** .
 
-1. Sélectionnez **Azure Policy** dans les résultats de la recherche, puis sélectionnez **Installer**.
+1. Sélectionnez **Azure Policy** dans les résultats de la recherche, puis sélectionnez **Installer** .
 
 1. Sélectionnez **Recharger** si nécessaire.
 
@@ -46,7 +46,7 @@ Une fois tous les prérequis remplis, vous pouvez installer l’extension Azure 
 
 Dans le cas d’un utilisateur d’un cloud national, suivez d’abord ces étapes pour configurer l’environnement Azure :
 
-1. Sélectionnez **File\Preferences\Settings**.
+1. Sélectionnez **File\Preferences\Settings** .
 
 1. Recherchez la chaîne suivante : _Azure : Cloud_
 
@@ -62,13 +62,13 @@ Pour pouvoir évaluer des ressources et rechercher des alias, vous devez vous co
 
    - Extension Azure Policy
 
-     À partir de l’extension Azure Policy, sélectionnez **Se connecter à Azure**.
+     À partir de l’extension Azure Policy, sélectionnez **Se connecter à Azure** .
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Capture d’écran de la sélection de la connexion au cloud Azure national pour Visual Studio Code." border="false":::
 
    - Palette de commandes
 
-     À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se connecter**.
+     À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Azure: Se connecter** .
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Capture d’écran de la sélection de la connexion au cloud Azure national pour Visual Studio Code." border="false":::
 
@@ -82,17 +82,17 @@ Lors de la première connexion, seules les stratégies et les ressources d’abo
 
    - Palette de commandes : 
 
-     À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure : Sélectionner des abonnements**.
+     À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Azure : Sélectionner des abonnements** .
 
    - Pied de page de la fenêtre
 
      Dans le pied de page de la fenêtre en bas de l’écran, sélectionnez le segment correspondant à **Azure : \<your account\>** .
 
-1. Utilisez la zone de filtre pour trouver rapidement des abonnements par leur nom. Ensuite, cochez ou décochez les abonnements pour définir ceux qui seront affichés par l’extension Azure Policy. Une fois que vous avez terminé d’ajouter ou de supprimer des abonnements, sélectionnez **OK**.
+1. Utilisez la zone de filtre pour trouver rapidement des abonnements par leur nom. Ensuite, cochez ou décochez les abonnements pour définir ceux qui seront affichés par l’extension Azure Policy. Une fois que vous avez terminé d’ajouter ou de supprimer des abonnements, sélectionnez **OK** .
 
 ## <a name="search-for-and-view-resources"></a>Rechercher et afficher des ressources
 
-L’extension Azure Policy liste les ressources des abonnements sélectionnés par fournisseur de ressources et par groupe de ressources dans le volet **Ressources**. L’arborescence comprend les regroupements de ressources suivants au sein de l’abonnement sélectionné ou au niveau de l’abonnement :
+L’extension Azure Policy liste les ressources des abonnements sélectionnés par fournisseur de ressources et par groupe de ressources dans le volet **Ressources** . L’arborescence comprend les regroupements de ressources suivants au sein de l’abonnement sélectionné ou au niveau de l’abonnement :
 
 - **Fournisseurs de ressources**
   - Chacun des fournisseurs de ressources inscrits avec des ressources et les ressources enfants associées qui possèdent des alias de stratégie
@@ -107,11 +107,11 @@ Les clients disposant de centaines ou de milliers de ressources dans un même ab
 
    - Extension Azure Policy
 
-     Dans l’extension Azure Policy, placez le curseur sur le panneau **Ressources** et sélectionnez les points de suspension, puis **Rechercher des ressources**.
+     Dans l’extension Azure Policy, placez le curseur sur le panneau **Ressources** et sélectionnez les points de suspension, puis **Rechercher des ressources** .
 
    - Palette de commandes :
 
-     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Ressources : Rechercher des ressources**.
+     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Ressources : Rechercher des ressources** .
 
 1. Si plusieurs abonnements sont sélectionnés pour l’affichage, utilisez le filtre pour sélectionner celui dans lequel la recherche devra être effectuée.
 
@@ -123,7 +123,7 @@ Les clients disposant de centaines ou de milliers de ressources dans un même ab
 
 Lorsqu’une ressource est sélectionnée, que ce soit par le biais de l’interface de recherche ou dans l’arborescence, l’extension Azure Policy ouvre le fichier JSON représentant cette ressource et toutes ses valeurs de propriété Azure Resource Manager.
 
-Lorsqu’une ressource est ouverte, pointez sur le nom ou la valeur de la propriété Resource Manager pour afficher l’alias Azure Policy s’il en existe un. Dans cet exemple, la ressource a pour type `Microsoft.Compute/virtualMachines` et le curseur est placé sur la propriété **properties.storageProfile.imageReference.offer**, ce qui affiche les alias correspondants.
+Lorsqu’une ressource est ouverte, pointez sur le nom ou la valeur de la propriété Resource Manager pour afficher l’alias Azure Policy s’il en existe un. Dans cet exemple, la ressource a pour type `Microsoft.Compute/virtualMachines` et le curseur est placé sur la propriété **properties.storageProfile.imageReference.offer** , ce qui affiche les alias correspondants.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Capture d’écran de la sélection de la connexion au cloud Azure national pour Visual Studio Code." border="false":::
 
@@ -132,17 +132,17 @@ Lorsqu’une ressource est ouverte, pointez sur le nom ou la valeur de la propri
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Rechercher et afficher des stratégies et des affectations
 
-L’extension Azure Policy liste les types et les affectations de stratégie sous la forme d’une arborescence pour les abonnements à afficher dans le volet **Stratégies**. Les clients disposant de centaines ou de milliers de stratégies ou d’affectations dans un même abonnement préféreront probablement un moyen de trouver leurs stratégies ou leurs affectations avec possibilité de recherche. L’extension Azure Policy permet de rechercher une stratégie ou une affectation spécifique en suivant les étapes suivantes :
+L’extension Azure Policy liste les types et les affectations de stratégie sous la forme d’une arborescence pour les abonnements à afficher dans le volet **Stratégies** . Les clients disposant de centaines ou de milliers de stratégies ou d’affectations dans un même abonnement préféreront probablement un moyen de trouver leurs stratégies ou leurs affectations avec possibilité de recherche. L’extension Azure Policy permet de rechercher une stratégie ou une affectation spécifique en suivant les étapes suivantes :
 
 1. Lancez l’interface de recherche à partir de l’extension Azure Policy ou de la palette de commandes.
 
    - Extension Azure Policy
 
-     Dans l’extension Azure Policy, placez le curseur sur le panneau **Stratégies** et sélectionnez les points de suspension, puis **Rechercher des stratégies**.
+     Dans l’extension Azure Policy, placez le curseur sur le panneau **Stratégies** et sélectionnez les points de suspension, puis **Rechercher des stratégies** .
 
    - Palette de commandes :
 
-     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Stratégies : Rechercher des stratégies**.
+     Dans la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Stratégies : Rechercher des stratégies** .
 
 1. Si plusieurs abonnements sont sélectionnés pour l’affichage, utilisez le filtre pour sélectionner celui dans lequel la recherche devra être effectuée.
 
@@ -152,9 +152,54 @@ L’extension Azure Policy liste les types et les affectations de stratégie sou
 
 Lorsqu’une stratégie ou une affectation est sélectionnée, que ce soit par le biais de l’interface de recherche ou dans l’arborescence, l’extension Azure Policy ouvre le fichier JSON représentant la stratégie ou l’affectation et toutes ses valeurs de propriété Resource Manager. L’extension peut valider le schéma JSON Azure Policy ouvert.
 
+## <a name="export-objects"></a>Exporter des objets
+
+Vous pouvez exporter les objets de vos abonnements vers un fichier JSON local. Dans le volet **Ressources** ou **Stratégies** , pointez sur un objet exportable ou sélectionnez-en un. À la fin de la ligne en surbrillance, sélectionnez l’icône Enregistrer, puis un dossier pour enregistrer ce fichier JSON de ressources.
+
+Vous pouvez exporter les objets suivants localement :
+
+- Volet Ressources
+  - Groupes de ressources
+  - Ressources individuelles (dans un groupe de ressources ou sous un fournisseur de ressources)
+- Volet Stratégies
+  - Attributions de stratégies
+  - Définitions de stratégie intégrées
+  - Définitions de stratégie personnalisées
+  - Initiatives
+
+## <a name="on-demand-evaluation-scan"></a>Analyse d’évaluation à la demande
+
+Vous pouvez démarrer une analyse d’évaluation avec l’extension Azure Policy pour Visual Studio Code. Pour démarrer une évaluation, sélectionnez et épinglez chacun des objets suivants : une ressource, une définition de stratégie et une attribution de stratégie.
+
+1. Pour épingler chaque objet, recherchez-le dans le volet **Ressources** ou **Stratégies** , puis sélectionnez l’icône Épingler à un onglet Modifier. L’épinglage d’un objet a pour effet d’ajouter celui-ci au volet **Évaluation** de l’extension.
+1. Dans le volet **Évaluation** , sélectionnez un objet de chaque type et utilisez l’icône Sélectionner pour évaluation pour marquer l’objet comme étant inclus dans l’évaluation.
+1. En haut du volet **Évaluation** , sélectionnez l’icône Exécuter l’évaluation. Un nouveau volet dans Visual Studio Code s’ouvre avec les détails de l’évaluation résultants au format JSON.
+
+> [!NOTE]
+> Si la définition de stratégie sélectionnée est [AuditIfNotExists](../concepts/effects.md#auditifnotexists) ou [DeployIfNotExists](../concepts/effects.md#deployifnotexists), dans le volet **Évaluation** , utilisez l’icône plus pour sélectionner une ressource _associée_ pour la vérification de l’existence.
+
+Les résultats de l’évaluation fournissent des informations sur la définition et l’attribution de stratégie, ainsi que sur la propriété **policyEvaluations.evaluationResult** . La sortie doit ressembler à celle-ci :
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
+
 ## <a name="sign-out"></a>Se déconnecter
 
-À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se déconnecter**.
+À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes** , puis entrez **Azure: Se déconnecter** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

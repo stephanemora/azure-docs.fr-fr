@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369907"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331207"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Questions fréquentes (FAQ) sur la transition du portail Cloud Partner vers l’Espace partenaires
 
@@ -58,11 +58,11 @@ Voici les différences dans le rapport de revenu entre l’ancien Portail Cloud 
 
 | Portail des partenaires cloud | Espace partenaire |
 | --- | --- |
-| **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
-| **Étendue** :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue** :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
-| **Transaction non prête pour le paiement** : Facturation en cours | **Transaction non prête pour le paiement** : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
-| **Statut de paiement** : n/a | **Statut de paiement** :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
+| **Lien**  : https://cloudpartner.azure.com/ | **Lien**  : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation**  : Rapports de paiement fournis dans le paiement des insights | **Navigation**  : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
+| **Étendue**  :<ul><li>La transaction par ligne est visible, quand l’encaissement est en cours, quand elle est terminée et quand elle est payée.</li><li>Rapports : montre toutes les lignes une fois que le bon de commande est créé, notamment l’encaissement et la facturation en cours ainsi que l’état de l’encaissement et les lignes qui ne peuvent pas encore être payés.</li></ul> | **Étendue**  :<ul><li>Montre les lignes une fois qu’elles sont considérées comme des revenus éligibles.</li><li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li><li>Le rapport de revenu ne montre pas l’encaissement ni la facturation en cours.</li></ul> |
+| **Transaction non prête pour le paiement**  : Facturation en cours | **Transaction non prête pour le paiement**  : Estimation du prochain paiement : Le paiement est dans l’état non traité. |
+| **Statut de paiement**  : n/a | **Statut de paiement**  :<ul><li>Non traité : Le revenu est éligible au paiement.</li><li>Ensuite : Le revenu sera envoyé à l’éditeur à l’occasion du prochain paiement mensuel.</li><li>Envoyé : Le paiement a été envoyé à votre banque.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>Qu’en est-il des offres que j’ai publiées dans le portail Cloud Partner ?
@@ -77,8 +77,8 @@ Pour les types d’offres pris en charge dans l’Espace partenaires, toutes les
 
 | Type d’offre <img src="" width=150px>| Déplacé vers l’Espace partenaires ? <img src="" width=100px>| Étapes suivantes |
 | --- | --- | --- |
-| SaaS | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre SaaS dans la Place de marché commerciale](partner-center-portal/create-new-saas-offer.md). |
-| Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre de machine virtuelle Azure sur la Place de marché Azure](partner-center-portal/azure-vm-create-offer.md). |
+| SaaS | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). |
+| Machine virtuelle | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Planifier une offre de machine virtuelle](marketplace-virtual-machines.md). |
 | Application Azure | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre d’application Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Customer Engagement et PowerApps | Oui | Connectez-vous à l’Espace partenaires pour créer de nouvelles offres et gérer les offres créées dans le portail Cloud Partner. En savoir plus dans [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -117,7 +117,7 @@ Si vous êtes membre de plusieurs comptes, un bouton de sélection de compte mar
 
 ## <a name="how-do-i-create-new-offers"></a>Comment créer de nouvelles offres ?
 
-Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer des offres. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre**.
+Accédez au programme Place de marché commerciale dans [l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour créer des offres. Dans la page Vue d’ensemble, sélectionnez **+ Nouvelle offre** .
 
 [![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Affiche le menu Vue d’ensemble de l’Espace partenaires")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Si vous ne pouvez pas vous connecter à votre compte, vous pouvez ouvrir un [tic
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>Où se trouvent les instructions d’utilisation de l’Espace partenaires ?
 
-Accédez à la [documentation du marketplace commercial](index.yml), puis développez **Portail du marketplace commercial dans Espace partenaires**. Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre**.
+Accédez à la [documentation du marketplace commercial](index.yml), puis développez **Portail du marketplace commercial dans Espace partenaires** . Pour afficher des articles d’aide sur la création d’offres dans l’Espace partenaires, développez **Créer une offre** .
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>Quelles sont les différences en matière de publication et de gestion des offres ?
 
@@ -135,7 +135,7 @@ Voici quelques différences entre le portail Cloud Partner et l’Espace partena
 
 ### <a name="modular-publishing-capabilities"></a>Fonctionnalités de publication modulaires
 
-L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre**. Les modifications que vous apportez dans la page Préversion ne sont pas publiées.
+L’Espace partenaires fournit une option de publication modulaire qui vous permet de sélectionner les modifications que vous souhaitez publier au lieu de toujours publier toutes les mises à jour à la fois. Par exemple, l’écran suivant montre que les seules modifications sélectionnées à publier sont les modifications apportées à **Propriétés** et **Référencement de l’offre** . Les modifications que vous apportez dans la page Préversion ne sont pas publiées.
 
 [![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Affiche la page Révision et publication de l’Espace partenaires")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -155,7 +155,7 @@ Vous remarquerez certaines modifications de personnalisation. Par exemple, les *
 
 De plus, les informations que vous fournissiez précédemment dans les pages **Place de marché** ou **Détails de la vitrine** (Service de conseil, application Power BI) du portail Cloud Partner sont maintenant recueillies dans la page **Référencement de l’offre** dans l’Espace partenaires :
 
-[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png "Affiche la page Référencement d’offre de l’Espace partenaires")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![La capture d’écran montre la page de référencement d’offre de l’Espace partenaires.](media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Les informations que vous fournissiez précédemment pour les références SKU dans une seule page du portail Cloud Partner peuvent maintenant être recueillies dans plusieurs pages de l’Espace partenaires :
 
@@ -164,7 +164,7 @@ Les informations que vous fournissiez précédemment pour les références SKU d
 - Page de disponibilité du plan
 - Page de configuration technique du plan, comme illustré ici :
 
-![! [Capture d’écran montrant la page de configuration technique de l’Espace partenaires.] (media/cpp-pc-faq/technical-configuration.png « Affiche la page de configuration technique de l’Espace partenaires »)](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Affiche la page de configuration technique de l’Espace partenaires.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Votre ID d’offre est maintenant affiché dans la barre de navigation gauche de l’offre :
 

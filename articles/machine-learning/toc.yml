@@ -235,7 +235,7 @@
           displayName: policy
     - name: Créer et gérer des espaces de travail
       items:
-        - name: Utiliser le portail Azure
+        - name: Utiliser le portail Azure ou le kit SDK Python
           href: how-to-manage-workspace.md
         - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
           href: how-to-manage-workspace-cli.md

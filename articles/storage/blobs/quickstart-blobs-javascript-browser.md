@@ -68,7 +68,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 Avant que votre application web puisse accéder à un stockage Blob à partir du client, vous devez configurer votre compte pour activer le [partage des ressources cross-origin](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (CORS, Cross-Origin Resource Sharing).
 
-Dans le portail Azure, sélectionnez votre compte de stockage. Pour définir une nouvelle règle CORS, accédez à la section **Paramètres**, puis sélectionnez **CORS**. Pour ce démarrage rapide, vous créez une règle CORS ouverte :
+Dans le portail Azure, sélectionnez votre compte de stockage. Pour définir une nouvelle règle CORS, accédez à la section **Paramètres** , puis sélectionnez **CORS** . Pour ce démarrage rapide, vous créez une règle CORS ouverte :
 
 ![Paramètres CORS du compte de stockage Blob Azure](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
 
@@ -77,12 +77,12 @@ Le tableau suivant décrit chaque paramètre CORS et explique les valeurs utilis
 |Paramètre  |Valeur  | Description |
 |---------|---------|---------|
 | **ORIGINES AUTORISÉES** | **\*** | Accepte une liste délimitée par des virgules de domaines définis comme origines acceptables. La configuration de la valeur sur `*` autorise tous les domaines à accéder au compte de stockage. |
-| **MÉTHODES AUTORISÉES** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** et **PUT** | Répertorie les verbes HTTP autorisés à s’exécuter sur le compte de stockage. Dans le cadre de ce démarrage rapide, sélectionnez toutes les options disponibles. |
+| **MÉTHODES AUTORISÉES** | **DELETE** , **GET** , **HEAD** , **MERGE** , **POST** , **OPTIONS** et **PUT** | Répertorie les verbes HTTP autorisés à s’exécuter sur le compte de stockage. Dans le cadre de ce démarrage rapide, sélectionnez toutes les options disponibles. |
 | **EN-TÊTES AUTORISÉS** | **\*** | Définit la liste des en-têtes de requête (y compris les en-têtes avec préfixe) autorisés par le compte de stockage. La configuration de la valeur sur `*` permet l’accès à tous les en-têtes. |
 | **EN-TÊTES EXPOSÉS** | **\*** | Répertorie les en-têtes de réponse autorisés par le compte. La configuration de la valeur sur `*` permet au compte d’envoyer n’importe quel en-tête. |
 | **ÂGE MAXIMAL** | **86400** | La durée maximale de mise en cache de la requête OPTIONS préliminaire par le navigateur, en secondes. La valeur *86400* autorise le cache pendant une journée entière. |
 
-Après avoir renseigné les champs avec les valeurs indiquées dans ce tableau, cliquez sur le bouton **Enregistrer**.
+Après avoir renseigné les champs avec les valeurs indiquées dans ce tableau, cliquez sur le bouton **Enregistrer** .
 
 > [!IMPORTANT]
 > Assurez-vous que les paramètres que vous utilisez en production exposent la quantité minimale d’accès nécessaire à votre compte de stockage pour conserver un accès sécurisé. Les paramètres CORS décrits ici sont adaptés à un démarrage rapide, car ils définissent une stratégie de sécurité modérée. Toutefois, ces paramètres ne sont pas recommandés dans une situation réelle.
@@ -94,15 +94,15 @@ La signature d’accès partagé (SAS, shared access signature) est utilisée pa
 Pour obtenir l’URL de la signature d’accès partagé du service blob, effectuez les étapes suivantes :
 
 1. Dans le portail Azure, sélectionnez votre compte de stockage.
-2. Accédez à la section **Paramètres** , puis sélectionnez **Signature d’accès partagé**.
-3. Faites défiler la page vers le bas, puis cliquez sur le bouton **Générer la chaîne de connexion et SAP**.
-4. Descendez encore et recherchez le champ **URL de la signature d’accès partagé du service BLOB**.
-5. Cliquez sur le bouton **Copier dans le Presse-papiers** situé à l’extrémité droite du champ **URL de la signature d’accès partagé du service BLOB**.
+2. Accédez à la section **Paramètres** , puis sélectionnez **Signature d’accès partagé** .
+3. Faites défiler la page vers le bas, puis cliquez sur le bouton **Générer la chaîne de connexion et SAP** .
+4. Descendez encore et recherchez le champ **URL de la signature d’accès partagé du service BLOB** .
+5. Cliquez sur le bouton **Copier dans le Presse-papiers** situé à l’extrémité droite du champ **URL de la signature d’accès partagé du service BLOB** .
 6. Enregistrez l’URL copiée quelque part pour pouvoir les réutiliser dans une prochaine étape.
 
 ### <a name="add-the-azure-blob-storage-client-library"></a>Ajouter la bibliothèque cliente Stockage Blob Azure
 
-Sur votre ordinateur local, créez un dossier appelé *azure-blobs-js-browser*, puis ouvrez-le dans Visual Studio Code.
+Sur votre ordinateur local, créez un dossier appelé *azure-blobs-js-browser* , puis ouvrez-le dans Visual Studio Code.
 
 Sélectionnez **Affichage > Terminal** pour ouvrir une fenêtre de console dans Visual Studio Code. Exécutez la commande suivante du Gestionnaire de package Node.js (NPM) dans la fenêtre de terminal pour créer un fichier [package.json](https://docs.npmjs.com/files/package.json).
 
@@ -126,11 +126,11 @@ Installez Parcel en exécutant la commande `npm` suivante dans la fenêtre de Te
 npm install -g parcel-bundler
 ```
 
-Dans Visual Studio Code, ouvrez le fichier *package.json*, puis ajoutez un `browserlist` entre les entrées `license` et `dependencies`. Ce `browserlist` cible la dernière version de trois navigateurs populaires. L’ensemble du fichier *package.json* doit maintenant ressembler à ceci :
+Dans Visual Studio Code, ouvrez le fichier *package.json* , puis ajoutez un `browserlist` entre les entrées `license` et `dependencies`. Ce `browserlist` cible la dernière version de trois navigateurs populaires. L’ensemble du fichier *package.json* doit maintenant ressembler à ceci :
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
-Enregistrez le fichier *package.json*.
+Enregistrez le fichier *package.json* .
 
 ### <a name="import-the-azure-blob-storage-client-library"></a>Importer la bibliothèque cliente Stockage Blob Azure
 
@@ -138,7 +138,7 @@ Pour utiliser les bibliothèques du SDK Azure dans JavaScript, importez le packa
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-Enregistrez le fichier sous le nom *index.js* dans le répertoire *azure-blobs-js-browser*.
+Enregistrez le fichier sous le nom *index.js* dans le répertoire *azure-blobs-js-browser* .
 
 ### <a name="implement-the-html-page"></a>Mettre en œuvre la page HTML
 
@@ -146,7 +146,7 @@ Créez un fichier dans Visual Studio Code, puis ajoutez le code HTML suivant.
 
 :::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html":::
 
-Enregistrez le fichier sous le nom *index.html* dans le dossier *azure-blobs-js-browser*.
+Enregistrez le fichier sous le nom *index.html* dans le dossier *azure-blobs-js-browser* .
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -160,15 +160,15 @@ L’exemple de code vous montre comment effectuer les tâches suivantes avec la 
 * [Charger des objets blob](#upload-blobs)
 * [Supprimer des objets blob](#delete-blobs)
 
-Vous exécuterez le code après avoir ajouté tous les extraits de code dans le fichier *index.js*.
+Vous exécuterez le code après avoir ajouté tous les extraits de code dans le fichier *index.js* .
 
 ### <a name="declare-fields-for-ui-elements"></a>Déclarer des champs pour les éléments d’interface utilisateur
 
-Ajoutez le code suivant à la fin du fichier *index.js*.
+Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="JavaScript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 Ce code déclare des champs pour chaque élément HTML et implémente une fonction `reportStatus` pour afficher la sortie.
 
@@ -176,57 +176,57 @@ Dans les sections suivantes, ajoutez chaque nouveau bloc de code JavaScript apr�
 
 ### <a name="add-your-storage-account-info"></a>Ajouter vos informations de compte de stockage
 
-Ajoutez du code pour accéder à votre compte de stockage. Remplacez l’espace réservé par l’URL de la signature d’accès partagé de votre service BLOB que vous avez générée précédemment. Ajoutez le code suivant à la fin du fichier *index.js*.
+Ajoutez du code pour accéder à votre compte de stockage. Remplacez l’espace réservé par l’URL de la signature d’accès partagé de votre service BLOB que vous avez générée précédemment. Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 ### <a name="create-client-objects"></a>Créer des objets clients
 
-Créez des objets [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) et [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) pour interagir avec le service Stockage Blob Azure. Ajoutez le code suivant à la fin du fichier *index.js*.
+Créez des objets [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) et [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) pour interagir avec le service Stockage Blob Azure. Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 ### <a name="create-and-delete-a-storage-container"></a>Créer et supprimer un conteneur de stockage
 
-Créez et supprimez le conteneur de stockage quand vous cliquez sur le bouton correspondant sur la page web. Ajoutez le code suivant à la fin du fichier *index.js*.
+Créez et supprimez le conteneur de stockage quand vous cliquez sur le bouton correspondant sur la page web. Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 ### <a name="list-blobs"></a>Liste des objets blob
 
-Listez le contenu du conteneur de stockage quand vous cliquez sur le bouton **Répertorier les fichiers**. Ajoutez le code suivant à la fin du fichier *index.js*.
+Listez le contenu du conteneur de stockage quand vous cliquez sur le bouton **Répertorier les fichiers** . Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 Ce code appelle la fonction [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-), puis utilise un itérateur pour récupérer le nom de chaque [BlobItem](/javascript/api/@azure/storage-blob/blobitem) retourné. Pour chaque `BlobItem`, il met à jour la liste **Fichiers** avec la valeur de la propriété [name](/javascript/api/@azure/storage-blob/blobitem#name).
 
 ### <a name="upload-blobs"></a>Charger des objets blob
 
-Chargez des fichiers dans le conteneur de stockage quand vous cliquez sur le bouton **Sélectionner et charger des fichiers**. Ajoutez le code suivant à la fin du fichier *index.js*.
+Chargez des fichiers dans le conteneur de stockage quand vous cliquez sur le bouton **Sélectionner et charger des fichiers** . Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
 Ce code connecte le bouton **Sélectionner et charger des fichiers** à l’élément `file-input` masqué. L’événement de bouton `click` déclenche l’événement d’entrée de fichier `click` et affiche le sélecteur de fichiers. Une fois que vous sélectionnez les fichiers et fermé la boîte de dialogue, l’événement `input` se produit et la fonction `uploadFiles` est appelée. Cette fonction crée un objet [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient), puis appelle la fonction [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) spécifique aux navigateurs pour chaque fichier que vous avez sélectionné. Chaque appel retourne un `Promise`. Chaque `Promise` est ajouté à une liste afin qu’ils puissent tous être attendus ensemble, ce qui entraîne le chargement en parallèle des fichiers.
 
 ### <a name="delete-blobs"></a>Suppression d’objets blob
 
-Supprimez des fichiers du conteneur de stockage quand vous cliquez sur le bouton **Supprimer les fichiers sélectionnés**. Ajoutez le code suivant à la fin du fichier *index.js*.
+Supprimez des fichiers du conteneur de stockage quand vous cliquez sur le bouton **Supprimer les fichiers sélectionnés** . Ajoutez le code suivant à la fin du fichier *index.js* .
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
 
-Enregistrez le fichier *index.js*.
+Enregistrez le fichier *index.js* .
 
-Ce code appelle la fonction [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) pour supprimer chaque fichier sélectionné dans la liste. Il appelle ensuite la fonction `listFiles` présentée précédemment pour actualiser le contenu de la liste **Fichiers**.
+Ce code appelle la fonction [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) pour supprimer chaque fichier sélectionné dans la liste. Il appelle ensuite la fonction `listFiles` présentée précédemment pour actualiser le contenu de la liste **Fichiers** .
 
 ## <a name="run-the-code"></a>Exécuter le code
 
@@ -236,14 +236,14 @@ Pour exécuter le code dans le débogueur Visual Studio Code, configurez le fich
 
 Pour configurer l’extension du débogueur dans Visual Studio Code :
 
-1. Sélectionnez **Exécuter > Ajouter une configuration**.
-2. Sélectionnez **Edge**, **Chrome** ou **Firefox**, en fonction de l’extension que vous avez installée précédemment dans la section [Prérequis](#prerequisites) .
+1. Sélectionnez **Exécuter > Ajouter une configuration** .
+2. Sélectionnez **Edge** , **Chrome** ou **Firefox** , en fonction de l’extension que vous avez installée précédemment dans la section [Prérequis](#prerequisites) .
 
 L’ajout d’une nouvelle configuration crée un fichier *launch.json* et l’ouvre dans l’éditeur. Modifiez le fichier *launch.json* afin que `url` ait la valeur `http://localhost:1234/index.html`, comme indiqué ici :
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
-Après la mise à jour, enregistrez le fichier *launch.json*. Cette configuration indique à Visual Studio Code quel navigateur ouvrir et quelle URL charger.
+Après la mise à jour, enregistrez le fichier *launch.json* . Cette configuration indique à Visual Studio Code quel navigateur ouvrir et quelle URL charger.
 
 ### <a name="launch-the-web-server"></a>Lancer le serveur web
 
@@ -255,7 +255,7 @@ parcel index.html
 
 Le paquet (parcel) regroupe votre code et démarre un serveur de développement local pour votre page à l’adresse `http://localhost:1234/index.html`. Les changements apportés à *index.js* sont automatiquement générés et reflétés sur le serveur de développement chaque fois que vous enregistrez le fichier.
 
-Si vous recevez un message indiquant que **le port configuré 1234 n’a pas pu être utilisé**, vous pouvez changer le port en exécutant la commande `parcel -p <port#> index.html`. Dans le fichier *launch.json*, mettez à jour le port dans le chemin de l’URL à mettre en correspondance.
+Si vous recevez un message indiquant que **le port configuré 1234 n’a pas pu être utilisé** , vous pouvez changer le port en exécutant la commande `parcel -p <port#> index.html`. Dans le fichier *launch.json* , mettez à jour le port dans le chemin de l’URL à mettre en correspondance.
 
 ### <a name="start-debugging"></a>Démarrer le débogage
 
@@ -269,27 +269,27 @@ Dans le [portail Azure](https://portal.azure.com), vous pouvez vérifier les ré
 
 #### <a name="step-1---create-a-container"></a>Étape 1 - Créer un conteneur
 
-1. Dans l’application web, sélectionnez **Créer un conteneur**. L’état indique qu’un conteneur a été créé.
-2. Pour le vérifier dans le portail Azure, sélectionnez votre compte de stockage. Sous **Service BLOB**, sélectionnez **Conteneurs**. Vérifiez que le nouveau conteneur s’affiche. (Vous devrez peut-être sélectionner **Actualiser**.)
+1. Dans l’application web, sélectionnez **Créer un conteneur** . L’état indique qu’un conteneur a été créé.
+2. Pour le vérifier dans le portail Azure, sélectionnez votre compte de stockage. Sous **Service BLOB** , sélectionnez **Conteneurs** . Vérifiez que le nouveau conteneur s’affiche. (Vous devrez peut-être sélectionner **Actualiser** .)
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>Étape 2 - Charger un objet blob dans le conteneur
 
-1. Sur votre ordinateur local, créez et enregistrez un fichier de test, par exemple *test.txt*.
-2. Dans l’application web, cliquez sur **Sélectionner et charger des fichiers**.
-3. Accédez à votre fichier de test, puis sélectionnez **Ouvrir**. L’état indique que le fichier a été chargé et que la liste de fichiers a été récupérée.
+1. Sur votre ordinateur local, créez et enregistrez un fichier de test, par exemple *test.txt* .
+2. Dans l’application web, cliquez sur **Sélectionner et charger des fichiers** .
+3. Accédez à votre fichier de test, puis sélectionnez **Ouvrir** . L’état indique que le fichier a été chargé et que la liste de fichiers a été récupérée.
 4. Dans le portail Azure, sélectionnez le nom du conteneur que vous avez créé précédemment. Vérifiez que le fichier de test s’affiche.
 
 #### <a name="step-3---delete-the-blob"></a>Étape 3 - Supprimer l’objet blob
 
-1. Dans l’application web, sous **Fichiers**, sélectionnez le fichier de test.
-2. Sélectionnez **Supprimer les fichiers sélectionnés**. L’état indique que le fichier a été supprimé et que le conteneur ne contient aucun fichier.
-3. Dans le portail Azure, sélectionnez **Actualiser**. Vérifiez que **Aucun objet blob trouvé** est affiché.
+1. Dans l’application web, sous **Fichiers** , sélectionnez le fichier de test.
+2. Sélectionnez **Supprimer les fichiers sélectionnés** . L’état indique que le fichier a été supprimé et que le conteneur ne contient aucun fichier.
+3. Dans le portail Azure, sélectionnez **Actualiser** . Vérifiez que **Aucun objet blob trouvé** est affiché.
 
 #### <a name="step-4---delete-the-container"></a>Étape 4 - Supprimer le conteneur
 
-1. Dans l’application web, sélectionnez **Supprimer le conteneur**. L’état indique que le conteneur a été supprimé.
+1. Dans l’application web, sélectionnez **Supprimer le conteneur** . L’état indique que le conteneur a été supprimé.
 2. Dans le portail Azure, sélectionnez le lien **\<account-name\> | Conteneurs** en haut à gauche du volet du portail.
-3. Sélectionnez **Actualiser**. Le nouveau conteneur disparaît.
+3. Sélectionnez **Actualiser** . Le nouveau conteneur disparaît.
 4. Fermez l’application web.
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources

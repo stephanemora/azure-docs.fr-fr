@@ -4,12 +4,12 @@ description: Cet article fournit des conseils pour orchestrer l’implémentatio
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480845"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330612"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrer l’implémentation d’Azure DevTest Labs
 Cet article présente une approche recommandée pour un déploiement et une implémentation rapides d’Azure DevTest Labs. L’illustration suivante met l’accent sur l’ensemble du processus sous forme de conseils prescriptifs tout en observant la flexibilité pour prendre en charge différents scénarios et différentes exigences du secteur.
@@ -29,14 +29,14 @@ La première chose à faire lors du déploiement d’une solution Azure DevTest 
 1. Définir **les plages d’adresses IP initiales** qui sont assignées à l’abonnement DevTest dans Azure. Cette étape nécessite de prévoir l’utilisation attendue en nombre de machines virtuelles afin de pouvoir fournir un bloc assez grand pour une expansion future.
 2. Identifier les **méthodes d’accès souhaité** dans les DevTest Labs (par exemple, l’accès externe / interne). Un point clé de cette étape consiste à déterminer si les machines virtuelles ont des adresses IP publiques (autrement dit, accessibles directement à partir d’internet).
 3. Identifier et établir des **méthodes de connectivité** en local et avec le reste de l’environnement cloud Azure. Si le routage forcé avec ExpressRoute est activé, il est probable que les machines virtuelles nécessitent des configurations de proxy appropriées pour traverser le pare-feu d’entreprise.
-4. Si les machines virtuelles doivent être **jointes à un domaine**, déterminer si elles rejoignent un domaine basé sur le cloud (Services d’annuaire AAD par exemple) ou un domaine local. Pour les VM en local, déterminer quelle unité d’organisation (UO) dans Active Directory est jointe par les machines virtuelles. En outre, vérifier que les utilisateurs ont accès aux jonctions (ou établir un compte de service qui a la possibilité de créer des enregistrements machine dans le domaine)
+4. Si les machines virtuelles doivent être **jointes à un domaine** , déterminer si elles rejoignent un domaine basé sur le cloud (Services d’annuaire AAD par exemple) ou un domaine local. Pour les VM en local, déterminer quelle unité d’organisation (UO) dans Active Directory est jointe par les machines virtuelles. En outre, vérifier que les utilisateurs ont accès aux jonctions (ou établir un compte de service qui a la possibilité de créer des enregistrements machine dans le domaine)
 
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Phase 2 : déployer le laboratoire pilote
 Une fois la topologie du réseau en place, le premier laboratoire/pilote peut être créé en suivant les étapes suivantes :
 
 1. Créer un environnement DevTest Labs initial.
 2. Déterminer les images et les tailles de machine virtuelle autorisées pour une utilisation avec le laboratoire. Décider si les images personnalisées peuvent être téléchargées dans Azure pour une utilisation avec DevTest Labs.
-3. Sécuriser l’accès au laboratoire en créant des contrôles d’accès basés sur le rôle (RBAC) initiaux pour le laboratoire (les propriétaires et les utilisateurs de laboratoire). Nous recommandons d’utiliser des comptes active directory synchronisés avec Azure Active Directory pour l’identité avec DevTest Labs.
+3. Sécurisez l’accès au laboratoire en créant un contrôle d’accès en fonction du rôle Azure initial (Azure RBAC) pour le laboratoire (propriétaires de laboratoires et utilisateurs de laboratoire). Nous recommandons d’utiliser des comptes active directory synchronisés avec Azure Active Directory pour l’identité avec DevTest Labs.
 4. Configurer DevTest pour utiliser des stratégies comme les planifications, la gestion des coûts, les machines virtuelles revendicables, les images personnalisées ou les formules.
 5. Établir un référentiel en ligne tel que Azure Repos/Git.
 6. Décider de l’utilisation de référentiels publics ou privés ou d’une combinaison des deux. Organiser les modèles JSON pour les déploiements et le maintien en état à long terme.

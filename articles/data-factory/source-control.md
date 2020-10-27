@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595078"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101900"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -66,7 +66,7 @@ Dans la page d’accueil Azure Data Factory, sélectionnez **Set up Code Reposit
 ![Configurer un dépôt de code Azure Repos](media/author-visually/configure-repo.png)
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Méthode de configuration 2 : Canevas de création de l’expérience utilisateur
-Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory**, puis **Set up Code Repository** (Configurer le dépôt de code).
+Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory** , puis **Set up Code Repository** (Configurer le dépôt de code).
 
 ![Configurer les paramètres du référentiel de code pour la création de l’expérience utilisateur](media/author-visually/configure-repo-2.png)
 
@@ -133,7 +133,7 @@ Dans la page d’accueil Azure Data Factory, sélectionnez **Set up Code Reposit
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Méthode de configuration 2 : Canevas de création de l’expérience utilisateur
 
-Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory**, puis **Set up Code Repository** (Configurer le dépôt de code).
+Dans la zone de travail de création de l’expérience en matière d’interface utilisateur Azure Data Factory, sélectionnez le menu déroulant **Data Factory** , puis **Set up Code Repository** (Configurer le dépôt de code).
 
 ![Configurer les paramètres du référentiel de code pour la création de l’expérience utilisateur](media/author-visually/configure-repo-2.png)
 
@@ -163,11 +163,13 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 
 - L’intégration de GitHub aux outils de création visuelle Data Factory ne fonctionne que dans la version généralement disponible de Data Factory.
 
+- Azure Data Factory ne prend pas en charge les comptes d’organisation GitHub
+
 - Un maximum de 1 000 entités par type de ressource (par exemple, des pipelines et des jeux de données) peut être extrait à partir d’une seule branche GitHub. Si cette limite est atteinte, il est suggéré de fractionner vos ressources en fabriques distinctes. Azure DevOps Git n’a pas cette limitation.
 
 ## <a name="version-control"></a>Gestion de versions
 
-Les systèmes de contrôle de version (également appelé _contrôle du code source_) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
+Les systèmes de contrôle de version (également appelé _contrôle du code source_ ) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
 
 ### <a name="creating-feature-branches"></a>Création de branches de fonctionnalités
 
@@ -231,7 +233,7 @@ L’utilisation de Key Vault de l’authentification MSI facilite également l�
 Si la branche de publication n’est pas synchronisée avec la branche principale et contient des ressources obsolètes malgré une publication récente, essayez d’effectuer les étapes suivantes :
 
 1. Supprimez votre dépôt Git actuel
-1. Reconfigurez Git avec les mêmes paramètres, mais vérifiez que l’option**Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le dépôt) est sélectionnée et choisissez **Nouvelle branche**
+1. Reconfigurez Git avec les mêmes paramètres, mais vérifiez que l’option **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le dépôt) est sélectionnée et choisissez **Nouvelle branche**
 1. Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration 
 
 Voici quelques exemples de situations qui peuvent provoquer une branche de publication obsolète :
@@ -242,7 +244,7 @@ Voici quelques exemples de situations qui peuvent provoquer une branche de publi
 
 ## <a name="switch-to-a-different-git-repository"></a>Passer à un autre dépôt Git
 
-Pour basculer vers un autre référentiel Git, accédez à la page de configuration de Git dans le hub de gestion, sous **Contrôle de code source**. Sélectionnez **Déconnecter**. 
+Pour basculer vers un autre référentiel Git, accédez à la page de configuration de Git dans le hub de gestion, sous **Contrôle de code source** . Sélectionnez **Déconnecter** . 
 
 ![Icône Git](media/author-visually/remove-repository.png)
 

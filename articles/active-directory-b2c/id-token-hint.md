@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564713"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132072"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique id_token_hint dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -87,13 +87,13 @@ Les métadonnées suivantes sont pertinentes lors de l’utilisation d’une cl�
 | émetteur | Oui | Identifie le service de jeton de sécurité (émetteur de jeton). Cette valeur doit être identique à la revendication `iss` dans la revendication de jeton JWT. | 
 | IdTokenAudience | Oui | Identifie le destinataire du jeton. Doit être identique à la revendication `aud` dans la revendication de jeton JWT. | 
 
-Les métadonnées suivantes sont pertinentes lors de l’utilisation d’une clé symétrique. 
+Les métadonnées suivantes sont pertinentes lors de l’utilisation d’une clé asymétrique. 
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | METADATA| Oui | URL qui pointe vers un document de configuration d’émetteur de jeton, également appelé point de terminaison de configuration OpenID connu.   |
 | émetteur | Non | Identifie le service de jeton de sécurité (émetteur de jeton). Cette valeur peut être utilisée pour remplacer la valeur configurée dans les métadonnées et doit être identique à la revendication `iss` dans la revendication de jeton JWT. |  
-| IdTokenAudience | Non | Identifie le destinataire du jeton. Cette valeur peut être utilisée pour remplacer la valeur configurée dans les métadonnées et doit être identique à la revendication `aud` dans la revendication de jeton JWT. |  
+| IdTokenAudience | Non | Identifie le destinataire du jeton. Doit être identique à la revendication `aud` dans la revendication de jeton JWT. |  
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
@@ -129,14 +129,14 @@ La clé utilisée par l’émetteur de jeton doit être créée dans vos clés d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-1. Dans la page de vue d’ensemble, sous **Stratégies**, sélectionnez **Identity Experience Framework**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C** .
+1. Dans la page de vue d’ensemble, sous **Stratégies** , sélectionnez **Identity Experience Framework** .
 1. Sélectionner **Clés de stratégie** 
-1. Sélectionnez **Manuel**.
-1. Pour **Nom**, utilisez `IdTokenHintKey`.  
+1. Sélectionnez **Manuel** .
+1. Pour **Nom** , utilisez `IdTokenHintKey`.  
    Il est possible que le préfixe `B2C_1A_` soit ajouté automatiquement.
-1. Dans la zone **Secret**, entrez la clé de connexion que vous avez générée précédemment.
-1. Pour **Utilisation de la clé**, utilisez **Chiffrement**.
+1. Dans la zone **Secret** , entrez la clé de connexion que vous avez générée précédemment.
+1. Pour **Utilisation de la clé** , utilisez **Chiffrement** .
 1. Sélectionnez **Create** (Créer).
 1. Vérifiez que vous avez créé la clé `B2C_1A_IdTokenHintKey`.
 
@@ -219,7 +219,7 @@ Le profil technique suivant valide le jeton et extrait les revendications. Rempl
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

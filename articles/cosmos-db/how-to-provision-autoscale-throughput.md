@@ -1,22 +1,25 @@
 ---
-title: Approvisionner le débit avec mise à l’échelle automatique dans Azure Cosmos DB
-description: Apprenez à approvisionner le débit avec mise à l’échelle automatique au niveau du conteneur et de la base de données dans Azure Cosmos DB à l’aide de Portail Azure, CLI, PowerShell et d’autres Kits de développement logiciel (SDK).
+title: Approvisionner le débit avec mise à l’échelle automatique dans l’API SQL Azure Cosmos DB
+description: Apprenez à approvisionner le débit avec mise à l’échelle automatique au niveau du conteneur et de la base de données dans l’API SQL Azure Cosmos DB à l’aide du Portail Azure, CLI, PowerShell et d’autres kits de développement logiciel (SDK).
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017139"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277836"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB - API SQL
 
-Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données.
+Cet article explique comment approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur (collection, graphique ou table) dans l’API SQL Azure Cosmos DB. Vous pouvez activer la mise à l’échelle automatique sur un seul conteneur ou approvisionner le débit avec mise à l’échelle automatique sur une base de données et le partager entre tous les conteneurs de cette base de données.
+
+Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-provision-throughput-mongodb.md), [API Cassandra](how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -24,13 +27,13 @@ Cet article explique comment approvisionner le débit avec mise à l’échelle 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou à l’ [explorateur Azure Cosmos DB.](https://cosmos.azure.com/)
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
 
-1. Sélectionnez **Nouveau conteneur**. Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit**, sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
+1. Sélectionnez **Nouveau conteneur** . Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit** , sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Création d’un conteneur et configuration du débit provisionné en mode de mise à l’échelle automatique":::
 
-1. Sélectionnez **OK**.
+1. Sélectionnez **OK** .
 
 Pour configurer la mise à l’échelle automatique sur une base de données à débit partagé, sélectionnez l’option **Approvisionner le débit d’une base de données** lors de la création d’une base de données. 
 
@@ -41,18 +44,18 @@ Pour configurer la mise à l’échelle automatique sur une base de données à 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) ou à l’ [explorateur Azure Cosmos DB.](https://cosmos.azure.com/)
 
-1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
+1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données** .
 
 1. Sélectionnez **Mise à l’échelle et paramètres** pour votre conteneur ou **Mise à l’échelle** pour votre base de données.
 
-1. Sous **Mise à l’échelle**, sélectionnez l’option **Mise à l’échelle automatique**, puis **Enregistrer**.
+1. Sous **Mise à l’échelle** , sélectionnez l’option **Mise à l’échelle automatique** , puis **Enregistrer** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Création d’un conteneur et configuration du débit provisionné en mode de mise à l’échelle automatique":::
 
 > [!NOTE]
 > Lorsque vous activez la mise à l’échelle automatique sur une base de données ou un conteneur existant, la valeur de départ pour le nombre maximum de RU/s est déterminée par le système, en fonction de vos paramètres de débit approvisionné manuellement et de votre stockage. Une fois l’opération terminée, vous pouvez modifier le nombre maximal de RU/s si nécessaire. [En savoir plus.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB v3 pour l’API SQL
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB V3
 
 Utilisez la [version 3.9 ou ultérieure](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) du Kit de développement logiciel (SDK) .NET Azure Cosmos DB pour l’API SQL pour gérer les ressources avec mise à l’échelle automatique. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour l’API SQL
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB V4
 
 Vous pouvez utiliser la [version 4.0 ou ultérieure](https://mvnrepository.com/artifact/com.azure/azure-cosmos) du Kit de développement logiciel (SDK) Java Azure Cosmos DB pour l’API SQL pour gérer les ressources avec mise à l’échelle automatique.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>API Cassandra
-
-Des comptes Azure Cosmos DB pour l’API Cassandra peuvent être provisionnés pour la mise à l’échelle automatique à l’aide des [commandes CQL](manage-scale-cassandra.md#use-autoscale), de l’interface [Azure CLI](cli-samples.md), d’[Azure PowerShell](powershell-samples.md) ou des [modèles Azure Resource Manager](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API Azure Cosmos DB pour MongoDB
-
-Des comptes Azure Cosmos DB pour l’API MongoDB peuvent être provisionnés pour la mise à l’échelle automatique à l’aide des [commandes d’extension MongoDB](mongodb-custom-commands.md), de l’interface [Azure CLI](cli-samples.md), d’[Azure PowerShell](powershell-samples.md) ou des [modèles Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

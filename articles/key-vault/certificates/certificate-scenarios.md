@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224857"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124219"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -37,11 +37,11 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
 **Étape 1** : fournisseurs d’autorités de certification  
 -   L’embarquement en tant qu’administrateur informatique, administrateur PKI ou toute personne assurant la gestion des comptes auprès des autorités de certification, pour une société donnée (par exemple Contoso) est une condition préalable requise pour utiliser des certificats Key Vault.  
-    Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault :  
+    Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault. Apprenez-en davantage [ici](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers).   
     -   DigiCert : Key Vault propose des certificats TSL/SSL OV avec DigiCert.  
     -   GlobalSign : Key Vault propose des certificats TSL/SSL OV avec GlobalSign.  
 
-**Étape 2** : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification pouvant être utilisées par Key Vault pour inscrire, renouveler et utiliser des certificats TSL/SSL via Key Vault.
+**Étape 2**  : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification pouvant être utilisées par Key Vault pour inscrire, renouveler et utiliser des certificats TSL/SSL via Key Vault.
 
 **Étape 3** : un administrateur Contoso, ainsi qu’un employé Contoso (utilisateur Key Vault) qui possède des certificats, dépendant de l’autorité de certification, peuvent obtenir un certificat auprès de l’administrateur ou directement à partir du compte avec l’autorité de certification.  
 
@@ -52,7 +52,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
     Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](https://aka.ms/kvcertsblog).  
 
-**Étape 3.1** : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
+**Étape 3.1**  : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
 
 Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opération unique.  
 

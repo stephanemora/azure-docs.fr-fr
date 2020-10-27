@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016125"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145367"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Comme expliqué dans l’article [Qu’est-ce que l’accès conditionnel ?](overview.md), une stratégie d'accès conditionnel est une instruction if-then d'**affectations** et de **contrôles d'accès**. Une stratégie d’accès conditionnel regroupe des signaux pour prendre des décisions et appliquer des stratégies organisationnelles.
+Comme expliqué dans l’article [Qu’est-ce que l’accès conditionnel ?](overview.md), une stratégie d'accès conditionnel est une instruction if-then d' **affectations** et de **contrôles d'accès** . Une stratégie d’accès conditionnel regroupe des signaux pour prendre des décisions et appliquer des stratégies organisationnelles.
 
-Comment une organisation crée-t-elle ces stratégies ? Qu’est-ce qui est requis ?
+Comment une organisation crée-t-elle ces stratégies ? Qu’est-ce qui est requis ? Comment sont-elles appliquées ?
 
 ![Accès conditionnel (signaux + décisions + application = stratégies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Plusieurs stratégies d’accès conditionnel peuvent s’appliquer à un utilisateur individuel à tout moment. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification multifacteur (MFA) et qu’une autre demande un appareil conforme, vous devez procéder à la MFA et utiliser un appareil compatible. Toutes les attributions sont reliées par l’opérateur logique **AND** . Si vous configurez plusieurs affectations, ces dernières doivent toutes être satisfaites pour qu’une stratégie soit déclenchée.
+
+Toutes les stratégies sont appliquées en deux phases :
+
+- Phase 1 : Collecter les détails de la session 
+   - Collectez les détails de la session, tels que l’emplacement réseau et l’identité de l’appareil, qui seront nécessaires à l’évaluation de la stratégie. 
+   - La phase 1 de l’évaluation de la stratégie se produit pour les stratégies activées et les stratégies en [mode rapport seul](concept-conditional-access-report-only.md).
+- Phase 2 : Application 
+   - Utilisez les détails de la session collectés lors de la phase 1 pour identifier les exigences qui n’ont pas été respectées. 
+   - Si une stratégie est configurée pour bloquer l’accès, grâce au contrôle d’octroi et de blocage, l’application s’arrête ici et l’utilisateur est bloqué. 
+   - L’utilisateur est invité à remplir les exigences supplémentaires de contrôle d’octroi qui n’ont pas été satisfaites durant la phase 1 dans l’ordre suivant, jusqu’à ce que la stratégie soit satisfaite :  
+      - Authentification multifacteur 
+      - Application cliente approuvée/stratégie de protection d’application 
+      - Appareil géré (jonction d’Azure AD conforme ou hybride) 
+      - Conditions d’utilisation 
+      - Contrôles personnalisés  
+   - Une fois que tous les contrôles d’octroi ont été satisfaits, appliquez les contrôles de session (appliqués par l’application, Microsoft Cloud App Security et durée de vie du jeton) 
+   - La phase 2 de l’évaluation de la stratégie se produit pour toutes les stratégies activées. 
 
 ## <a name="assignments"></a>Attributions
 
@@ -115,7 +134,7 @@ Les [contrôles de session](concept-conditional-access-session.md) peuvent limit
 Une stratégie d’accès conditionnel doit contenir au moins les éléments suivants à appliquer :
 
 - **Nom** de la stratégie.
-- **Affectations**
+- **Attributions**
    - **Utilisateurs et/ou groupes** auxquels appliquer la stratégie.
    - **Applications ou actions cloud** auxquelles appliquer la stratégie.
 - **Contrôles d’accès**

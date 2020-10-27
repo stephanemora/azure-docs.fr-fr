@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253352"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148450"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -56,7 +56,7 @@ Liens connexes :
 
 ### <a name="specify-correct-registry-name"></a>Spécifier un nom de registre correct
 
-Lorsque vous utilisez `docker login`, indiquez le nom complet du serveur de connexion du registre, par exemple *myregistry.azurecr.io*. Veillez à utiliser uniquement des lettres minuscules. Exemple :
+Lorsque vous utilisez `docker login`, indiquez le nom complet du serveur de connexion du registre, par exemple *myregistry.azurecr.io* . Veillez à utiliser uniquement des lettres minuscules. Exemple :
 
 ```console
 docker login myregistry.azurecr.io
@@ -77,8 +77,8 @@ Liens connexes :
 Vérifiez la validité des informations d’identification que vous utilisez pour votre scénario ou qui vous ont été fournies par un propriétaire du registre. Autres problèmes possibles
 
 * Si vous utilisez un principal de service Active Directory, veillez à utiliser les informations d’identification correctes dans le locataire Active Directory :
-  * Nom d'utilisateur - ID d’application du principal de service (également appelé *ID client*)
-  * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client*)
+  * Nom d'utilisateur - ID d’application du principal de service (également appelé *ID client* )
+  * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client* )
 * Si vous utilisez un service Azure, tel que Azure Kubernetes Service ou Azure DevOps pour accéder au registre, confirmez la configuration du registre pour votre service.
 * Si vous avez exécuté `az acr login` avec l’option `--expose-token` qui active la connexion au registre sans utiliser le démon Docker, veillez à vous authentifier avec le nom d’utilisateur `00000000-0000-0000-0000-000000000000`.
 
@@ -95,7 +95,7 @@ Liens connexes :
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Vérifier que les informations d’identification autorisent l’accès au registre
 
-Vérifiez les autorisations du registre associées aux informations d’identification, telles que le rôle RBAC `AcrPull` pour extraire des images du registre, ou le rôle `AcrPush` pour envoyer des images. 
+Vérifiez les autorisations du registre associées aux informations d’identification, telles que le rôle Azure `AcrPull` pour extraire des images du registre, ou le rôle `AcrPush` pour envoyer des images. 
 
 L’accès à un registre dans le portail ou la gestion du registre à l’aide d’Azure CLI nécessitent au moins le rôle `Reader` pour effectuer les opérations Azure Resource Manager.
 
@@ -103,7 +103,7 @@ Vous ou un propriétaire du registre devez disposer de privilèges suffisants da
 
 Liens connexes :
 
-* [Rôles et les autorisations RBAC – Azure Container Registry](container-registry-roles.md)
+* [Rôles et autorisations Azure – Azure Container Registry](container-registry-roles.md)
 * [Se connecter avec un jeton délimité par le dépôt](container-registry-repository-scoped-permissions.md)
 * [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](../role-based-access-control/role-assignments-portal.md)
 * [Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Si vous ne résolvez pas votre problème ici, consultez les options suivantes.
   * [Résoudre les problèmes de réseau avec le Registre](container-registry-troubleshoot-access.md)
   * [Résoudre les problèmes de performances de registre](container-registry-troubleshoot-performance.md)
 * Options de [support de la communauté](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Ouvrir un ticket de support](https://azure.microsoft.com/support/create-ticket/) : en fonction des informations que vous fournissez, vous pouvez effectuer un diagnostic rapide des échecs d’authentification dans votre registre.
-
-

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708677"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315171"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -49,25 +49,25 @@ Les spécifications détaillées des types de serveurs disponibles sont les suiv
 | Taille de calcul         | vCores | Taille de la mémoire (Gio) | 
 |----------------------|--------|-------------------|
 | **Expansible**        |        |                   | 
-| B1s                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2s                  | 2      | 4                 |  
+| Standard_B1s         | 1      | 1                 |  
+| Standard_B1ms        | 1      | 2                 | 
+| Standard_B2s         | 2      | 4                 |  
 | **Usage général**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
+| Standard_D2ds_v4     | 2      | 8                 |  
+| Standard_D4ds_v4     | 4      | 16                | 
+| Standard_D8ds_v4     | 8      | 32                | 
+| Standard_D16ds_v4    | 16     | 64                | 
+| Standard_D32ds_v4    | 32     | 128               |  
+| Standard_D48ds_v4    | 48     | 192               |  
+| Standard_D64ds_v4    | 64     | 256               | 
 | **Mémoire optimisée** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_E2ds_v4     | 2      | 16                |
+| Standard_E4ds_v4     | 4      | 32                |
+| Standard_E8ds_v4     | 8      | 64                |
+| Standard_E16ds_v4    | 16     | 128               |
+| Standard_E32ds_v4    | 32     | 256               |
+| Standard_E48ds_v4    | 48     | 384               |
+| Standard_E64ds_v4    | 64     | 504               |
 
 Pour plus d’informations sur la série de calcul disponible, reportez-vous à la documentation des machines virtuelles Azure pour [Expansible (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Usage général (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md) et [À mémoire optimisée (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -110,29 +110,29 @@ Pour en savoir plus sur le nombre maximal d’IOPS effectif par taille de calcul
 | Taille de calcul         | Nombre maximal d’IOPS effectif  | 
 |----------------------|---------------------|
 | **Expansible**        |                     |
-| B1s                  | 320                 |
-| B1ms                 | 640                 |
-| B2s                  | 1 280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1 280                | 
 | **Usage général**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6 400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20000               |
-| D32ds_v4             | 20000               |
-| D48ds_v4             | 20000               | 
-| D64ds_v4             | 20000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6 400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20000               |
+| Standard_D32ds_v4    | 20000               |
+| Standard_D48ds_v4    | 20000               | 
+| Standard_D64ds_v4    | 20000               | 
 | **Mémoire optimisée** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6 400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20000               | 
-| E32ds_v4             | 20000               | 
-| E48ds_v4             | 20000               | 
-| E64ds_v4             | 20000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6 400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_E16ds_v4   | 20000               | 
+| Standard_E32ds_v4    | 20000               | 
+| Standard_E48ds_v4    | 20000               | 
+| Standard_E64ds_v4    | 20000               |  
 
 Le nombre maximal d’IOPS effectif dépend du nombre maximal d’IOPS disponibles par taille de calcul. Consultez la formule ci-dessous et reportez-vous à la colonne *Débit du disque non mis en cache max. : IOPS/Mbits/s* dans la documentation [série B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) et [série Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
-**Nombre maximal d’IOPS effectif** = MINIMUM (*Débit du disque non mis en cache max. : IOPS/Mbits/s* de la taille de calcul et du stockage approvisionné en Gio x 3)
+**Nombre maximal d’IOPS effectif** = MINIMUM ( *Débit du disque non mis en cache max. : IOPS/Mbits/s* de la taille de calcul et du stockage approvisionné en Gio x 3)
 
 Vous pouvez surveiller votre consommation d’E/S dans le portail Azure (avec Azure Monitor) à l’aide de la métrique [IO percent](./concepts-monitoring.md). Si vous avez besoin de plus d’IOPS, vous devez savoir si vous êtes limité par la taille de calcul ou par le stockage approvisionné. Mettez à l’échelle le calcul ou le stockage de votre serveur en conséquence.
 
@@ -153,7 +153,7 @@ La mise à l’échelle du stockage et la modification de la période de rétent
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/MySQL/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) affiche le coût mensuel dans l’onglet **Calcul et stockage** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, sélectionnez **Azure Database pour MySQL**, puis **Serveur flexible** comme type de déploiement pour personnaliser les options.
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/MySQL/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) affiche le coût mensuel dans l’onglet **Calcul et stockage** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments** , développez la catégorie **Bases de données** , sélectionnez **Azure Database pour MySQL** , puis **Serveur flexible** comme type de déploiement pour personnaliser les options.
 
 Si vous souhaitez optimiser le coût du serveur, vous pouvez prendre en compte les conseils suivants :
 

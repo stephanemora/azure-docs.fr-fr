@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71827895"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143185"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Activer la journalisation des diagnostics pour Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Ce guide fournit des instructions pas à pas pour activer la journalisation des 
 
 Pour activer la journalisation des diagnostics, vous aurez besoin d’un emplacement pour stocker vos données de journal. Ce tutoriel utilise Stockage Azure et Log Analytics.
 
-* [Stockage Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – Conserve les journaux de diagnostic pour l’audit de stratégie, l’analyse statique ou la sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+* [Stockage Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – Conserve les journaux de diagnostic pour l’audit de stratégie, l’analyse statique ou la sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès Azure RBAC approprié aux deux abonnements.
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) – Outil analytique et de recherche dans les journaux flexible qui permet d’analyser les journaux bruts générés par une ressource Azure.
 
 > [!NOTE]
@@ -38,12 +38,12 @@ Commençons par activer la journalisation des diagnostics à partir du portail A
 > Pour activer cette fonctionnalité à l’aide de PowerShell ou d’Azure CLI, suivez les instructions fournies dans [Collecter et utiliser des données de journaux à partir de vos ressources Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Accédez au portail Azure. Recherchez ensuite une ressource Cognitive Services et sélectionnez-la. Par exemple, votre abonnement à Recherche Web Bing.   
-2. Ensuite, dans le menu de navigation de gauche, recherchez **Supervision**, puis sélectionnez **Paramètres de diagnostic**. Cet écran contient tous les paramètres de diagnostic créés précédemment pour cette ressource.
-3. Si vous souhaitez utiliser une ressource créée précédemment, vous pouvez la sélectionner maintenant. Sinon, sélectionnez **+ Ajouter un paramètre de diagnostic**.
-4. Attribuez un nom au paramètre. Sélectionnez ensuite **Archiver dans un compte de stockage**, puis **Envoyer à Log Analytics**.
-5. Quand vous êtes invité à procéder à la configuration, sélectionnez le compte de stockage et l’espace de travail OMS dont vous voulez vous servir pour stocker les journaux de diagnostic. **Remarque** : Si vous n’avez pas de compte de stockage ni d’espace de travail OMS, suivez les invites pour en créer un.
-6. Sélectionnez **Audit**, **RequestResponse**, et **AllMetrics**. Définissez ensuite la période de rétention de vos données de journal de diagnostic. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment.
-7. Cliquez sur **Enregistrer**.
+2. Ensuite, dans le menu de navigation de gauche, recherchez **Supervision** , puis sélectionnez **Paramètres de diagnostic** . Cet écran contient tous les paramètres de diagnostic créés précédemment pour cette ressource.
+3. Si vous souhaitez utiliser une ressource créée précédemment, vous pouvez la sélectionner maintenant. Sinon, sélectionnez **+ Ajouter un paramètre de diagnostic** .
+4. Attribuez un nom au paramètre. Sélectionnez ensuite **Archiver dans un compte de stockage** , puis **Envoyer à Log Analytics** .
+5. Quand vous êtes invité à procéder à la configuration, sélectionnez le compte de stockage et l’espace de travail OMS dont vous voulez vous servir pour stocker les journaux de diagnostic. **Remarque**  : Si vous n’avez pas de compte de stockage ni d’espace de travail OMS, suivez les invites pour en créer un.
+6. Sélectionnez **Audit** , **RequestResponse** , et **AllMetrics** . Définissez ensuite la période de rétention de vos données de journal de diagnostic. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment.
+7. Cliquez sur **Enregistrer** .
 
 Jusqu’à deux heures peuvent être nécessaires avant de pouvoir interroger et analyser les données de journalisation. Autrement dit, ne vous inquiétez pas si vous ne voyez rien dans un premier temps.
 
@@ -52,8 +52,8 @@ Jusqu’à deux heures peuvent être nécessaires avant de pouvoir interroger et
 Stockage Azure est une solution de stockage d’objets robuste qui est optimisée pour stocker de grandes quantités de données non structurées. Dans cette section, vous allez apprendre à rechercher les transactions de plus de 30 jours dans votre compte de stockage et à exporter les données vers Excel.
 
 1. Sur le portail Azure, recherchez la ressource Stockage Azure que vous avez créée dans la dernière section.
-2. Dans le menu de navigation de gauche, recherchez **Supervision**, puis sélectionnez **Métriques**.
-3. Servez-vous des listes déroulantes disponibles pour configurer votre requête. Pour cet exemple, nous allons définir l’intervalle de temps sur **30 derniers jours** et la métrique sur **Transaction**.
+2. Dans le menu de navigation de gauche, recherchez **Supervision** , puis sélectionnez **Métriques** .
+3. Servez-vous des listes déroulantes disponibles pour configurer votre requête. Pour cet exemple, nous allons définir l’intervalle de temps sur **30 derniers jours** et la métrique sur **Transaction** .
 4. Une fois la requête terminée, vous obtenez une visualisation des transactions des 30 derniers jours. Pour exporter ces données, utilisez le bouton **Exporter vers Excel** situé en haut de la page.
 
 Découvrez plus en détail ce que vous pouvez faire des données de diagnostic dans [Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
@@ -64,7 +64,7 @@ Suivez ces instructions pour explorer les données Log Analytics pour votre ress
 
 1. Sur le portail Azure, recherchez et sélectionnez **Log Analytics** dans le menu de navigation de gauche.
 2. Recherchez et sélectionnez la ressource que vous avez créée quand vous avez activé les diagnostics.
-3. Sous **Général**, recherchez et sélectionnez **Journaux**. À partir de cette page, vous pouvez exécuter des requêtes sur vos journaux.
+3. Sous **Général** , recherchez et sélectionnez **Journaux** . À partir de cette page, vous pouvez exécuter des requêtes sur vos journaux.
 
 ### <a name="sample-queries"></a>Exemples de requêtes
 
@@ -85,7 +85,7 @@ AzureDiagnostics
 | take 10
 ```
 
-Exécutez cette requête pour regrouper les opérations par **Ressource** :
+Exécutez cette requête pour regrouper les opérations par **Ressource**  :
 
 ```kusto
 AzureDiagnostics

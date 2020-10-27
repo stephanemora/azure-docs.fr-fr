@@ -1,69 +1,138 @@
 ---
-title: Guide de publication d’offres de machine virtuelle pour la Place de marché Azure
-description: Cet article décrit les conditions requises pour publier une machine virtuelle et un essai logiciel gratuit à déployer à partir de la Place de marché Azure.
+title: Planifier une offre de machine virtuelle – Place de marché commerciale de Microsoft
+description: Cet article décrit les conditions requises pour publier une offre de machine virtuelle sur la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/04/2020
-ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484186"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329030"
 ---
-# <a name="publishing-guide-for-virtual-machine-offers"></a>Guide de publication d’offres de machines virtuelles
+# <a name="how-to-plan-a-virtual-machine-offer"></a>Comment planifier une offre de machine virtuelle
 
-La publication d’images de machine virtuelle constitue l’un des principaux moyens de publier une solution sur la Place de marché Azure. Utilisez ce guide pour comprendre les exigences propres à ce type d’offre. 
+Cet article explique les différentes options et conditions requises pour la publication d’une offre de machine virtuelle sur la Place de marché commerciale. Les offres de machines virtuelles sont des offres pouvant faire l’objet d’une transaction, déployées et facturées via la Place de marché Azure.
 
-Les offres de machine virtuelle sont des offres de transaction qui sont déployées et facturées via la Place de marché Azure. L’option de référencement qu’un utilisateur voit est *Obtenir maintenant*.
+Avant de commencer, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), et vérifier que votre compte est inscrit dans le programme de la Place de marché commerciale.
 
-## <a name="free-trial"></a>Essai gratuit 
+### <a name="technical-fundamentals"></a>Notions de base techniques
 
-Pour donner aux utilisateurs la possibilité de tester votre offre, proposez des licences logicielles à durée limitée lorsque vous utilisez le modèle de facturation BYOL (apportez votre propre licence). 
+Le processus de conception, de création et de test des offres prend du temps et nécessite une expertise en ce qui concerne la plateforme Azure et les technologies utilisées pour créer votre offre. Votre équipe d’ingénierie doit disposer d’une connaissance pratique des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/), du service [Stockage Azure](https://azure.microsoft.com/services/?filter=storage#storage) et des services de [Mise en réseau Azure](https://azure.microsoft.com/services/?filter=networking#networking), ainsi que de compétences en matière de [conception et d’architecture d’applications Azure](https://azure.microsoft.com/solutions/architecture/). Consultez les ressources techniques supplémentaires suivantes : 
 
-## <a name="test-drive"></a>Test drive
+- Tutoriels
+  - [Machines virtuelles Linux](../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Machines virtuelles Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
-Vous pouvez déployer une ou plusieurs machines virtuelles par le biais d’applications IaaS (infrastructure as a service) ou SaaS (software as a service). L’avantage de l’option de publication *Test drive* est la configuration automatique d’une machine virtuelle ou de la solution complète dirigé par une visite guidée hébergée par un partenaire. Un test drive permet à vos clients d’évaluer des machines virtuelles sans coût supplémentaire. Un client n’est pas tenu d’être un client Azure existant pour opter pour l’expérience d’essai. 
+- Exemples
+  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux](../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell pour les machines virtuelles Linux](../virtual-machines/linux/powershell-samples.md)
+  - [Exemples d’interface de ligne de commande Azure pour machines virtuelles Windows](../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell pour machines virtuelles Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
-Pour plus d’informations sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md).
+## <a name="technical-requirements"></a>Exigences techniques
 
-|Spécifications  |Détails |
-|---------|---------|
-| Vous avez une application de la Place de marché Azure   |  Une ou plusieurs machines virtuelles via IaaS ou SaaS.      |
+Les exigences techniques des offres de machines virtuelles sont les suivantes :
 
-## <a name="interactive-demo"></a>Démonstration interactive
+- Vous devez préparer un disque dur virtuel (VHD) de système d’exploitation. Les disques durs virtuels de données sont facultatifs. Cette procédure est expliquée plus en détail ci-dessous.
+- Le client peut annuler votre offre à tout moment.
+- Vous devez créer au moins un plan pour votre offre. Votre plan est facturé en fonction de l’[option de licence](#licensing-options) que vous sélectionnez.
+   > [!IMPORTANT]
+   > Chaque image de machine virtuelle d’un plan doit avoir le même nombre de disques de données.
 
-Grâce à cette offre, vous proposez à vos clients une expérience guidée de votre solution à l’aide d’une démonstration interactive. L’avantage de l’option de publication Démonstration interactive est qu’elle propose une expérience d’essai sans avoir à effectuer une configuration compliquée de votre solution complexe. 
+Une machine virtuelle contient deux composants :
 
-## <a name="virtual-machine-offer"></a>Offre de machine virtuelle
+- **Disque dur virtuel de système d’exploitation**  : contient le système d’exploitation et la solution déployée avec votre offre. Le processus de préparation du disque dur virtuel est différent en fonction du type de machine virtuelle (Linux, Windows ou personnalisée).
+- **Disques durs virtuels de données** (facultatifs) : stockage persistant dédié à une machine virtuelle. N’utilisez pas le disque dur virtuel du système d’exploitation (par exemple le lecteur C:) pour stocker des informations persistantes. 
+    - Vous pouvez inclure jusqu’à 16 disques de données.
+    - Utilisez un disque dur virtuel par disque de données, même si le disque est vide.
 
-Utilisez le type d’offre *Machine virtuelle* si vous déployez une appliance virtuelle dans le cadre de l’abonnement associé à votre client. Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise.
+    > [!NOTE]
+    > Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données requis par la solution. Les clients ne peuvent pas supprimer les disques qui font partie d’une image au moment du déploiement, mais ils peuvent toujours ajouter des disques pendant ou après le déploiement.
+
+Pour obtenir des instructions détaillées sur la préparation de vos ressources techniques, consultez [Créer une machine virtuelle à l’aide d’une base approuvée](azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](azure-vm-create-using-own-image.md).
+
+## <a name="preview-audience"></a>Public de préversion
+
+Un public de préversion peut accéder à votre offre de machine virtuelle avant sa publication sur la Place de marché Azure, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion** , vous pouvez définir un public de préversion limité. 
 
 > [!NOTE]
-> À ce jour, les engagement monétaires associés à un Contrat Entreprise peuvent être utilisés pour l’utilisation par Azure de votre machine virtuelle, mais pas pour vos frais de licence logicielle.  
-> 
+> Le public d’une préversion diffère de celui d’un plan privé. Un plan privé est un plan que vous mettez à la disposition d’un public spécifique que vous choisissez. Cela vous permet de négocier un plan personnalisé avec des clients spécifiques. Pour plus d’informations, consultez la section suivante : Plans.
+
+Vous pouvez envoyer des invitations à des adresses e-mail de Compte Microsoft (MSA) ou d’Azure Active Directory (Azure AD). Ajoutez jusqu’à 10 adresses e-mail manuellement, ou importez-en jusqu’à 20 à l’aide d’un fichier .csv. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de tester d’éventuels changements ou mises à jour.
+
+## <a name="plans-and-pricing"></a>Plans et tarifs
+
+Les offres de machines virtuelles nécessitent au moins un plan. Un plan définit l’étendue et les limites de la solution, ainsi que la tarification associée. Vous pouvez créer plusieurs plans pour votre offre, afin d’offrir à vos clients différentes options techniques et de licence, ainsi que des évaluations gratuites. Pour obtenir des conseils généraux sur les plans, notamment des modèles de tarification, des essais gratuits et des plans privés, consultez [Plans et tarification des offres de la Place de marché commerciale](plans-pricing.md). 
+
+Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise. Pour plus d’informations, consultez [Fonctionnalités de transaction de la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+
 > [!NOTE]
-> Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme d’offre privée. Les offres privées vous permettent de créer des offres exclusives pour vos clients les plus fidèles et de proposer des conditions et des logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les offres privées vous permettent de proposer des tarifs ou des produits spécifiques à un ensemble limité de clients en créant un plan avec ces informations.  
->
-> Pour plus d’informations, consultez [Offres privées sur la Place de marché Azure](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace)  
+> Vous pouvez consacrer les engagement monétaires associés à un Contrat Entreprise à la couverture de l’utilisation par Azure de votre machine virtuelle, mais pas à celle de vos frais de licence logicielle.
 
-| Condition requise | Détails |  
-|:--- |:--- | 
-| Facturation et mesure | Votre machine virtuelle doit prendre en charge la facturation mensuelle BYOL ou avec paiement à l’utilisation. |  
-| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations sur la création d'un VHD, voir : <ul> <li>[Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux).</li> <li>[Créez un disque dur virtuel compatible avec Azure](./partner-center-portal/azure-vm-create-offer.md) (pour les disques durs virtuels Windows).</li> </ul> |  
+### <a name="licensing-options"></a>Options de licence
 
->[!Note]
->L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft, consultez [Fournisseurs de solutions cloud](./cloud-solution-providers.md).
+Lors de la préparation de la publication d’une nouvelle offre de machine virtuelle, vous devez choisir une option de licence. Celle-ci détermine les informations supplémentaires que vous devrez fournir lors de la création de votre offre dans l’Espace partenaires.
+
+Voici les options de licence disponibles pour les offres de machines virtuelles :
+
+| Option de licence | Processus de transaction |
+| --- | --- |
+| Essai gratuit | Offrez à vos clients une évaluation gratuite de 1, 3 ou 6 mois. |
+| Version d'évaluation | Cette option permet à vos clients d’évaluer des machines virtuelles sans coût supplémentaire. Pour bénéficier de l’évaluation gratuite, un client ne doit pas nécessairement être un client Azure existant. Pour plus d’informations, consultez [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| BYOL | L’option BYOL (avec apport de sa propre licence) permet à vos clients d’intégrer des licences logicielles existantes à Azure.\* |
+| Basés sur l’utilisation | Également appelée paiement à l’utilisation, cette option permet à vos clients de payer par heure. |
+| Démonstration interactive  | Proposez à vos clients une expérience guidée de votre solution à l’aide d’une démonstration interactive. L’avantage de celle-ci est qu’elle vous permet de proposer une expérience d’évaluation sans devoir effectuer une configuration compliquée de votre solution complexe. |
+|
+
+\* En tant qu’éditeur, vous prenez en charge tous les aspects de la transaction de licence logicielle, notamment la commande, l’exécution de celle-ci, sa mesure, sa comptabilisation et sa facturation, ainsi que son paiement et son encaissement.
+
+L’exemple suivant montre une offre de machine virtuelle de la Place de marché Azure qui prévoit une tarification basée sur l’utilisation.
+
+:::image type="content" source="media/vm/sample-offer-screen.png" alt-text="Exemple d’écran d’offre de machine virtuelle.":::
+
+### <a name="private-plans"></a>Plans privés
+
+Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle à un ensemble spécifique de clients en publiant l’image et les tarifs sous forme de plan privé. Les plans privés vous permettent de créer des offres exclusives pour vos clients les plus fidèles, ainsi que de proposer des conditions et logiciels personnalisés. Les conditions personnalisées vous permettent de présenter différents scénarios, notamment des offres économiques avec des conditions et des tarifs adaptés ainsi qu’un accès en avant-première à des logiciels en version limitée. Les plans privés vous permettent d’offrir des tarifs ou produits spécifiques à un ensemble limité de clients.
+
+Pour plus d’informations, consultez [Plans et tarification pour les offres de la Place de marché commerciale](plans-pricing.md) et [Offres privées sur la Place de marché Azure](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+
+## <a name="test-drives"></a>Versions d’évaluation
+
+Vous pouvez choisir d’activer une version d’évaluation pour votre machine virtuelle. Les versions d’évaluation permettent aux clients d’accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Vous pouvez activer des versions d’évaluation pour n’importe quelle option de publication, mais cette fonctionnalité est assortie d’exigences supplémentaires. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md). Pour plus d’informations sur la configuration de différents types de versions d’évaluation, consultez [Configuration technique de la version d’évaluation](test-drive-technical-configuration.md).
+
+> [!TIP]
+> Une version d’évaluation n’est pas un [essai gratuit](plans-pricing.md#free-trials). Vous pouvez proposer une version d’évaluation, un essai gratuit ou les deux. Dans les deux cas, vos clients disposent de votre solution pendant une période fixe. Cependant, une version d’évaluation propose en outre une visite autoguidée concrète des principales fonctionnalités de votre produit, ainsi qu’une démonstration des avantages de celui-ci au travers d’un scénario d’implémentation réel.
+
+## <a name="customer-leads"></a>Prospects
+
+Vous devez connecter votre offre à votre système de gestion des relations avec la clientèle (Customer Relationship Management, CRM) pour collecter des informations sur les clients. Le client devra autoriser le partage de ses informations. Ces détails du client, ainsi que le nom de l’offre, son ID et le magasin en ligne dans lequel il a trouvé votre offre, seront envoyés au système CRM que vous avez configuré. La place de marché commerciale prend en charge un vaste éventail de systèmes CRM, ainsi que la possibilité d’utiliser une table Azure ou de configurer un point de terminaison HTTPS à l’aide de Power Automate.
+
+Vous pouvez ajouter ou modifier une connexion CRM à tout moment pendant ou après la création de l’offre. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+## <a name="legal-contracts"></a>Contrats juridiques
+
+Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un contrat Standard que vous pouvez utiliser pour vos offres dans la place de marché commerciale. Lorsque vous proposez votre logiciel dans le cadre du contrat standard, les clients ne doivent lire et accepter ce contrat qu’une seule fois, et vous n’avez pas besoin d’élaborer des conditions générales personnalisées.
+
+Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d’ajouter à celui-ci des conditions d’avenant universel et jusqu’à 10 avenants personnalisés. Vous pouvez également utiliser vos propres conditions générales à la place du contrat standard. Vous devez gérer ces détails dans la page **Propriétés** . Pour plus d’informations, consultez [Contrat Standard pour la place de marché commerciale de Microsoft](standard-contract.md).
+
+> [!NOTE]
+> Après avoir publié une offre à l’aide du contrat standard pour la place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales personnalisées. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat standard ou vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat standard, vous le pouvez par le biais d’avenants au contrat standard.
+
+## <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
+
+Lors de la création de votre offre dans l’Espace partenaires, vous verrez l’onglet **Revendre via des fournisseurs de solutions cloud** . Cette option permet aux partenaires qui font partie du programme Fournisseur de solutions cloud (CSP) de Microsoft de revendre votre machine virtuelle dans le cadre d’une offre groupée. Tous les plans BYOL (apportez votre propre licence) rejoignent automatiquement le programme. Vous pouvez également choisir de joindre vos plans non BYOL. Pour plus d’informations, consultez [Programme des fournisseurs de solution cloud](cloud-solution-providers.md). 
+
+> [!NOTE]
+> L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible. Pour plus d’informations sur la commercialisation de votre offre via les canaux partenaires CSP de Microsoft, consultez [**Fournisseurs de solutions cloud**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne l’avez pas déjà fait, découvrez comment [développer votre activité dans le cloud avec la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
-
-Pour vous inscrire à l’Espace partenaires et commencer à travailler dessus :
-
-- [Connectez-vous à l’Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
-- Pour plus d’informations, consultez [Créer une machine virtuelle](./partner-center-portal/azure-vm-create-offer.md).
+- [Créer une offre de machine virtuelle sur la Place de marché Azure](azure-vm-create.md)
+- [Crée une machine virtuelle à l’aide d’une base approuvée](azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](azure-vm-create-using-own-image.md).
+- [Bonnes pratiques pour le référencement des offres](gtm-offer-listing-best-practices.md)

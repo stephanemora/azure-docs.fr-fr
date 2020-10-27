@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439947"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126547"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Connectivité SSL/TLS dans Azure Database pour MySQL
 
@@ -20,8 +20,11 @@ La base de données Azure pour MySQL prend en charge la connexion de votre serve
 > [!NOTE]
 > La mise à jour de la valeur du paramètre de serveur `require_secure_transport` n’affecte pas le comportement du service MySQL. Utilisez les fonctionnalités d’application SSL et TLS décrites dans cet article pour sécuriser les connexions à votre base de données.
 
+>[!NOTE]
+> Sur la base des commentaires des clients, nous avons étendu la dépréciation du certificat racine pour notre autorité de certification racine Baltimore existante jusqu’au 15 février 2021 (15/2/2021).
+
 > [!IMPORTANT] 
-> Le certificat racine SSL est configuré pour expirer à partir du 26 octobre 2020 (26/10/2020). Mettez à jour votre application pour utiliser le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Pour plus d’informations, consultez [Mises à jour de certificat planifiées](concepts-certificate-rotation.md)
+> Le certificat racine SSL est configuré pour expirer à partir du 15 février 2021 (15/2/2021). Mettez à jour votre application pour utiliser le [nouveau certificat](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Pour plus d’informations, consultez [Mises à jour de certificat planifiées](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Paramètres SSL par défaut
 
@@ -29,7 +32,7 @@ Par défaut, le service de base de données doit être configuré pour exiger de
 
 Lorsque vous approvisionnez un nouveau serveur de base de données Azure pour MySQL par le biais du Portail Azure et d’Azure CLI, l’application de connexions SSL est activée par défaut. 
 
-Les chaînes de connexion pour les différents langages de programmation sont affichées dans le portail Azure. Ces chaînes de connexion incluent les paramètres SSL requis pour se connecter à votre base de données. Dans le portail Azure, sélectionnez votre serveur. Sous l’en-tête **Paramètres**, sélectionnez les **Chaînes de connexion**. Le paramètre SSL varie en fonction du connecteur, par exemple « ssl=true », « sslmode=require » ou « sslmode=require » et d’autres variations.
+Les chaînes de connexion pour les différents langages de programmation sont affichées dans le portail Azure. Ces chaînes de connexion incluent les paramètres SSL requis pour se connecter à votre base de données. Dans le portail Azure, sélectionnez votre serveur. Sous l’en-tête **Paramètres** , sélectionnez les **Chaînes de connexion** . Le paramètre SSL varie en fonction du connecteur, par exemple « ssl=true », « sslmode=require » ou « sslmode=require » et d’autres variations.
 
 Dans certains cas, les applications nécessitent un fichier de certificat local généré à partir du fichier de certificat d’une autorité de certification (AC) approuvée pour se connecter en toute sécurité. Actuellement, les clients peuvent **uniquement utiliser** le certificat prédéfini pour se connecter à un serveur Azure Database pour MySQL, situé sur https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. 
 
@@ -43,7 +46,7 @@ Azure Database pour MySQL prend en charge le chiffrement pour les clients qui se
 
 ### <a name="tls-settings"></a>Paramètres TLS
 
-Azure Database pour MySQL offre la possibilité d’imposer la version du protocole TLS pour les connexions clientes. Pour imposer la version du protocole TLS, utilisez le paramètre d’option **Version TLS minimale**. Les valeurs suivantes sont autorisées pour ce paramètre d’option :
+Azure Database pour MySQL offre la possibilité d’imposer la version du protocole TLS pour les connexions clientes. Pour imposer la version du protocole TLS, utilisez le paramètre d’option **Version TLS minimale** . Les valeurs suivantes sont autorisées pour ce paramètre d’option :
 
 |  Paramètre TLS minimal             | Version TLS du client prise en charge                |
 |:---------------------------------|-------------------------------------:|

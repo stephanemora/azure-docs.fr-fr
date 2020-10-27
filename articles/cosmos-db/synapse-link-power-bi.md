@@ -1,26 +1,26 @@
 ---
-title: Power BI et Synapse SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link
-description: Découvrez comment créer une base de données et des affichages de base de données Synapse SQL serverless sur Synapse Link pour Azure Cosmos DB, interroger les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces affichages.
+title: Utilisez Power BI et le pool sans serveur Synapse SQL pour analyser les données Azure Cosmos DB avec Synapse Link
+description: Découvrez comment créer une base de données de pool Synapse SQL sans serveur et des vues sur Synapse Link pour Azure Cosmos DB, interroger les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces vues.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929966"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126001"
 ---
-# <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Utiliser Power BI et Synapse SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link (préversion)
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Utiliser Power BI et un groupe Synapse SQL sans serveur pour analyser les données Azure Cosmos DB avec Synapse Link (version préliminaire) 
 
-Dans cet article, vous allez apprendre à créer une base de données Synapse SQL serverless (précédemment appelé **base de données SQL à la demande**) et des affichages sur Synapse Link pour Azure Cosmos DB. Vous interrogerez les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces affichages pour refléter cette requête.
+Dans cet article, vous allez apprendre à créer un pool de base de données Synapse SQL sans serveur (précédemment appelé **base de données SQL à la demande** ) et des vues sur Synapse Link pour Azure Cosmos DB. Vous interrogerez les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces affichages pour refléter cette requête.
 
 > [!NOTE]
-> L’utilisation du magasin analytique Azure Cosmos DB avec Synapse SQL serverless est actuellement en préversion contrôlée. Pour demander l’accès, contactez l’équipe [Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+> L’utilisation du magasin d’analyse Azure Cosmos DB avec un pool SQL sans serveur est actuellement sous la version préliminaire contrôlée. Pour demander l’accès, contactez l’équipe [Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-Dans ce scénario, vous allez utiliser des données factices sur les ventes de produits superficiels dans un magasin de vente au détail des partenaires. Vous allez analyser le revenu par magasin en fonction de la proximité des ménages importants et de l’impact de la publicité pour une semaine spécifique. Dans cet article, vous allez créer deux affichages, nommés **RetailSales** et **StoreDemographics**, et une requête entre eux. Vous pouvez récupérer les exemples de données de produit à partir de ce référentiel [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
+Dans ce scénario, vous allez utiliser des données factices sur les ventes de produits superficiels dans un magasin de vente au détail des partenaires. Vous allez analyser le revenu par magasin en fonction de la proximité des ménages importants et de l’impact de la publicité pour une semaine spécifique. Dans cet article, vous allez créer deux affichages, nommés **RetailSales** et **StoreDemographics** , et une requête entre eux. Vous pouvez récupérer les exemples de données de produit à partir de ce référentiel [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,17 +34,17 @@ Avant de commencer, veillez à créer les ressources suivantes :
 
 * Chargez des données de produits dans les conteneurs Azure Cosmos, comme décrit dans ce notebook [ d’ingestion des données par lots](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb).
 
-* [Créez un espace de travail Synapse](../synapse-analytics/quickstart-create-workspace.md) nommé **SynapseLinkBI**.
+* [Créez un espace de travail Synapse](../synapse-analytics/quickstart-create-workspace.md) nommé **SynapseLinkBI** .
 
 * [Connectez la base de données Azure Cosmos DB à l’espace de travail Synapse](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
 
 ## <a name="create-a-database-and-views"></a>Créer une base de données et des affichages
 
-Dans l’espace de travail Synapse, accédez à l’onglet **Développer**, sélectionnez l’icône **+** et sélectionnez **Script SQL**.
+Dans l’espace de travail Synapse, accédez à l’onglet **Développer** , sélectionnez l’icône **+** et sélectionnez **Script SQL** .
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
-Chaque espace de travail est fourni avec un point de terminaison serverless Synapse SQL. Après avoir créé un script SQL, à partir de la barre d’outils du haut, connectez-vous à **SQL à la demande**.
+Chaque espace de travail est fourni avec un point de terminaison SQL sans serveur. Après avoir créé un script SQL, à partir de la barre d’outils du haut, connectez-vous à **SQL à la demande** .
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
@@ -55,7 +55,7 @@ Créez une nouvelle base de données nommée **RetailCosmosDB** et un affichage 
 Create database RetailCosmosDB
 ```
 
-Ensuite, créez plusieurs affichages sur différents conteneurs Azure Cosmos compatibles avec Synapse Link. Cela vous permettra d’utiliser T-SQL pour joindre et interroger des données Azure Cosmos DB se trouvant dans des conteneurs différents.  Veillez à sélectionner la base de données **RetailCosmosDB** lors de la création des affichages.
+Ensuite, créez plusieurs affichages sur différents conteneurs Azure Cosmos compatibles avec Synapse Link. Les affichages vous permettent d’utiliser T-SQL pour joindre et interroger des données Azure Cosmos DB se trouvant dans des conteneurs différents.  Veillez à sélectionner la base de données **RetailCosmosDB** lors de la création des affichages.
 
 Les scripts suivants montrent comment créer des affichages sur chaque conteneur. Pour des raisons de simplicité, nous allons utiliser la fonctionnalité d’[inférence automatique](analytical-store-introduction.md#analytical-schema) de schéma Synapse sur des conteneurs Synapse SQL serverless sur Synapse Link :
 
@@ -110,29 +110,29 @@ Sélectionnez **Exécuter** qui donne le résultat suivant à la table :
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Affichage de modèle sur des conteneurs avec Power BI
 
-Ensuite, ouvrez le bureau Power BI et connectez-vous au point de terminaison Synapse SQL serverless en procédant comme suit :
+Ensuite, ouvrez le bureau Power BI et connectez-vous au point de terminaison SQL sans serveur en procédant comme suit :
 
-1. Ouvrez l’application Power BI Desktop. Sélectionnez **Obtenir des données** et sélectionnez **Plus**.
+1. Ouvrez l’application Power BI Desktop. Sélectionnez **Obtenir des données** et sélectionnez **Plus** .
 
 1. Choisissez **Azure Synapse Analytics (SQL DW)** dans la liste des options de connexion.
 
-1. Entrez le nom du point de terminaison SQL où se trouve la base de données. Entrez `SynapseLinkBI-ondemand.sql.azuresynapse.net` dans le champ **Serveur** Dans cet exemple, **SynapseLinkBI** est le nom de l’espace de travail. Remplacez-le si vous avez attribué un nom différent à votre espace de travail. Sélectionnez **Requête directe** pour le mode de connectivité des données, puis **OK**.
+1. Entrez le nom du point de terminaison SQL où se trouve la base de données. Entrez `SynapseLinkBI-ondemand.sql.azuresynapse.net` dans le champ **Serveur** Dans cet exemple, **SynapseLinkBI** est le nom de l’espace de travail. Remplacez-le si vous avez attribué un nom différent à votre espace de travail. Sélectionnez **Requête directe** pour le mode de connectivité des données, puis **OK** .
 
 1. Sélectionnez la méthode d’authentification par défaut, par exemple Azure AD.
 
-1. Sélectionnez la base de données **RetailCosmosDB** et les affichages **RetailSales**, **StoreDemographics**.
+1. Sélectionnez la base de données **RetailCosmosDB** et les affichages **RetailSales** , **StoreDemographics** .
 
 1. Sélectionnez **Charger** pour charger les deux affichages dans le mode de requête directe.
 
-1. Sélectionnez **Modèle** pour créer une relation entre les deux affichages via la colonne **storeId**.
+1. Sélectionnez **Modèle** pour créer une relation entre les deux affichages via la colonne **storeId** .
 
-1. Faites glisser la colonne **StoreId** de l’affichage **RetailSales** vers la colonne **StoreId** de l’affichage **StoreDemographics**.
+1. Faites glisser la colonne **StoreId** de l’affichage **RetailSales** vers la colonne **StoreId** de l’affichage **StoreDemographics** .
 
-1. Sélectionnez la relation plusieurs-à-un (*:1), car il existe plusieurs lignes avec le même ID de magasin dans l’affichage **RetailSales**, mais **StoreDemographics** n’a qu’une seule ligne d’ID de magasin (il s’agit d’une table de dimension)
+1. Sélectionnez la relation plusieurs-à-un (* : 1), car il existe plusieurs lignes avec le même ID de magasin dans la vue **RetailSales** . **StoreDemographics** n’a qu’une seule ligne d’ID de magasin (il s’agit d’une table de dimension).
 
 À présent, accédez à la fenêtre du **rapport** et créez un rapport pour comparer l’importance relative de la taille du ménage au revenu moyen par magasin, en fonction de la représentation éparpillée du chiffre d’affaires et de l’index LargeHH :
 
-1. Sélectionnez **Graphique à nuages de points**.
+1. Sélectionnez **Graphique à nuages de points** .
 
 1. Glissez-déplacez **LargeHH** à partir de l’affichage **StoreDemographics** sur l’axe X.
 
@@ -145,4 +145,4 @@ Une fois ces options choisies, un graphique semblable à la capture d’écran s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utiliser Synapse SQL serverless pour [analyser des jeux de données Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Utilisez un pool de Synapse SQL sans serveur pour [analyser Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

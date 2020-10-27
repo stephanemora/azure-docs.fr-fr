@@ -4,15 +4,15 @@ description: Découvrez les options de configuration côté client permettant d�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802138"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277218"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
 
@@ -42,16 +42,16 @@ Le kit SDK [.NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) est sorti.
 
 Nous recommandons les processus hôte Windows 64 bits pour améliorer les performances. Le Kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. Les types d’applications suivants utilisent les processus hôte 32 bits par défaut. Pour modifier les processus hôte en traitement 64 bits, procédez comme suit, selon le type de votre application :
 
-- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64** dans la fenêtre **Propriétés du projet**, sous l’onglet **Générer**.
+- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer** .
 
-- Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test**.
+- Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test** .
 
-- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web**, sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web**.
+- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web** , sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web** .
 
 - Pour les applications Web ASP.NET déployées sur Azure, vous pouvez modifier les processus hôte en sélectionnant la plateforme **64 bits** dans les **paramètres d’application** dans le Portail Azure.
 
 > [!NOTE] 
-> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU**. Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86**. Un projet défini sur **Any CPU** peut facilement basculer vers **x86** si une dépendance est ajoutée à x86 uniquement.<br/>
+> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU** . Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86** . Un projet défini sur **Any CPU** peut facilement basculer vers **x86** si une dépendance est ajoutée à x86 uniquement.<br/>
 > ServiceInterop.dll doit se trouver dans le dossier à partir duquel le fichier DLL du Kit de développement logiciel (SDK) s’exécute. Cela ne doit être un problème que si vous copiez manuellement des DLL ou si vous avez des systèmes de génération/déploiement personnalisés.
     
 **Activer garbage collection (GC) côté serveur**
@@ -69,28 +69,7 @@ Si vous effectuez des tests à des niveaux de débit élevé (plus de 50 000 R
 
 **Stratégie de connexion : Utiliser le mode de connexion directe**
 
-La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en matière de latence côté client. Il existe deux paramètres de configuration essentiels pour la stratégie de connexion client : le *mode* de connexion et le *protocole* de connexion.  Les deux modes disponibles sont :
-
-  * Mode passerelle (par défaut)
-      
-    Le mode passerelle est pris en charge sur toutes les plateformes de Kit de développement logiciel (SDK) et est l’option configurée par défaut pour le [SDK Microsoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison DNS. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Le mode direct offre de meilleures performances grâce à un moins grand nombre de tronçons réseau. Nous vous recommandons le mode de connexion de passerelle quand vous exécutez des applications dans des environnements présentant un nombre limité de connexions de socket.
-
-    Quand vous utilisez le Kit de développement logiciel (SDK) dans Azure Functions, en particulier dans le [plan Consommation](../azure-functions/functions-scale.md#consumption-plan), prenez en compte les [limites de connexions](../azure-functions/manage-connections.md) actuelles. Dans ce cas, le mode passerelle peut s’avérer préférable si vous utilisez également d’autres clients basés sur HTTP au sein de votre application Azure Functions.
-
-  * Mode direct
-
-    Le mode direct prend en charge la connectivité via le protocole TCP .
-     
-Lorsque vous utilisez le protocole TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Lorsque vous utilisez le mode direct sur des [points de terminaison privés](./how-to-configure-private-endpoints.md), la plage complète des ports TCP (de 0 à 65535) doit être ouverte. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible. Le tableau suivant montre les modes de connexion disponibles pour les différentes API et les ports de service utilisés pour chaque API :
-
-|Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
-|---------|---------|---------|---------|
-|Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> Le port 10250 mappe à une API Azure Cosmos DB par défaut pour l’instance MongoDB sans géoréplication. Les ports 10255 et 10256 mappent à l’instance avec géoréplication.   |
-|Direct    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Lors de l’utilisation de points de terminaison publics/de service : les ports de la plage 10000 à 20000<br>Lors de l’utilisation de points de terminaison privés : les ports compris entre 0 et 65535 |
-
-Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Le protocole TCP utilise TLS pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
-
-Pour le Kit de développement logiciel (SDK) Microsoft.Azure.DocumentDB, vous configurez le mode de connexion pendant la construction de l’instance `DocumentClient` à l’aide du paramètre `ConnectionPolicy`. Si vous utilisez le mode direct, vous pouvez également définir le `Protocol` à l’aide du paramètre `ConnectionPolicy`.
+Le mode de connexion par défaut du kit de développement logiciel (SDK) .NET V2 est la passerelle. Vous configurez le mode de connexion pendant la construction de l’instance `DocumentClient` à l’aide du paramètre `ConnectionPolicy`. Si vous utilisez le mode direct, vous devez également définir le `Protocol` à l’aide du paramètre `ConnectionPolicy`. Pour en savoir plus sur les différentes options de connectivité, consultez l’article sur les [modes de connectivité](sql-sdk-connection-modes.md).
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -102,10 +81,6 @@ new ConnectionPolicy
    ConnectionProtocol = Protocol.Tcp
 });
 ```
-
-Puisque le protocole TCP est pris en charge en mode direct uniquement, si vous utilisez le mode passerelle, c’est le protocole HTTPS qui est toujours utilisé pour communiquer avec la passerelle, et la valeur `Protocol` dans `ConnectionPolicy` est ignorée.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Stratégie de connexion Azure Cosmos DB" border="false":::
 
 **Épuisement des ports éphémères**
 
@@ -284,4 +259,4 @@ Les frais de requête (à savoir, le coût de traitement de requête) d’une op
 
 Pour obtenir un exemple d’application permettant d’évaluer Azure Cosmos DB lors de scénarios hautes performances sur quelques ordinateurs clients, consultez [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md).
 
-Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partition-data.md).
+Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partitioning-overview.md).

@@ -4,17 +4,27 @@ description: Découvrez comment configurer les stratégies de contrôle d’acc�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814176"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279761"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
+
+Pour sécuriser les données stockées dans votre compte, Azure Cosmos DB prend en charge un modèle d’autorisation basé sur un secret, qui utilise un code d’authentification de message basé sur un hachage (Hash-based Message Authentication Code, HMAC) fort. De plus, Azure Cosmos DB prend en charge les contrôles d’accès basés sur IP pour le pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité de votre compte. Avec des pare-feu, vous pouvez configurer un compte Cosmos pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux données stockées dans votre base de données Azure Cosmos à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
+
+## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a>Contrôle d’accès IP
+
+Par défaut, votre compte Azure Cosmos est accessible depuis Internet, tant que la demande est accompagnée d’un jeton d’autorisation valide. Pour configurer le contrôle d’accès basé sur la stratégie IP, l’utilisateur doit fournir le jeu d’adresses IP ou des plages d’adresses IP au format CIDR (Classless Inter-Domain Routing) pour être ajouté à la liste d’adresses IP clientes autorisées pour un accès à un compte Azure Cosmos donné. Une fois cette configuration appliquée, toutes les demandes provenant d'ordinateurs qui ne figurent pas sur cette liste autorisée reçoivent une réponse 403 (Interdit). Lorsque vous utilisez un pare-feu IP, il est recommandé d’autoriser le portail Azure à accéder à votre compte. L’accès est requis pour autoriser l’utilisation de l’Explorateur de données ainsi que pour récupérer des métriques pour votre compte qui s’affichent sur le portail Azure. Lorsque vous utilisez l’explorateur de données, en plus de permettre au portail Azure d'accéder à votre compte, vous devez mettre à jour vos paramètres de pare-feu pour ajouter votre adresse IP actuelle aux règles de pare-feu. Notez que la propagation des modifications apportées au pare-feu peut prendre jusqu'à 15 minutes.
+
+Vous pouvez combiner des pare-feu IP avec le contrôle d’accès de réseau virtuel et de sous-réseau. En les combinant, vous pouvez limiter l’accès à n’importe quelle source qui a une adresse IP publique et/ou à partir d’un sous-réseau spécifique au sein du réseau virtuel. Pour en savoir plus sur l’utilisation du contrôle d’accès basé sur le sous-réseau et le réseau virtuel, consultez [Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels](vnet-service-endpoint.md).
+
+Pour résumer, le jeton d’autorisation est toujours requis pour accéder à un compte Azure Cosmos. Si le pare-feu IP et la liste de contrôle d’accès (ACL) de réseau virtuel ne sont pas configurés, le compte Azure Cosmos est accessible avec le jeton d’autorisation. Une fois que le pare-feu IP ou la liste de contrôle d’accès (ACL) de réseau virtuel ou les deux sont configurés sur le compte Azure Cosmos, seules les demandes provenant des sources que vous avez spécifiées (et avec le jeton d’autorisation) obtiennent des réponses valides. 
 
 Vous pouvez sécuriser les données stockées dans votre compte Azure Cosmos DB à l’aide de pare-feu IP. Azure Cosmos DB prend en charge les contrôles d’accès basés sur IP pour le pare-feu entrant. Vous pouvez définir un pare-feu IP sur le compte Azure Cosmos DB de l’une des manières suivantes :
 
@@ -24,7 +34,7 @@ Vous pouvez sécuriser les données stockées dans votre compte Azure Cosmos DB 
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurer un pare-feu IP à l’aide du portail Azure
 
-Pour définir la stratégie de contrôle d’accès IP dans le portail Azure, accédez à la page du compte Azure Cosmos DB, puis sélectionnez **Pare-feu et réseaux virtuels** dans le menu de navigation. Définissez la valeur **Autoriser l’accès depuis** sur **Réseaux sélectionnés**, puis choisissez **Enregistrer**.
+Pour définir la stratégie de contrôle d’accès IP dans le portail Azure, accédez à la page du compte Azure Cosmos DB, puis sélectionnez **Pare-feu et réseaux virtuels** dans le menu de navigation. Définissez la valeur **Autoriser l’accès depuis** sur **Réseaux sélectionnés** , puis choisissez **Enregistrer** .
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
@@ -44,13 +54,13 @@ Lorsque vous activez une stratégie de contrôle d’accès IP par programme, vo
 |Gouvernement des États-Unis|52.244.48.71|
 |Toutes les autres régions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-Vous pouvez autoriser l’accès de demandes au portail Azure en sélectionnant l’option **Autoriser l’accès à partir du portail Azure**, comme illustré dans la capture d’écran suivante :
+Vous pouvez autoriser l’accès de demandes au portail Azure en sélectionnant l’option **Autoriser l’accès à partir du portail Azure** , comme illustré dans la capture d’écran suivante :
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Autoriser les demandes à partir de centres de données Azure internationaux ou d’autres sources au sein d’Azure
 
-Si vous accédez à votre compte Azure Cosmos DB à partir de services qui ne fournissent pas d’adresse IP statique (par exemple, Azure Stream Analytics et Azure Functions), vous pouvez toujours utiliser le pare-feu IP pour limiter l’accès. Vous pouvez autoriser l’accès à partir d’autres sources au sein du portail Azure en sélectionnant l’option **Accepter les connexions des centres de données Azure**, comme illustré dans la capture d’écran suivante :
+Si vous accédez à votre compte Azure Cosmos DB à partir de services qui ne fournissent pas d’adresse IP statique (par exemple, Azure Stream Analytics et Azure Functions), vous pouvez toujours utiliser le pare-feu IP pour limiter l’accès. Vous pouvez autoriser l’accès à partir d’autres sources au sein du portail Azure en sélectionnant l’option **Accepter les connexions des centres de données Azure** , comme illustré dans la capture d’écran suivante :
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
@@ -65,7 +75,7 @@ Pour simplifier le développement, le portail Azure vous aide à identifier et �
 
 Le portail détecte automatiquement l’adresse IP du client. Il peut s’agir de l’adresse IP de votre ordinateur ou de votre passerelle réseau. N’oubliez pas de supprimer cette adresse IP avant de mettre vos charges de travail en production.
 
-Pour ajouter votre adresse IP actuelle à la liste des adresses IP, sélectionnez **Ajouter mon adresse IP actuelle**. Ensuite, sélectionnez **Enregistrer**.
+Pour ajouter votre adresse IP actuelle à la liste des adresses IP, sélectionnez **Ajouter mon adresse IP actuelle** . Ensuite, sélectionnez **Enregistrer** .
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Capture d’écran montrant comment ouvrir la page Pare-feu sur le portail Azure":::
 
@@ -98,7 +108,7 @@ Quand vous accédez à votre compte Azure Cosmos DB à partir d’un ordinateur
 Pour configurer le contrôle d'accès à votre compte Azure Cosmos DB, vérifiez que le modèle Resource Manager spécifie la propriété **ipRules** avec un tableau de plages d'adresses IP autorisées. Si vous configurez le pare-feu IP sur un compte Cosmos déjà déployé, vérifiez que le tableau `locations` correspond à ce qui est actuellement déployé. Vous ne pouvez pas modifier simultanément le tableau `locations` et d’autres propriétés. Pour plus d’informations et pour obtenir des exemples de modèles Azure Resource Manager pour Azure Cosmos DB, consultez [Modèles Azure Resource Manager pour Azure Cosmos DB](resource-manager-samples.md).
 
 > [!IMPORTANT]
-> La propriété **ipRules** a été introduite avec la version 2020-04-01 de l'API. Les versions précédentes exposaient plutôt une propriété **ipRangeFilter**, qui correspond à une liste d'adresses IP séparées par des virgules.
+> La propriété **ipRules** a été introduite avec la version 2020-04-01 de l'API. Les versions précédentes exposaient plutôt une propriété **ipRangeFilter** , qui correspond à une liste d'adresses IP séparées par des virgules.
 
 L'exemple ci-dessous montre comment la propriété **ipRules** est exposée dans la version 2020-04-01 ou ultérieure de l'API :
 
@@ -225,5 +235,5 @@ La création ou la mise à jour d'un compte Azure Cosmos avec une liste d'adress
 
 Pour configurer un point de terminaison de service de réseau virtuel pour votre compte Azure Cosmos DB, consultez les articles suivants :
 
-* [Contrôle d’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](vnet-service-endpoint.md)
+* [Contrôle d’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](how-to-configure-vnet-service-endpoint.md)
 * [Configurer l’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](how-to-configure-vnet-service-endpoint.md)

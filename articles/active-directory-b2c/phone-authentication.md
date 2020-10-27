@@ -56,27 +56,27 @@ Pour ajouter vos propres informations relatives au consentement, personnalisez l
 
 ### <a name="phone-sign-up-experience"></a>Expérience d’inscription par téléphone
 
-Si l’utilisateur n’a pas encore de compte pour votre application, il peut en créer un en choisissant le lien **S’inscrire**. Une page d’inscription s’affiche, dans laquelle l’utilisateur sélectionne son **pays**, entre son numéro de téléphone et sélectionne **Envoyer un code**.
+Si l’utilisateur n’a pas encore de compte pour votre application, il peut en créer un en choisissant le lien **S’inscrire** . Une page d’inscription s’affiche, dans laquelle l’utilisateur sélectionne son **pays** , entre son numéro de téléphone et sélectionne **Envoyer un code** .
 
 ![L’utilisateur commence l’inscription par téléphone](media/phone-authentication/phone-signup-start.png)
 
-Un code de vérification unique est envoyé au numéro de téléphone de l’utilisateur. L’utilisateur entre le **code de vérification** sur la page d’inscription, puis il sélectionne **Vérifier le code**. (Si l’utilisateur n’a pas pu récupérer le code, il peut sélectionner **Envoyer un nouveau code**.)
+Un code de vérification unique est envoyé au numéro de téléphone de l’utilisateur. L’utilisateur entre le **code de vérification** sur la page d’inscription, puis il sélectionne **Vérifier le code** . (Si l’utilisateur n’a pas pu récupérer le code, il peut sélectionner **Envoyer un nouveau code** .)
 
 ![L’utilisateur vérifie le code lors de l’inscription par téléphone](media/phone-authentication/phone-signup-verify-code.png)
 
- L’utilisateur entre toutes les autres informations requises sur la page d’inscription, par exemple, le **nom d’affichage**, le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer**.
+ L’utilisateur entre toutes les autres informations requises sur la page d’inscription, par exemple, le **nom d’affichage** , le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer** .
 
 ![L’utilisateur fournit des informations supplémentaires](media/phone-authentication/phone-signup-additional-info.png)
 
-Ensuite, l’utilisateur est invité à fournir une adresse e-mail de récupération. L’utilisateur entre son adresse e-mail, puis sélectionne **Envoyer le code de vérification**. Un code est envoyé à l’adresse e-mail de l’utilisateur, qu’il peut récupérer et entrer dans la zone **Code de vérification**. L’utilisateur sélectionne ensuite **Vérifier le code**. 
+Ensuite, l’utilisateur est invité à fournir une adresse e-mail de récupération. L’utilisateur entre son adresse e-mail, puis sélectionne **Envoyer le code de vérification** . Un code est envoyé à l’adresse e-mail de l’utilisateur, qu’il peut récupérer et entrer dans la zone **Code de vérification** . L’utilisateur sélectionne ensuite **Vérifier le code** . 
 
-Une fois le code vérifié, l’utilisateur sélectionne **Créer** pour créer son compte. Ou, si l’utilisateur souhaite utiliser une autre adresse e-mail, il peut choisir **Changer d’adresse e-mail**.
+Une fois le code vérifié, l’utilisateur sélectionne **Créer** pour créer son compte. Ou, si l’utilisateur souhaite utiliser une autre adresse e-mail, il peut choisir **Changer d’adresse e-mail** .
 
 ![L’utilisateur crée un compte](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Expérience de connexion par téléphone
 
-Si l’utilisateur possède déjà un compte avec un numéro de téléphone comme identificateur, il entre son numéro de téléphone et sélectionne **Continuer**. Il confirme le pays et le numéro de téléphone en sélectionnant **Continuer**, et un code de vérification unique est envoyé sur son téléphone. L’utilisateur entre le code de vérification et sélectionne **Continuer** pour se connecter.
+Si l’utilisateur possède déjà un compte avec un numéro de téléphone comme identificateur, il entre son numéro de téléphone et sélectionne **Continuer** . Il confirme le pays et le numéro de téléphone en sélectionnant **Continuer** , et un code de vérification unique est envoyé sur son téléphone. L’utilisateur entre le code de vérification et sélectionne **Continuer** pour se connecter.
 
 ![Expérience utilisateur de connexion par téléphone](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
+1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c* , toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 
-1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Dans ce cas, mettez à jour `/phone-number-passwordless/`**`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez enregistrées en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
+1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Dans ce cas, mettez à jour `/phone-number-passwordless/`**`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez enregistrées en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework* .
 
 ## <a name="upload-the-policy-files"></a>Télécharger les fichiers de stratégie
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à votre locataire Azure AD B2C.
-1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
-1. Sélectionnez **Charger une stratégie personnalisée**.
+1. Sous **Stratégies** , sélectionnez **Identity Experience Framework** .
+1. Sélectionnez **Charger une stratégie personnalisée** .
 1. Téléchargez les fichiers de stratégie dans l'ordre suivant :
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,9 +128,9 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
-1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_SignUpOrSignInWithPhone**.
-1. Sous **Sélectionner l’application**, sélectionnez l’application *webapp1* que vous avez enregistrée lorsque vous avez rempli les conditions préalables.
-1. Pour **Sélectionner l’URL de réponse**, choisissez `https://jwt.ms`.
+1. Sous **Stratégies personnalisées** , sélectionnez **B2C_1A_SignUpOrSignInWithPhone** .
+1. Sous **Sélectionner l’application** , sélectionnez l’application *webapp1* que vous avez enregistrée lorsque vous avez rempli les conditions préalables.
+1. Pour **Sélectionner l’URL de réponse** , choisissez `https://jwt.ms`.
 1. Sélectionnez **Exécuter maintenant** et inscrivez-vous en utilisant une adresse e-mail ou un numéro de téléphone.
 1. Sélectionnez de nouveau **Exécuter maintenant** et connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
 

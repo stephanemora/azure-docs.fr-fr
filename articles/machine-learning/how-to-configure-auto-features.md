@@ -38,7 +38,7 @@ Cet article part du principe que vous savez déjà comment configurer une expér
 
 ## <a name="configure-featurization"></a>Configuration de la caractérisation
 
-Dans chaque expérience de Machine Learning automatisée, des [techniques de mise à l’échelle automatique et de normalisation](#featurization) sont appliquées par défaut à vos données. Ces techniques sont des types de caractérisation qui aident *certains* algorithmes sensibles aux caractéristiques à des échelles différentes. Toutefois, vous pouvez également activer des caractérisations supplémentaires, telles que l’*imputation des valeurs manquantes*, *l’encodage* et les *transformations*.
+Dans chaque expérience de Machine Learning automatisée, des [techniques de mise à l’échelle automatique et de normalisation](#featurization) sont appliquées par défaut à vos données. Ces techniques sont des types de caractérisation qui aident *certains* algorithmes sensibles aux caractéristiques à des échelles différentes. Toutefois, vous pouvez également activer des caractérisations supplémentaires, telles que l’ *imputation des valeurs manquantes* , *l’encodage* et les *transformations* .
 
 > [!NOTE]
 > Les étapes de caractérisation du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de caractérisation qui sont appliquées pendant la formation sont appliquées automatiquement à vos données d’entrée.
@@ -72,7 +72,7 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 |**Encodages cibles**|Pour les fonctionnalités catégorielles, cette étape mappe chaque catégorie avec une valeur cible moyenne pour les problèmes de régression, et à la probabilité de chaque classe pour les problèmes de classification. Une pondération basée sur la fréquence et une validation croisée par échantillons (« k-fold ») sont appliquées pour réduire l’ajustement du mappage et le bruit provoqué par les catégories de données éparses.|
 |**Encodage de texte cible**|Pour l'entrée de texte, un modèle linéaire empilé avec « bag-of-words » est utilisé afin de générer la probabilité de chaque classe.|
 |**WoE (Poids de la preuve)**|Calcule la valeur WoE en tant que mesure de corrélation des colonnes catégorielles vers la colonne cible. Le WoE est calculé en tant qu'enregistrement du ratio de probabilités à l'intérieur et à l'extérieur de la classe. Cette étape produit une colonne de fonctionnalités numériques par classe et évite d'avoir à imputer les valeurs manquantes et le traitement de valeur hors norme.|
-|**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k*, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
+|**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k* , une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
 
 ## <a name="data-guardrails"></a>Garde-fous des données
 
@@ -81,7 +81,7 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 Les Garde-fous des données sont appliqués :
 
 - **Pour les expériences du Kit de développement logiciel (SDK)** : Lorsque les paramètres `"featurization": 'auto'` ou `validation=auto` sont spécifiés dans votre objet `AutoMLConfig`.
-- **Pour les expériences de studio**: Quand l’option Caractérisation automatique est activée.
+- **Pour les expériences de studio** : Quand l’option Caractérisation automatique est activée.
 
 Vous pouvez consulter les Garde-fous des données pour votre expérience :
 
@@ -107,7 +107,7 @@ Garde-fou|Statut|Condition&nbsp;pour&nbsp;le déclencheur
 ---|---|---
 **Imputation des valeurs de caractéristique manquantes** |Passed <br><br><br> Terminé| Aucune valeur de caractéristique manquante n’a été détectée dans vos données d’entraînement. Découvrez plus d’informations sur l’[imputation d’une valeur manquante](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Des valeurs de caractéristique manquantes ont été détectées dans vos données de formation et imputées.
 **Gestion des caractéristiques à cardinalité élevée** |Passed <br><br><br> Terminé| Aucune caractéristique à cardinalité élevée n’a été détectée après analyse de vos entrées. <br><br> Des caractéristiques à cardinalité élevée ont été détectées dans vos entrées et ont été gérées.
-**Gestion du fractionnement de la validation** |Terminé| La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *moins de 20 000 lignes*. <br> Chaque itération du modèle entraîné a été validée à l’aide de la validation croisée. Découvrez-en plus sur les [données de validation](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *plus de 20 000 lignes*. <br> Les données d’entrée ont été divisées en un jeu de données d’entraînement et un jeu de données de validation pour la validation du modèle.
+**Gestion du fractionnement de la validation** |Terminé| La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *moins de 20 000 lignes* . <br> Chaque itération du modèle entraîné a été validée à l’aide de la validation croisée. Découvrez-en plus sur les [données de validation](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuration de la validation a été définie sur `'auto'` et les données de formation contenaient *plus de 20 000 lignes* . <br> Les données d’entrée ont été divisées en un jeu de données d’entraînement et un jeu de données de validation pour la validation du modèle.
 **Détection de l’équilibrage des classes** |Passed <br><br><br><br>Alerté <br><br><br>Terminé | Vos entrées ont été analysées et toutes les classes sont équilibrées dans vos données d’entraînement. Un jeu de données est considéré comme équilibré si chaque classe a une bonne représentation dans le jeu de données, telle que mesurée par le nombre et le ratio des échantillons. <br><br> Des classes déséquilibrées ont été détectées dans vos entrées. Pour corriger le biais du modèle, résolvez le problème d’équilibrage. Découvrez-en plus sur les [données déséquilibrées](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Des classes déséquilibrées ont été détectées dans vos entrées et la logique de balayage a déterminé d’appliquer l’équilibrage.
 **Détection des problèmes de mémoire** |Passed <br><br><br><br> Terminé |<br> Aucun problème potentiel d’insuffisance de mémoire n’a été détecté après analyse des valeurs {horizon, décalage, fenêtre dynamique} sélectionnées. Découvrez-en plus sur les [configurations de prévision](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de série chronologique. <br><br><br>Les valeurs {horizon, décalage, fenêtre dynamique} sélectionnées ont été analysées et peuvent entraîner une insuffisance de mémoire dans votre expérience. Les configurations de la fenêtre dynamique ou de décalage ont été désactivées.
 **Détection de la fréquence** |Passed <br><br><br><br> Terminé |<br> La série chronologique a été analysée et tous les points de données sont alignés sur la fréquence détectée. <br> <br> La série chronologique a été analysée et les points de données qui ne sont pas alignés sur la fréquence détectée ont été détectés. Ces points de données ont été supprimés du jeu de données. Découvrez-en plus sur la [préparation des données pour la prévision de série chronologique](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
@@ -123,7 +123,7 @@ Les personnalisations prises en charge sont notamment les suivantes :
 |Personnalisation|Définition|
 |--|--|
 |**Mise à jour de l’objectif de la colonne**|Remplacer le type de caractéristique détecté automatiquement pour la colonne spécifiée.|
-|**Mise à jour des paramètres du transformateur** |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge *Imputer* (moyen, le plus fréquent et médian) et *HashOneHotEncoder*.|
+|**Mise à jour des paramètres du transformateur** |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge *Imputer* (moyen, le plus fréquent et médian) et *HashOneHotEncoder* .|
 |**Suppression de colonnes** |Indique les colonnes à supprimer de la caractérisation.|
 |**Transformateurs de blocs**| Indique les transformateurs de blocs à utiliser dans le processus de caractérisation.|
 
@@ -316,9 +316,9 @@ Pour appeler BERT, vous devez définir `enable_dnn: True` dans automl_settings e
 
 AutoML effectue les étapes suivantes pour BERT. 
 
-1. **Prétraitement et création de jetons pour toutes les colonnes de texte**. Par exemple, le transformateur « StringCast » se trouve dans le résumé de caractérisation du modèle final. Vous trouverez un exemple de la façon de générer le résumé de caractérisation du modèle dans [ce notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
+1. **Prétraitement et création de jetons pour toutes les colonnes de texte** . Par exemple, le transformateur « StringCast » se trouve dans le résumé de caractérisation du modèle final. Vous trouverez un exemple de la façon de générer le résumé de caractérisation du modèle dans [ce notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concaténez toutes les colonnes de texte en une seule colonne de texte**, d’où le `StringConcatTransformer` dans le modèle final. 
+2. **Concaténez toutes les colonnes de texte en une seule colonne de texte** , d’où le `StringConcatTransformer` dans le modèle final. 
 
     Notre implémentation de BERT limite la longueur totale du texte d’un exemple de formation à 128 jetons. Cela signifie qu’en cas de concaténation, toutes les colonnes de texte doivent idéalement avoir une longueur maximale de 128 jetons. S’il y a plusieurs colonnes, chaque colonne doit être élaguée de telle sorte que cette condition soit remplie. Sinon, pour les colonnes concaténées de longueur > 128 jetons, la couche du générateur de jetons de BERT va tronquer cette entrée à 128 jetons.
 

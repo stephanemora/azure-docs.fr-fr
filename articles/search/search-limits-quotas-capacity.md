@@ -7,25 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949848"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107825"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
-Les limites maximales du stockage, des charges de travail et des quantités d’index et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
+Les limites maximales du stockage, des charges de travail et des quantités d’index et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit** , **De base** , **Standard** ou **Stockage optimisé** .
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. 
 
-+ **De base** : fournit des ressources de calcul dédiées pour des charges de travail de production à plus petite échelle, mais partage une infrastructure réseau avec d’autres locataires.
++ **De base**  : fournit des ressources de calcul dédiées pour des charges de travail de production à plus petite échelle, mais partage une infrastructure réseau avec d’autres locataires.
 
 + Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard se décompose en quatre catégories : S1, S2, S3 et S3 HD. La catégorie S3 HD (S3 High Density) est conçue pour des [utilisateurs multiples](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (trois mille index par service). S3 HD ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md) et l’ingestion des données doit tirer parti des API qui envoient (push) les données de la source vers l’index. 
 
-+ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard**. Ce niveau cible les index volumineux et à variation lente. Stockage optimisé est disponible en deux niveaux : L1 et L2.
++ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard** . Ce niveau cible les index volumineux et à variation lente. Stockage optimisé est disponible en deux niveaux : L1 et L2.
 
 ## <a name="subscription-limits"></a>Limites d’abonnement
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -101,10 +101,9 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 > [!NOTE]
 > Comme indiqué dans les [limites des index](#index-limits), les indexeurs appliquent également la limite supérieure de 3 000 éléments à toutes les collections complexes par document, en commençant par la dernière version de l’API en disponibilité générale qui prend en charge les types complexes (`2019-05-06`). Cela signifie que si vous avez créé votre indexeur avec une version antérieure de l’API, vous ne serez pas soumis à cette limite. Pour préserver une compatibilité maximale, un indexeur qui a été créé avec une version antérieure de l’API, puis mis à jour avec une version de l’API `2019-05-06` ou ultérieure, sera toujours **exclu** des limites. Les clients doivent être conscients de l’impact négatif dans le cas de collections complexes très grandes (comme indiqué précédemment) et nous recommandons vivement de créer les indexeurs avec la dernière version de l’API en disponibilité générale.
 
-### <a name="shared-private-link-resource-limits"></a>Limites de ressource de liaison privée partagée
+## <a name="shared-private-link-resource-limits"></a>Limites de ressource de liaison privée partagée
 
-> [!NOTE]
-> Les indexeurs peuvent accéder aux ressources en toute sécurité via des points de terminaison privés gérés via l’[API de ressource de liaison privée partagée](/rest/api/searchmanagement/sharedprivatelinkresources), comme décrit dans ce [guide pratique](search-indexer-howto-access-private.md).
+Les indexeurs peuvent accéder aux autres ressources Azure [via des points de terminaison privés](search-indexer-howto-access-private.md) gérés via [l’API de ressource de liaison privée partagée](/rest/api/searchmanagement/sharedprivatelinkresources). Cette section décrit les limites associées à cette fonctionnalité.
 
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 | Nombre maximal de points de terminaison privés | N/A | 10 ou 30 | 100 | 400 | 400 | N/A | 20 | 20 |
 | Nombre maximal de types de ressources distincts<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | 4 | 4 |
 
-<sup>1</sup> L’enrichissement par IA et l’analyse d’image sont gourmands en calculs et consomment des quantités disproportionnées de puissance de traitement disponible. Par conséquent, pour des niveaux de service de recherche inférieurs, leur définition pour une exécution dans l’environnement privé peut avoir un impact négatif sur les performances et la stabilité du service de recherche.
+<sup>1</sup> L’enrichissement par IA et l’analyse d’images sont gourmands en ressources et consomment une quantité disproportionnée de la puissance de traitement disponible. Pour cette raison, les connexions privées sont désactivées sur les niveaux inférieurs afin d’éviter un impact négatif sur les performances et la stabilité du service de recherche lui-même.
 
 <sup>2</sup> Le nombre de types de ressources distincts est calculé comme le nombre de valeurs de `groupId` uniques utilisées dans toutes les ressources de liaison privée partagée pour un service de recherche donné, quel que soit l’état de la ressource.
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87062060"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145944"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
-Dans une solution Azure Digital Twins, les entités de votre environnement sont représentées par des **jumeaux numériques** Azure. Un jumeau numérique est une instance de l’un de vos [modèles](concepts-models.md) personnalisés. Il peut être connecté à d’autres jumeaux numériques par le biais de **relations** pour former un **graphique de jumeaux** : ce graphique jumeau représente l’ensemble de votre environnement.
+Dans une solution Azure Digital Twins, les entités de votre environnement sont représentées par des **jumeaux numériques** Azure. Un jumeau numérique est une instance de l’un de vos [modèles](concepts-models.md) personnalisés. Il peut être connecté à d’autres jumeaux numériques par le biais de **relations** pour former un **graphique de jumeaux**  : ce graphique jumeau représente l’ensemble de votre environnement.
 
 > [!TIP]
 > « Azure Digital Twins » fait référence à ce service Azure dans son ensemble. « Jumeaux numériques » ou tout simplement « jumeau(s) » fait référence à des nœuds individuels au sein de votre instance du service.
@@ -25,13 +25,13 @@ Dans une solution Azure Digital Twins, les entités de votre environnement sont 
 
 Avant de pouvoir créer un jumeau numérique dans votre instance Azure Digital Twins, vous devez disposer d’un *modèle* chargé sur le service. Un modèle décrit, entre autres choses, l’ensemble des propriétés, des messages de télémétrie et des relations qu’un jumeau particulier peut avoir. Pour obtenir les types d’informations définis dans un modèle, consultez [*Concepts : Modèles personnalisés*](concepts-models.md).
 
-Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle *Étage*, vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type *Étage* appelé *Rez-de-chaussée*, un autre appelé *Étage2*, etc.). 
+Après avoir créé et chargé un modèle, votre application cliente peut créer une instance du type ; il s’agit d’un jumeau numérique. Par exemple, après la création d’un modèle *Étage* , vous pouvez créer un ou plusieurs jumeaux numériques qui utilisent ce type (par exemple, un jumeau de type *Étage* appelé *Rez-de-chaussée* , un autre appelé *Étage2* , etc.). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relation : un graphique de jumeaux numériques
 
 Les jumeaux sont connectés dans un graphique de jumeaux par leurs relations. Les relations qu’un jumeau peut avoir sont définies dans le cadre de son modèle.  
 
-Par exemple, le modèle *Étage* peut définir une relation *contient* relation qui cible les jumeaux de type *Salle*. Avec cette définition, Azure Digital Twins vous permet de créer des relations *contient* entre n’importe quel jumeau *Étage* et n’importe quel jumeau *Pièce* (y compris les jumeaux qui sont des sous-types de *Salle*). 
+Par exemple, le modèle *Étage* peut définir une relation *contient* relation qui cible les jumeaux de type *Salle* . Avec cette définition, Azure Digital Twins vous permet de créer des relations *contient* entre n’importe quel jumeau *Étage* et n’importe quel jumeau *Pièce* (y compris les jumeaux qui sont des sous-types de *Salle* ). 
 
 Le résultat de ce processus est un ensemble de nœuds (les jumeaux numériques) connectés par leurs périphéries (leurs relations) dans un graphique.
 
@@ -43,41 +43,17 @@ Cette section montre à quoi ressemble la création de jumeaux numériques et de
 
 ### <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
-Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour instancier un jumeau de type *Salle*.
+Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour instancier un jumeau de type *Salle* .
 
 Dans la préversion actuelle d’Azure Digital Twins, toutes les propriétés d’un jumeau doivent être initialisées pour que le jumeau puisse être créé. Pour ce faire, créez un document JSON qui fournit les valeurs d’initialisation nécessaires.
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+Vous pouvez également utiliser une classe d’assistance appelée `BasicDigitalTwin` pour stocker les champs de propriété dans un objet « jumeau » de manière plus directe, comme alternative à l’utilisation d’un dictionnaire. Pour plus d’informations sur la classe d’assistance et des exemples de son utilisation, consultez la section [*créer un jumeau numérique*](how-to-manage-twin.md#create-a-digital-twin) dans *Comment : Gestion des jumeaux numériques* .
 
 ### <a name="create-relationships"></a>Créer des relations
 
-Voici un exemple de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour créer une relation entre un jumeau numérique de type *Étage*, appelé *Rez-de-chaussée*, et un jumeau numérique de type *Salle*, appelé *Café*.
+Voici un exemple de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour créer une relation entre un jumeau numérique de type *Étage* , appelé *Rez-de-chaussée* , et un jumeau numérique de type *Salle* , appelé *Café* .
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -109,7 +85,7 @@ Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numériq
 | --- | --- |
 | `$dtId` | Chaîne fournie par l’utilisateur représentant l’ID du jumeau numérique |
 | `$etag` | Champ HTTP standard attribué par le serveur web |
-| `$conformance` | Énumération qui contient l’état de conformité de ce jumeau numérique (*conforme*, *non conforme*, *inconnu*) |
+| `$conformance` | Énumération qui contient l’état de conformité de ce jumeau numérique ( *conforme* , *non conforme* , *inconnu* ) |
 | `{propertyName}` | Valeur d’une propriété au format JSON (`string`, type de nombre ou objet) |
 | `$relationships` | URL du chemin de la collection des relations. Ce champ est absent si le jumeau numérique n’a pas de périphéries de relations sortantes. |
 | `$metadata.$model` | [Facultatif] l’ID de l’interface de modèle qui caractérise ce jumeau numérique |

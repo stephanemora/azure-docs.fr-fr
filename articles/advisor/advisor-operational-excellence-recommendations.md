@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077386"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122617"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -50,9 +50,15 @@ Azure Policy est un service Azure que vous pouvez utiliser pour créer, affecter
 
 **Spécifier les références SKU de machine virtuelle autorisées pour les déploiements.** Cette stratégie vous permet de spécifier un ensemble de références de machine virtuelle que votre organisation peut déployer.
 
-**Appliquer *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.**
+**Appliquer *Auditer les machines virtuelles qui n’utilisent pas de disques managés* .**
 
-**Activer *Hériter une étiquette du groupe de ressources*.** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
+**Activer *Hériter une étiquette du groupe de ressources* .** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
+
+Advisor recommande quelques stratégies Azure individuelles qui aident les clients à atteindre l’excellence opérationnelle en adoptant les meilleures pratiques. Si un client décide d’attribuer une stratégie recommandée, nous supprimons la recommandation. Si le client décide de supprimer la stratégie ultérieurement, Advisor continue de supprimer la recommandation, car nous interprétons sa suppression comme un signal fort de ce qui suit :
+
+1.  Le client a supprimé la stratégie parce que, malgré la recommandation d’Advisor, elle ne s’applique pas à son cas d’usage spécifique. 
+2.  Après avoir attribué et supprimé la stratégie, le client la connaît bien et peut l’attribuer ou la supprimer à nouveau si nécessaire, sans avoir besoin d’assistance, si elle devient pertinente pour son cas d’usage. Si le client trouve qu’il est dans son intérêt d’attribuer à nouveau la même stratégie, il peut le faire dans Azure Policy sans que cela nécessite de recommandation dans Advisor. Notez que cette logique s’applique spécifiquement à la recommandation de stratégie dans la catégorie Excellence opérationnelle. Ces règles ne s’appliquent pas aux recommandations de sécurité.  
+
 
 ## <a name="no-validation-environment-enabled"></a>Aucun environnement de validation activé
 Azure Advisor détermine que vous n’avez pas d’environnement de validation activé dans l’abonnement actuel. Lors de la création de vos pools d’hôtes, vous avez sélectionné \"Non\" pour \"Environnement de validation\" sous l’onglet Propriétés. Le fait d’avoir au moins un pool d’hôtes avec un environnement de validation activé garantit la continuité des activités via les déploiements du service Windows Virtual Desktop avec une détection précoce des problèmes potentiels. [En savoir plus](../virtual-desktop/create-validation-host-pool.md)

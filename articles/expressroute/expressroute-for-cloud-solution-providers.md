@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 09fee610ccc15874481ecfd4693e4b89379caa7a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653636"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330034"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -21,17 +21,17 @@ Microsoft fournit des services à très grande échelle afin que les revendeurs 
 ExpressRoute se compose d’une paire de circuits assurant la haute disponibilité qui sont associés à un ou des abonnements client uniques et ne peuvent pas être partagés par plusieurs clients. Chaque circuit doit se terminer dans un autre routeur afin de maintenir la haute disponibilité.
 
 > [!NOTE]
-> ExpressRoute présente des limites de bande passante et de connexion, ce qui signifie que les implémentations de grande envergure/complexes nécessiteront plusieurs circuits ExpressRoute pour un seul client.
+> La bande passante et le nombre de connexions possibles sur chaque circuit ExpressRoute sont limités. Si les besoins d’un seul client dépassent ces limites, ils auront besoin de plusieurs circuits ExpressRoute pour leur implémentation réseau hybride.
 > 
 > 
 
 Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer à vos clients. ExpressRoute vous aide, vous et vos clients, à tirer profit de ces services en fournissant un accès à grande vitesse et faible latence à l’environnement Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Gestion de Microsoft Azure
-Microsoft fournit des API aux fournisseurs de solutions Cloud pour gérer les abonnements client Azure en permettant l’intégration de la programmation à vos propres systèmes de management des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Microsoft fournit des API aux fournisseurs de solutions Cloud pour gérer les abonnements client Azure en permettant l’intégration de la programmation à vos propres systèmes de management des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
-Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle « *Connect-Through* » ou le modèle « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
+Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle «  *Connect-Through*  » ou le modèle «  *Direct-To*  ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![Diagramme montrant le modèle « Connect-through ».](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -60,7 +60,7 @@ Ce scénario de connectivité nécessite que le client se connecte directement v
 
 Le choix de l’une de ces deux options dépend des besoins de vos clients et de votre besoin actuel de fournir des services Azure. Ces modèles et les modèles associés de conception d’identité, de mise en réseau et de contrôle d’accès basé sur les rôles sont présentés en détail aux liens suivants :
 
-* **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)** – RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../role-based-access-control/role-assignments-portal.md).
+* **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)** – Azure RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../role-based-access-control/role-assignments-portal.md).
 * **Mise en réseau** : couvre les différentes rubriques de mise en réseau dans Microsoft Azure.
 * **Azure Active Directory (Azure AD)**  : Azure AD assure la gestion des identités pour Microsoft Azure et les applications SaaS tierces. Pour plus d’informations sur Azure AD, cliquez [ici](https://azure.microsoft.com/documentation/services/active-directory/).  
 
@@ -75,23 +75,23 @@ ExpressRoute prend en charge des vitesses de réseau comprises entre 50 Mo/s et
 ExpressRoute prend en charge la connexion de plusieurs réseaux virtuels à un même circuit ExpressRoute pour une meilleure utilisation des connexions à plus haut débit. Un circuit ExpressRoute peut être partagé entre plusieurs abonnements Azure appartenant au même client.
 
 ## <a name="configuring-expressroute"></a>Configuration d’ExpressRoute
-ExpressRoute peut être configuré pour prendre en charge trois types de trafic ([domaines de routage](#expressroute-routing-domains)) sur un même circuit ExpressRoute. Ce trafic se répartit entre peering Microsoft, peering public Azure et peering privé. Vous pouvez choisir d’envoyer un ou tous les types de trafic vers un circuit ExpressRoute ou utiliser plusieurs circuits ExpressRoute selon la taille du circuit ExpressRoute et l’isolement requis par votre client. La posture de sécurité de votre client peut ne pas autoriser le trafic public et privé à traverser le même circuit.
+ExpressRoute peut être configuré pour prendre en charge trois types de trafic ([domaines de routage](#expressroute-routing-domains)) sur un même circuit ExpressRoute. Ce trafic se répartit entre peering privé, peering Microsoft, peering public (déconseillé). Vous pouvez choisir d’envoyer un ou tous les types de trafic vers un circuit ExpressRoute ou utiliser plusieurs circuits ExpressRoute selon la taille du circuit ExpressRoute et l’isolement requis par votre client. La posture de sécurité de votre client peut ne pas autoriser le trafic public et privé à traverser le même circuit.
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 Dans une configuration « Connect-through », vous êtes responsable de tous les fondements de la mise en réseau pour connecter les ressources de centre de données de vos clients aux abonnements hébergés dans Azure. Chacun de vos clients souhaitant utiliser les fonctionnalités Azure doit disposer de sa propre connexion ExpressRoute, qui est gérée par vous. Vous devez utiliser les mêmes méthodes que celles que le client utiliserait pour fournir le circuit ExpressRoute. Suivez les mêmes étapes répertoriées dans l’article [Flux de travail ExpressRoute](expressroute-workflows.md) d’approvisionnement du circuit et états du circuit. Vous devez ensuite configurer les itinéraires du protocole BGP (Border Gateway Protocol) pour contrôler le trafic entre le réseau local et le réseau virtuel Azure.
 
 ### <a name="connect-to-model"></a>Modèle « Connect-to »
-Dans une configuration « Connect-to », votre client dispose déjà d’une connexion vers Azure ou va établir une connexion avec le fournisseur de services Internet en assurant la liaison entre ExpressRoute depuis le centre de données de votre client directement vers Azure, au lieu de votre centre de données. Pour commencer le processus d’approvisionnement, votre client doit suivre les étapes présentées dans le modèle « Connect-to », ci-dessus. Une fois le circuit établi, votre client va devoir configurer les routeurs locaux pour pouvoir accéder à votre réseau et aux réseaux virtuels Azure.
+Dans une configuration « Connect-to », votre client dispose déjà d’une connexion vers Azure ou va établir une connexion avec le fournisseur de services Internet en assurant la liaison entre ExpressRoute depuis leur centre de données directement vers Azure, au lieu de votre centre de données. Pour commencer le processus d’approvisionnement, votre client doit suivre les étapes présentées dans le modèle « Connect-to », ci-dessus. Une fois le circuit établi, votre client va devoir configurer les routeurs locaux pour pouvoir accéder à votre réseau et aux réseaux virtuels Azure.
 
 Vous pouvez l’aider en configurant la connexion et les itinéraires afin que les ressources de votre ou vos centres de données puissent communiquer avec les ressources client dans votre centre de données ou avec les ressources hébergées dans Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domaines de routage ExpressRoute
-ExpressRoute propose trois domaines de routage : publics, privés et peering Microsoft. Chaque domaine de routage est configuré avec des routeurs identiques dans une configuration actif-actif pour la haute disponibilité. Pour plus d’informations sur les domaines de routage ExpressRoute, cliquez [ici](expressroute-circuit-peerings.md).
+ExpressRoute propose deux domaines de routage pour les nouveaux circuits : le peering privé et le peering Microsoft. Chaque domaine de routage est configuré avec des routeurs identiques dans une configuration actif-actif pour la haute disponibilité. Pour plus d’informations sur les domaines de routage ExpressRoute, cliquez [ici](expressroute-circuit-peerings.md).
 
 Vous pouvez définir des filtres d’itinéraires personnalisés pour autoriser uniquement le ou les itinéraires souhaités. Pour en savoir plus ou pour savoir comment effectuer ces modifications, consultez l’article : [Créer et modifier le routage pour un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-routing-classic.md) pour plus d’informations sur les filtres de routage.
 
 > [!NOTE]
-> Pour Microsoft et le peering public, la connectivité doit utiliser une adresse IP publique appartenant au client ou au fournisseur de services Cloud et doit respecter toutes les règles définies. Pour plus d’informations, consultez la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md) .  
+> Pour le peering Microsoft, la connectivité doit utiliser une adresse IP publique appartenant au client ou au fournisseur de services Cloud et doit respecter toutes les règles définies. Pour plus d’informations, consultez la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md) .  
 > 
 > 
 
@@ -129,6 +129,6 @@ Le service du fournisseur de solutions Cloud vous permet d’augmenter la valeur
 
 Vous trouverez des informations supplémentaires en cliquant sur les liens suivants :
 
-[Azure et le programme des fournisseurs de solutions cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
+[Azure et le programme des fournisseurs de solutions cloud](/azure/cloud-solution-provider).  
 [Préparez-vous à opérer en tant que fournisseur de solutions Cloud](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
 [Ressources des fournisseurs de solutions Cloud Microsoft](https://partner.microsoft.com/solutions/cloud-reseller-resources).

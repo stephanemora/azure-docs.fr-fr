@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107893"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ La figure suivante montre l’exemple d'une base de données qui est très souve
 
    ![une base de données unique adaptée à un pool](./media/elastic-pool-overview/one-database.png)
 
-Pour la période de cinq minutes illustrée, DB1 culmine à 90 DTU, mais son utilisation moyenne totale est inférieure à cinq DTU. Une taille de calcul S3 est requise pour exécuter cette charge de travail dans une base de données unique. Cependant, cela laisse la plupart des ressources inutilisées pendant les périodes de faible activité.
+Le graphique illustre l’utilisation de DTU sur une période de 1 heure entre 12h00 et 13h00, où chaque point de données a une granularité de 1 minute. À 12h10, DB1 culmine à 90 DTU, mais son utilisation moyenne totale est inférieure à cinq DTU. Une taille de calcul S3 est requise pour exécuter cette charge de travail dans une base de données unique. Cependant, cela laisse la plupart des ressources inutilisées pendant les périodes de faible activité.
 
 Un pool permet de partager ces DTU inutilisées entre plusieurs bases de données, ce qui réduit la quantité totale de DTU nécessaires et le coût global.
 
@@ -74,7 +74,7 @@ Cet exemple est idéal pour les raisons suivantes :
 - Les pics d’utilisation de chaque base de données se produisent à différents moments dans le temps.
 - Les eDTU sont partagées entre plusieurs bases de données.
 
-Le prix d’un pool dépend des eDTU du pool. Alors que le prix unitaire d’une eDTU pour un pool est 1,5 fois supérieur au prix unitaire d’une DTU pour une base de données unique, les **eDTU de pool peuvent être partagées avec de nombreuses bases de données ; un nombre moins important d’eDTU est donc requis au total**. Ces différences en matière de prix et de partage des eDTU constituent la base du potentiel d'économies que les pools peuvent présenter.
+Le prix d’un pool dépend des eDTU du pool. Alors que le prix unitaire d’une eDTU pour un pool est 1,5 fois supérieur au prix unitaire d’une DTU pour une base de données unique, les **eDTU de pool peuvent être partagées avec de nombreuses bases de données ; un nombre moins important d’eDTU est donc requis au total** . Ces différences en matière de prix et de partage des eDTU constituent la base du potentiel d'économies que les pools peuvent présenter.
 
 Les règles élémentaires suivantes relatives au nombre de bases de données et à l’utilisation des bases de données permettent de s’assurer qu’un pool coûte moins cher que l’utilisation de tailles de calcul pour des bases de données uniques.
 
@@ -113,11 +113,11 @@ Les étapes suivantes peuvent vous aider à estimer si un pool est plus économi
 
 Modèle d’achat DTU :
 
-MAX(<*Nombre total de bases de données* X *Utilisation moyenne de DTU par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale de DTU par base de données*>)
+MAX(< *Nombre total de bases de données* X *Utilisation moyenne de DTU par base de données* >, < *Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale de DTU par base de données* >)
 
 Pour le modèle d’achat vCore :
 
-MAX(<*Nombre total de bases de données* X *Utilisation moyenne des vCores par base de données*>, <*Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale des vCores par base de données*>)
+MAX(< *Nombre total de bases de données* X *Utilisation moyenne des vCores par base de données* >, < *Nombre de bases de données connaissant un pic simultané* X *Utilisation maximale des vCores par base de données* >)
 
 2. Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage.
 3. Pour le modèle d’achat DTU, prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2. Pour le modèle d’achat vCore, prenez l’estimation vCore de l’étape 1.
@@ -155,9 +155,9 @@ Les bases de données mises en pool prennent généralement en charge les mêmes
 
 Vous pouvez créer un pool élastique dans le portail Azure de deux façons.
 
-1. Accédez au [portail Azure](https://portal.azure.com) pour créer un pool élastique. Recherchez et sélectionnez **Azure SQL**.
-2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les pools élastiques en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
-3. Sur la vignette **Bases de données**, sélectionnez **Pool élastique** dans la liste déroulante **Type de ressource**, puis sélectionnez **Créer** :
+1. Accédez au [portail Azure](https://portal.azure.com) pour créer un pool élastique. Recherchez et sélectionnez **Azure SQL** .
+2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL** . Vous pouvez afficher des informations supplémentaires sur les pools élastiques en sélectionnant **Afficher les détails** sur la vignette **Bases de données** .
+3. Sur la vignette **Bases de données** , sélectionnez **Pool élastique** dans la liste déroulante **Type de ressource** , puis sélectionnez **Créer**  :
 
    ![Créer un pool élastique](./media/elastic-pool-overview/create-elastic-pool.png)
 
@@ -168,7 +168,7 @@ Vous pouvez créer un pool élastique dans le portail Azure de deux façons.
 
 Le niveau de service du pool détermine les fonctionnalités disponibles pour les bases de données élastiques du pool, ainsi que le nombre maximal de ressources pour chaque base de données. Pour plus d’informations, consultez les limites de ressources des pools élastiques dans le [modèle DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Pour les limites de ressource vCore de pools élastiques, consultez [vCore-based resource limits - elastic pools](resource-limits-vcore-elastic-pools.md) (limites de ressource vCore - pools élastiques).
 
-Pour configurer les ressources et les prix du pool, cliquez sur **Configurer le pool**. Ensuite, sélectionnez un niveau de service, ajoutez les bases de données au pool, puis configurez les limites de ressources pour le pool et ses bases de données.
+Pour configurer les ressources et les prix du pool, cliquez sur **Configurer le pool** . Ensuite, sélectionnez un niveau de service, ajoutez les bases de données au pool, puis configurez les limites de ressources pour le pool et ses bases de données.
 
 Lorsque vous avez terminé la configuration du pool, vous pouvez cliquer sur Appliquer, nommer le pool, puis cliquer sur OK pour créer le pool.
 
@@ -185,7 +185,7 @@ L’illustration suivante montre un exemple de pool élastique :
 
 ![Affichage du pool](./media/elastic-pool-overview/basic.png)
 
-Si vous souhaitez plus d’informations sur le pool, vous pouvez cliquer sur les informations fournies dans la vue d’ensemble. Lorsque vous cliquez sur le graphique **Utilisation des ressources**, vous êtes dirigé vers la vue Surveillance d’Azure, où vous pouvez personnaliser les métriques et la fenêtre de temps indiquées dans le graphique. Lorsque vous cliquez sur les notifications disponibles, vous êtes dirigé vers un panneau comprenant les détails de cette alerte ou recommandation.
+Si vous souhaitez plus d’informations sur le pool, vous pouvez cliquer sur les informations fournies dans la vue d’ensemble. Lorsque vous cliquez sur le graphique **Utilisation des ressources** , vous êtes dirigé vers la vue Surveillance d’Azure, où vous pouvez personnaliser les métriques et la fenêtre de temps indiquées dans le graphique. Lorsque vous cliquez sur les notifications disponibles, vous êtes dirigé vers un panneau comprenant les détails de cette alerte ou recommandation.
 
 Si vous souhaitez surveiller les bases de données à l’intérieur du pool, vous pouvez cliquer sur **Utilisation des ressources de base de données** dans la section **Surveillance** du menu de ressources situé sur la gauche.
 
@@ -195,7 +195,7 @@ Si vous souhaitez surveiller les bases de données à l’intérieur du pool, vo
 
 Vous pouvez modifier le graphique et la page Métrique pour afficher d’autres métriques, telles que le pourcentage d’UC, le pourcentage d’E/S des données et le pourcentage d’E/S des fichiers journaux utilisés.
 
-Dans le formulaire **Modifier le graphique**, vous pouvez sélectionner un intervalle de temps fixe ou cliquer sur **Personnalisé** pour sélectionner n’importe quelle fenêtre de 24 heures des deux semaines passées, puis sélectionner les ressources à surveiller.
+Dans le formulaire **Modifier le graphique** , vous pouvez sélectionner un intervalle de temps fixe ou cliquer sur **Personnalisé** pour sélectionner n’importe quelle fenêtre de 24 heures des deux semaines passées, puis sélectionner les ressources à surveiller.
 
 ### <a name="to-select-databases-to-monitor"></a>Pour sélectionner les bases de données à surveiller
 

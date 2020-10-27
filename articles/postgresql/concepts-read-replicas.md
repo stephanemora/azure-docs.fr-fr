@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 10/15/2020
+ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939832"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123290"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -43,7 +43,7 @@ Vous pouvez disposer d’un serveur principal dans toute [région Azure Database
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
 Vous pouvez toujours créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur principal. Les régions de réplica universelles sont les suivantes :
 
-Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
+Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
 
 ### <a name="paired-regions"></a>Régions jumelées
 Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur principal. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](../best-practices-availability-paired-regions.md).
@@ -72,7 +72,7 @@ Lorsque vous créez un réplica, il n’hérite pas des règles de pare-feu ni d
 
 Le réplica hérite du compte Administrateur du serveur principal. Tous les comptes d’utilisateur sur le serveur principal sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur principal.
 
-Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour PostgreSQL classique. Pour un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via psql :
+Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour PostgreSQL classique. Pour un serveur nommé **myreplica** , à l’aide du nom d’utilisateur administrateur **myadmin** , vous pouvez vous connecter au réplica via psql :
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -81,7 +81,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 À l’invite, entrez le mot de passe du compte d’utilisateur.
 
 ## <a name="monitor-replication"></a>Superviser la réplication
-Azure Database pour PostgreSQL fournit deux métriques de surveillance de la réplication, à savoir **Retard maximum entre réplicas** et **Retard du réplica**. Pour savoir comment afficher ces métriques, consultez la section **Superviser un réplica** section [Créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique à partir du Portail Azure](howto-read-replicas-portal.md).
+Azure Database pour PostgreSQL fournit deux métriques de surveillance de la réplication, à savoir **Retard maximum entre réplicas** et **Retard du réplica** . Pour savoir comment afficher ces métriques, consultez la section **Superviser un réplica** section [Créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique à partir du Portail Azure](howto-read-replicas-portal.md).
 
 La métrique **Retard maximum entre réplicas** représente le retard entre le serveur principal et le réplica le plus en retard, en octets. Cette mesure est disponible uniquement sur le serveur principal et sera disponible uniquement si au moins l’un des réplicas en lecture est connecté au serveur principal.
 
@@ -126,7 +126,7 @@ Découvrez comment [arrêter la réplication sur un réplica](howto-read-replica
 ## <a name="failover"></a>Basculement
 Il n’est pas possible d’effectuer un basculement automatique entre un serveur principal et un réplica. 
 
-Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur principal et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur principal et la latence qui existe entre les centres de données. Dans les cas typiques, le décalage du réplica va de quelques secondes à quelques minutes. Toutefois, dans les cas où le serveur principal exécute des charges de travail très lourdes et que le réplica n’est pas suffisamment rapide, le décalage peut être plus élevé. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
+Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur principal et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur principal et la latence qui existe entre les centres de données. Dans les cas typiques, le décalage du réplica va de quelques secondes à quelques minutes. Toutefois, dans les cas où le serveur principal exécute des charges de travail très lourdes et que le réplica n’est pas suffisamment rapide, le décalage peut être plus élevé. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication* , qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
 
 > [!Tip]
 > Si vous basculez vers le réplica, le décalage qui existe au moment où vous supprimez la liaison entre le réplica et le serveur principal indiquera la quantité de données perdues.
@@ -154,9 +154,9 @@ Les réplicas en lecture et le [décodage logique](concepts-logical.md) dépende
 
 Pour configurer le niveau de journalisation approprié, utilisez le paramètre de prise en charge de la réplication Azure. La prise en charge de la réplication Azure propose trois options de paramétrage :
 
-* **Désactivé** : place le moins d’informations dans le journal WAL. Ce paramètre n’est pas disponible sur la plupart des serveurs Azure Database pour PostgreSQL.  
-* **Réplica** : plus de détails que l’option **Désactivé**. Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
-* **Logique** : plus de détails que l’option **Réplica**. Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
+* **Désactivé**  : place le moins d’informations dans le journal WAL. Ce paramètre n’est pas disponible sur la plupart des serveurs Azure Database pour PostgreSQL.  
+* **Réplica**  : plus de détails que l’option **Désactivé** . Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
+* **Logique**  : plus de détails que l’option **Réplica** . Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
 
 Le serveur doit être redémarré après une modification de ce paramètre. En interne, ce paramètre définit les paramètres Postgres `wal_level`, `max_replication_slots` et `max_wal_senders`.
 
@@ -172,8 +172,8 @@ Les règles de pare-feu, les règles de réseau virtuel et les paramètres de pa
 Mise à l’échelle de vCores ou entre Usage général et À mémoire optimisée :
 * PostgreSQL exige que le paramètre `max_connections` sur un serveur secondaire soit [supérieur ou égal au paramètre sur le serveur principal](https://www.postgresql.org/docs/current/hot-standby.html). Sinon, le serveur secondaire ne démarrera pas.
 * Dans Azure Database pour PostgreSQL, le nombre maximal de connexions autorisées pour chaque serveur est fixé à la référence SKU de calcul, car les connexions occupent de la mémoire. Vous pouvez en savoir plus sur le [mappage entre max_connections et les références SKU de calcul](concepts-limits.md).
-* **Scale-up** : Effectuez tout d’abord un scale-up du calcul d’un réplica, puis du serveur principal. Cet ordre empêchera des erreurs de violer la spécification de `max_connections`.
-* **Scale-down** : Effectuez tout d’abord un scale-down du calcul du serveur principal, puis du réplica. Si vous essayez de mettre le réplica à une échelle inférieure à celle du serveur principal, une erreur se produira, car cela ne respecte pas la spécification de `max_connections`.
+* **Scale-up**  : Effectuez tout d’abord un scale-up du calcul d’un réplica, puis du serveur principal. Cet ordre empêchera des erreurs de violer la spécification de `max_connections`.
+* **Scale-down**  : Effectuez tout d’abord un scale-down du calcul du serveur principal, puis du réplica. Si vous essayez de mettre le réplica à une échelle inférieure à celle du serveur principal, une erreur se produira, car cela ne respecte pas la spécification de `max_connections`.
 
 Mise à l’échelle du stockage :
 * La croissance automatique du stockage est activée pour tous les réplicas afin d’éviter les problèmes de réplication dus à un réplica plein. Ce paramètre ne peut pas être désactivé.

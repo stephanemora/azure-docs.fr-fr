@@ -1,20 +1,19 @@
 ---
 title: Présentation de l’analyseur de modèle de jumeaux numériques | Microsoft Docs
-description: En tant que développeur, apprenez à utiliser l’analyseur DTDL pour valider des modèles
+description: En tant que développeur, apprenez à utiliser l’analyseur DTDL pour valider des modèles.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87351971"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331785"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Présentation de l’analyseur de modèle de jumeaux numériques
 
@@ -28,9 +27,12 @@ L’analyseur est accessible à l’adresse NuGet.org avec l’ID : [Microsoft.
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> Au moment de la rédaction de cette documentation, la version de l’analyseur est `3.12.5`.
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Utiliser l’analyseur pour valider un modèle
 
-Le modèle que vous souhaitez valider peut être composé d’une ou de plusieurs interfaces décrites dans des fichiers JSON. Vous pouvez utiliser l’analyseur pour charger tous les fichiers d’un dossier donné et pour valider tous les fichiers dans leur ensemble, y compris les références entre les fichiers :
+Un modèle peut être composé d’une ou de plusieurs interfaces décrites dans des fichiers JSON. Vous pouvez utiliser l’analyseur pour charger tous les fichiers d’un dossier donné et pour valider tous les fichiers dans leur ensemble, y compris les références entre les fichiers :
 
 1. Créez un `IEnumerable<string>` avec une liste de tous les contenus du modèle :
 
@@ -57,18 +59,20 @@ Le modèle que vous souhaitez valider peut être composé d’une ou de plusieur
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Vérifiez s’il y a des erreurs de validation. Si l’analyseur détecte des erreurs, il lève une exception `AggregateException` avec une liste de messages d’erreur détaillés :
+1. Vérifiez s’il y a des erreurs de validation. Si l’analyseur détecte des erreurs, il lève une exception `ParsingException` avec une liste d’erreurs :
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ Le modèle que vous souhaitez valider peut être composé d’une ou de plusieur
 1. Examinez le `Model`. Si la validation est réussie, vous pouvez utiliser l’API de l’analyseur de modèle pour examiner le modèle. L’extrait de code suivant montre comment itérer sur tous les modèles analysés et affiche les propriétés existantes :
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 
