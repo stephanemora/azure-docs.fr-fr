@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005376"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095897"
 ---
 # <a name="localization-element"></a>Élément de localisation
 
@@ -114,7 +114,7 @@ L’élément **Item** contient les attributs suivants :
 | Valeur | Oui | Valeur de revendication chaîne associée à la sélection de cette option. |
 | SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
-L’exemple suivant illustre l’utilisation de l’élément **LocalizedCollections**. Il contient deux éléments **LocalizedCollection**, l’un pour l’anglais et un autre pour l’espagnol. Tous deux définissent la collection **Restriction** de la revendication `Gender` avec une liste d’éléments pour l’anglais et l’espagnol.
+L’exemple suivant illustre l’utilisation de l’élément **LocalizedCollections** . Il contient deux éléments **LocalizedCollection** , l’un pour l’anglais et un autre pour l’espagnol. Tous deux définissent la collection **Restriction** de la revendication `Gender` avec une liste d’éléments pour l’anglais et l’espagnol.
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
@@ -163,6 +163,7 @@ Référence ElementType à un type de revendication, une transformation de reven
 |Message utilisateur du prédicat|`Predicate`|Nom du prédicat| L’attribut du prédicat à localiser. Valeurs possibles : `HelpText`.|
 |Message utilisateur du groupe de prédicats|`InputValidation`|ID de l’élément PredicateValidation.|ID de l’élément PredicateGroup. Le groupe de prédicats doit être un enfant de l’élément de validation du prédicat tel que défini dans l’ElementId.|
 |Options de l’interface utilisateur |`UxElement` | | ID de l’élément d’interface utilisateur à localiser.|
+|[Display Control](display-controls.md) |`DisplayControl` |ID du contrôle d’affichage. | ID de l’élément d’interface utilisateur à localiser.|
 
 ## <a name="examples"></a>Exemples
 
@@ -330,6 +331,23 @@ La valeur UxElement est utilisée pour localiser l’un des éléments d’inter
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>DisplayControl
+
+La valeur DisplayControl est utilisée pour localiser l’un des éléments de l’interface utilisateur [DisplayControl](display-controls.md). L’exemple suivant montre comment localiser les boutons Envoyer et Vérifier. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+Dans la section Métadonnées d’un profil technique auto-déclaré, dans la propriété ContentDefinition référencée, DataUri doit être défini sur la [mise en page version](page-layout.md) 2.1.0 ou ultérieure. Par exemple :
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

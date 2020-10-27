@@ -47,7 +47,7 @@ Ce didacticiel fournit des informations sur les sujets suivants :
 Avant de commencer, vérifiez les points suivants :
 
 * Vous avez suivi le [Tutoriel : Copier des données sur Azure Data Box et procéder à une vérification](data-box-deploy-copy-data.md).
-* Les travaux de copie sont terminés et il n’y a pas d’erreurs dans la page **Connexion et copie**. La préparation de l’expédition ne peut pas s’exécuter si des travaux de copie sont en cours ou s’il y a des erreurs dans la page **Connexion et copie**.
+* Les travaux de copie sont terminés et il n’y a pas d’erreurs dans la page **Connexion et copie** . La préparation de l’expédition ne peut pas s’exécuter si des travaux de copie sont en cours ou s’il y a des erreurs dans la page **Connexion et copie** .
 
 ## <a name="prepare-to-ship"></a>Préparer l’expédition
 
@@ -92,7 +92,7 @@ Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, 
     * Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
 
     Au lieu de planifier l’enlèvement, vous pouvez déposer la Data Box dans le point de dépôt le plus proche.
-4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée**. Un ID de suivi s’affiche également.
+4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée** . Un ID de suivi s’affiche également.
 
 ::: zone target="chromeless"
 

@@ -1,17 +1,17 @@
 ---
-title: Comment choisir l’offre de débit appropriée dans Azure Cosmos DB
+title: Comment choisir entre mise à l’échelle manuelle et automatique sur Azure Cosmos DB
 description: Découvrez comment choisir entre un débit approvisionné standard (manuel) et un débit approvisionné avec mise à l’échelle automatique pour votre charge de travail.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605213"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279775"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Comment choisir entre le débit approvisionné standard (manuel) et le débit approvisionné avec mise à l’échelle automatique 
 
@@ -54,17 +54,82 @@ Si vous disposez d’une application existante utilisant un débit approvisionn�
 
 Tout d’abord, recherchez la [métrique de consommation d’unités de requête normalisées](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) de votre base de données ou de votre conteneur. L’utilisation normalisée mesure votre utilisation actuelle du débit approvisionné standard (manuel). Plus le nombre est proche de 100 %, plus l’usage que vous faites de vos RU/s approvisionnées est complet. [En savoir plus](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) sur la métrique.
 
-Ensuite, déterminez comment l’utilisation normalisée va varier dans le temps. Si vous constatez que votre utilisation normalisée est variable ou imprévisible, songez à activer la mise à l’échelle automatique sur votre base de données ou conteneur. En revanche, si elle est stable et prévisible, considérez la possibilité de garder un débit approvisionné standard (manuel). 
+Ensuite, déterminez comment l’utilisation normalisée va varier dans le temps. Recherchez l’utilisation normalisée la plus élevée pour chaque heure. Calculez ensuite l’utilisation normalisée moyenne sur toutes les heures. Si vous constatez que votre utilisation moyenne est inférieure à 66 %, songez à activer la mise à l’échelle automatique sur votre base de données ou conteneur. En revanche, si l’utilisation moyenne est supérieure à 66 %, il est recommandé de conserver le débit approvisionné standard (manuel).
+
+> [!TIP]
+> Si votre compte est configuré pour utiliser des écritures multirégions et qu’il a plus d’une région, le taux pour 100 RU/s est le même pour la mise à l’échelle manuelle et automatique. Cela signifie que l’activation de la mise à l’échelle automatique n’entraîne aucun coût supplémentaire quelle que soit l’utilisation. Par conséquent, il est toujours recommandé d’utiliser la mise à l’échelle automatique avec des écritures multirégions lorsque vous avez plus d’une région, afin de tirer parti des économies générées en ne payant que pour le taux de RU/s auquel votre application est mise à l’échelle. Si vous avez des écritures multirégions et une région, utilisez l’utilisation moyenne pour déterminer si la mise à l’échelle automatique génèrera des économies. 
+
+#### <a name="examples"></a>Exemples
+
+Observons deux exemples de charges de travail différents et analysons s’ils sont adaptés à la mise à l’échelle manuelle ou automatique du débit. Pour illustrer l’approche générale, nous allons analyser trois heures d’historique pour déterminer la différence de coût entre la mise à l’échelle manuelle et automatique. Pour les charges de travail de production, il est recommandé d’utiliser 7 à 30 jours d’historique (ou plus, le cas échéant) pour établir un modèle d’utilisation des RU/s.
+
+> [!NOTE]
+> Tous les exemples présentés dans ce document se basent sur le prix d’un compte Azure Cosmos déployé dans une région non gouvernementale aux États-Unis. Le tarif et le calcul varient en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/) Azure Cosmos DB.
+
+Il est supposé que :
+- Supposons que nous disposons actuellement d’un débit manuel de 30 000 RU/s. 
+- Notre région est configurée avec des écritures à une seule région, avec une région. Si nous avions plusieurs régions, nous devrions multiplier le coût horaire par le nombre de régions.
+- Utilisez les tarifs publics pour la mise à l’échelle manuelle (0,008 $ USD par 100 RU/s par heure) et la mise à l’échelle automatique (0,012 $ USD par 100 RU/s par heure) du débit dans les comptes avec des écritures à une seule région. Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+
+#### <a name="example-1-variable-workload-autoscale-recommended"></a>Exemple 1 : Charge de travail variable (mise à l’échelle automatique recommandée)
+
+Commençons par observer la consommation du RU normalisée. Cette charge de travail a un trafic variable, avec une consommation de RU normalisée comprise entre 6 % et 100 %. Il existe des pics occasionnels de 100 % qui sont difficiles à prédire, mais de nombreuses heures avec une faible utilisation. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload_use_autoscale.png" alt-text="Charge de travail à trafic variable : la consommation de RU normalisée est comprise entre 6 % et 100 % pendant toutes les heures":::
+
+Comparons le coût de l’approvisionnement d’un débit manuel de 30 000 RU/s et une définition de la mise à l’échelle automatique sur 30 000 RU/s maximum (mise à l’échelle comprise entre 3 000 et 30 000 RU/s). 
+
+Analysons maintenant l’historique. Supposons que nous disposons de l’utilisation décrite dans le tableau suivant. L’utilisation moyenne sur ces trois heures est de 39 %. Étant donné que la consommation RU normalisée moyenne est inférieure à 66 %, la mise à l’échelle automatique nous permet de réaliser des économies. 
+
+Notez que, pendant l’heure 1 et une utilisation de 6 %, la mise à l’échelle automatique facturera les RU/s pour 10 % du nombre maximal de RU/s, soit la valeur minimale par heure. Bien que le coût de la mise à l’échelle automatique puisse être supérieur à celui du débit manuel à certaines heures, tant que l’utilisation moyenne est inférieure à 66 % sur toutes les heures, la mise à l’échelle automatique est moins avantageuse.
+
+|  | Utilisation |RU/s avec mise à l’échelle automatique facturées  |Option 1 : 30 000 RU/s manuelles  | Option n°2 : Mise à l’échelle automatique entre 3 000 et 30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Heure 1  | 6 %  |     3000  |  30 000 * 0,008 / 100 = 2,40 $        |   3 000 * 0,012 / 100 = 0,36 $      |
+|Heure 2  | 100 %  |     30,000    |  30 000 * 0,008 / 100 = 2,40 $       |  30 000 * 0,012 / 100 = 3,60 $      |
+|Heure 3 |  11%  |     3300    |  30 000 * 0,008 / 100 = 2,40 $       |    3 300 * 0,012 / 100 = 0,40 $     |
+|**Total**   |  |        |  7,20 $       |    4,36 $ (39 % d’économies)    |
+
+#### <a name="example-2-steady-workload-manual-throughput-recommended"></a>Exemple 2 : Charge de travail stable (débit manuel recommandé)
+
+Cette charge de travail a un trafic stable, avec une consommation de RU normalisée comprise entre 72 % et 100 %. Avec 30 000 RU/s approvisionnées, cela signifie que nous consommons entre 21 600 et 30 000 RU/s.
+
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Charge de travail à trafic variable : la consommation de RU normalisée est comprise entre 6 % et 100 % pendant toutes les heures":::
+
+Comparons le coût de l’approvisionnement d’un débit manuel de 30 000 RU/s et une définition de la mise à l’échelle automatique sur 30 000 RU/s maximum (mise à l’échelle comprise entre 3 000 et 30 000 RU/s).
+
+Supposons que nous disposons de l’historique d’utilisation décrit dans le tableau suivant. Notre utilisation moyenne sur ces trois heures est de 88 %. Étant donné que la consommation RU normalisée moyenne est supérieure à 66 %, l’utilisation du débit manuel nous permet de réaliser des économies.
+
+En général, si l’utilisation moyenne sur l’ensemble des 730 heures pendant un mois est supérieure à 66 %, l’utilisation du débit manuel sera plus avantageuse. 
+
+|  | Utilisation |RU/s avec mise à l’échelle automatique facturées  |Option 1 : 30 000 RU/s manuelles  | Option n°2 : Mise à l’échelle automatique entre 3 000 et 30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Heure 1  | 72 %  |     21 600   |  30 000 * 0,008 / 100 = 2,40 $        |   21 600 * 0,012 / 100 = 2,59 $      |
+|Heure 2  | 93 %  |     28 000    |  30 000 * 0,008 / 100 = 2,40 $       |  28 000 * 0,012 / 100 = 3,36 $       |
+|Heure 3 |  100 %  |     30,000    |  30 000 * 0,008 / 100 = 2,40 $       |    30 000 * 0,012 / 100 = 3,60 $     |
+|**Total**   |  |        |  7,20 $       |    9,55 $     |
 
 > [!TIP]
 > Avec le débit standard (manuel), vous pouvez utiliser la métrique d’utilisation normalisée pour estimer les RU/s réels que vous utiliserez potentiellement si vous basculez vers la mise à l’échelle automatique. Multipliez l’utilisation normalisée à un moment donné dans le temps par les RU/s standard approvisionnées (manuel) actuellement. Par exemple, si vous avez approvisionné 5 000 RU/s et que l’utilisation normalisée représente 90 %, l’utilisation des RU/s est de 0,9 * 5000 = 4 500 RU/s. Si vous constatez que votre modèle de trafic est variable, mais que vous avez sur ou sous-approvisionné, vous pouvez activer la mise à l’échelle automatique, puis modifier le paramètre du nombre maximal de RU/s pour la mise à l’échelle automatique en conséquence.
 
+#### <a name="how-to-calculate-average-utilization"></a>Comment calculer l’utilisation moyenne
+La mise à l’échelle automatique facture le plus grand nombre de RU/s mises à l’échelle pendant une heure. Lors de l’analyse de la consommation de RU normalisée dans le temps, il est important d’utiliser l’utilisation la plus élevée par heure dans le calcul de la moyenne. 
+
+Pour calculer la moyenne de l’utilisation la plus élevée sur toutes les heures :
+1. Définissez l’ **agrégation** sur la métrique de consommation de RU normalisée sur **Max** .
+1. Sélectionnez la **granularité temporelle** sur 1 heure.
+1. Accédez aux **options graphiques** .
+1. Sélectionnez l’option de graphique à barres. 
+1. Sous **Partager** , sélectionnez l’option **Télécharger vers Excel** . À partir de la feuille de calcul générée, calculez l’utilisation moyenne sur toutes les heures. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Charge de travail à trafic variable : la consommation de RU normalisée est comprise entre 6 % et 100 % pendant toutes les heures":::
+
 ## <a name="measure-and-monitor-your-usage"></a>Mesurer et surveiller votre utilisation
 Par la suite, une fois que vous avez choisi le type de débit, vous devez surveiller votre application et effectuer les ajustements nécessaires. 
 
-Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monitor pour afficher le nombre maximal de RU/s approvisionnées avec mise à l’échelle automatique (**Débit maximal avec mise à l’échelle automatique**) et les RU/s sur lesquelles le système est actuellement mis à l’échelle (**Débit approvisionné**). Vous trouverez ci-dessous un exemple de charge de travail variable ou imprévisible utilisant la mise à l’échelle automatique. Notez qu’en l’absence de trafic, le système met à l’échelle les RU/s vers la valeur minimale de 10 % du nombre maximal de RU/s, soit respectivement 5 000 RU/s et 50 000 RU/s. 
+Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monitor pour afficher le nombre maximal de RU/s approvisionnées avec mise à l’échelle automatique ( **Débit maximal avec mise à l’échelle automatique** ) et les RU/s sur lesquelles le système est actuellement mis à l’échelle ( **Débit approvisionné** ). Vous trouverez ci-dessous un exemple de charge de travail variable ou imprévisible utilisant la mise à l’échelle automatique. Notez qu’en l’absence de trafic, le système met à l’échelle les RU/s vers la valeur minimale de 10 % du nombre maximal de RU/s, soit respectivement 5 000 RU/s et 50 000 RU/s. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exemple de charge de travail utilisant la mise à l’échelle automatique":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Charge de travail à trafic variable : la consommation de RU normalisée est comprise entre 6 % et 100 % pendant toutes les heures":::
 
 > [!NOTE]
 > Lorsque vous utilisez un débit approvisionné standard (manuel), la métrique **Débit approvisionné** fait référence à ce que vous, en tant qu’utilisateur, avez défini. Lorsque vous utilisez le débit avec mise à l’échelle automatique, cette mesure fait référence aux RU/s sur lesquelles le système est actuellement mis à l’échelle.

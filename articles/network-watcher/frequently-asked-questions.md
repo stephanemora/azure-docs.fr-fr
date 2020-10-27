@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471854"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123525"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
@@ -81,6 +81,14 @@ Network Watcher n’a besoin d’être activé qu’une seule fois au niveau d�
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Comment puis-je gérer la ressource Network Watcher ? 
 La ressource Network Watcher représente le service back-end pour Network Watcher et est entièrement gérée par Azure. Les clients n’ont pas besoin de la gérer. Les opérations telles que le déplacement ne sont pas prises en charge sur la ressource. Toutefois, [la ressource peut être supprimée](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
+## <a name="service-availability-and-redundancy"></a>Disponibilité et redondance du service 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>Le service Network Watcher est-il résilient aux zones ? 
+Oui. Le service Network Watcher est résilient aux zones par défaut. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Comment configurer le service Network Watcher pour qu’il soit résilient aux zones ? 
+Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience des zones pour les ressources Network Watcher est disponible par défaut et gérée par le service lui-même. 
+
 ## <a name="nsg-flow-logs"></a>Journaux de flux NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>Que font les journaux de flux NSG ?
@@ -91,8 +99,8 @@ Les ressources réseau Azure peuvent être combinées et gérées via les [group
 Pour utiliser un compte de stockage derrière un pare-feu, vous devez fournir une exception aux services Microsoft approuvés pour accéder à votre compte de stockage :
 
 * Accédez au compte de stockage en tapant son nom dans la recherche globale sur le portail ou à partir de la [page Comptes de stockage](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-* Dans la section **PARAMÈTRES**, sélectionnez **Pare-feu et réseaux virtuels**.
-* Dans « Autoriser l’accès depuis », sélectionnez **Réseaux sélectionnés**. Ensuite, sous **Exceptions**, cochez la case en regard de **« Autoriser les services Microsoft approuvés à accéder à ce compte de stockage »** 
+* Dans la section **PARAMÈTRES** , sélectionnez **Pare-feu et réseaux virtuels** .
+* Dans « Autoriser l’accès depuis », sélectionnez **Réseaux sélectionnés** . Ensuite, sous **Exceptions** , cochez la case en regard de **« Autoriser les services Microsoft approuvés à accéder à ce compte de stockage »** 
 * Si cette option est déjà sélectionnée, aucune modification n’est nécessaire.  
 * Localisez votre groupe de sécurité réseau cible dans la [page de vue d’ensemble des journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) et activez les journaux de flux NSG avec le compte de stockage ci-dessus sélectionné.
 
@@ -104,7 +112,7 @@ Les journaux de flux NSG sont compatibles avec les points de terminaison de serv
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Quelle est la différence entre les versions 1 et 2 des journaux de flux ?
-La version 2 des journaux de flux introduit le concept d’*état de flux* et stocke des informations sur les octets et les paquets transmis. [En savoir plus](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
+La version 2 des journaux de flux introduit le concept d’ *état de flux* et stocke des informations sur les octets et les paquets transmis. [En savoir plus](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
 ## <a name="next-steps"></a>Étapes suivantes
  - Consultez notre [page de présentation de la documentation](https://docs.microsoft.com/azure/network-watcher/) pour accéder à des tutoriels qui vous aideront à bien démarrer avec Network Watcher.

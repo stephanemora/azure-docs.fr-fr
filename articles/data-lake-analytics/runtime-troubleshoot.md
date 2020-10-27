@@ -1,18 +1,16 @@
 ---
 title: Comment résoudre les défaillances du runtime U-SQL Azure Data Lake Analytics
 description: Apprenez à résoudre les défaillances du runtime U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87475258"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216264"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Apprenez à résoudre les défaillances du runtime U-SQL en raison des modifications du runtime
 
@@ -34,8 +32,8 @@ Dans de rares cas, le Support Microsoft peut épingler une version différente d
 Vous pouvez voir l’historique de la version du runtime utilisée par vos anciens travaux dans l’historique des travaux de votre compte par le biais de l’explorateur de travaux de Visual Studio ou de l’historique des travaux du Portail Azure.
 
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
-2. Sélectionnez **Afficher tous les travaux**. Une liste de tous les travaux actifs et récemment terminés dans le compte apparaît.
-3. Le cas échéant, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps**, **Nom du travail** et **Auteur**.
+2. Sélectionnez **Afficher tous les travaux** . Une liste de tous les travaux actifs et récemment terminés dans le compte apparaît.
+3. Le cas échéant, cliquez sur **Filtrer** pour rechercher les travaux par **Intervalle de temps** , **Nom du travail** et **Auteur** .
 4. Vous pouvez voir le runtime utilisé dans les travaux terminés.
 
 ![Affichage de la version du runtime d’un travail passé](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)

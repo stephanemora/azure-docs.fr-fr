@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292963"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093716"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -24,13 +24,13 @@ La sauvegarde Azure offre la possibilité de restaurer des [machines virtuelles 
 
 Pour restaurer des fichiers ou dossiers à partir du point de récupération, accédez à la machine virtuelle et choisissez le point de récupération.
 
-1. Connectez-vous au [Portail Azure](https://portal.Azure.com), puis, dans le volet à gauche, sélectionnez **Machines virtuelles**. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
+1. Connectez-vous au [Portail Azure](https://portal.Azure.com), puis, dans le volet à gauche, sélectionnez **Machines virtuelles** . Dans la liste des machines virtuelles, sélectionnez la machine virtuelle pour ouvrir son tableau de bord.
 
 2. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarde** pour ouvrir le tableau de bord Sauvegarde.
 
     ![Ouvrir l’élément de sauvegarde du coffre Recovery Services.](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Dans le menu du tableau de bord Sauvegarde, sélectionnez **Récupération de fichiers**.
+3. Dans le menu du tableau de bord Sauvegarde, sélectionnez **Récupération de fichiers** .
 
     ![Sélectionner la récupération de fichier](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -38,7 +38,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
-4. Dans le menu déroulant **Sélectionner le point de récupération**, sélectionnez le point de récupération qui contient les fichiers dont vous avez besoin. Le dernier point de récupération est sélectionné par défaut.
+4. Dans le menu déroulant **Sélectionner le point de récupération** , sélectionnez le point de récupération qui contient les fichiers dont vous avez besoin. Le dernier point de récupération est sélectionné par défaut.
 
 5. Pour télécharger le logiciel utilisé pour copier des fichiers à partir du point de récupération, sélectionnez **Télécharger l’exécutable** (pour les machines virtuelles Windows Azure) ou **Télécharger le script** (pour les machines virtuelles Linux Azure, un script Python est généré).
 
@@ -50,11 +50,11 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     Pour exécuter le fichier exécutable ou le script en tant qu’administrateur, il est recommandé d’enregistrer le fichier téléchargé sur votre ordinateur.
 
-6. Le fichier exécutable ou le script est protégé par mot de passe et nécessite un mot de passe. Dans le menu **Récupération de fichiers**, sélectionnez le bouton Copier pour charger le mot de passe en mémoire.
+6. Le fichier exécutable ou le script est protégé par mot de passe et nécessite un mot de passe. Dans le menu **Récupération de fichiers** , sélectionnez le bouton Copier pour charger le mot de passe en mémoire.
 
     ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Vérifiez que [vous avez la machine appropriée](#selecting-the-right-machine-to-run-the-script) pour exécuter le script. Si la machine appropriée est la même que celle sur laquelle vous avez téléchargé le script, vous pouvez passer à la section de téléchargement. À partir de l’emplacement de téléchargement (généralement le dossier *Téléchargements*), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée**. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
+7. Vérifiez que [vous avez la machine appropriée](#selecting-the-right-machine-to-run-the-script) pour exécuter le script. Si la machine appropriée est la même que celle sur laquelle vous avez téléchargé le script, vous pouvez passer à la section de téléchargement. À partir de l’emplacement de téléchargement (généralement le dossier *Téléchargements* ), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée** . Une fois le mot de passe valide entré, le script se connecte au point de récupération.
 
     ![Sortie de l’exécutable](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -78,7 +78,7 @@ Sous Linux, les volumes de point de récupération sont montés sur le dossier d
 
 ## <a name="closing-the-connection"></a>Fermeture de la connexion
 
-Après avoir identifié les fichiers et les avoir copiés dans un emplacement de stockage local, supprimez (ou démontez) les lecteurs supplémentaires. Pour démonter les lecteurs, dans le menu **Récupération de fichier** du portail Azure, cliquez sur **Démonter les disques**.
+Après avoir identifié les fichiers et les avoir copiés dans un emplacement de stockage local, supprimez (ou démontez) les lecteurs supplémentaires. Pour démonter les lecteurs, dans le menu **Récupération de fichier** du portail Azure, cliquez sur **Démonter les disques** .
 
 ![Démonter les disques](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -312,7 +312,7 @@ Si vous exécutez le script sur un ordinateur disposant d’un accès restreint,
 > [!NOTE]
 >
 > Le fichier de script que vous avez téléchargé à l’étape 5 [ci-dessus](#mount-the-volume-and-copy-files) aura l’élément **geo-name** dans le nom du fichier. Utilisez cet élément **geo-name** pour compléter l’URL. Le nom du script téléchargé commence par : \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> Ainsi, par exemple, si le nom de fichier du script est *ContosoVM_wcus_12345678*, l’élément **geo-name** est *wcus* et l’URL devient :<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> Ainsi, par exemple, si le nom de fichier du script est *ContosoVM_wcus_12345678* , l’élément **geo-name** est *wcus* et l’URL devient :<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
@@ -357,10 +357,10 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Sortie de l’exécutable : *Exception interceptée lors de la connexion à la cible* | Le script n’est pas en mesure d’accéder au point de récupération    | Vérifiez si la machine remplit les [conditions d’accès précédentes](#access-requirements). |  
 | Sortie de l’exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils ne peuvent pas être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’explorateur de fichiers pour localiser votre fichier. |
 | Sortie de l’exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail, ou la limite de douze heures a été dépassée | Ce fichier exécutable n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération dans le temps, visitez le portail pour obtenir un nouveau fichier exe.|
-| Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne seront plus démontés une fois que vous avez cliqué sur le bouton démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. L’exploration de tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
+| Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne seront plus démontés une fois que vous avez cliqué sur le bouton démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter** , patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. L’exploration de tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
 | Sortie de l’exécutable : Le script s’exécute correctement, mais les « nouveaux volumes attachés » ne s’affichent pas dans la sortie du script. |    Il s’agit d’une erreur temporaire.    | Les volumes auront déjà été attachés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez le même ordinateur pour exécuter des scripts à chaque fois, envisagez de redémarrer la machine et la liste devrait être affichée dans la liste des exécutions du fichier exe ultérieures. |
 | Propre à Linux : Impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur un autre ordinateur dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée. |
-| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques peuvent avoir été attachés, mais les volumes n’ont pas été configurés | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’un de ces disques est en état hors connexion, essayez de le mettre en ligne en cliquant dessus avec le bouton droit, puis sélectionnez **En ligne**.|
+| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques peuvent avoir été attachés, mais les volumes n’ont pas été configurés | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’un de ces disques est en état hors connexion, essayez de le mettre en ligne en cliquant dessus avec le bouton droit, puis sélectionnez **En ligne** .|
 
 ## <a name="security"></a>Sécurité
 
@@ -376,7 +376,7 @@ Cette fonctionnalité a été conçue pour accéder aux données de la machine v
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Sélectionner le point de récupération (quel utilisateur peut générer un script)
 
-Le script donne accès aux données de la machine virtuelle. Il est donc important de réglementer qui peut les générer en premier lieu. Vous devez vous connecter au portail Azure et disposer de l’[autorisation RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour générer le script.
+Le script donne accès aux données de la machine virtuelle. Il est donc important de réglementer qui peut les générer en premier lieu. Vous devez vous connecter au portail Azure et disposer de l’[autorisation Azure RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour générer le script.
 
 La récupération de fichier doit avoir le même niveau d’autorisation que pour la restauration des disques et des machines virtuelles. En d’autres termes, seuls les utilisateurs autorisés peuvent visualiser les données de la machine virtuelle et générer le script.
 

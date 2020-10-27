@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82598468"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328996"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -20,7 +20,7 @@ Nous ajoutons d’importantes modifications pour pouvoir utiliser des accès bas
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ?
 
-Auparavant, les secrets pouvaient être obtenus par le biais de l’API HDInsight par des utilisateurs du cluster avec les [rôles RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) Propriétaire, Contributeur ou Lecteur, car ils étaient accessibles à tout utilisateur ayant l’autorisation `*/read`. Les secrets sont définis comme des valeurs pouvant être utilisées pour obtenir un accès supérieur à celui d’un rôle d’utilisateur. Ils comprennent des valeurs telles que les informations d’identification HTTP de la passerelle du cluster, les clés de compte de stockage et les informations d'identification de la base de données.
+Auparavant, les secrets pouvaient être obtenus par le biais de l’API HDInsight par des utilisateurs du cluster avec les [rôles Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) Propriétaire, Contributeur ou Lecteur, car ils étaient accessibles à tout utilisateur ayant l’autorisation `*/read`. Les secrets sont définis comme des valeurs pouvant être utilisées pour obtenir un accès supérieur à celui d’un rôle d’utilisateur. Ils comprennent des valeurs telles que les informations d’identification HTTP de la passerelle du cluster, les clés de compte de stockage et les informations d'identification de la base de données.
 
 À partir du 3 septembre 2019, l’accès à ces secrets nécessitera l’autorisation `Microsoft.HDInsight/clusters/configurations/action`, ce qui veut dire qu’ils ne seront plus accessibles aux utilisateurs disposant du rôle Lecteur. Les rôles qui ont cette autorisation sont Contributeur, Propriétaire et le nouveau rôle Opérateur de cluster HDInsight (plus de détails dans ce qui suit).
 
@@ -57,13 +57,13 @@ Consultez les sections qui suivent (ou utilisez les liens mentionnés plus haut)
 
 Les API suivantes seront modifiées ou déconseillées :
 
-- [**GET /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (informations sensibles supprimées)
+- [**GET /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (informations sensibles supprimées)
     - Précédemment utilisé pour obtenir les types de configuration individuels (y compris les secrets).
     - À partir du 3 septembre 2019, cet appel d’API retournera les types de configuration individuels avec les secrets omis. Pour obtenir toutes les configurations, dont les secrets, utilisez le nouvel appel POST/configurations. Pour obtenir uniquement les paramètres de passerelle, utilisez le nouvel appel POST/getGatewaySettings.
 - [**GET /configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (déconseillé)
     - Précédemment utilisé pour obtenir toutes les configurations (y compris les secrets)
     - À partir du 3 septembre 2019, cet appel d’API sera déprécié et ne sera plus pris en charge. Pour obtenir toutes les configurations, à l’avenir, utilisez le nouvel appel POST/configurations. Pour obtenir des configurations avec des paramètres sensibles omis, utilisez l’appel GET /configurations/{configurationName}.
-- [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (déconseillé)
+- [**POST /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (déconseillé)
     - Précédemment utilisé pour mettre à jour les informations d’identification de la passerelle.
     - À partir du 3 septembre 2019, cet appel d’API sera déprécié et ne sera plus pris en charge. Utilisez le nouvel appel POST /updateGatewaySettings à la place.
 
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Vous pouvez également utiliser le portail Azure pour ajouter l’attribution du rôle Opérateur de cluster HDInsight à un utilisateur. Consultez la documentation, [Gérer l’accès aux ressources Azure à l’aide de RBAC et du portail Azure - Ajouter une attribution de rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+Vous pouvez également utiliser le portail Azure pour ajouter l’attribution du rôle Opérateur de cluster HDInsight à un utilisateur. Consultez la documentation [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure - Ajouter une attribution de rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

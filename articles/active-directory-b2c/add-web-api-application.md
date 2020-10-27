@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385958"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214955"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 
@@ -27,30 +27,30 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
-1. Entrez un **Nom** pour l’application. Par exemple, *webapi1*.
-1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans une application de production, vous pouvez définir l’URI de redirection sur un point de terminaison de type `https://localhost:5000`. Lors du développement ou du test, vous pouvez le définir sur `https://jwt.ms`, une application Web Microsoft qui affiche le contenu décodé d’un jeton (le contenu du jeton ne quitte jamais votre navigateur). Vous pouvez ajouter des URI de redirection à vos applications inscrites à tout moment et les modifier.
-1. Sélectionnez **Inscription**.
-1. Enregistrez l’**ID d’application (client)** pour l’utiliser dans votre code d’API web.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C** . Ou sélectionnez **Tous les services** , puis recherchez et sélectionnez **Azure AD B2C** .
+1. Sélectionnez **Inscriptions d’applications** , puis **Nouvelle inscription** .
+1. Entrez un **Nom** pour l’application. Par exemple, *webapi1* .
+1. Sous **URI de redirection** , sélectionnez **Web** , puis entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans une application de production, vous pouvez définir l’URI de redirection sur un point de terminaison de type `https://localhost:5000`. Lors du développement ou du test, vous pouvez le définir sur `https://jwt.ms`, une application Web Microsoft qui affiche le contenu décodé d’un jeton (le contenu du jeton ne quitte jamais votre navigateur). Vous pouvez ajouter des URI de redirection à vos applications inscrites à tout moment et les modifier.
+1. Sélectionnez **Inscription** .
+1. Enregistrez l’ **ID d’application (client)** pour l’utiliser dans votre code d’API web.
 
-Si vous avez une application qui implémente le flux d’octroi implicite, par exemple une application à page unique (SPA) basée sur JavaScript, vous pouvez activer le flux en procédant comme suit :
+Si vous avez une application qui implémente le flux d’octroi implicite, par exemple une [application à page unique (SPA) basée sur JavaScript](tutorial-register-spa.md), vous pouvez activer le flux en procédant comme suit :
 
-1. Sous **Gérer**, sélectionnez **Authentification**.
-1. Sous **Octroi implicite**, cochez les deux cases **Jetons d’accès** et **Jetons d’ID**.
-1. Sélectionnez **Enregistrer**.
+1. Sous **Gérer** , sélectionnez **Authentification** .
+1. Sous **Octroi implicite** , cochez les deux cases **Jetons d’accès** et **Jetons d’ID** .
+1. Sélectionnez **Enregistrer** .
 
 #### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Applications (héritées)** , puis **Ajouter**.
-5. Entrez un nom pour l’application. Par exemple, *webapi1*.
-6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans votre application de production, vous pouvez définir l’URL de réponse sur une valeur comme `https://localhost:44332`. À des fins de test, définissez cette URL sur `https://jwt.ms`.
-8. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
-9. Cliquez sur **Créer**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
+4. Sélectionnez **Applications (héritées)** , puis **Ajouter** .
+5. Entrez un nom pour l’application. Par exemple, *webapi1* .
+6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite** , sélectionnez **Oui** .
+7. Pour l’ **URL de réponse** , entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans votre application de production, vous pouvez définir l’URL de réponse sur une valeur comme `https://localhost:44332`. À des fins de test, définissez cette URL sur `https://jwt.ms`.
+8. Pour l’ **L’URI de l’ID d’application** , entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
+9. Cliquez sur **Créer** .
 10. Sur la page des propriétés, enregistrez l'ID d'application que vous utiliserez pour configurer l'application web.
 
 * * *
@@ -63,7 +63,7 @@ Les étendues permettent de gérer l'accès aux ressources protégées. Elles so
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Par exemple, dans [Tutoriel : Inscrire une application dans Azure Active Directory B2C](tutorial-register-applications.md), une application web est enregistrée dans Azure AD B2C nommée *webapp1*. Vous pouvez utiliser cette application pour appeler l'API web.
+Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Par exemple, dans [Tutoriel : Inscrire une application dans Azure Active Directory B2C](tutorial-register-applications.md), une application web est enregistrée dans Azure AD B2C nommée *webapp1* . Vous pouvez utiliser cette application pour appeler l'API web.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 

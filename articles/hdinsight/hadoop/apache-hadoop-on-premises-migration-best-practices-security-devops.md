@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751283"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329421"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
 
@@ -116,9 +116,9 @@ Pour plus d’informations, consultez l’article : [Mise à jour corrective du
 
 ## <a name="post-migration"></a>Après la migration
 
-1. **Corriger les applications** : apportez de façon itérative les modifications nécessaires aux travaux, processus et scripts.
-2. **Effectuer des tests** : exécutez de façon itérative des tests fonctionnels et de performance.
-3. **Optimiser** : résolvez tous les problèmes de performances basés sur les résultats des tests ci-dessus, puis relancez les tests pour confirmer les améliorations des performances.
+1. **Corriger les applications**  : apportez de façon itérative les modifications nécessaires aux travaux, processus et scripts.
+2. **Effectuer des tests**  : exécutez de façon itérative des tests fonctionnels et de performance.
+3. **Optimiser**  : résolvez tous les problèmes de performances basés sur les résultats des tests ci-dessus, puis relancez les tests pour confirmer les améliorations des performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

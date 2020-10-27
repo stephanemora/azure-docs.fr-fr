@@ -1,39 +1,39 @@
 ---
-title: Approvisionner le débit d’une base de données dans Azure Cosmos DB
-description: Apprenez à approvisionner le débit au niveau de la base de données dans Azure Cosmos DB à l’aide du Portail Azure, de l’interface CLI, de PowerShell et des différents Kits de développement logiciel (SDK).
+title: Approvisionner le débit d’une base de données dans l’API SQL Azure Cosmos DB
+description: Apprenez à approvisionner le débit au niveau de la base de données dans l’API SQL Azure Cosmos DB à l’aide du Portail Azure, de l’interface CLI, de PowerShell et des différents Kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/28/2019
+ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997368"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278593"
 ---
-# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit standard (manuel) sur une base de données Azure Cosmos DB - API SQL
 
-Cet article explique comment approvisionner le débit standard (manuel) sur une base de données dans Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Pour savoir quand utiliser le débit au niveau du conteneur et au niveau de la base de données, voir [Cas d’usage de l’approvisionnement du débit des conteneurs et des bases de données](set-throughput.md). Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
+Cet article explique comment approvisionner le débit standard (manuel) sur une base de données dans l’API SQL Azure Cosmos DB. Vous pouvez approvisionner le débit d’un seul [conteneur](how-to-provision-container-throughput.md) ou d’une base de données et le partager entre les conteneurs au sein de la base de données. Pour savoir quand utiliser le débit au niveau du conteneur et au niveau de la base de données, voir [Cas d’usage de l’approvisionnement du débit des conteneurs et des bases de données](set-throughput.md). Vous pouvez provisionner le débit au niveau d’une base de données via le portail Azure ou à l’aide des kits SDK Azure Cosmos DB.
+
+Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to-provision-throughput-mongodb.md), [API Cassandra](how-to-provision-throughput-cassandra.md), [API Gremlin](how-to-provision-throughput-gremlin.md) pour approvisionner le débit.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Approvisionner le débit à l’aide du portail Azure
-
-### <a name="sql-core-api"></a><a id="portal-sql"></a>API (Core) SQL
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte Azure Cosmos existant.
 
-1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouvelle base de données**. Fournissez les détails suivants :
+1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouvelle base de données** . Fournissez les détails suivants :
 
    * Entrez un ID de base de données.
-   * Sélectionnez **Provisionner le débit**.
+   * Sélectionnez l’option **Provisionner le débit de base de données** .
    * Entrez un débit, par exemple 1 000 RU.
-   * Sélectionnez **OK**.
+   * Sélectionnez **OK** .
 
-    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Capture d’écran de la boîte de dialogue Nouvelle base de données":::
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Capture d’écran de la boîte de dialogue Nouvelle base de données":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Configurer le débit à l’aide d’Azure CLI ou de PowerShell
 
@@ -45,9 +45,7 @@ Pour créer une base de données avec débit partagé, voir
 ## <a name="provision-throughput-using-net-sdk"></a>Approvisionner le débit à l’aide du Kit de développement logiciel (SDK) .NET
 
 > [!Note]
-> Vous pouvez utiliser les SDK Cosmos pour l’API SQL afin de provisionner le débit de toutes les API. Vous pouvez éventuellement utiliser l’exemple suivant pour l’API Cassandra.
-
-### <a name="all-apis"></a><a id="dotnet-all"></a>Toutes les API
+> Vous pouvez utiliser les SDK Azure Cosmos pour l’API SQL afin de provisionner le débit de toutes les API. Vous pouvez éventuellement utiliser l’exemple suivant pour l’API Cassandra.
 
 # <a name="net-sdk-v2"></a>[Kit de développement logiciel (SDK) .NET V2](#tab/dotnetv2)
 
@@ -70,15 +68,6 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
-
-Une commande similaire peut être exécutée avec n’importe quel pilote conforme à CQL.
-
-```csharp
-// Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
-```
- 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les articles suivants pour en savoir plus sur le débit provisionné dans Azure Cosmos DB :

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948372"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173668"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
 
@@ -27,7 +27,7 @@ Quand vous liez votre référentiel GitHub à Azure Static Web Apps, un fichier 
 Procédez comme suit pour afficher le fichier de flux de travail généré.
 
 1. Ouvrez le référentiel de l’application sur GitHub.
-1. Dans l’onglet _Code_, cliquez sur le dossier `.github/workflows`.
+1. Dans l’onglet _Code_ , cliquez sur le dossier `.github/workflows`.
 1. Cliquez sur le fichier dont le nom ressemble à `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
 Le fichier YAML dans votre référentiel ressemblera à l’exemple suivant :
@@ -161,9 +161,39 @@ Vous pouvez personnaliser le flux de travail pour rechercher le fichier [routes.
 
 | Propriété            | Description |
 |---------------------|-------------|
-| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_. Cet emplacement est relatif par rapport à la racine du référentiel. |
+| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_ . Cet emplacement est relatif par rapport à la racine du référentiel. |
 
  L’emplacement de votre fichier de _routes.json_ est particulièrement important si l’étape de compilation de votre framework frontal ne déplace pas ce fichier vers `app_artifact_location` par défaut.
+
+## <a name="environment-variables"></a>Variables d'environnement
+
+Vous pouvez définir des variables d’environnement pour votre build via la section `env` de la configuration d’un travail.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          ###### Repository/Build Configurations
+          app_location: "/"
+          api_location: "api"
+          app_artifact_location: "public"
+          ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          HUGO_VERSION: 0.58.0
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

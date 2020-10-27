@@ -38,10 +38,10 @@ Pour participer à ce programme, vous devez passer en revue et accepter les term
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à signer des contrats juridiques.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
-1. Sélectionnez **Contrats**.
+1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur** .
+1. Sélectionnez **Contrats** .
 1. Sélectionnez le lien de la version et affichez l'accord.
-1. Pour accepter les termes du contrat, sélectionnez **Accepter le contrat**.
+1. Pour accepter les termes du contrat, sélectionnez **Accepter le contrat** .
 
 ## <a name="set-up-your-billing-information"></a>Configurer vos informations de facturation
 
@@ -51,11 +51,11 @@ Définissez vos informations de facturation pour le programme Business Applicati
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires pour autoriser votre compte à mettre à jour vos informations de facturation.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
-1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur**.
-1. Sous **Compte**, sélectionnez **Profil de facturation**.
+1. Sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres de développeur** .
+1. Sous **Compte** , sélectionnez **Profil de facturation** .
 1. Passez en revue les coordonnées du contact principal et les informations de facturation fournies par votre entité juridique, et faites les mises à jour nécessaires.
 1. Le cas échéant, spécifiez vos paramètres d’identifiant fiscal / de n° de TVA.
-1. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
+1. Pour enregistrer vos modifications, cliquez sur **Enregistrer** .
 
 > [!NOTE]
 > Vous pouvez mettre à jour votre profil de facturation à tout moment. Toutefois, le *nom de l’entreprise* et le *pays* de l’adresse de facturation ne peuvent pas être modifiés ultérieurement.

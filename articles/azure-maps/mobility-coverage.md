@@ -62,7 +62,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Hong Kong (R.A.S.) | Hong Kong (R.A.S.)*|
 | Macao R.A.S. | Macao (R.A.S.)*|
 | Maldives | Male |
-| Inde | Ahmedabad, Bangalore, Delhi, Hyderabad,Bombay, Mysore, Pune|
+| Inde | Ahmedabad, Bengaluru (Bangalore), Delhi, Hyderabad, Mumbai (Bombay), Mysuru (Mysore), Pune|
 | Indonésie | Bandung, Banjarmasin, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japon | Hokkaido, préfecture de Shizuoka, Tokyo, Wakkanai, préfecture de Yamanashi |
 | Malaisie | Ipoh, Johar Bahru, Kuala Lumpur, Penang |

@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246688"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207391"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
 
@@ -18,10 +18,10 @@ Dans Azure Service Fabric, les services fiables avec état et Reliable Actors pe
 
 Par exemple, vous pouvez configurer un service pour qu’il sauvegarde ses données afin de vous protéger des scénarios suivants :
 
-- **Cas de reprise d’activité après sinistre** : Perte définitive d’un cluster Service Fabric entier.
-- **Cas de perte de données** : Perte définitive de la majorité des réplicas d’une partition de service.
-- **Cas de perte de données** : Suppression accidentelle ou altération du service. Par exemple, un administrateur supprime le service par erreur.
-- **Cas d’altération des données** : Bogues dans le service qui provoquent l’altération des données. Par exemple, l’altération des données peut se produire lorsqu’une mise à niveau de code de service écrit des données erronées dans une collection fiable. Dans ce cas, le code et les données devront peut-être être restaurés à un état antérieur.
+- **Cas de reprise d’activité après sinistre**  : Perte définitive d’un cluster Service Fabric entier.
+- **Cas de perte de données**  : Perte définitive de la majorité des réplicas d’une partition de service.
+- **Cas de perte de données**  : Suppression accidentelle ou altération du service. Par exemple, un administrateur supprime le service par erreur.
+- **Cas d’altération des données**  : Bogues dans le service qui provoquent l’altération des données. Par exemple, l’altération des données peut se produire lorsqu’une mise à niveau de code de service écrit des données erronées dans une collection fiable. Dans ce cas, le code et les données devront peut-être être restaurés à un état antérieur.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -148,13 +148,13 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Pour l’API de restauration, vous devez fournir les détails sur _BackupId_ et _BackupLocation_.
+Pour l’API de restauration, vous devez fournir les détails sur _BackupId_ et _BackupLocation_ .
 
 Vous devez également choisir une partition de destination dans le cluster de remplacement, comme indiqué dans le [schéma de partition](service-fabric-concepts-partitioning.md#get-started-with-partitioning). La sauvegarde du cluster de remplacement est restaurée sur la partition spécifiée dans le schéma de partition du cluster d’origine perdu.
 
 Si l’ID de partition du cluster de remplacement est `1c42c47f-439e-4e09-98b9-88b8f60800c6`, vous pouvez le mapper sur l’ID de partition du cluster d’origine `974bd92a-b395-4631-8a7f-53bd4ae9cf22` en comparant la clé haute et la clé basse du _partitionnement par plages de valeurs (UniformInt64Partition)_ .
 
-Pour le _partitionnement nommé_, la valeur de nom est comparée pour identifier la partition cible dans l’autre cluster.
+Pour le _partitionnement nommé_ , la valeur de nom est comparée pour identifier la partition cible dans l’autre cluster.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Vous pouvez suivre la progression d’une restauration avec TrackRestoreProgress.
 
+> [!NOTE]
+> Lors de l’utilisation de PowerShell pour restaurer une partition, si BackupLocation a la valeur « $ », la séquence d’échappement utilise « ~ »
+>
+
 ### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
 Il est possible de déclencher une restauration à partir de Service Fabric Explorer. Vérifiez que le mode avancé est activé dans les paramètres Service Fabric Explorer.
 1. Sélectionnez les partitions souhaitées, puis cliquez sur Actions. 
@@ -203,7 +207,7 @@ Il est possible de déclencher une restauration à partir de Service Fabric Expl
 
 ### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauration des données après une _altération_/_perte de données_
 
-Dans le cas d’une _perte de données_ ou d’une _altération des données_, vous pouvez restaurer les données des partitions du service fiable avec état et Reliable Actors à l’aide de l’une des sauvegardes choisies.
+Dans le cas d’une _perte de données_ ou d’une _altération des données_ , vous pouvez restaurer les données des partitions du service fiable avec état et Reliable Actors à l’aide de l’une des sauvegardes choisies.
 
 L’exemple suivant est la continuation du scénario mentionné dans [Activation de la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors)](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Dans cet exemple, une stratégie de sauvegarde est activée pour la partition, et le service effectue des sauvegardes à la fréquence souhaitée dans le stockage Azure.
 
@@ -225,7 +229,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Pour l’API de restauration, fournissez les détails sur _BackupId_ et _BackupLocation_. La sauvegarde est activée dans le cluster. Par conséquent, le _service BRS (Backup Restore Service)_ de Service Fabric identifie le bon emplacement de stockage à l’aide de la stratégie de sauvegarde associée.
+Pour l’API de restauration, fournissez les détails sur _BackupId_ et _BackupLocation_ . La sauvegarde est activée dans le cluster. Par conséquent, le _service BRS (Backup Restore Service)_ de Service Fabric identifie le bon emplacement de stockage à l’aide de la stratégie de sauvegarde associée.
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 Vous pouvez suivre la progression d’une restauration avec TrackRestoreProgress.
+
+> [!NOTE]
+> Lors de l’utilisation de PowerShell pour restaurer une partition, si BackupLocation a la valeur « $ », la séquence d’échappement utilise « ~ »
+>
 
 ## <a name="track-restore-progress"></a>Suivre la progression de la restauration
 
@@ -281,7 +289,7 @@ La demande de restauration progresse dans l’ordre suivant :
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **InProgress** (En cours) : l’état de restauration _InProgress_ indique que la partition fait l’objet d’une restauration avec la sauvegarde mentionnée dans la demande. La partition indique l’état _dataloss_.
+2. **InProgress** (En cours) : l’état de restauration _InProgress_ indique que la partition fait l’objet d’une restauration avec la sauvegarde mentionnée dans la demande. La partition indique l’état _dataloss_ .
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -290,7 +298,7 @@ La demande de restauration progresse dans l’ordre suivant :
     ```
     
 3. **Success** (Réussite), **Failure** (Échec) ou **Timeout** (Expiration du délai) : une restauration demandée peut être effectuée avec l’un des états suivants. Chaque état présente les détails d’importance et de réponse suivants :
-    - **Réussite** : l’état de restauration _Success_ indique un état de partition retrouvée. La partition indique les états _RestoredEpoch_ et _RestoredLSN_ ainsi que l’heure UTC.
+    - **Réussite**  : l’état de restauration _Success_ indique un état de partition retrouvée. La partition indique les états _RestoredEpoch_ et _RestoredLSN_ ainsi que l’heure UTC.
 
         ```
         RestoreState  : Success
@@ -298,7 +306,7 @@ La demande de restauration progresse dans l’ordre suivant :
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Échec** : l’état de restauration _Failure_ indique l’échec de la demande de restauration. La cause de l’échec est signalée.
+    - **Échec**  : l’état de restauration _Failure_ indique l’échec de la demande de restauration. La cause de l’échec est signalée.
 
         ```
         RestoreState  : Failure
@@ -317,7 +325,7 @@ La demande de restauration progresse dans l’ordre suivant :
 
 ## <a name="automatic-restore"></a>Restauration automatique
 
-Vous pouvez configurer les partitions du service fiable avec état et Reliable Actors dans le cluster Service Fabric pour la _restauration automatique_. Dans la stratégie de sauvegarde, définissez `AutoRestore` sur _true_. L’activation de la _restauration automatique_ restaure automatiquement les données de la dernière sauvegarde de partition, si une perte de données est signalée. Pour plus d'informations, consultez les pages suivantes :
+Vous pouvez configurer les partitions du service fiable avec état et Reliable Actors dans le cluster Service Fabric pour la _restauration automatique_ . Dans la stratégie de sauvegarde, définissez `AutoRestore` sur _true_ . L’activation de la _restauration automatique_ restaure automatiquement les données de la dernière sauvegarde de partition, si une perte de données est signalée. Pour plus d'informations, consultez les pages suivantes :
 
 - [Activation de la restauration automatique dans la stratégie de sauvegarde](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Référence sur l’API RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)

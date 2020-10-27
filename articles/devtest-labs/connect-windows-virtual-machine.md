@@ -15,13 +15,13 @@ Cet article vous explique comment vous connecter à une machine virtuelle Window
 
 ## <a name="connect-to-a-windows-vm"></a>Se connecter à une machine virtuelle Windows
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans la barre de recherche, recherchez et sélectionnez **DevTest Lab**. 
+1. Dans la barre de recherche, recherchez et sélectionnez **DevTest Lab** . 
 
     :::image type="content" source="./media/connect-windows-virtual-machine/search-select.png" alt-text="Recherchez et sélectionnez DevTest Labs":::    
-1. Dans la liste de labos, sélectionnez votre **labo**.
+1. Dans la liste de labos, sélectionnez votre **labo** .
 
     :::image type="content" source="./media/connect-windows-virtual-machine/select-lab.png" alt-text="Recherchez et sélectionnez DevTest Labs":::            
-1. Dans la page d’accueil de votre lab, sélectionnez votre machine virtuelle Windows dans la liste **Mes machines virtuelles**. 
+1. Dans la page d’accueil de votre lab, sélectionnez votre machine virtuelle Windows dans la liste **Mes machines virtuelles** . 
 
     :::image type="content" source="./media/connect-windows-virtual-machine/select-windows-vm.png" alt-text="Recherchez et sélectionnez DevTest Labs":::                
 1. Sur la page **Machine virtuelle** de votre machine virtuelle, sélectionnez **Se connecter** dans la barre d’outils. Si la machine virtuelle est arrêtée, sélectionnez **Démarrer** en premier pour démarrer la machine virtuelle.

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87474340"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168339"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
 
@@ -87,7 +87,7 @@ Lorsque le filtrage est activé, le contrôle comprend une zone de texte pour aj
 - Par défaut, `selectAll` est défini `true` lorsque la sélection multiple est activée.
 - La propriété `filter` permet aux utilisateurs de rechercher parmi une longue liste d’options.
 - L’étiquette de `constraints.allowedValues` est le texte qui s’affiche pour un élément, et sa valeur est la valeur de sortie de l’élément sélectionné lors de la sélection.
-- Si elle est spécifiée, la valeur par défaut doit être une étiquette présente dans `constraints.allowedValues`. Dans le cas contraire, le premier élément de `constraints.allowedValues` est sélectionné. La valeur par défaut est **null**.
+- Si elle est spécifiée, la valeur par défaut doit être une étiquette présente dans `constraints.allowedValues`. Dans le cas contraire, le premier élément de `constraints.allowedValues` est sélectionné. La valeur par défaut est **null** .
 - `constraints.allowedValues` doit avoir au moins un élément.
 - Pour émuler une valeur qui n’est pas requise, ajoutez un élément avec une étiquette et la valeur de `""` (chaîne vide) à `constraints.allowedValues`.
 - La propriété `defaultDescription` est utilisée pour les éléments qui n’ont pas de description.

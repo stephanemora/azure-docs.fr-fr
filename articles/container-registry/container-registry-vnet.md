@@ -3,12 +3,12 @@ title: Restreindre l’accès avec un point de terminaison de service
 description: Restreignez l’accès à un registre de conteneurs Azure à l’aide d’un point de terminaison de service dans un réseau virtuel Azure. L’accès au point de terminaison de service est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488663"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215499"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restreindre l’accès à un registre de conteneurs à l’aide d’un point de terminaison de service dans un réseau virtuel Azure
 
@@ -19,7 +19,7 @@ Cet article explique comment configurer un point de terminaison de service de re
 > [!IMPORTANT]
 > Azure Container Registry prend désormais en charge [Azure Private Link](container-registry-private-link.md), ce qui permet de placer des points de terminaison privés d’un réseau virtuel sur un registre. Les points de terminaison privés sont accessibles à partir du réseau virtuel, à l’aide d’adresses IP privées. Nous vous recommandons d’utiliser des points de terminaison privés plutôt que des points de terminaison de service dans la plupart des scénarios réseau.
 
-La configuration d’un point de terminaison de service du registre est disponible dans le niveau de service de registre de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
+La configuration d’un point de terminaison de service du registre est disponible dans le niveau de service de registre de conteneurs **Premium** . Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -49,13 +49,11 @@ La configuration d’un point de terminaison de service du registre est disponib
 
 ## <a name="configure-network-access-for-registry"></a>Configurer l’accès réseau pour le registre
 
-Dans cette section, configurez votre registre de conteneurs pour autoriser l’accès à partir d’un sous-réseau dans un réseau virtuel Azure. Les étapes équivalentes à l’aide de l’interface de ligne de commande Azure et du portail Azure sont fournies.
+Dans cette section, configurez votre registre de conteneurs pour autoriser l’accès à partir d’un sous-réseau dans un réseau virtuel Azure. Les étapes sont fournies à l’aide d’Azure CLI.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Autoriser l’accès à partir d’un réseau virtuel - CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Ajouter un point de terminaison de service à un sous-réseau
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Ajouter un point de terminaison de service à un sous-réseau
-
-Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM*, le nom de réseau virtuel par défaut est *myDockerVMVNET*, avec un sous-réseau nommé *myDockerVMSubnet*. Vérifiez cela dans le portail Azure ou à l’aide de la commande [az network vnet list][az-network-vnet-list] :
+Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM* , le nom de réseau virtuel par défaut est *myDockerVMVNET* , avec un sous-réseau nommé *myDockerVMSubnet* . Vérifiez cela à l’aide de la commande [az network vnet list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Sortie :
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Changer l’accès réseau par défaut au registre
+### <a name="change-default-network-access-to-registry"></a>Changer l’accès réseau par défaut au registre
 
 Par défaut, un registre de conteneurs Azure autorise les connexions à partir d’hôtes sur n’importe quel réseau. Pour limiter l’accès à un réseau sélectionné, changez l’action par défaut de manière à refuser l’accès. Substituez le nom de votre registre dans la commande [az acr update][az-acr-update] suivante :
 
@@ -109,7 +107,7 @@ Par défaut, un registre de conteneurs Azure autorise les connexions à partir d
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Ajouter une règle de réseau au registre
+### <a name="add-network-rule-to-registry"></a>Ajouter une règle de réseau au registre
 
 Utilisez la commande [az acr network-rule add][az-acr-network-rule-add] pour ajouter à votre registre une règle de réseau qui autorise l’accès à partir du sous-réseau de la machine virtuelle. Substituez le nom du registre de conteneur et l’ID de ressource du sous-réseau dans la commande suivante : 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Restaurer l’accès au registre par défaut
 
-Pour restaurer le registre afin d’autoriser l’accès par défaut, supprimez toutes les règles de réseau qui sont configurées. Ensuite, définissez l’action par défaut pour autoriser l’accès. Les étapes équivalentes à l’aide de l’interface de ligne de commande Azure et du portail Azure sont fournies.
+Pour restaurer le registre afin d’autoriser l’accès par défaut, supprimez toutes les règles de réseau qui sont configurées. Ensuite, définissez l’action par défaut pour autoriser l’accès. 
 
-### <a name="restore-default-registry-access---cli"></a>Restaurer l’accès au registre par défaut - CLI
-
-#### <a name="remove-network-rules"></a>Supprimer les règles de réseau
+### <a name="remove-network-rules"></a>Supprimer les règles de réseau
 
 Pour afficher la liste des règles de réseau configurées pour votre registre, exécutez la commande [az acr network-rule list][az-acr-network-rule-list] suivante :
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Autoriser l’accès
+### <a name="allow-access"></a>Autoriser l’accès
 
 Substituez le nom de votre registre dans la commande [az acr update][az-acr-update] suivante :
 ```azurecli
@@ -180,8 +176,6 @@ Si vous avez créé toutes les ressources Azure dans le même groupe de ressourc
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Pour supprimer vos ressources dans le portail, accédez au groupe de ressources myResourceGroup. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources et les ressources à cet endroit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

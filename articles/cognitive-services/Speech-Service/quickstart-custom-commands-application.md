@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289424"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329149"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Créer un assistant vocal à l’aide de commandes personnalisées
 
@@ -50,8 +50,8 @@ Dans ce guide de démarrage rapide, vous créez et testez une application Comman
    > [!NOTE]
    > Si vous ne voyez pas la page Sélectionner un abonnement, vous pouvez y accéder en choisissant « Ressources Speech » dans le menu Paramètres sur la barre supérieure.
 
-1. Sélectionnez votre abonnement Speech, puis **Accéder à Studio**.
-1. Sélectionnez **Commandes personnalisées**.
+1. Sélectionnez votre abonnement Speech, puis **Accéder à Studio** .
+1. Sélectionnez **Commandes personnalisées** .
 
    L'affichage par défaut présente liste des applications Commandes personnalisées disponibles sous l'abonnement sélectionné.
 
@@ -59,23 +59,23 @@ Dans ce guide de démarrage rapide, vous créez et testez une application Comman
 
 1. Sélectionnez **Nouveau projet** pour créer un projet.
 
-1. Dans la zone **Nom**, entrez le nom de projet `Smart-Room-Lite` (ou le nom de votre choix).
-1. Dans la liste **Langue**, sélectionnez **Français - France**.
-1. Sélectionnez **Parcourir les fichiers** puis, dans la fenêtre, sélectionnez le fichier **SmartRoomLite.json**.
+1. Dans la zone **Nom** , entrez le nom de projet `Smart-Room-Lite` (ou le nom de votre choix).
+1. Dans la liste **Langue** , sélectionnez **Français - France** .
+1. Sélectionnez **Parcourir les fichiers** puis, dans la fenêtre, sélectionnez le fichier **SmartRoomLite.json** .
 
     > [!div class="mx-imgBorder"]
     > ![Créer un projet](media/custom-commands/import-project.png)
 
-1.  Dans la liste **Ressource de création LUIS**, sélectionnez une ressource de création. En l’absence de ressources de création valides, créez-en une en sélectionnant **Créer une ressource de création LUIS**.
+1.  Dans la liste **Ressource de création LUIS** , sélectionnez une ressource de création. En l’absence de ressources de création valides, créez-en une en sélectionnant **Créer une ressource de création LUIS** .
 
     > [!div class="mx-imgBorder"]
     > ![Créer un groupe de ressources](media/custom-commands/create-new-luis-resource.png)
     
     
-    1. Dans la zone **Nom de la ressource**, entrez le nom de la ressource.
-    1. Dans la liste **Groupe de ressources**, sélectionnez un groupe de ressources.
-    1. Dans la liste **Localisation**, sélectionnez une localisation.
-    1. Dans la liste **Niveau tarifaire**, sélectionnez un niveau.
+    1. Dans la zone **Nom de la ressource** , entrez le nom de la ressource.
+    1. Dans la liste **Groupe de ressources** , sélectionnez un groupe de ressources.
+    1. Dans la liste **Localisation** , sélectionnez une localisation.
+    1. Dans la liste **Niveau tarifaire** , sélectionnez un niveau.
     
     
     > [!NOTE]
@@ -102,8 +102,8 @@ Pour accéder à cette application en dehors de Speech Studio, vous devez la pub
 
 
 1. Sélectionnez **Paramètres** dans le volet gauche, puis sélectionnez **Ressources LUIS** dans le volet central.
-1. Sélectionnez une ressource de prédiction, ou créez-en une en sélectionnant **Créer une ressource**.
-1. Sélectionnez **Enregistrer**.
+1. Sélectionnez une ressource de prédiction, ou créez-en une en sélectionnant **Créer une ressource** .
+1. Sélectionnez **Enregistrer** .
     
     > [!div class="mx-imgBorder"]
     > ![Définir les ressources LUIS](media/custom-commands/set-luis-resources.png)
@@ -113,17 +113,17 @@ Pour accéder à cette application en dehors de Speech Studio, vous devez la pub
 
 ### <a name="publish-the-application"></a>Publication de l'application
 
-Sélectionnez **Publier** en haut du volet. Une fois la publication terminée, une nouvelle fenêtre s’affiche. Notez l’**ID de l’application** et sa valeur **Clé de la ressource Speech**. Vous aurez besoin de ces deux valeurs pour accéder à l’application en dehors de Speech Studio.
+Sélectionnez **Publier** en haut du volet. Une fois la publication terminée, une nouvelle fenêtre s’affiche. Notez l’ **ID de l’application** et sa valeur **Clé de la ressource Speech** . Vous aurez besoin de ces deux valeurs pour accéder à l’application en dehors de Speech Studio.
 
-Vous pouvez également obtenir ces valeurs en sélectionnant la section **Paramètres** > **Général**.
+Vous pouvez également obtenir ces valeurs en sélectionnant la section **Paramètres** > **Général** .
 
 ### <a name="access-application-from-client"></a>Accéder à une application à partir du client
 
 Dans le cadre de cet article, nous utiliserons le client de l’assistant vocal Windows que vous avez téléchargé conformément aux conditions préalables. Décompressez le dossier.
-1. Lancez **VoiceAssistantClient.exe**.
-1. Créez un profil de publication et entrez une valeur pour **Profil de connexion**. Dans la section **Paramètres généraux**, entrez des valeurs pour **Clé d’abonnement** (la même valeur que la **Clé de ressource Speech** enregistrée lors de la publication de l’application), **Région de la clé d’abonnement** et **ID d’application Commandes personnalisées**.
+1. Lancez **VoiceAssistantClient.exe** .
+1. Créez un profil de publication et entrez une valeur pour **Profil de connexion** . Dans la section **Paramètres généraux** , entrez des valeurs pour **Clé d’abonnement** (la même valeur que la **Clé de ressource Speech** enregistrée lors de la publication de l’application), **Région de la clé d’abonnement** et **ID d’application Commandes personnalisées** .
     > [!div class="mx-imgBorder"]
-    > ![Création d’un profil WVAC](media/custom-commands/create-profile.png)
+    > ![Capture d’écran mettant en évidence la section Paramètres généraux pour la création d’un profil WVAC.](media/custom-commands/create-profile.png)
 1. Sélectionnez **Save and Apply Profile** (Enregistrer et appliquer le profil).
 1. Testez maintenant les entrées suivantes en mode vocal/texte
     > [!div class="mx-imgBorder"]

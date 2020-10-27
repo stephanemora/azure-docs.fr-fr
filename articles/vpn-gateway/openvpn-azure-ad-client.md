@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.author: alzam
+ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819760"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109100"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Authentification Azure Active Directory : Configurer un client VPN pour les connexions P2S de protocole OpenVPN
 
@@ -30,7 +30,7 @@ Utilisez ce [lien](https://go.microsoft.com/fwlink/?linkid=2117554) pour téléc
 
 1. Accédez à Démarrer, puis sélectionnez Paramètres > Confidentialité > Applications en arrière-plan.
 2. Sous Applications en arrière-plan, assurez-vous que l’option **Autoriser les applications à s’exécuter en arrière-plan** est activée.
-3. Sous Choisir les applications qui peuvent s’exécuter en arrière-plan, configurez les paramètres d’Azure VPN Client sur **Activé**.
+3. Sous Choisir les applications qui peuvent s’exécuter en arrière-plan, configurez les paramètres d’Azure VPN Client sur **Activé** .
 
   ![autorisation](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
@@ -52,7 +52,7 @@ Lorsque vous utilisez un profil basé sur un certificat, assurez-vous que les ce
 
 Une fois que vous disposez d’un profil fonctionnel et que vous devez le distribuer à d’autres utilisateurs, vous pouvez l’exporter en procédant comme suit :
 
-1. Mettez en surbrillance le profil client VPN que vous souhaitez exporter, sélectionnez les points de sélection ( **...** ), puis sélectionnez **Exporter**.
+1. Mettez en surbrillance le profil client VPN que vous souhaitez exporter, sélectionnez les points de sélection ( **...** ), puis sélectionnez **Exporter** .
 
     ![Capture d’écran montrant la page « Client VPN Azure », avec les points de suspension sélectionnés et « Exporter » mis en surbrillance.](./media/openvpn-azure-ad-client/export/export1.jpg)
 
@@ -62,15 +62,15 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Pour importer un profil client
 
-1. Dans la page, sélectionnez **Importer**.
+1. Dans la page, sélectionnez **Importer** .
 
     ![Capture d’écran montrant le bouton « Ajouter » sélectionné et l’action « Importer » en surbrillance dans la partie inférieure gauche de la fenêtre.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Accédez au fichier XML de profil et sélectionnez-le. Une fois le fichier sélectionné, sélectionnez **Ouvrir**.
+2. Accédez au fichier XML de profil et sélectionnez-le. Une fois le fichier sélectionné, sélectionnez **Ouvrir** .
 
     ![Capture d’écran montrant un fichier de profil x m l sélectionné.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. Spécifiez le nom du profil et sélectionnez **Enregistrer**.
+3. Spécifiez le nom du profil et sélectionnez **Enregistrer** .
 
     ![Capture d’écran montrant le « nom de la connexion » mis en surbrillance et le bouton « Enregistrer » sélectionné.](./media/openvpn-azure-ad-client/import/import3.jpg)
 
@@ -78,13 +78,13 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
     ![Capture d’écran montrant le VPN et le bouton « Connexion » sélectionné.](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté**.
+5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté** .
 
     ![importer](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Pour supprimer un profil client
 
-1. Sélectionnez les points de suspension en regard du profil client que vous souhaitez supprimer. Sélectionnez ensuite **Supprimer**.
+1. Sélectionnez les points de suspension en regard du profil client que vous souhaitez supprimer. Sélectionnez ensuite **Supprimer** .
 
     ![Capture d’écran montrant les ellipses et l’option « Supprimer » sélectionnée.](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
@@ -94,11 +94,11 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Créer une connexion
 
-1. Sur la page, sélectionnez **+** , puis **+ Ajouter**.
+1. Sur la page, sélectionnez **+** , puis **+ Ajouter** .
 
     ![Capture d’écran montrant le bouton « Ajouter » sélectionné.](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Remplissez les informations de connexion. Si vous ne connaissez pas les valeurs, contactez votre administrateur. Quand vous avez rempli tous les champs, sélectionnez **Enregistrer**.
+2. Remplissez les informations de connexion. Si vous ne connaissez pas les valeurs, contactez votre administrateur. Quand vous avez rempli tous les champs, sélectionnez **Enregistrer** .
 
     ![Capture d’écran montrant les propriétés de la connexion VPN mises en surbrillance et le bouton « Enregistrer » sélectionné.](./media/openvpn-azure-ad-client/create/create2.jpg)
 
@@ -106,11 +106,11 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
     ![Capture d’écran montrant le VPN et le bouton « Connexion » sélectionné.](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Sélectionnez les informations d’identification appropriées, puis sélectionnez **Continuer**.
+4. Sélectionnez les informations d’identification appropriées, puis sélectionnez **Continuer** .
 
     ![Capture d’écran montrant les informations d’identification de l’exemple en surbrillance et le bouton « Continuer » sélectionné.](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté**.
+5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté** .
 
     ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
@@ -118,7 +118,7 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
 Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte automatiquement avec Always-on.
 
-1. Sur la page d’accueil de votre client VPN, sélectionnez **Paramètres VPN**.
+1. Sur la page d’accueil de votre client VPN, sélectionnez **Paramètres VPN** .
 
     ![Capture d’écran de la page d’accueil VPN avec l’option « Paramètres VPN » sélectionnée.](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
@@ -126,7 +126,7 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
 
     ![Capture d’écran de la boîte de dialogue « Souhaitiez-vous changer d’application ? » avec le bouton « Oui » sélectionné.](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
-3. Vérifiez que la connexion que vous souhaitez définir n’est pas déjà établie, puis mettez en surbrillance le profil et activez la case à cocher **Se connecter automatiquement**.
+3. Vérifiez que la connexion que vous souhaitez définir n’est pas déjà établie, puis mettez en surbrillance le profil et activez la case à cocher **Se connecter automatiquement** .
 
     ![Capture d’écran de la fenêtre « Paramètres », avec la case « Se connecter automatiquement » activée.](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
@@ -136,11 +136,11 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
 
 ## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostiquer les problèmes de connexion
 
-1. Pour diagnostiquer les problèmes de connexion, vous pouvez utiliser l’outil **Diagnostiquer**. Sélectionnez les points de suspension ( **...** ) en regard de la connexion VPN que vous souhaitez diagnostiquer pour afficher le menu. Sélectionnez ensuite **Diagnostiquer**.
+1. Pour diagnostiquer les problèmes de connexion, vous pouvez utiliser l’outil **Diagnostiquer** . Sélectionnez les points de suspension ( **...** ) en regard de la connexion VPN que vous souhaitez diagnostiquer pour afficher le menu. Sélectionnez ensuite **Diagnostiquer** .
 
     ![Capture d’écran des ellipses et « Diagnostiquer » sélectionnés.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. Dans la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
+2. Dans la page **Propriétés de connexion** , sélectionnez **Exécuter le diagnostic** .
 
     ![Capture d’écran montrant la page « Propriétés de connexion » avec l’option « Exécuter le diagnostic » sélectionnée.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
@@ -153,6 +153,10 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
     ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
+
+### <a name="is-the-azure-vpn-client-supported-with-windows-fips-mode"></a>Azure VPN Client est-il pris en charge avec le mode Windows FIPS ?
+
+Oui, avec le correctif logiciel [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063).
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Comment faire pour ajouter des suffixes DNS au client VPN ?
 
