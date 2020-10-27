@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 10/01/2020
 ms.locfileid: "91631532"
 ---
-Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue**. L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels.
+Lorsque Microsoft reçoit et analyse l’appareil, l’état de la commande est mis à jour sur **Reçue** . L’appareil subit une vérification physique afin de détecter des dommages ou des signes d’altération potentiels.
 
 Une fois la vérification terminée, la Data Box est connectée au réseau du centre de données Azure. La copie des données démarre automatiquement. Selon la taille des données, l’opération de copie peut prendre de quelques heures à quelques jours. Vous pouvez suivre la progression du travail de copie dans le portail.
 
@@ -37,7 +37,7 @@ Vérifiez que vos données ont été chargées dans Azure avant de les supprimer
 
         ![Disque managé attaché à des groupes de ressources](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Si vous avez copié un VHDX, ou un VHD dynamique ou de différenciation, le VHDX ou VHD est chargé dans le compte de stockage de préproduction comme un objet blob de pages, mais la conversion du VHD en disque managé échoue. Accédez à votre compte de stockage de préproduction (**Compte de stockage > Objets blob**), et sélectionnez le conteneur approprié (SSD Standard, HDD Standard ou SSD Premium). Les disques durs virtuels sont chargés en tant qu’objets blob de pages dans votre compte de stockage de préproduction, et engendrent des coûts supplémentaires.
+    - Si vous avez copié un VHDX, ou un VHD dynamique ou de différenciation, le VHDX ou VHD est chargé dans le compte de stockage de préproduction comme un objet blob de pages, mais la conversion du VHD en disque managé échoue. Accédez à votre compte de stockage de préproduction ( **Compte de stockage > Objets blob** ), et sélectionnez le conteneur approprié (SSD Standard, HDD Standard ou SSD Premium). Les disques durs virtuels sont chargés en tant qu’objets blob de pages dans votre compte de stockage de préproduction, et engendrent des coûts supplémentaires.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Effacer les données de la Data Box
