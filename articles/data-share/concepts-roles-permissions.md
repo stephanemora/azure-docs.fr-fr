@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 10/02/2020
-ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.date: 10/15/2020
+ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761513"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220497"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -25,8 +25,8 @@ L’identité managée de la ressource Azure Data Share doit être autorisée à
 
 Pour partager ou recevoir des données à partir d’un magasin de données Azure, l’utilisateur doit au moins disposer des autorisations suivantes. Des autorisations supplémentaires sont requises pour le partage basé sur SQL.
 
-* Autorisation d’écrire dans le magasin de données Azure. En règle générale, cette autorisation existe dans le rôle **Contributeur**.
-* Autorisation de créer une attribution de rôle dans le magasin de données Azure. En règle générale, l’autorisation de créer des attributions de rôles existe dans le rôle **Propriétaire**, le rôle Administrateur des accès utilisateur ou un rôle personnalisé doté de l’autorisation Microsoft.Authorization/role assignments/write. Cette autorisation n’est pas requise si l’identité managée de la ressource de partage de données est déjà autorisée à accéder au magasin de données Azure. Consultez le tableau ci-dessous pour connaître le rôle requis.
+* Autorisation d’écrire dans le magasin de données Azure. En règle générale, cette autorisation existe dans le rôle **Contributeur** .
+* Autorisation de créer une attribution de rôle dans le magasin de données Azure. En règle générale, l’autorisation de créer des attributions de rôles existe dans le rôle **Propriétaire** , le rôle Administrateur des accès utilisateur ou un rôle personnalisé doté de l’autorisation Microsoft.Authorization/role assignments/write. Cette autorisation n’est pas requise si l’identité managée de la ressource de partage de données est déjà autorisée à accéder au magasin de données Azure. Consultez le tableau ci-dessous pour connaître le rôle requis.
 
 Voici un résumé des rôles attribués à l’identité managée de la ressource Data Share :
 
@@ -54,16 +54,18 @@ Cette opération est effectuée automatiquement par le service Azure Data Share 
 
 L’utilisateur peut également demander au propriétaire du magasin de données Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au magasin de données Azure. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données.
 
-Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données, suivez les étapes ci-dessous :
+Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous.  
 
 1. Accédez au magasin de données Azure.
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Sous *Rôle*, sélectionnez le rôle dans le tableau d’attribution de rôle ci-dessus (par exemple, pour un compte de stockage, sélectionnez *Lecteur des données Blob du stockage*).
-1. Sous *Sélectionner*, saisissez le nom de votre ressource Azure Data Share.
-1. Cliquez sur *Enregistrer*.
+1. Sélectionnez **Ajouter une attribution de rôle** .
+1. Sous *Rôle* , sélectionnez le rôle dans le tableau d’attribution de rôle ci-dessus (par exemple, pour un compte de stockage, sélectionnez *Lecteur des données Blob du stockage* ).
+1. Sous *Sélectionner* , saisissez le nom de votre ressource Azure Data Share.
+1. Cliquez sur *Enregistrer* .
 
-Pour les sources basées sur SQL, en plus des étapes ci-dessus, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Cet utilisateur doit disposer de l’autorisation *db_datareader*. Vous trouverez un exemple de script avec d’autres conditions préalables pour le partage basé sur SQL dans le didacticiel [Partager vos données](share-your-data.md). 
+Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Si vous partagez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Ajouter ou supprimer des attributions de rôles Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
+
+Pour les sources basées sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader* . Vous trouverez un exemple de script avec d’autres conditions préalables pour le partage basé sur SQL dans le didacticiel [Partager à partir d’Azure SQL Database ou Synapse Analytics](how-to-share-from-sql.md). 
 
 ### <a name="data-consumer"></a>Consommateur de données
 Pour recevoir des données, l’identité managée de la ressource de partage de données du consommateur doit être autorisée à accéder au magasin de données Azure cible. Par exemple, dans le cas d’un compte de stockage, l’identité managée de la ressource de partage de données se voit octroyer le rôle de contributeur aux données Blob du stockage. 
@@ -72,20 +74,18 @@ Cette opération est effectuée automatiquement par le service Azure Data Share 
 
 L’utilisateur peut également demander au propriétaire du magasin de données Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au magasin de données Azure. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données.
 
-Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous :
+Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous. 
 
 1. Accédez au magasin de données Azure.
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Sous *Rôle*, sélectionnez le rôle dans le tableau d’attribution de rôle ci-dessus (par exemple, pour un compte de stockage, sélectionnez *Lecteur des données Blob du stockage*).
-1. Sous *Sélectionner*, saisissez le nom de votre ressource Azure Data Share.
-1. Cliquez sur *Enregistrer*.
+1. Sélectionnez **Ajouter une attribution de rôle** .
+1. Sous *Rôle* , sélectionnez le rôle dans le tableau d’attribution de rôle ci-dessus (par exemple, pour un compte de stockage, sélectionnez *Lecteur des données Blob du stockage* ).
+1. Sous *Sélectionner* , saisissez le nom de votre ressource Azure Data Share.
+1. Cliquez sur *Enregistrer* .
 
-Pour une cible basée sur SQL, en plus des étapes ci-dessus, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Cet utilisateur doit disposer de l’autorisation *db_datareader, db_datawriter, db_ddladmin*. Vous trouverez un exemple de script avec d’autres conditions préalables pour le partage basé sur SQL dans le didacticiel [Accepter et recevoir des données](subscribe-to-data-share.md). 
+Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Ajouter ou supprimer des attributions de rôle Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Si vous recevez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Ajouter ou supprimer des attributions de rôles Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
 
-Si vous partagez des données à l’aide d’API REST, vous devez créer ces attributions de rôles manuellement. 
-
-Pour en savoir plus sur l’ajout d’une attribution de rôle, reportez-vous à [cette documentation,](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
+Pour les cibles basées sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader, db_datawriter, db_ddladmin* . Vous trouverez un exemple de script avec d’autres conditions préalables pour le partage basé sur SQL dans le didacticiel [Partager à partir d’Azure SQL Database ou Synapse Analytics](how-to-share-from-sql.md). 
 
 ## <a name="resource-provider-registration"></a>Inscription du fournisseur de ressources 
 
@@ -97,11 +97,13 @@ Vous devrez peut-être inscrire manuellement le fournisseur de ressources Micros
 
 Suivez ces étapes pour inscrire le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. Vous avez besoin d’un accès *Contributeur* à l’abonnement Azure pour inscrire le fournisseur de ressources.
 
-1. Dans le portail Azure, accédez à **Abonnements**.
+1. Dans le portail Azure, accédez à **Abonnements** .
 1. Sélectionnez l’abonnement que vous utilisez pour Azure Data Share.
-1. Cliquez sur **Fournisseurs de ressources**.
+1. Cliquez sur **Fournisseurs de ressources** .
 1. Recherchez Microsoft.DataShare.
-1. Cliquez sur **S'inscrire**.
+1. Cliquez sur **S'inscrire** .
+ 
+Pour en savoir plus sur les fournisseurs de ressources, reportez-vous à [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
