@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089511"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277796"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
 Dans Azure Cosmos DB, chaque conteneur est doté d’une stratégie d’indexation qui détermine la façon dont les éléments du conteneur doivent être indexés. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés indexe chaque propriété de chaque élément et applique des index de plage pour les chaînes ou les nombres. Ceci vous permet d’obtenir des performances de requête élevées sans avoir à réfléchir à l’indexation et à la gestion des index dès le départ.
 
-Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété*.
+Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété* .
 
 > [!NOTE]
 > La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Découvrez l’indexation dans[API Azure Cosmos DB pour MongoDB](mongodb-indexing.md).
@@ -27,10 +27,10 @@ Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement
 Azure Cosmos DB prend en charge deux modes d’indexation :
 
 - **Cohérent** : L’index est mis à jour de manière synchrone quand vous créez, mettez à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera la [cohérence configurée pour le compte](consistency-levels.md).
-- **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
+- **Aucun**  : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
 
 > [!NOTE]
-> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md) qui ne prend pas en charge l’indexation différée).
+> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets** . Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md) qui ne prend pas en charge l’indexation différée).
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
@@ -77,7 +77,7 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 
 - La propriété système `_etag` est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
 
-- Si le mode d’indexation est défini sur **cohérent**, les propriétés système `id` et `_ts` sont automatiquement indexées.
+- Si le mode d’indexation est défini sur **cohérent** , les propriétés système `id` et `_ts` sont automatiquement indexées.
 
 Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer les attributs suivants :
 
@@ -103,9 +103,9 @@ Si les chemins inclus et les chemins exclus présentent un conflit, le chemin pl
 
 Voici un exemple :
 
-**Chemin inclus** : `/food/ingredients/nutrition/*`
+**Chemin inclus**  : `/food/ingredients/nutrition/*`
 
-**Chemin exclu** : `/food/ingredients/*`
+**Chemin exclu**  : `/food/ingredients/*`
 
 Dans ce cas, le chemin inclus est prioritaire sur le chemin exclu, car il est plus précis. Sur la base de ces chemins, toutes les données du chemin `food/ingredients` ou imbriquées dans celui-ci sont exclues de l’index. Il en va différemment des données du chemin inclus `/food/ingredients/nutrition/*`, qui est indexé.
 
@@ -271,7 +271,7 @@ Il n’y a aucun impact sur la disponibilité des écritures lors des transforma
 
 Il n’y a aucun impact sur la disponibilité de lecture lors de l’ajout d’un nouvel index. Les requêtes utilisent uniquement les nouveaux index une fois la transformation d’index terminée. Pendant la transformation d’index, le moteur de requête continue d’utiliser les index existants, ce qui vous permet d’observer des performances de lecture similaires pendant la transformation d’indexation à ce que vous aviez observé avant de lancer la modification de l’indexation. Lors de l’ajout de nouveaux index, il n’y a pas non plus de risque de résultats de requête incomplets ou incohérents.
 
-Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes qui filtrent sur les index supprimés, il n’existe pas de garantie de résultats de requête cohérents ou complets. Si vous supprimez plusieurs index et que vous le faites dans une seule modification de stratégie d’indexation, le moteur de requête garantit des résultats cohérents et complets tout au long de la transformation d’index. Toutefois, si vous supprimez des index par le biais de plusieurs modifications de stratégie d’indexation, le moteur de requête ne garantit pas de résultats cohérents ou complets tant que toutes les transformations d’index ne sont pas terminées. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
+Lorsque vous supprimez des index et que vous exécutez immédiatement des requêtes qui filtrent sur les index supprimés, il n’existe pas de garantie de résultats de requête cohérents ou complets. Si vous supprimez plusieurs index et que vous le faites dans une seule modification de stratégie d’indexation, le moteur de requête fournit des résultats cohérents et complets tout au long de la transformation d’index. Toutefois, si vous supprimez des index par le biais de plusieurs modifications de stratégie d’indexation, le moteur de requête ne fournit pas de résultats cohérents ou complets tant que toutes les transformations d’index ne sont pas terminées. La plupart des développeurs ne suppriment pas les index, puis essaient immédiatement de les interroger. Or, en pratique, cette situation est peu probable.
 
 > [!NOTE]
 > Dans la mesure du possible, vous devez toujours essayer de regrouper plusieurs modifications d’indexation dans une seule modification de stratégie d’indexation.
