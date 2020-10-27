@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318554"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207306"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparer Active Directory à Azure Active Directory
 
@@ -39,7 +39,7 @@ La plupart des administrateurs informatiques maîtrisent les concepts liés à A
 | Applications traditionnelles et héritées| La plupart des applications locales utilisent LDAP, l’authentification Windows intégrée (NTLM et Kerberos) ou l’authentification basée sur l’en-tête pour contrôler l’accès aux utilisateurs.| Azure AD peut fournir un accès à ces types d’applications locales à l’aide d’agents de [proxy d’application Azure AD](../manage-apps/application-proxy.md) s’exécutant localement. En utilisant cette méthode, Azure AD peut authentifier localement les utilisateurs Active Directory à l’aide de Kerberos pendant que vous migrez ou avez besoin de coexister avec des applications héritées. |
 | Applications SaaS|Active Directory ne prend pas en charge les applications SaaS en mode natif et nécessite un système de fédération, tel qu’AD FS.|Les applications SaaS prenant en charge l’authentification OAuth2, SAML et WS-\* peuvent être intégrées pour utiliser Azure AD pour l’authentification. |
 | Applications métier avec authentification moderne|Les organisations peuvent utiliser AD FS avec Active Directory pour prendre en charge les applications métier nécessitant une authentification moderne.| Les applications métier nécessitant une authentification moderne peuvent être configurées pour utiliser Azure AD pour l’authentification. |
-| Services de niveau intermédiaire/démons|Les services s’exécutant dans des environnements locaux utilisent normalement les comptes de service Active Directory ou les comptes de service administrés de groupe (gMSA) pour s’exécuter. Ces applications hériteront ensuite des autorisations du compte de service.| Azure AD fournit des [identités managées](../managed-identities-azure-resources/index.yml) afin d’exécuter d’autres charges de travail dans le cloud. Le cycle de vie de ces identités est géré par Azure AD et lié au fournisseur de ressources, et il ne peut pas être utilisé à d’autres fins pour obtenir un accès par une porte dérobée.|
+| Services de niveau intermédiaire/démons|Les services s’exécutant dans des environnements locaux utilisent normalement les comptes de service Active Directory ou les comptes de service administrés de groupe (gMSA) pour s’exécuter. Ces applications hériteront ensuite des autorisations du compte de service.| Azure AD fournit des [identités managées](../managed-identities-azure-resources/index.yml) afin d’exécuter d’autres charges de travail dans le cloud. Le cycle de vie de ces identités est géré par Azure AD et lié au fournisseur de ressources, et il ne peut donc pas être utilisé à d’autres fins pour obtenir un accès par une porte dérobée.|
 | **Appareils**|||
 | Mobile|Active Directory ne prend pas en charge en mode natif les appareils mobiles sans solutions tierces.| La solution de gestion des appareils mobiles de Microsoft, Microsoft Intune, est intégrée à Azure AD. Microsoft Intune fournit les informations d’état de l’appareil au système d’identité à des fins d’évaluation pendant l’authentification. |
 | Postes de travail Windows|Active Directory offre la possibilité d’effectuer une jonction de domaine des appareils Windows afin de les gérer à l’aide d’une stratégie de groupe, de System Center Configuration Manager ou d’autres solutions tierces.|Les appareils Windows peuvent être [joints à Azure AD](../devices/index.yml). L’accès conditionnel peut vérifier si un appareil est joint à Azure AD dans le cadre du processus d’authentification. Les appareils Windows peuvent également être gérés avec [Microsoft Intune](/intune/what-is-intune). Dans ce cas, l’accès conditionnel déterminera si un appareil est conforme (par exemple, correctifs de sécurité et signatures de virus à jour) avant d’autoriser l’accès aux applications.|

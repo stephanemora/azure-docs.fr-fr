@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007568"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339506"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -37,6 +37,7 @@ Versions antérieures également prises en charge : `3.0.2`
 | patch                          | Non        | Non        | Non        |                                                     |
 | supprimer                         | Oui       | Oui       | Oui       |                                                     |
 | delete (conditional)           | Non        | Non        | Non        |                                                     |
+| history                        | Oui       | Oui       | Oui       |                                                     |
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       |                                                     |
 | recherche                         | Partiel   | Partiel   | Partiel   | Voir ci-dessous                                           |
@@ -45,7 +46,6 @@ Versions antérieures également prises en charge : `3.0.2`
 | capabilities                   | Oui       | Oui       | Oui       |                                                     |
 | lot                          | Oui       | Oui       | Oui       |                                                     |
 | transaction                    | Non        | Oui       | Non        |                                                     |
-| history                        | Oui       | Oui       | Oui       |                                                     |
 | paging                         | Partiel   | Partiel   | Partiel   | `self` et `next` sont pris en charge                     |
 | intermediaries                 | Non        | Non        | Non        |                                                     |
 
@@ -94,28 +94,30 @@ Tous les types de paramètre de recherche sont pris en charge.
 | `_has`                  | Non        | Non        | Non        |         |
 | `_type`                 | Oui       | Oui       | Oui       |         |
 | `_query`                | Non        | Non        | Non        |         |
-
-| Opérations de recherche       | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Non        | Non        | Non        |         |
+
+| Paramètres des résultats de la recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partiel        | Partiel   | Partiel        |   `_sort=_lastUpdated` est pris en charge       |
-| `_score`                | Non        | Non        | Non        |         |
-| `_count`                | Oui       | Oui       | Oui       |         |
-| `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
+| `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 100 caractères. Si la valeur est supérieure à 100, seuls 100 résultats sont retournés et un avertissement est renvoyé dans le lot. |
 | `_include`              | Non        | Oui       | Non        |         |
 | `_revinclude`           | Non        | Oui       | Non        | Les éléments inclus sont limités à 100. |
+| `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
+| `_total`                | Partiel   | Partiel   | Partiel   | _total=non et _total=accurate      |
+| `_elements`             | Oui       | Oui       | Oui       |         |
 | `_contained`            | Non        | Non        | Non        |         |
-| `_elements`             | Oui        | Oui        | Oui        |         |
+| `containedType`         | Non        | Non        | Non        |         |
+| `_score`                | Non        | Non        | Non        |         |
 
 ## <a name="extended-operations"></a>Opérations étendues
 
 Toutes les opérations prises en charge qui étendent l’API RESTful.
 
 | Type de paramètre de recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (système entier)                | Oui       | Oui       | Oui       |         |
-| Patient/$export         | Oui       | Oui       | Oui       |         |
-| Group/$export               | Oui       | Oui       | Oui       |         |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (système entier) | Oui       | Oui       | Oui       |         |
+| Patient/$export        | Oui       | Oui       | Oui       |         |
+| Group/$export          | Oui       | Oui       | Oui       |         |
 
 ## <a name="persistence"></a>Persistance
 

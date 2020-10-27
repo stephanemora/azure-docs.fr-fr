@@ -7,23 +7,23 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 118e137f06a49f2c125b1ca156877514d65af86f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 34afc732d64a7aa29261989cc790c8a113208d96
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047061"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331768"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utiliser l’interface CLI Azure Digital Twins
 
-En plus de gérer votre instance Azure Digital Twins dans le portail Azure, vous pouvez utiliser l’**interface de ligne de commande (CLI)** d’Azure Digital Twins pour effectuer la plupart des actions principales dans le service, notamment :
+En plus de gérer votre instance Azure Digital Twins dans le portail Azure, vous pouvez utiliser l’ **interface de ligne de commande (CLI)** d’Azure Digital Twins pour effectuer la plupart des actions principales dans le service, notamment :
 * Gestion d’une instance Azure Digital Twins
 * Gestion des modèles
 * Gestion des jumeaux numériques
 * Gestion des relations entre les jumeaux
 * Configuration de points de terminaison
 * Gestion des [routes](concepts-route-events.md)
-* Configuration de la [sécurité](concepts-security.md) via le contrôle d’accès en fonction du rôle (RBAC)
+* Configuration de la [sécurité](concepts-security.md) via le contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
@@ -35,7 +35,7 @@ En plus de la gestion générale de votre instance, l’interface CLI vous perm
 
 ## <a name="get-the-extension"></a>Obtient l’extension
 
-Les commandes Azure Digital Twins font partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez afficher la liste complète des commandes et leur utilisation dans le cadre de la documentation de référence pour l’ensemble de commandes `az iot` : [*az dt*, informations de référence sur la commande](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+Les commandes Azure Digital Twins font partie de l’[extension Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Vous pouvez afficher la liste complète des commandes et leur utilisation dans le cadre de la documentation de référence pour l’ensemble de commandes `az iot` : [*az dt* , informations de référence sur la commande](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
 
 Vous pouvez vous assurer de disposer de la version la plus récente de l’extension en procédant comme suit. Vous pouvez exécuter ces commandes dans [Azure Cloud Shell](../cloud-shell/overview.md) ou dans une [interface de ligne de commande Azure locale](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -44,4 +44,4 @@ Vous pouvez vous assurer de disposer de la version la plus récente de l’exten
 ## <a name="next-steps"></a>Étapes suivantes
 
 Explorez l’interface CLI et son ensemble complet de commandes via les documents de référence :
-* [*az dt*, informations de référence sur les commandes](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [*az dt* , informations de référence sur les commandes](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)

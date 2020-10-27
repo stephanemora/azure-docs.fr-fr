@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfc347e1b514f9f59e2f238d2b1bfbaf59f2172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710700"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319800"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -50,11 +50,11 @@ Vous pouvez utiliser la bibliothèque de client Azure Files dans n’importe qu
 
 Dans Visual Studio, créez une application de console Windows. Les étapes suivantes vous montrent comment créer une application console dans Visual Studio 2019. Les étapes sont semblables pour d’autres versions de Visual Studio.
 
-1. Démarrez Visual Studio et sélectionnez **Créer un projet**.
-1. Dans **Créer un projet**, choisissez **Application console (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
-1. Dans **Configurer votre nouveau projet**, entrez un nom pour l’application, puis sélectionnez **Créer**.
+1. Démarrez Visual Studio et sélectionnez **Créer un projet** .
+1. Dans **Créer un projet** , choisissez **Application console (.NET Framework)** pour C#, puis sélectionnez **Suivant** .
+1. Dans **Configurer votre nouveau projet** , entrez un nom pour l’application, puis sélectionnez **Créer** .
 
-Ajoutez tous les exemples de code de cet article à la classe `Program` dans le fichier *Program.cs*.
+Ajoutez tous les exemples de code de cet article à la classe `Program` dans le fichier *Program.cs* .
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utiliser NuGet pour installer les packages requis
 
@@ -69,8 +69,8 @@ Reportez-vous à ces packages dans votre projet :
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis choisissez **Gérer les packages NuGet**.
-1. Dans le **Gestionnaire de package NuGet**, sélectionnez **Parcourir**. Ensuite, recherchez et choisissez **Azure.Core**, puis sélectionnez **Installer**.
+1. Dans l’ **Explorateur de solutions** , cliquez avec le bouton droit sur le projet, puis choisissez **Gérer les packages NuGet** .
+1. Dans le **Gestionnaire de package NuGet** , sélectionnez **Parcourir** . Ensuite, recherchez et choisissez **Azure.Core** , puis sélectionnez **Installer** .
 
    Cette étape installe le package et ses dépendances.
 
@@ -89,8 +89,8 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis choisissez **Gérer les packages NuGet**.
-1. Dans le **Gestionnaire de package NuGet**, sélectionnez **Parcourir**. Ensuite, recherchez et choisissez **Microsoft.Azure.Storage.Blob**, puis sélectionnez **Installer**.
+1. Dans l’ **Explorateur de solutions** , cliquez avec le bouton droit sur le projet, puis choisissez **Gérer les packages NuGet** .
+1. Dans le **Gestionnaire de package NuGet** , sélectionnez **Parcourir** . Ensuite, recherchez et choisissez **Microsoft.Azure.Storage.Blob** , puis sélectionnez **Installer** .
 
    Cette étape installe le package et ses dépendances.
 1. Recherchez et installez ces packages :
@@ -103,7 +103,7 @@ Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Enregistrer les informations d’identification de votre compte de stockage dans le fichier App.config
 
-Enregistrez ensuite vos informations d’identification dans le fichier *App.config* de votre projet. Dans l’**Explorateur de solutions**, double-cliquez sur `App.config`, puis modifiez le fichier afin qu’il soit similaire à l’exemple suivant.
+Enregistrez ensuite vos informations d’identification dans le fichier *App.config* de votre projet. Dans l’ **Explorateur de solutions** , double-cliquez sur `App.config`, puis modifiez le fichier afin qu’il soit similaire à l’exemple suivant.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -135,7 +135,7 @@ Remplacez `myaccount` par le nom de votre compte de stockage et `StorageAccountK
 
 ## <a name="add-using-directives"></a>Ajouter des directives d’utilisation
 
-Dans l’**Explorateur de solutions**, ouvrez le fichier *Program.cs*, puis ajoutez les directives using suivantes en haut du fichier.
+Dans l’ **Explorateur de solutions** , ouvrez le fichier *Program.cs* , puis ajoutez les directives using suivantes en haut du fichier.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Accès au partage de fichiers par programmation
 
-Dans le fichier *Program.cs*, ajoutez le code suivant pour accéder au partage de fichiers programmatiquement.
+Dans le fichier *Program.cs* , ajoutez le code suivant pour accéder au partage de fichiers programmatiquement.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -559,7 +559,7 @@ L’exemple de code suivant montre comment utiliser la bibliothèque de client 
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Commencez par ajouter les directives `using` suivantes à votre fichier *Program.cs*, en plus de celles que vous avez ajoutées ci-dessus :
+Commencez par ajouter les directives `using` suivantes à votre fichier *Program.cs* , en plus de celles que vous avez ajoutées ci-dessus :
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;

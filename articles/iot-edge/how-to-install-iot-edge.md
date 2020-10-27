@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045684"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108998"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installer ou désinstaller le runtime Azure IoT Edge
 
@@ -39,19 +39,19 @@ Préparez votre appareil pour accéder aux packages d’installation de Microsof
 
 1. Installez la configuration du référentiel qui correspond au système d’exploitation de votre appareil.
 
-   * **Ubuntu Server 16.04** :
+   * **Ubuntu Server 16.04**  :
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Ubuntu Server 18.04** :
+   * **Ubuntu Server 18.04**  :
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch** :
+   * **Raspbian Stretch**  :
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -83,6 +83,12 @@ IoT Edge avec des conteneurs Linux peut s’exécuter sur n’importe quelle ver
 Azure IoT Edge s’appuie sur un moteur de conteneur [compatible avec OCI](https://www.opencontainers.org/). Assurez-vous que votre appareil peut prendre en charge les conteneurs.
 
 Si vous installez IoT Edge sur une machine virtuelle, activez la virtualisation imbriquée et allouez au moins 2 Go de mémoire. Pour Hyper-V, la virtualisation imbriquée est activée par défaut sur les machines virtuelles de deuxième génération. Pour VMware, un bouton bascule permet d’activer cette fonctionnalité sur votre machine virtuelle.
+
+Si vous installez IoT Edge sur un appareil IoT Core, utilisez la commande suivante dans une [session PowerShell à distance](/windows/iot-core/connect-your-device/powershell) pour vérifier que les conteneurs Windows sont pris en charge sur votre appareil :
+
+```powershell
+Get-Service vmcompute
+```
 
 ---
 
@@ -144,13 +150,13 @@ Vérifiez les versions d’IoT Edge disponibles.
    apt list -a iotedge
    ```
 
-Si vous souhaitez installer la version la plus récente du démon de sécurité, utilisez la commande suivante, qui installe également la dernière version du package **libiothsm-std** :
+Si vous souhaitez installer la version la plus récente du démon de sécurité, utilisez la commande suivante, qui installe également la dernière version du package **libiothsm-std**  :
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Si vous souhaitez installer une version spécifique du démon de sécurité, spécifiez la version dans la sortie de liste apt. Spécifiez également la même version pour le package **libiothsm-std**, qui, dans le cas contraire, installe sa dernière version. Par exemple, la commande suivante installe la version la plus récente de la mise en production 1.0.8 :
+Si vous souhaitez installer une version spécifique du démon de sécurité, spécifiez la version dans la sortie de liste apt. Spécifiez également la même version pour le package **libiothsm-std** , qui, dans le cas contraire, installe sa dernière version. Par exemple, la commande suivante installe la version la plus récente de la mise en production 1.0.8 :
 
    ```bash
    sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
@@ -159,6 +165,9 @@ Si vous souhaitez installer une version spécifique du démon de sécurité, sp�
 Si la version que vous souhaitez installer ne figure pas dans la liste, suivez les étapes d’[installation d’une version hors connexion ou spécifique](#offline-or-specific-version-installation) dans la section suivante. Cette section vous montre comment cibler une version antérieure du démon de sécurité IoT Edge ou des versions Release Candidate.
 
 # <a name="windows"></a>[Windows](#tab/windows)
+
+>[!TIP]
+>Pour les appareils IoT Core, nous vous recommandons d’exécuter les commandes d’installation à l’aide d’une session PowerShell à distance. Pour plus d’informations, consultez [Utilisation de PowerShell pour Windows IoT](/windows/iot-core/connect-your-device/powershell).
 
 1. Exécutez PowerShell ISE en tant qu’administrateur.
 
@@ -186,7 +195,7 @@ Si la version que vous souhaitez installer ne figure pas dans la liste, suivez l
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. À ce stade, la sortie peut vous inviter à redémarrer. Si c’est le cas, redémarrez votre appareil maintenant.
+3. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. Les appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Si c’est le cas, redémarrez votre appareil maintenant.
 
 Quand vous installez IoT Edge sur un appareil, vous pouvez utiliser des paramètres supplémentaires pour modifier le processus, à savoir :
 
@@ -263,7 +272,7 @@ Si votre appareil est hors connexion pendant l’installation, ou si vous souhai
 
    Il est important d’utiliser le script PowerShell de la même version que le fichier .cab que vous utilisez, car les fonctionnalités changent pour prendre en charge les fonctionnalités de chaque version.
 
-3. Si le fichier .cab que vous avez téléchargé est doté d’un suffixe d’architecture, renommez le fichier uniquement **Microsoft-Azure-IoTEdge.cab**.
+3. Si le fichier .cab que vous avez téléchargé est doté d’un suffixe d’architecture, renommez le fichier uniquement **Microsoft-Azure-IoTEdge.cab** .
 
 4. Éventuellement, téléchargez un programme d’installation pour Visual C++ Redistributable. Par exemple, le script PowerShell utilise cette version : [vc_redist.x64. exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Enregistrez le programme d’installation dans le même dossier que les fichiers IoT Edge sur votre appareil.
 
@@ -322,6 +331,8 @@ Si vous souhaitez supprimer l’installation d’IoT Edge de votre appareil Wind
 Uninstall-IoTEdge
 ```
 
+La commande `Uninstall-IoTEdge` ne fonctionne pas sur Windows IoT Core. Pour supprimer IoT Edge, vous devez redéployer votre image Windows IoT Core.
+
 Pour plus d’informations sur les options de désinstallation, utilisez la commande `Get-Help Uninstall-IoTEdge -full`.
 
 ---
@@ -332,10 +343,10 @@ Après avoir installé le runtime IoT Edge, configurez votre appareil pour qu’
 
 Choisissez l’article suivant en fonction du type d’authentification que vous souhaitez utiliser :
 
-* **Clé symétrique** : IoT Hub et l’appareil IoT Edge possèdent tous deux une copie d’une clé sécurisée. Lorsque l’appareil se connecte à IoT Hub, il vérifie que les clés correspondent. Cette méthode d’authentification est plus rapide pour commencer, mais moins sécurisée que l’autre.
+* **Clé symétrique**  : IoT Hub et l’appareil IoT Edge possèdent tous deux une copie d’une clé sécurisée. Lorsque l’appareil se connecte à IoT Hub, il vérifie que les clés correspondent. Cette méthode d’authentification est plus rapide pour commencer, mais moins sécurisée que l’autre.
 
   [Configurer un appareil Azure IoT Edge avec une authentification par clé symétrique](how-to-manual-provision-symmetric-key.md)
 
-* **Certificat autosigné X.509** : L’appareil IoT Edge est doté de certificats d’identité X.509, et IoT Hub reçoit l’empreinte des certificats. Lorsque l’appareil se connecte à IoT Hub, il compare le certificat par rapport à son empreinte. Cette méthode d’authentification étant plus sécurisée, elle est recommandée dans les scénarios de production.
+* **Certificat autosigné X.509**  : L’appareil IoT Edge est doté de certificats d’identité X.509, et IoT Hub reçoit l’empreinte des certificats. Lorsque l’appareil se connecte à IoT Hub, il compare le certificat par rapport à son empreinte. Cette méthode d’authentification étant plus sécurisée, elle est recommandée dans les scénarios de production.
 
   [Configurer un appareil Azure IoT Edge avec une authentification par certificat X.509](how-to-manual-provision-x509.md)

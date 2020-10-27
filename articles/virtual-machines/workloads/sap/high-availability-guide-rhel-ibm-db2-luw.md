@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077392"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151571"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Haute disponibilité d’IBM Db2 LUW sur les machines virtuelles Azure sur Red Hat Enterprise Linux Server
 
@@ -111,9 +111,9 @@ Terminez le processus de planification avant d’exécuter le déploiement. La p
 | Définir des groupes de ressources Azure | Groupes de ressources où vous déployez la machine virtuelle, le réseau virtuel, Azure Load Balancer et d’autres ressources. Ils peuvent être nouveaux ou existants. |
 | Définition de sous-réseau/réseau virtuel | Endroit où des machines virtuelles pour IBM Db2 et Azure Load Balancer sont déployées. Elles peuvent être existantes ou récemment créées. |
 | Machines virtuelles hébergeant IBM Db2 LUW | Taille de machine virtuelle, stockage, mise en réseau, adresse IP. |
-| Nom d’hôte virtuel et adresse IP virtuelle pour la base de données IBM Db2| Adresse IP virtuelle ou nom d’hôte utilisé pour la connexion des serveurs d’applications SAP. **db-virt-hostname**, **db-virt-ip**. |
+| Nom d’hôte virtuel et adresse IP virtuelle pour la base de données IBM Db2| Adresse IP virtuelle ou nom d’hôte utilisé pour la connexion des serveurs d’applications SAP. **db-virt-hostname** , **db-virt-ip** . |
 | Délimitation Azure | La méthode permettant d’éviter les situations de Split-Brain est interdite. |
-| Azure Load Balancer | Utilisation du niveau De base ou Standard (recommandé), port de la sonde pour la base de données Db2 (notre recommandation est 62500) **probe-port**. |
+| Azure Load Balancer | Utilisation du niveau De base ou Standard (recommandé), port de la sonde pour la base de données Db2 (notre recommandation est 62500) **probe-port** . |
 | Résolution de noms| Fonctionnement de la résolution de noms dans l’environnement. Le service DNS est fortement recommandé. Le fichier d’hôte local peut être utilisé. |
     
 Pour plus d’informations sur Linux Pacemaker dans Azure, consultez [Configurer Pacemaker sur Red Hat Enterprise Linux dans Azure][rhel-pcs-azr].
@@ -197,7 +197,7 @@ Nous vous recommandons les paramètres précédents d’après les tests de basc
    
 > [!NOTE]
 > Pour une installation et une configuration spécifiques à Azure et Pacemaker : Au cours de la procédure d’installation via SAP Software Provisioning Manager, une question explicite se pose sur la haute disponibilité pour IBM Db2 LUW :
->+ Ne sélectionnez pas **IBM Db2 pureScale**.
+>+ Ne sélectionnez pas **IBM Db2 pureScale** .
 >+ Ne sélectionnez pas **Install IBM Tivoli System Automation for Multiplatforms** (Installer IBM Tivoli System Automation pour plusieurs plateformes).
 >+ Ne sélectionnez pas **Generate cluster configuration files** (Générer des fichiers de configuration de cluster).
 >![SAP SWPM - Options de haute disponibilité DB2](./media/high-availability-guide-rhel-ibm-db2-luw/swpm-db2ha-opt.png)
@@ -218,7 +218,7 @@ Ajoutez des règles de pare-feu pour autoriser le trafic vers DB2 et entre DB2 p
 sudo firewall-cmd --reload</code></pre>
 
 #### <a name="ibm-db2-hadr-check"></a>Vérification HADR IBM Db2
-À des fins de démonstration et pour les procédures décrites dans cet article, l’ID de sécurité de la base de données est **ID2**.
+À des fins de démonstration et pour les procédures décrites dans cet article, l’ID de sécurité de la base de données est **ID2** .
 
 Une fois que vous avez configuré HADR et que l’état est PEER et CONNECTED sur les nœuds principal et de secours, effectuez la vérification suivante :
 
@@ -337,7 +337,7 @@ Les éléments suivants sont précédés de :
 
 **[A]** Prérequis pour la configuration Pacemaker :
 1. Arrêtez les deux serveurs de base de données avec l’utilisateur db2\<sid> avec db2stop.
-1. Remplacez l’environnement d’interpréteur de commandes pour l’utilisateur db2\<sid> par */bin/ksh* :
+1. Remplacez l’environnement d’interpréteur de commandes pour l’utilisateur db2\<sid> par */bin/ksh*  :
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -403,59 +403,61 @@ Pour configurer Azure Load Balancer, nous vous recommandons d’utiliser la [ré
 > [!NOTE]
 > La référence SKU Standard Load Balancer a des restrictions quant à l’accès aux adresses IP publiques à partir des nœuds situés sous le Load Balancer. L’article [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) décrit comment activer ces nœuds pour accéder aux adresses IP publiques.
 
+> [!IMPORTANT]
+> L'adresse IP flottante n'est pas prise en charge sur une configuration d'adresse IP secondaire de carte réseau dans les scénarios d'équilibrage de charge. Pour plus d'informations, consultez [Limitations relatives à Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d'une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
 
 
 1. Créez un pool d’adresses IP front-end :
 
-   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Pool d’adresses IP front-end**, puis **Ajouter**.
+   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Pool d’adresses IP front-end** , puis **Ajouter** .
 
-   b. Entrez le nom du nouveau pool d’adresses IP front-end (par exemple, **Db2-connection**).
+   b. Entrez le nom du nouveau pool d’adresses IP front-end (par exemple, **Db2-connection** ).
 
-   c. Définissez l’**affectation** sur **Statique** et entrez l’adresse IP **Virtual-IP** définie au début.
+   c. Définissez l’ **affectation** sur **Statique** et entrez l’adresse IP **Virtual-IP** définie au début.
 
-   d. Sélectionnez **OK**.
+   d. Sélectionnez **OK** .
 
    e. Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
 
 1. Créez un pool back-end :
 
-   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **backend pools** (Pools back-end), puis **Ajouter**.
+   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **backend pools** (Pools back-end), puis **Ajouter** .
 
-   b. Entrez le nom du nouveau pool back-end (par exemple, **Db2-backend**).
+   b. Entrez le nom du nouveau pool back-end (par exemple, **Db2-backend** ).
 
-   c. Cliquez sur **Ajouter une machine virtuelle**.
+   c. Cliquez sur **Ajouter une machine virtuelle** .
 
    d. Sélectionnez le groupe à haute disponibilité ou les machines virtuelles hébergeant la base de données IBM Db2 créée à l’étape précédente.
 
    e. Sélectionnez les machines virtuelles du cluster IBM Db2.
 
-   f. Sélectionnez **OK**.
+   f. Sélectionnez **OK** .
 
 1. Créez une sonde d’intégrité :
 
-   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
+   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Sondes d’intégrité** , puis **Ajouter** .
 
-   b. Entrez le nom de la nouvelle sonde d’intégrité (par exemple, **Db2-hp**).
+   b. Entrez le nom de la nouvelle sonde d’intégrité (par exemple, **Db2-hp** ).
 
-   c. Sélectionnez **TCP** comme protocole et le port **62500**. Conservez la valeur **5** pour **Intervalle** et la valeur **2** pour **Seuil de défaillance sur le plan de l’intégrité**.
+   c. Sélectionnez **TCP** comme protocole et le port **62500** . Conservez la valeur  **5** pour **Intervalle** et la valeur **2** pour **Seuil de défaillance sur le plan de l’intégrité** .
 
-   d. Sélectionnez **OK**.
+   d. Sélectionnez **OK** .
 
 1. Créez les règles d’équilibrage de charge :
 
-   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
+   a. Dans le portail Azure, ouvrez Azure Load Balancer, sélectionnez **Règles d’équilibrage de charge** , puis **Ajouter** .
 
-   b. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **Db2-SID**).
+   b. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **Db2-SID** ).
 
-   c. Sélectionnez l’adresse IP front-end, le pool back-end et la sonde d’intégrité que vous avez créée précédemment (par exemple, **Db2-frontend**).
+   c. Sélectionnez l’adresse IP front-end, le pool back-end et la sonde d’intégrité que vous avez créée précédemment (par exemple, **Db2-frontend** ).
 
-   d. Conservez **TCP** pour **Protocole**, puis entrez le *port de communication de la base de données*.
+   d. Conservez **TCP** pour **Protocole** , puis entrez le *port de communication de la base de données* .
 
    e. Augmentez le **délai d’inactivité** à 30 minutes.
 
    f. Veillez à **activer l’IP flottante** .
 
-   g. Sélectionnez **OK**.
+   g. Sélectionnez **OK** .
 
 **[A]** Ajouter une règle de pare-feu pour le port de sondage :
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
@@ -495,7 +497,7 @@ Utilisez l’outil de configuration J2EE pour vérifier ou mettre à jour l’UR
     
     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
     
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **Ajouter** .
 1. Pour enregistrer vos modifications, sélectionnez l’icône en forme de disque en haut à gauche.
 1. Fermez l’outil de configuration.
 1. Redémarrez l’instance Java.
@@ -515,7 +517,7 @@ Vous pouvez utiliser des partages NFS ou GlusterFS hautement disponibles existan
 
 ## <a name="test-the-cluster-setup"></a>Tester la configuration du cluster
 
-Cette section explique comment vous pouvez tester votre configuration HADR Db2. Chaque test suppose que le primaire IBM DB2 s’exécute sur la machine virtuelle *az-idb01*. L’utilisateur avec des privilèges sudo ou racine (non recommandé) doit être utilisé.
+Cette section explique comment vous pouvez tester votre configuration HADR Db2. Chaque test suppose que le primaire IBM DB2 s’exécute sur la machine virtuelle *az-idb01* . L’utilisateur avec des privilèges sudo ou racine (non recommandé) doit être utilisé.
 
 L’état initial de tous les cas de test est expliqué ici : (crm_mon -r ou pcs status)
 
@@ -619,7 +621,7 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 
 ### <a name="test-a-manual-takeover"></a>Tester une prise de contrôle manuelle
 
-Vous pouvez tester une prise de contrôle manuelle en arrêtant le service Pacemaker sur le nœud *az-idb01* :
+Vous pouvez tester une prise de contrôle manuelle en arrêtant le service Pacemaker sur le nœud *az-idb01*  :
 <pre><code>systemctl stop pacemaker</code></pre>
 
 état sur *az-ibdb02*
@@ -644,7 +646,7 @@ Daemon Status:
   pacemaker: active/disabled
   pcsd: active/enabled</code></pre>
 
-Après le basculement, vous pouvez redémarrer le service sur *az-idb01*.
+Après le basculement, vous pouvez redémarrer le service sur *az-idb01* .
 <pre><code>systemctl start  pacemaker</code></pre>
 
 
@@ -778,7 +780,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb01
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb01</code></pre>
 
-L’étape suivante consiste à rechercher une situation de *Split-Brain*. Une fois que le nœud restant a déterminé que le nœud qui a exécuté en dernier l’instance de base de données primaire est en panne, un basculement des ressources est exécuté.
+L’étape suivante consiste à rechercher une situation de *Split-Brain* . Une fois que le nœud restant a déterminé que le nœud qui a exécuté en dernier l’instance de base de données primaire est en panne, un basculement des ressources est exécuté.
 
 <pre><code>2 nodes configured
 5 resources configured

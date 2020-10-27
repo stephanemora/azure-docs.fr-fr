@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269571"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097301"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -56,7 +56,7 @@ La jointure Azure AD hybride prend en charge un large éventail d’appareils Wi
 
 - Windows 10
 - Windows Server 2016
-  - **Remarque** : Les clients Cloud national Azure doivent avoir la version 1809
+  - **Remarque**  : Les clients Cloud national Azure doivent avoir la version 1803
 - Windows Server 2019
 
 Pour les appareils exécutant le système d’exploitation Windows, les versions prises en charge sont répertoriées dans l'article [Informations de publication relatives à Windows 10](/windows/release-information/). En guise de meilleure pratique, Microsoft recommande d'effectuer une mise à niveau vers la dernière version de Windows 10.
@@ -138,7 +138,7 @@ Un environnement fédéré doit disposer d’un fournisseur d’identité qui pr
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet ; ils NE doivent PAS être exposés comme points de terminaison extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
+> **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet ; ils NE doivent PAS être exposés comme points de terminaison extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison** .
 
 > [!NOTE]
 > Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines gérés.

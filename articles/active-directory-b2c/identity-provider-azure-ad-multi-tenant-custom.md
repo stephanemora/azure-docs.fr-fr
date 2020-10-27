@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4343a5e185fdfe96e1e3298b0fc3fe6719f3a4a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116306"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215839"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD de l’organisation (par exemple, contoso.com). Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-1. Sélectionnez **Nouvelle inscription**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications** .
+1. Sélectionnez **Nouvelle inscription** .
 1. Entrez un **nom** pour votre application. Par exemple : `Azure AD B2C App`.
-1. Sélectionnez **Comptes dans un annuaire organisationnel** pour cette application.
-1. Pour le champ **URI de redirection**, acceptez la valeur **Web**, puis entrez l’URL suivante en minuscules, où `your-B2C-tenant-name` est remplacé par le nom de votre locataire Azure AD B2C :
+1. Sélectionnez **Comptes dans un annuaire d’organisation (tout annuaire Azure AD - Multilocataire)** pour cette application.
+1. Pour le champ **URI de redirection** , acceptez la valeur **Web** , puis entrez l’URL suivante en minuscules, où `your-B2C-tenant-name` est remplacé par le nom de votre locataire Azure AD B2C :
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -46,35 +46,35 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 
     Par exemple : `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
-1. Sélectionnez **Inscription**. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
-1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
-1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
+1. Sélectionnez **Inscription** . Enregistrez l’ **ID d’application (client)** pour l’utiliser dans une étape ultérieure.
+1. Sélectionnez **Certificats et secrets** , puis sélectionnez **Nouveau secret client** .
+1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter** . Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
 
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
 Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
-1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory** .
+1. Dans la section **Gérer** , sélectionnez **Inscriptions d’applications** .
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
-1. Sélectionnez **Ajouter une revendication facultative**.
-1. Dans **Type de jeton**, sélectionnez **ID**.
+1. Dans la section **Gérer** , sélectionnez **Configuration de jetons** .
+1. Sélectionnez **Ajouter une revendication facultative** .
+1. Dans **Type de jeton** , sélectionnez **ID** .
 1. Sélectionnez les revendications facultatives à ajouter, `family_name` et `given_name`.
-1. Cliquez sur **Add**.
+1. Cliquez sur **Add** .
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez stocker la clé d’application que vous avez créée dans votre locataire Azure AD B2C.
 
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire Azure AD B2C.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
-1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-1. Pour **Options**, choisissez `Manual`.
-1. Entrez un **nom** pour la clé de stratégie. Par exemple : `AADAppSecret`.  Le préfixe `B2C_1A_` étant ajouté automatiquement au nom de votre clé lors de sa création, sa référence dans le code XML de la section suivante est à *B2C_1A_AADAppSecret*.
-1. Dans **Secret**, entrez le secret client que vous avez enregistré précédemment.
-1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
+1. Sous **Stratégies** , sélectionnez **Identity Experience Framework** .
+1. Sélectionnez **Clés de stratégie** , puis **Ajouter** .
+1. Pour **Options** , choisissez `Manual`.
+1. Entrez un **nom** pour la clé de stratégie. Par exemple : `AADAppSecret`.  Le préfixe `B2C_1A_` étant ajouté automatiquement au nom de votre clé lors de sa création, sa référence dans le code XML de la section suivante est à *B2C_1A_AADAppSecret* .
+1. Dans **Secret** , entrez le secret client que vous avez enregistré précédemment.
+1. Pour **Utilisation de la clé** , sélectionnez `Signature`.
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
@@ -83,8 +83,8 @@ Si vous souhaitez que les utilisateurs se connectent à l’aide d’Azure AD, v
 
 Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Azure AD à l’élément **ClaimsProvider** dans le fichier d’extension de votre stratégie.
 
-1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
-1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
+1. Ouvrez le fichier *TrustFrameworkExtensions.xml* .
+1. Recherchez l’élément **ClaimsProviders** . S’il n’existe pas, ajoutez-le sous l’élément racine.
 1. Ajoutez un nouveau **ClaimsProvider** comme suit :
 
     ```xml
@@ -135,10 +135,10 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
     </ClaimsProvider>
     ```
 
-1. Sous l’élément **ClaimsProvider**, mettez à jour la valeur de **Domaine** sur une valeur unique qui peut être utilisée pour le distinguer des autres fournisseurs d’identité.
-1. Sous l’élément **TechnicalProfile**, mettez à jour la valeur de **DisplayName**, par exemple `Contoso Employee`. Cette valeur apparaît sur le bouton de connexion dans votre page de connexion.
+1. Sous l’élément **ClaimsProvider** , mettez à jour la valeur de **Domaine** sur une valeur unique qui peut être utilisée pour le distinguer des autres fournisseurs d’identité.
+1. Sous l’élément **TechnicalProfile** , mettez à jour la valeur de **DisplayName** , par exemple `Contoso Employee`. Cette valeur apparaît sur le bouton de connexion dans votre page de connexion.
 1. Définissez **client_id** sur l’ID de l’application multilocataire Azure AD que vous avez inscrite précédemment.
-1. Sous **CryptographicKeys**, mettez à jour la valeur de **StorageReferenceId** sur le nom de la clé de stratégie que vous avez créée précédemment. Par exemple : `B2C_1A_AADAppSecret`.
+1. Sous **CryptographicKeys** , mettez à jour la valeur de **StorageReferenceId** sur le nom de la clé de stratégie que vous avez créée précédemment. Par exemple : `B2C_1A_AADAppSecret`.
 
 ### <a name="restrict-access"></a>Restriction de l’accès
 
@@ -154,15 +154,15 @@ Pour obtenir les valeurs correspondantes, examinez les métadonnées de découve
 Effectuez ces étapes pour chaque locataire Azure AD qui doit être utilisé pour se connecter :
 
 1. Ouvrez votre navigateur et accédez à l’URL des métadonnées OpenID Connect pour le locataire. Recherchez l’objet **issuer** et enregistrez sa valeur. Elle doit ressembler à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
-1. Copiez et collez la valeur dans la clé **ValidTokenIssuerPrefixes**. Séparez plusieurs émetteurs par une virgule. Un exemple avec deux émetteurs apparaît dans l’exemple XML `ClaimsProvider` précédent.
+1. Copiez et collez la valeur dans la clé **ValidTokenIssuerPrefixes** . Séparez plusieurs émetteurs par une virgule. Un exemple avec deux émetteurs apparaît dans l’exemple XML `ClaimsProvider` précédent.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
 
 À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec vos annuaires Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
-2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-3. Sélectionnez **Télécharger**.
+1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie** .
+2. Activez **Remplacer la stratégie si elle existe** , puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml* .
+3. Sélectionnez **Télécharger** .
 
 ## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
 
@@ -170,16 +170,16 @@ Effectuez ces étapes pour chaque locataire Azure AD qui doit être utilisé pou
 
 1. Ouvrez le fichier *TrustFrameworkBase.xml* à partir du pack de démarrage.
 2. Recherchez et copiez l’intégralité du contenu de l’élément **UserJourney** comprenant `Id="SignUpOrSignIn"`.
-3. Ouvrez le fichier *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
-4. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
+3. Ouvrez le fichier *TrustFrameworkExtensions.xml* , puis recherchez l’élément **UserJourneys** . Si l’élément n’existe pas, ajoutez-en un.
+4. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys** .
 5. Renommez l’ID du parcours utilisateur. Par exemple : `SignUpSignInContoso`.
 
 ### <a name="display-the-button"></a>Afficher le bouton
 
 L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** à Azure AD, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
 
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé dans *TrustFrameworkExtensions.xml*.
-1. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `AzureADExchange` :
+1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé dans *TrustFrameworkExtensions.xml* .
+1. Sous **ClaimsProviderSelects** , ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `AzureADExchange` :
 
     ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
@@ -190,7 +190,7 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 Maintenant que vous avez un bouton en place, vous devez le lier à une action. L’action est, dans ce cas, la communication d’Azure AD B2C avec Azure AD pour recevoir un jeton. Associez le bouton à une action en liant le profil technique de votre fournisseur de revendications Azure AD.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
+2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’ **ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
     ```xml
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
@@ -210,13 +210,13 @@ La communication avec Azure AD B2C s’effectue par le biais d’une application
 
 Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé :
 
-1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, attribuez-lui le nouveau nom *SignUpSignInADFS.xml*.
-1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInContoso`.
+1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, attribuez-lui le nouveau nom *SignUpSignInADFS.xml* .
+1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy** . Par exemple : `SignUpSignInContoso`.
 1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Par exemple : `http://contoso.com/B2C_1A_signup_signin_contoso`.
-1. Mettez à jour la valeur de l’attribut **ReferenceId** dans **DefaultUserJourney** pour qu’elle corresponde à l’ID du parcours utilisateur que vous avez créé précédemment. Par exemple, *SignUpSignInContoso*.
+1. Mettez à jour la valeur de l’attribut **ReferenceId** dans **DefaultUserJourney** pour qu’elle corresponde à l’ID du parcours utilisateur que vous avez créé précédemment. Par exemple, *SignUpSignInContoso* .
 1. Enregistrez vos modifications et téléchargez le fichier.
-1. Dans la liste des stratégies chargées, sous **Stratégies personnalisées**, sélectionnez la stratégie que vous venez de créer.
-1. Dans la liste déroulante **Sélectionner une application**, sélectionnez l’application Azure AD B2C que vous avez créée précédemment. Par exemple, *testapp1*.
+1. Dans la liste des stratégies chargées, sous **Stratégies personnalisées** , sélectionnez la stratégie que vous venez de créer.
+1. Dans la liste déroulante **Sélectionner une application** , sélectionnez l’application Azure AD B2C que vous avez créée précédemment. Par exemple, *testapp1* .
 1. Copiez le point de terminaison **Exécuter maintenant** et ouvrez-le dans une fenêtre de navigation privée, par exemple en mode navigation privée dans Google Chrome ou dans une fenêtre InPrivate dans Microsoft Edge. L’ouverture dans une fenêtre de navigation privée vous permet de tester le parcours utilisateur complet en n’utilisant pas les informations d’identification Azure AD actuellement mises en cache.
 1. Sélectionnez le bouton de connexion Azure AD, par exemple *Contoso Employee* (Employé Contoso), puis entrez les informations d’identification d’un utilisateur dans l’un de vos locataires d’organisation Azure AD. Vous êtes invité à autoriser l’application, puis à entrer des informations pour votre profil.
 

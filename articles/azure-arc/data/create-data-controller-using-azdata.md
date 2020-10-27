@@ -1,6 +1,6 @@
 ---
-title: Créer un contrôleur de données à l’aide de l’interface de ligne de commande Azure Data CLI (azdata)
-description: Créez un contrôleur de données Azure Arc sur un cluster Kubernetes à nœuds multiples standard que vous avez déjà créé à l’aide d’Azure Data CLI (azdata).
+title: Créer un contrôleur de données à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+description: Créez un contrôleur de données Azure Arc sur un cluster Kubernetes à nœuds multiples standard que vous avez déjà créé à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761683"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310940"
 ---
-# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Créer un contrôleur de données Azure Arc à l’aide de l’interface de ligne de commande (CLI) Azure Data CLI (azdata)
+# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Créer un contrôleur de données Azure Arc à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,15 +24,15 @@ ms.locfileid: "91761683"
 
 Pour obtenir des informations générales, consultez la rubrique [Créer le contrôleur de données Azure Arc](create-data-controller.md).
 
-Pour créer le contrôleur de données Azure Arc à l’aide d’Azure Data CLI, vous devez avoir installé Azure Data CLI.
+Pour créer le contrôleur de données Azure Arc à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] doit être installé.
 
-   [Installer Azure Data CLI](install-client-tools.md)
+   [Installer [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 Quelle que soit la plateforme cible que vous choisissez, vous devez définir les variables d’environnement suivantes avant la création pour l’utilisateur administrateur du contrôleur de données. Vous pouvez fournir ces informations d’identification à d’autres personnes qui doivent disposer d’un accès administrateur au contrôleur de données si nécessaire.
 
-**AZDATA_USERNAME** : nom d’utilisateur de votre choix pour l’utilisateur administrateur de contrôleur de données. Exemple : `arcadmin`
+**AZDATA_USERNAME**  : nom d’utilisateur de votre choix pour l’utilisateur administrateur de contrôleur de données. Exemple : `arcadmin`
 
-**AZDATA_PASSWORD** : mot de passe de votre choix pour l’utilisateur administrateur de contrôleur de données. Le mot de passe doit contenir au moins huit caractères appartenant à trois des quatre groupes suivants : lettres majuscules, lettres minuscules, chiffres et symboles.
+**AZDATA_PASSWORD**  : mot de passe de votre choix pour l’utilisateur administrateur de contrôleur de données. Le mot de passe doit contenir au moins huit caractères appartenant à trois des quatre groupes suivants : lettres majuscules, lettres minuscules, chiffres et symboles.
 
 ### <a name="linux-or-macos"></a>Linux ou macOS
 

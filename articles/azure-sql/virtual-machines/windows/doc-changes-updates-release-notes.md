@@ -10,18 +10,24 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
-ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758640"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168322"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifications apportées à la documentation concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les modifications apportées à la documentation en lien avec les nouvelles fonctionnalités et les améliorations introduites dans les mises en production récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="october-2020"></a>Octobre 2020
+
+| Modifications | Détails |
+| --- | --- |
+| **DNN pour AG** | Vous pouvez maintenant configurer un [écouteur DNN (Distributed Network Name)](availability-group-distributed-network-name-dnn-listener-configure.md) pour SQL Server 2019 CU8 et versions ultérieures afin de remplacer l’[écouteur VNN](availability-group-overview.md#connectivity) traditionnel, en annulant la nécessité d’un Azure Load Balancer.   | 
 
 ## <a name="september-2020"></a>Septembre 2020
 
@@ -106,7 +112,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-**Machines virtuelles Windows** :
+**Machines virtuelles Windows**  :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Approvisionner SQL Server sur une machine virtuelle Windows](create-sql-vm-portal.md)
@@ -115,7 +121,7 @@ Azure permet de déployer une machine virtuelle avec une image de SQL Server int
 * [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md)
 * [Modèles d'application et stratégies de développement pour SQL Server sur des machines virtuelles Azure](application-patterns-development-strategies.md)
 
-**Machines virtuelles Linux** :
+**Machines virtuelles Linux**  :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Approvisionner SQL Server une machine virtuelle Linux](../linux/sql-vm-create-portal-quickstart.md)

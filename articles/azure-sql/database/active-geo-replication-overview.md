@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445065"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124756"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Création et utilisation de la géoréplication active - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Par défaut, la redondance de stockage de sauvegarde de la base de données seco
 > Le taux de journalisation des transactions sur la base de données primaire peut être limité pour des raisons non liées à une taille de calcul inférieure sur une base de données secondaire. Ce genre de limitation peut se produire même si la base de données secondaire a une taille de calcul identique ou supérieure à celle de la base de données primaire. Pour plus d’informations, notamment sur les types d’attente pour les différents genres de limitation du taux de journalisation, consultez [Gouvernance relative au taux de journalisation des transactions](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion publique dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de sauvegarde redondante localement ou redondante interzone, la création d’une base de données secondaire dans une autre région Azure n’est pas prise en charge. 
+> La redondance configurable du stockage de sauvegarde Azure SQL Database est actuellement généralement disponible dans la région Azure Asie Sud-Est uniquement. Lorsque la base de données source est créée avec une redondance de stockage de sauvegarde redondante localement ou redondante interzone, la création d’une base de données secondaire dans une autre région Azure n’est pas prise en charge. 
 
 Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](purchasing-models.md).
 

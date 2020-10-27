@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134477"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108964"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Résoudre des problèmes du client Bureau à distance
 
@@ -83,6 +83,20 @@ Si le client web ne cesse de demander les informations d’identification, suive
 3. Effacez les cookies du navigateur. Pour plus d’informations, voir [Comment faire pour supprimer des fichiers cookie dans Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Videz le cache du navigateur. Pour plus d’informations, voir [Vider le cache du navigateur](https://binged.it/2RKyfdU).
 5. Ouvrez votre navigateur en mode privé.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Le client Windows bloque le flux Windows Virtual Desktop (classique)
+
+Si le flux du client Windows n’affiche pas les applications Windows Virtual Desktop (classique), suivez ces instructions :
+
+1. Vérifiez si la stratégie d’accès conditionnel comprend les ID d’application associés à Windows Virtual Desktop (classique).
+2. Vérifiez si la stratégie d’accès conditionnel bloque tous les accès à l’exception des ID d’application Windows Virtual Desktop (classique). Si c’est le cas, vous devez ajouter l’ID d’application **9cdead84-a844-4324-93f2-b2e6bb768d07** à la stratégie pour permettre au client de découvrir les flux.
+
+Si vous ne trouvez pas l’ID d’application 9cdead84-a844-4324-93f2-b2e6bb768d07 dans la liste, vous devez inscrire le fournisseur de ressources Windows Virtual Desktop. Pour inscrire le fournisseur de ressources :
+
+1. Connectez-vous au portail Azure.
+2. Accédez à **Abonnements** , puis sélectionnez votre abonnement.
+3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources** .
+4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization** , puis **Ré-inscrire** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

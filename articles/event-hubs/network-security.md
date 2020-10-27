@@ -2,13 +2,13 @@
 title: Sécurité réseau pour Azure Event Hubs
 description: Cet article explique comment configurer l’accès à partir de points de terminaison privés
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 9503fc26c22d7dbff13c5754288f577b7bb3242f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767796"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331309"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Sécurité du réseau pour Azure Event Hubs 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Hubs : 
@@ -20,9 +20,9 @@ Cet article explique comment utiliser les fonctionnalités de sécurité suivant
 
 
 ## <a name="service-tags"></a>Balises de service
-Une étiquette de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les balises de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
+Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez [Vue d’ensemble des balises de service](../virtual-network/service-tags-overview.md).
 
-Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur les [groupes de sécurité réseau](../virtual-network/security-overview.md#security-rules) ou le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, **EventHub**) dans le champ *Source* ou *Destination*  approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Vous pouvez utiliser des étiquettes de service pour définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou sur le [pare-feu Azure](../firewall/service-tags.md). Utilisez des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l'étiquette de service (par exemple, **EventHub** ) dans le champ *source* ou *destination* approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -46,7 +46,7 @@ Une fois configuré pour être lié à au moins un point de terminaison de servi
 Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Event Hubs respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique. Toutefois, il existe une exception à ce comportement. Par défaut, l’activation d’un point de terminaison de service active à la règle `denyall` dans le [pare-feu IP](event-hubs-ip-filtering.md) associé au réseau virtuel. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. 
 
 > [!IMPORTANT]
-> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base**.
+> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base** .
 
 ### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 
@@ -60,7 +60,7 @@ Vos solutions cloud sensibles en matière de sécurité accèdent donc aux fonct
 
 Les **règles de réseau virtuel** sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre espace de noms Azure Event Hubs doit accepter ou non les connexions d’un sous-réseau de réseau virtuel particulier.
 
-La liaison d’un espace de noms Event Hubs à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel, puis l’activer pour **Microsoft.EventHub**, comme expliqué dans l’article [Vue d’ensemble des points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md). Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Event Hubs au moyen d’une **règle de réseau virtuel**.
+La liaison d’un espace de noms Event Hubs à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel, puis l’activer pour **Microsoft.EventHub** , comme expliqué dans l’article [Vue d’ensemble des points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md). Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Event Hubs au moyen d’une **règle de réseau virtuel** .
 
 La règle de réseau virtuel est une association de l’espace de noms Event Hubs et d’un sous-réseau de réseau virtuel. Une fois la règle en place, toutes les charges de travail liées au sous-réseau sont autorisées à accéder à l’espace de noms Event Hubs. Event Hubs n’établit jamais de connexions sortantes, ne nécessite aucun accès et ne se voit donc jamais accorder l’accès à votre sous-réseau quand cette règle est activée.
 
@@ -72,8 +72,8 @@ Le [service Azure Private Link](../private-link/private-link-overview.md) vous p
 
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
-> [!NOTE]
-> Cette fonctionnalité est prise en charge uniquement avec le niveau **dédié**. Pour plus d’informations sur le niveau dédié, consultez [Vue d’ensemble d’Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> [!IMPORTANT]
+> Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié** . Il ne sont pas pris en charge dans le niveau **De base** .
 
 Pour plus d’informations, consultez le [Guide pratique pour configurer des points de terminaison privés pour un Event Hub](private-link-service.md)
 

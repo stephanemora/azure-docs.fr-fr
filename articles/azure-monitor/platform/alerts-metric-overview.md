@@ -4,12 +4,12 @@ description: Obtenez un aperçu des actions possibles avec les alertes de métri
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578068"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342176"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -57,7 +57,7 @@ Une fois que la règle d’alerte est créée, l’algorithme de machine learnin
 
 ### <a name="view-and-resolution-of-fired-alerts"></a>Affichage et résolution des alertes déclenchées
 
-Les exemples ci-dessus de déclenchement des règles d’alerte sont également consultables dans le portail Azure dans le panneau **Toutes les alertes**.
+Les exemples ci-dessus de déclenchement des règles d’alerte sont également consultables dans le portail Azure dans le panneau **Toutes les alertes** .
 
 Par exemple, si l’utilisation de « myVM » demeure au-dessus du seuil lors les vérifications suivantes, la règle d’alerte ne sera pas déclenchée à nouveau tant que les conditions ne seront pas résolues.
 
@@ -179,4 +179,5 @@ Vous trouverez la liste complète des types de ressources pris en charge dans ce
 - [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
 - [En savoir plus sur les groupes d’actions](action-groups.md)
 - [En savoir plus sur le type de condition des seuils dynamiques](alerts-dynamic-thresholds.md)
+- [En savoir plus sur la résolution des problèmes liés aux alertes de métrique](alerts-troubleshoot-metric.md)
 

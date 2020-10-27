@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319756"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090435"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Sécuriser un appareil d’entrée contraint avec des API REST Azure Maps et Azure AD
 
@@ -30,32 +30,32 @@ Ce guide explique comment sécuriser des applications ou des appareils publics q
 
 Créez l’application basée sur un appareil dans Azure AD pour activer la connexion Azure AD. Cette application sera autorisée à accéder aux API REST Azure Maps.
 
-1. Dans le portail Azure, dans la liste des services Azure, sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.  
+1. Dans le portail Azure, dans la liste des services Azure, sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription** .  
 
     > [!div class="mx-imgBorder"]
     > ![Inscription d’application](./media/how-to-manage-authentication/app-registration.png)
 
-2. Entrez un **Nom** et choisissez **Comptes dans cet annuaire d’organisation uniquement** comme **Type de compte pris en charge**. Dans **URI de redirection**, spécifiez **Client public/natif (mobile bureau)** , puis ajoutez `https://login.microsoftonline.com/common/oauth2/nativeclient` à la valeur. Pour plus d’informations, consultez [Azure AD : application de bureau qui appelle des API web : Inscription d’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Ensuite, **inscrivez** l’application.
+2. Entrez un **Nom** et choisissez **Comptes dans cet annuaire d’organisation uniquement** comme **Type de compte pris en charge** . Dans **URI de redirection** , spécifiez **Client public/natif (mobile bureau)** , puis ajoutez `https://login.microsoftonline.com/common/oauth2/nativeclient` à la valeur. Pour plus d’informations, consultez [Azure AD : application de bureau qui appelle des API web : Inscription d’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Ensuite, **inscrivez** l’application.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter les détails de l’inscription d’application pour le nom et l’URI de redirection](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Accédez à **Authentification** et activez **Considérer l’application comme un client public**. Cela active l’authentification du code d’appareil auprès d’Azure AD.
+3. Accédez à **Authentification** et activez **Considérer l’application comme un client public** . Cela active l’authentification du code d’appareil auprès d’Azure AD.
     
     > [!div class="mx-imgBorder"]
     > ![Activer l’inscription d’application en tant que client public](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Pour affecter des autorisations d’API déléguées à Azure Maps, accédez à l’application. Sélectionnez **Autorisations des API** > **Ajouter une autorisation**. Sous **API utilisées par que mon organisation**, recherchez et sélectionnez **Azure Maps**.
+4.  Pour affecter des autorisations d’API déléguées à Azure Maps, accédez à l’application. Sélectionnez **Autorisations des API** > **Ajouter une autorisation** . Sous **API utilisées par que mon organisation** , recherchez et sélectionnez **Azure Maps** .
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter des autorisations d’API d’application](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Cochez la case en regard de **Accéder à Azure Maps**, puis sélectionnez **Ajouter des autorisations**.
+5. Cochez la case en regard de **Accéder à Azure Maps** , puis sélectionnez **Ajouter des autorisations** .
 
     > [!div class="mx-imgBorder"]
     > ![Sélectionner des autorisations d’API d’application](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configurez le contrôle d’accès en fonction du rôle Azure pour les utilisateurs ou les groupes. Consultez [Accorder l’accès en fonction du rôle pour des utilisateurs à Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Configurez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les utilisateurs ou les groupes. Consultez [Accorder l’accès en fonction du rôle pour des utilisateurs à Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Ajoutez du code pour l’acquisition du flux de jeton dans l’application. Pour plus d’informations sur l’implémentation, consultez [Flux de code d’appareil](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Lors de l’acquisition des jetons, référencez l’étendue : `user_impersonation` qui a été sélectionnée lors des étapes précédentes.
 
@@ -110,7 +110,7 @@ Corps :
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

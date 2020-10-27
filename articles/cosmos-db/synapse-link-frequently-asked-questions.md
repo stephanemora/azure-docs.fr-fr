@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014560"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104102"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 
@@ -97,6 +97,10 @@ Les données du magasin analytique sont partitionnées en fonction du partitionn
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>Puis-je personnaliser ou substituer la façon dont les données transactionnelles sont transformées en colonnes dans le magasin analytique ?
 
 Actuellement, vous ne pouvez pas transformer les éléments de données lorsqu’ils sont propagés automatiquement du magasin transactionnel vers le magasin analytique. Si vous vous trouvez face à des scénarios bloqués par cette limitation, envoyez un message à l’[équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>Le magasin analytique est-il pris en charge par Terraform ?
+
+Terraform ne prend pas en charge les conteneurs de magasin analytique. Pour plus d’informations, consultez les [problèmes liés à Terraform sur GitHub](https://github.com/hashicorp/terraform/issues).
 
 ## <a name="analytical-time-to-live-ttl"></a>Durée de vie (TTL) analytique
 

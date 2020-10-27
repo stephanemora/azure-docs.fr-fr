@@ -4,12 +4,12 @@ description: Découvrez comment activer la surveillance d’un cluster Azure Kub
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994507"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165398"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
@@ -58,7 +58,7 @@ Si vous préférez effectuer une intégration avec un espace de travail existant
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Copiez la valeur de **SubscriptionId**.
+    Copiez la valeur de **SubscriptionId** .
 
 2. Basculez vers l’abonnement qui héberge l’espace de travail Log Analytics à l’aide de la commande suivante :
 
@@ -72,7 +72,7 @@ Si vous préférez effectuer une intégration avec un espace de travail existant
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Dans la sortie, recherchez le nom de l’espace de travail, puis copiez l’ID de ressource complet de cet espace de travail Log Analytics sous le champ **id**.
+    Dans la sortie, recherchez le nom de l’espace de travail, puis copiez l’ID de ressource complet de cet espace de travail Log Analytics sous le champ **id** .
 
 4. Exécutez la commande suivante pour activer l’extension de supervision, en remplaçant la valeur du paramètre `--workspace-resource-id`. La valeur de chaîne doit être comprise entre les guillemets doubles :
 
@@ -105,13 +105,13 @@ Si vous préférez effectuer une intégration avec un espace de travail existant
 
 Pour activer la supervision de votre cluster AKS dans le portail Azure à partir d’Azure Monitor, effectuez les étapes suivantes :
 
-1. Dans le Portail Azure, sélectionnez **Surveiller**.
+1. Dans le Portail Azure, sélectionnez **Surveiller** .
 
 2. Sélectionnez **Conteneurs** dans la liste.
 
-3. Dans la page **Surveiller – Conteneurs**, sélectionnez **Clusters non surveillés**.
+3. Dans la page **Surveiller – Conteneurs** , sélectionnez **Clusters non surveillés** .
 
-4. Dans la liste des clusters non surveillés, recherchez le conteneur et cliquez sur **Activer**.
+4. Dans la liste des clusters non surveillés, recherchez le conteneur et cliquez sur **Activer** .
 
 5. Dans la page **Onboarding to Container Health and Logs** (Intégration de l’intégrité des conteneurs et aux journaux), si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement.
@@ -127,19 +127,17 @@ Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler 
 
 Pour activer la surveillance directement depuis votre cluster AKS dans le portail Azure, procédez comme suit :
 
-1. Dans le portail Azure, sélectionnez **Tous les services**.
+1. Dans le portail Azure, sélectionnez **Tous les services** .
 
-2. Dans la liste des ressources, commencez à taper **Conteneurs**.  Au fur et à mesure de votre saisie, la liste est filtrée.
+2. Dans la liste des ressources, commencez à taper **Conteneurs** .  Au fur et à mesure de votre saisie, la liste est filtrée.
 
-3. Sélectionnez **Services Kubernetes**.
+3. Sélectionnez **Services Kubernetes** .
+    
+4. Dans la liste des services Kubernetes, sélectionnez un service.
 
-    ![Lien vers les services Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
+5. Sur la page Vue d’ensemble du service Kubernetes, sélectionnez **Surveillance - Insights** .
 
-4. Dans la liste des conteneurs, sélectionnez un conteneur.
-
-5. Dans la vue d’ensemble du conteneur, sélectionnez **Conteneurs Monitor**.
-
-6. Dans la page **Intégration à Azure Monitor pour conteneurs**, si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
+6. Dans la page **Intégration à Azure Monitor pour conteneurs** , si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement.
 
     ![Activer le contrôle d’intégrité des conteneurs AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -259,7 +257,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
 4. Modifiez **aksResourceId** et **aksResourceLocation** à l’aide des valeurs situées sur la page **Vue d’ensemble d’AKS** du cluster AKS. La valeur de **workspaceResourceId** est l’ID de ressource complet de votre espace de travail Log Analytics, qui inclut le nom de l’espace de travail.
 
-    Modifiez les valeurs d’**aksResourceTagValues** pour qu’elles correspondent aux valeurs de balises existantes spécifiées pour le cluster AKS.
+    Modifiez les valeurs d’ **aksResourceTagValues** pour qu’elles correspondent aux valeurs de balises existantes spécifiées pour le cluster AKS.
 
 5. Enregistrez ce fichier en tant que **existingClusterParam.json** dans un dossier local.
 

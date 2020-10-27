@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de l’isolement et la confidentialité des réseaux virtuels
+title: Vue d’ensemble de l’isolement et de la sécurité des réseaux virtuels
 titleSuffix: Azure Machine Learning
 description: Utiliser un réseau virtuel Microsoft Azure avec Azure Machine Learning pour sécuriser les ressources d’espace de travail et les environnements de calcul.
 services: machine-learning
@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825512"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131936"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -58,9 +58,9 @@ Le tableau suivant compare l’accès des services aux différentes parties d’
 
 Les cinq sections suivantes vous montrent comment sécuriser le scénario réseau décrit ci-dessus. Pour sécuriser votre réseau, vous devez :
 
-1. Sécuriser l’[**espace de travail et les ressources associées**](#secure-the-workspace-and-associated-resources).
-1. Sécuriser l’[**environnement d’entraînement**](#secure-the-training-environment).
-1. Sécuriser l’[**environnement d’inférence**](#secure-the-inferencing-environment).
+1. Sécuriser l’ [**espace de travail et les ressources associées**](#secure-the-workspace-and-associated-resources).
+1. Sécuriser l’ [**environnement d’entraînement**](#secure-the-training-environment).
+1. Sécuriser l’ [**environnement d’inférence**](#secure-the-inferencing-environment).
 1. Facultatif : [**activer la fonctionnalité studio**](#optional-enable-studio-functionality).
 1. Configurer les [**paramètres de pare-feu**](#configure-firewall-settings)
 

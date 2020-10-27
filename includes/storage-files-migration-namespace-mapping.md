@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425260"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331084"
 ---
 Dans cette étape, vous évaluez le nombre de partages de fichiers Azure dont vous avez besoin. Une seule instance Windows Server (ou cluster) peut synchroniser jusqu’à 30 partages de fichiers Azure.
 
@@ -28,11 +28,15 @@ Si votre service RH (par exemple) a un total de 15 partages, vous pouvez stocke
 
 Azure File Sync prend en charge la synchronisation de la racine d’un volume avec un partage de fichiers Azure. Si vous synchronisez le dossier racine, tous les sous-dossiers et fichiers se retrouvent dans le même partage de fichiers Azure.
 
-La synchronisation de la racine du volume n’est pas toujours la meilleure réponse. Il y a des avantages à synchroniser plusieurs emplacements. Par exemple, cela permet de maintenir un nombre d’éléments plus bas par étendue de synchronisation. La configuration d’Azure File Sync avec un nombre d’éléments inférieur n’est pas seulement avantageuse pour la synchronisation de fichiers. Un nombre inférieur d’éléments présente également des avantages pour d’autres scénarios comme :
+La synchronisation de la racine du volume n’est pas toujours la meilleure réponse. Il y a des avantages à synchroniser plusieurs emplacements. Par exemple, cela permet de maintenir un nombre d’éléments plus bas par étendue de synchronisation. Bien que nous testons les partages de fichiers Azure et Azure File Sync avec 100 millions d’éléments (fichiers et dossiers) par partage, la meilleure pratique consiste à essayer de conserver un chiffre inférieur à 20 ou 30 millions d’éléments dans un même partage. La configuration d’Azure File Sync avec un nombre d’éléments inférieur n’est pas seulement avantageuse pour la synchronisation de fichiers. Un nombre inférieur d’éléments présente également des avantages pour d’autres scénarios comme :
 
-* La restauration côté cloud à partir d’un instantané de partage de fichiers Azure peut être prise comme une sauvegarde.
+* L’analyse initiale du contenu cloud avant que l’espace de noms puisse commencer à apparaître sur un serveur Azure File Sync activé peut s’effectuer plus rapidement.
+* La restauration côté cloud à partir d’un instantané de partage de fichiers Azure sera plus rapide.
 * La reprise d’activité d’un serveur local peut être considérablement accélérée.
 * Les changements effectués directement dans un partage de fichiers Azure (en dehors de la synchronisation) peuvent être détectés et synchronisés plus rapidement.
+
+> [!TIP]
+> Si vous ne savez pas combien de fichiers et de dossiers vous avez, vous pouvez consulter l’outil d’arborescence de JAM Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Approche structurée d’un plan de déploiement
 
@@ -53,14 +57,12 @@ Pour prendre la décision sur le nombre de partages de fichiers Azure dont vous 
 >
 > Ce regroupement sous une racine commune n’a aucun impact sur l’accès à vos données. Vos listes de contrôle d’accès restent en l’état. Vous avez seulement besoin d’ajuster les chemins de partage (par exemple, des partages SMB ou NFS) que vous pouvez avoir sur les dossiers de serveur que vous avez désormais changés en racine commune. Rien d’autre ne change.
 
-Un autre aspect important d’Azure File Sync et de l’équilibre entre les performances et l’expérience est de bien comprendre l’impact des facteurs d’échelle sur les performances d’Azure File Sync. Évidemment, lorsque les fichiers sont synchronisés sur Internet, les fichiers plus volumineux prennent plus de temps et de bande passante pour la synchronisation.
-
 > [!IMPORTANT]
 > Le vecteur d’échelle le plus important pour Azure File Sync est le nombre d’éléments (fichiers et dossiers) qui doivent être synchronisés.
 
 Azure File Sync prend en charge la synchronisation de 100 millions d’éléments sur un même partage de fichiers Azure. Cette limite peut être dépassée et indique uniquement ce que l’équipe Azure File Sync teste régulièrement.
 
-Il est recommandé de maintenir un petit nombre d’éléments par étendue de synchronisation. C’est un facteur important à prendre en compte quand vous mappez des dossiers aux partages de fichiers Azure.
+Il est recommandé de maintenir un petit nombre d’éléments par étendue de synchronisation. C’est un facteur important à prendre en compte quand vous mappez des dossiers aux partages de fichiers Azure. Bien que nous testons les partages de fichiers Azure et Azure File Sync avec 100 millions d’éléments (fichiers et dossiers) par partage, la meilleure pratique consiste à essayer de conserver un chiffre inférieur à 20 ou 30 millions d’éléments dans un même partage. Fractionnez votre espace de noms en plusieurs partages si vous commencez à dépasser ces nombres. Vous pouvez continuer à regrouper plusieurs partages locaux dans le même partage de fichiers Azure, à condition que vous restiez plus ou moins en dessous de ces chiffres. Cela vous donne de la marge pour évoluer.
 
 Dans votre situation, il est possible qu’un ensemble de dossiers puisse logiquement se synchroniser avec le même partage de fichiers Azure (à l’aide de la nouvelle approche de dossier racine commun mentionnée plus haut). Toutefois, il peut être préférable de regrouper les dossiers de manière à ce qu’ils se synchronisent avec deux partages de fichiers Azure au lieu d’un. Vous pouvez utiliser cette approche pour conserver l’équilibre entre le nombre de fichiers et de dossiers par partage de fichiers sur le serveur.
 
@@ -73,7 +75,7 @@ Dans votre situation, il est possible qu’un ensemble de dossiers puisse logiqu
     :::column:::
         Combinez les concepts précédents pour déterminer le nombre de partages de fichiers Azure dont vous avez besoin, ainsi que les parties de vos données existantes finissant dans ces différents partages.
         
-        Créez un tableau regroupant vos réflexions pour pouvoir vous y référer dans l’étape suivante. Veillez à rester organisé pour ne perdre aucun détail de votre plan de mappage quand vous provisionnez simultanément un grand nombre de ressources Azure. Pour vous aider à créer un mappage complet, vous pouvez télécharger un fichier Microsoft Excel en tant que modèle.
+        Créez un tableau regroupant vos réflexions pour pouvoir vous y référer dans quand cela est nécessaire. Veillez à rester organisé pour ne perdre aucun détail de votre plan de mappage quand vous provisionnez simultanément un grand nombre de ressources Azure. Pour vous aider à créer un mappage complet, vous pouvez télécharger un fichier Microsoft Excel en tant que modèle.
 
 [//]: # (Le langage HTML se présente comme étant le seul moyen d’ajouter une table imbriquée à deux colonnes avec analyse des images de travail et texte/lien hypertexte sur la même ligne.)
 

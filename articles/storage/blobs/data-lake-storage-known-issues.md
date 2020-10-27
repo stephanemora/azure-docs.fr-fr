@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876122"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282195"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -68,7 +68,7 @@ La possibilité d’appliquer les modifications aux listes ACL de manière récu
 
 ## <a name="azcopy"></a>AzCopy
 
-Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy (telles qu’AzCopy v8.1) ne sont pas prises en charge.
+Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  Les versions antérieures d’AzCopy (telles qu’AzCopy v8.1) ne sont pas prises en charge.
 
 <a id="storage-explorer"></a>
 
@@ -84,7 +84,7 @@ Les listes de contrôle d’accès ne sont pas prises en charge pour le moment.
 
 <a id="third-party-apps"></a>
 
-## <a name="thirdpartyapplications"></a>Applications tierces
+## <a name="third-party-applications"></a>Applications tierces
 
 Les applications tierces qui utilisent les API REST continueront à fonctionner si vous les utilisez avec Data Lake Storage Gen2. Les applications qui appellent des API Blob fonctionneront probablement.
 
@@ -92,7 +92,11 @@ Les applications tierces qui utilisent les API REST continueront à fonctionner 
 
 Si l’[accès en lecture anonyme](storage-manage-access-to-resources.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Comptes de stockage BlockBlobStorage de performances Premium
+### <a name="diagnostic-logs"></a>Journaux de diagnostic
+
+Le réglage du nombre de jours de rétention n’est pas encore pris en charge, mais vous pouvez supprimer les journaux manuellement à l’aide de n’importe quel outil pris en charge, comme Explorateur Stockage Azure, REST ou un Kit de développement logiciel (SDK).
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problèmes spécifiques aux comptes de stockage BlockBlobStorage de performances Premium
 
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-Le réglage du nombre de jours de rétention n’est pas encore pris en charge, mais vous pouvez supprimer les journaux manuellement à l’aide de n’importe quel outil pris en charge, comme Explorateur Stockage Azure, REST ou un Kit de développement logiciel (SDK).
 
 ### <a name="lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie
 

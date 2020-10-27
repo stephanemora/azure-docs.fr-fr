@@ -4,12 +4,12 @@ description: Cet article vous aidera à optimiser les coûts et à aligner l’a
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476255"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328264"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Gérer le coût et l’appartenance
 Le coût et l’appartenance sont les principaux éléments à prendre en compte lors de la création de vos environnements de développement et de test. Dans cette section, vous trouvez des informations qui vous aideront à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.
@@ -34,9 +34,9 @@ Seuls les abonnés Visual Studio actifs (abonnements standard, abonnements cloud
 
 Si vous décidez d’utiliser l’offre DevTest, notez que cet avantage est exclusivement réservé au développement et au test de vos applications. L’utilisation dans le cadre de l’abonnement n’est pas associée à un contrat de niveau de service avec compensations financières, sauf au sein d’Azure DevOps et de HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Définir un accès en fonction du rôle au sein de votre organisation
+## <a name="define-role-based-access-across-your-organization"></a>Définir un accès en fonction du rôle au sein de votre organisation
 ### <a name="question"></a>Question
-Comment définir le contrôle d’accès en fonction du rôle pour les environnements DevTest Labs afin de garantir la gouvernance de l’informatique pendant le travail des développeurs/testeurs ? 
+Comment définir le contrôle d’accès en fonction du rôle Azure pour les environnements DevTest Labs afin de garantir la gouvernance du service informatique pendant le travail des développeurs/testeurs ? 
 
 ### <a name="answer"></a>Réponse
 Il existe un modèle assez large, mais le détail dépend de votre organisation.

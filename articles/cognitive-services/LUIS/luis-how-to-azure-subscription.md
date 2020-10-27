@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327219"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151582"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 
@@ -31,7 +31,7 @@ LUIS autorise trois types de ressources Azure et une ressource non-Azure :
 |--|--|--|--|
 |Ressource de création|Vous permet de créer, gérer, entraîner, tester et publier vos applications. [Créez une ressource de création LUIS](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) si vous envisagez de créer des applications LUIS par programmation ou à partir du portail LUIS. Vous devez d’abord [migrer votre compte LUIS](luis-migration-authoring.md#what-is-migration) pour être en mesure de lier vos ressources de création Azure à votre application. Vous pouvez contrôler les autorisations d’accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs. <br><br> Il existe un seul niveau disponible pour la ressource de création LUIS :<br> * **Ressource de création F0 gratuite** qui vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction de test gratuites par mois. |`LUIS.Authoring`|`Cognitive Services`|
 |Ressource de prédiction| Après avoir publié votre application LUIS, utilisez la ressource/clé de prédiction pour interroger les demandes de point de terminaison de prédiction. Créez une ressource de prédiction LUIS avant que votre application cliente demande des prédictions au-delà des 1 000 demandes fournies par la ressource de création ou de démarrage. <br><br> Il existe deux niveaux disponibles pour la ressource de prédiction :<br> * **Ressource de prédiction F0 gratuite** qui vous offre 10 000 demandes de point de terminaison de prédiction gratuites par mois<br> * **Ressource de prédiction S0 standard** qui correspond au niveau payant. [En savoir plus sur les détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Ressource de démarrage/d’essai|Vous permet de créer, gérer, entraîner, tester et publier vos applications. Elle est créée par défaut si vous choisissez l’option de ressource de démarrage lors de la première inscription à LUIS. Toutefois, la clé de démarrage finira par être obsolète et tous les utilisateurs de LUIS devront [migrer leurs comptes](luis-migration-authoring.md#what-is-migration) et lier leurs applications LUIS à une ressource de création. Cette ressource ne vous donne pas les autorisations nécessaires pour le contrôle d’accès en fonction du rôle comme la ressource de création. <br><br> Tout comme la ressource de création, la ressource de démarrage vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction de test gratuites.|-|Pas une ressource Azure|
+|Ressource de démarrage/d’essai|Vous permet de créer, gérer, entraîner, tester et publier vos applications. Elle est créée par défaut si vous choisissez l’option de ressource de démarrage lors de la première inscription à LUIS. Toutefois, la clé de démarrage finira par être obsolète et tous les utilisateurs de LUIS devront [migrer leurs comptes](luis-migration-authoring.md#what-is-migration) et lier leurs applications LUIS à une ressource de création. Cette ressource ne vous donne pas les autorisations nécessaires pour le contrôle d’accès en fonction du rôle Azure comme la ressource de création. <br><br> Tout comme la ressource de création, la ressource de démarrage vous offre 1 million de transactions de création gratuites et 1 000 demandes de point de terminaison de prédiction de test gratuites.|-|Pas une ressource Azure|
 |[Clé de ressource multi-service Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Requêtes de point de terminaison de prédiction de requête partagées avec LUIS et d’autres services Cognitive Services pris en charge.|`CognitiveServices`|`Cognitive Services`|
 
 
@@ -76,7 +76,7 @@ Pour les applications non encore migrées : la clé est réinitialisée sur tou
 
 ### <a name="regenerate-azure-key"></a>Régénérer une clé Azure
 
-Régénérez les clés Azure à partir du portail Azure via la page **Clés**.
+Régénérez les clés Azure à partir du portail Azure via la page **Clés** .
 
 
 <a name="securing-the-endpoint"></a>
@@ -94,13 +94,13 @@ Vous pouvez déplacer votre application LUIS. Utilisez les ressources documentai
 
 ### <a name="contributions-from-other-authors"></a>Contributions d'autres auteurs
 
-Pour les applications [migrées de ressource de création](luis-migration-authoring.md) : les _contributeurs_ sont gérés dans le portail Azure pour la ressource de création, à l’aide de la page **Contrôle d’accès (IAM)** . Apprenez à [ajouter un utilisateur](luis-how-to-collaborate.md) à l'aide de l'adresse e-mail du collaborateur et du rôle de _contributeur_.
+Pour les applications [migrées de ressource de création](luis-migration-authoring.md) : les _contributeurs_ sont gérés dans le portail Azure pour la ressource de création, à l’aide de la page **Contrôle d’accès (IAM)** . Apprenez à [ajouter un utilisateur](luis-how-to-collaborate.md) à l'aide de l'adresse e-mail du collaborateur et du rôle de _contributeur_ .
 
-Pour les applications qui n’ont pas encore été migrées : tous les _collaborateurs_ sont gérés dans le portail LUIS à partir de la page **Gérer -> Collaborateurs**.
+Pour les applications qui n’ont pas encore été migrées : tous les _collaborateurs_ sont gérés dans le portail LUIS à partir de la page **Gérer -> Collaborateurs** .
 
 ### <a name="query-prediction-access-for-private-and-public-apps"></a>Accès aux prédictions de requête pour les applications privées et publiques
 
-Pour une application **privée**, le runtime de prédiction de requête est accessible aux propriétaires et aux contributeurs. Pour une application **publique**, l'environnement d'exécution est accessible à tous les utilisateurs qui disposent de leur propre ressource d'exécution Azure [Cognitive Service](../cognitive-services-apis-create-account.md) ou [LUIS](#create-resources-in-the-azure-portal) et de l'ID de l'application publique.
+Pour une application **privée** , le runtime de prédiction de requête est accessible aux propriétaires et aux contributeurs. Pour une application **publique** , l'environnement d'exécution est accessible à tous les utilisateurs qui disposent de leur propre ressource d'exécution Azure [Cognitive Service](../cognitive-services-apis-create-account.md) ou [LUIS](#create-resources-in-the-azure-portal) et de l'ID de l'application publique.
 
 Aucun catalogue d'applications publiques n'est actuellement disponible.
 
@@ -125,7 +125,7 @@ Le propriétaire et tous les contributeurs disposent de l'accès requis pour cr�
 
 ### <a name="prediction-endpoint-runtime-access"></a>Accès à l'environnement d'exécution du point de terminaison de prédiction
 
-L'accès permettant d'interroger le point de terminaison de prédiction est contrôlé par un paramètre de la page **Informations sur l'application** dans la section **Gérer**.
+L'accès permettant d'interroger le point de terminaison de prédiction est contrôlé par un paramètre de la page **Informations sur l'application** dans la section **Gérer** .
 
 |[Point de terminaison privé](#runtime-security-for-private-apps)|[Point de terminaison public](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -190,20 +190,20 @@ Ressource `kind` :
 
     Cette action ouvre un navigateur qui vous permet de sélectionner le bon compte et de fournir une authentification.
 
-1. Créez une **ressource de création LUIS**, de type `LUIS.Authoring`, nommée `my-luis-authoring-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`.
+1. Créez une **ressource de création LUIS** , de type `LUIS.Authoring`, nommée `my-luis-authoring-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Créez une **ressource de point de terminaison de prédiction LUIS**, de type `LUIS`, nommée `my-luis-prediction-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. Si vous recherchez un débit plus élevé que le niveau gratuit, passez de `F0` à `S0`. En savoir plus sur les [niveaux tarifaires et le débit](luis-limits.md#key-limits).
+1. Créez une **ressource de point de terminaison de prédiction LUIS** , de type `LUIS`, nommée `my-luis-prediction-resource` dans le groupe de ressources _existant_ nommé `my-resource-group` pour la région `westus`. Si vous recherchez un débit plus élevé que le niveau gratuit, passez de `F0` à `S0`. En savoir plus sur les [niveaux tarifaires et le débit](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > Ces clés ne sont **pas** utilisées par le portail LUIS tant qu’elles n’ont pas été attribuées dans le portail LUIS via le menu **Gérer -> Ressources Azure**.
+    > Ces clés ne sont **pas** utilisées par le portail LUIS tant qu’elles n’ont pas été attribuées dans le portail LUIS via le menu **Gérer -> Ressources Azure** .
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -212,8 +212,8 @@ Ressource `kind` :
 Vous pouvez affecter une ressource de création pour une seule application ou pour toutes les applications dans LUIS. La procédure suivante affecte toutes les applications à une seule ressource de création.
 
 1. Connectez-vous au [portail LUIS](https://www.luis.ai).
-1. Dans la barre de navigation supérieure, tout à fait à droite, sélectionnez votre compte d’utilisateur, puis sélectionnez **Paramètres**.
-1. Dans la page **Paramètres utilisateur**, sélectionnez **Ajouter une ressource de création**, puis sélectionnez une ressource de création existante. Sélectionnez **Enregistrer**.
+1. Dans la barre de navigation supérieure, tout à fait à droite, sélectionnez votre compte d’utilisateur, puis sélectionnez **Paramètres** .
+1. Dans la page **Paramètres utilisateur** , sélectionnez **Ajouter une ressource de création** , puis sélectionnez une ressource de création existante. Sélectionnez **Enregistrer** .
 
 ## <a name="assign-a-resource-to-an-app"></a>Affecter une ressource à une application
 
@@ -221,13 +221,13 @@ Notez que si vous ne disposez pas d’un abonnement Azure, vous ne serez pas en 
 
 Vous pouvez affecter ou créer une ressource de création ou de prédiction dans une application à l’aide de la procédure suivante :
 
-1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis sélectionnez une application dans la liste **Mes applications**.
-1. Accédez à la page **Gérer -> Ressources Azure**.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis sélectionnez une application dans la liste **Mes applications** .
+1. Accédez à la page **Gérer -> Ressources Azure** .
 
     ![Sélectionnez Gérer -> Ressources Azure dans le portail LUIS pour affecter une ressource à l’application.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Sélectionnez l’onglet Ressources de prédiction ou Ressource de création, puis sélectionnez le bouton **Ajouter une ressource de prédiction** ou **Ajouter une ressource de création**.
-1. Sélectionnez les champs dans le formulaire pour trouver la ressource correcte, puis sélectionnez **Enregistrer**.
+1. Sélectionnez l’onglet Ressources de prédiction ou Ressource de création, puis sélectionnez le bouton **Ajouter une ressource de prédiction** ou **Ajouter une ressource de création** .
+1. Sélectionnez les champs dans le formulaire pour trouver la ressource correcte, puis sélectionnez **Enregistrer** .
 1. Si vous n’avez pas de ressource existante, vous pouvez en créer une en sélectionnant « Créer une nouvelle ressource LUIS ? » en bas de la fenêtre.
 
 
@@ -266,8 +266,8 @@ Vous pouvez affecter ou créer une ressource de création ou de prédiction dans
 
 ## <a name="unassign-resource"></a>Désaffecter la ressource
 
-1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis sélectionnez une application dans la liste **Mes applications**.
-1. Accédez à la page **Gérer -> Ressources Azure**.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis sélectionnez une application dans la liste **Mes applications** .
+1. Accédez à la page **Gérer -> Ressources Azure** .
 1. Sélectionnez l’onglet de ressource Prédiction ou Création, puis le bouton **Annuler l’affectation d’une ou plusieurs ressources** pour la ressource.
 
 Lorsque vous annulez l’attribution d’une ressource, celle-ci n’est pas supprimée d’Azure. Elle n’est simplement plus liée à LUIS.
@@ -287,12 +287,12 @@ Consultez la page [Stockage et suppression de données](luis-concept-data-storag
     ![Modifier votre niveau de paiement LUIS](./media/luis-usage-tiers/plans.png)
 1.  Lorsque la modification de tarification est terminée, une fenêtre contextuelle vérifie le nouveau niveau tarifaire.
     ![Vérifier votre niveau de paiement LUIS](./media/luis-usage-tiers/updated.png)
-1. N’oubliez pas d’[affecter cette clé de point de terminaison](#assign-a-resource-to-an-app) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison.
+1. N’oubliez pas d’ [affecter cette clé de point de terminaison](#assign-a-resource-to-an-app) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison.
 
 ## <a name="viewing-azure-resource-metrics"></a>Affichage des métriques de ressources Azure
 
 ### <a name="viewing-azure-resource-summary-usage"></a>Affichage du récapitulatif d’utilisation des ressources Azure
-Vous pouvez afficher des informations sur l’utilisation de LUIS dans Azure. La page **Vue d’ensemble** affiche des informations récapitulatives récentes, y compris les appels et les erreurs. Si vous effectuez une requête de point de terminaison LUIS, puis consultez immédiatement la **page Vue d’ensemble**, attendez cinq minutes, le temps que l’utilisation s’affiche.
+Vous pouvez afficher des informations sur l’utilisation de LUIS dans Azure. La page **Vue d’ensemble** affiche des informations récapitulatives récentes, y compris les appels et les erreurs. Si vous effectuez une requête de point de terminaison LUIS, puis consultez immédiatement la **page Vue d’ensemble** , attendez cinq minutes, le temps que l’utilisation s’affiche.
 
 ![Affichage résumé de l’utilisation](./media/luis-usage-tiers/overview.png)
 

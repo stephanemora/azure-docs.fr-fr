@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854913"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275605"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Fichier de configuration de la bibliothèque d’authentification Microsoft Authentication Android
 
@@ -34,6 +34,7 @@ Cet article vous permet de comprendre les différents paramètres inclus dans ce
 |-----------|------------|-------------|-------|
 | `client_id` | String | Oui | ID client de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Oui | URI de redirection de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Boolean | Non | Valeurs possibles : `true`, `false` |
 | `authorities` | Liste \<Authority> | Non | Liste des autorités dont votre application a besoin |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Non | Valeurs possibles : `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | Non | Configurez `HttpUrlConnection` `connect_timeout` et `read_timeout` |
@@ -46,6 +47,10 @@ ID client ou ID d’application créé lors de l’inscription de votre applicat
 ### <a name="redirect_uri"></a>redirect_uri
 
 URI de redirection que vous avez inscrit lorsque vous avez inscrit votre application. Si l’URI de redirection pointe vers une application de répartiteur, reportez-vous à [URI de redirection pour les applications clientes publiques](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) pour veiller à utiliser le bon format d’URI de redirection pour votre application de répartiteur.
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+Si vous souhaitez utiliser l'authentification répartie, la propriété `broker_redirect_uri_registered` doit être définie sur `true`. Dans un scénario d'authentification répartie, si l'application n'est pas au bon format pour communiquer avec le répartiteur, comme décrit dans [URI de redirection pour les applications clientes publiques](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), l'application valide votre URI de redirection et renvoie une exception lorsqu'elle démarre.
 
 ### <a name="authorities"></a>authorities
 
@@ -98,6 +103,7 @@ Liste des autorités que vous connaissez et que vous approuvez. En plus des auto
 > La validation des autorités ne peut pas être activée et désactivée dans MSAL.
 > Les autorités sont soit connues par vous en tant que développeur comme spécifié par le biais de la configuration, soit connues de Microsoft par le biais des métadonnées.
 > Si MSAL reçoit une demande de jeton d’une autorité inconnue, une `MsalClientException` de type `UnknownAuthority` est levée.
+> L'authentification répartie ne fonctionne pas pour Azure AD B2C.
 
 #### <a name="authority-properties"></a>Propriétés des autorités
 

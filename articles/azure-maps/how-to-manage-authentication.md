@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311101"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089449"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -24,7 +24,7 @@ Suite à la création d’un compte Azure Maps, un ID client et des clés sont c
 
 Après la création du compte Azure Maps, les clés principales et secondaires sont générées. Nous vous recommandons d’utiliser la clé principale comme clé d’abonnement quand vous [utilisez l’authentification par clé partagée pour appeler Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Vous pouvez utiliser une clé secondaire dans des scénarios comme des changements dans la permutation des clés. Pour plus d’informations, consultez [Authentification dans Azure Maps](https://aka.ms/amauth).
 
-Vous pouvez voir les détails de votre authentification dans le portail Azure. Dans votre compte, dans le menu **Paramètres**, sélectionnez **Authentification**.
+Vous pouvez voir les détails de votre authentification dans le portail Azure. Dans votre compte, dans le menu **Paramètres** , sélectionnez **Authentification** .
 
 > [!div class="mx-imgBorder"]
 > ![Informations sur l’authentification](./media/how-to-manage-authentication/how-to-view-auth.png)
@@ -41,7 +41,7 @@ En fonction des besoins de l’application, il existe des chemins spécifiques p
 Le tableau suivant présente les scénarios d’authentification et d’autorisation courants dans Azure Maps. Le tableau fournit une comparaison des types de protection proposés par chaque scénario.
 
 > [!IMPORTANT]
-> Microsoft recommande d’implémenter Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) pour les applications de production.
+> Microsoft recommande d’implémenter Azure Active Directory (Azure AD) avec le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les applications de production.
 
 | Scénario                                                                                    | Authentification | Autorisation | Effort de développement | Effort opérationnel |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -56,17 +56,17 @@ Les liens du tableau vous conduisent à des informations détaillées sur la con
 
 ## <a name="view-role-definitions"></a>Afficher les définitions de rôles
 
-Pour voir les rôles Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles**, puis recherchez les rôles qui commencent par *Azure Maps*. Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
+Pour voir les rôles Azure disponibles pour Azure Maps, accédez à **Contrôle d’accès (IAM)** . Sélectionnez **Rôles** , puis recherchez les rôles qui commencent par *Azure Maps* . Ces rôles Azure Maps sont les rôles auxquels vous pouvez accorder un accès.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Voir les attributions de rôles
 
-Pour voir les applications et les utilisateurs auxquels le contrôle d’accès en fonction du rôle (RBAC) pour Azure Maps a été accordé, accédez à l’option **Contrôle d’accès (IAM)** . Ensuite, sélectionnez **Attributions de rôles**, puis filtrez sur **Azure Maps**.
+Pour voir les applications et les utilisateurs auxquels l’accès à Azure Maps a été accordé, accédez à l’option **Contrôle d’accès (IAM)** . Ensuite, sélectionnez **Attributions de rôles** , puis filtrez sur **Azure Maps** .
 
 > [!div class="mx-imgBorder"]
-> ![View users and apps that have been granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![Affichage des utilisateurs et des applications auxquels le RBAC a été accordé](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Demander des jetons pour Azure Maps
 

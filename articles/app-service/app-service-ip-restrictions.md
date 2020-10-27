@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962959"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168220"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service
 
@@ -30,13 +30,13 @@ La possibilité de restreindre l’accès à votre application web à partir d�
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Ajout et modification des règles de restriction d’accès dans le portail ##
 
-Pour ajouter une règle de restriction d’accès à votre application, dans le menu, ouvrez **Réseau**>**Restrictions d’accès**, puis cliquez sur **Configurer des restrictions d’accès**.
+Pour ajouter une règle de restriction d’accès à votre application, dans le menu, ouvrez **Réseau**>**Restrictions d’accès** , puis cliquez sur **Configurer des restrictions d’accès** .
 
 ![Options réseau d’App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
 Dans l’interface utilisateur Restrictions d’accès, vous pouvez consulter la liste des règles de restriction d’accès définies pour votre application.
 
-![répertorier les restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Capture d’écran de l’écran Restrictions d’accès dans le portail Azure montrant la liste des règles de restriction d’accès définies pour l’application sélectionnée.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 La liste affiche l’ensemble des restrictions actuelles de votre application. Si une restriction de réseau virtuel s’applique à votre application, le tableau indique si des points de terminaison de service sont activés pour Microsoft.Web. En l’absence de restriction appliquée à votre application, votre application est accessible depuis n’importe où.  
 
@@ -68,21 +68,21 @@ Avec les points de terminaison de service, vous pouvez configurer votre applicat
 
 Vous pouvez cliquer sur n’importe quelle ligne pour modifier une règle existante de restriction d’accès. Les modifications sont appliquées immédiatement, y compris les changements de priorité.
 
-![modifier une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Capture d’écran de la boîte de dialogue Modifier la restriction d’adresses IP dans le portail Azure montrant les champs d’une règle de restriction d’accès existante.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 Lorsque vous modifiez une règle, vous ne pouvez pas modifier le type entre une règle d’adresse IP et une règle de réseau virtuel. 
 
-![modifier une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Capture d’écran de la boîte de dialogue Modifier la restriction d’adresses IP dans le portail Azure montrant les paramètres d’une règle de réseau virtuel.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer**.
+Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer** .
 
 ![supprimer une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## <a name="blocking-a-single-ip-address"></a>Blocage d’une adresse IP unique ##
 
-Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
+Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser** .
 
-Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser**.
+Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser** .
 
 ![bloquer une adresse IP unique](media/app-service-ip-restrictions/block-single-address.png)
 
@@ -90,7 +90,7 @@ Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP o
 
 Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site gcl utilisé par votre application. Le site gcl est le point de terminaison de déploiement web, ainsi que la console Kudu. Vous pouvez affecter séparément des restrictions d’accès au site gcl à partir de l’application ou utiliser le même ensemble pour l’application et le site gcl. Lorsque vous cochez la case pour avoir les mêmes restrictions que votre application, tout s’affiche en grisé. Si vous décochez la case, les paramètres dont vous disposiez précédemment sur le site gcl sont appliqués. 
 
-![répertorier les restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Capture d’écran de l’écran Restrictions d’accès dans le portail Azure indiquant qu’aucune restriction d’accès n’est définie pour le site SCM ou l’application.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulation par programmation des règles de restriction d’accès ##
 
@@ -111,7 +111,7 @@ Vous pouvez également définir manuellement les valeurs à l’aide d’une op�
 
 Dans Resource Manager, ces informations se trouvent à l’emplacement suivant :
 
-management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/ **subscription ID** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **web app name** /config/web?api-version=2018-02-01
 
 La syntaxe JSON de l’exemple précédent est la suivante :
 ```json

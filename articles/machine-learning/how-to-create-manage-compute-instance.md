@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756617"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207085"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -129,7 +129,7 @@ Démarrez, arrêtez, redémarrez et supprimez une instance de calcul. Une instan
 
 # <a name="python"></a>[Python](#tab/python)
 
-Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
+Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance** .
 
 * Obtenir l’état
 
@@ -170,7 +170,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
+Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance** .
 
 * Arrêter
 
@@ -206,7 +206,7 @@ Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul**, puis sélectionnez **Instance de calcul** en haut.
+Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul** , puis sélectionnez **Instance de calcul** en haut.
 
 ![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -255,12 +255,13 @@ Vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio�
 * RStudio utilise l’onglet **Packages** en bas à droite, ou l’onglet **Console** en haut à gauche.  
 * Python : Ajoutez le code d’installation et exécutez-le dans une cellule Jupyter Notebook.
 
-Vous pouvez aussi effectuer l’installation à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
+Vous pouvez aussi effectuer l’installation à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.6 – AzureML** .  Installez les packages R dans l’environnement **R** .
+Les fonctions magiques %pip et %conda installent automatiquement des packages dans le noyau en cours d’exécution dans la session de notebook Jupyter.
 
 ## <a name="add-new-kernels"></a>Ajouter de nouveaux noyaux
 
 > [!WARNING]
->  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer l’environnement conda **azureml_py36** ou le noyau **Python 3.6 - AzureML**. Cela est nécessaire pour le bon fonctionnement de Jupyter/JupyterLab.
+>  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer l’environnement conda **azureml_py36** ou le noyau **Python 3.6 - AzureML** . Cela est nécessaire pour le bon fonctionnement de Jupyter/JupyterLab.
 
 Pour ajouter un nouveau noyau Jupyter à l’instance de calcul :
 

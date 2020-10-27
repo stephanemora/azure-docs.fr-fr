@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970637"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315929"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -42,7 +42,7 @@ Dans l’API REST Azure, les commandes [Abonnements – Get](/rest/api/resources
 > [!NOTE]
 > En plus des informations sur les locataires liées à Azure Lighthouse, les locataires indiqués par ces API peuvent également refléter les locataires partenaires des applications managées Azure ou Azure Databricks.
 
-Nous fournissons également des API spécifiques pour l'exécution de tâches Azure Lighthouse. Pour plus d’informations, voir la section **Référence**.
+Nous fournissons également des API spécifiques pour l'exécution de tâches Azure Lighthouse. Pour plus d’informations, voir la section **Référence** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Services et scénarios améliorés
 
@@ -69,6 +69,10 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Sauvegarder et restaurer des données client [à partir de charges de travail locales, de machines virtuelles Azure, de partages de fichiers Azure, etc.](../..//backup/backup-overview.md#what-can-i-back-up)
 - Utilisez l'[Explorateur de sauvegarde](../../backup/monitor-azure-backup-with-backup-explorer.md) pour visualiser les informations opérationnelles des éléments de sauvegarde (y compris les ressources Azure qui n'ont pas encore été configurées pour la sauvegarde) et les informations de supervision (travaux et alertes) des abonnements délégués. Pour l’instant, l’Explorateur de sauvegarde est uniquement disponible pour les données de machines virtuelles Azure.
 - Utilisez [Rapports de sauvegarde](../../backup/configure-reports.md) dans les abonnements délégués pour suivre les tendances historiques, analyser la consommation du stockage de sauvegarde et auditer les sauvegardes et les restaurations.
+
+[Azure Blueprints](../../governance/blueprints/index.yml) :
+
+- Utiliser Azure Blueprints pour orchestrer le déploiement de modèles de ressource et d’autres artefacts (nécessite un [accès supplémentaire](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) pour préparer l’abonnement client)
 
 [Azure Cost Management + Facturation](../../cost-management-billing/index.yml) :
 

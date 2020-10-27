@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876547"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151174"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -24,7 +24,7 @@ Pour découvrir plus en détail les fonctionnalités de réplication MySQL et le
 > [!NOTE]
 > Communication sans biais
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
@@ -38,7 +38,7 @@ Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas di
 La fonctionnalité de réplica en lecture utilise la réplication asynchrone MySQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre la source et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
 > [!IMPORTANT]
-> Azure Database pour MySQL utilise la journalisation binaire basée sur **ROW**. S’il manque une clé primaire dans votre table, toutes les lignes de la table sont analysées pour les opérations DML. Cela a pour effet d’accentuer le décalage de la réplication. Pour faire en sorte que le réplica suive le rythme des modifications apportées à la source, nous recommandons généralement d’ajouter une clé primaire aux tables du serveur source avant de créer le serveur réplica ou de recréer le serveur de réplica si vous en avez déjà un.
+> Azure Database pour MySQL utilise la journalisation binaire basée sur **ROW** . S’il manque une clé primaire dans votre table, toutes les lignes de la table sont analysées pour les opérations DML. Cela a pour effet d’accentuer le décalage de la réplication. Pour faire en sorte que le réplica suive le rythme des modifications apportées à la source, nous recommandons généralement d’ajouter une clé primaire aux tables du serveur source avant de créer le serveur réplica ou de recréer le serveur de réplica si vous en avez déjà un.
 
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur source. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
@@ -50,7 +50,7 @@ Vous pouvez disposer d’un serveur source dans toute [région Azure Database po
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
 Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur source. Les régions de réplica universelles prises en charge sont les suivantes :
 
-Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
+Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
 
 ### <a name="paired-regions"></a>Régions jumelées
 Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur source. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](../best-practices-availability-paired-regions.md).
@@ -83,7 +83,7 @@ Au moment de sa création, un réplica hérite des règles de pare-feu du serveu
 
 Le réplica hérite du compte Administrateur du serveur source. Tous les comptes d’utilisateur sur le serveur source sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur source.
 
-Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour MySQL classique. Sur un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via l’interface de ligne de commande mysql :
+Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour MySQL classique. Sur un serveur nommé **myreplica** , à l’aide du nom d’utilisateur administrateur **myadmin** , vous pouvez vous connecter au réplica via l’interface de ligne de commande mysql :
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -113,7 +113,7 @@ Découvrez comment [arrêter la réplication sur un réplica](howto-read-replica
 
 Il n’existe aucun basculement automatique entre les serveurs source et réplica. 
 
-Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
+Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication* , qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
 
 > [!Tip]
 > Si vous basculez vers le réplica, le décalage qui existe au moment où vous supprimez la liaison entre le réplica et le serveur source indiquera la quantité de données perdues.
@@ -128,6 +128,26 @@ Une fois que vous avez décidé de basculer vers un réplica :
     
 Lorsque votre application est en mesure de traiter les lectures et les écritures, le basculement est terminé. Le temps d’arrêt de votre application dépend du moment où vous détectez le problème et où vous effectuez les étapes 1 et 2 ci-dessus.
 
+## <a name="global-transaction-identifier-gtid"></a>Identificateur de transaction global (GTID)
+
+L'identificateur de transaction global (GTID) est un identificateur unique créé pour chaque transaction validée sur un serveur source. Par défaut, il est désactivé dans Azure Database pour MySQL. Le GTID est pris en charge sur les versions 5.7 et 8.0, et uniquement sur les serveurs qui prennent en charge un stockage maximum de 16 To. Pour en savoir plus sur le GTID et son utilisation lors de la réplication, consultez la documentation relative à la [réplication avec GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) de MySQL.
+
+MySQL prend en charge deux types de transactions : les transactions GTID (avec GTID) et les transactions anonymes (sans GTID)
+
+Les paramètres serveur suivants sont disponibles pour la configuration du GTID : 
+
+|**Paramètre serveur**|**Description**|**Valeur par défaut**|**Valeurs**|
+|--|--|--|--|
+|`gtid_mode`|Indique si des GTID sont utilisés pour identifier les transactions. Les modifications entre modes ne peuvent être effectuées qu'une étape à la fois, dans l'ordre croissant (par exemple, `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF` : Les nouvelles transactions et les transactions de réplication doivent être anonymes. <br> `OFF_PERMISSIVE` : Les nouvelles transactions sont anonymes. Les transactions répliquées peuvent être des transactions anonymes ou des transactions GTID. <br> `ON_PERMISSIVE` : Les nouvelles transactions sont des transactions GTID. Les transactions répliquées peuvent être des transactions anonymes ou des transactions GTID. <br> `ON` : Les nouvelles transactions et les transactions répliquées doivent être des transactions GTID.|
+|`enforce_gtid_consistency`|Applique la cohérence GTID en autorisant uniquement l'exécution des instructions qui peuvent être consignées de manière sécurisée sur le plan transactionnel. Cette valeur doit être définie sur `ON` avant d'activer la réplication GTID. |`OFF`|`OFF` : Toutes les transactions sont autorisées à enfreindre la cohérence GTID.  <br> `ON` : Aucune transaction n'est autorisée à enfreindre la cohérence GTID. <br> `WARN` : Toutes les transactions sont autorisées à enfreindre la cohérence GTID, mais un avertissement est généré. | 
+
+> [!NOTE]
+> Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
+
+Pour activer le GTID et configurer le comportement de cohérence, mettez à jour les paramètres serveur `gtid_mode` et `enforce_gtid_consistency` à l'aide du [portail Azure](howto-server-parameters.md), d'[Azure CLI](howto-configure-server-parameters-using-cli.md) ou de [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur le(s) serveur(s) source ou réplica.
+
 ## <a name="considerations-and-limitations"></a>Observations et limitations
 
 ### <a name="pricing-tiers"></a>Niveaux de tarification
@@ -139,7 +159,7 @@ Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux t
 
 ### <a name="source-server-restart"></a>Redémarrage du serveur source
 
-Lorsque vous créez un réplica pour un serveur source qui ne dispose d’aucun réplica existant, le serveur source commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas
 
@@ -178,9 +198,18 @@ Le paramètre [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server
 
 Pour mettre à jour l’un des paramètres ci-dessus sur le serveur source, supprimez les serveurs réplicas, mettez à jour la valeur du paramètre sur la source, puis recréez les réplicas.
 
+### <a name="gtid"></a>GTID
+
+Le GTID est pris en charge sur :
+- MySQL versions 5.7 et 8.0 
+- Serveurs prenant en charge un stockage maximum de 16 To. Reportez-vous à l'article [Niveau tarifaire](concepts-pricing-tiers.md#storage) pour obtenir la liste complète des régions qui prennent en charge le stockage de 16 To. 
+
+Le GTID est désactivé par défaut. Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
+
+Si le GTID est activé sur un serveur source, il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur le(s) serveur(s) source ou réplica.
+
 ### <a name="other"></a>Autres
 
-- Les identificateurs de transaction globaux (GTID) ne sont pas pris en charge.
 - La création d’un réplica d’un réplica n’est pas prise en charge.
 - Les tables en mémoire peuvent entraîner la désynchronisation des réplicas. Il s’agit d’une limitation de la technologie de réplication MySQL. Pour plus d’informations, lisez la [documentation de référence MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
 - Vérifiez que les tables du serveur source possèdent des clés primaires. L’absence de clés primaires peut entraîner une latence de réplication entre la source et les réplicas.

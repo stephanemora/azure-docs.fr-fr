@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418906"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172671"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "89418906"
 
 Azure Active Directory B2C (Azure AD B2C) gère la génération et la vérification d'un mot de passe à usage unique. Utilisez un profil technique pour générer un code, puis vérifiez ce code plus tard.
 
-Le profil technique de mot de passe à usage unique peut également renvoyer un message d'erreur pendant la vérification du code. Concevez l’intégration avec le mot de passe à usage unique en utilisant un **profil technique de validation**. Un profil technique de validation appelle le profil technique de mot de passe à usage unique pour vérifier le code. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur apparaît sur une page déclarée automatiquement.
+Le profil technique de mot de passe à usage unique peut également renvoyer un message d'erreur pendant la vérification du code. Concevez l’intégration avec le mot de passe à usage unique en utilisant un **profil technique de validation** . Un profil technique de validation appelle le profil technique de mot de passe à usage unique pour vérifier le code. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur apparaît sur une page déclarée automatiquement.
 
 ## <a name="protocol"></a>Protocol
 
@@ -73,13 +73,15 @@ Les paramètres suivants peuvent être utilisés pour configurer le mode de gén
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Non | Délai d’expiration du code, en secondes. Minimum : `60` ; maximum : `1200` ; par défaut : `600`. |
+| CodeExpirationInSeconds | Non | Délai d’expiration du code, en secondes. Minimum : `60` ; maximum : `1200` ; par défaut : `600`. Chaque fois qu'un code est fourni (même code à l'aide de `ReuseSameCode`, ou nouveau code), le délai d'expiration du code est prolongée.  |
 | CodeLength | Non | Longueur du code. La valeur par défaut est `6`. |
 | CharacterSet | Non | Jeu de caractères pour le code, formaté pour être utilisé dans une expression régulière. Par exemple : `a-z0-9A-Z`. La valeur par défaut est `0-9`. Le jeu de caractères doit comprendre un minimum de 10 caractères différents dans le jeu spécifié. |
 | NumRetryAttempts | Non | Nombre de tentatives de vérification avant que le code soit considéré comme non valide. La valeur par défaut est `5`. |
 | NumCodeGenerationAttempts | Non | Nombre maximal de tentatives de génération de code par identificateur. Si elle n’est pas spécifiée, la valeur par défaut est 10. |
 | Opération | Oui | Opération à effectuer. Valeur possible : `GenerateCode`. |
-| ReuseSameCode | Non | Spécifie si un code en double doit être fourni au lieu de générer un nouveau code lorsque le code donné n'a pas expiré et reste valide. La valeur par défaut est `false`. |
+| ReuseSameCode | Non | Spécifie si le même code doit être fourni au lieu de générer un nouveau code lorsque le code donné n'a pas expiré et reste valide. La valeur par défaut est `false`.  |
+
+
 
 ### <a name="example"></a>Exemple
 

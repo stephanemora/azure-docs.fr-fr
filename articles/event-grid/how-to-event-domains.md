@@ -4,12 +4,12 @@ description: Explique comment gérer de grands ensembles de rubriques dans Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502033"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330075"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
@@ -79,7 +79,7 @@ Notez les paramètres `endpoint` et `id`, dont vous avez besoin pour gérer le d
 
 ## <a name="manage-access-to-topics"></a>Gérer l’accès aux rubriques
 
-La gestion de l’accès aux rubriques est effectuée par le biais d’une [attribution de rôle](../role-based-access-control/role-assignments-cli.md). L’attribution de rôle utilise le contrôle d’accès en fonction du rôle pour limiter les opérations sur les ressources Azure aux utilisateurs autorisés dans une étendue donnée.
+La gestion de l’accès aux rubriques est effectuée par le biais d’une [attribution de rôle](../role-based-access-control/role-assignments-cli.md). L’attribution de rôle utilise le contrôle d’accès en fonction du rôle Azure pour limiter les opérations sur les ressources Azure aux utilisateurs autorisés dans une étendue donnée.
 
 Event Grid a deux rôles intégrés que vous pouvez utiliser pour attribuer à des utilisateurs spécifiques l’accès à différentes rubriques au sein d’un domaine. Ces rôles sont `EventGrid EventSubscription Contributor (Preview)`, qui permet de créer et de supprimer des abonnements, et `EventGrid EventSubscription Reader (Preview)`, qui permet uniquement de répertorier les abonnements aux événements.
 

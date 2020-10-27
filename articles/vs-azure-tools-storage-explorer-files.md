@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456724"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167880"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilisation de l’Explorateur de stockage avec le Stockage Fichier Azure
 
@@ -43,11 +43,11 @@ Les étapes suivantes expliquent comment créer un partage de fichiers dans l’
 
 1. Dans le volet gauche, développez le compte de stockage dans lequel vous souhaitez créer le partage de fichiers.
 
-1. Cliquez avec le bouton droit sur **Partages de fichiers**, puis sélectionnez **Créer un partage de fichiers** dans le menu contextuel.
+1. Cliquez avec le bouton droit sur **Partages de fichiers** , puis sélectionnez **Créer un partage de fichiers** dans le menu contextuel.
 
     ![Créer un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. Une zone de texte apparaît sous le dossier **Partages de fichiers**. Entrez le nom de votre partage de fichiers. Consultez la section relative aux [règles d’affectation des noms de partages de fichiers](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) pour obtenir la liste des règles et restrictions applicables aux noms de partages de fichiers.
+1. Une zone de texte apparaît sous le dossier **Partages de fichiers** . Entrez le nom de votre partage de fichiers. Consultez la section relative aux [règles d’affectation des noms de partages de fichiers](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) pour obtenir la liste des règles et restrictions applicables aux noms de partages de fichiers.
 
     ![Affectation d’un nom au partage](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -67,13 +67,13 @@ Les étapes suivantes expliquent comment afficher le contenu d’un partage de f
 
 1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Ouvrir**. Vous pouvez également double-cliquer sur le partage de fichiers que vous souhaitez afficher.
+1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez afficher puis, dans le menu contextuel, sélectionnez **Ouvrir** . Vous pouvez également double-cliquer sur le partage de fichiers que vous souhaitez afficher.
 
     ![Ouvrir le partage](media/vs-azure-tools-storage-explorer-files/image4.png)
 
 1. Le volet principal affiche le contenu du partage de fichiers.
     
-    ![Contenu d’un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Capture d’écran du volet principal pour un partage de fichiers dans l’Explorateur de stockage montrant le contenu du partage.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Supprimer un partage de fichiers
 
@@ -87,7 +87,7 @@ Les étapes suivantes expliquent comment supprimer un partage de fichiers dans l
 
 1. Développez le dossier **Partages de fichiers** du compte de stockage.
 
-1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez supprimer puis, dans le menu contextuel, sélectionnez **Supprimer**. Vous pouvez également appuyer sur **Supprimer** pour supprimer le partage de fichiers actuellement sélectionné.
+1. Cliquez avec le bouton droit sur le partage de fichiers que vous souhaitez supprimer puis, dans le menu contextuel, sélectionnez **Supprimer** . Vous pouvez également appuyer sur **Supprimer** pour supprimer le partage de fichiers actuellement sélectionné.
 
     ![DELETE](media/vs-azure-tools-storage-explorer-files/image6.png)
 
@@ -135,13 +135,13 @@ Les étapes suivantes expliquent comment créer une signature d’accès partag�
 
     ![Boîte de dialogue SAP](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-1. Une fois les options SAP spécifiées, sélectionnez **Créer**.
+1. Une fois les options SAP spécifiées, sélectionnez **Créer** .
 
 1. Vous accédez alors à une deuxième boîte de dialogue **Signature d’accès partagé** dans laquelle vous pouvez visualiser le partage de fichiers, ainsi que les URL et les chaînes de requête que vous pouvez utiliser pour accéder à la ressource de stockage. Sélectionnez **Copier** en regard de l’URL que vous souhaitez copier dans le Presse-papiers.
     
     ![Deuxième boîte de dialogue SAP](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-1. Lorsque vous avez terminé, sélectionnez **Fermer**.
+1. Lorsque vous avez terminé, sélectionnez **Fermer** .
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Gérer les stratégies d’accès d’un partage de fichiers
 
@@ -163,9 +163,9 @@ Les étapes suivantes montrent comment gérer (ajouter et supprimer) les straté
 
 1. Suivez ces étapes en fonction de la tâche de gestion des stratégies d’accès :
     
-    - **Ajouter une nouvelle stratégie d’accès** : sélectionnez **Ajouter**. Une fois la stratégie générée, la boîte de dialogue **Stratégies d’accès** affiche la stratégie d’accès que vous venez d’ajouter (avec les paramètres par défaut).
+    - **Ajouter une nouvelle stratégie d’accès** : sélectionnez **Ajouter** . Une fois la stratégie générée, la boîte de dialogue **Stratégies d’accès** affiche la stratégie d’accès que vous venez d’ajouter (avec les paramètres par défaut).
 
-    - **Modifier une stratégie d’accès** : apportez les modifications souhaitées, puis cliquez sur **Enregistrer**.
+    - **Modifier une stratégie d’accès**  : apportez les modifications souhaitées, puis cliquez sur **Enregistrer** .
 
     - **Supprimer une stratégie d’accès** : sélectionnez **Supprimer** en regard de la stratégie d’accès à supprimer.
 
@@ -191,7 +191,7 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
 1.  Le volet principal affiche le contenu du partage de fichiers.
 
-    ![Contenu d’un partage de fichiers](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Capture d’écran du volet principal pour le partage de fichiers myazurefileshare dans l’Explorateur de stockage, montrant le contenu du partage avec le premier dossier sélectionné.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  Le volet principal affiche le contenu du partage de fichiers.
 
@@ -199,43 +199,43 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
     - **Charger des fichiers dans un partage de fichiers**
 
-        a.  Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Télécharger des fichiers** dans le menu contextuel.
+        a.  Dans la barre d’outils du volet principal, sélectionnez **Télécharger** , puis **Télécharger des fichiers** dans le menu contextuel.
 
         ![Charger des fichiers](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
+        b. Dans la boîte de dialogue **Télécharger des fichiers** , sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
 
         ![Ajout de fichiers](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. Sélectionnez **Télécharger**.
+        c. Sélectionnez **Télécharger** .
 
     - **Charger un dossier dans un partage de fichiers**
         
-        a. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**, puis **Télécharger un dossier** dans le menu contextuel.
+        a. Dans la barre d’outils du volet principal, sélectionnez **Télécharger** , puis **Télécharger un dossier** dans le menu contextuel.
 
         ![Télécharger un dossier - Menu](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Dans la boîte de dialogue **Télécharger un dossier**, sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
+        b. Dans la boîte de dialogue **Télécharger un dossier** , sélectionnez le bouton des points de suspension ( **…** ) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
 
         c. Si vous le souhaitez, spécifiez un dossier cible dans lequel charger le contenu du dossier sélectionné. Si le dossier cible n’existe pas, il sera créé.
 
-        d. Sélectionnez **Télécharger**.
+        d. Sélectionnez **Télécharger** .
 
     - **Télécharger un fichier sur votre ordinateur local**
         
         a. Sélectionnez le fichier que vous souhaitez télécharger.
         
-        b. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**.
+        b. Dans la barre d’outils du volet principal, sélectionnez **Télécharger** .
         
         c. Dans la boîte de dialogue **Specify where to save the downloaded file** (Indiquer où enregistrer le fichier téléchargé), spécifiez l’emplacement dans lequel vous souhaitez enregistrer le fichier téléchargé ainsi que le nom que vous souhaitez lui donner.
 
-        d. Sélectionnez **Enregistrer**.
+        d. Sélectionnez **Enregistrer** .
 
     - **Ouvrir un fichier sur votre ordinateur local**
         
         a.  Sélectionnez le fichier que vous souhaitez ouvrir.
         
-        b.  Dans la barre d’outils du volet principal, sélectionnez **Ouvrir**.
+        b.  Dans la barre d’outils du volet principal, sélectionnez **Ouvrir** .
         
         c.  Le fichier est téléchargé et ouvert à l’aide de l’application associée au type de fichier sous-jacent du fichier.
 
@@ -243,7 +243,7 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
         a. Sélectionnez le fichier que vous souhaitez copier.
 
-        b. Dans la barre d’outils du volet principal, sélectionnez **Copier**.
+        b. Dans la barre d’outils du volet principal, sélectionnez **Copier** .
 
         c. Dans le volet de gauche, accédez à un autre partage de fichiers et double-cliquez dessus pour l’afficher dans le volet principal.
 
@@ -253,7 +253,7 @@ Les étapes suivantes expliquent comment gérer les fichiers (et les dossiers) d
 
         a. Sélectionnez le fichier que vous souhaitez supprimer.
 
-        b. Dans la barre d’outils du volet principal, sélectionnez **Supprimer**.
+        b. Dans la barre d’outils du volet principal, sélectionnez **Supprimer** .
 
         c. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
 

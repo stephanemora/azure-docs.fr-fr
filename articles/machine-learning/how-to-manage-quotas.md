@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019390"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275553"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -114,7 +114,7 @@ Utilisez les quotas au niveau de l’espace de travail pour l’allocation cible
 Par défaut, tous les espaces de travail partagent le même quota que le quota au niveau de l’abonnement pour toutes les familles de machines virtuelles. Toutefois, vous pouvez définir un quota maximal pour les familles de machines virtuelles individuelles dans les espaces de travail d’un abonnement. Cela vous permet de partager la capacité et d’éviter les problèmes de conflit entre les ressources :
 
 1. Accédez à n’importe quel espace de travail dans votre abonnement.
-1. Dans le volet de gauche, sélectionnez **Utilisation + quotas**.
+1. Dans le volet de gauche, sélectionnez **Utilisation + quotas** .
 1. Sélectionnez l’onglet **Configurer les quotas** pour afficher les quotas.
 1. Développez une famille de machines virtuelles.
 1. Définissez une limite de quota sur un espace de travail répertorié sous cette famille de machines virtuelles.
@@ -130,7 +130,7 @@ Vous ne pouvez pas définir une valeur négative ou une valeur supérieure au qu
 
 Pour afficher votre quota pour différentes ressources Azure, telles que Machines virtuelles, Stockage, Réseau, utilisez le portail Azure :
 
-1. Dans le volet gauche, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie Général.
+1. Dans le volet gauche, sélectionnez **Tous les services** , puis **Abonnements** sous la catégorie Général.
 
 2. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
 
@@ -138,9 +138,9 @@ Pour afficher votre quota pour différentes ressources Azure, telles que Machine
 
 Le quota Capacité de calcul Azure Machine Learning sur votre abonnement est géré indépendamment des autres quotas Azure. 
 
-1. Dans le portail Azure, accédez à votre espace de travail **Azure Machine Learning**.
+1. Dans le portail Azure, accédez à votre espace de travail **Azure Machine Learning** .
 
-2. Dans le volet de gauche, sous la **section Support + résolution des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
+2. Dans le volet de gauche, sous la **section Support + résolution des problèmes** , sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
 
 3. Sélectionnez un abonnement pour afficher les limites de quota. Pensez à ajouter un filtre sur la région qui vous intéresse.
 
@@ -167,22 +167,24 @@ Bien qu’Azure Machine Learning crée des ressources dans votre abonnement (cli
 
 * __Espace de travail activé pour Azure Private Link avec une clé gérée par le client (CMK)__
 * __Azure Container Registry de l’espace de travail derrière votre réseau virtuel__
-* __Attachement d’un cluster Azure Kubernetes Service compatible avec Private Link à votre espace de travail__.
+* __Attachement d’un cluster Azure Kubernetes Service compatible avec Private Link à votre espace de travail__ .
 
 Pour demander une allocation pour ces scénarios, procédez comme suit :
 
-1. [Créez une demande de support Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) et sélectionnez les options suivantes dans la section __Concepts de base__ :
+1. [Créez une demande de support Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) et sélectionnez les options suivantes dans la section __Concepts de base__  :
 
     | Champ | Sélection |
     | ----- | ----- |
     | Type de problème | Prérequis techniques |
-    | Service | Mes services. Dans la liste déroulante, sélectionnez __Machine Learning__. |
-    | Type de problème | Configuration de l’espace de travail, SDK et CLI |
-    | Sous-type de problème | Problème de provisionnement ou de gestion de l’espace de travail |
+    | Service | Mes services. Dans la liste déroulante, sélectionnez __Machine Learning__ . |
+    | Type de problème | Configuration et sécurité de l’espace de travail |
+    | Sous-type de problème | Demande d’allocation pour la zone DNS privée et le point de terminaison privé |
 
-2. Dans la section __Détails__, utilisez le champ __Description__ pour indiquer la région Azure que vous souhaitez utiliser et le scénario que vous prévoyez d’utiliser. Si vous devez demander des augmentations de quota pour plusieurs abonnements, indiquez également les ID des abonnements dans ce champ.
+2. Dans la section __Détails__ , utilisez le champ __Description__ pour indiquer la région Azure que vous souhaitez utiliser et le scénario que vous prévoyez d’utiliser. Si vous devez demander des augmentations de quota pour plusieurs abonnements, indiquez également les ID des abonnements dans ce champ.
 
 3. Sélectionnez __Créer__ pour créer la demande.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Capture d’écran d’un point de terminaison privé et d’une demande d’augmentation de quota de DNS privé":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

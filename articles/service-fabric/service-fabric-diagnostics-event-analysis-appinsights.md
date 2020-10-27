@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932445"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329574"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -32,7 +32,7 @@ Application Insights bénéficie d’une expérience riche et prête à l’empl
 
 Dans le panneau droit de la page illustrée ci-dessus, la liste comporte deux principaux types d’entrées : les requêtes et les événements. Les requêtes sont des appels adressés à l’API de l’application par le biais de requêtes HTTP dans ce cas précis, tandis que les événements sont des événements personnalisés, qui font office de données de télémétrie que vous pouvez ajouter à un endroit quelconque de votre code. Vous pouvez obtenir plus d’informations sur l’instrumentation de vos applications en consultant l’article [API Application Insights pour les événements et les mesures personnalisés](../azure-monitor/app/api-custom-events-metrics.md). En cliquant sur une requête, vous pouvez afficher de plus amples informations (cf. image suivante), notamment des données propres à Service Fabric, qui sont collectées dans le package NuGet Application Insights Service Fabric. Ces informations peuvent vous aider à résoudre les problèmes et à connaître l’état de votre application, et peuvent toutes faire l’objet de recherches dans Application Insights.
 
-![Détails de la requête Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Capture d’écran montrant des détails supplémentaires, notamment des données propres à Service Fabric, qui sont collectées dans le package NuGet Application Insights Service Fabric.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Le service Application Insights intègre une vue désignée pour l’interrogation de toutes les données qu’il collecte. Sélectionnez « Metrics Explorer » en haut de la page Vue d’ensemble pour accéder au portail Application Insights. Ce portail vous permet d’exécuter des requêtes portant sur les événements personnalisés mentionnés précédemment, les exceptions, les compteurs de performances et d’autres métriques à l’aide du langage de requête Kusto. L’exemple ci-après présente toutes les requêtes exécutées au cours de la dernière heure.
 
@@ -48,7 +48,7 @@ Si vous utilisez EventFlow pour agréger des événements, veillez à importer l
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
     }
 ]
 ```
@@ -65,11 +65,11 @@ Si vous effectuez un développement dans .NET, que vous utiliserez probablement 
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Accès à la ressource Application Insights dans le portail Azure
 
-Une fois que vous avez configuré Application Insights comme sortie pour vos événements et journaux d’activité, les informations doivent commencer à s’afficher dans votre ressource Application Insights au bout de quelques minutes. Accédez à la ressource Application Insights, qui vous permettra d’accéder au tableau de bord des ressources Application Insights. Sélectionnez **Rechercher** dans la barre des tâches Application Insights pour voir les dernières traces reçues et pour pouvoir les filtrer.
+Une fois que vous avez configuré Application Insights comme sortie pour vos événements et journaux d’activité, les informations doivent commencer à s’afficher dans votre ressource Application Insights au bout de quelques minutes. Accédez à la ressource Application Insights, qui vous permettra d’accéder au tableau de bord des ressources Application Insights. Sélectionnez _ *Rechercher* * dans la barre des tâches Application Insights pour voir les dernières traces reçues et pour pouvoir les filtrer.
 
 *Metrics Explorer* est un outil utile pour la création de tableaux de bord personnalisés basés sur les indicateurs de performance que vos applications, vos services et votre cluster peuvent signaler. Consultez [Exploration des indicateurs de performance dans Application Insights](../azure-monitor/platform/metrics-charts.md) pour configurer vous-mêmes quelques graphiques basés sur les données que vous collectez.
 
-Si vous cliquez sur **Analyse**, vous accédez au portail Application Insights Analytics, où vous pouvez interroger des événements et des traces avec une plus grande étendue et plus de choix. Vous pouvez en apprendre plus à ce sujet dans [Analytics dans Application Insights](../azure-monitor/log-query/log-query-overview.md).
+Si vous cliquez sur **Analyse** , vous accédez au portail Application Insights Analytics, où vous pouvez interroger des événements et des traces avec une plus grande étendue et plus de choix. Vous pouvez en apprendre plus à ce sujet dans [Analytics dans Application Insights](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

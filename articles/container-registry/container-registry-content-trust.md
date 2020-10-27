@@ -3,12 +3,12 @@ title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu implémente l’approbation de contenu de Docker et est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409162"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148577"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -38,7 +38,7 @@ L’approbation de contenu est gérée par le biais d’un ensemble de clés de 
 
 La première étape consiste à activer l’approbation de contenu au niveau du registre. Une fois que vous activez l’approbation de contenu, les clients (utilisateurs ou services) peuvent envoyer des images signées à votre registre. L’activation de l’approbation de contenu sur votre registre ne limite pas l’utilisation du registre uniquement aux consommateurs ayant activé l’approbation de contenu. Les consommateurs pour lesquels l’approbation de contenu est désactivée peuvent continuer à utiliser votre registre normalement. Toutefois, les consommateurs qui ont activé l’approbation de contenu dans leurs clients seront *uniquement* en mesure de visualiser les images signées dans votre registre.
 
-Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer**. Vous pouvez également utiliser la commande [az acr config content-trust update][az-acr-config-content-trust-update] dans Azure CLI.
+Pour activer l’approbation de contenu pour votre registre, commencez par accéder au registre dans le Portail Azure. Sous **Stratégies** , sélectionnez **Approbation de contenu** > **Activé** > **Enregistrer** . Vous pouvez également utiliser la commande [az acr config content-trust update][az-acr-config-content-trust-update] dans Azure CLI.
 
 ![Capture d’écran montrant l’activation de l’approbation de contenu pour un registre dans le portail Azure.][content-trust-01-portal]
 
@@ -46,7 +46,7 @@ Pour activer l’approbation de contenu pour votre registre, commencez par accé
 
 Pour utiliser les images approuvées, les éditeurs et les consommateurs d’images doivent tous activer l’approbation de contenu pour leurs clients Docker. Si vous êtes un éditeur, vous pouvez signer les images que vous envoyez à un registre sur lequel l’activation de contenu est activée. Si vous êtes un consommateur et que vous avez activé l’approbation de contenu, vous ne verrez que les images signées d’un registre. L’approbation de contenu est désactivée par défaut dans les clients Docker, mais vous pouvez l’activer par session d’interpréteur de commandes ou par commande.
 
-Pour activer l’approbation de contenu pour une session d’interpréteur de commandes, définissez la variable d’environnement `DOCKER_CONTENT_TRUST` sur **1**. Par exemple, dans l’interpréteur de commandes Bash :
+Pour activer l’approbation de contenu pour une session d’interpréteur de commandes, définissez la variable d’environnement `DOCKER_CONTENT_TRUST` sur **1** . Par exemple, dans l’interpréteur de commandes Bash :
 
 ```bash
 # Enable content trust for shell session
@@ -80,7 +80,7 @@ Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portai
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle**. Sous **Ajouter une attribution de rôle**, sélectionnez `AcrImageSigner` sous **Rôle**, sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner**, puis cliquez sur **Enregistrer**.
+Accédez à votre registre dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle** . Sous **Ajouter une attribution de rôle** , sélectionnez `AcrImageSigner` sous **Rôle** , sélectionnez un ou plusieurs utilisateurs ou principaux de service dans le champ **Sélectionner** , puis cliquez sur **Enregistrer** .
 
 Dans cet exemple, le rôle `AcrImageSigner` a été attribué à deux entités : un principal de service nommé « service-principal » et un utilisateur nommé « Azure User ».
 
@@ -112,10 +112,10 @@ Vous pouvez également octroyer à un [principal de service](container-registry-
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee <service principal ID>
 ```
 
-La variable `<service principal ID>` peut correspondre à l’élément **appId** ou **objectId** du principal de service, ou à l’un de ses éléments **servicePrincipalNames**. Pour plus d’informations sur l’utilisation des principaux de service et d’Azure Container Registry, consultez l’article [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
+La variable `<service principal ID>` peut correspondre à l’élément **appId** ou **objectId** du principal de service, ou à l’un de ses éléments **servicePrincipalNames** . Pour plus d’informations sur l’utilisation des principaux de service et d’Azure Container Registry, consultez l’article [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur. Pour plus d’informations sur la vérification des rôles d’une identité, consultez [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure CLI](../role-based-access-control/role-assignments-cli.md) et [Résoudre les problèmes liés à Azure RBAC](../role-based-access-control/troubleshooting.md).
+> Après toute modification de rôle, exécutez `az acr login` pour actualiser le jeton d’identité local pour Azure CLI afin que les nouveaux rôles puissent entrer en vigueur. Pour plus d’informations sur la vérification des rôles d’une identité, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../role-based-access-control/role-assignments-cli.md) et [Résoudre les problèmes liés à Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Envoyer une image approuvée
 
@@ -193,9 +193,9 @@ Parallèlement aux clés racine et de référentiel générées localement, plus
 Si vous perdez l’accès à votre clé racine, vous perdez l’accès aux balises signées dans tous les référentiels dont les balises ont été signées avec cette clé. Azure Container Registry ne peut pas restaurer l’accès aux balises d’image qui ont été signées avec une clé racine perdue. Pour supprimer toutes les données d’approbation (signatures) de votre registre, commencez par désactiver l’approbation de contenu pour le registre, puis réactivez-la.
 
 > [!WARNING]
-> La désactivation et la réactivation de l’approbation de contenu dans votre registre **suppriment toutes les données d’approbation pour toutes les balises signées dans chaque référentiel de votre registre**. Cette opération est irréversible : Azure Container Registry ne peut pas récupérer les données d’approbation supprimées. La désactivation de l’approbation de contenu ne supprime pas les images proprement dites.
+> La désactivation et la réactivation de l’approbation de contenu dans votre registre **suppriment toutes les données d’approbation pour toutes les balises signées dans chaque référentiel de votre registre** . Cette opération est irréversible : Azure Container Registry ne peut pas récupérer les données d’approbation supprimées. La désactivation de l’approbation de contenu ne supprime pas les images proprement dites.
 
-Pour désactiver l’approbation de contenu pour votre registre, accédez au registre dans le Portail Azure. Sous **Stratégies**, sélectionnez **Approbation de contenu** > **Désactivé** > **Enregistrer**. Un message vous signale la perte de toutes les signatures dans le registre. Sélectionnez **OK** pour supprimer définitivement toutes les signatures dans votre registre.
+Pour désactiver l’approbation de contenu pour votre registre, accédez au registre dans le Portail Azure. Sous **Stratégies** , sélectionnez **Approbation de contenu** > **Désactivé** > **Enregistrer** . Un message vous signale la perte de toutes les signatures dans le registre. Sélectionnez **OK** pour supprimer définitivement toutes les signatures dans votre registre.
 
 ![Désactivation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-03-portal]
 

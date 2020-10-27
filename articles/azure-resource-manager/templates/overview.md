@@ -3,12 +3,12 @@ title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager pour le déploiement de ressources.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119359"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280044"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -22,39 +22,39 @@ Pour implémenter une infrastructure en tant que code pour vos solutions Azure, 
 
 Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’un des autres services d’infrastructure en tant que code, tenez compte des avantages suivants de l’utilisation de modèles :
 
-* **Syntaxe déclarative** : Les modèles Resource Manager vous permettent de créer et de déployer une infrastructure Azure entière de façon déclarative. Par exemple, vous pouvez déployer non seulement des machines virtuelles, mais également l’infrastructure réseau, les systèmes de stockage et toute autre ressource dont vous pouvez avoir besoin.
+* **Syntaxe déclarative**  : Les modèles Resource Manager vous permettent de créer et de déployer une infrastructure Azure entière de façon déclarative. Par exemple, vous pouvez déployer non seulement des machines virtuelles, mais également l’infrastructure réseau, les systèmes de stockage et toute autre ressource dont vous pouvez avoir besoin.
 
-* **Résultats reproductibles** : Déployez votre infrastructure à plusieurs reprises tout au long du cycle de vie de développement. Vous avez ainsi l’assurance que vos ressources sont déployées de façon cohérente. Les modèles sont idempotents, ce qui signifie que vous pouvez déployer le même modèle plusieurs fois et obtenir les mêmes types de ressources dans le même état. Vous pouvez développer un modèle qui représente l’état souhaité, plutôt que de développer un grand nombre de modèles distincts pour représenter des mises à jour.
+* **Résultats reproductibles**  : Déployez votre infrastructure à plusieurs reprises tout au long du cycle de vie de développement. Vous avez ainsi l’assurance que vos ressources sont déployées de façon cohérente. Les modèles sont idempotents, ce qui signifie que vous pouvez déployer le même modèle plusieurs fois et obtenir les mêmes types de ressources dans le même état. Vous pouvez développer un modèle qui représente l’état souhaité, plutôt que de développer un grand nombre de modèles distincts pour représenter des mises à jour.
 
-* **Orchestration** : Vous n’avez pas à vous soucier de la complexité des opérations de commande. Resource Manager orchestre le déploiement de ressources interdépendantes afin qu’elles soient créées dans l’ordre approprié. Lorsque cela est possible, Resource Manager déploie des ressources en parallèle afin que vos déploiements se terminent plus rapidement que les déploiements en série. Vous déployez le modèle par le biais d’une seule commande, plutôt que par le biais de plusieurs commandes impératives.
+* **Orchestration**  : Vous n’avez pas à vous soucier de la complexité des opérations de commande. Resource Manager orchestre le déploiement de ressources interdépendantes afin qu’elles soient créées dans l’ordre approprié. Lorsque cela est possible, Resource Manager déploie des ressources en parallèle afin que vos déploiements se terminent plus rapidement que les déploiements en série. Vous déployez le modèle par le biais d’une seule commande, plutôt que par le biais de plusieurs commandes impératives.
 
    ![Comparaison de déploiements de modèles](./media/overview/template-processing.png)
 
-* **Fichiers modulaires** : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans d’autres modèles.
+* **Fichiers modulaires**  : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans d’autres modèles.
 
 * **Créez une ressource Azure** : Vous pouvez utiliser immédiatement les nouveaux services et fonctionnalités Azure dans les modèles. Dès qu’un fournisseur de ressources introduit de nouvelles ressources, vous pouvez les déployer par le biais de modèles. Vous n’avez pas besoin d’attendre la mise à jour des outils ou des modules avant d’utiliser les nouveaux services.
 
-* **Extensibilité** : Avec les [scripts de déploiement](deployment-script-template.md), vous pouvez ajouter des scripts PowerShell ou Bash à vos modèles. Les scripts de déploiement étendent votre capacité à configurer des ressources pendant le déploiement. Un script peut être inclus dans le modèle, ou stocké dans une source externe et référencé dans le modèle. Les scripts de déploiement vous permettent d’effectuer la configuration de votre environnement de bout en bout dans un modèle ARM unique.
+* **Extensibilité**  : Avec les [scripts de déploiement](deployment-script-template.md), vous pouvez ajouter des scripts PowerShell ou Bash à vos modèles. Les scripts de déploiement étendent votre capacité à configurer des ressources pendant le déploiement. Un script peut être inclus dans le modèle, ou stocké dans une source externe et référencé dans le modèle. Les scripts de déploiement vous permettent d’effectuer la configuration de votre environnement de bout en bout dans un modèle ARM unique.
 
-* **Test** : Vous pouvez vérifier que votre modèle suit les recommandations en le testant avec le kit d’outils de modèle ARM (arm-ttk). Ce kit de test est un script PowerShell que vous pouvez télécharger à partir de [GitHub](https://github.com/Azure/arm-ttk). Le kit d’outils vous permet de développer plus facilement une expertise à l’aide de la langue du modèle.
+* **Test**  : Vous pouvez vérifier que votre modèle suit les recommandations en le testant avec le kit d’outils de modèle ARM (arm-ttk). Ce kit de test est un script PowerShell que vous pouvez télécharger à partir de [GitHub](https://github.com/Azure/arm-ttk). Le kit d’outils vous permet de développer plus facilement une expertise à l’aide de la langue du modèle.
 
-* **Aperçu des modifications** : Vous pouvez utiliser l’[opération de simulation](template-deploy-what-if.md) pour obtenir un aperçu des modifications avant de déployer le modèle. Avec la simulation, vous pouvez voir quelles ressources seront créées, mises à jour ou supprimées ainsi que les propriétés de ressource qui seront modifiées. L’opération de simulation vérifie l’état actuel de votre environnement et élimine la nécessité de gérer l’état.
+* **Aperçu des modifications**  : Vous pouvez utiliser l’ [opération de simulation](template-deploy-what-if.md) pour obtenir un aperçu des modifications avant de déployer le modèle. Avec la simulation, vous pouvez voir quelles ressources seront créées, mises à jour ou supprimées ainsi que les propriétés de ressource qui seront modifiées. L’opération de simulation vérifie l’état actuel de votre environnement et élimine la nécessité de gérer l’état.
 
-* **Validation intégrée** : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
+* **Validation intégrée**  : Votre modèle est déployé uniquement après avoir réussi la validation. Resource Manager vérifie le modèle avant de commencer le déploiement pour être sûr que celui-ci va réussir. Votre déploiement est moins susceptible de s’arrêter dans un état à moitié terminé.
 
 * **Déploiements suivis** : Dans le portail Azure, vous pouvez consulter l’historique des déploiements et obtenir des informations sur le déploiement des modèles. Vous pouvez voir le modèle qui a été déployé, les valeurs de paramètre passées et toutes les valeurs de sortie. Les autres services d’infrastructure en tant que code ne font pas l’objet d’un suivi par le biais du portail.
 
    ![Historique de déploiement](./media/overview/deployment-history.png)
 
-* **Stratégie en tant que code** : [Azure Policy](../../governance/policy/overview.md) est une stratégie en tant qu’infrastructure de code pour automatiser la gouvernance. Si vous utilisez des stratégies Azure, la correction des stratégies est effectuée sur des ressources non conformes quand elles sont déployées par le biais de modèles.
+* **Stratégie en tant que code**  : [Azure Policy](../../governance/policy/overview.md) est une stratégie en tant qu’infrastructure de code pour automatiser la gouvernance. Si vous utilisez des stratégies Azure, la correction des stratégies est effectuée sur des ressources non conformes quand elles sont déployées par le biais de modèles.
 
-* **Blueprints de déploiement** : Vous pouvez tirer parti des [plans](../../governance/blueprints/overview.md) fournis par Microsoft pour respecter les normes réglementaires et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
+* **Blueprints de déploiement**  : Vous pouvez tirer parti des [plans](../../governance/blueprints/overview.md) fournis par Microsoft pour respecter les normes réglementaires et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
 
-* **Intégration CI/CD** : Vous pouvez intégrer des modèles dans vos outils d’intégration et de déploiement continus (CI/CD), qui peuvent automatiser vos pipelines de mise en production en vue d’effectuer des mises à jour rapides et fiables des applications et des infrastructures. À l’aide de la tâche de modèle Resource Manager et Azure DevOps, vous pouvez utiliser Azure Pipelines pour générer et déployer des projets de modèle Azure Resource Manager en continu. Pour plus d’informations, consultez [Projet VS avec Azure Pipelines](add-template-to-azure-pipelines.md) et le [Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines](./deployment-tutorial-pipeline.md).
+* **Intégration CI/CD**  : Vous pouvez intégrer des modèles dans vos outils d’intégration et de déploiement continus (CI/CD), qui peuvent automatiser vos pipelines de mise en production en vue d’effectuer des mises à jour rapides et fiables des applications et des infrastructures. À l’aide de la tâche de modèle Resource Manager et Azure DevOps, vous pouvez utiliser Azure Pipelines pour générer et déployer des projets de modèle Azure Resource Manager en continu. Pour plus d’informations, consultez [Projet VS avec Azure Pipelines](add-template-to-azure-pipelines.md) et le [Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines](./deployment-tutorial-pipeline.md).
 
-* **Code exportable** : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
+* **Code exportable**  : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 
-* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage. Outre Visual Studio code, vous pouvez également utiliser [Visual Studio](create-visual-studio-deployment-project.md).
+* **Outils de création**  : Vous pouvez créer des modèles avec [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage. Outre Visual Studio Code, vous pouvez également utiliser [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Fichier de modèle
 

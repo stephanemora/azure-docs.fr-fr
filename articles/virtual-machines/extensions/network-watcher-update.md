@@ -1,6 +1,6 @@
 ---
 title: Mettre à jour l’extension Network Watcher vers la dernière version
-description: Découvrez comment mettre à jour l’extension Network Watcher vers la dernière version.
+description: Découvrez comment mettre à jour l’extension Azure Network Watcher vers la dernière version.
 services: virtual-machines-windows
 documentationcenter: ''
 author: damendo
@@ -12,58 +12,70 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 640b148dc22aa87592a6adcfca99c8ed35731934
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973337"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220585"
 ---
-# <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Guide pratique pour mettre à jour l’extension Network Watcher vers la dernière version 
+# <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Mettre à jour l’extension Network Watcher vers la dernière version
 
 ## <a name="overview"></a>Vue d’ensemble
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est obligatoire pour capturer le trafic réseau à la demande et pour assurer la prise en charge d’autres fonctionnalités avancées sur les machines virtuelles Azure. L’extension Network Watcher est utilisée par des fonctionnalités telles que Moniteur de connexion, Moniteur de connexion (préversion), Résolution des problèmes de connexion et Capture de paquets.   
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) est un service d’analyse, de diagnostic et d’analytique des performances réseau surveillant les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est obligatoire pour capturer le trafic réseau à la demande et pour assurer la prise en charge d’autres fonctionnalités avancées sur les machines virtuelles Azure. L’extension Network Watcher est utilisée par des fonctionnalités telles que Moniteur de connexion, Moniteur de connexion (préversion), Résolution des problèmes de connexion et Capture de paquets.
 
 ## <a name="prerequisites"></a>Prérequis
-Ce document part du principe que l’extension Network Watcher est installée sur votre machine virtuelle, et fournit des instructions pour la mettre à jour vers la version la plus récente. 
+
+Cet article suppose que l’extension Network Watcher est installée sur votre machine virtuelle.
 
 ## <a name="latest-version"></a>Version la plus récente
+
 La version la plus récente de l’extension Network Watcher est actuellement `1.4.1654.1`.
 
-## <a name="updating-your-extension"></a>Mise à jour de votre extension 
+## <a name="update-your-extension"></a>Mettre à jour votre extension
 
-### <a name="check-your-extension-version"></a>Vérifier la version de votre extension  
+Pour mettre à jour votre extension, vous devez connaître la version de votre extension.
 
-**À l’aide du portail Azure**
+### <a name="check-your-extension-version"></a>Vérifier la version de votre extension
 
-1. Accédez au panneau « Extensions » de votre machine virtuelle dans le portail Azure.   
-2. Cliquez sur l’extension « AzureNetworkWatcher » pour afficher le volet d’informations.  
-3. Recherchez le numéro de version dans le champ « Version ».  
+Vous pouvez vérifier la version de votre extension à l’aide du portail Azure, d’Azure CLI ou de PowerShell.
 
-**À l’aide d’Azure CLI** Exécutez la commande ci-dessous à partir d’une invite Azure CLI.   
+#### <a name="usetheazureportal"></a>Utiliser le portail Azure
+
+1. Accédez au volet **Extensions** de votre machine virtuelle dans le portail Azure.
+1. Sélectionnez l’extension **AzureNetworkWatcher** pour afficher le volet d’informations.
+1. Recherchez le numéro de version dans le champ **Version** .  
+
+#### <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+
+Exécutez la commande suivante à partir d’une invite de commandes Azure CLI :
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+Localisez **AzureNetworkWatcherExtension** dans la sortie et identifiez le numéro de version mentionné dans le champ «  *TypeHandlerVersion*  » dans la sortie.  Notez ce qui suit : Les informations sur l’extension apparaissent plusieurs fois dans la sortie JSON. Regardez sous le bloc « Extensions » ; le numéro de version complet de l’extension devrait s’afficher. 
 
-Localisez l’extension AzureNetworkWatcher dans la sortie et identifiez le numéro de version mentionné dans le champ « TypeHandlerVersion » dans la sortie.  
+Vous devez voir quelque chose semblable à ce qui présenté ci-dessous : ![Capture d’écran d’Azure CLI](./media/network-watcher/azure-cli-screenshot.png)
 
+#### <a name="usepowershell"></a>Utiliser PowerShell
 
-**À l’aide de PowerShell** Exécutez les commandes suivantes à partir d’une invite PowerShell :   
+À partir d’une invite de commande PowerShell, exécutez les commandes suivantes :
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+Localisez AzureNetworkWatcherExtension dans la sortie et identifiez le numéro de version mentionné dans le champ «  *TypeHandlerVersion*  » dans la sortie.   
 
-Localisez l’extension AzureNetworkWatcher dans la sortie et identifiez le numéro de version mentionné dans le champ « TypeHandlerVersion » dans la sortie.   
-
+Vous devez voir quelque chose semblable à ce qui présenté ci-dessous : ![Capture d’écran de PowerShell](./media/network-watcher/powershell-screenshot.png)
 
 ### <a name="update-your-extension"></a>Mettre à jour votre extension
 
-Dans le cas où votre version est antérieure à `1.4.1654.1` (la version la plus récente à ce jour), mettez à jour votre extension en utilisant l’une des options suivantes. 
+Si votre version est antérieure à `1.4.1654.1`, la version la plus récente à ce jour, mettez à jour votre extension en utilisant l’une des options suivantes.
 
-**Option n°1 : Utiliser PowerShell**
+#### <a name="option-1-use-powershell"></a>Option 1 : Utiliser PowerShell
+
+Exécutez les commandes suivantes :
 
 ```powershell
 #Linux command
@@ -73,10 +85,28 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
 ```
 
+Si cela ne fonctionne pas, supprimez et réinstallez l’extension en suivant les étapes ci-dessous. La version la plus récente sera alors ajoutée automatiquement.
 
-**Option n°2 : Utiliser Azure CLI**  
+Suppression de l’extension 
 
-Forcer la mise à niveau 
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+Réinstallation de l’extension
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
+```
+
+#### <a name="option-2-use-the-azure-cli"></a>Option n°2 : Utilisation de l’interface de ligne de commande Microsoft Azure
+
+Forcez une mise à niveau.
 
 ```azurecli
 #Linux command
@@ -86,9 +116,9 @@ az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name
 az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
 ```
 
-Si cela ne fonctionne pas, supprimez et réinstallez l’extension en suivant les étapes ci-dessous. La version la plus récente sera alors ajoutée automatiquement. 
+Si cela ne fonctionne pas, supprimez et réinstallez l’extension, puis procédez comme suit pour ajouter automatiquement la dernière version.
 
-Suppression de l’extension 
+Supprimez l’extension.
 
 ```azurecli
 #Same for Linux and Windows
@@ -96,7 +126,7 @@ az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n 
 
 ```
 
-Réinstallation de l’extension
+Installez l’extension à nouveau.
 
 ```azurecli
 #Linux command
@@ -107,11 +137,10 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 ```
 
-**Option 3 : Redémarrer vos machines virtuelles**
+#### <a name="option-3-reboot-your-vms"></a>Option 3 : Redémarrer vos machines virtuelles
 
-Si la mise à niveau automatique est activée pour l’extension Network Watcher. Le redémarrage de votre machine virtuelle installe l’extension la plus récente.
-
+Si la mise à niveau automatique est définie sur true pour l’extension Network Watcher, redémarrez l’installation de votre machine virtuelle sur la dernière extension.
 
 ## <a name="support"></a>Support
 
-Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez consulter la documentation de l’extension Network Watcher ([Linux](./network-watcher-linux.md), [Windows](./network-watcher-windows.md)) ou contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Si vous avez besoin d’une aide supplémentaire à un moment quelconque de cet article, consultez la documentation de l’extension Network Watcher pour [Linux](./network-watcher-linux.md) ou [Windows](./network-watcher-windows.md). Vous pouvez également contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [Site du support Azure](https://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support** . Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).

@@ -3,19 +3,19 @@ title: Configurer une liaison privée
 description: Configurez un point de terminaison privé sur un registre de conteneurs et activez l’accès sur une liaison privée dans un réseau virtuel local. L’accès à la liaison privée est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743639"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148469"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link
 
 
 Limitez l’accès à un registre en attribuant des adresses IP privées de réseau virtuel aux points de terminaison du registre et en utilisant [Azure Private Link](../private-link/private-link-overview.md). Le trafic entre les clients du réseau virtuel et les points de terminaison privés du registre traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine toute exposition sur l’Internet public. Azure Private Link permet également un accès privé au registre à partir d’un emplacement local par le biais d’un Peering privé [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou d’une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-Vous pouvez [configurer des paramètres DNS](../private-link/private-endpoint-overview.md#dns-configuration) pour les points de terminaison privés du registre afin que les paramètres résolvent l’adresse IP privée allouée au registre. Avec la configuration DNS, les clients et les services du réseau peuvent continuer à accéder au registre avec le nom de domaine complet du registre, tel que *myregistry.azurecr.io*. 
+Vous pouvez [configurer des paramètres DNS](../private-link/private-endpoint-overview.md#dns-configuration) pour les points de terminaison privés du registre afin que les paramètres résolvent l’adresse IP privée allouée au registre. Avec la configuration DNS, les clients et les services du réseau peuvent continuer à accéder au registre avec le nom de domaine complet du registre, tel que *myregistry.azurecr.io* . 
 
 Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Actuellement, un maximum de dix points de terminaison privés peuvent être configurés pour un registre. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
 
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Si vous ne les avez pas déjà, vous aurez besoin des noms d’un réseau virtuel et d’un sous-réseau pour configurer une liaison privée. Dans cet exemple, vous utilisez le même sous-réseau pour la machine virtuelle et le point de terminaison privé du registre. Toutefois, dans de nombreux scénarios, il convient de configurer le point de terminaison dans un sous-réseau distinct. 
 
-Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM*, le nom de réseau virtuel par défaut est *myDockerVMVNET*, avec un sous-réseau nommé *myDockerVMSubnet*. Définissez ces valeurs dans les variables d’environnement en exécutant la commande [az network vnet list][az-network-vnet-list] :
+Quand vous créez une machine virtuelle, Azure crée par défaut un réseau virtuel dans le même groupe de ressources. Le nom du réseau virtuel est basé sur le nom de la machine virtuelle. Par exemple, si vous nommez votre machine virtuelle *myDockerVM* , le nom de réseau virtuel par défaut est *myDockerVMVNET* , avec un sous-réseau nommé *myDockerVMSubnet* . Définissez ces valeurs dans les variables d’environnement en exécutant la commande [az network vnet list][az-network-vnet-list] :
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -81,7 +81,7 @@ az network vnet subnet update \
 
 Créez une [zone DNS privée](../dns/private-dns-privatednszone.md) pour le domaine du registre de conteneurs Azure privé. Dans les étapes ultérieures, vous allez créer des enregistrements DNS pour votre domaine de registre dans cette zone DNS.
 
-Pour utiliser une zone privée afin de remplacer la résolution DNS par défaut pour votre registre de conteneurs Azure, la zone doit être nommée **privatelink.azurecr.io**. Exécutez la commande [az network private-dns zone create][az-network-private-dns-zone-create] suivante pour créer la zone privée :
+Pour utiliser une zone privée afin de remplacer la résolution DNS par défaut pour votre registre de conteneurs Azure, la zone doit être nommée **privatelink.azurecr.io** . Exécutez la commande [az network private-dns zone create][az-network-private-dns-zone-create] suivante pour créer la zone privée :
 
 ```azurecli
 az network private-dns zone create \
@@ -91,7 +91,7 @@ az network private-dns zone create \
 
 ### <a name="create-an-association-link"></a>Créer un lien d’association
 
-Exécutez [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] pour associer votre zone privée au réseau virtuel. Cet exemple crée un lien appelé *myDNSLink*.
+Exécutez [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] pour associer votre zone privée au réseau virtuel. Cet exemple crée un lien appelé *myDNSLink* .
 
 ```azurecli
 az network private-dns link vnet create \
@@ -113,7 +113,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
 
 Exécutez la commande [az network private-endpoint create][az-network-private-endpoint-create] pour créer le point de terminaison privé du registre.
 
-L’exemple suivant crée le point de terminaison *myPrivateEndpoint* et la connexion de service *myConnection*. Pour spécifier une ressource de registre de conteneurs pour le point de terminaison, transmettez `--group-ids registry` :
+L’exemple suivant crée le point de terminaison *myPrivateEndpoint* et la connexion de service *myConnection* . Pour spécifier une ressource de registre de conteneurs pour le point de terminaison, transmettez `--group-ids registry` :
 
 ```azurecli
 az network private-endpoint create \
@@ -159,7 +159,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Créer des enregistrements DNS dans la zone privée
 
-Les commandes suivantes créent des enregistrements DNS dans la zone privée pour le point de terminaison du registre et son point de terminaison de données. Par exemple, si vous avez un registre nommé *myregistry* dans la région *westeurope*, les noms des points de terminaison sont `myregistry.azurecr.io` et `myregistry.westeurope.data.azurecr.io`. 
+Les commandes suivantes créent des enregistrements DNS dans la zone privée pour le point de terminaison du registre et son point de terminaison de données. Par exemple, si vous avez un registre nommé *myregistry* dans la région *westeurope* , les noms des points de terminaison sont `myregistry.azurecr.io` et `myregistry.westeurope.data.azurecr.io`. 
 
 > [!NOTE]
 > Si votre registre est [géorépliqué](container-registry-geo-replication.md), créez des enregistrements DNS supplémentaires pour l’adresse IP du point de terminaison de données de chaque réplica.
@@ -204,9 +204,9 @@ Configurez un lien privé quand vous créez un registre ou ajoutez un lien priv�
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Créer un point de terminaison privé (nouveau registre)
 
-1. Quand vous créez un registre dans le portail, sous l’onglet **De base**, dans **SKU**, sélectionnez **Premium**.
-1. Sélectionnez l’onglet **Réseau**.
-1. Dans **Connectivité réseau**, sélectionnez **Point de terminaison privé** >  **+ Ajouter**.
+1. Quand vous créez un registre dans le portail, sous l’onglet **De base** , dans **SKU** , sélectionnez **Premium** .
+1. Sélectionnez l’onglet **Réseau** .
+1. Dans **Connectivité réseau** , sélectionnez **Point de terminaison privé** >  **+ Ajouter** .
 1. Entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
@@ -214,24 +214,24 @@ Configurez un lien privé quand vous créez un registre ou ajoutez un lien priv�
     | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Entrez le nom d’un groupe existant ou créez-en un nouveau.|
     | Nom | Entrez un nom unique. |
-    | Sous-ressource |Sélectionnez le **registre**.|
+    | Sous-ressource |Sélectionnez le **registre** .|
     | **Mise en réseau** | |
-    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET*. |
-    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet*, où votre machine virtuelle est déployée. |
+    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET* . |
+    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet* , où votre machine virtuelle est déployée. |
     |**Intégration à un DNS privé**||
-    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
+    |Intégrer à une zone DNS privée |Sélectionnez **Oui** . |
     |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
     |||
-1. Configurez les paramètres de registre restants, puis sélectionnez **Vérifier + créer**.
+1. Configurez les paramètres de registre restants, puis sélectionnez **Vérifier + créer** .
 
   ![Créer un registre avec un point de terminaison privé](./media/container-registry-private-link/private-link-create-portal.png)
 
 ### <a name="create-a-private-endpoint---existing-registry"></a>Créer un point de terminaison privé (registre existant)
 
 1. Dans le portail, accédez à votre registre de conteneurs.
-1. Sous **Paramètres**, sélectionnez **Mise en réseau**.
-1. Sous l’onglet **Points de terminaison privés**, sélectionnez **+ Point de terminaison privé**.
-1. Sous l’onglet **Informations de base**, entrez ou sélectionnez les informations suivantes :
+1. Sous **Paramètres** , sélectionnez **Mise en réseau** .
+1. Sous l’onglet **Points de terminaison privés** , sélectionnez **+ Point de terminaison privé** .
+1. Sous l’onglet **Informations de base** , entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -242,38 +242,38 @@ Configurez un lien privé quand vous créez un registre ou ajoutez un lien priv�
     | Nom | Entrez un nom. |
     |Région|Sélectionnez une région.|
     |||
-5. Sélectionnez **Suivant : Ressource**.
+5. Sélectionnez **Suivant : Ressource** .
 6. Entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    |Méthode de connexion  | Sélectionnez **Se connecter à une ressource Azure dans mon répertoire**.|
+    |Méthode de connexion  | Sélectionnez **Se connecter à une ressource Azure dans mon répertoire** .|
     | Abonnement| Sélectionnez votre abonnement. |
-    | Type de ressource | Sélectionnez **Microsoft.ContainerRegistry/registries**. |
+    | Type de ressource | Sélectionnez **Microsoft.ContainerRegistry/registries** . |
     | Ressource |Sélectionnez le nom de votre registre.|
-    |Sous-ressource cible |Sélectionnez le **registre**.|
+    |Sous-ressource cible |Sélectionnez le **registre** .|
     |||
-7. Sélectionnez **Suivant : Configuration**.
+7. Sélectionnez **Suivant : Configuration** .
 8. Entrez ou sélectionnez les informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
     |**Mise en réseau**| |
-    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET*. |
-    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet*, où votre machine virtuelle est déployée. |
+    | Réseau virtuel| Sélectionnez le réseau virtuel où votre machine virtuelle est déployée, tel que *myDockerVMVNET* . |
+    | Subnet | Sélectionnez un sous-réseau, tel que *myDockerVMSubnet* , où votre machine virtuelle est déployée. |
     |**Intégration à un DNS privé**||
-    |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
+    |Intégrer à une zone DNS privée |Sélectionnez **Oui** . |
     |Zone DNS privée |Sélectionnez *(Nouveau) privatelink.azurecr.io* |
     |||
 
-1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
-2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+1. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
+2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** .
 
 Une fois le point de terminaison privé créé, les paramètres DNS dans la zone privée apparaissent dans la page **Points de terminaison privés** dans le portail :
 
-1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
-1. Sous l’onglet **Points de terminaison privés**, sélectionnez le point de terminaison privé que vous avez créé.
-1. Dans la page **Vue d’ensemble**, passez en revue les paramètres de la liaison et les paramètres DNS personnalisés.
+1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau** .
+1. Sous l’onglet **Points de terminaison privés** , sélectionnez le point de terminaison privé que vous avez créé.
+1. Dans la page **Vue d’ensemble** , passez en revue les paramètres de la liaison et les paramètres DNS personnalisés.
 
   ![Paramètres DNS du point de terminaison](./media/container-registry-private-link/private-endpoint-overview.png)
 
@@ -297,8 +297,8 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 ### <a name="disable-public-access---portal"></a>Désactiver l’accès public (portail)
 
-1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau**.
-1. Sous l’onglet **Accès public**, dans **Autoriser l’accès au réseau public**, sélectionnez **Désactivé**. Ensuite, sélectionnez **Enregistrer**.
+1. Dans le portail, accédez à votre registre de conteneurs et sélectionnez **Paramètres > Mise en réseau** .
+1. Sous l’onglet **Accès public** , dans **Autoriser l’accès au réseau public** , sélectionnez **Désactivé** . Ensuite, sélectionnez **Enregistrer** .
 
 ## <a name="validate-private-link-connection"></a>Valider la connexion de liaison privée
 
@@ -375,13 +375,13 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Quand vous configurez une connexion de point de terminaison privé via la procédure décrite dans cet article, le registre accepte automatiquement les connexions à partir des clients et des services qui ont des autorisations RBAC sur le registre. Vous pouvez configurer le point de terminaison pour exiger l’approbation manuelle des connexions. Pour obtenir des informations sur l’approbation et le rejet des connexions de point de terminaison privé, consultez [Gérer une connexion de point de terminaison privé](../private-link/manage-private-endpoint.md).
+Quand vous configurez une connexion de point de terminaison privé via la procédure décrite dans cet article, le registre accepte automatiquement les connexions à partir des clients et des services qui ont des autorisations Azure RBAC sur le registre. Vous pouvez configurer le point de terminaison pour exiger l’approbation manuelle des connexions. Pour obtenir des informations sur l’approbation et le rejet des connexions de point de terminaison privé, consultez [Gérer une connexion de point de terminaison privé](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Ajouter des enregistrements de zone pour les réplicas
 
 Comme cet article l’indique, quand vous ajoutez une connexion de point de terminaison privé à un registre, vous créez des enregistrements DNS dans la zone `privatelink.azurecr.io` pour le registre et ses points de terminaison de données dans les régions où le registre est [répliqué](container-registry-geo-replication.md). 
 
-Si vous ajoutez par la suite un nouveau réplica, vous devez ajouter manuellement un nouvel enregistrement de zone pour le point de terminaison de données dans cette région. Par exemple, si vous créez un réplica *myregistry* dans l’emplacement *northeurope*, ajoutez un enregistrement de zone pour `myregistry.northeurope.data.azurecr.io`. Pour connaître les étapes à suivre, consultez [Créer des enregistrements DNS dans la zone privée](#create-dns-records-in-the-private-zone) dans cet article.
+Si vous ajoutez par la suite un nouveau réplica, vous devez ajouter manuellement un nouvel enregistrement de zone pour le point de terminaison de données dans cette région. Par exemple, si vous créez un réplica *myregistry* dans l’emplacement *northeurope* , ajoutez un enregistrement de zone pour `myregistry.northeurope.data.azurecr.io`. Pour connaître les étapes à suivre, consultez [Créer des enregistrements DNS dans la zone privée](#create-dns-records-in-the-private-zone) dans cet article.
 
 ## <a name="dns-configuration-options"></a>Options de configuration DNS
 

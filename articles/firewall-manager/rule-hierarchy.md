@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893602"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331734"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Utiliser la stratégie de pare-feu Azure pour définir une hiérarchie de règles
 
@@ -21,7 +21,7 @@ Les administrateurs de la sécurité doivent gérer les pare-feu et garantir la 
 La stratégie de pare-feu Azure vous permet de définir une hiérarchie de règles et de garantir la conformité :
 
 - Elle fournit une structure hiérarchique permettant de superposer une stratégie de base centrale sur une stratégie d'équipe d'applications enfant. La stratégie de base est prioritaire et s'exécute avant la stratégie enfant.
-- Utilisez une définition personnalisée du contrôle d'accès en fonction du rôle (RBAC) pour empêcher toute suppression involontaire de la stratégie de base et fournir un accès sélectif aux regroupements de règles au sein d'un abonnement ou d'un groupe de ressources. 
+- Utilisez une définition d’un rôle personnalisé Azure pour empêcher toute suppression involontaire de la stratégie de base et fournir un accès sélectif aux regroupements de règles au sein d'un abonnement ou d'un groupe de ressources. 
 
 ## <a name="solution-overview"></a>Vue d’ensemble de la solution
 
@@ -91,13 +91,13 @@ Procédez comme suit pour définir des rôles personnalisés :
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
    l'opération à la propriété  **Actions** . Veillez à inclure une virgule après l’opération de lecture. Cette action permet à l'utilisateur de créer et de mettre à jour des regroupements de règles.
-6. Dans  **AssignableScopes**, ajoutez votre ID d'abonnement au format suivant : 
+6. Dans  **AssignableScopes** , ajoutez votre ID d'abonnement au format suivant : 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
    Vous devez ajouter des ID d’abonnements explicites, sinon vous ne serez pas autorisé à importer le rôle dans votre abonnement.
 7. Supprimez la ligne de propriété  **Id**  et remplacez la propriété  **IsCustom**  par true.
-8. Remplacez les propriétés  **Nom**  et  **Description**  par *Auteur du regroupement de règles AZFM* et *Les utilisateurs de ce rôle peuvent modifier les regroupements de règles de la stratégie de pare-feu*.
+8. Remplacez les propriétés  **Nom**  et  **Description**  par *Auteur du regroupement de règles AZFM* et *Les utilisateurs de ce rôle peuvent modifier les regroupements de règles de la stratégie de pare-feu* .
 
 Votre fichier JSON doit être semblable à l'exemple suivant :
 
@@ -132,7 +132,7 @@ Pour dresser la liste de tous les rôles personnalisés, vous pouvez utiliser la
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
-Vous pouvez également voir les rôles personnalisés sur le portail Azure. Accédez à votre abonnement et sélectionnez **Contrôle d'accès (IAM)** , **Rôles**.
+Vous pouvez également voir les rôles personnalisés sur le portail Azure. Accédez à votre abonnement et sélectionnez **Contrôle d'accès (IAM)** , **Rôles** .
 
 :::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Équipes et exigences":::
 
@@ -145,15 +145,15 @@ Pour plus d’informations, consultez [Didacticiel : Créer un rôle personnalis
 Sur le portail, vous pouvez attribuer le rôle Auteurs du regroupement de règles AZFM à des utilisateurs et leur fournir un accès aux stratégies de pare-feu.
 
 1. Sur le portail, sélectionnez la stratégie de pare-feu de l'équipe d'applications (par exemple, SalesAppPolicy).
-2. Sélectionnez **Contrôle d’accès**.
-3. Sélectionnez **Ajouter une attribution de rôle**.
+2. Sélectionnez **Contrôle d’accès** .
+3. Sélectionnez **Ajouter une attribution de rôle** .
 4. Attribuez le rôle à des utilisateurs/groupes d'utilisateurs (par exemple, l'équipe Ventes).
 
 Répétez cette procédure pour les autres stratégies de pare-feu.
 
 ### <a name="summary"></a>Résumé
 
-La stratégie de pare-feu avec RBAC personnalisé offre désormais un accès sélectif aux regroupements de règles de la stratégie de pare-feu.
+La stratégie de pare-feu avec des rôles personnalisés offre désormais un accès sélectif aux regroupements de règles de la stratégie de pare-feu.
 
 Les utilisateurs ne disposent pas des autorisations nécessaires pour :
 - Supprimer le Pare-feu Azure ou la stratégie de pare-feu

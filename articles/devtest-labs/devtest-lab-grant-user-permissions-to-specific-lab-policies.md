@@ -3,25 +3,25 @@ title: Accorder des autorisations à des utilisateurs sur des stratégies de lab
 description: Découvrez comment accorder des autorisations aux utilisateurs sur des stratégies de laboratoire spécifique dans DevTest Labs selon les besoins de chaque utilisateur
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835678"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328468"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques
 ## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment utiliser PowerShell pour accorder à des utilisateurs des autorisations sur une stratégie de laboratoire particulière. De cette façon, les autorisations peuvent être appliquées selon les besoins de chaque utilisateur. Par exemple, vous pouvez accorder à un utilisateur la possibilité de modifier les paramètres de stratégie d’une machine virtuelle, mais pas les stratégies de coût.
 
 ## <a name="policies-as-resources"></a>Stratégies en tant que ressources
-Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
+Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), Azure RBAC permet une gestion précise de l’accès aux ressources pour Azure. Avec Azure RBAC, vous pouvez séparer les tâches au sein de votre équipe chargée des opérations de développement et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
-Dans DevTest Labs, une stratégie est un type de ressource qui active l’action RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Chaque stratégie de laboratoire est une ressource de type stratégie et peut être affectée comme étendue à un rôle Azure.
+Dans DevTest Labs, une stratégie est un type de ressource qui active l’action Azure RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Chaque stratégie de laboratoire est une ressource de type stratégie et peut être affectée comme étendue à un rôle Azure.
 
-Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture sur la stratégie **Tailles de machine virtuelle autorisées**, vous créez un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/** , puis vous affectez les utilisateurs appropriés à ce rôle personnalisé dans l’étendue de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture sur la stratégie **Tailles de machine virtuelle autorisées** , vous créez un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/** , puis vous affectez les utilisateurs appropriés à ce rôle personnalisé dans l’étendue de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** .
 
-Pour en savoir plus sur les rôles personnalisés dans RBAC, consultez [Contrôle d’accès des rôles personnalisés](../role-based-access-control/custom-roles.md).
+Pour plus d’informations sur les rôles personnalisés dans Azure RBAC, consultez la page [Rôles personnalisés Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Création d’un rôle personnalisé de laboratoire en utilisant PowerShell
 Pour commencer, vous devez [installer Azure PowerShell](/powershell/azure/install-az-ps). 
@@ -53,7 +53,7 @@ $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 ```
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Attribution d'autorisations à un utilisateur pour une stratégie spécifique à l'aide de rôles personnalisés
-Une fois que vous avez défini vos rôles personnalisés, vous pouvez les attribuer aux utilisateurs. Pour affecter un rôle personnalisé à un utilisateur, vous devez d’abord obtenir **l’ObjectId** représentant cet utilisateur. Pour cela, utilisez l’applet de commande **Get-AzADUser**.
+Une fois que vous avez défini vos rôles personnalisés, vous pouvez les attribuer aux utilisateurs. Pour affecter un rôle personnalisé à un utilisateur, vous devez d’abord obtenir **l’ObjectId** représentant cet utilisateur. Pour cela, utilisez l’applet de commande **Get-AzADUser** .
 
 Dans l’exemple suivant, **l’ObjectId** de l’utilisateur *SomeUser* est 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
@@ -65,7 +65,7 @@ DisplayName                    Type                           ObjectId
 someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 ```
 
-Une fois que vous avez l’**ObjectId** de l’utilisateur et un nom de rôle personnalisé, vous pouvez attribuer ce rôle à l’utilisateur avec l’applet de commande **New-AzRoleAssignment** :
+Une fois que vous avez l’ **ObjectId** de l’utilisateur et un nom de rôle personnalisé, vous pouvez attribuer ce rôle à l’utilisateur avec l’applet de commande **New-AzRoleAssignment**  :
 
 ```azurepowershell
 PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab

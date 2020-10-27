@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893354"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203192"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Déployer un conteneur personnalisé sur App Service à l’aide de GitHub Actions
 
@@ -33,7 +33,7 @@ Pour un workflow de conteneur Azure App Service, le fichier comporte trois secti
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un compte GitHub. Si vous n’en avez pas, inscrivez-vous [gratuitement](https://github.com/join).  
 - Un registre de conteneurs fonctionnel et l’application Azure App Service pour les conteneurs. Cet exemple utilise Azure Container Registry. 
-    - [Découvrez comment créer une application Node.js conteneurisée avec Docker, envoyer (push) l’image conteneur à un registre, puis déployer l’image sur Azure App Service.](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [Découvrez comment créer une application Node.js conteneurisée avec Docker, envoyer (push) l’image conteneur à un registre, puis déployer l’image sur Azure App Service.](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
@@ -47,13 +47,13 @@ Un profil de publication est une information d’identification au niveau de l�
 
 1. Accédez à votre service d’application dans le portail Azure. 
 
-1. Dans la page **Vue d’ensemble**, sélectionnez **Obtenir le profil de publication**.
+1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication** .
 
 1. Enregistrez le fichier téléchargé. Vous utiliserez le contenu du fichier pour créer un secret GitHub.
 
 # <a name="service-principal"></a>[Principal du service](#tab/service-principal)
 
-Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
+Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -80,7 +80,7 @@ Dans l’exemple, remplacez les espaces réservés par votre ID d’abonnement, 
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
 
 Collez le contenu de la sortie JSON comme valeur de la variable secrète. Nommez le secret comme `AZURE_CREDENTIALS`.
 
@@ -96,11 +96,11 @@ Quand vous configurez le fichier de flux de travail ultérieurement, vous utilis
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/publish-profile)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
 
 Pour utiliser les [informations d’identification au niveau de l’application](#generate-deployment-credentials), collez le contenu du fichier de profil de publication téléchargé dans le champ de valeur du secret. Nommez le secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
-Quand vous configurez votre workflow GitHub, vous utilisez `AZURE_WEBAPP_PUBLISH_PROFILE` dans l’action Déployer l’application web Azure. Exemple :
+Quand vous configurez votre workflow GitHub, vous utilisez `AZURE_WEBAPP_PUBLISH_PROFILE` dans l’action Déployer l’application web Azure. Par exemple :
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -110,7 +110,7 @@ Quand vous configurez votre workflow GitHub, vous utilisez `AZURE_WEBAPP_PUBLISH
 
 # <a name="service-principal"></a>[Principal du service](#tab/service-principal)
 
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
+Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
 
 Pour utiliser les [informations d’identification au niveau de l’utilisateur](#generate-deployment-credentials), collez l’intégralité de la sortie JSON à partir de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret comme `AZURE_CREDENTIALS`.
 
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Déployer sur un conteneur App Service
 
-Pour déployer votre image sur un conteneur personnalisé dans App Service, utilisez l’action `azure/webapps-deploy@v2`. Cette action a cinq paramètres :
+Pour déployer votre image sur un conteneur personnalisé dans App Service, utilisez l’action `azure/webapps-deploy@v2`. Cette action a sept paramètres :
 
 | **Paramètre**  | **Explication**  |
 |---------|---------|
 | **app-name** | (Requis) Nom de l’application App Service | 
-| **publish-profile** | (Facultatif) Publier le contenu du fichier de profil avec les secrets Web Deploy |
-| **images** | Nom complet des images conteneur. Par exemple, « myregistry.azurecr.io/nginx:latest » or « python:3.7.2-alpine/ ». Pour un scénario à plusieurs conteneurs, plusieurs noms d’images conteneur peuvent être fournis (séparés en plusieurs lignes) |
+| **publish-profile** | (Facultatif) S’applique aux applications web (Windows et Linux) et aux conteneurs d’applications web (Linux). Les scénarios à plusieurs conteneurs ne sont pas pris en charge. Publier le contenu du fichier de profil (\*.publishsettings) avec les secrets Web Deploy | 
 | **slot-name** | (Facultatif) Entrer un emplacement existant autre que l’emplacement de production |
-| **configuration-file** | (Facultatif) Chemin d’accès au fichier Docker-Compose |
+| **package** | (Facultatif) S’applique uniquement à l’application web : Chemin d’accès au package ou dossier. \*.zip, \*.war, \*.jar ou un dossier à déployer |
+| **images** | (Requis) S’applique uniquement aux conteneurs d’applications web : Spécifiez le nom complet de l’image ou des images conteneur. Par exemple, « myregistry.azurecr.io/nginx:latest » or « python:3.7.2-alpine/ ». Pour une application à plusieurs conteneurs, plusieurs noms d’images conteneur peuvent être fournis (séparés par plusieurs lignes) |
+| **configuration-file** | (Facultatif) S’applique uniquement aux conteneurs d’applications web : Chemin d’accès au fichier Docker-Compose. Doit être un chemin d’accès complet ou relatif au répertoire de travail par défaut. Requis pour les applications à plusieurs conteneurs. |
+| **startup-command** | (Facultatif) Entrez la commande de démarrage. Par exemple, dotnet run ou dotnet filename.dll |
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/publish-profile)
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
-ms.openlocfilehash: 0705336056ff7c60afddd866b5c65694098a32db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744064"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169351"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -37,7 +37,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | Nombre maximal de `parameters` | 50 | |
 | Nombre maximal de `outputs` | 10 | |
 | Taille maximale de `trackedProperties` | 16 000 caractères |
-| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères <p>Pour une limite de 100 000 caractères, créez vos applications logiques avec Visual Studio Code et l’[extension **Azure Logic Apps** en préversion](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
+| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères <p>Pour une limite de 100 000 caractères, créez vos applications logiques avec Visual Studio Code et l’ [extension **Azure Logic Apps** en préversion](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -48,7 +48,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure de début* par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration). <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la durée d’exécution](#change-duration). |
-| Conservation de l’exécution dans le stockage | 90 jours | 366 jours | La conservation de l’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure en cours* par le paramètre de workflow [**Conservation de l’historique des exécutions en jours**](#change-retention). Qu’une exécution aboutisse ou expire, le calcul de la rétention utilise toujours l’heure de début de l’exécution. Quand la durée d’une exécution dépasse la limite de conservation *actuelle*, l’exécution est supprimée de l’historique des exécutions. <p><p>Si vous modifiez ce paramètre, la limite actuelle est toujours utilisée pour le calcul de la rétention, quelle que soit la limite précédente. Par exemple, si vous réduisez la limite de conservation de 90 jours à 30 jours, une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de rétention de 30 jours à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires. <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la conservation de l’exécution dans le stockage](#change-retention). |
+| Conservation de l’exécution dans le stockage | 90 jours | 366 jours | La conservation de l’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure en cours* par le paramètre de workflow [**Conservation de l’historique des exécutions en jours**](#change-retention). Qu’une exécution aboutisse ou expire, le calcul de la rétention utilise toujours l’heure de début de l’exécution. Quand la durée d’une exécution dépasse la limite de conservation *actuelle* , l’exécution est supprimée de l’historique des exécutions. <p><p>Si vous modifiez ce paramètre, la limite actuelle est toujours utilisée pour le calcul de la rétention, quelle que soit la limite précédente. Par exemple, si vous réduisez la limite de conservation de 90 jours à 30 jours, une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de rétention de 30 jours à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires. <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la conservation de l’exécution dans le stockage](#change-retention). |
 | Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
@@ -64,17 +64,17 @@ Pour modifier la limite par défaut pour la durée d’exécution et la conserva
 > Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
 > Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
 
-1. Accédez au [portail Azure](https://portal.azure.com). Dans la zone de recherche du Portail, recherchez et sélectionnez **Logic Apps**.
+1. Accédez au [portail Azure](https://portal.azure.com). Dans la zone de recherche du Portail, recherchez et sélectionnez **Logic Apps** .
 
 1. Sélectionnez, puis ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Dans le menu de l’application logique, sélectionnez **Paramètres de flux de travail**.
+1. Dans le menu de l’application logique, sélectionnez **Paramètres de flux de travail** .
 
-1. Sous **Options de runtime**, dans la liste **Conservation de l’historique des exécutions en jours**, choisissez **Personnalisée**.
+1. Sous **Options de runtime** , dans la liste **Conservation de l’historique des exécutions en jours** , choisissez **Personnalisée** .
 
 1. Faites glisser le curseur pour modifier le nombre de jours souhaité.
 
-1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow**, sélectionnez **Enregistrer**.
+1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow** , sélectionnez **Enregistrer** .
 
 <a name="looping-debatching-limits"></a>
 
@@ -84,11 +84,11 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Déclencheur simultané | - Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>- 25 est la limite par défaut quand le contrôle d’accès concurrentiel est activé, que vous ne pouvez pas annuler une fois que vous avez activé l’accès concurrentiel. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Déclencheur simultané | - Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>- 25 est la limite par défaut quand le contrôle d’accès concurrentiel est activé, que vous ne pouvez pas annuler une fois que vous avez activé l’accès concurrentiel. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque**  : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Exécutions en attente maximale | - Sans accès concurrentiel, le nombre minimal d’exécutions en attente est 1, tandis que leur nombre maximal est 50. <p><p>- Avec l’accès concurrentiel, le nombre minimal d’exécutions en attente est égal à 10 plus le nombre d’exécutions simultanées (concurrence du déclencheur). Vous pouvez modifier le nombre maximal jusqu’à la valeur maximale 100 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
 | Accès concurrentiel Foreach | La limite par défaut est 20 lorsque le contrôle d’accès concurrentiel est désactivé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Éléments SplitOn | - 100 000 sans concurrence du déclencheur <p><p>- 100 avec concurrence du déclencheur | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
+| Éléments SplitOn | - 100 000 sans concurrence du déclencheur <p><p>- 100 avec concurrence du déclencheur | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque**  : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
 | Itérations Until | - Par défaut : 60 <p><p>- Maximum : 5 000 | |
 ||||
 
@@ -144,8 +144,8 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré**. |
-| Requête entrante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par les déclencheurs de requête et les déclencheurs webhook sont des exemples de requêtes entrantes. <p><p>**Remarque** : Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
+| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré** . |
+| Requête entrante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par les déclencheurs de requête et les déclencheurs webhook sont des exemples de requêtes entrantes. <p><p>**Remarque**  : Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 <a name="message-size-limits"></a>
@@ -259,7 +259,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 | Artefact | Limite | Notes |
 | -------- | ----- | ----- |
 | Assembly | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez un [compte de stockage Azure et un conteneur d’objets blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Mappage (fichier XSLT) | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez l’[API REST Azure Logic Apps – Maps](/rest/api/logic/maps/createorupdate). <p><p>**Remarque** : La quantité de données ou d’enregistrements qu’un mappage peut traiter avec succès est basée sur les limites de taille de message et de délai d’expiration d’action dans Azure Logic Apps. Par exemple, si vous utilisez une action HTTP, en fonction des [limites de taille et de délai d’attente des messages HTTP](#request-limits), un mappage peut traiter les données jusqu’à la limite de taille de message HTTP si l’opération se termine dans le délai imparti par le protocole HTTP. |
+| Mappage (fichier XSLT) | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez l’[API REST Azure Logic Apps – Maps](/rest/api/logic/maps/createorupdate). <p><p>**Remarque**  : La quantité de données ou d’enregistrements qu’un mappage peut traiter avec succès est basée sur les limites de taille de message et de délai d’expiration d’action dans Azure Logic Apps. Par exemple, si vous utilisez une action HTTP, en fonction des [limites de taille et de délai d’attente des messages HTTP](#request-limits), un mappage peut traiter les données jusqu’à la limite de taille de message HTTP si l’opération se termine dans le délai imparti par le protocole HTTP. |
 | schéma | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez un [compte de stockage Azure et un conteneur d’objets blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -300,14 +300,14 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuration du pare-feu : Adresses IP et balises de service
 
-Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortants dépendent de la région où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Certains appels de [Power Automate](/power-automate/getting-started), tels que les requêtes **HTTP** et **HTTP + OpenAPI**, passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration dans Power Automate](/flow/limits-and-config#ip-address-configuration).
+Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortants dépendent de la région où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Certains appels de [Power Automate](/power-automate/getting-started), tels que les requêtes **HTTP** et **HTTP + OpenAPI** , passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration dans Power Automate](/flow/limits-and-config#ip-address-configuration).
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser les [balises de service](../virtual-network/service-tags-overview.md), au lieu de spécifier les adresses IP Logic Apps pour chaque région, comme décrit plus loin dans cette section.
 > Ces balises fonctionnent dans les régions où le service Logic Apps est disponible :
 >
-> * **LogicAppsManagement** : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
-> * **LogicApps** : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
+> * **LogicAppsManagement**  : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
+> * **LogicApps**  : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
 
 * Pour [Azure Chine 21Vianet](/azure/china/), les adresses IP fixes ou réservées ne sont pas disponibles pour les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) et les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), par exemple Stockage Azure, SQL Server, Office 365 Outlook, etc.
 
@@ -328,7 +328,7 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 Cette section répertorie les adresses IP entrantes pour le service Azure Logic Apps uniquement. Si vous avez Azure Government, consultez [Azure Government - Adresses IP entrantes](#azure-government-inbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région.
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement** , au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région.
 > Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
 
 <a name="multi-tenant-inbound"></a>
@@ -350,6 +350,7 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 | France Centre | 52.143.162.83, 20.188.33.169, 52.143.156.55, 52.143.158.203 |
 | France Sud | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4 |
 | Allemagne Nord | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64 |
+| Allemagne Centre-Ouest | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
 | Japon Est | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | OuJapon Est | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
 | Centre de la Corée | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
@@ -391,8 +392,8 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps et les connecteurs managés. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
-> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP sortants de connecteur géré pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible. 
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps** , au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
+> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors** , plutôt que de spécifier des préfixes d’adresse IP sortants de connecteur géré pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible. 
 
 <a name="multi-tenant-outbound"></a>
 
@@ -413,6 +414,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 | France Centre | 52.143.164.80, 52.143.164.15, 40.89.186.30, 20.188.39.105, 40.89.191.161, 40.89.188.169, 40.89.186.28, 40.89.190.104 | 40.79.130.208 - 40.79.130.223, 40.89.135.2, 40.89.186.239, 40.79.148.96 - 40.79.148.127 |
 | France Sud | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51 | 40.79.178.240 - 40.79.178.255, 52.136.133.184, 52.136.142.154, 40.79.180.224 - 40.79.180.255 |
 | Allemagne Nord | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51 | 51.116.211.212, 51.116.60.192 - 51.116.60.223, 51.116.59.16 - 51.116.60.31 |
+| Allemagne Centre-Ouest | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 | 51.116.236.78, 51.116.158.96 - 51.116.158.127, 51.116.155.80 - 51.116.155.95 |
 | Japon Est | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96, 13.73.21.230, 40.79.189.64 - 40.79.189.95 |
 | OuJapon Est | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248, 104.215.27.24, 40.80.180.64 - 40.80.180.95 |
 | Centre de la Corée | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |

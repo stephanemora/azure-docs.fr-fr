@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057890"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173563"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -44,9 +44,9 @@ Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vo
 Un groupe de synchronisation dispose des propriétés suivantes :
 
 - Le **schéma de synchronisation** décrit quelles sont les données en cours de synchronisation.
-- Le **sens de synchronisation** peut être bidirectionnel ou peut circuler dans une seule direction. Autrement dit, le sens de synchronisation peut être *Hub vers membre*, *Membre vers hub*, ou les deux.
-- L’**intervalle de synchronisation** correspond à la fréquence à laquelle la synchronisation se produit.
-- La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre*.
+- Le **sens de synchronisation** peut être bidirectionnel ou peut circuler dans une seule direction. Autrement dit, le sens de synchronisation peut être *Hub vers membre* , *Membre vers hub* , ou les deux.
+- L’ **intervalle de synchronisation** correspond à la fréquence à laquelle la synchronisation se produit.
+- La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre* .
 
 ## <a name="when-to-use"></a>Quand l’utiliser
 
@@ -72,9 +72,9 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
 - **Suivi des modifications de données :** Data Sync effectue le suivi des modifications en utilisant des déclencheurs d’insertion, de mise à jour et de suppression. Les modifications sont enregistrées dans une table latérale dans la base de données utilisateur. BULK INSERT n’active aucun déclencheur par défaut. Si FIRE_TRIGGERS n’est pas spécifié, aucun déclencheur d’insertion ne s’exécute. Ajoutez l’option FIRE_TRIGGERS afin que Data Sync puisse suivre ces insertions. 
 - **Synchronisation des données :** SQL Data Sync est conçu dans un modèle de Hub and Spoke. Le hub se synchronise avec chaque membre individuellement. Les modifications depuis le hub sont téléchargées vers le membre, puis les modifications à partir du membre sont chargées vers le hub.
-- **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre*.
-  - Si vous sélectionnez *Priorité au hub*, les modifications dans le hub remplacent toujours les modifications dans le membre.
-  - Si vous sélectionnez *Priorité au membre*, les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
+- **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre* .
+  - Si vous sélectionnez *Priorité au hub* , les modifications dans le hub remplacent toujours les modifications dans le membre.
+  - Si vous sélectionnez *Priorité au membre* , les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
 
 ## <a name="compare-with-transactional-replication"></a>Comparaison avec la réplication transactionnelle
 
@@ -137,6 +137,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - S’il existe des tables avec le même nom mais un schéma différent (par exemple, dbo.customers et sales.customers), une seule des tables peut être ajoutée à la synchronisation.
+- Un nom de table ne peut pas contenir de caractères dont la valeur ASCII est inférieure ou égale à '-'.
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 
@@ -174,8 +175,8 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 Quand le groupe de synchronisation est établi, le service Data Sync doit se connecter à la base de données Hub. Au moment où vous établissez le groupe de synchronisation, le serveur SQL Azure doit disposer de la configuration suivante dans ses paramètres `Firewalls and virtual networks` :
 
- * Le paramètre *Refuser l’accès au réseau public* doit être *désactivé*.
- * Le paramètre *Autoriser les services et les ressources Azure à accéder à ce serveur* doit avoir la valeur *Oui*, ou vous devez créer des règles IP pour les [adresses IP utilisées par le service Data Sync](network-access-controls-overview.md#data-sync).
+ * Le paramètre *Refuser l’accès au réseau public* doit être *désactivé* .
+ * Le paramètre *Autoriser les services et les ressources Azure à accéder à ce serveur* doit avoir la valeur *Oui* , ou vous devez créer des règles IP pour les [adresses IP utilisées par le service Data Sync](network-access-controls-overview.md#data-sync).
 
 Une fois le groupe de synchronisation créé et provisionné, vous pouvez désactiver ces paramètres. L’agent de synchronisation se connecte directement à la base de données Hub et vous pouvez utiliser les [règles IP de pare-feu](firewall-configure.md) du serveur ou des [points de terminaison privés](private-endpoint-overview.md) pour permettre à l’agent d’accéder au serveur hub.
 
@@ -239,7 +240,7 @@ La base de données racine de fédération peut être utilisée sans limitation 
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Puis-je utiliser SQL Data Sync pour synchroniser des données exportées à partir de Dynamics 365 à l’aide de la fonctionnalité BYOD (apportez votre propre base de données) ?
 
-La fonctionnalité Dynamics 365 apportez votre propre base de données permet aux administrateurs d’exporter des entités de données depuis l’application dans leur propre base de données Microsoft Azure SQL. SQL Data Sync peut être utilisé pour synchroniser ces données dans d’autres bases de données si les données sont exportées à l’aide de **l’envoi (push) incrémentiel** (l’envoi intégral n’est pas pris en charge) et **si l’activation des déclencheurs dans la base de données cible** est définie sur **Oui**.
+La fonctionnalité Dynamics 365 apportez votre propre base de données permet aux administrateurs d’exporter des entités de données depuis l’application dans leur propre base de données Microsoft Azure SQL. SQL Data Sync peut être utilisé pour synchroniser ces données dans d’autres bases de données si les données sont exportées à l’aide de **l’envoi (push) incrémentiel** (l’envoi intégral n’est pas pris en charge) et **si l’activation des déclencheurs dans la base de données cible** est définie sur **Oui** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

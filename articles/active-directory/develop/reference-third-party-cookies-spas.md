@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311753"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104578"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Gérer la protection intelligente contre le tracking dans Safari et d’autres navigateurs où les cookies tiers sont bloqués
 
@@ -49,7 +49,7 @@ Les applications monopages ont deux restrictions supplémentaires :
 * [L’URI de redirection doit être marqué en tant que type `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) pour activer CORS sur les points de terminaison de connexion.
 * Les jetons d’actualisation émis via le flux de code d’autorisation vers les URI de redirection `spa` ont une durée de vie de 24 heures au lieu de 90 jours.
 
-![Flux de code pour les applications monopages](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagramme montrant le flot du code d’autorisation OAuth 2 entre une application à page unique et le point de terminaison du service d’émission de jeton de sécurité." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Implications sur les performances et l’expérience utilisateur
 

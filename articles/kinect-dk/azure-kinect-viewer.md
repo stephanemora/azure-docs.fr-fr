@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, capteur, visionneuse, visualisation, profondeur, rvb, couleur, imu, audio, microphone, nuage de points
-ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276471"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166103"
 ---
 # <a name="azure-kinect-viewer"></a>Visionneuse Azure Kinect
 
@@ -36,7 +36,7 @@ La visionneuse peut fonctionner en deux modes : avec des données actives du ca
 
 Lancez l’application en exécutant `k4aviewer.exe`.
 
-![Vérification de la version du microprogramme de l’appareil avec la visionneuse](./media/how-to-guides/open-viewer.png)
+![Capture d’écran montrant l’application de visionneuse lancée.](./media/how-to-guides/open-viewer.png)
 
 ### <a name="use-the-viewer-with-live-data"></a>Utiliser la visionneuse avec des données actives
 

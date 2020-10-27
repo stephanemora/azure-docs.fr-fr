@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388916"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089517"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C pour valider une entrée d’utilisateur
 
@@ -71,10 +71,10 @@ Cet article ne traite pas de la configuration du point de terminaison d’API RE
 
 Une revendication fournit un stockage temporaire de données lors d’une exécution de stratégie Azure AD B2C. Vous pouvez déclarer des revendications dans la section [Schéma de revendications](claimsschema.md). 
 
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple  <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément [BuildingBlocks](buildingblocks.md). Si l’élément n’existe pas, ajoutez-le.
 1. Localisez l’élément [ClaimsSchema](claimsschema.md). Si l’élément n’existe pas, ajoutez-le.
-1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema**.  
+1. Ajoutez les revendications suivantes à l’élément **ClaimsSchema** .  
 
 ```xml
 <ClaimType Id="loyaltyId">
@@ -93,7 +93,7 @@ Une revendication fournit un stockage temporaire de données lors d’une exécu
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configurer le profil technique de l’API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Ajouter le profil technique de l’API RESTful 
 
 Un [profil technique RESTful](restful-technical-profile.md) prend en charge la création d’une interface avec votre propre service RESTful. Azure Active Directory B2C envoie des données au service RESTful dans une collection `InputClaims` et reçoit des données en retour dans une collection `OutputClaims`. Recherchez l’élément **ClaimsProviders** et ajoutez un fournisseur de revendications comme suit :
 
@@ -105,6 +105,7 @@ Un [profil technique RESTful](restful-technical-profile.md) prend en charge la c
       <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -130,6 +131,17 @@ Un [profil technique RESTful](restful-technical-profile.md) prend en charge la c
 
 Dans cet exemple, le `userLanguage` sera envoyé au service REST en tant que `lang` au sein de la charge utile JSON. La valeur de la revendication `userLanguage` contient l’ID de langue de l’utilisateur actuel. Pour plus d’informations, consultez [Programmes de résolution de revendication](claim-resolver-overview.md).
 
+### <a name="configure-the-restful-api-technical-profile"></a>Configurer le profil technique de l’API RESTful 
+
+Après avoir déployé votre API REST, définissez les métadonnées du profil technique `REST-ValidateProfile` pour refléter votre propre API REST, notamment :
+
+- **ServiceUrl** . Définissez l’URL du point de terminaison de l’API REST.
+- **SendClaimsIn** . Spécifiez la façon dont les revendications d’entrée sont envoyées au fournisseur de revendications RESTful.
+- **AuthenticationType** . Définissez le type de l’authentification effectuée par le fournisseur de revendications RESTful. 
+- **AllowInsecureAuthInProduction** . Dans un environnement de production, veillez à définir ces métadonnées sur `true`
+    
+Pour plus d’informations sur les configurations, consultez [Métadonnées du profil technique RESTful](restful-technical-profile.md#metadata).
+
 Les commentaires ci -dessus `AuthenticationType` et `AllowInsecureAuthInProduction` indiquent les modifications que vous devez effectuer lorsque vous passez à un environnement de production. Pour savoir comment sécuriser vos API RESTful pour la production, consultez [Sécuriser une API RESTful](secure-rest-api.md).
 
 ## <a name="validate-the-user-input"></a>Valider l’entrée de l’utilisateur
@@ -138,7 +150,7 @@ Pour obtenir le numéro de fidélité de l’utilisateur lors de l’inscription
 
 Ajoutez la référence du profil technique de validation au profil technique d’inscription, qui appelle le `REST-ValidateProfile`. Le nouveau profil technique de validation sera ajouté au début de la collection `<ValidationTechnicalProfiles>` définie dans la stratégie de base. Ce comportement signifie qu’une fois la validation réussie, Azure AD B2C poursuit le processus en créant le compte dans le répertoire.   
 
-1. Recherchez l’élément **ClaimsProviders**. Ajoutez un fournisseur de revendications comme suit :
+1. Recherchez l’élément **ClaimsProviders** . Ajoutez un fournisseur de revendications comme suit :
 
     ```xml
     <ClaimsProvider>
@@ -219,14 +231,14 @@ Pour retourner la revendication de code promotionnel à l’application par part
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-1. Sélectionnez **Infrastructure d’expérience d’identité**.
-1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkExtensions.xml* et *SignUpOrSignin.xml*. 
-1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications** .
+1. Sélectionnez **Infrastructure d’expérience d’identité** .
+1. Sélectionnez **Charger une stratégie personnalisée** , puis chargez les fichiers de stratégie que vous avez modifiés : *TrustFrameworkExtensions.xml* et *SignUpOrSignin.xml* . 
+1. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant** .
 1. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
-1. Cliquez sur le lien **S’inscrire maintenant**.
-1. Dans le champ **Votre ID de fidélité**, saisissez 1234, puis cliquez sur **Continuer**. À ce stade, vous devez obtenir un message d’erreur de validation.
-1. Remplacez par une autre valeur et cliquez sur **Continuer**.
+1. Cliquez sur le lien **S’inscrire maintenant** .
+1. Dans le champ **Votre ID de fidélité** , saisissez 1234, puis cliquez sur **Continuer** . À ce stade, vous devez obtenir un message d’erreur de validation.
+1. Remplacez par une autre valeur et cliquez sur **Continuer** .
 1. Le jeton envoyé à votre application inclut la revendication `promoCode`.
 
 ```json

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543331"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168050"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -81,7 +81,7 @@ Les [journaux Azure Monitor](https://azure.microsoft.com/documentation/services/
 Cette méthode vous permet de consolider les données issues de différentes sources et de combiner ainsi des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
 
 
-![Journaux d’activité Azure Monitor](./media/operational-security/azure-operational-security-fig2.png)
+![Diagramme montrant la consolidation de données issues de différentes sources, qui permet de combiner des données de services Azure avec un environnement local existant.](./media/operational-security/azure-operational-security-fig2.png)
 
 Le service Azure Monitor gère vos données basées sur le cloud en toute sécurité en utilisant les méthodes suivantes :
 -   ségrégation des données
@@ -152,15 +152,15 @@ Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Se
 
 -   **Accès aux données** : pour fournir des recommandations en matière de sécurité et enquêter sur les éventuelles menaces de sécurité, le personnel de Microsoft peut accéder aux informations collectées ou analysées par les services Azure, notamment les fichiers de vidage sur incident, les événements de création de processus, les captures instantanées et artefacts de disque de machine virtuelle, qui peuvent involontairement exposer des données client ou personnelles provenant de vos machines virtuelles. Nous respectons les [Conditions d’utilisation et la Déclaration de confidentialité de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qui indiquent que Microsoft n’utilise pas les données client ou ne tire pas d’informations de ces dernières à des fins commerciales, publicitaires ou similaires.
 
--   **Utilisation des données** : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s'effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
+-   **Utilisation des données**  : Microsoft utilise des modèles et des informations sur les menaces observées auprès de multiples locataires pour améliorer ses fonctionnalités de prévention et de détection. Cette utilisation s'effectue en accord avec les engagements de confidentialité décrits dans la [Déclaration de confidentialité](https://www.microsoft.com/en-us/privacystatement/OnlineServices/) de Microsoft.
 
 ### <a name="data-location"></a>Emplacement des données
 
 Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers de vidage sur incident et les analyse pour obtenir des preuves de tentatives d’attaque par le biais de code malveillant exploitant une faille de sécurité et de compromis ayant abouti. Azure Security Center effectue cette analyse dans la même région géographique que l’espace de travail, puis supprime les copies éphémères une fois l’analyse terminée. Les artefacts des ordinateurs sont stockés de manière centralisée dans la même région que la machine virtuelle.
 
--   **Vos comptes de stockage** : un compte de stockage est spécifié pour chacune des régions où des machines virtuelles sont exécutées. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées.
+-   **Vos comptes de stockage**  : un compte de stockage est spécifié pour chacune des régions où des machines virtuelles sont exécutées. Cela vous permet de stocker des données dans la même région que la machine virtuelle à partir de laquelle les données sont collectées.
 
--   **Stockage Azure Security Center** : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, les recommandations et l'état d'intégrité de la sécurité, sont stockées de manière centralisée (actuellement aux États-Unis). Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
+-   **Stockage Azure Security Center**  : les informations relatives aux alertes de sécurité, notamment les alertes des partenaires, les recommandations et l'état d'intégrité de la sécurité, sont stockées de manière centralisée (actuellement aux États-Unis). Ces informations peuvent inclure des informations de configuration associées et des événements de sécurité collectés à partir de vos machines virtuelles, le cas échéant, pour vous fournir l’alerte de sécurité, la recommandation ou l’état d’intégrité de la sécurité.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -205,7 +205,7 @@ Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les perf
 
 -   **Être averti d’un problème** ayant un impact sur les performances de votre ressource lorsqu’une mesure dépasse un certain seuil.
 
--   **Configurer des actions automatisées**, telles que la mise à l’échelle automatique d’une ressource ou le déclenchement d’un runbook lorsqu’une mesure dépasse un certain seuil.
+-   **Configurer des actions automatisées** , telles que la mise à l’échelle automatique d’une ressource ou le déclenchement d’un runbook lorsqu’une mesure dépasse un certain seuil.
 
 -   **Effectuer des analyses avancées** ou créer des rapports sur les tendances de performances ou d’utilisation de vos ressources.
 

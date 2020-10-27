@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470134"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152272"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -55,7 +55,7 @@ Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Aff
 ![Paramètre Groupe de ressources](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Sécurisation de l’accès au stockage
-Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle (RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
+Pour la sécurité, chaque utilisateur doit approvisionner son propre compte de stockage.  Pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC), les utilisateurs doivent disposer d’un accès contributeur ou supérieur au niveau du compte de stockage.
 
 Cloud Shell utilise un partage de fichiers Azure dans un compte de stockage, au sein d’un abonnement spécifié. En raison des autorisations héritées, les utilisateurs disposant de droits d’accès suffisants à l’abonnement peuvent accéder à tous les comptes de stockage, ainsi qu'aux partages de fichiers contenus dans l’abonnement.
 

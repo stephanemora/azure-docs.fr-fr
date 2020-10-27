@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045397"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218253"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio
 
@@ -32,7 +32,7 @@ Utilisez ce [Démarrage rapide](stream-analytics-quick-create-vs.md) pour appren
 > [!NOTE]
 > Si vous exportez un travail vers un projet local et que vous souhaitez effectuer un test par rapport à un flux d’entrée dynamique, vous devez spécifier à nouveau les informations d’identification pour toutes les entrées.  
 
-Choisissez la source d’entrée et de sortie dans l’éditeur de script et sélectionnez **Exécuter localement**. Le diagramme de travail apparaît sur le côté droit.
+Choisissez la source d’entrée et de sortie dans l’éditeur de script et sélectionnez **Exécuter localement** . Le diagramme de travail apparaît sur le côté droit.
 
 ### <a name="view-the-intermediate-result-set"></a>Afficher le jeu de résultats intermédiaire  
 
@@ -87,7 +87,7 @@ Dans cette section, vous explorez les métriques disponibles pour chaque partie 
   
 #### <a name="output-sinks-live-output"></a>Récepteurs de sortie (sortie dynamique)
 
-![Récepteurs de sortie locale dans le diagramme de travail](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagramme de travail représentant les récepteurs de sortie locale.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Métrique|Description|
 |-|-|

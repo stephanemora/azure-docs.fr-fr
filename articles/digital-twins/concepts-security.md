@@ -7,30 +7,30 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015002"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331751"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
-Pour assurer la sécurité, Azure Digital Twins permet un contrôle d’accès précis sur des données, ressources et actions spécifiques de votre déploiement. En effet, il utilise une gestion granulaire des rôles et une stratégie de gestion des autorisations appelée **contrôle d’accès en fonction du rôle (RBAC)** . Pour plus d’informations sur les principaux généraux du RBAC pour Azure, voir [ici](../role-based-access-control/overview.md).
+Pour assurer la sécurité, Azure Digital Twins permet un contrôle d’accès précis sur des données, ressources et actions spécifiques de votre déploiement. En effet, il utilise une gestion granulaire des rôles et une stratégie de gestion des autorisations appelée **contrôle d’accès en fonction du rôle Azure (Azure RBAC)** . Pour plus d’informations sur les principaux généraux d’Azure RBAC, voir [ici](../role-based-access-control/overview.md).
 
 Azure Digital Twins prend également en charge le chiffrement des données au repos.
 
-## <a name="granting-permissions-with-rbac"></a>Octroyer des autorisations à l'aide du RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Accorder des autorisations avec le contrôle d’accès en fonction du rôle (RBAC) Azure
 
-RBAC est fourni à Azure Digital Twins via l’intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC est fourni à Azure Digital Twins via l’intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Vous pouvez utiliser le RBAC pour accorder des autorisations à un *principal de sécurité*, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD et reçoit un jeton OAuth 2.0 en retour. Ce jeton peut être utilisé pour autoriser une demande d’accès à une instance Azure Digital Twins.
+Vous pouvez utiliser Azure RBAC pour accorder des autorisations à un *principal de sécurité* , qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD et reçoit un jeton OAuth 2.0 en retour. Ce jeton peut être utilisé pour autoriser une demande d’accès à une instance Azure Digital Twins.
 
 ### <a name="authentication-and-authorization"></a>Authentification et autorisation
 
-Avec Azure AD, l’accès est un processus en deux étapes. Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité Azure Digital Twins, la requête doit être *authentifiée* et *autorisée*. 
+Avec Azure AD, l’accès est un processus en deux étapes. Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité Azure Digital Twins, la requête doit être *authentifiée* et *autorisée* . 
 
-1. Pour commencer, l’identité du principal de sécurité est *authentifiée*, et un jeton OAuth 2.0 est renvoyé.
+1. Pour commencer, l’identité du principal de sécurité est *authentifiée* , et un jeton OAuth 2.0 est renvoyé.
 2. Ensuite, ce jeton est transmis dans une requête adressée au service Azure Digital Twins pour *autoriser* l’accès à la ressource spécifiée.
 
 L’étape d’authentification nécessite que toute requête d’application contienne un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une application [Azure Functions](../azure-functions/functions-overview.md), elle peut utiliser une **identité managée** pour accéder aux ressources. Vous trouverez plus d'informations sur les identités managées dans la section suivante.
@@ -57,7 +57,7 @@ Azure fournit les rôles intégrés Azure ci-dessous pour autoriser l’accès �
 Pour plus d’informations sur la définition des rôles intégrés, consultez [*Comprendre les définitions de rôles*](../role-based-access-control/role-definitions.md) dans la documentation RBAC Azure. Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [*Rôles personnalisés Azure*](../role-based-access-control/custom-roles.md).
 
 Vous pouvez attribuer des rôles de deux manières :
-* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Ajouter ou supprimer des attributions de rôles à l’aide de RBAC Azure et du portail Azure*](../role-based-access-control/role-assignments-portal.md))
+* Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
 
 Pour plus d’informations sur la procédure à suivre, testez le [*tutoriel Azure Digital Twins : Connecter une solution de bout en bout*](tutorial-end-to-end.md).
@@ -75,7 +75,7 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 ### <a name="troubleshooting-permissions"></a>Résolution des problèmes d'autorisations
 
-Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [*Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)* ](troubleshoot-error-403.md).
+Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [*Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)*](troubleshoot-error-403.md).
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 
@@ -95,4 +95,4 @@ Pour résoudre cette erreur, vous pouvez effectuer l’une des opérations suiva
 
 * Voyez comment interagir avec ces concepts à partir du code d’application cliente dans [*Guide pratique : Écrire le code d’authentification d’une application*](how-to-authenticate-client.md).
 
-* En savoir plus sur les [RBAC pour Azure ](../role-based-access-control/overview.md).
+* Découvrez plus d’informations sur [Azure RBAC](../role-based-access-control/overview.md).

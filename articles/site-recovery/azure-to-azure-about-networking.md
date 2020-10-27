@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631339"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332040"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -29,7 +29,7 @@ Découvrez comment Site Recovery permet la récupération d’urgence pour [ce s
 
 Le diagramme suivant illustre un environnement Azure classique pour des applications qui s’exécutent sur des machines virtuelles Azure :
 
-![environnement client](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagramme montrant un environnement Azure classique pour des applications qui s’exécutent sur des machines virtuelles Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Si vous utilisez Azure ExpressRoute ou une connexion VPN de votre réseau local vers Azure, l’environnement ressemble à ceci :
 
@@ -40,13 +40,13 @@ Les réseaux sont généralement protégés à l’aide de pare-feu et de groupe
 >[!IMPORTANT]
 > L’utilisation d’un proxy authentifié pour contrôler la connectivité réseau n’est pas pris en charge par Site Recovery, et la réplication ne peut pas être activée.
 
+>[!NOTE]
+>- Le filtrage basé sur l’adresse IP ne doit pas être effectué pour contrôler la connectivité sortante.
+>- Les adresses IP d’Azure Site Recovery ne doivent pas être ajoutées à la table de routage Azure pour contrôler la connectivité sortante.
 
 ## <a name="outbound-connectivity-for-urls"></a>Connectivité sortante pour les URL
 
 Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez ces URL Site Recovery :
-
->[!NOTE]
-> Le filtrage basé sur l’adresse IP ne doit pas être effectué pour contrôler la connectivité sortante.
 
 **URL** | **Détails**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentific
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Connectivité sortante à l’aide d’étiquettes de service
 
-Si vous utilisez un groupe de sécurité réseau pour contrôler la connectivité sortante, ces étiquettes de services doivent être autorisées.
+Quand vous utilisez un groupe de sécurité réseau pour contrôler la connectivité sortante, ces étiquettes de services doivent être autorisées.
 
 - Pour les comptes de stockage dans la région source :
     - Créez une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.

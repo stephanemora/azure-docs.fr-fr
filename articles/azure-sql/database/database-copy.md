@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443783"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124393"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d’une base de données dans Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database propose plusieurs méthodes pour créer une copie d’une [ba
 Une copie de base de données est un instantané cohérent d’un point de vue transactionnel de la base de données source au moment où la demande de copie est lancée. Vous pouvez sélectionner le même serveur ou un autre serveur pour la copie. Vous pouvez aussi conserver la redondance de sauvegarde, le niveau de service et la taille de calcul de la base de données source ou utiliser une redondance de stockage de sauvegarde et une taille de calcul différentes au sein du même ou d’un autre niveau de service. Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. Les connexions, les utilisateurs et les autorisations dans la base de données copiée sont gérés indépendamment de la base de données source. La copie est créée à l’aide de la technologie de géoréplication. Une fois l’amorçage du réplica terminé, le lien de géoréplication prend fin automatiquement. Toutes les exigences relatives à l’utilisation de la géoréplication s’appliquent à l’opération de copie de base de données. Pour plus d’informations, consultez [Présentation de la géoréplication active](active-geo-replication-overview.md).
 
 > [!NOTE]
-> La redondance de stockage de sauvegarde Azure SQL Database configurable est actuellement disponible en préversion publique dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
+> La redondance configurable du stockage de sauvegarde Azure SQL Database est actuellement généralement disponible dans la région Azure Asie Sud-Est uniquement. Dans la préversion, si la base de données source est créée avec une redondance de stockage de sauvegarde localement redondante ou redondante interzone, la copie de la base de données sur un serveur dans une région Azure différente n’est pas prise en charge. 
 
 ## <a name="logins-in-the-database-copy"></a>Connexions dans la copie de la base de données
 
@@ -43,7 +43,7 @@ Si vous utilisez des connexions au niveau du serveur pour l'accès aux données 
 
 ## <a name="copy-using-the-azure-portal"></a>Copier à l’aide du Portail Azure
 
-Pour copier une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Copier**.
+Pour copier une base de données à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Copier** .
 
    ![Copie de base de données](./media/database-copy/database-copy.png)
 
@@ -128,10 +128,10 @@ Vous pouvez utiliser les étapes décrites dans la section [Copier SQL Database 
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 
-Contrôlez le processus de copie en interrogeant les vues [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) et [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Pendant que la copie est en cours, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **COPYING**.
+Contrôlez le processus de copie en interrogeant les vues [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) et [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Pendant que la copie est en cours, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **COPYING** .
 
-* Si la copie échoue, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **SUSPECT**. Exécutez l'instruction DROP sur la nouvelle base de données et réessayez ultérieurement.
-* Si la copie réussit, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **ONLINE**. La copie est terminée et la nouvelle base de données est une base de données normale, qui peut être modifiée indépendamment de la base de données source.
+* Si la copie échoue, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **SUSPECT** . Exécutez l'instruction DROP sur la nouvelle base de données et réessayez ultérieurement.
+* Si la copie réussit, la colonne **state_desc** de la vue sys.databases pour la nouvelle base de données est définie sur **ONLINE** . La copie est terminée et la nouvelle base de données est une base de données normale, qui peut être modifiée indépendamment de la base de données source.
 
 > [!NOTE]
 > Si vous décidez d’annuler la copie pendant qu’elle est en cours, exécutez l’instruction [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) sur la nouvelle base de données.

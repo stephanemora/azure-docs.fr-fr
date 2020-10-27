@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662170"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276946"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cet article décrit les conditions préalables et la configuration matérielle requise pour Azure Active Directory (Azure AD) Connect.
@@ -42,10 +42,18 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 
 ### <a name="on-premises-active-directory"></a>Active Directory local
 * La version de schéma Active Directory et le niveau fonctionnel de forêt doivent être Windows Server 2003 ou version ultérieure. Les contrôleurs de domaine peuvent exécuter n’importe quelle version aussi longtemps que les exigences relatives à la version de schéma et au niveau de forêt sont remplies.
-* Si vous prévoyez d’utiliser la fonctionnalité *Réécriture du mot de passe*, les contrôleurs de domaine doivent être exécutés sous Windows Server 2008 R2 ou une version ultérieure.
+* Si vous prévoyez d’utiliser la fonctionnalité *Réécriture du mot de passe* , les contrôleurs de domaine doivent être exécutés sous Windows Server 2008 R2 ou une version ultérieure.
 * Le contrôleur de domaine utilisé par Azure AD doit être accessible en écriture. L’utilisation d’un contrôleur de domaine en lecture seule (RODC) *n’est pas prise en charge* et Azure AD Connect ne suivra pas les redirections d’écriture.
-* L’utilisation de forêts ou de domaines locaux utilisant des noms NetBIOS avec point (le nom contient un point « . ») *n’est pas prise en charge*.
+* L’utilisation de forêts ou de domaines locaux utilisant des noms NetBIOS avec point (le nom contient un point « . ») *n’est pas prise en charge* .
 * Nous vous recommandons d’[activer la corbeille d’Active Directory](how-to-connect-sync-recycle-bin.md).
+
+### <a name="powershell-execution-policy"></a>Stratégie d'exécution de PowerShell
+Azure Active Directory Connect exécute les scripts PowerShell signés dans le cadre de l’installation. Assurez-vous que la stratégie d’exécution de PowerShell autorise l’exécution de scripts.
+
+La stratégie d’exécution recommandée lors de l’installation est « RemoteSigned ».
+
+Pour plus d’informations sur la définition de la stratégie d’exécution de PowerShell, consultez [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect
 Le serveur Azure AD Connect contient des données d’identité critiques. Il est important que l’accès administratif à ce serveur soit correctement sécurisé. Suivez les instructions de l’article [Sécurisation de l’accès privilégié](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -83,11 +91,11 @@ Nous vous recommandons de renforcer votre serveur Azure AD Connect afin de rédu
 * Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Par défaut, une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets annuaire, pointez l’Assistant d’installation vers une autre installation de SQL Server. Le type d’installation de SQL Server peut impacter les [performances d’Azure AD Connect](./plan-connect-performance-factors.md#sql-database-factors).
 * Si vous utilisez une installation différente de SQL Server, ces conditions s’appliquent :
   * Azure AD Connect prend en charge toutes les versions de SQL Server à partir de la version 2012 (avec le dernier Service Pack) et jusqu’à SQL Server 2019. Azure SQL Database *n’est pas pris en charge* en tant que base de données.
-  * Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS_ dans le nom, *n’est pas prise en charge*.
-  * Vous ne pouvez avoir qu’un seul moteur de synchronisation par instance SQL. Le partage d’une instance SQL avec FIM/MIM Sync, DirSync ou Azure AD Sync *n’est pas pris en charge*.
+  * Vous devez utiliser un classement SQL qui ne respecte pas la casse. Ces classements sont identifiés par un \_CI_ dans leur nom. L’utilisation d’un classement qui respecte la casse, identifié par \_CS_ dans le nom, *n’est pas prise en charge* .
+  * Vous ne pouvez avoir qu’un seul moteur de synchronisation par instance SQL. Le partage d’une instance SQL avec FIM/MIM Sync, DirSync ou Azure AD Sync *n’est pas pris en charge* .
 
 ### <a name="accounts"></a>Comptes
-* Vous devez disposer d’un compte Administrateur global Azure AD pour le locataire Azure AD que vous souhaitez intégrer. Ce compte doit être un *compte scolaire ou d’organisation* et non un *compte Microsoft*.
+* Vous devez disposer d’un compte Administrateur global Azure AD pour le locataire Azure AD que vous souhaitez intégrer. Ce compte doit être un *compte scolaire ou d’organisation* et non un *compte Microsoft* .
 * Si vous utilisez la [configuration rapide](reference-connect-accounts-permissions.md#express-settings-installation) ou effectuez une mise à niveau depuis DirSync, vous devez disposer d’un compte Administrateur d’entreprise pour votre annuaire Active Directory local.
 * Si vous utilisez le chemin d’installation des paramètres personnalisés, vous avez plus d’options. Pour plus d’informations, consultez [Paramètres d’installation personnalisée](reference-connect-accounts-permissions.md#custom-installation-settings).
 
@@ -112,7 +120,7 @@ Nous vous recommandons de renforcer votre serveur Azure AD Connect afin de rédu
         </system.net>
     ```
 
-* Si votre serveur proxy requiert une authentification, le [compte de service](reference-connect-accounts-permissions.md#adsync-service-account) doit se trouver dans le domaine. Utilisez le chemin d’installation des paramètres personnalisés pour spécifier un[ compte de service personnalisé](how-to-connect-install-custom.md#install-required-components). Vous devez également modifier le fichier machine.config. Cette modification dans le fichier machine.config permet à l’Assistant d’installation et au moteur de synchronisation de répondre aux demandes d’authentification du serveur proxy. Dans toutes les pages de l’Assistant d’installation, à l’exclusion de la page **Configurer**, les informations d’identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant d’installation, le contexte bascule vers le [compte de service](reference-connect-accounts-permissions.md#adsync-service-account) que vous avez créé. La section machine.config doit se présenter comme suit :
+* Si votre serveur proxy requiert une authentification, le [compte de service](reference-connect-accounts-permissions.md#adsync-service-account) doit se trouver dans le domaine. Utilisez le chemin d’installation des paramètres personnalisés pour spécifier un[ compte de service personnalisé](how-to-connect-install-custom.md#install-required-components). Vous devez également modifier le fichier machine.config. Cette modification dans le fichier machine.config permet à l’Assistant d’installation et au moteur de synchronisation de répondre aux demandes d’authentification du serveur proxy. Dans toutes les pages de l’Assistant d’installation, à l’exclusion de la page **Configurer** , les informations d’identification de l’utilisateur sont utilisées. Dans la page **Configurer** à la fin de l’Assistant d’installation, le contexte bascule vers le [compte de service](reference-connect-accounts-permissions.md#adsync-service-account) que vous avez créé. La section machine.config doit se présenter comme suit :
 
     ```
         <system.net>
@@ -172,9 +180,9 @@ Lorsque vous utilisez Azure AD Connect pour déployer AD FS ou le proxy d’app
   * Sur l’ordinateur sur lequel s’exécute l’Assistant (si l’ordinateur cible n’est pas joint à un domaine ou s’il s’agit d’un domaine non approuvé) :
     * Dans une fenêtre de commandes PowerShell avec élévation de privilèges, utilisez la commande `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`.
     * Dans le gestionnaire de serveur :
-      * Ajoutez un hôte WAP DMZ à un pool de machines. Dans le gestionnaire de serveur, sélectionnez **Gérer** > **Ajouter des serveurs**, puis utilisez l’onglet **DNS**.
-      * Sous l’onglet **Tous les serveurs** de Gestionnaire de serveur, cliquez avec le bouton droit sur le serveur WAP, puis sélectionnez **Gérer en tant que**. Entrez les informations d’identification locales (et non de domaine) pour l’ordinateur WAP.
-      * Pour valider la connectivité PowerShell distante, dans l’onglet **Tous les serveurs** de Gestionnaire de serveur, cliquez avec le bouton droit sur le serveur WAP et sélectionnez **Windows PowerShell**. Une session PowerShell distante doit s’ouvrir pour garantir le fait que des sessions PowerShell distantes peuvent être établies.
+      * Ajoutez un hôte WAP DMZ à un pool de machines. Dans le gestionnaire de serveur, sélectionnez **Gérer** > **Ajouter des serveurs** , puis utilisez l’onglet **DNS** .
+      * Sous l’onglet **Tous les serveurs** de Gestionnaire de serveur, cliquez avec le bouton droit sur le serveur WAP, puis sélectionnez **Gérer en tant que** . Entrez les informations d’identification locales (et non de domaine) pour l’ordinateur WAP.
+      * Pour valider la connectivité PowerShell distante, dans l’onglet **Tous les serveurs** de Gestionnaire de serveur, cliquez avec le bouton droit sur le serveur WAP et sélectionnez **Windows PowerShell** . Une session PowerShell distante doit s’ouvrir pour garantir le fait que des sessions PowerShell distantes peuvent être établies.
 
 ### <a name="tlsssl-certificate-requirements"></a>Configuration requise des certificats TLS/SSL
 * Nous vous recommandons d’utiliser le même certificat TLS/SSL sur tous les nœuds de votre batterie de serveurs AD FS, ainsi que sur tous les serveurs de proxy d’application web.
@@ -194,7 +202,7 @@ Lorsque vous utilisez Azure AD Connect pour déployer AD FS ou le proxy d’app
 * Pour que l’authentification intégrée Windows fonctionne avec les applications de navigateur utilisant Internet Explorer dans votre Intranet, vérifiez que le nom AD FS (par exemple, sts.contoso.com) est ajouté à la zone Intranet dans Internet Explorer. Cette exigence peut être contrôlée par le biais de la stratégie de groupe et déployée sur tous les ordinateurs joints au domaine.
 
 ## <a name="azure-ad-connect-supporting-components"></a>Composants de prise en charge d’Azure AD Connect
-Azure AD Connect installe les composants suivants sur le serveur sur lequel il est installé. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL dans la page **Installer des services de synchronisation**, SQL Express LocalDB n’est pas installée localement.
+Azure AD Connect installe les composants suivants sur le serveur sur lequel il est installé. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL dans la page **Installer des services de synchronisation** , SQL Express LocalDB n’est pas installée localement.
 
 * Azure AD Connect Health
 * Utilitaires de ligne de commande Microsoft SQL Server 2012

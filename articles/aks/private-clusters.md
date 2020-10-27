@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 825e97bfc80695180195fde07eaa1a25ac74b49b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078151"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143081"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -21,7 +21,8 @@ Le plan de contrôle ou le serveur d’API se trouve dans un abonnement Azure g�
 
 Les clusters privés sont disponibles dans les régions publiques où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-US Gov Texas n’est pas actuellement pris en charge en raison de l’absence de prise en charge d’Azure Private Link.
+> [!NOTE]
+> Les sites Azure Government sont pris en charge. Cependant, US Gov Texas n’est pas pris en charge pour le moment, en raison de l’absence de prise en charge du service Liaison privée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -79,13 +80,13 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
     
 1. Accédez au groupe de ressources du nœud dans le portail Azure.  
 2. Sélectionnez la zone DNS privée.   
-3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel**.  
+3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel** .  
 4. Créez un lien permettant d’ajouter le réseau virtuel de la machine virtuelle à la zone DNS privée. Il faut quelques minutes pour que le lien de zone DNS soit disponible.  
 5. Dans le portail Azure, accédez au groupe de ressources contenant le réseau virtuel de votre cluster.  
 6. Dans le volet de droite, sélectionnez le réseau virtuel. Le nom du réseau virtuel se présente au format *aks-vnet-\** .  
-7. Dans le volet de gauche, sélectionnez **Appairages**.  
-8. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
-9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages**, sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
+7. Dans le volet de gauche, sélectionnez **Appairages** .  
+8. Sélectionnez **Ajouter** , ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
+9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages** , sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hub-and-spoke avec DNS personnalisé
 

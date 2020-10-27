@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192539"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148994"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -51,13 +51,13 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
    > Vous pouvez également accéder au panneau de vidage en cliquant sur le bouton **Vider** dans le panneau des points de terminaison CDN.  Dans ce cas, le champ **URL** sera déjà renseigné avec l’adresse de service de ce point de terminaison spécifique.
    > 
    > 
-4. Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre.  Si vous souhaitez effacer tous les éléments multimédias, cochez la case **Vider tout** .  Sinon, tapez le chemin de chaque élément multimédia que vous souhaitez vider dans la zone de texte **Chemin d’accès**. Les formats suivants sont pris en charge dans le chemin d’accès.
+4. Sélectionnez les éléments multimédias que vous souhaitez vider sur les nœuds de périmètre.  Si vous souhaitez effacer tous les éléments multimédias, cochez la case **Vider tout** .  Sinon, tapez le chemin de chaque élément multimédia que vous souhaitez vider dans la zone de texte **Chemin d’accès** . Les formats suivants sont pris en charge dans le chemin d’accès.
     1. **Vidage d’URL unique** : vidage d’un élément multimédia individuel en spécifiant l’URL complète, avec ou sans l’extension de fichier, par exemple,`/pictures/strasbourg.png` ; `/pictures/strasbourg`
     2. **Vidage de caractère générique** : l’astérisque (\*) peut être utilisé comme caractère générique. Videz tous les dossiers, sous-dossiers et fichiers dans un point de terminaison avec `/*` dans le chemin d’accès ou videz tous les sous-dossiers et fichiers dans un dossier spécifique en spécifiant le dossier suivi de `/*`, par exemple,`/pictures/*`.  Notez que le vidage de caractère générique n’est pas compatible avec Azure CDN par Akamai. 
     3. **Vidage du domaine racine** : videz la racine du point de terminaison avec « / » dans le chemin d’accès.
    
    > [!TIP]
-   > Les chemins doivent être spécifiés pour le vidage et doivent être une URL relative qui satisfait à [l’expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivante. Le **vidage totale** et le **vidage de caractère générique** ne sont pas pris en charge par compatible avec **Azure CDN par Akamai**.
+   > Les chemins doivent être spécifiés pour le vidage et doivent être une URL relative qui satisfait à [l’expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) suivante. Le **vidage totale** et le **vidage de caractère générique** ne sont pas pris en charge par compatible avec **Azure CDN par Akamai** .
    > > Vidage d’URL unique `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Chaîne de requête `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Vidage de caractère générique `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
@@ -69,7 +69,7 @@ Ce didacticiel vous guide dans le processus de vidage des éléments multimédia
     ![Bouton Vider](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Le traitement des demandes de vidage prend environ 10 minutes avec le service **Azure CDN de Microsoft**, environ 2 minutes avec le service **Azure CDN de Verizon** (Standard et Premium) et environ 10 secondes avec le service **Azure CDN d’Akamai**.  Le CDN Azure impose une limite de 50 demandes de vidage simultanées à un moment donné au niveau du profil. 
+> Le traitement des demandes de vidage prend environ 10 minutes avec le service **Azure CDN de Microsoft** , environ 2 minutes avec le service **Azure CDN de Verizon** (Standard et Premium) et environ 10 secondes avec le service **Azure CDN d’Akamai** .  Le CDN Azure impose une limite de 100 demandes de vidage simultanées à un moment donné au niveau du profil. 
 > 
 > 
 

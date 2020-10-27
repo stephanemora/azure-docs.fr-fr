@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e10336b9c817c71026c167144a190b2ed6b4ab6d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fa6f569a1a857c09f1e7d1173a5948b1747c05ed
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070263"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124359"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -79,7 +79,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 > Cela est dû au fait que le chemin `/secrets` retourne le certificat complet, y compris la clé privée, contrairement au chemin `/certificates`. Vous trouverez plus d’informations sur les certificats ici : [Certificats Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> La propriété 'authenticationSettings' est **requise** uniquement pour les machines virtuelles avec des **identités affectées par l’utilisateur**.
+> La propriété 'authenticationSettings' est **requise** uniquement pour les machines virtuelles avec des **identités affectées par l’utilisateur** .
 > Elle spécifie l'identité à utiliser pour l'authentification auprès de Key Vault.
 
 
@@ -222,6 +222,11 @@ Tenez compte des restrictions et conditions suivantes :
 
 Vous pouvez récupérer des données sur l’état des déploiements des extensions à partir du portail Azure et par le biais d’Azure PowerShell. Pour voir l’état de déploiement des extensions d’une machine virtuelle donnée, exécutez la commande suivante à l’aide d’Azure PowerShell.
 
+### <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
+
+* Le nombre de observedCertificates que vous pouvez configurer est-il limité ?
+  Non, l'extension de machine virtuelle Key Vault ne limite pas le nombre de observedCertificates.
+  
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>

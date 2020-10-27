@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307447"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329642"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
@@ -43,6 +43,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version d’extension de machine virtuelle Linux Log Analytics | Version du bundle de l’Agent Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
 | 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
@@ -172,7 +173,7 @@ Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressou
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
-Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent Log Analytics sur une machine virtuelle existante. Remplacez la valeur de *myWorkspaceKey* ci-dessous par votre clé d’espace de travail et la valeur de *myWorkspaceId* par votre ID d’espace de travail. Ces valeurs réside dans votre espace de travail Log Analytics dans le Portail Azure, sous *Paramètres avancés*. 
+Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle d’agent Log Analytics sur une machine virtuelle existante. Remplacez la valeur de *myWorkspaceKey* ci-dessous par votre clé d’espace de travail et la valeur de *myWorkspaceId* par votre ID d’espace de travail. Ces valeurs réside dans votre espace de travail Log Analytics dans le Portail Azure, sous *Paramètres avancés* . 
 
 ```azurecli
 az vm extension set \
