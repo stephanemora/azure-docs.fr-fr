@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7590d40085c3963a95fd251dd1291cf34fbaf4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c9ec20ffe52c23c2dec5a624fc157da7ebd4a41
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262087"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330935"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrer des données vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Striim
 
 L’image Striim dans la place de marché Azure fournit un déplacement continu des données en temps réel à partir d’entrepôts de données et de bases de données vers Azure. Lors du déplacement des données, vous pouvez effectuer la dénormalisation en ligne, la transformation des données, activer les analyses en temps réel et les scénarios de création de rapports de données. La prise en main de Striim pour déplacer continuellement des données d’entreprise vers une API Cassandra Azure Cosmos DB est simple. Azure fournit une offre de place de marché qui facilite le déploiement de Striim et la migration des données vers Azure Cosmos DB. 
 
-Cet article explique comment utiliser Striim pour migrer des données depuis une **base de données Oracle** vers un **compte d’API Cassandra Azure Cosmos DB**.
+Cet article explique comment utiliser Striim pour migrer des données depuis une **base de données Oracle** vers un **compte d’API Cassandra Azure Cosmos DB** .
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,30 +30,30 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Sélectionnez **Créer une ressource**, puis recherchez **Striim** dans la place de marché Azure. Sélectionnez la première option, puis **Créer**.
+1. Sélectionnez **Créer une ressource** , puis recherchez **Striim** dans la place de marché Azure. Sélectionnez la première option, puis **Créer** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Ensuite, entrez les propriétés de configuration de l’instance Striim. L’environnement Striim est déployé sur un ordinateur virtuel. Dans le volet **De base**, entrez le **nom d’utilisateur de la machine virtuelle** et le **mot de passe de la machine virtuelle** (ce mot de passe est utilisé pour la connexion SSH à la machine virtuelle). Sélectionnez votre **Abonnement**, votre **Groupe de ressources** et les **Détails de l’emplacement** où vous souhaitez déployer Striim. Quand vous avez terminé, sélectionnez **OK**.
+1. Ensuite, entrez les propriétés de configuration de l’instance Striim. L’environnement Striim est déployé sur un ordinateur virtuel. Dans le volet **De base** , entrez le **nom d’utilisateur de la machine virtuelle** et le **mot de passe de la machine virtuelle** (ce mot de passe est utilisé pour la connexion SSH à la machine virtuelle). Sélectionnez votre **Abonnement** , votre **Groupe de ressources** et les **Détails de l’emplacement** où vous souhaitez déployer Striim. Quand vous avez terminé, sélectionnez **OK** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
 
-1. Dans le volet **Paramètres du cluster Striim**, choisissez le type de déploiement Striim et la taille de la machine virtuelle.
+1. Dans le volet **Paramètres du cluster Striim** , choisissez le type de déploiement Striim et la taille de la machine virtuelle.
 
    |Paramètre | Valeur | Description |
    | ---| ---| ---|
-   |Type de déploiement Striim |Standalone | Striim peut s’exécuter dans un type de déploiement **Autonome** ou **Cluster**. Le mode Autonome déploie le serveur Striim sur une seule machine virtuelle et vous pouvez sélectionner la taille des machines virtuelles en fonction de votre volume de données. Le mode Cluster déploie le serveur Striim sur deux machines virtuelles ou plus selon la taille sélectionnée. Les environnements de cluster avec plus de 2 nœuds offrent une haute disponibilité et un basculement automatiques.</br></br> Dans ce didacticiel, vous pouvez sélectionner l’option Autonome. Utilisez la taille de machine virtuelle par défaut « Standard_F4s ». | 
+   |Type de déploiement Striim |Standalone | Striim peut s’exécuter dans un type de déploiement **Autonome** ou **Cluster** . Le mode Autonome déploie le serveur Striim sur une seule machine virtuelle et vous pouvez sélectionner la taille des machines virtuelles en fonction de votre volume de données. Le mode Cluster déploie le serveur Striim sur deux machines virtuelles ou plus selon la taille sélectionnée. Les environnements de cluster avec plus de 2 nœuds offrent une haute disponibilité et un basculement automatiques.</br></br> Dans ce didacticiel, vous pouvez sélectionner l’option Autonome. Utilisez la taille de machine virtuelle par défaut « Standard_F4s ». | 
    | Nom du cluster Striim|    <Striim_cluster_Name>|  Nom du cluster Striim.|
    | Mot de passe du cluster Striim|   <Striim_cluster_password>|  Mot de passe pour le cluster.|
 
    Une fois le formulaire rempli, sélectionnez **OK** pour continuer.
 
-1. Dans le volet **Paramètres d’accès à Striim**, configurez l'**Adresse IP publique** (choisissez les valeurs par défaut), le **Nom de domaine pour Striim** et le **Mot de passe d’administrateur** que vous souhaitez utiliser pour vous connecter à l’interface utilisateur Striim. Configurez un réseau virtuel et un sous-réseau (choisissez les valeurs par défaut). Après avoir renseigné les détails, sélectionnez **OK** pour continuer.
+1. Dans le volet **Paramètres d’accès à Striim** , configurez l' **Adresse IP publique** (choisissez les valeurs par défaut), le **Nom de domaine pour Striim** et le **Mot de passe d’administrateur** que vous souhaitez utiliser pour vous connecter à l’interface utilisateur Striim. Configurez un réseau virtuel et un sous-réseau (choisissez les valeurs par défaut). Après avoir renseigné les détails, sélectionnez **OK** pour continuer.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Azure validera le déploiement et s’assurera que tout fonctionne correctement. Ka validation prend quelques minutes. Une fois la validation terminée, sélectionnez **OK**.
+1. Azure validera le déploiement et s’assurera que tout fonctionne correctement. Ka validation prend quelques minutes. Une fois la validation terminée, sélectionnez **OK** .
   
 1. Enfin, passez en revue les conditions d’utilisation et sélectionnez **Créer** pour créer votre instance Striim. 
 
@@ -77,7 +77,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
 1. À présent, revenons à Striim. Avant d’interagir avec Striim, installez le pilote Oracle JDBC que vous avez téléchargé précédemment.
 
-1. Accédez à l’instance Striim que vous avez déployée dans le Portail Microsoft Azure. Sélectionnez le bouton **Se connecter** dans la barre de menus supérieure, puis sous l’onglet **SSH**, copiez l’URL dans le champ **Login using VM local account** (Connexion à l’aide du compte local de machine virtuelle).
+1. Accédez à l’instance Striim que vous avez déployée dans le Portail Microsoft Azure. Sélectionnez le bouton **Se connecter** dans la barre de menus supérieure, puis sous l’onglet **SSH** , copiez l’URL dans le champ **Login using VM local account** (Connexion à l’aide du compte local de machine virtuelle).
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
@@ -125,13 +125,13 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Pour accéder à l’interface utilisateur web de Striim, ouvrez un nouvel onglet dans un navigateur et copiez l’adresse IP publique, puis procédez comme suit : 9080. Connectez-vous en utilisant le nom d’utilisateur **admin**, ainsi que le mot de passe d’administrateur que vous avez spécifié dans le Portail Microsoft Azure.
+1. Pour accéder à l’interface utilisateur web de Striim, ouvrez un nouvel onglet dans un navigateur et copiez l’adresse IP publique, puis procédez comme suit : 9080. Connectez-vous en utilisant le nom d’utilisateur **admin** , ainsi que le mot de passe d’administrateur que vous avez spécifié dans le Portail Microsoft Azure.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
 1. Vous arrivez à présent sur la page d’hébergement de Striim. Il existe trois volets différents : **Dashboards** (Tableaux de bord), **Apps** (Applications) et **SourcePreview** (Aperçu de la source). Le volet Dashboards vous permet de déplacer des données en temps réel et de les visualiser. Le volet Apps contient vos pipelines de données de streaming ou de flux de données. Dans la partie droite de la page se trouve SourcePreview, où vous pouvez afficher un aperçu de vos données avant de les déplacer.
 
-1. Sélectionnez le volet **Apps**, nous nous concentrerons sur ce volet pour l’instant. Vous pouvez utiliser un grand nombre d’exemples d’applications pour en savoir plus sur Striim. Toutefois, dans cet article, vous allez créer votre propre application. Sélectionnez le bouton **Add App** (Ajouter une application) dans le coin supérieur droit.
+1. Sélectionnez le volet **Apps** , nous nous concentrerons sur ce volet pour l’instant. Vous pouvez utiliser un grand nombre d’exemples d’applications pour en savoir plus sur Striim. Toutefois, dans cet article, vous allez créer votre propre application. Sélectionnez le bouton **Add App** (Ajouter une application) dans le coin supérieur droit.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/start-app-from-scratch.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Donnez un nom significatif à votre application, par exemple **oraToCosmosDB**, puis sélectionnez **Save** (Enregistrer).
+1. Donnez un nom significatif à votre application, par exemple **oraToCosmosDB** , puis sélectionnez **Save** (Enregistrer).
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/create-new-application.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
@@ -147,7 +147,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/oracle-cdc-source.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Entrez les propriétés de configuration de la source de votre instance Oracle. Le nom de la source est simplement une convention d’affectation de noms pour l’application Striim. vous pouvez utiliser un nom tel que **src_onPremOracle**. Entrez également d’autres détails comme le type d’adaptateur, l’URL de connexion, le nom d’utilisateur, le mot de passe et le nom de la table. Cliquez sur **Save** (Enregistrer) pour continuer.
+1. Entrez les propriétés de configuration de la source de votre instance Oracle. Le nom de la source est simplement une convention d’affectation de noms pour l’application Striim. vous pouvez utiliser un nom tel que **src_onPremOracle** . Entrez également d’autres détails comme le type d’adaptateur, l’URL de connexion, le nom d’utilisateur, le mot de passe et le nom de la table. Cliquez sur **Save** (Enregistrer) pour continuer.
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-source-parameters.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez configurer le compte d’API Cassandra Azure Cosm
 
 1. Entrez les propriétés de configuration de votre instance d’Azure Cosmos DB cible, puis sélectionnez **Save** (Enregistrer) pour continuer. Voici les paramètres clés à noter :
 
-   * **Adapter** (Adaptateur) - Utilisez **DatabaseWriter**. Quand vous écrivez dans l’API Cassandra Azure Cosmos DB, DatabaseWriter est obligatoire. Le pilote Cassandra 3.6.0 est fourni en bundle avec Striim. Si DatabaseWriter dépasse le nombre d’unités de requête provisionnées sur votre conteneur Azure Cosmos, l’application plante.
+   * **Adapter** (Adaptateur) - Utilisez **DatabaseWriter** . Quand vous écrivez dans l’API Cassandra Azure Cosmos DB, DatabaseWriter est obligatoire. Le pilote Cassandra 3.6.0 est fourni en bundle avec Striim. Si DatabaseWriter dépasse le nombre d’unités de requête provisionnées sur votre conteneur Azure Cosmos, l’application plante.
 
    * **Connection URL** (URL de connexion) - Spécifiez votre URL de connexion JDBC Azure Cosmos DB. L’URL est au format suivant `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 

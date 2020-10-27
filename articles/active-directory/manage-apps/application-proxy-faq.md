@@ -1,5 +1,5 @@
 ---
-title: Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory | Microsoft Docs
+title: Questions fréquentes sur la fonctionnalité Proxy d'application Azure Active Directory
 description: Découvrez les réponses aux questions fréquentes (FAQ) sur l’utilisation de la fonctionnalité Proxy d’application Azure AD pour publier des applications locales internes destinées à des utilisateurs distants.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589161"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104561"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -48,7 +48,7 @@ Non, ce scénario n’est pas pris en charge. Les paramètres par défaut sont :
 
 Non, ce n’est pas possible actuellement. La tentative d’inscription est toujours effectuée sur le locataire de base de l’utilisateur.
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Mon application back-end est hébergée sur plusieurs serveurs web et exige une persistance de session utilisateur (adhérence). Comment puis-je obtenir celle-ci ? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Mon application back-end est hébergée sur plusieurs serveurs web et exige une persistance de session utilisateur (adhérence). Comment puis-je obtenir celle-ci ? 
 
 Pour obtenir des recommandations, consultez [Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application](application-proxy-high-availability-load-balancing.md).
 
@@ -70,8 +70,8 @@ Vous n’avez aucune raison de le faire. Tout compte d’administrateur généra
 
 Des compteurs Analyseur de performances sont installés de concert avec le connecteur. Pour les voir :  
 
-1. Sélectionnez **Démarrer**, tapez « Perfmon », puis appuyez sur Entrée.
-2. Sélectionnez **Analyseur de performances**, puis cliquez sur l’icône **+** verte.
+1. Sélectionnez **Démarrer** , tapez « Perfmon », puis appuyez sur Entrée.
+2. Sélectionnez **Analyseur de performances** , puis cliquez sur l’icône **+** verte.
 3. Ajoutez les compteurs **Connecteur de proxy d’application Microsoft AAD** à superviser.
 
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Le connecteur de proxy d’application Azure AD doit-il se trouver sur le même sous-réseau que la ressource ?
@@ -83,7 +83,6 @@ Le proxy d’application nécessite Windows Server 2012 R2 ou une version ult�
     ```
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
-
 
 ## <a name="application-configuration"></a>Configuration de l’application
 
@@ -124,6 +123,12 @@ Pour plus d’informations, consultez le livre blanc [Understanding Kerberos Con
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>L’authentification NTLM fonctionne-t-elle avec le Proxy d’application Azure AD ?
 
 L’authentification NTLM ne peut pas être utilisée en tant que méthode de pré-authentification ou d’authentification unique. L’authentification NTLM ne peut être utilisée que quand elle peut être négociée directement entre le client et l’application web publiée. L’utilisation de l’authentification NTLM entraîne généralement l’affichage d’une invite de connexion dans le navigateur.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Puis-je utiliser l'identité de connexion « Nom d'utilisateur principal local » ou « Nom de compte SAM local » dans un scénario d'authentification unique B2B IWA ?
+
+Non, cela ne fonctionnera pas, car un utilisateur invité d'Azure AD ne possède pas l'attribut requis par l'une des identités de connexion mentionnées ci-dessus.
+
+Dans ce cas, « Nom principal de l'utilisateur » sera utilisé. Pour plus d'informations sur le scénario B2B, consultez [Accorder aux utilisateurs B2B d'Azure AD l'accès à vos applications locales](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## <a name="pass-through-authentication"></a>Authentification directe
 
@@ -198,5 +203,5 @@ Ce scénario n’est pas pris en charge directement. Vos possibilités pour ce s
 1. Publiez les URL HTTP et HTTPS en tant qu’applications distinctes avec un caractère générique, mais donnez à chacune un nom de domaine personnalisé différent. Cette configuration fonctionne, car elles ont des URL externes différentes.
 
 2. Publiez l’URL HTTPS par le biais d’une application générique. Publiez les applications HTTP séparément à l’aide de ces cmdlets PowerShell de proxy d’application :
-   - [Gestion des applications de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Gestion des connecteurs de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Gestion des applications de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Gestion des connecteurs de proxy d’application](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

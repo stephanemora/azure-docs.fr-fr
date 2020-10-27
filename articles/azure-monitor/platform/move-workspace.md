@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979695"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282868"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
@@ -39,17 +39,19 @@ Solutions qui doivent être supprimées avant de pouvoir dissocier votre compte 
 - Azure Security Center
 
 >[!IMPORTANT]
-> **Clients Azure Sentinel :**
+> **Clients Azure Sentinel**
 > - Une fois déployé dans un espace de travail, Azure Sentinel **ne prend actuellement pas en charge** le déplacement de cet espace de travail vers d’autres groupes de ressources ou abonnements. 
->
->   Si vous avez déjà déplacé l’espace de travail, désactivez toutes les règles actives dans **Analytics**, puis réactivez-les après cinq minutes. Cela doit fonctionner la plupart du temps, mais ce n’est, pour rappel, pas pris en charge et est sous votre entière responsabilité.
+> - Si vous avez déjà déplacé l’espace de travail, désactivez toutes les règles actives dans **Analytics** , puis réactivez-les après cinq minutes. Cela doit fonctionner la plupart du temps, mais ce n’est, pour rappel, pas pris en charge et est sous votre entière responsabilité.
+> 
+> **Alertes**
+> - Toutes les alertes doivent être recréées après le déplacement, car les autorisations sont basées sur l’ID de ressource Azure de l’espace de travail, qui change avec le déplacement de l’espace de travail. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Supprimer des solutions dans le portail Azure
 Procédez comme suit pour supprimer les solutions via le portail Azure :
 
 1. Ouvrez le menu des groupes de ressources dans lesquels des solutions sont installées.
 2. Sélectionnez les solutions à supprimer.
-3. Cliquez sur **Supprimer les ressources**, puis confirmez la suppression en cliquant sur **Supprimer**.
+3. Cliquez sur **Supprimer les ressources** , puis confirmez la suppression en cliquant sur **Supprimer** .
 
 ![Supprimer des solutions](media/move-workspace/delete-solutions.png)
 
@@ -64,11 +66,11 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 ```
 
 ### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Supprimer les règles d’alerte pour la solution Start/Stop VMs
-Pour supprimer la solution **Start/Stop VMs**, vous devez également supprimer les règles d’alerte qu’elle a créées. Procédez comme suit pour supprimer ces règles via le portail Azure.
+Pour supprimer la solution **Start/Stop VMs** , vous devez également supprimer les règles d’alerte qu’elle a créées. Procédez comme suit pour supprimer ces règles via le portail Azure.
 
-1. Ouvrez le menu **Surveiller**, puis sélectionnez **Alertes**.
-2. Cliquez sur **Gérer les règles d’alerte**.
-3. Sélectionnez les trois règles d’alerte suivantes, puis cliquez sur **Supprimer**.
+1. Ouvrez le menu **Surveiller** , puis sélectionnez **Alertes** .
+2. Cliquez sur **Gérer les règles d’alerte** .
+3. Sélectionnez les trois règles d’alerte suivantes, puis cliquez sur **Supprimer** .
 
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
@@ -79,8 +81,8 @@ Pour supprimer la solution **Start/Stop VMs**, vous devez également supprimer l
 ## <a name="unlink-automation-account"></a>Dissocier un compte Automation
 Procédez comme suit pour dissocier le compte Automation lié à l’espace de travail via le portail Azure :
 
-1. Ouvrez le menu **Comptes Automation**, puis sélectionnez le compte à supprimer.
-2. Accédez à la section **Ressources associées** du menu, puis sélectionnez **Espace de travail lié**. 
+1. Ouvrez le menu **Comptes Automation** , puis sélectionnez le compte à supprimer.
+2. Accédez à la section **Ressources associées** du menu, puis sélectionnez **Espace de travail lié** . 
 3. Sélectionnez **Dissocier l’espace de travail** pour dissocier l’espace de travail de votre compte Automation.
 
     ![Supprimer le lien de votre espace de travail](media/move-workspace/unlink-workspace.png)
@@ -90,10 +92,10 @@ Procédez comme suit pour dissocier le compte Automation lié à l’espace de t
 ### <a name="azure-portal"></a>Portail Azure
 Procédez comme suit pour déplacer votre espace de travail via le portail Azure :
 
-1. Ouvrez le menu **Espaces de travail Log Analytics**, puis sélectionnez votre espace de travail.
-2. Dans la page **Vue d’ensemble**, cliquez sur le bouton **Modifier** en regard de **Groupe de ressources** ou **Abonnement**.
+1. Ouvrez le menu **Espaces de travail Log Analytics** , puis sélectionnez votre espace de travail.
+2. Dans la page **Vue d’ensemble** , cliquez sur le bouton **Modifier** en regard de **Groupe de ressources** ou **Abonnement** .
 3. Une nouvelle page comprenant une liste de ressources associées à l’espace de travail s’affiche. Sélectionnez les ressources à déplacer vers le même abonnement de destination et le même groupe de ressources que l’espace de travail. 
-4. Sélectionnez un **abonnement** de destination et un **groupe de ressources**. Si vous déplacez l’espace de travail vers un autre groupe de ressources dans le même abonnement, vous ne verrez pas l’option **Abonnement**.
+4. Sélectionnez un **abonnement** de destination et un **groupe de ressources** . Si vous déplacez l’espace de travail vers un autre groupe de ressources dans le même abonnement, vous ne verrez pas l’option **Abonnement** .
 5. Cliquez sur **OK** pour déplacer l’espace de travail et les ressources sélectionnées.
 
     ![Capture d’écran affichant le volet Vue d’ensemble de l’espace de travail Log Analytics avec les options permettant de modifier le groupe de ressources et le nom de l’abonnement.](media/move-workspace/portal.png)

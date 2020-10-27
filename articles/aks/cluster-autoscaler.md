@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257521"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103864"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -47,12 +47,12 @@ Les programmes de mise à l’échelle automatique de cluster et de pods élasti
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Création d’un cluster AKS et activation du programme de mise à l’échelle automatique de cluster
 
-Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. Pour activer et configurer le programme de mise à l’échelle automatique de cluster sur le pool de nœuds du cluster, utilisez le paramètre *--enable-cluster-autoscaler*, puis spécifiez un nœud *--min-count* et un *--max-count*.
+Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. Pour activer et configurer le programme de mise à l’échelle automatique de cluster sur le pool de nœuds du cluster, utilisez le paramètre *--enable-cluster-autoscaler* , puis spécifiez un nœud *--min-count* et un *--max-count* .
 
 > [!IMPORTANT]
 > L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, consultez [Puis-je modifier les ressources AKS dans le groupe de ressources de nœuds ?][aks-faq-node-resource-group]
 
-L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
+L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3*  nœuds :
 
 ```azurecli-interactive
 # First create a resource group
@@ -74,12 +74,12 @@ La création du cluster et la configuration des paramètres du programme de mise
 
 ## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Activation du programme de mise à l’échelle automatique de cluster sur un cluster AKS existant
 
-Utilisez la commande [az aks update][az-aks-update] pour activer et configurer la mise à l’échelle automatique de cluster sur le pool de nœuds du cluster existant. Utilisez le paramètre *--enable-cluster-autoscaler*, puis spécifiez un *--min-count* et un *--max-count* de nœuds.
+Utilisez la commande [az aks update][az-aks-update] pour activer et configurer la mise à l’échelle automatique de cluster sur le pool de nœuds du cluster existant. Utilisez le paramètre *--enable-cluster-autoscaler* , puis spécifiez un *--min-count* et un *--max-count* de nœuds.
 
 > [!IMPORTANT]
 > L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, consultez [Puis-je modifier les ressources AKS dans le groupe de ressources de nœuds ?][aks-faq-node-resource-group]
 
-L’exemple suivant met à jour un cluster AKS existant pour activer la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
+L’exemple suivant met à jour un cluster AKS existant pour activer la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3*  nœuds :
 
 ```azurecli-interactive
 az aks update \
@@ -97,7 +97,7 @@ La mise à jour du cluster et la configuration des paramètres du programme de m
 > [!IMPORTANT]
 > Si vous disposez de plusieurs pools de nœuds dans votre cluster AKS, passez à la section relative à la [mise à l’échelle automatique à l’aide de pools d’agents multiples](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Les clusters avec des pools d’agents multiples nécessitent l’utilisation de l’ensemble de commandes `az aks nodepool` au lieu de `az aks` pour modifier des propriétés spécifiques du pool de nœuds.
 
-Dans l’étape précédente de création d’un cluster AKS ou de mise à jour d’un pool de nœuds existant, le nombre minimal de nœuds du programme de mise à l’échelle automatique de cluster a été défini sur *1* tandis que le nombre maximal de nœuds a été défini sur *3*. Si vos demandes applicatives changent, vous devrez peut-être ajuster le nombre de nœuds du programme de mise à l’échelle automatique de cluster.
+Dans l’étape précédente de création d’un cluster AKS ou de mise à jour d’un pool de nœuds existant, le nombre minimal de nœuds du programme de mise à l’échelle automatique de cluster a été défini sur *1* tandis que le nombre maximal de nœuds a été défini sur *3* . Si vos demandes applicatives changent, vous devrez peut-être ajuster le nombre de nœuds du programme de mise à l’échelle automatique de cluster.
 
 Pour modifier le nombre de nœuds, utilisez la commande [az aks update][az-aks-update].
 
@@ -110,7 +110,7 @@ az aks update \
   --max-count 5
 ```
 
-L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5* nœuds.
+L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5*  nœuds.
 
 > [!NOTE]
 > Le programme de mise à l’échelle automatique de cluster prend les décisions de mise à l’échelle en fonction des nombres minimum et maximum définis sur chaque pool de nœuds, mais il ne les applique pas après la mise à jour des nombres minimum ou maximum. Par exemple, définir un nombre minimum de 5 lorsque le nombre actuel de nœuds est 3 n’effectue pas immédiatement un Scale-up du pool sur 5. Si le nombre minimum sur le pool de nœuds a une valeur supérieure au nombre actuel de nœuds, les nouveaux paramètres minimum ou maximum seront respectés lorsqu’il y aura suffisamment de pods non planifiables qui nécessiteraient deux nouveaux nœuds supplémentaires et déclencheraient un événement du programme de mise à l’échelle automatique. Après l’événement de mise à l’échelle, les nouvelles limites de nombre sont respectées.
@@ -135,18 +135,8 @@ Vous pouvez également configurer une plus grande précision dans les détails d
 
 > [!IMPORTANT]
 > Le profil de mise à l’échelle automatique de cluster modifie tous les pools de nœuds qui utilisent la mise à l’échelle automatique de cluster. Vous ne pouvez pas définir de profil de mise à l’échelle automatique par pool de nœuds.
-
-### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-
-Pour définir le profil de paramètres de la mise à l’échelle automatique de cluster, l’extension CLI *aks-preview* version 0.4.30 ou ultérieure est nécessaire. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> Le profil de mise à l'échelle automatique de cluster requiert la version  *2.11.1* ou ultérieure d'Azure CLI. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Définir le profil de mise à l’échelle automatique de cluster sur un cluster AKS existant
 
@@ -204,7 +194,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Désactivation du programme de mise à l’échelle automatique de cluster
 
-Si vous ne souhaitez plus utiliser le programme de mise à l’échelle automatique du cluster, vous pouvez le désactiver à l’aide de la commande [az aks update][az-aks-update-preview], en spécifiant le paramètre *--disable-cluster-autoscaler*. Les nœuds ne sont pas supprimés lorsque le programme de mise à l’échelle automatique de cluster est désactivé.
+Si vous ne souhaitez plus utiliser le programme de mise à l’échelle automatique du cluster, vous pouvez le désactiver à l’aide de la commande [az aks update][az-aks-update-preview], en spécifiant le paramètre *--disable-cluster-autoscaler* . Les nœuds ne sont pas supprimés lorsque le programme de mise à l’échelle automatique de cluster est désactivé.
 
 ```azurecli-interactive
 az aks update \
@@ -217,7 +207,7 @@ Vous pouvez mettre à l’échelle votre cluster manuellement après avoir désa
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Réactiver un programme de mise à l’échelle automatique du cluster désactivé
 
-Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks update][az-aks-update-preview], en spécifiant les paramètres *--enable-cluster-autoscaler*, *--min-count* et *--max-count*.
+Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks update][az-aks-update-preview], en spécifiant les paramètres *--enable-cluster-autoscaler* , *--min-count* et *--max-count* .
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Récupérer les journaux et l’état de la mise à l’échelle automatique des clusters
 
@@ -252,7 +242,7 @@ Pour en savoir plus sur ce qui est enregistré à partir de la mise à l’éche
 
 Vous pouvez utiliser le programme de mise à l’échelle automatique du cluster avec des [pools de nœuds multiples][aks-multiple-node-pools] activés. Lisez ce document pour apprendre à activer des pools de nœuds multiples et à ajouter des pools de nœuds supplémentaires à un cluster existant. Si vous utilisez les deux fonctionnalités ensemble, vous activez le programme de mise à l’échelle automatique du cluster sur chaque pool de nœuds dans le cluster, et pouvez leur transmettre des règles de mise à l’échelle automatique uniques.
 
-La commande ci-dessous part du principe que vous avez suivi les [instructions initiales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) plus haut dans ce document, et que vous souhaitez mettre à jour le nombre maximal de nœuds d’un pool existant de *3* à *5*. Utilisez la commande [az aks nodepool update][az-aks-nodepool-update] pour mettre à jour les paramètres d’un pool de nœuds existant.
+La commande ci-dessous part du principe que vous avez suivi les [instructions initiales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) plus haut dans ce document, et que vous souhaitez mettre à jour le nombre maximal de nœuds d’un pool existant de *3* à *5* . Utilisez la commande [az aks nodepool update][az-aks-nodepool-update] pour mettre à jour les paramètres d’un pool de nœuds existant.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -274,7 +264,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks nodepool][az-aks-nodepool-update], en spécifiant les paramètres *--enable-cluster-autoscaler*, *--min-count* et *--max-count*.
+Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks nodepool][az-aks-nodepool-update], en spécifiant les paramètres *--enable-cluster-autoscaler* , *--min-count* et *--max-count* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

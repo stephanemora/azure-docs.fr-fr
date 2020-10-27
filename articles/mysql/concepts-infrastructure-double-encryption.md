@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531023"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125728"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database pour MySQL Chiffrement double d’infrastructure
 
@@ -20,7 +20,7 @@ Azure Database pour MySQL utilise le stockage [chiffrement des données au repos
 Le chiffrement double d’infrastructure ajoute une deuxième couche de chiffrement avec des clés gérées par le service. Il utilise le module de cryptage validé FIPS 140-2, mais avec un algorithme de chiffrement différent. Cela fournit une couche supplémentaire de protection pour vos données au repos. La clé utilisée dans le chiffrement double d’infrastructure est également gérée par le service Azure Database pour MySQL. Le chiffrement double d’infrastructure n’est pas activé par défaut, car la couche supplémentaire de chiffrement peut avoir un impact sur les performances.
 
 > [!NOTE]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires « Usage général » et « Mémoire optimisée ».
+> Cette fonctionnalité est uniquement prise en charge pour les niveaux tarifaires « Usage général » et « À mémoire optimisée » dans Azure Database pour PostgreSQL.
 
 Le chiffrement de couche d’infrastructure présente l’avantage d’être implémenté au niveau de la couche la plus proche du dispositif de stockage ou des câbles réseau. Azure Database pour MySQL implémente les deux couches de chiffrement à l’aide de clés gérées par le service. Bien que toujours techniquement dans la couche de service, il est très proche du matériel qui stocke les données au repos. Vous pouvez également activer le chiffrement des données au repos à l’aide de [clé gérée par le client](concepts-data-encryption-mysql.md) pour le serveur MySQL approvisionné. 
 
@@ -33,8 +33,8 @@ L’implémentation aux couches d’infrastructure prend également en charge de
 
 Le chiffrement double d’infrastructure pour Azure Database pour MySQL offre les avantages suivants :
 
-1. **Diversité supplémentaire de l’implémentation du chiffrement** - Le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de celle basée sur le logiciel.
-2. **Erreurs d’implémentation**- Deux couches de chiffrement au niveau de l’infrastructure protègent des erreurs de mise en cache ou de gestion de la mémoire dans des couches supérieures qui exposent des données en texte clair. En outre, les deux couches protègent également des erreurs dans l’implémentation du chiffrement en général.
+1. **Diversité supplémentaire de l’implémentation du chiffrement**  - Le passage planifié au chiffrement basé sur le matériel permet de diversifier davantage les implémentations en fournissant une implémentation basée sur le matériel en plus de celle basée sur le logiciel.
+2. **Erreurs d’implémentation** - Deux couches de chiffrement au niveau de l’infrastructure protègent des erreurs de mise en cache ou de gestion de la mémoire dans des couches supérieures qui exposent des données en texte clair. En outre, les deux couches protègent également des erreurs dans l’implémentation du chiffrement en général.
 
 Cette combinaison offre une protection renforcée contre les menaces courantes et les faiblesses exploitées pour attaquer le chiffrement.
 
@@ -58,7 +58,7 @@ Les fonctionnalités de chiffrement fournies par Azure Database pour MySQL peuve
 
 Pour Azure Database pour MySQL, la prise en charge du double chiffrement de l’infrastructure à l’aide de la clé gérée par le service présente les limitations suivantes :
 
-* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée**.
+* La prise en charge de cette fonctionnalité est limitée aux niveaux tarifaires **Usage général** et **À mémoire optimisée** .
 * Vous pouvez créer un Azure Database pour MySQL avec un chiffrement d’infrastructure activé dans les régions suivantes :
 
    * USA Est

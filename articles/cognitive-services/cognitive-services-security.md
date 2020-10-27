@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326811"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152283"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Pour les utilisateurs .NET, prenez en compte les <a href="https://docs.microsoft
 
 ## <a name="authentication"></a>Authentification
 
-En ce qui concerne l’authentification, plusieurs fausses idées sont largement répandues. Les gens confondent souvent authentification et autorisation. L’identité est également une composante majeure de la sécurité. Une identité est une collection d’informations sur un <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Les fournisseurs d’identité (IdP) fournissent des identités aux services d’authentification. L’authentification est l’action consistant à vérifier l’identité d’un utilisateur. L’autorisation est la spécification de droits d’accès et de privilèges sur des ressources pour une identité donnée. Plusieurs des offres de Cognitive Services incluent le contrôle d’accès en fonction du rôle (RBAC). La fonctionnalité RBAC peut être utilisée pour simplifier une partie du cérémonial impliqué dans la gestion manuelle des principaux. Pour en savoir plus, reportez-vous au [contrôle d’accès en fonction du rôle pour les ressources Azure](../role-based-access-control/overview.md).
+En ce qui concerne l’authentification, plusieurs fausses idées sont largement répandues. Les gens confondent souvent authentification et autorisation. L’identité est également une composante majeure de la sécurité. Une identité est une collection d’informations sur un <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Les fournisseurs d’identité (IdP) fournissent des identités aux services d’authentification. L’authentification est l’action consistant à vérifier l’identité d’un utilisateur. L’autorisation est la spécification de droits d’accès et de privilèges sur des ressources pour une identité donnée. Plusieurs des offres de Cognitive Services incluent le contrôle d’accès en fonction du rôle Azure (Azure RBAC). La fonctionnalité Azure RBAC peut être utilisée pour simplifier une partie du cérémonial impliqué dans la gestion manuelle des principaux. Pour en savoir plus, reportez-vous au [contrôle d’accès en fonction du rôle Azure pour les ressources Azure](../role-based-access-control/overview.md).
 
 Pour plus d’informations sur l’authentification avec les clés d’abonnement, les jetons d’accès et Azure Active Directory (AAD), consultez <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Authentifier des requêtes auprès d’Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -60,7 +60,7 @@ Créez et assignez une variable d’environnement persistante, la valeur étant 
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-Dans une nouvelle instance de l’**invite de commandes**, lisez la variable d’environnement.
+Dans une nouvelle instance de l’ **invite de commandes** , lisez la variable d’environnement.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Créez et assignez une variable d’environnement persistante, en fonction de la
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-Dans une nouvelle instance de **Windows PowerShell**, lisez la variable d’environnement.
+Dans une nouvelle instance de **Windows PowerShell** , lisez la variable d’environnement.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Créez et assignez une variable d’environnement persistante, en fonction de la
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-Dans une nouvelle instance de **Bash**, lisez la variable d’environnement.
+Dans une nouvelle instance de **Bash** , lisez la variable d’environnement.
 
 ```Bash
 # Prints the env var value
@@ -211,7 +211,7 @@ Pour les services suivants, les ingénieurs Microsoft n’accéderont pas aux do
 * Personalizer
 
 > [!IMPORTANT]
-> Pour **Form Recognizer**, les ingénieurs Microsoft n’accéderont pas aux données client dans les ressources créées après le 10 juillet 2020.
+> Pour **Form Recognizer** , les ingénieurs Microsoft n’accéderont pas aux données client dans les ressources créées après le 10 juillet 2020.
 
 Pour demander à utiliser la référence SKU E0, complétez et envoyez ce  [formulaire de demande](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que votre demande d’utilisation de la référence SKU E0 avec LUIS aura été approuvée, vous devrez créer une nouvelle ressource à partir du portail Azure et sélectionner le niveau tarifaire E0. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
 

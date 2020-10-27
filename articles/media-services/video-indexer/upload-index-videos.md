@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268823"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218953"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -72,15 +72,15 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 > Un nom de vidéo ne doit pas dépasser 80 caractères.
 
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
-2. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
+1. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger** .
 
-    ![Télécharger](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Charger":::
+1. Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse.
 
-    Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse.
-
-    ![Téléchargé](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Une fois l’analyse terminée par Video Indexer, vous obtiendrez une notification contenant un lien vers votre vidéo et une brève description des éléments découverts dedans. Par exemple : personnes, rubriques, OCR.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Charger":::
+1. Au terme de l'analyse réalisée par Video Indexer, vous recevrez un e-mail contenant un lien vers votre vidéo et une brève description du contenu de celle-ci. Par exemple : personnes, rubriques, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Télécharger et indexer avec API
 
@@ -140,7 +140,7 @@ Le prix dépend de l’option d’indexation sélectionnée.
 
 #### <a name="priority"></a>priority
 
-Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse**, **Normale** (valeur par défaut) et **Haute**.
+Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse** , **Normale** (valeur par défaut) et **Haute** .
 
 Le paramètre **priority** est uniquement pris en charge dans les comptes payants.
 
@@ -148,7 +148,7 @@ Le paramètre **priority** est uniquement pris en charge dans les comptes payant
 
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. Il passe ensuite à l’indexation et à l’analyse de la vidéo. Lorsque Video Indexer a terminé l’analyse, vous recevrez une notification avec l’ID de la vidéo.  
 
-Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
+Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution** .
 
 Pour SingleBitrate, le coût de l’encodeur standard s’applique à chaque sortie. Si la hauteur de la vidéo est supérieure ou égale à 720, Video Indexer l’encode au format 1280 x 720. Sinon, au format 640 x 468.
 Le paramètre par défaut est [l’encodage sensible au contenu](../latest/content-aware-encoding.md).
@@ -177,8 +177,8 @@ Après avoir copié ce code dans votre plateforme de développement, vous devez 
 
     * Accédez à https://api-portal.videoindexer.ai/.
     * Connexion
-    * Accédez à **Products** -> **Authorization** -> **Authorization subscription**.
-    * Copiez la **clé primaire**.
+    * Accédez à **Products** -> **Authorization** -> **Authorization subscription** .
+    * Copiez la **clé primaire** .
 * URL de la vidéo : URL du fichier audio/vidéo à indexer. L’URL doit pointer vers un fichier multimédia (les pages HTML ne sont pas prises en charge). Le fichier peut être protégé par un jeton d’accès fourni dans le cadre de l’URI et le point de terminaison qui traite le fichier doit être sécurisé avec TLS 1.2 ou version ultérieure. L’URL doit être encodée.
 
 Le résultat de l’exécution de l’exemple de code inclut une URL de widget d’insight et une URL de widget de lecteur qui vous permettra d’examiner respectivement les insights et la vidéo chargée. 

@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment configurer et gérer les points de terminaison et les itinéraires d’événements pour les données d’Azure Digital Twins.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/23/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c6c0ee775ec1405fa76424e6b0ad57436d2d233e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047367"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340102"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -22,7 +22,7 @@ Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événeme
 
 Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API EventRoutes](how-to-use-apis-sdks.md), du[Kit de développement logiciel (SDK) C# .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
 
-Vous pouvez également les gérer via le [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)* ](how-to-manage-routes-portal.md).
+Vous pouvez également les gérer via le [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,15 +64,15 @@ Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital 
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-La rubrique Event Grid est ensuite disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié avec l’argument `--endpoint-name`. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer plus tard [dans cet article](#event-routes-with-apis-and-the-c-sdk) à l’aide de l’API de service Azure Digital Twins.
+La rubrique Event Grid est ensuite disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié avec l’argument `--endpoint-name`. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer plus tard [dans cet article](#create-an-event-route) à l’aide de l’API de service Azure Digital Twins.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Créer un point de terminaison Event Hubs ou Service Bus
 
 Le processus de création de Event Hubs ou de points de terminaison de Service Bus est similaire au processus de Event Grid présenté ci-dessus.
 
 Tout d’abord, créez vos ressources que vous utiliserez comme point de terminaison. Voici ce qui est requis :
-* Service Bus : _Espace de noms Service Bus_, _Rubrique Service Bus_,  _Règle d'autorisation_
-* Hubs d'événements : _Espace de noms Event Hubs_, _hub d'événements_, _Règle d'autorisation_
+* Service Bus : _Espace de noms Service Bus_ , _Rubrique Service Bus_ ,  _Règle d'autorisation_
+* Hubs d'événements : _Espace de noms Event Hubs_ , _hub d'événements_ , _Règle d'autorisation_
 
 Utilisez ensuite les commandes suivantes pour créer les points de terminaison dans Azure Digital Twins : 
 
@@ -86,20 +86,84 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>Itinéraires d’événements( avec des API et le kit de développement logiciel (SDK) C#)
+### <a name="create-an-endpoint-with-dead-lettering"></a>Créer un point de terminaison avec mise en file d’attente de lettres mortes
 
-Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement**. Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
+Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes** .
+
+Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, vous devez utiliser les [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison. 
+
+Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer l’URL de ce conteneur au moment de créer le point de terminaison. La mise en file d’attente de lettres mortes est fournie sous la forme d’une URL de conteneur avec un jeton SAP. Ce jeton n’a besoin que de l’autorisation `write` pour le conteneur de destination dans le compte de stockage. L’URL complète sera au format : `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Pour en savoir plus sur les jetons SAS, consultez : [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](/azure/storage/common/storage-sas-overview)
+
+Pour en savoir plus sur la mise en file d’attente de lettres mortes, consultez [*Concepts : Routes d’événements*](concepts-route-events.md#dead-letter-events).
+
+#### <a name="configuring-the-endpoint"></a>Configuration du point de terminaison
+
+Lorsque vous créez un point de terminaison, ajoutez un `deadLetterSecret` à l’objet `properties` dans le corps de la requête, qui contient une URL de conteneur et un jeton SAP pour votre compte de stockage.
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "xxxxxxxxxxx",
+    "accessKey2": "xxxxxxxxxxx",
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+  }
+}
+```
+
+Pour plus d’informations, consultez la documentation de l’API REST d’Azure Digital Twins : [Points de terminaison : DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+
+### <a name="message-storage-schema"></a>Schéma de stockage des messages
+
+Les messages en file d’attente de lettres mortes sont stockés au format suivant dans votre compte de stockage :
+
+`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+
+Les messages en file d’attente de lettres mortes correspondent au schéma de l’événement d’origine qui a été conçu pour être remis à votre point de terminaison d’origine.
+
+Voici un exemple de message mis en file d’attente de lettres mortes pour une [notification de création de jumeau](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications) :
+
+```json
+{
+  "specversion": "1.0",
+  "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "data": {
+    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "TwinData": "some sample",
+    "$metadata": {
+      "$model": "dtmi:test:deadlettermodel;1",
+      "room": {
+        "lastUpdateTime": "2020-10-14T01:11:49.3576659Z"
+      }
+    }
+  },
+  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "time": "2020-10-14T01:11:49.3667224Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
+}
+```
+
+## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
+
+Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement** . Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
 Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
-**Condition préalable** : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
+**Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
 >[!NOTE]
 >Si vous avez récemment déployé vos points de terminaison, vérifiez que le déploiement est terminé **avant** de tenter de les utiliser pour un nouvel itinéraire d’événements. Si le déploiement de l’itinéraire échoue parce que les points de terminaison ne sont pas prêts, patientez quelques minutes, puis réessayez.
 >
 > Si vous créez un script pour ce flux, vous pouvez prendre cela en compte en intégrant un temps d’attente de 2-3 minutes pour permettre au service de point de terminaison d’achever le déploiement avant de passer à la configuration de l’itinéraire.
 
-### <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>Code de création avec des API et le kit de développement logiciel (SDK) C#
 
 Les itinéraires d’événements sont définis à l’aide d’[API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
@@ -116,7 +180,7 @@ Un itinéraire doit permettre la sélection de plusieurs notifications et types 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -138,7 +202,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -153,17 +217,16 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>Filtrer les événements
+## <a name="filter-events"></a>Filtrer les événements
 
 Sans filtrage, les points de terminaison reçoivent un grand nombre d’événements d’Azure Digital Twins :
 * télémétrie déclenchée par des [jumeaux numériques](concepts-twins-graph.md) à l’aide de l’API de service d’Azure Digital Twins ;
 * notifications de changement de propriété de jumeau, déclenchées par des modifications des propriétés d’un jumeau dans l’instance Azure Digital Twins ;
 * événements de cycle de vie déclenchés lors de la création ou de la suppression de jumeaux ou de relations ;
-* événements de changement de modèle déclenchés lors de l’ajout ou de la suppression de [modèles](concepts-models.md) configurés dans une instance Azure Digital Twins.
 
 Vous pouvez limiter les événements envoyés en ajoutant un **filtre** à un point de terminaison sur votre itinéraire d’événement.
 
-Pour ajouter un filtre, vous pouvez utiliser une demande PUT adressée à *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-preview* avec le corps suivant :
+Pour ajouter un filtre, vous pouvez utiliser une demande PUT adressée à *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* avec le corps suivant :
 
 ```json  
 {

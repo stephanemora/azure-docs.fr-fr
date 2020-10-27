@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952248"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320164"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Charger les données d’utilisation, les métriques et les journaux sur Azure Monitor
 
@@ -25,7 +25,7 @@ Vous pouvez régulièrement exporter les informations d’utilisation à des fin
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous aurez besoin des interfaces Azure CLI (AZ) et Azure Data CLI (azdata) installées.  [Installez les outils](./install-client-tools.md).
+Azure CLI (AZ) et [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] doivent être installés.  [Installez les outils](./install-client-tools.md).
 
 Avant de télécharger des données dans Azure, vous devez vous assurer que le fournisseur de ressources Microsoft.AzureData est inscrit dans votre abonnement Azure.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Les informations d’utilisation telles que l’inventaire et l’utilisation des ressources peuvent être téléchargées sur Azure de la manière suivante :
 
-1. Exportez les données d’utilisation à l’aide de la commande ```azdata export```, comme suit :
+1. Exportez les données d’utilisation à l’aide de la commande `azdata export`, comme suit :
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ Les informations d’utilisation telles que l’inventaire et l’utilisation de
    ```
    Cette commande crée un fichier `usage.json` avec toutes les ressources de données Azure Arc activées, comme les instances managées SQL et les instances PostgreSQL Hyperscale, etc., qui sont créées sur le contrôleur de données.
 
-2. Charger les données d’utilisation à l’aide de la commande ```azdata upload```
+2. Charger les données d’utilisation à l’aide de la commande `azdata upload`
 
    > [!NOTE]
    > Veuillez attendre au moins 24 heures après avoir créé le contrôleur de données Azure Arc avant d’exécuter le chargement
@@ -95,7 +95,7 @@ Suivez ces commandes pour créer votre principal de service de chargement de mé
 Pour créer un principal de service, exécutez cette commande :
 
 > [!NOTE]
-> La création d’un principal de service nécessite [certaines autorisations dans Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> La création d’un principal de service nécessite [certaines autorisations dans Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>
