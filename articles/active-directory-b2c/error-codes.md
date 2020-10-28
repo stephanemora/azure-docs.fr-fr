@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215431"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codes d’erreur : Azure Active Directory B2C
 
@@ -61,6 +61,7 @@ Les erreurs suivantes peuvent être retournées par le service Azure Active Dire
 | `AADB2C90055` | L’étendue « {0} » fournie dans la demande doit spécifier une ressource, comme « https://example.com/calendar.read  ». |
 | `AADB2C90057` | L’application fournie n’est pas configurée pour autoriser le flux OAuth implicite. |
 | `AADB2C90058` | L’application fournie n’est pas configurée pour autoriser les clients publics. |
+| `AADB2C99059` | La demande fournie doit présenter un code_challenge. Obligatoire pour les applications monopages utilisant le flux de code d’autorisation.| 
 | `AADB2C90067` | L’URI de redirection post-déconnexion « {0} » a un format non valide. Spécifiez une URL HTTPS telle que « https://example.com/return  » ou, pour des clients natifs, utilisez l’URI de client natif IETF « urn:ietf:wg:oauth:2.0:oob ». |
 | `AADB2C90068` | L’application fournie, dont l’ID est « {0} », n’est pas valide pour ce service. Utilisez une application créée via le portail B2C, puis réessayez. |
 | `AADB2C90075` | L’échange de revendications « {0} » spécifié à l’étape « {1} » a renvoyé une réponse d’erreur HTTP avec le code « {2} » et le motif « {3} ». |

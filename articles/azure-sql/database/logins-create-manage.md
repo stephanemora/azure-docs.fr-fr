@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334905"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167132"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Configurer SQL Database, SQL Managed Instance et Azure Synapse Analytics pour autoriser l'accès aux bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,7 +36,7 @@ Cet article porte sur les points suivants :
 
 ## <a name="authentication-and-authorization"></a>Authentification et autorisation
 
-L’[**authentification**](security-overview.md#authentication) est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Un utilisateur se connecte à une base de données à l’aide d’un compte d’utilisateur.
+L’ [**authentification**](security-overview.md#authentication) est le processus consistant à prouver que l’utilisateur est bien celui qu’il prétend être. Un utilisateur se connecte à une base de données à l’aide d’un compte d’utilisateur.
 Lorsqu’un utilisateur tente de se connecter à une base de données, il fournit un compte d’utilisateur et des informations d’authentification. L’utilisateur est authentifié à l’aide de l’une des deux méthodes d’authentification suivantes :
 
 - [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
@@ -51,11 +51,11 @@ Lorsqu’un utilisateur tente de se connecter à une base de données, il fourni
 - Une **connexion** est un compte individuel dans la base de données master, auquel un compte d’utilisateur dans une ou plusieurs bases de données peut être lié. Avec une connexion, les informations d’identification du compte d’utilisateur sont stockées avec la connexion.
 - Un **compte d'utilisateur** est un compte individuel qui figure dans une base de données et qui peut être lié à une connexion, mais cela n'est pas obligatoire. Avec un compte d’utilisateur qui n’est pas lié à une connexion, les informations d’identification sont stockées avec le compte d’utilisateur.
 
-L’[**autorisation**](security-overview.md#authorization) d’accéder aux données et d’effectuer diverses actions sont gérées à l’aide des rôles de base de données et des autorisations explicites. L’autorisation fait référence aux autorisations accordées à un utilisateur et détermine ce que l’utilisateur est autorisé à faire. Elle est contrôlée par les [appartenances aux rôles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) et les [autorisations au niveau objet](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) de la base de données de votre compte d’utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible.
+L’ [**autorisation**](security-overview.md#authorization) d’accéder aux données et d’effectuer diverses actions sont gérées à l’aide des rôles de base de données et des autorisations explicites. L’autorisation fait référence aux autorisations accordées à un utilisateur et détermine ce que l’utilisateur est autorisé à faire. Elle est contrôlée par les [appartenances aux rôles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) et les [autorisations au niveau objet](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) de la base de données de votre compte d’utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible.
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Connexions et comptes d’utilisateur existants après la création d’une base de données
 
-Lorsque vous déployez Azure SQL pour la première fois, vous spécifiez une connexion d'administrateur et un mot de passe associé à cette connexion. Ce compte d’administration est appelé **administration de serveur**. La configuration suivante des connexions et des utilisateurs dans les bases de données master et utilisateur se produit pendant le déploiement :
+Lorsque vous déployez Azure SQL pour la première fois, vous spécifiez une connexion d'administrateur et un mot de passe associé à cette connexion. Ce compte d’administration est appelé **administration de serveur** . La configuration suivante des connexions et des utilisateurs dans les bases de données master et utilisateur se produit pendant le déploiement :
 
 - Une connexion SQL avec des privilèges d’administrateur est créée à l’aide du nom de connexion que vous avez spécifié. Une [connexion](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) est un compte d'utilisateur individuel qui permet de se connecter à SQL Database, SQL Managed Instance et Azure Synapse.
 - Cette connexion se voit accorder des autorisations d’administration complètes sur toutes les bases de données en tant que [principal au niveau du serveur](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). La connexion dispose de toutes les autorisations disponibles et ne peut pas être limitée. Dans SQL Managed Instance, cette connexion est ajoutée au [rôle serveur fixe sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (ce rôle n'existe pas dans Azure SQL Database).
@@ -65,10 +65,10 @@ Pour identifier les comptes d’administrateur d’une base de données, ouvrez 
 
 ![Administrateurs SQL Server](./media/logins-create-manage/sql-admins.png)
 
-![Administrateurs SQL Server](./media/logins-create-manage/sql-admins2.png)
+![Capture d’écran mettant en évidence l’option de menu Propriétés.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Une fois créé, le nom de connexion de l'administrateur n'est pas modifiable. Pour réinitialiser le mot de passe pour l’administrateur du serveur, accédez au [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL**, sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe**. Pour réinitialiser le mot de passe de SQL Managed Instance, accédez au portail Azure, cliquez sur l'instance, puis cliquez sur **Réinitialiser le mot de passe**. Vous pouvez également utiliser PowerShell ou Azure CLI.
+> Une fois créé, le nom de connexion de l'administrateur n'est pas modifiable. Pour réinitialiser le mot de passe pour l’administrateur du serveur, accédez au [portail Azure](https://portal.azure.com), cliquez sur **Serveurs SQL** , sélectionnez le serveur dans la liste, puis cliquez sur **Réinitialiser le mot de passe** . Pour réinitialiser le mot de passe de SQL Managed Instance, accédez au portail Azure, cliquez sur l'instance, puis cliquez sur **Réinitialiser le mot de passe** . Vous pouvez également utiliser PowerShell ou Azure CLI.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Créer des connexions et des utilisateurs supplémentaires disposant d’autorisations administratives
 
@@ -137,7 +137,7 @@ Après avoir créé un compte d’utilisateur dans une base de données, sur la 
 
 - **Rôles de base de données fixes**
 
-  Ajoutez le compte d’utilisateur à un [rôle de base de données fixe](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Il existe 9 rôles de base de données fixes, chacun avec un ensemble défini d’autorisations. Les rôles de base de données fixes les plus courants sont les suivants : **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** et **db_denydatareader**. **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est plus que le minimum nécessaire.
+  Ajoutez le compte d’utilisateur à un [rôle de base de données fixe](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Il existe 9 rôles de base de données fixes, chacun avec un ensemble défini d’autorisations. Les rôles de base de données fixes les plus courants sont les suivants : **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** et **db_denydatareader** . **db_owner** est couramment utilisé pour accorder toutes les autorisations à quelques utilisateurs seulement. Les autres rôles de base de données fixe sont utiles pour obtenir rapidement une base de données simple en développement, mais ne sont pas recommandés pour la plupart des bases de données de production. Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est plus que le minimum nécessaire.
 
   - Pour ajouter un utilisateur de base de données à un rôle de base de données fixe :
 

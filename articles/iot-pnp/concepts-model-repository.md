@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042879"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131358"
 ---
 # <a name="device-model-repository"></a>Référentiel de modèles d’appareil
 
@@ -24,20 +24,20 @@ Le système DMR définit un modèle pour stocker les interfaces DTDL dans une st
 
 Microsoft héberge un DMR public avec les caractéristiques suivantes :
 
-- Modèles organisés. Microsoft révise et approuve toutes les interfaces disponibles à l’aide d’un flux de travail de validation PR GitHub ouvert.
+- Modèles organisés. Microsoft révise et approuve toutes les interfaces disponibles à l’aide d’un workflow de validation des demandes de tirage (PR, pull request) GitHub.
 - Immuabilité.  Une fois publiée, une interface ne peut pas être mise à jour.
-- Hyperscale. Microsoft fournit toute l’infrastructure nécessaire pour créer un point de terminaison sécurisé et hautement évolutif.
+- Hyperscale. Microsoft fournit l’infrastructure nécessaire pour créer un point de terminaison sécurisé et évolutif où vous pouvez publier et utiliser des modèles d’appareil.
 
 ## <a name="custom-device-model-repository"></a>Référentiel de modèles d’appareil personnalisé
 
-Vous pouvez utiliser le même modèle DMR dans n’importe quel support de stockage, comme un système de fichiers local ou des serveurs web HTTP personnalisés, pour créer un DMR personnalisé. Vous pouvez récupérer des modèles à partir du DMR personnalisé de la même façon qu’à partir du DRM public en modifiant simplement l’URL de base utilisée pour accéder au DMR.
+Vous pouvez utiliser le même modèle DMR dans n’importe quel support de stockage, comme un système de fichiers local ou des serveurs web HTTP personnalisés, pour créer un DMR personnalisé. Vous pouvez récupérer des modèles d’appareil à partir du DMR personnalisé de la même façon que vous le faites à partir du DRM public, en modifiant simplement l’URL de base utilisée pour accéder au DMR.
 
 > [!NOTE]
-> Les outils utilisés pour valider les modèles dans le DMR public peuvent être réutilisés dans les référentiels personnalisés.
+> Microsoft fournit des outils pour valider les modèles d’appareil dans le DMR public. Vous pouvez réutiliser ces outils dans des référentiels personnalisés.
 
 ## <a name="public-models"></a>Modèles publics
 
-Les modèles de jumeaux numériques publics stockés dans le référentiel de modèles sont librement accessibles pour que tous les utilisent et les intègrent à leur application. Les modèles publics permettent aux fabricants d’appareils et aux développeurs de solutions de partager et de réutiliser leurs modèles d’appareils IoT Plug-and-Play dans un écosystème ouvert.
+Les modèles d’appareil publics stockés dans le référentiel de modèles sont librement accessibles pour que tous les utilisent et les intègrent à leurs applications. Les modèles d’appareil publics permettent aux fabricants d’appareils et aux développeurs de solutions de partager et de réutiliser leurs modèles d’appareils IoT Plug-and-Play dans un écosystème ouvert.
 
 Pour obtenir des instructions sur la publication d’un modèle dans le référentiel de modèles afin de le rendre public, reportez-vous à la section [Publier un modèle](#publish-a-model).
 
@@ -88,12 +88,12 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Dupliquez le référentiel GitHub public : [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
 1. Clonez le référentiel dupliqué. Facultativement, vous pouvez créer une branche pour que vos modifications restent isolées de la branche `main`.
 1. Ajoutez les nouvelles interfaces au dossier `dtmi` à l’aide de la convention nom de dossier/nom de fichier. Consultez l’outil [add-model](#add-model).
-1. Validez les modèles localement à l’aide de la section des [scripts pour valider les modifications](#validate-files).
+1. Validez les modèles d’appareil localement à l’aide de la section relative aux [scripts de validation des modifications](#validate-files).
 1. Validez les modifications localement et envoyez vers votre duplication.
-1. À partir de votre duplication, créez un PR qui cible la branche `main`. Consultez les documents relatifs à la [création d’une requête de problème ou d’une demande de tirage (pull request)](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).
-1. Passez en revue [exigences de PR](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
+1. À partir de votre duplication (fork), créez une PR qui cible la branche `main`. Consultez les documents relatifs à la [création d’une requête de problème ou d’une demande de tirage (pull request)](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).
+1. Passez en revue les [conditions requises pour une demande de tirage](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-La PR déclenche une série d’actions GitHub qui valident les nouvelles interfaces envoyées et s’assure que votre PR est conforme à toutes les vérifications.
+La PR déclenche une série d’actions GitHub qui valident les nouvelles interfaces envoyées et s’assurent que votre PR est conforme à toutes les vérifications.
 
 Microsoft répond à une PR avec toutes les vérifications dans les trois jours ouvrables.
 
@@ -125,7 +125,7 @@ Vous pouvez exécuter les mêmes vérifications de validation localement avant d
 
 #### <a name="validate-models"></a>validate-models
 
-Vous pouvez exécuter l’[exemple de validation DTDL](https://github.com/Azure-Samples/DTDL-Validator) pour valider vos modèles localement.
+Vous pouvez exécuter l’[exemple de validation DTDL](https://github.com/Azure-Samples/DTDL-Validator) pour valider vos modèles d’appareil localement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

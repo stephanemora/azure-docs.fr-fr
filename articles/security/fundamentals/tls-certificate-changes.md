@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc79261035ef0f8671b9e43e1332ad68d1c9d39
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: c183c906644d5d672b97642b1b072a2a08a70973
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654051"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203753"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modification des certificats Azure TLS  
 
@@ -24,7 +24,7 @@ Microsoft met à jour les services Azure pour qu’ils utilisent des certificats
 
 - Les services [Azure Active Directory](/azure/active-directory) (Azure AD) ont commencé cette transition le 7 juillet 2020.
 - Tous les points de terminaison Azure TLS/SSL nouvellement créés contiennent des certificats mis à jour, liés aux nouvelles autorités de certification racines.
-- Les points de terminaison Azure existants feront l’objet d’une transition par phases qui commencera le 13 août 2020 et s’achèvera le 26 octobre 2020.
+- Les points de terminaison Azure existants feront l’objet d’une transition par phases à partir du 13 août 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](/azure/iot-dps/) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Stockage Azure](/azure/storage) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
@@ -58,7 +58,7 @@ Si cette date change, vous serez informé de la nouvelle date de révocation.
 
 ## <a name="will-this-change-affect-me"></a>Ce changement m’affecte-t-il ? 
 
-Nous pensons que **la plupart des clients Azure ne seront pas impactés**.  Toutefois, votre application peut être impactée si elle spécifie explicitement une liste d’autorités de certification acceptables. Cette pratique est appelée « épinglage de certificat ».
+Nous pensons que **la plupart des clients Azure ne seront pas impactés** .  Toutefois, votre application peut être impactée si elle spécifie explicitement une liste d’autorités de certification acceptables. Cette pratique est appelée « épinglage de certificat ».
 
 Voici quelques méthodes permettant de déterminer si votre application est impactée :
 
@@ -67,11 +67,11 @@ Voici quelques méthodes permettant de déterminer si votre application est impa
 - Si vous disposez d’une application qui s’intègre à des API Azure ou d’autres services Azure et que vous ne savez pas si elle utilise l’épinglage de certificat, contactez le fournisseur de l’application.
 
 - Les différents systèmes d’exploitation et runtimes de langage qui communiquent avec les services Azure peuvent nécessiter des étapes supplémentaires pour générer correctement la chaîne de certificats avec ces nouvelles racines :
-    - **Linux** : de nombreuses distributions vous obligent à ajouter des autorités de certification à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
+    - **Linux**  : de nombreuses distributions vous obligent à ajouter des autorités de certification à /etc/ssl/certs. Pour obtenir des instructions spécifiques, reportez-vous à la documentation de la distribution.
     - **Java** : assurez-vous que le magasin de clés Java contient les autorités de certification listées ci-dessus.
-    - **Windows exécuté dans des environnements déconnectés** : pour les systèmes qui s’exécutent dans des environnements déconnectés, de nouvelles racines doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
-    - **Android** : consultez la documentation de votre appareil et de votre version d’Android.
-    - **Autres appareils, en particulier IoT** : contactez le fabricant de l’appareil.
+    - **Windows exécuté dans des environnements déconnectés**  : pour les systèmes qui s’exécutent dans des environnements déconnectés, de nouvelles racines doivent être ajoutées au magasin d’autorités de certification racines de confiance et les intermédiaires au magasin d’autorités de certification intermédiaires.
+    - **Android**  : consultez la documentation de votre appareil et de votre version d’Android.
+    - **Autres appareils, en particulier IoT**  : contactez le fabricant de l’appareil.
 
 - Si vous disposez d’un environnement dans lequel les règles de pare-feu sont configurées pour autoriser les appels sortants uniquement vers des emplacements de téléchargement de liste de révocation de certificats et/ou de vérification de protocole OCSP (Online Certificate Status Protocol) spécifiques, vous devez autoriser les URL correspondantes suivantes :
 

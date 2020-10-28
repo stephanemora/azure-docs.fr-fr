@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259290"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091132"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -29,13 +29,13 @@ Une architecture Service Fabric commune utilise une application web d’une seul
 
 Dans ce scénario, un service web sans état sert de passerelle vers l’application Service Fabric. Cette approche nécessite que vous écriviez un service web capable de transmettre les requêtes HTTP aux services principaux, comme indiqué dans le diagramme suivant :
 
-![Vue d’ensemble de la topologie Service Fabric avec Gestion des API][sf-web-app-stateless-gateway]
+![Diagramme montrant la façon dont un service web sans état sert de passerelle vers l’application Service Fabric.][sf-web-app-stateless-gateway]
 
 Les applications sont de plus en plus complexes et il en va de même pour les passerelles qui doivent présenter une API devant une multitude de services principaux. Gestion des API Azure est conçue pour gérer les API complexes avec des règles de routage, un contrôle d’accès, une limitation du débit, une surveillance, une journalisation des événements et une mise en cache des réponses, mais impliquant un minimum de travail de votre part. Gestion des API Azure prend en charge la détection du service Service Fabric, la résolution de partition et la sélection de réplica pour acheminer les requêtes intelligemment et directement vers des services principaux dans Service Fabric, ce qui vous évite d’avoir à écrire votre propre passerelle API sans état. 
 
 Dans ce scénario, l’IU web est toujours prise en charge par un service web, tandis que les appels API HTTP sont gérés et acheminés par le biais de Gestion des API Azure, comme indiqué dans le diagramme suivant :
 
-![Vue d’ensemble de la topologie Service Fabric avec Gestion des API][sf-apim-web-app]
+![Diagramme montrant la façon dont l’IU web est toujours prise en charge par un service web, tandis que les appels API HTTP sont gérés et acheminés par le biais de Gestion des API Azure.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Scénarios d’application
 
@@ -51,7 +51,7 @@ Dans le cas le plus simple, le trafic est transféré à une instance de service
 
 Dans le scénario suivant, une application Service Fabric contient un service sans état nommé `fabric:/app/fooservice`, qui expose une API HTTP interne. Le nom d’instance de service est bien connu et peut être codé en dur directement dans la stratégie de traitement entrant Gestion des API. 
 
-![Vue d’ensemble de la topologie Service Fabric avec Gestion des API][sf-apim-static-stateless]
+![Diagramme montrant une application Service Fabric qui contient un service sans état qui expose une API HTTP interne.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Envoyer le trafic vers un service avec état
 
@@ -82,11 +82,11 @@ Dans cet exemple, une instance de service sans état est créée pour chaque uti
   - Une requête vers `/api/users/foo` est acheminée vers l’instance de service `fabric:/app/users/foo`
   - Une requête vers `/api/users/bar` est acheminée vers l’instance de service `fabric:/app/users/bar`
 
-![Vue d’ensemble de la topologie Service Fabric avec Gestion des API][sf-apim-dynamic-stateless]
+![Diagramme montrant un exemple où une instance de service sans état est créée pour chaque utilisateur d’une application avec un nom généré de manière dynamique.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Envoyer le trafic vers plusieurs services avec état
 
-Tout comme l’exemple de service sans état, une opération Gestion des API peut mapper les requêtes à plusieurs instances de service **avec état**. Dans ce cas, vous aurez peut-être aussi besoin d’effectuer la résolution de partition pour chaque instance de service avec état.
+Tout comme l’exemple de service sans état, une opération Gestion des API peut mapper les requêtes à plusieurs instances de service **avec état** . Dans ce cas, vous aurez peut-être aussi besoin d’effectuer la résolution de partition pour chaque instance de service avec état.
 
 Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service avec état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. En plus de mapper une requête à une instance de service spécifique, la requête peut être mappée à une partition spécifique au sein de l’instance de service, et éventuellement au réplica principal ou à un réplica secondaire aléatoire au sein de la partition.
 
@@ -103,7 +103,7 @@ Dans cet exemple, une instance de service avec état est créée pour chaque uti
 
 Chaque instance de service est également partitionnée à l’aide du schéma de partition Int64, avec deux partitions et une plage de clés qui s’étend de `Int64.MinValue` à `Int64.MaxValue`. La stratégie de serveur principal calcule une clé de partition dans cette plage en convertissant la valeur `id` fournie dans le chemin d’accès de requête URL à un entier 64 bits, bien que n’importe quel algorithme puisse être utilisé ici pour calculer la clé de partition. 
 
-![Vue d’ensemble de la topologie Service Fabric avec Gestion des API][sf-apim-dynamic-stateful]
+![Diagramme montrant que chaque instance de service est également partitionnée à l’aide du schéma de partition Int64, avec deux partitions et une plage de clés qui s’étend d’Int64.MinValue à Int64.MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

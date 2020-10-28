@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058078"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096621"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -57,6 +57,10 @@ Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à 
 
 - La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
 - La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure (MABS) ou System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Comment déplacer des données du coffre Recovery Services vers un emplacement local ?
+
+L’exportation directe de données du coffre Recovery Services vers un emplacement local à l’aide de Data Box n’est pas prise en charge. Les données doivent être restaurées dans un compte de stockage, puis déplacées vers l’emplacement local via [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 

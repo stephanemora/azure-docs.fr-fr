@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184246"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102015"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Opérations Microsoft Graph disponibles pour Azure AD B2C
 
@@ -34,6 +34,15 @@ Chaque lien dans les sections suivantes cible la page correspondante dans la ré
 
 Pour plus d’informations sur la gestion des comptes d’utilisateur Azure AD B2C avec l’API Microsoft Graph, voir [Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md).
 
+## <a name="user-phone-number-management"></a>Gestion des numéros de téléphone des utilisateurs
+
+- [Ajouter](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Mettre à jour](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Supprimer](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Pour plus d’informations sur la gestion du numéro de téléphone de connexion de l’utilisateur avec l’API Microsoft Graph, consultez [Méthodes d’authentification B2C](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
+
 ## <a name="identity-providers-user-flow"></a>Fournisseurs d’identité (flux d’utilisateurs)
 
 Gérez les fournisseurs d’identité disponibles pour vos flux d’utilisateurs dans votre locataire Azure AD B2C.
@@ -49,7 +58,7 @@ Gérez les fournisseurs d’identité disponibles pour vos flux d’utilisateurs
 Configurez des stratégies prédéfinies pour l’inscription, la connexion, l’inscription et la connexion combinées, la réinitialisation de mot de passe et la mise à jour de profil.
 
 - [Répertorier des flux d’utilisateur](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Créer un flux d’utilisateur](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
+- [Créer un flux utilisateur](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
 - [Obtenir un flux d’utilisateur](https://docs.microsoft.com/graph/api/identityuserflow-get)
 - [Supprimer un flux d’utilisateur](https://docs.microsoft.com/graph/api/identityuserflow-delete)
 
@@ -65,9 +74,9 @@ Les opérations suivantes vous permettent de gérer vos stratégies d’infrastr
 
 ## <a name="policy-keys"></a>Clés de stratégies
 
-L’infrastructure Identity Experience Framework stocke les secrets référencés dans une stratégie personnalisée pour établir la confiance entre des composants. Ces secrets peuvent être des clés/valeurs symétriques ou asymétriques. Dans le Portail Azure, ces entités sont affichées en tant que **clés de stratégies**.
+L’infrastructure Identity Experience Framework stocke les secrets référencés dans une stratégie personnalisée pour établir la confiance entre des composants. Ces secrets peuvent être des clés/valeurs symétriques ou asymétriques. Dans le Portail Azure, ces entités sont affichées en tant que **clés de stratégies** .
 
-La ressource de niveau supérieur pour les clés de stratégies dans l’API Microsoft Graph est le [jeu de clés de l’infrastructure de confiance](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Chaque **jeu de clés** contient au moins une **clé**. Pour créer une clé, commencez par créer un jeu de clés vide, puis générez une clé dans celui-ci. Vous pouvez créer un secret manuel, charger un certificat ou une clé PKCS12. La clé peut être un secret généré, une chaîne que vous définissez (par exemple, un secret de l’application Facebook) ou un certificat que vous chargez. Si un jeu de clés compte plusieurs clés, une seule d’entre elles est active.
+La ressource de niveau supérieur pour les clés de stratégies dans l’API Microsoft Graph est le [jeu de clés de l’infrastructure de confiance](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Chaque **jeu de clés** contient au moins une **clé** . Pour créer une clé, commencez par créer un jeu de clés vide, puis générez une clé dans celui-ci. Vous pouvez créer un secret manuel, charger un certificat ou une clé PKCS12. La clé peut être un secret généré, une chaîne que vous définissez (par exemple, un secret de l’application Facebook) ou un certificat que vous chargez. Si un jeu de clés compte plusieurs clés, une seule d’entre elles est active.
 
 ### <a name="trust-framework-policy-keyset"></a>Jeu de clés de stratégie d’infrastructure de confiance
 

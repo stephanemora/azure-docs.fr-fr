@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258640"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145113"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -26,11 +26,11 @@ Cet article explique comment vous pouvez configurer des stratégies d’accès c
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le fait d’exiger des appareils gérés pour accéder aux applications cloud associe **l’accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
+Le fait d’exiger des appareils gérés pour accéder aux applications cloud associe **l’accès conditionnel Azure AD** et la **gestion des appareils Azure AD** . Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
 - **[Accès conditionnel dans Azure Active Directory](./overview.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 - **[Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
-- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
+- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’ [extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
 
 >[!NOTE] 
 > Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Cela comprend la fermeture de sessions si l’appareil devient non conforme et sort du flux de code d’appareil.
@@ -48,7 +48,7 @@ L’accès conditionnel Azure AD permet de répondre à cette exigence avec une 
 
 ## <a name="managed-devices"></a>Appareils gérés  
 
-En termes simples, les appareils gérés sont ceux que l’organisation peut contrôler *d’une manière ou d’une autre*. Dans Azure AD, les prérequis pour un appareil géré implique son inscription auprès d’Azure AD. L’inscription d’un appareil crée une identité pour lui sous la forme d’un objet appareil. Cet objet est utilisé par Azure pour effectuer le suivi des informations d’état relatives à un appareil. En tant qu’administrateur Azure AD, vous pouvez déjà utiliser cet objet pour permuter (activer/désactiver) l’état d’un appareil.
+En termes simples, les appareils gérés sont ceux que l’organisation peut contrôler *d’une manière ou d’une autre* . Dans Azure AD, les prérequis pour un appareil géré implique son inscription auprès d’Azure AD. L’inscription d’un appareil crée une identité pour lui sous la forme d’un objet appareil. Cet objet est utilisé par Azure pour effectuer le suivi des informations d’état relatives à un appareil. En tant qu’administrateur Azure AD, vous pouvez déjà utiliser cet objet pour permuter (activer/désactiver) l’état d’un appareil.
   
 ![Conditions basées sur l’appareil](./media/require-managed-devices/32.png)
 
@@ -60,7 +60,7 @@ Pour inscrire un appareil auprès d’Azure AD, vous avez trois possibilités :
 
 Ces trois options sont décrites dans l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
-Pour avoir le statut d’appareil géré, un appareil inscrit doit être soit un **appareil hybride joint à Azure AD**, soit un **appareil marqué comme conforme**.  
+Pour avoir le statut d’appareil géré, un appareil inscrit doit être soit un **appareil hybride joint à Azure AD** , soit un **appareil marqué comme conforme** .  
 
 ![Conditions basées sur l’appareil](./media/require-managed-devices/47.png)
  
@@ -74,7 +74,7 @@ Ce paramètre s’applique uniquement à Windows 10 ou aux appareils de bas nive
 
 ![Conditions basées sur l’appareil](./media/require-managed-devices/45.png)
 
-Qu’est-ce qui transforme un appareil joint à une version hybride d’Azure AD en appareil géré ?  Pour les appareils joints à une version locale d’Active Directory, le contrôle est supposé être appliqué à l’aide de solutions de gestion comme **Configuration Manager** ou une **stratégie de groupe**. Étant donné qu’il n’existe aucune méthode permettant à Azure AD de déterminer si une de ces méthodes a été appliquée à un appareil, exiger un appareil joint à une version hybride d’Azure AD constitue un mécanisme relativement faible pour exiger un appareil géré. Il vous appartient en tant qu’administrateur de déterminer si les méthodes appliquées à vos appareils joints au domaine local sont suffisamment fortes pour constituer un appareil géré si ces appareils sont également joints à une version hybride d’Azure AD.
+Qu’est-ce qui transforme un appareil joint à une version hybride d’Azure AD en appareil géré ?  Pour les appareils joints à une version locale d’Active Directory, le contrôle est supposé être appliqué à l’aide de solutions de gestion comme **Configuration Manager** ou une **stratégie de groupe** . Étant donné qu’il n’existe aucune méthode permettant à Azure AD de déterminer si une de ces méthodes a été appliquée à un appareil, exiger un appareil joint à une version hybride d’Azure AD constitue un mécanisme relativement faible pour exiger un appareil géré. Il vous appartient en tant qu’administrateur de déterminer si les méthodes appliquées à vos appareils joints au domaine local sont suffisamment fortes pour constituer un appareil géré si ces appareils sont également joints à une version hybride d’Azure AD.
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Exiger que l’appareil soit marqué comme conforme
 
@@ -104,18 +104,18 @@ Les organisations doivent suivre les étapes ci-dessous pour exiger l’utilisat
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
-1. Sélectionnez **Nouvelle stratégie**.
+1. Sélectionnez **Nouvelle stratégie** .
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
-1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
-   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
-   1. Sélectionnez **Terminé**.
-1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365**.
-1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
-   1. Définissez **Configurer** sur **Oui**.
-   1. Incluez **Android** et **iOS**.
-1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
+1. Sous **Affectations** , sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure** , sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé** .
+1. Sous **Applications cloud ou actions** > **Inclure** , sélectionnez **Office 365** .
+1. Sous **Conditions** , sélectionnez **Plateformes d’appareils** .
+   1. Définissez **Configurer** sur **Oui** .
+   1. Incluez **Android** et **iOS** .
+1. Sous **Contrôles d’accès** > **Octroyer** , sélectionnez les options suivantes :
    - **Exiger que l’appareil soit marqué comme conforme**
-1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé** .
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.
 
 ### <a name="known-behavior"></a>Comportement connu
@@ -126,4 +126,4 @@ Sur des systèmes Windows 7, iOS, Android, macOS, et dans certains navigateurs 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avant de configurer une stratégie d’accès conditionnel basé sur les appareils dans votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).
+[Évaluez l’impact des stratégies d’accès conditionnel avant de les activer en mode rapport seul](concept-conditional-access-report-only.md).

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/02/2020
-ms.openlocfilehash: ab37fcdb4012394f1c5131a23f7c67063d3d6e37
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/20/2020
+ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825758"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312410"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -60,7 +60,7 @@ Utilisez l’agent Azure Monitor si vous avez besoin de faire ce qui suit :
 - Envoyer des données aux Journaux Azure Monitor et aux Métriques Azure Monitor à des fins d’analyse avec Azure Monitor. 
 - Envoyer des données à Stockage Azure à des fins d’archivage.
 - Envoyer les données à des outils tiers à l’aide d’[Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
-- Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-intro.md) ou d’[Azure Sentinel](../../sentinel/overview.md). (Non disponible en préversion.)
+- Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-introduction.md) ou d’[Azure Sentinel](../../sentinel/overview.md). (Non disponible en préversion.)
 
 Les limites de l’agent Azure Monitor sont les suivantes :
 
@@ -82,7 +82,7 @@ Utilisez l’agent Log Analytics si vous avez besoin d’effectuer les opératio
 * Envoyer les données à un espace de travail Log Analytics pour tirer parti des fonctionnalités prises en charge par les [journaux Azure Monitor](data-platform-logs.md) comme les [requêtes de journal](../log-query/log-query-overview.md).
 * Utiliser [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md), qui vous permet de superviser vos machines virtuelles à grande échelle et qui supervise leurs processus et dépendances vis-à-vis d’autres ressources et processus externes.  
 * Gérer la sécurité de vos machines virtuelles à l’aide d’[Azure Security Center](../../security-center/security-center-intro.md) ou d’[Azure Sentinel](../../sentinel/overview.md).
-* Utiliser [Azure Automation Update Management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) pour offrir une gestion complète de vos machines virtuelles Azure.
+* Utiliser [Azure Automation Update Management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) pour offrir une gestion complète de vos machines virtuelles Azure.
 * Utiliser des [solutions](../monitor-reference.md#insights-and-core-solutions) différentes pour superviser un service ou une application spécifique.
 
 Les limitations de l’agent Log Analytics sont les suivantes :
@@ -148,9 +148,9 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Entreprise<br>(multisession inclus) et Pro  | X | X | X | X |
-| Windows 8 Entreprise et Professionnel                             |   | X | X |   |
-| Windows 7 SP1                                            |   | X | X |   |
+| Windows 10 Entreprise<br>(multisession inclus) et Pro<br>(Scénarios de serveur uniquement)  | X | X | X | X |
+| Windows 8 Entreprise et Professionnel<br>(Scénarios de serveur uniquement)  |   | X | X |   |
+| Windows 7 SP1<br>(Scénarios de serveur uniquement)                 |   | X | X |   |
 
 
 ### <a name="linux"></a>Linux
@@ -162,26 +162,26 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | CentOS Linux 7                                           | X | X |   | X |
 | CentOS Linux 7.8                                         | X | X | X | X |
 | CentOS Linux 7.6                                         | X | X | X | X |
-| CentOS Linux 6                                           | X | X |   |   |
-| CentOS Linux 6.5+                                        | X | X |   | X |
+| CentOS Linux 6                                           |   | X |   |   |
+| CentOS Linux 6.5+                                        |   | X |   | X |
 | Debian 10                                                | X |   |   |   |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oracle Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           | X | X |   |   |
-| Oracle Linux 6.4+                                        | X | X |   | X |
+| Oracle Linux 6                                           |   | X |   |   |
+| Oracle Linux 6.4+                                        |   | X |   | X |
 | Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        | X | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         | X | X |   | X |
+| Ubuntu 14.04 LTS                                         |   | X |   | X |
 
 
 #### <a name="dependency-agent-linux-kernel-support"></a>Prise en charge du noyau Linux par Dependency Agent
@@ -212,4 +212,3 @@ Pour plus d’informations sur chacun des agents, consultez les articles suivant
 - [Vue d’ensemble de l’agent Log Analytics](log-analytics-agent.md)
 - [Vue d’ensemble de l’extension Diagnostics Azure](diagnostics-extension-overview.md)
 - [Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
-

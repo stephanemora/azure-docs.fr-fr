@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930915"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315302"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algorithme Azure Load Balancer
 
@@ -57,6 +57,7 @@ L’équilibreur de charge n’interagit pas directement avec TCP, UDP ou la cou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrez-en plus sur les [composants](components.md) qui constituent Azure Load Balancer.
 - Consultez [Créer un service Standard Load Balancer public](quickstart-load-balancer-standard-public-portal.md) pour bien démarrer avec Load Balancer : créez un équilibreur de charge, créez des machines virtuelles avec une extension IIS personnalisée installée et équilibrez la charge de l’application web entre les machines virtuelles.
 - Découvrez les [connexions sortantes d’Azure Load Balancer](load-balancer-outbound-connections.md).
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).

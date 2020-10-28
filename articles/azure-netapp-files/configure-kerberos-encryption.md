@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461476"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217046"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurer le chiffrement Kerberos NFSv4.1 pour Azure NetApp Files
 
@@ -40,7 +40,7 @@ La configuration requise suivante s’applique au chiffrement client NFSv4.1 :
 
 1.  Suivez les étapes décrites dans [Créer un volume NFS pour Azure NetApp Files](azure-netapp-files-create-volumes.md) pour créer le volume NFSv4.1.   
 
-    Sur la page Créer un volume, définissez la version NFS sur **NFSv4.1** et définissez Kerberos sur **Activé**.
+    Sur la page Créer un volume, définissez la version NFS sur **NFSv4.1** et définissez Kerberos sur **Activé** .
 
     > [!IMPORTANT] 
     > Vous ne pouvez pas modifier la sélection d’activation Kerberos après la création du volume.
@@ -61,7 +61,7 @@ La configuration requise suivante s’applique au chiffrement client NFSv4.1 :
 
     Kerberos requiert la création d’au moins un compte d’ordinateur dans Active Directory. Les informations de compte que vous fournissez sont utilisées pour créer les comptes pour les volumes SMB *et* Kerberos NFSv4.1. Cet ordinateur est automatiquement créé lors de la création du volume.
 
-2.  Sous **Domaine Kerberos**, entrez le **nom du serveur AD** et l’adresse **IP KDC**.
+2.  Sous **Domaine Kerberos** , entrez le **nom du serveur AD** et l’adresse **IP KDC** .
 
     Le serveur AD et l’adresse IP du KDC peuvent être le même serveur. Ces informations permettent de créer le compte d’ordinateur SPN utilisé par Azure NetApp Files. Une fois le compte d’ordinateur créé, Azure NetApp Files utilisera les enregistrements du serveur DNS pour localiser des serveurs KDC supplémentaires si nécessaire. 
 
@@ -75,7 +75,7 @@ La configuration de Kerberos NFSv4.1 crée deux comptes d’ordinateur dans Acti
 * Un compte d’ordinateur pour les partages SMB
 * Un compte d’ordinateur pour NFSv4.1 : vous pouvez identifier ce compte par le biais du préfixe `NFS-`. 
 
-Après la création du premier volume Kerberos NFSv4.1, définissez le type de chiffrement ou de compte d’ordinateur à l’aide de la commande PowerShell suivante :
+Après la création du premier volume Kerberos NFSv4.1, définissez le type de chiffrement pour le compte d’ordinateur à l’aide de la commande PowerShell suivante :
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -85,7 +85,7 @@ Suivez les instructions dans [Configurer un client NFS pour Azure NetApp Files](
 
 ## <a name="mount-the-nfs-kerberos-volume"></a><a name="kerberos_mount"></a>Monter un volume NFS Kerberos
 
-1. Sur la page **Volumes**, sélectionnez le volume NFS que vous souhaitez monter.
+1. Sur la page **Volumes** , sélectionnez le volume NFS que vous souhaitez monter.
 
 2. Sélectionnez **Instructions de montage** à partir du volume pour afficher les instructions.
 
@@ -96,11 +96,11 @@ Suivez les instructions dans [Configurer un client NFS pour Azure NetApp Files](
 3. Créez le répertoire (point de montage) pour le nouveau volume.  
 
 4. Définissez le type de chiffrement par défaut sur AES 256 pour le compte d’ordinateur :  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * Vous ne devez exécuter cette commande qu’une seule fois pour chaque compte d’ordinateur.
     * Vous pouvez exécuter cette commande à partir d’un contrôleur de domaine ou d’un PC sur lequel [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) est installé. 
-    * La variable `$COMPUTERACCOUNT` est le compte d’ordinateur créé dans Active Directory lorsque vous déployez le volume Kerberos. Il s’agit du compte avec le préfixe `NFS-`. 
+    * La variable `$NFSCOMPUTERACCOUNT` est le compte d’ordinateur créé dans Active Directory lorsque vous déployez le volume Kerberos. Il s’agit du compte avec le préfixe `NFS-`. 
     * La variable `$ANFSERVICEACCOUNT` est un compte d'utilisateur Active Directory non privilégié avec contrôles délégués sur l’unité d'organisation dans laquelle le compte d'ordinateur a été créé. 
 
 5. Montez le volume sur l’hôte : 

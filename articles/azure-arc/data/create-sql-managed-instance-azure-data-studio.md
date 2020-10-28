@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311527"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320300"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Créer une instance gérée SQL – Azure Arc utilisant Azure Data Studio
 
@@ -49,7 +49,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Sous l’onglet Connexions, cliquez sur les trois points situés en haut à gauche, puis choisissez « Nouveau déploiement »
 - Dans les options de déploiement, sélectionnez **Azure SQL Managed Instance - Azure Arc** 
   > [!NOTE]
-  > Vous pouvez ici être invité à installer l’interface CLI azdata si elle n’est pas installée.
+  > Vous pouvez être invité à installer l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] ici s’il n’est pas encore installé.
 - Acceptez la déclaration de confidentialité et les termes du contrat de licence, puis cliquez dans le bas sur **Sélectionner**
 
 
@@ -60,7 +60,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
   - Sélectionnez la classe de stockage appropriée pour les données.
   - Sélectionnez la classe de stockage appropriée pour les journaux.
 
-- Cliquez sur le bouton **Déployer**.
+- Cliquez sur le bouton **Déployer** .
 
 - Cette action doit lancer la création de l’instance gérée Azure SQL – Azure Arc sur le contrôleur de données.
 
@@ -88,8 +88,8 @@ Name          Replicas    ServerEndpoint     State
 sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-- Dans Azure Data Studio, sous l’onglet **Connexions**, cliquez sur **Nouvelle connexion** dans la vue **Serveurs**.
-- Dans le panneau **Connexion**, collez l’élément ServerEndpoint dans la zone de texte Serveur.
+- Dans Azure Data Studio, sous l’onglet **Connexions** , cliquez sur **Nouvelle connexion** dans la vue **Serveurs** .
+- Dans le panneau **Connexion** , collez l’élément ServerEndpoint dans la zone de texte Serveur.
 - Sélectionnez **Connexion SQL** comme type d’authentification.
 - Entrez *sa* comme nom d’utilisateur.
 - Entrez le mot de passe du compte `sa`.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048489"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460782"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente
 
@@ -24,7 +24,7 @@ Dans ce tutoriel, vous allez :
 > [!div class="checklist"]
 > * Configurer une instance Azure Digital Twins.
 > * Configurer l’exemple d’application en ligne de commande pour interagir avec l’instance.
-> * Utiliser l’application en ligne de commande pour explorer Azure Digital Twins, notamment les **modèles**, les **jumeaux numériques**, les **relations** et les **requêtes**.
+> * Utiliser l’application en ligne de commande pour explorer Azure Digital Twins, notamment les **modèles** , les **jumeaux numériques** , les **relations** et les **requêtes** .
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -32,24 +32,24 @@ Dans ce tutoriel, vous allez :
 
 ## <a name="explore-with-the-sample-solution"></a>Explorer avec l’exemple de solution
 
-Maintenant que l’instance et l’exemple d’application sont configurés, vous allez utiliser l’exemple de projet et un exemple de code pré-écrit pour générer et explorer une solution Azure Digital Twins de base. Les principaux composants de la solution sont les **modèles** , les **jumeaux numériques** et les **relations**, ce qui se traduit par un **graphe de jumeaux** d’environnement interrogeable.
+Maintenant que l’instance et l’exemple d’application sont configurés, vous allez utiliser l’exemple de projet et un exemple de code pré-écrit pour générer et explorer une solution Azure Digital Twins de base. Les principaux composants de la solution sont les **modèles** , les **jumeaux numériques** et les **relations** , ce qui se traduit par un **graphe de jumeaux** d’environnement interrogeable.
 
 ### <a name="model-a-physical-environment-with-dtdl"></a>Modéliser un environnement physique avec DTDL
 
 La première étape de la création d’une solution Azure Digital Twins consiste à définir des [**modèles**](concepts-models.md) de jumeaux pour votre environnement. 
 
-Les modèles sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-twins-graph.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language**) et peuvent définir les *propriétés*, la *télémétrie*, les *relations* et les *composants* d’un jumeau.
+Les modèles sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-twins-graph.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language** ) et peuvent définir les *propriétés* , la *télémétrie* , les *relations* et les *composants* d’un jumeau.
 
 > [!NOTE]
 > DTDL permet également de définir des *commandes* sur des jumeaux numériques. Toutefois, les commandes ne sont actuellement pas prises en charge dans le service Azure Digital Twins.
 
-Dans la fenêtre Visual Studio où le projet _**AdtE2ESample**_ est ouvert, utilisez le volet *Explorateur de solutions* pour accéder au dossier *AdtSampleApp\SampleClientApp\Models*. Ce dossier contient des exemples de modèles.
+Dans la fenêtre Visual Studio où le projet _**AdtE2ESample**_ est ouvert, utilisez le volet *Explorateur de solutions* pour accéder au dossier *AdtSampleApp\SampleClientApp\Models* . Ce dossier contient des exemples de modèles.
 
 Sélectionnez *Room.json* pour l’ouvrir dans la fenêtre d’édition, puis modifiez-le comme suit :
 
-* **Mettez à jour le numéro de version** pour indiquer que vous fournissez une version mise à jour de ce modèle. Pour ce faire, remplacez le *1* à la fin de la valeur `@id` par un *2*. Tout nombre supérieur au numéro de version actuel convient aussi.
-* **Modifiez une propriété**. Remplacez le nom de la propriété `Humidity` par *HumidityLevel* (ou une autre valeur si vous le souhaitez. Si vous utilisez autre chose que *HumidityLevel*, souvenez-vous de ce que vous avez utilisé et continuez à l’utiliser à la place de *HumidityLevel* tout au long du tutoriel).
-* **Ajoutez une propriété**. Sous la propriété `HumidityLevel` qui se termine à la ligne 15, collez le code suivant pour ajouter une propriété `RoomName` à la pièce :
+* **Mettez à jour le numéro de version** pour indiquer que vous fournissez une version mise à jour de ce modèle. Pour ce faire, remplacez le *1* à la fin de la valeur `@id` par un *2* . Tout nombre supérieur au numéro de version actuel convient aussi.
+* **Modifiez une propriété** . Remplacez le nom de la propriété `Humidity` par *HumidityLevel* (ou une autre valeur si vous le souhaitez. Si vous utilisez autre chose que *HumidityLevel* , souvenez-vous de ce que vous avez utilisé et continuez à l’utiliser à la place de *HumidityLevel* tout au long du tutoriel).
+* **Ajoutez une propriété** . Sous la propriété `HumidityLevel` qui se termine à la ligne 15, collez le code suivant pour ajouter une propriété `RoomName` à la pièce :
 
     ```json
     ,
@@ -59,7 +59,7 @@ Sélectionnez *Room.json* pour l’ouvrir dans la fenêtre d’édition, puis mo
       "schema": "string"
     }
     ```
-* **Ajoutez une relation**. Sous la propriété `RoomName` que vous venez d’ajouter, collez le code suivant pour permettre à ce type de jumeau de former des relations *contains* avec d’autres jumeaux :
+* **Ajoutez une relation** . Sous la propriété `RoomName` que vous venez d’ajouter, collez le code suivant pour permettre à ce type de jumeau de former des relations *contains* avec d’autres jumeaux :
 
     ```json
     ,
@@ -76,7 +76,7 @@ Quand vous avez terminé, le modèle mis à jour doit ressembler à ceci :
 N’oubliez pas d’enregistrer le fichier avant de continuer.
 
 > [!TIP]
-> Si vous souhaitez essayer de créer votre propre modèle, vous pouvez coller le code du modèle *Room* dans un nouveau fichier que vous enregistrez avec une extension *.json* dans le dossier *AdtSampleApp\SampleClientApp\Models*. Ensuite, ajoutez différentes propriétés et relations pour représenter ce que vous souhaitez. Vous pouvez également consulter les autres exemples de modèles dans ce dossier pour obtenir des idées.
+> Si vous souhaitez essayer de créer votre propre modèle, vous pouvez coller le code du modèle *Room* dans un nouveau fichier que vous enregistrez avec une extension *.json* dans le dossier *AdtSampleApp\SampleClientApp\Models* . Ensuite, ajoutez différentes propriétés et relations pour représenter ce que vous souhaitez. Vous pouvez également consulter les autres exemples de modèles dans ce dossier pour obtenir des idées.
 
 > [!TIP] 
 > Il existe un [exemple de validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) indépendant du langage qui vous permet de vérifier les documents de modèle et la validité du DTDL. Il repose sur la bibliothèque de l’analyseur DTDL, qui est décrite en détail dans [*Guide pratique pour analyser et valider les modèles*](how-to-parse-models.md).
@@ -151,7 +151,7 @@ Maintenant que certains modèles ont été chargés sur votre instance Azure Dig
 
 Pour créer un jumeau numérique, utilisez la commande `CreateDigitalTwin`. Vous devez référencer le modèle sur lequel le jumeau est basé, et vous pouvez éventuellement définir des valeurs initiales pour les propriétés du modèle. Vous n’avez pas besoin de transmettre d’informations de relation à ce stade.
 
-Exécutez ce code dans la console de projet en cours d’exécution pour créer plusieurs jumeaux, basés sur le modèle *Room* que vous avez mis à jour et sur un autre modèle, *Floor*. Rappelez-vous que *Room* a trois propriétés ; vous pouvez donc fournir des arguments avec les valeurs initiales de ces propriétés.
+Exécutez ce code dans la console de projet en cours d’exécution pour créer plusieurs jumeaux, basés sur le modèle *Room* que vous avez mis à jour et sur un autre modèle, *Floor* . Rappelez-vous que *Room* a trois propriétés ; vous pouvez donc fournir des arguments avec les valeurs initiales de ces propriétés.
 
 ```cmd/sh
 CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -167,11 +167,11 @@ La sortie de ces commandes doit indiquer que les jumeaux ont été créés avec 
 
 :::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Room.json modifié avec le numéro de version mis à jour, les propriétés HumidityLevel et RoomName et la relation contains":::
 
-Vous pouvez aussi vérifier que les jumeaux ont été créés en exécutant la commande `Query`. Cette commande interroge votre instance Azure Digital Twins pour obtenir tous les jumeaux numériques qu’elle contient. Recherchez les jumeaux *floor0*, *floor1*, *room0* et *room1* dans les résultats.
+Vous pouvez aussi vérifier que les jumeaux ont été créés en exécutant la commande `Query`. Cette commande interroge votre instance Azure Digital Twins pour obtenir tous les jumeaux numériques qu’elle contient. Recherchez les jumeaux *floor0* , *floor1* , *room0* et *room1* dans les résultats.
 
 #### <a name="modify-a-digital-twin"></a>Modifier un jumeau numérique
 
-Vous pouvez également modifier les propriétés d’un jumeau que vous avez créé. Essayez d’exécuter cette commande pour changer le RoomName de *room0* de *Room0* en *PresidentialSuite* :
+Vous pouvez également modifier les propriétés d’un jumeau que vous avez créé. Essayez d’exécuter cette commande pour changer le RoomName de *room0* de *Room0* en *PresidentialSuite*  :
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
@@ -179,7 +179,7 @@ UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
 
 La sortie doit indiquer que le jumeau a été correctement mis à jour.
 
-Vous pouvez également vérifier en exécutant cette commande pour voir les informations de *room0* :
+Vous pouvez également vérifier en exécutant cette commande pour voir les informations de *room0*  :
 
 ```cmd/sh
 GetDigitalTwin room0
@@ -196,7 +196,7 @@ Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les rac
 
 Pour ajouter une relation, utilisez la commande `CreateRelationship`. Spécifiez le jumeau d’où provient la relation, le type de relation à ajouter et le jumeau avec lequel la relation établit une connexion. Pour finir, spécifiez un nom (ID) pour la relation.
 
-Exécutez le code suivant pour ajouter une relation « contains » entre chaque jumeau *Floor* que vous avez créé et un jumeau *Room* correspondant. Notez que pour que cela soit possible, une relation *contains* doit être définie sur le modèle *Floor*.
+Exécutez le code suivant pour ajouter une relation « contains » entre chaque jumeau *Floor* que vous avez créé et un jumeau *Room* correspondant. Notez que pour que cela soit possible, une relation *contains* doit être définie sur le modèle *Floor* .
 
 ```cmd/sh
 CreateRelationship floor0 contains room0 relationship0
@@ -242,7 +242,7 @@ L’une des principales fonctionnalités d’Azure Digital Twins est la capacit�
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Room.json modifié avec le numéro de version mis à jour, les propriétés HumidityLevel et RoomName et la relation contains":::
 
     >[!NOTE]
-    >Dans l’exemple de projet, la commande `Query` sans argument supplémentaire équivaut à `Query SELECT * FROM DIGITALTWINS`. Pour interroger tous les jumeaux dans votre instance à l’aide des [API de requête](how-to-use-apis-sdks.md) ou des [commandes CLI](how-to-use-cli.md), utilisez la requête la plus longue (complète).
+    >Dans l’exemple de projet, la commande `Query` sans argument supplémentaire équivaut à `Query SELECT * FROM DIGITALTWINS`. Pour interroger tous les jumeaux dans votre instance à l’aide des [API de requête](/rest/api/digital-twins/dataplane/query) ou des [commandes CLI](how-to-use-cli.md), utilisez la requête la plus longue (complète).
 
 * **Quelles sont les pièces dans mon environnement ?** (requête par modèle)
 
@@ -250,17 +250,17 @@ L’une des principales fonctionnalités d’Azure Digital Twins est la capacit�
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    Vous pouvez limiter votre requête aux jumeaux d’un certain type, afin d’obtenir des informations plus spécifiques sur ce qui est représenté. Le résultat montre *room0* et *room1*, mais ne montre **pas** *floor0* ni *floor1* (car il s’agit d’étages, et non de salles).
+    Vous pouvez limiter votre requête aux jumeaux d’un certain type, afin d’obtenir des informations plus spécifiques sur ce qui est représenté. Le résultat montre *room0* et *room1* , mais ne montre **pas** *floor0* ni *floor1* (car il s’agit d’étages, et non de salles).
     
     :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Room.json modifié avec le numéro de version mis à jour, les propriétés HumidityLevel et RoomName et la relation contains":::
 
-* **Quelles sont les pièces de *floor0* ?** (requête par relation)
+* **Quelles sont les pièces de *floor0*  ?** (requête par relation)
 
     ```cmd/sh
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
     ```
 
-    Vous pouvez interroger en fonction des relations de votre graphe, afin d’obtenir des informations sur la façon dont les jumeaux sont raccordés ou de limiter votre requête à une certaine zone. Seule *room0* se trouve à l’étage *floor0* ; il s’agit donc de la seule pièce dans le résultat.
+    Vous pouvez interroger en fonction des relations de votre graphe, afin d’obtenir des informations sur la façon dont les jumeaux sont raccordés ou de limiter votre requête à une certaine zone. Seule *room0* se trouve à l’étage *floor0*  ; il s’agit donc de la seule pièce dans le résultat.
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Room.json modifié avec le numéro de version mis à jour, les propriétés HumidityLevel et RoomName et la relation contains":::
 

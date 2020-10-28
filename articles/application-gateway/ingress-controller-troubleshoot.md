@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207166"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168186"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Résoudre les problèmes courants liés à Ingress Controller
 
@@ -85,15 +85,15 @@ Une fois le déploiement réussi de l’application ci-dessus, votre nouveau clu
 Obtenez la liste des pods avec [Cloud Shell](https://shell.azure.com/) : `kubectl get pods -o wide`.
 Nous nous attendons à la création d’un pod nommé « test-agic-app-pod ». Il a une adresse IP. Cette adresse doit se trouver dans le réseau virtuel de la passerelle Application Gateway, qui est utilisée avec AKS.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Capture d’écran de la fenêtre Bash dans Azure Cloud Shell montrant une liste de pods incluant test-agic-app-pod dans la liste.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Obtenez la liste des services : `kubectl get services -o wide`. Nous nous attendons à voir un service nommé « test-agic-app-service ».
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Capture d’écran de la fenêtre Bash dans Azure Cloud Shell montrant une liste de services incluant test-agic-app-pod dans la liste.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Obtenez la liste des entrées : `kubectl get ingress`. Nous nous attendons à ce qu’une ressource d’entrée nommée « test-agic-app-ingres » soit créée. La ressource a le nom d’hôte « test.agic.contoso.com ».
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Capture d’écran de la fenêtre Bash dans Azure Cloud Shell montrant une liste d’entrées incluant test-agic-app-ingress dans la liste.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 L’un des pods est AGIC. `kubectl get pods` affiche une liste de pods, dont l’un commence par « ingres-azure ». Récupérez tous les journaux de ce pod avec `kubectl logs <name-of-ingress-controller-pod>` pour vérifier que le déploiement a réussi. Un déploiement réussi ajoute les lignes suivantes au journal :
 ```
@@ -120,7 +120,7 @@ Enfin, nous pouvons utiliser la commande `cURL` dans [Cloud Shell](https://shell
 1. Utilisez `kubectl get ingress` pour récupérer l’adresse IP publique d’Application Gateway.
 2. Utilisez `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Capture d’écran de la fenêtre Bash dans Azure Cloud Shell montrant une commande cURL établissant avec succès une connexion HTTP à l’application de test.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 Un résultat de `HTTP/1.1 200 OK` indique que le système Application Gateway + AKS + AGIC fonctionne comme prévu.
 
@@ -141,7 +141,7 @@ Les éléments suivants doivent être en place pour que AGIC fonctionne comme pr
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. Un ou plusieurs **services**, qui font référence aux pods ci-dessus via les étiquettes `selector` correspondantes.
+  2. Un ou plusieurs **services** , qui font référence aux pods ci-dessus via les étiquettes `selector` correspondantes.
      Vérifiez cela à partir de [Cloud Shell](https://shell.azure.com/) avec `kubectl get services -o wide`.
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -150,7 +150,7 @@ Les éléments suivants doivent être en place pour que AGIC fonctionne comme pr
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Entrées**, annotées avec `kubernetes.io/ingress.class: azure/application-gateway`, référençant le service ci-dessus. Vérifiez cela dans [Cloud Shell](https://shell.azure.com/) avec `kubectl get ingress -o wide --show-labels`.
+  3. **Entrées** , annotées avec `kubernetes.io/ingress.class: azure/application-gateway`, référençant le service ci-dessus. Vérifiez cela dans [Cloud Shell](https://shell.azure.com/) avec `kubectl get ingress -o wide --show-labels`.
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 

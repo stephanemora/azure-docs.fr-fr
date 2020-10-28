@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273141"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310950"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Créer un contrôleur de données dans Azure Data Studio
 
@@ -25,8 +25,8 @@ Vous pouvez créer un contrôleur de données en utilisant Azure Data Studio via
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez avoir accès à un cluster Kubernetes et votre fichier kubeconfig doit être configuré pour pointer vers le cluster Kubernetes sur lequel vous voulez déployer.
-- Vous devez [installer les outils clients](install-client-tools.md), notamment **Azure Data Studio**, les extensions Azure Data Studio appelées **Azure Arc** et **Azure Data CLI**.
-- Vous devez vous connecter à Azure dans Azure Data Studio.  Pour cela, tapez Ctrl/Cmd+Maj+P pour ouvrir la fenêtre de texte de commande, puis tapez **Azure**.  Choisissez **Azure : Sign in**.   Dans le volet qui s’affiche, cliquez sur l’icône + en haut à droite pour ajouter un compte Azure.
+- Vous devez [installer les outils clients](install-client-tools.md), notamment **Azure Data Studio** et les extensions Azure Data Studio appelées **Azure Arc** et **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** .
+- Vous devez vous connecter à Azure dans Azure Data Studio.  Pour cela, tapez Ctrl/Cmd+Maj+P pour ouvrir la fenêtre de texte de commande, puis tapez **Azure** .  Choisissez **Azure : Sign in** .   Dans le volet qui s’affiche, cliquez sur l’icône + en haut à droite pour ajouter un compte Azure.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>Utiliser l’Assistant Déploiement pour créer un contrôleur de données Azure Arc
 
@@ -34,10 +34,10 @@ Suivez ces étapes pour créer un contrôleur de données Azure Arc en utilisant
 
 1. Dans Azure Data Studio, cliquez sur l’onglet Connexions dans le volet de navigation gauche.
 2. Cliquez sur le bouton **...** en haut du panneau Connexions, puis choisissez **Nouveau déploiement...**
-3. Dans l’Assistant Nouveau déploiement, choisissez **Contrôleur de données Azure Arc**, cochez la case d’acceptation de la licence, puis cliquez sur le bouton **Sélectionner** dans le bas.
-4. Utilisez le fichier kubeconfig par défaut ou sélectionnez-en un autre.  Cliquez sur **Suivant**.
-5. Choisissez un contexte de cluster Kubernetes. Cliquez sur **Suivant**.
-6. Choisissez un fichier de profil de configuration de déploiement en fonction de votre cluster Kubernetes cible. Cliquez sur **Suivant**.
+3. Dans l’Assistant Nouveau déploiement, choisissez **Contrôleur de données Azure Arc** , cochez la case d’acceptation de la licence, puis cliquez sur le bouton **Sélectionner** dans le bas.
+4. Utilisez le fichier kubeconfig par défaut ou sélectionnez-en un autre.  Cliquez sur **Suivant** .
+5. Choisissez un contexte de cluster Kubernetes. Cliquez sur **Suivant** .
+6. Choisissez un fichier de profil de configuration de déploiement en fonction de votre cluster Kubernetes cible. Cliquez sur **Suivant** .
 8. Choisissez l’abonnement et le groupe de ressources souhaités.
 9. Entrez un nom pour le contrôleur de données et pour l’espace de noms dans lequel le contrôleur de données sera créé.  
 
@@ -57,9 +57,9 @@ Suivez ces étapes pour créer un contrôleur de données Azure Arc en utilisant
 > [!NOTE]
 > Le mot de passe doit comporter au moins 8 caractères.
 
-1.  Cliquez sur **Suivant**.
-2.  Passez en revue et cliquez sur **Exécuter un script sur un notebook**.
-3.  **Passez en revue le notebook généré**.  Apportez les modifications nécessaires, comme les noms des classes de stockage ou les types de services.
+1.  Cliquez sur **Suivant** .
+2.  Passez en revue et cliquez sur **Exécuter un script sur un notebook** .
+3.  **Passez en revue le notebook généré** .  Apportez les modifications nécessaires, comme les noms des classes de stockage ou les types de services.
 4.  Cliquez sur **Exécuter tout** en haut du notebook.
 
 ## <a name="monitoring-the-creation-status"></a>Surveillance de l’état de la création

@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978490"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167336"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -192,14 +192,17 @@ Les noms d’hôte et les adresses IP pour le scénario présenté sont les suiv
 | --- | --- | --- |---| ---|
 | 1er nœud de cluster du cluster ASCS/SCS |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 2e nœud de cluster du cluster ASCS/SCS |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nom réseau du cluster | pr1clust |10.0.0.42 (**uniquement** pour le cluster Win 2016) | n/a | n/a |
+| Nom réseau du cluster | pr1clust |10.0.0.42 ( **uniquement** pour le cluster Win 2016) | n/a | n/a |
 | Nom réseau du cluster ASCS | pr1-ascscl |10.0.0.43 | n/a | n/a |
-| Nom réseau du cluster ERS (**uniquement** pour ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
+| Nom réseau du cluster ERS ( **uniquement** pour ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Créer un équilibreur de charge interne Azure
 
 SAP ASCS, SAP SCS et le nouveau SAP ERS2 utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](../../../load-balancer/load-balancer-overview.md) est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons vivement d’utiliser un [équilibreur de charge standard](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.    
 
 
 La liste suivante présente la configuration de l’équilibreur de charge d’(A)SCS/ERS. La configuration de SAP ASCS et ERS2 est effectuée dans le même équilibreur de charge Azure.  
@@ -208,19 +211,19 @@ La liste suivante présente la configuration de l’équilibreur de charge d’(
 - Configuration du frontend
     - Adresse IP ASCS/SCS statique **10.0.0.43**
 - Configuration du backend  
-    Ajoutez toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS. Dans cet exemple, il s’agit des machines virtuelles **pr1-ascs-10** et **pr1-ascs-11**.
+    Ajoutez toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS. Dans cet exemple, il s’agit des machines virtuelles **pr1-ascs-10** et **pr1-ascs-11** .
 - Port de la sonde
-    - Port 620**nr** Conservez l’option par défaut pour Protocole (TCP), Intervalle (5) et Seuil de défaillance sur le plan de l’intégrité (2)
+    - Port 620 **nr** Conservez l’option par défaut pour Protocole (TCP), Intervalle (5) et Seuil de défaillance sur le plan de l’intégrité (2)
 - Règles de l’équilibrage de charge
     - Si vous utilisez Standard Load Balancer, sélectionnez Ports haute disponibilité
     - Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
-        - TCP 32**nr**
-        - TCP 36**nr**
-        - TCP 39**nr**
-        - TCP 81**nr**
-        - TCP 5**nr**13
-        - TCP 5**nr**14
-        - TCP 5**nr**16
+        - TCP 32 **nr**
+        - TCP 36 **nr**
+        - TCP 39 **nr**
+        - TCP 81 **nr**
+        - TCP 5 **nr** 13
+        - TCP 5 **nr** 14
+        - TCP 5 **nr** 16
 
     - Assurez-vous que le délai d’inactivité (en minutes) est défini sur la valeur maximale (30), et que l’option Adresse IP flottante (retour direct du serveur) est activée.
 
@@ -234,17 +237,17 @@ Le serveur ERS2 (Enqueue Replication Server 2) étant également en cluster, son
   Les machines virtuelles ont déjà été ajoutées au pool principal ILB.  
 
 - Port de la deuxième sonde
-    - Port 621**nr**  
+    - Port 621 **nr**  
     Conservez l’option par défaut pour Protocole (TCP), Intervalle (5) et Seuil de défaillance sur le plan de l’intégrité (2)
 
 - Règles du deuxième équilibrage de charge
     - Si vous utilisez Standard Load Balancer, sélectionnez Ports haute disponibilité
     - Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
-        - TCP 32**nr**
-        - TCP 33**nr**
-        - TCP 5**nr**13
-        - TCP 5**nr**14
-        - TCP 5**nr**16
+        - TCP 32 **nr**
+        - TCP 33 **nr**
+        - TCP 5 **nr** 13
+        - TCP 5 **nr** 14
+        - TCP 5 **nr** 16
 
     - Assurez-vous que le délai d’inactivité (en minutes) est défini sur la valeur maximale (30), et que l’option Adresse IP flottante (retour direct du serveur) est activée.
 
@@ -463,13 +466,13 @@ Avant d’installer le logiciel SIOS, créez l’utilisateur de domaine DataKeep
 
    _Première page de l’installation de SIOS DataKeeper_
 
-2. Dans la boîte de dialogue, sélectionnez **Oui**.
+2. Dans la boîte de dialogue, sélectionnez **Oui** .
 
    ![Figure 32 : DataKeeper vous indique qu’un service va être désactivé][sap-ha-guide-figure-3032]
 
    _DataKeeper vous informe qu’un service va être désactivé_
 
-3. Dans la boîte de dialogue, nous vous recommandons de sélectionner **Compte de domaine ou de serveur**.
+3. Dans la boîte de dialogue, nous vous recommandons de sélectionner **Compte de domaine ou de serveur** .
 
    ![Figure 33 : Sélection de l’utilisateur de SIOS DataKeeper][sap-ha-guide-figure-3033]
 

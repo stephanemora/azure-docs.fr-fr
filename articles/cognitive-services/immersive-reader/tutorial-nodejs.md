@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636440"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutoriel : Lancer le lecteur immersif (Node.js)
 
@@ -69,7 +69,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Une fois que vous avez ces valeurs, créez un fichier nommé _.env_, puis collez-y le code suivant, en fournissant les valeurs de vos propriétés personnalisées ci-dessus. N’incluez pas de guillemets ni de caractères « { » et « } ».
+Une fois que vous avez ces valeurs, créez un fichier nommé _.env_ , puis collez-y le code suivant, en fournissant les valeurs de vos propriétés personnalisées ci-dessus. N’incluez pas de guillemets ni de caractères « { » et « } ».
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -140,7 +140,7 @@ Le point de terminaison d’API **getimmersivereaderlaunchparams** doit être s�
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Ouvrez _views\index.pug_, puis remplacez son contenu par le code suivant. Ce code remplit la page avec quelques exemples de contenu et ajoute un bouton qui lance le Lecteur immersif.
+2. Ouvrez _views\index.pug_ , puis remplacez son contenu par le code suivant. Ce code remplit la page avec quelques exemples de contenu et ajoute un bouton qui lance le Lecteur immersif.
 
     ```pug
     extends layout
@@ -211,13 +211,13 @@ Le Lecteur immersif prend en charge de nombreuses langues différentes. Vous pou
     });
     ```
 
-3. Accédez à nouveau à _http://localhost:3000_ . Vous devriez voir le texte en espagnol sur la page, et lorsque vous cliquez sur le **Lecteur immersif**, le texte s’y affiche également.
+3. Accédez à nouveau à _http://localhost:3000_ . Vous devriez voir le texte en espagnol sur la page, et lorsque vous cliquez sur le **Lecteur immersif** , le texte s’y affiche également.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Spécifier la langue de l’interface du Lecteur immersif
 
 Par défaut, la langue de l’interface du Lecteur immersif correspond aux paramètres de langue du navigateur. Vous pouvez également spécifier la langue de l’interface du Lecteur immersif avec le code suivant.
 
-1. Dans _views\index.pug_, remplacez l’appel à `ImmersiveReader.launchAsync(token, subdomain, content)` par le code ci-dessous.
+1. Dans _views\index.pug_ , remplacez l’appel à `ImmersiveReader.launchAsync(token, subdomain, content)` par le code ci-dessous.
 
     ```javascript
     const options = {

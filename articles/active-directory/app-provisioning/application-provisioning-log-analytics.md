@@ -11,22 +11,22 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997103"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145595"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor
 
-L’approvisionnement s’intègre aux journaux Azure Monitor et à Log Analytics. Avec la surveillance Azure, vous pouvez effectuer diverses opérations, comme créer des classeurs, également appelés tableaux de bord, stocker des journaux d’approvisionnement pendant plus de 30 jours et créer des requêtes et des alertes personnalisées. Cet article explique comment l’approvisionnement des journaux est intégré aux journaux Azure Monitor. Pour en savoir plus sur le fonctionnement général des journaux d’approvisionnement, consultez [Journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md).
+L’approvisionnement s’intègre aux journaux Azure Monitor et à Log Analytics. Grâce à l’analyse Azure, vous pouvez effectuer diverses opérations, comme créer des classeurs, également appelés tableaux de bord, stocker des journaux d’approvisionnement pendant plus de 30 jours et créer des requêtes et des alertes personnalisées. Cet article explique comment l’approvisionnement des journaux est intégré aux journaux Azure Monitor. Pour en savoir plus sur le fonctionnement général des journaux d’approvisionnement, consultez [Journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md).
 
 ## <a name="enabling-provisioning-logs"></a>Activation des journaux d’approvisionnement
 
-Vous devez déjà avoir une connaissance de Log Analytics et de la surveillance Azure. Si ce n’est pas le cas, apprenez-en plus à leur sujet, puis revenez pour découvrir les journaux d’approvisionnement d’application. Pour en savoir plus sur la surveillance Azure, consultez la [Présentation d’Azure Monitor](../../azure-monitor/overview.md). Pour en savoir plus sur les journaux Azure Monitor et Log Analytics, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Vous devez déjà avoir une connaissance de Log Analytics et de l’analyse Azure. Si ce n’est pas le cas, apprenez-en plus sur le sujet, puis revenez sur cette page pour découvrir les journaux d’approvisionnement d’application. Pour en savoir plus sur l’analyse Azure, consultez [Vue d’ensemble d’Azure Monitor](../../azure-monitor/overview.md). Pour en savoir plus sur les journaux Azure Monitor et Log Analytics, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Une fois que vous avez configuré la surveillance Azure, vous pouvez activer les journaux pour l’approvisionnement des applications. L’option se trouve sur la page **Paramètres de diagnostic**.
+Une fois que vous avez configuré l’analyse Azure, vous pouvez activer les journaux pour l’approvisionnement des applications. L’option se trouve sur la page **Paramètres de diagnostic** .
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Accéder aux paramètres de diagnostic" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
@@ -59,7 +59,7 @@ L’approvisionnement d’applications est fourni avec un ensemble de classeurs 
 
 Vous pouvez créer des requêtes personnalisées et afficher les données dans des tableaux de bord Azure. Pour savoir comment procéder, consultez [Créer et partager des tableaux de bord de données Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Veillez également à consulter [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Voici quelques exemples pour bien démarrer avec l’approvisionnement d’applications.
+Voici quelques exemples pour prendre en main l’approvisionnement d’applications.
 
 Interroger les journaux d’un utilisateur en fonction de son ID dans le système source :
 ```kusto

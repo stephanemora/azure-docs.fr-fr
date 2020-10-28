@@ -13,22 +13,22 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421456"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275764"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
-Actuellement, Plateforme d’identités Microsoft prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire de Plateforme d’identités Microsoft en utilisant le protocole SAML 2.0, Plateforme d’identités Microsoft envoie un jeton à l’application (via une requête HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées *revendications*.
+Actuellement, Plateforme d’identités Microsoft prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire de Plateforme d’identités Microsoft en utilisant le protocole SAML 2.0, Plateforme d’identités Microsoft envoie un jeton à l’application (via une requête HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées *revendications* .
 
 Une *revendication* concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](https://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML. L’ID unique de l’utilisateur est généralement présent dans le SAML Subject, également appelé « identificateur de nom ».
 
 Par défaut, Plateforme d’identités Microsoft émet un jeton SAML à destination de votre application qui contient une revendication `NameIdentifier`, dont la valeur est le nom de l’utilisateur (ou nom d’utilisateur principal) dans Azure AD et qui peut identifier l’utilisateur de façon unique. Le jeton SAML contient également des revendications supplémentaires contenant l’adresse de messagerie de l’utilisateur, son prénom et son nom.
 
-Pour afficher ou modifier les revendications émises dans le jeton SAML à destination de l’application, ouvrez l’application dans le portail Azure. Ensuite, ouvrez la section **Attributs et revendications de l’utilisateur**.
+Pour afficher ou modifier les revendications émises dans le jeton SAML à destination de l’application, ouvrez l’application dans le portail Azure. Ensuite, ouvrez la section **Attributs et revendications de l’utilisateur** .
 
 ![Ouvrez la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
@@ -41,7 +41,7 @@ Vous pouvez être amené à modifier les revendications émises dans le jeton SA
 
 Pour modifier le NameID (valeur d’identificateur du nom) :
 
-1. Ouvrez la page **Valeur de nom d’identificateur**.
+1. Ouvrez la page **Valeur de nom d’identificateur** .
 1. Sélectionnez l’attribut ou la transformation à appliquer à l’attribut. Si vous le souhaitez, vous pouvez spécifier le format de la revendication NameID.
 
    ![Modifier la valeur NameID (identificateur du nom)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
@@ -52,7 +52,7 @@ Si la requête SAML contient l’élément NameIDPolicy dans un format spécifi
 
 Si la requête SAML ne contient aucun élément pour NameIDPolicy, alors Plateforme d’identités Microsoft émet la revendication NameID au format que vous spécifiez. Si aucun format n’est spécifié, Plateforme d’identités Microsoft utilise le format source par défaut associé à la source de la revendication sélectionnée.
 
-Dans le menu déroulant **Choisir le format du nom de l’identificateur**, vous pouvez sélectionner l’une des options suivantes.
+Dans le menu déroulant **Choisir le format du nom de l’identificateur** , vous pouvez sélectionner l’une des options suivantes.
 
 | Format NameID | Description |
 |---------------|-------------|
@@ -82,11 +82,11 @@ Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID 
 
 Vous pouvez également attribuer une valeur constante (statique) quelconque à toute revendication que vous définissez dans Azure AD. Suivez les étapes ci-dessous pour attribuer une valeur constante :
 
-1. Dans le [Portail Azure](https://portal.azure.com/), dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
+1. Dans le [Portail Azure](https://portal.azure.com/), dans la section **Attributs et revendications de l’utilisateur** , cliquez sur l’icône **Modifier** pour modifier les revendications.
 
 1. Cliquez sur la revendication requise que vous souhaitez modifier.
 
-1. Entrez la valeur constante sans guillemets dans **Attribut source** conformément à votre organisation, puis cliquez sur **Enregistrer**.
+1. Entrez la valeur constante sans guillemets dans **Attribut source** conformément à votre organisation, puis cliquez sur **Enregistrer** .
 
     ![Organisation de la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
@@ -109,17 +109,17 @@ Vous pouvez également utiliser les fonctions de transformation de revendication
 
 Pour ajouter des revendications spécifiques à l’application :
 
-1. Dans **Attributs utilisateur et revendications**, sélectionnez **Ajouter une revendication** pour ouvrir la page **Gérer les revendications des utilisateurs**.
-1. Entrez le **nom** des revendications. La valeur n’a pas besoin de suivre strictement un modèle URI, selon la spécification SAML. Si vous avez besoin d’un modèle d’URI, vous pouvez l’indiquer dans le champ **Namespace**.
+1. Dans **Attributs utilisateur et revendications** , sélectionnez **Ajouter une revendication** pour ouvrir la page **Gérer les revendications des utilisateurs** .
+1. Entrez le **nom** des revendications. La valeur n’a pas besoin de suivre strictement un modèle URI, selon la spécification SAML. Si vous avez besoin d’un modèle d’URI, vous pouvez l’indiquer dans le champ **Namespace** .
 1. Sélectionnez la **Source** où la revendication va récupérer sa valeur. Vous pouvez sélectionner un attribut utilisateur dans le menu déroulant d’attribut de la source ou appliquer une transformation à l’attribut utilisateur avant de l’émettre en tant que réclamation.
 
 ### <a name="claim-transformations"></a>Transformations de revendication
 
 Pour appliquer une transformation à un attribut utilisateur :
 
-1. Dans **Gérer les revendications**, sélectionnez *Transformation* comme source de revendication pour ouvrir la page **Gérer la transformation**.
+1. Dans **Gérer les revendications** , sélectionnez *Transformation* comme source de revendication pour ouvrir la page **Gérer la transformation** .
 2. Sélectionnez la fonction dans la liste déroulante de transformation. Selon la fonction sélectionnée, vous devrez fournir des paramètres et une valeur constante à évaluer dans la transformation. Pour plus d’informations sur les fonctions disponibles, reportez-vous au tableau ci-dessous.
-3. Pour appliquer plusieurs transformations, cliquez sur **Ajouter une transformation**. Vous pouvez appliquer un maximum de deux transformations à une revendication. Par exemple, vous pouvez d’abord extraire le préfixe e-mail de `user.mail`. Ensuite, mettez la chaîne en majuscules.
+3. Pour appliquer plusieurs transformations, cliquez sur **Ajouter une transformation** . Vous pouvez appliquer un maximum de deux transformations à une revendication. Par exemple, vous pouvez d’abord extraire le préfixe e-mail de `user.mail`. Ensuite, mettez la chaîne en majuscules.
 
    ![Transformation de plusieurs revendications](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
@@ -131,7 +131,7 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 | **Join()** | Crée une nouvelle valeur en joignant deux attributs. Si vous le souhaitez, vous pouvez utiliser un séparateur entre les deux attributs. Pour la transformation de revendication NameID, la jointure est limitée à un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
 | **ToLowercase()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
 | **ToUppercase()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
-| **Contains()** | Génère un attribut ou une constante si l’entrée correspond à la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication où la valeur est l’adresse e-mail utilisateur si elle contient le domaine «@contoso.com». Dans ce cas, nous vous conseillons de générer le nom d’utilisateur principal. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.email<br/>*Valeur* : "@contoso.com"<br/>Paramètre 2 (sortie) : user.email<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.userprincipalname |
+| **Contains()** | Génère un attribut ou une constante si l’entrée correspond à la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication où la valeur est l’adresse e-mail utilisateur si elle contient le domaine «@contoso.com». Dans ce cas, nous vous conseillons de générer le nom d’utilisateur principal. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.email<br/>*Valeur*  : "@contoso.com"<br/>Paramètre 2 (sortie) : user.email<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.userprincipalname |
 | **EndWith()** | Génère un attribut ou une constante si l’entrée se termine par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication dont la valeur est l’ID d’employé de l’utilisateur, si l’ID d’employé se termine par « 000 ». Dans ce cas, nous vous recommandons d’obtenir un attribut d’extension en sortie. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.employeeid<br/>*Valeur* : "000"<br/>Paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie, s’il n’existe aucune correspondance) : user.extensionattribute1 |
 | **StartWith()** | Génère un attribut ou une constante si l’entrée commence par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication dont la valeur est l’ID d’employé de l’utilisateur, si la valeur de Pays/région commence par « US ». Dans ce cas, nous vous recommandons d’obtenir un attribut d’extension en sortie. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.country<br/>*Valeur* : "US"<br/>Paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie, s’il n’existe aucune correspondance) : user.extensionattribute1 |
 | **Extract() - After matching** | Retourne la sous-chaîne après qu’elle ait atteint la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon », la valeur correspondante est « Finance_ » et la sortie de la revendication est « BSimon ». |
@@ -144,7 +144,7 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 | **IfEmpty()** | Génère un attribut ou une constante en sortie si l’entrée est Null ou vide.<br/>Par exemple, si vous souhaitez générer un attribut stocké dans un extensionattribute si l’ID d’employé pour un utilisateur donné est vide. Pour ce faire, configurez les valeurs suivantes :<br/>Paramètre 1 (entrée) : user.employeeid<br/>Paramètre 2 (sortie) : user.extensionattribute1<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.employeeid |
 | **IfNotEmpty()** | Génère un attribut ou une constante en sortie si l’entrée n’est pas Null ou vide.<br/>Par exemple, si vous souhaitez générer un attribut stocké dans un extensionattribute si l’ID d’employé pour un utilisateur donné n’est pas vide. Pour ce faire, configurez les valeurs suivantes :<br/>Paramètre 1 (entrée) : user.employeeid<br/>Paramètre 2 (sortie) : user.extensionattribute1 |
 
-Si vous avez besoin de transformations supplémentaires, soumettez votre idée dans le [Forum de commentaires Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sous la catégorie *Application SaaS*.
+Si vous avez besoin de transformations supplémentaires, soumettez votre idée dans le [Forum de commentaires Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sous la catégorie *Application SaaS* .
 
 ## <a name="emitting-claims-based-on-conditions"></a>Émission de revendications basées sur des conditions
 
@@ -162,12 +162,12 @@ Un cas où cela est utile : lorsque la source d’une revendication est différe
 
 Pour ajouter une condition de revendication :
 
-1. Dans **Gérer les revendications**, développez les conditions de la revendication.
+1. Dans **Gérer les revendications** , développez les conditions de la revendication.
 2. Sélectionnez le type d’utilisateur.
 3. Sélectionnez le ou les groupes auxquels l’utilisateur doit appartenir. Vous pouvez sélectionner jusqu’à 50 groupes uniques sur l’ensemble des revendications pour une application donnée. 
 4. Sélectionnez la **Source** où la revendication va récupérer sa valeur. Vous pouvez sélectionner un attribut utilisateur dans le menu déroulant d’attribut de la source ou appliquer une transformation à l’attribut utilisateur avant de l’émettre en tant que réclamation.
 
-L’ordre dans lequel vous ajoutez les conditions est important. Azure AD évalue les conditions de haut en bas pour décider quelle valeur émettre dans la revendication. 
+L’ordre dans lequel vous ajoutez les conditions est important. Azure AD évalue les conditions de haut en bas pour décider quelle valeur émettre dans la revendication. La dernière valeur qui correspond à l’expression sera émise dans la revendication.
 
 Par exemple, Britta Simon est figure parmi les utilisateurs invités dans le locataire Contoso. Elle appartient à une autre organisation qui utilise également Azure AD. Étant donné la configuration ci-dessous pour l’application Fabrikam, quand Britta tente de se connecter à Fabrikam, Plateforme d’identités Microsoft évalue les conditions comme suit.
 

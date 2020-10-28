@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309487"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151977"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
@@ -96,7 +96,7 @@ Une [intention](#intent) est un exemple de classifieur.
 
 ## <a name="collaborator"></a>Collaborateur
 
-Le concept d’un collaborateur est le même que celui d’un [contributeur](#contributor). Un collaborateur reçoit l’accès lorsqu’un propriétaire ajoute l’adresse email du collaborateur à une application qui n’est pas contrôlée par le contrôle d’accès en fonction du rôle Azure (ou Azure RBAC, pour « Role-Based Access Control »). Si vous utilisez toujours des collaborateurs, vous devez migrer votre compte LUIS et utiliser les ressources de création de LUIS pour gérer les contributeurs avec le contrôle d’accès en fonction du rôle .
+Le concept d’un collaborateur est le même que celui d’un [contributeur](#contributor). Un collaborateur reçoit l’accès lorsqu’un propriétaire ajoute l’adresse email du collaborateur à une application qui n’est pas contrôlée par le contrôle d’accès en fonction du rôle Azure (ou Azure RBAC, pour « Role-Based Access Control »). Si vous utilisez toujours des collaborateurs, vous devez migrer votre compte LUIS et utiliser les ressources de création de LUIS pour gérer les contributeurs à l’aide d’Azure RBAC.
 
 ## <a name="contributor"></a>Contributeur
 
@@ -188,7 +188,7 @@ L’étiquetage, ou marquage, est le processus qui consiste à associer un exemp
 Dans LUIS, les intentions dans une application s’excluent mutuellement. Cela signifie que lorsque vous ajoutez un énoncé à une intention, il est considéré comme un exemple _positif_ à cet intention et un exemple _négatif_ pour toutes les autres intentions. Les exemples négatifs ne doivent pas être confondus avec l’intention « None », qui représente les énoncés qui se trouvent en dehors de l’étendue de l’application.
 
 ### <a name="labeling-for-entities"></a>Étiquetage des entités
-Dans LUIS, vous [étiquetez](label-entity-example-utterance.md) un mot ou une expression dans l’énoncé d’un exemple d’intention avec une entité en tant qu’exemple _positif_. L’étiquetage indique l’intention qu’il doit prédire pour cet énoncé. Les énoncés étiquetés sont utilisés pour former l’intention.
+Dans LUIS, vous [étiquetez](label-entity-example-utterance.md) un mot ou une expression dans l’énoncé d’un exemple d’intention avec une entité en tant qu’exemple _positif_ . L’étiquetage indique l’intention qu’il doit prédire pour cet énoncé. Les énoncés étiquetés sont utilisés pour former l’intention.
 
 ## <a name="luis-app"></a>Application LUIS
 
@@ -305,7 +305,7 @@ Voir [Changer le fuseau horaire de l’entité datetimeV2 prédéfinie](luis-con
 ## <a name="token"></a>par jeton
 Un [jeton](luis-language-support.md#tokenization) est la plus petite unité de texte que LUIS peut reconnaître. Il diffère légèrement d’une langue à l’autre.
 
-Pour l’**anglais**, un jeton est une étendue continue (sans espaces ni ponctuation) de lettres et de chiffres. Un espace N’EST PAS un jeton.
+Pour l’ **anglais** , un jeton est une étendue continue (sans espaces ni ponctuation) de lettres et de chiffres. Un espace N’EST PAS un jeton.
 
 |Expression|Nombre de jetons|Explication|
 |--|--|--|

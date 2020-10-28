@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601467"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275793"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -260,7 +260,7 @@ Pour contrôler les revendications émises et l’origine des données, utilisez
 **Type de données :** Objet blob JSON avec une ou plusieurs entrées de schéma de revendication
 
 **Résumé :** Cette propriété définit les revendications présentes dans les jetons affectés par la stratégie, en plus de l’ensemble de revendications de base et de l’ensemble de revendications principal.
-Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données (**Value**, **Paire Source/ID** ou **Paire Source/ExtensionID**), et la revendication à laquelle les données ont trait (**Type de revendication**).
+Pour chaque entrée de schéma de revendication définie dans cette propriété, certaines informations sont requises. Spécifiez l’origine des données ( **Value** , **Paire Source/ID** ou **Paire Source/ExtensionID** ), et la revendication à laquelle les données ont trait ( **Type de revendication** ).
 
 ### <a name="claim-schema-entry-elements"></a>Éléments d’entrée du schéma de revendication
 
@@ -358,7 +358,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 **TransformationMethod :** L’élément TransformationMethod identifie l’opération effectuée pour générer les données de la revendication.
 
-Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Définissez les entrées et sorties à l’aide des éléments **InputClaims**, **InputParameters** et **OutputClaims**.
+Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Définissez les entrées et sorties à l’aide des éléments **InputClaims** , **InputParameters** et **OutputClaims** .
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : Méthodes de transformation et entrées et sorties attendues
 
@@ -367,17 +367,17 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|E-mail ou UPN|chaîne extraite|ExtensionAttributes 1-15 ou toute autre extension de schéma qui stocke une valeur d’UPN ou d’e-mail pour l’utilisateur, par exemple, johndoe@contoso.com. Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
 
-**InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
+**InputClaims :** L’élément InputClaims permet de transmettre les données d’une entrée de schéma de revendication à une transformation. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType** .
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication d’entrée appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à cette entrée. Ce nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID**.
+**InputParameters :** Un élément InputParameters permet de transmettre une valeur constante à une transformation. Il utilise deux attributs : **Value** et **ID** .
 
 - L’attribut **Value** est la valeur de constante réelle à transmettre.
 - L’attribut **ID** est utilisé pour donner un nom unique à l’entrée. Le nom doit correspondre à l’une des entrées attendues pour la méthode de transformation.
 
-**OutputClaims :** Un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType**.
+**OutputClaims :** Un élément OutputClaims permet conserver les données générées par une transformation, et de les lier à une entrée de schéma de revendication. Il utilise deux attributs : **ClaimTypeReferenceId** et **TransformationClaimType** .
 
 - L’attribut **ClaimTypeReferenceId** est joint à l’élément ID de l’entrée de schéma de revendication pour rechercher la revendication de sortie appropriée.
 - L’attribut **TransformationClaimType** est utilisé pour donner un nom unique à la sortie. Le nom doit correspondre à l’une des sorties attendues pour la méthode de transformation.
@@ -419,7 +419,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser l’applet de commande Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette applet de commande Azure PowerShell, consultez [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser la cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) pour créer des informations d’identification de clé de certificat pour votre objet d’application.
 
 Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous :
 
