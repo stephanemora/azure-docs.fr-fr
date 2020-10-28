@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249500"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738109"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -52,6 +52,7 @@ Quand un espace de travail est créé, Azure Synapse crée deux points de termin
 Ces deux points de terminaison privés managés sont listés dans Azure Synapse Studio. Sélectionnez **Gérer** dans le volet de navigation gauche, puis sélectionnez **Réseaux virtuels managés** pour les afficher dans Studio.
 
 Le point de terminaison privé managé qui cible le pool SQL se nomme *synapse-ws-sql--\<workspacename\>* , tandis que celui qui cible SQL à la demande se nomme *synapse-ws-sqlOnDemand--\<workspacename\>* .
+
 ![Points de terminaison privés managés pour pool SQL et SQL à la demande](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Ces deux points de terminaison privés managés sont créés automatiquement pour vous quand vous créez votre espace de travail Azure Synapse. Vous n’êtes pas facturé pour ces deux points de terminaison privés managés.

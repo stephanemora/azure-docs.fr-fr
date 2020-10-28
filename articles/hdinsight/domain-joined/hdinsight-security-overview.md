@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150806"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537267"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -78,10 +78,10 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 | Sécurité de l’accès aux données | Configurer des [listes de contrôle d’accès (ACL)](../../storage/blobs/data-lake-storage-access-control.md) pour Azure Data Lake Storage Gen1 et Gen2  | Customer |
 |  | Activer la propriété [« Transfert sécurisé requis »](../../storage/common/storage-require-secure-transfer.md) sur le compte de stockage | Customer |
 |  | Configurer des [pare-feu Stockage Azure](../../storage/common/storage-network-security.md) et des réseaux virtuels | Customer |
-|  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
+|  | Configurer des [points de terminaison de service de réseau virtuel Azure](../../virtual-network/virtual-network-service-endpoints-overview.md) pour Cosmos DB et [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Customer |
 |  | Assurez-vous que la fonctionnalité [Chiffrement en transit](./encryption-in-transit.md) est activée afin d’utiliser TLS et IPSec pour les communications à l’intérieur du cluster. | Customer |
-|  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Customer |
-|  | Contrôler l’accès à vos données par le support Azure à l’aide de [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
+|  | Configurer des [clés gérées par le client](../../storage/common/customer-managed-keys-configure-key-vault.md) pour le chiffrement du Stockage Azure | Customer |
+|  | Contrôler l’accès à vos données par le support Azure à l’aide de [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
 | Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer ESP](apache-domain-joined-configure-using-azure-adds.md) ou utiliser [HIB pour l’authentification OAuth](identity-broker.md)| Customer |
 |  | Configurer des stratégies d’[autorisation Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
 |  | Utiliser les [journaux Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
@@ -98,5 +98,5 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Planifier des clusters HDInsight avec ESP](apache-domain-joined-architecture.md)
-* [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure.md)
+* [Configurer des clusters HDInsight avec ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Gérer des clusters HDInsight avec ESP](apache-domain-joined-manage.md)

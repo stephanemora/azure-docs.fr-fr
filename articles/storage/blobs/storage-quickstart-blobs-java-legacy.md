@@ -7,13 +7,13 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: quickstart
+ms.openlocfilehash: 10f16118b37810ed888c0812a30ad276c49803f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323738"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545784"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Démarrage rapide : Gérer les objets blob avec le Kit de développement logiciel (SDK) Java V8
 
@@ -38,15 +38,15 @@ Utilisez [git](https://git-scm.com/) pour télécharger une copie de l’applica
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir le projet, lancez Eclipse et fermez l’écran d’accueil. Sélectionnez **Fichier**, puis **Open Projects from File System** (Ouvrir des projets à partir du système de fichiers). Vérifiez que l’option **Detect and configure project natures** (Détecter et configurer les natures de projet) est activée. Sélectionnez **Répertoire**, puis accédez à l’emplacement où vous avez stocké le référentiel cloné. Dans celui-ci, sélectionnez le dossier **blobAzureApp**. Vérifiez que le projet **blobAzureApp** s’affiche en tant que projet Eclipse, puis sélectionnez **Terminer**.
+Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir le projet, lancez Eclipse et fermez l’écran d’accueil. Sélectionnez **Fichier** , puis **Open Projects from File System** (Ouvrir des projets à partir du système de fichiers). Vérifiez que l’option **Detect and configure project natures** (Détecter et configurer les natures de projet) est activée. Sélectionnez **Répertoire** , puis accédez à l’emplacement où vous avez stocké le référentiel cloné. Dans celui-ci, sélectionnez le dossier **blobAzureApp** . Vérifiez que le projet **blobAzureApp** s’affiche en tant que projet Eclipse, puis sélectionnez **Terminer** .
 
-Une fois l’importation du projet accomplie, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java**) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application. Les instructions spécifiques pour effectuer ces tâches sont décrites dans les sections suivantes.
+Une fois l’importation du projet accomplie, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java** ) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application. Les instructions spécifiques pour effectuer ces tâches sont décrites dans les sections suivantes.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 
-Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier **AzureApp.Java**. Trouvez la variable `storageConnectionString` et collez la valeur de la chaîne de connexion copiée dans la section précédente. Votre variable `storageConnectionString` doit être semblable à l’exemple de code suivant :
+Dans l’application, vous devez fournir la chaîne de connexion de votre compte de stockage. Ouvrez le fichier **AzureApp.Java** . Trouvez la variable `storageConnectionString` et collez la valeur de la chaîne de connexion copiée dans la section précédente. Votre variable `storageConnectionString` doit être semblable à l’exemple de code suivant :
 
 ```java
 public static final String storageConnectionString =
@@ -57,7 +57,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-Cet exemple d’application crée un fichier de test dans votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, for Windows users), le charge dans le stockage d’objets blob, répertorie les objets blob dans le conteneur, puis télécharge le fichier sous un nouveau nom pour vous permettre de comparer les fichiers ancien et nouveau.
+Cet exemple d’application crée un fichier de test dans votre répertoire par défaut ( *C:\Users\<user>\AppData\Local\Temp* , for Windows users), le charge dans le stockage d’objets blob, répertorie les objets blob dans le conteneur, puis télécharge le fichier sous un nouveau nom pour vous permettre de comparer les fichiers ancien et nouveau.
 
 Exécutez l’exemple à l’aide de Maven au niveau de la ligne de commande. Ouvrez un interpréteur de commandes et accédez à **blobAzureApp** à l’intérieur de votre répertoire cloné. Puis saisissez `mvn compile exec:java`.
 
@@ -76,12 +76,12 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Avant de continuer, vérifiez votre répertoire par défaut (*C:\Users\<user>\AppData\Local\Temp*, pour les utilisateurs Windows) pour l’exemple de fichier. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Si vous comparez l’exemple de fichier dans votre répertoire avec le contenu stocké dans le stockage d’objets blob, vous verrez qu’ils sont identiques.
+Avant de continuer, vérifiez votre répertoire par défaut ( *C:\Users\<user>\AppData\Local\Temp* , pour les utilisateurs Windows) pour l’exemple de fichier. Copiez l’URL de l’objet blob en dehors de la fenêtre de console et collez-la dans un navigateur pour afficher le contenu du fichier dans Stockage Blob. Si vous comparez l’exemple de fichier dans votre répertoire avec le contenu stocké dans le stockage d’objets blob, vous verrez qu’ils sont identiques.
 
   >[!NOTE]
   >Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
 
-Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour accomplir la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier**AzureApp.java** pour examiner le code.
+Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour accomplir la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier **AzureApp.java** pour examiner le code.
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
@@ -93,24 +93,24 @@ La première chose à faire est de créer les références aux objets utilisés 
 
 * Créez une instance de l’objet [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) pointant vers le compte de stockage.
 
-    L’objet **CloudStorageAccount** est une représentation de votre compte de stockage. Il vous permet de définir et lire les propriétés du compte de stockage par programmation. Vous pouvez utiliser l’objet **CloudStorageAccount** pour créer une instance de l’objet **CloudBlobClient**, nécessaire pour accéder au service BLOB.
+    L’objet **CloudStorageAccount** est une représentation de votre compte de stockage. Il vous permet de définir et lire les propriétés du compte de stockage par programmation. Vous pouvez utiliser l’objet **CloudStorageAccount** pour créer une instance de l’objet **CloudBlobClient** , nécessaire pour accéder au service BLOB.
 
 * Créez une instance de l’objet **CloudBlobClient** pointant vers le [service Blob](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) de votre compte de stockage.
 
-    L’objet **CloudBlobClient** fournit un point d’accès au service BLOB, ce qui vous permet de définir et lire les propriétés de stockage d’objets blob par programmation. Vous pouvez utiliser l’objet **CloudBlobClient** pour créer une instance de l’objet **CloudBlobContainer**, nécessaire pour créer des conteneurs.
+    L’objet **CloudBlobClient** fournit un point d’accès au service BLOB, ce qui vous permet de définir et lire les propriétés de stockage d’objets blob par programmation. Vous pouvez utiliser l’objet **CloudBlobClient** pour créer une instance de l’objet **CloudBlobContainer** , nécessaire pour créer des conteneurs.
 
 * Créez une instance de l’objet [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) qui représente le conteneur auquel vous accédez. Utilisez les conteneurs pour organiser vos objets blob de la même façon que vous utilisez des dossiers pour organiser vos fichiers sur votre ordinateur.
 
-    Dès que vous disposez de **CloudBlobContainer**, vous pouvez créer une instance de l'objet [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) qui pointe vers l'objet blob qui vous intéresse, et effectuer une opération de chargement, de téléchargement, de copie ou autre.
+    Dès que vous disposez de **CloudBlobContainer** , vous pouvez créer une instance de l'objet [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) qui pointe vers l'objet blob qui vous intéresse, et effectuer une opération de chargement, de téléchargement, de copie ou autre.
 
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les conteneurs, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Créez un conteneur.
 
-Dans cette section, vous créez une instance des objets, un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartcontainer**.
+Dans cette section, vous créez une instance des objets, un conteneur, puis définissez des autorisations sur le conteneur pour les objets blob soient publics et accessibles par une simple URL. Le conteneur est appelé **quickstartcontainer** .
 
-Cet exemple utilise [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists), car nous voulons créer un conteneur chaque fois que l’exemple est exécuté. Dans un environnement de production où vous utilisez le même conteneur pour toute l’application, il est préférable d’appeler une seule fois **CreateIfNotExists**. Ou vous pouvez créer le conteneur à l’avance pour ne pas avoir à le créer dans le code.
+Cet exemple utilise [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists), car nous voulons créer un conteneur chaque fois que l’exemple est exécuté. Dans un environnement de production où vous utilisez le même conteneur pour toute l’application, il est préférable d’appeler une seule fois **CreateIfNotExists** . Ou vous pouvez créer le conteneur à l’avance pour ne pas avoir à le créer dans le code.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -127,7 +127,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 Pour charger un fichier dans un objet blob de blocs, obtenez une référence à l’objet blob dans le conteneur cible. Une fois que vous avez la référence d’objet blob, vous pouvez y charger des données à l’aide de [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). Cette opération crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
-L’exemple de code crée un fichier local à utiliser pour le chargement et le téléchargement, en stockant le fichier à charger comme **source** et le nom de l’objet blob dans **blob**. L’exemple suivant charge le fichier sur votre conteneur nommé **quickstartcontainer**.
+L’exemple de code crée un fichier local à utiliser pour le chargement et le téléchargement, en stockant le fichier à charger comme **source** et le nom de l’objet blob dans **blob** . L’exemple suivant charge le fichier sur votre conteneur nommé **quickstartcontainer** .
 
 ```java
 //Creating a sample file

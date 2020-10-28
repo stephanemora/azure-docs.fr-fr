@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167047"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537947"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -66,7 +66,7 @@ Pour plus d’informations, consultez [Concepts de sauvegarde](concepts-backup-r
 
 ## <a name="network-isolation"></a>Isolement réseau
 
-Vous avez deux possibilités de mise en réseau pour connecter votre serveur flexible Azure Database pour MySQL. Il s’agit de l’**accès privé (intégration au réseau virtuel)** et de l’**accès public (adresses IP autorisées)** . 
+Vous avez deux possibilités de mise en réseau pour connecter votre serveur flexible Azure Database pour MySQL. Il s’agit de l’ **accès privé (intégration au réseau virtuel)** et de l’ **accès public (adresses IP autorisées)** . 
 
 * **Accès privé (intégration au réseau virtuel)**  : vous pouvez déployer votre serveur flexible sur votre [réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md). Les réseaux virtuels Azure offrent des communications réseau privées et sécurisées. Les ressources incluses sur un réseau virtuel peuvent communiquer par le biais d’adresses IP privées.
 
@@ -75,7 +75,7 @@ Vous avez deux possibilités de mise en réseau pour connecter votre serveur fle
    * Utilisation d’un VPN ou du service ExpressRoute pour vous connecter à partir de ressources non-Azure à votre serveur flexible
    * Aucun point de terminaison public
 
-* **Accès public (adresses IP autorisées)**  : vous pouvez déployer votre serveur flexible avec un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu**.
+* **Accès public (adresses IP autorisées)**  : vous pouvez déployer votre serveur flexible avec un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu** .
 
 Pour en savoir plus, consultez [Concepts de mise en réseau](concepts-networking.md).
 
@@ -99,7 +99,7 @@ Le service chiffre les données en mouvement avec le protocole TLS appliqué par
 
 Pour plus d’informations, consultez [Utiliser les connexions chiffrées sur des serveurs flexibles](https://docs.mongodb.com/manual/tutorial/configure-ssl).
 
-Les serveurs flexibles permettent un accès privé complet aux serveurs à l’aide du [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (intégration au réseau virtuel). Les serveurs du réseau virtuel Azure sont uniquement accessibles et connectés via des adresses IP privées. Avec l’intégration au réseau virtuel, l’accès public est refusé et les serveurs ne sont pas accessibles à l’aide de points de terminaison publics. 
+Les serveurs flexibles permettent un accès privé complet aux serveurs à l’aide du [réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md) (intégration au réseau virtuel). Les serveurs du réseau virtuel Azure sont uniquement accessibles et connectés via des adresses IP privées. Avec l’intégration au réseau virtuel, l’accès public est refusé et les serveurs ne sont pas accessibles à l’aide de points de terminaison publics. 
 
 Pour en savoir plus, consultez [Concepts de mise en réseau](concepts-networking.md).
 
@@ -114,8 +114,8 @@ Pour plus d’informations, consultez [Concepts de mise en réseau](concepts-mon
 
 Le service exécute la version de la communauté de MySQL. Cela permet une compatibilité totale des applications et requiert un coût de refactorisation minimal pour migrer une application existante développée sur le moteur MySQL vers un service à serveur unique. La migration vers le serveur unique peut être effectuée à l'aide de l'une des options suivantes :
 
-- **Image mémoire et restauration** : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez Migrer à l'aide de l'image mémoire et de la restauration. 
-- **Azure Database Migration Service** : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) peut être utilisé. 
+- **Image mémoire et restauration**  : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez Migrer à l'aide de l'image mémoire et de la restauration. 
+- **Azure Database Migration Service**  : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) peut être utilisé. 
 
 ## <a name="azure-regions"></a>Régions Azure
 

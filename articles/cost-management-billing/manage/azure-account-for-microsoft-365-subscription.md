@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e2561b6cfce0da2ede9cda567091f9a7e23610de
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: db9c8d18d975661edf4a120a2e82b073c884d2a9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682992"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369673"
 ---
 # <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Souscrire un abonnement Microsoft 365 avec un compte Azure
 
-Si vous êtes un abonné Azure, vous pouvez utiliser votre compte Azure pour souscrire un abonnement Microsoft 365. Si vous faites partie d’une organisation qui a un abonnement Azure, vous pouvez créer des abonnements Microsoft 365 pour les utilisateurs dans votre instance Azure Active Directory (Azure AD) existante. Inscrivez-vous à Microsoft 365 avec un compte détenant les autorisations Administrateur général ou Administrateur de facturation dans votre locataire Azure Active Directory. Pour plus d’informations, consultez les pages [Vérifier mes autorisations de compte dans Azure AD](#RoleInAzureAD) et [Attribution de rôles d’administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Si vous êtes un abonné Azure, vous pouvez utiliser votre compte Azure pour souscrire un abonnement Microsoft 365. Si vous faites partie d’une organisation qui a un abonnement Azure, vous pouvez créer des abonnements Microsoft 365 pour les utilisateurs dans votre instance Azure Active Directory (Azure AD) existante. Inscrivez-vous à Microsoft 365 avec un compte détenant les autorisations Administrateur général ou Administrateur de facturation dans votre locataire Azure Active Directory. Pour plus d’informations, consultez les pages [Vérifier mes autorisations de compte dans Azure AD](#RoleInAzureAD) et [Attribution de rôles d’administrateur dans Azure Active Directory](../../active-directory/roles/permissions-reference.md).
 
 Si vous avez déjà à la fois un compte Microsoft 365 et un abonnement Azure, vous pouvez [associer un locataire Microsoft 365 à un abonnement Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -31,17 +31,17 @@ Si vous avez déjà à la fois un compte Microsoft 365 et un abonnement Azure, 
 3. Connectez-vous avec les informations d’identification de votre compte Azure. Si vous avez créé un abonnement pour votre organisation, utilisez un compte Azure membre du rôle de répertoire Administrateur général ou Administrateur de facturation dans votre client Azure Active Directory.
 
     ![Capture d’écran de la connexion Microsoft](./media/azure-account-for-microsoft-365-subscription/13-office-365-sign-in.png)
-4. Cliquez sur **Essayez dès maintenant**.
+4. Cliquez sur **Essayez dès maintenant** .
 
     ![Capture d’écran confirmant votre commande de Microsoft 365.](./media/azure-account-for-microsoft-365-subscription/14-office-365-confirm-your-order.png)
-5. Sur la page du reçu de la commande, cliquez sur **Continuer**.
+5. Sur la page du reçu de la commande, cliquez sur **Continuer** .
 
     ![Capture d’écran du reçu de la commande de Microsoft 365](./media/azure-account-for-microsoft-365-subscription/15-office-365-order-receipt.png)
 
 Vous êtes prêt. Si vous avez créé l’abonnement Microsoft 365 pour votre organisation, suivez les étapes ci-dessous pour vérifier que vos utilisateurs Azure AD sont maintenant dans Microsoft 365.
 
 1. Ouvrez le centre d’administration Microsoft 365.
-2. Développez la section **UTILISATEURS**, puis cliquez sur **Utilisateurs actifs**.
+2. Développez la section **UTILISATEURS** , puis cliquez sur **Utilisateurs actifs** .
 
     ![Capture d’écran des utilisateurs de centre d’administration Microsoft 365](./media/azure-account-for-microsoft-365-subscription/16-microsoft-365-admin-center-users.png)
 
@@ -49,15 +49,15 @@ Une fois que vous êtes inscrit, l’abonnement Microsoft 365 est ajouté à l�
 
 ## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Vérifier mes autorisations de compte dans Azure AD
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **Tous les services**, puis recherchez **Active Directory**.
+2. Cliquez sur **Tous les services** , puis recherchez **Active Directory** .
 
     ![Capture d’écran d’Active Directory sur le Portail Azure.](./media/azure-account-for-microsoft-365-subscription/billing-more-services-active-directory.png)
-3. Cliquez sur**Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Cliquez sur **Utilisateurs et groupes** > **Tous les utilisateurs** .
 4. Sélectionnez le nom d’utilisateur.
 
     ![Capture d’écran montrant les utilisateurs d’Azure Active Directory.](./media/azure-account-for-microsoft-365-subscription/billing-users-groups.png)
 
-5. Cliquez sur **Rôle de répertoire**.
+5. Cliquez sur **Rôle de répertoire** .
 
     ![Capture d’écran montrant le rôle de répertoire du Portail Azure.](./media/azure-account-for-microsoft-365-subscription/billing-user-directory-role.png)
 6.  Le rôle **Administrateur général** ou **Administrateur limité** > **Administrateur de facturation** est requis pour créer un abonnement Microsoft 365 pour les utilisateurs dans votre instance Azure Active Directory existante.

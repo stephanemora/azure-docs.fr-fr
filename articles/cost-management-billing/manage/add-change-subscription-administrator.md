@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372304"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369656"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
@@ -39,8 +39,8 @@ Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un adm
 Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 
 1. Ouvrez la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
-1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
+1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres** .
+1. Sélectionner **Propriétés** . L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Pour attribuer un utilisateur en tant qu’administrateur
 
@@ -54,13 +54,13 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 
     ![Capture d'écran illustrant les attributions de rôles](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet **Ajouter une attribution de rôle**.
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet **Ajouter une attribution de rôle** .
 
     Si vous ne disposez pas des autorisations nécessaires pour attribuer des rôles, l'option est désactivée.
 
-1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Propriétaire**.
+1. Dans la liste déroulante **Rôle** , sélectionnez le rôle **Propriétaire** .
 
-1. Dans la liste **Sélectionner**, sélectionnez un utilisateur. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone **Sélectionner** pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire.
+1. Dans la liste **Sélectionner** , sélectionnez un utilisateur. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone **Sélectionner** pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire.
 
     ![Capture d’écran montrant le rôle Propriétaire sélectionné](./media/add-change-subscription-administrator/add-role.png)
 
@@ -73,7 +73,7 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 * [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)
 * [Comprendre les différents rôles dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Autorisations des rôles d'administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Autorisations des rôles d'administrateur dans Azure Active Directory](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

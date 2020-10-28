@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078124"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739334"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Démarrage rapide : Créer et déployer un workflow d’application logique à l’aide d’un modèle Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078124"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -62,7 +62,7 @@ Suivez l’option que vous voulez utiliser pour déployer le modèle de démarra
 
    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
-1. Dans le portail, dans la page **Créer une application logique à l’aide d’un modèle**, entrez ou sélectionnez ces valeurs :
+1. Dans le portail, dans la page **Créer une application logique à l’aide d’un modèle** , entrez ou sélectionnez ces valeurs :
 
    | Propriété | Valeur | Description |
    |----------|-------|-------------|
@@ -78,7 +78,7 @@ Suivez l’option que vous voulez utiliser pour déployer le modèle de démarra
 
    ![Fournir des informations pour le modèle de démarrage rapide](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
+1. Quand vous avez terminé, sélectionnez **Vérifier + créer** .
 
 1. Poursuivez avec les étapes décrites dans [Vérifier les ressources déployées](#review-deployed-resources).
 
@@ -288,7 +288,7 @@ Si vous prévoyez d’utiliser d’autres guides de démarrage rapide et tutorie
 
 1. Dans le portail Azure, recherchez et sélectionnez le groupe de ressources à supprimer, à savoir `Check-Azure-Status-RG` dans cet exemple.
 
-1. Dans le menu du groupe de ressources, sélectionnez **Vue d’ensemble**, si cette option n’est pas déjà sélectionnée. Dans la page de présentation, sélectionnez **Supprimer le groupe de ressources**.
+1. Dans le menu du groupe de ressources, sélectionnez **Vue d’ensemble** , si cette option n’est pas déjà sélectionnée. Dans la page de présentation, sélectionnez **Supprimer le groupe de ressources** .
 
 1. Pour confirmer, entrez le nom du groupe de ressources.
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830857"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540973"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -73,7 +73,7 @@ Pour acheminer tout le trafic sortant à partir de votre ASE, à l’exception d
 
 2. Activez des points de terminaison de service avec Azure SQL et Stockage Azure pour votre sous-réseau ASE.  Une fois cette étape terminée, vous pouvez ensuite configurer votre réseau virtuel avec le tunneling forcé.
 
-Pour créer votre ASE dans un réseau virtuel déjà configuré pour acheminer tout le trafic sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources.  Il n’est pas possible de créer un ASE avec le portail dans un sous-réseau existant.  Lorsque vous déployez votre ASE dans un réseau virtuel qui est déjà configuré pour acheminer le trafic sortant sur le site, vous devez créer votre ASE à l’aide d’un modèle de gestionnaire de ressources vous permettant de spécifier un sous-réseau existant. Pour plus d’informations sur le déploiement d’un ASE à l’aide d’un modèle, consultez [Créer un environnement ASE à l’aide d’un modèle][template].
+Pour plus d’informations sur le déploiement d’un ASE à l’aide d’un modèle, consultez [Créer un environnement ASE à l’aide d’un modèle][template].
 
 Les points de terminaison de service vous permettent de restreindre l’accès aux services multilocataires à un ensemble de sous-réseaux et de réseaux virtuels Azure. Pour en savoir plus sur les points de terminaison de service, consultez la documentation [Points de terminaison de service de réseau virtuel][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ Accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ Accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier** . Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]

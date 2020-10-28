@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669715"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser .NET et C# dans Visual Studio pour se connecter à une base de données dans Azure SQL Database ou Azure SQL Managed Instance et interroger la base de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,9 +53,9 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Accédez à la page **Bases de données SQL** ou **Instances managées SQL**.
+2. Accédez à la page **Bases de données SQL** ou **Instances managées SQL** .
 
-3. Dans la page **Vue d’ensemble**, vérifiez le nom de serveur complet à côté de **Nom de serveur** pour une base de données dans Azure SQL Database, ou le nom de serveur complet (ou l’adresse IP) à côté de **Hôte** pour une instance managée Azure SQL ou un serveur SQL sur une machine virtuelle Azure. Pour copier le nom du serveur ou de l’hôte, pointez dessus et sélectionnez l’icône **Copier**.
+3. Dans la page **Vue d’ensemble** , vérifiez le nom de serveur complet à côté de **Nom de serveur** pour une base de données dans Azure SQL Database, ou le nom de serveur complet (ou l’adresse IP) à côté de **Hôte** pour une instance managée Azure SQL ou un serveur SQL sur une machine virtuelle Azure. Pour copier le nom du serveur ou de l’hôte, pointez dessus et sélectionnez l’icône **Copier** .
 
 > [!NOTE]
 > Pour obtenir les informations de connexion de SQL Server sur une machine virtuelle Azure, consultez [Se connecter à une instance SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
@@ -64,19 +64,19 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
 
 1. Dans Visual Studio, créez un projet. 
    
-1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** , **Application console (.NET Framework)** .
+1. Dans la boîte de dialogue **Nouveau projet** , sélectionnez **Visual C#** , **Application console (.NET Framework)** .
    
-1. Entrez *sqltest* pour le nom du projet puis sélectionnez **OK**. Le nouveau projet est créé. 
+1. Entrez *sqltest* pour le nom du projet puis sélectionnez **OK** . Le nouveau projet est créé. 
    
-1. Sélectionnez **Projet** > **Gérer les packages NuGet**. 
+1. Sélectionnez **Projet** > **Gérer les packages NuGet** . 
    
-1. Dans **Gestionnaire de package NuGet**, sélectionnez l'onglet **Parcourir**, puis recherchez et sélectionnez **Microsoft.Data.SqlClient**.
+1. Dans **Gestionnaire de package NuGet** , sélectionnez l'onglet **Parcourir** , puis recherchez et sélectionnez **Microsoft.Data.SqlClient** .
    
-1. Sur la page **Microsoft.Data.SqlClient**, sélectionnez **Installer**. 
+1. Sur la page **Microsoft.Data.SqlClient** , sélectionnez **Installer** . 
    - Si vous y êtes invité, sélectionnez **OK** pour poursuivre l’installation. 
-   - Si une fenêtre **Acceptation de la licence** apparaît, sélectionnez **J’accepte**.
+   - Si une fenêtre **Acceptation de la licence** apparaît, sélectionnez **J’accepte** .
    
-1. Une fois l’installation terminée, vous pouvez fermer le **Gestionnaire de package NuGet**. 
+1. Une fois l’installation terminée, vous pouvez fermer le **Gestionnaire de package NuGet** . 
    
 1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<your_server>`, `<your_username>`, `<your_password>` et `<your_database>` par vos valeurs.
    
@@ -139,7 +139,7 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-1. Pour exécuter l’application, sélectionnez **Déboguer** > **Démarrer le débogage**, ou sélectionnez **Démarrer** dans la barre d’outils, ou appuyez sur **F5**.
+1. Pour exécuter l’application, sélectionnez **Déboguer** > **Démarrer le débogage** , ou sélectionnez **Démarrer** dans la barre d’outils, ou appuyez sur **F5** .
 1. Vérifiez que les 20 premières lignes catégorie/produit de votre base de données sont retournées, puis fermez la fenêtre de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -147,11 +147,10 @@ Obtenez les informations de connexion dont vous avez besoin pour vous connecter 
 - Découvrez comment [vous connecter à une base de données dans Azure SQL Database et l’interroger en utilisant .NET Core](connect-query-dotnet-core.md) sur Windows/Linux/macOS.  
 - En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
 - Découvrez comment [concevoir votre première base de données dans Azure SQL Database en utilisant SSMS](design-first-database-tutorial.md) ou comment [concevoir votre première base de données dans Azure SQL Database en utilisant .NET](design-first-database-csharp-tutorial.md).
-- Pour plus d’informations sur .NET, consultez la [documentation .NET](https://docs.microsoft.com/dotnet/).
+- Pour plus d’informations sur .NET, consultez la [documentation .NET](/dotnet/).
 - Exemple de logique de nouvelle tentative : [Connexion résiliente à Azure SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

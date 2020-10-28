@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: cd08b02cb3b67ce615ffa1003ee1e4441a281c17
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669751"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Utiliser GitHub Actions pour se connecter à Azure SQL Database
 
@@ -26,7 +26,7 @@ Familiarisez-vous avec [GitHub Actions](https://docs.github.com/en/actions) en u
 - Un dépôt GitHub avec un package dacpac (`Database.dacpac`). Si vous n’avez pas de compte GitHub, [inscrivez-vous gratuitement](https://github.com/join).  
 - Une base de données Azure SQL.
     - [Démarrage rapide : Créer une base de données Azure SQL](single-database-create-quickstart.md)
-    - [Guide pratique pour créer un package dacpac à partir de votre base de données SQL Server existante](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [Guide pratique pour créer un package dacpac à partir de votre base de données SQL Server existante](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## <a name="workflow-file-overview"></a>Vue d’ensemble du fichier de workflow
 
@@ -194,4 +194,4 @@ Quand votre dépôt et votre base de données Azure SQL ne sont plus nécessair
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur l’intégration d’Azure et de GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [En savoir plus sur l’intégration d’Azure et de GitHub](/azure/developer/github/)

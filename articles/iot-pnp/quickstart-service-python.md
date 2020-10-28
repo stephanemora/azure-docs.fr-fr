@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741492"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play connecté à votre solution (Python)
 
@@ -59,7 +59,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple d’appareil à the
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
-1. Cette fenêtre de terminal est utilisée en tant que terminal **device**. Accédez au dossier de votre dépôt cloné, puis accédez au dossier */azure-iot-sdk-python/azure-iot-device/samples/pnp*.
+1. Cette fenêtre de terminal est utilisée en tant que terminal **device** . Accédez au dossier de votre dépôt cloné, puis accédez au dossier */azure-iot-sdk-python/azure-iot-device/samples/pnp* .
 
 1. Pour exécutez l’exemple d’appareil à thermostat, utilisez la commande suivante :
 
@@ -73,21 +73,21 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple d’appareil à the
 
 Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en Python pour interagir avec l’exemple d’appareil que vous venez de configurer.
 
-1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service**.
+1. Ouvrez une autre fenêtre de terminal à utiliser comme terminal **service** .
 
 1. Accédez au dossier */azure-iot-sdk-python/azure-iot-hub/samples* du référentiel du SDK Python cloné.
 
 1. Ouvrez le fichier *registry_manager_pnp_sample.py* et passez en revue le code. Cet exemple montre comment utiliser la classe **IoTHubRegistryManager** pour interagir avec votre appareil IoT Plug-and-Play.
 
 > [!NOTE]
-> Ces exemples de services utilisent la classe **IoTHubRegistryManager** à partir du **client du service IoT Hub**. Pour en savoir plus sur les API, y compris l’API Digital Twins, consultez le [Guide du développeur sur les services](concepts-developer-guide-service.md).
+> Ces exemples de services utilisent la classe **IoTHubRegistryManager** à partir du **client du service IoT Hub** . Pour en savoir plus sur les API, y compris l’API Digital Twins, consultez le [Guide du développeur sur les services](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Obtenir le jumeau d’appareil
 
 Dans [Configurer votre environnement pour les guides de démarrage rapide et tutoriels IoT Plug-and-Play](set-up-environment.md), vous avez créé deux variables d’environnement pour configurer l’exemple afin qu’il se connecte à votre hub IoT et à votre appareil :
 
-* **IOTHUB_CONNECTION_STRING** : la chaîne de connexion de hub IoT que vous avez notée précédemment.
-* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING**  : la chaîne de connexion de hub IoT que vous avez notée précédemment.
+* **IOTHUB_DEVICE_ID**  : `"my-pnp-device"`.
 
 Utilisez la commande suivante dans le terminal **service** pour exécuter cet exemple :
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-L’extrait de code suivant montre l’exemple de code de *registry_manager_pnp_sample.py* :
+L’extrait de code suivant montre l’exemple de code de *registry_manager_pnp_sample.py*  :
 
 ```python
     # Create IoTHubRegistryManager
@@ -165,7 +165,7 @@ Le terminal **service** affiche un message de confirmation de l’appareil :
 The device method has been successfully invoked
 ```
 
-Dans le terminal **device**, vous voyez que l’appareil reçoit la commande :
+Dans le terminal **device** , vous voyez que l’appareil reçoit la commande :
 
 ```cmd/sh
 Command request received with payload

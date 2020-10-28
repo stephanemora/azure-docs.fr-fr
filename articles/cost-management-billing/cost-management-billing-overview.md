@@ -4,17 +4,17 @@ description: Vous utilisez les fonctionnalités d’Azure Cost Management + Fact
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: ''
-ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677389"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Présentation d’Azure Cost Management + Facturation
 
@@ -43,11 +43,11 @@ Un compte de facturation est créé lorsque vous vous inscrivez pour utiliser Az
 
 Le portail Azure prend en charge les types de comptes de facturation suivants :
 
-- **Programme Microsoft Online Services** : Un seul compte de facturation pour un Programme Microsoft Online Services est créé lorsque vous vous inscrivez à Azure via le site web Azure. Par exemple, quand vous souscrivez à un [compte gratuit Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), un [compte avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou en tant qu’[abonné Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Programme Microsoft Online Services**  : Un seul compte de facturation pour un Programme Microsoft Online Services est créé lorsque vous vous inscrivez à Azure via le site web Azure. Par exemple, quand vous souscrivez à un compte gratuit Azure, un compte avec tarifs de paiement à l’utilisation ou en tant qu’abonné Visual Studio.
 
-- **Contrat Entreprise** : Un compte de facturation pour un Contrat Entreprise est créé quand votre organisation signe un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) pour utiliser Azure.
+- **Contrat Entreprise** : Un compte de facturation pour un Contrat Entreprise est créé quand votre organisation signe un Contrat Entreprise (EA) pour utiliser Azure.
 
-- **Contrat client Microsoft** : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un [compte avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou mettent à niveau leur [compte gratuit Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), peuvent avoir un compte de facturation pour un Contrat client Microsoft. Pour plus d’informations, voir [Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft](./understand/mca-overview.md).
+- **Contrat client Microsoft**  : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un compte avec tarifs de paiement à l’utilisation ou mettent à niveau leur compte gratuit Azure, peuvent avoir un compte de facturation pour un Contrat client Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Étendues pour les comptes de facturation
 Une étendue est un nœud à l’intérieur d’un compte de facturation que vous utilisez pour afficher et gérer la facturation. C’est là que vous gérez les données de facturation, les paiements, les factures, et effectuez la gestion des comptes de manière générale.
@@ -83,7 +83,7 @@ Cost Management révèle les modèles de coût et d’utilisation de l’organis
 
 Vous pouvez utiliser le portail Azure ou différentes API pour automatiser l’exportation visant à intégrer les données de coût à des processus et systèmes externes. Vous avez aussi à disposition une exportation automatisée des données de facturation ainsi que des rapports planifiés.
 
-Regardez la [vidéo de présentation d’Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Regardez la vidéo de présentation d’Azure Cost Management pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -101,18 +101,14 @@ Si vous utilisez des systèmes externes pour accéder ou consulter les données 
 
 ### <a name="cloudyn-deprecation"></a>Dépréciation de Cloudyn
 
-[Cloudyn](./cloudyn/overview.md) est un service Azure lié à Cost Management, qui sera déprécié d’ici la fin de l’année 2020. Les fonctionnalités existantes de Cloudyn sont intégrées directement au portail Azure dans la mesure du possible. Aucun nouveau client n’est actuellement intégré pour le moment. Cependant, le produit restera pris en charge jusqu’à ce qu’il soit complètement déprécié.
+Cloudyn est un service Azure lié à Cost Management, qui sera déprécié d’ici la fin de l’année 2020. Les fonctionnalités existantes de Cloudyn sont intégrées directement au portail Azure dans la mesure du possible. Aucun nouveau client n’est actuellement intégré pour le moment. Cependant, le produit restera pris en charge jusqu’à ce qu’il soit complètement déprécié.
  
-Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) pour en savoir plus sur l’opportunité d’utiliser Azure Cost Management ou Cloudyn, en fonction de vos besoins métier. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
-
 ### <a name="additional-azure-tools"></a>Autres outils Azure
 
 Azure dispose d’autres outils qui ne font pas partie de l’ensemble des fonctionnalités d’Azure Cost Management + Facturation. Toutefois, ils jouent un rôle important dans le processus de gestion des coûts. Pour en savoir plus sur ces outils, consultez les liens suivants.
 
 - [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) - Utilisez cet outil pour estimer vos coûts cloud à l’avance.
-- [Azure Migrate](/azure/cost-management-billing/migrate-services-overview) - Évaluez la charge actuelle de votre centre de données pour savoir ce dont vous avez besoin pour une solution de remplacement Azure.
+- [Azure Migrate](/azure/migrate/migrate-services-overview) - Évaluez la charge actuelle de votre centre de données pour savoir ce dont vous avez besoin pour une solution de remplacement Azure.
 - [Azure Advisor](../advisor/advisor-overview.md) - Identifiez les machines virtuelles inutilisées et recevez des recommandations sur les achats d’instance réservée Azure.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) - Utilisez vos licences Windows Server ou SQL Server locales actuelles pour les machines virtuelles dans Azure afin d’économiser.
 

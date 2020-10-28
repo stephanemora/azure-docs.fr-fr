@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 25c3f875717c9c064af0ce27bdab735db67d2f5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 978fcb8c8cf9d2ffd929da5b76d7fd2ff109f420
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944109"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535856"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Démarrage rapide : Créer une instance Azure Database pour PostgreSQL - Serveur flexible dans le portail Azure
 
@@ -29,17 +29,17 @@ Ouvrez votre navigateur web et accédez au [portail](https://portal.azure.com/).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 
-Un serveur Azure Database pour PostgreSQL est créé. Il contient un ensemble configuré de [ressources de calcul et de stockage](./concepts-compute-storage.md). Ce serveur est créé dans un [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Un serveur Azure Database pour PostgreSQL est créé. Il contient un ensemble configuré de [ressources de calcul et de stockage](./concepts-compute-storage.md). Ce serveur est créé dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md).
 
 Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
 1. Sélectionnez **Créer une ressource** (+) dans l’angle supérieur gauche du portail.
 
-2. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL**.
+2. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL** .
 
     :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
-3. Sélectionnez l’option de déploiement **Serveur flexible**.
+3. Sélectionnez l’option de déploiement **Serveur flexible** .
 
    :::image type="content" source="./media/quickstart-create-database-portal/2-select-deployment-option.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
@@ -52,11 +52,11 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
     Abonnement|Votre nom d’abonnement|L’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous disposez de plusieurs abonnements, choisissez celui dans lequel vous souhaitez que la ressource soit facturée.
     Resource group|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Nom du serveur |*mydemoserver*|Un nom unique qui identifie votre serveur Azure Database pour PostgreSQL. Le nom de domaine *postgres.database.azure.com* est ajouté au nom de serveur que vous fournissez. Le serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
-    Nom d’utilisateur administrateur |*myadmin*| Votre propre compte de connexion en tant que compte à utiliser lorsque vous vous connectez au serveur. Le nom de connexion de l’administrateur ne doit pas être **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Il ne peut pas commencer par **pg_** .
+    Nom d’utilisateur administrateur |*myadmin*| Votre propre compte de connexion en tant que compte à utiliser lorsque vous vous connectez au serveur. Le nom de connexion de l’administrateur ne doit pas être **azure_superuser** , **azure_pg_admin** , **admin** , **administrator** , **root** , **guest** ou **public** . Il ne peut pas commencer par **pg_** .
     Mot de passe |Votre mot de passe| Un nouveau mot de passe pour le compte Administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
     Emplacement|La région la plus proche de vos utilisateurs| L’emplacement géographique le plus proche de vos utilisateurs.
     Version|La version principale la plus récente| La version principale PostgreSQL la plus récente, sauf si vous avez des exigences précises.
-    Calcul + stockage | **Usage général**, **4 vCores**, **512 Go**, **7 jours** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur**. *Usage général*, *4 vCores*, *512 Go* et *7 jours* sont les valeurs par défaut pour **Niveau de calcul**, **vCore**, **Stockage** et **Période de rétention des sauvegardes**. Vous pouvez laisser ces curseurs en l’état ou les ajuster. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
+    Calcul + stockage | **Usage général** , **4 vCores** , **512 Go** , **7 jours** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur** . *Usage général* , *4 vCores* , *512 Go* et *7 jours* sont les valeurs par défaut pour **Niveau de calcul** , **vCore** , **Stockage** et **Période de rétention des sauvegardes** . Vous pouvez laisser ces curseurs en l’état ou les ajuster. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK** . La capture d’écran suivante capture ces sélections.
 
     :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
     
@@ -72,11 +72,11 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
 6. Sélectionnez **Vérifier + créer** pour passer en revue vos sélections. Sélectionnez **Créer** pour approvisionner le serveur. Cette opération peut prendre quelques minutes.
 
-7. Dans la barre d’outils, sélectionnez l’icône **Notifications** (en forme de cloche) pour surveiller le processus de déploiement. Une fois le déploiement terminé, vous pouvez sélectionner **Épingler au tableau de bord**, ce qui crée une vignette pour ce serveur dans votre tableau de bord du portail Azure, en tant que raccourci vers la page **Vue d’ensemble** du serveur. En sélectionnant **Accéder à la ressource**, ouvrez la page **Vue d’ensemble** du serveur.
+7. Dans la barre d’outils, sélectionnez l’icône **Notifications** (en forme de cloche) pour surveiller le processus de déploiement. Une fois le déploiement terminé, vous pouvez sélectionner **Épingler au tableau de bord** , ce qui crée une vignette pour ce serveur dans votre tableau de bord du portail Azure, en tant que raccourci vers la page **Vue d’ensemble** du serveur. En sélectionnant **Accéder à la ressource** , ouvrez la page **Vue d’ensemble** du serveur.
 
     :::image type="content" source="./media/quickstart-create-database-portal/7-notifications.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
-   Par défaut, la création d’une base de données **postgres** s’effectue sous votre serveur. La base de données [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) est une base de données par défaut qui est destinée aux utilisateurs, aux utilitaires et aux applications tierces. (L’autre base de données par défaut est **azure_maintenance**. Son rôle consiste à séparer les processus de service administré des actions des utilisateurs. Vous ne pouvez pas accéder à cette base de données.)
+   Par défaut, la création d’une base de données **postgres** s’effectue sous votre serveur. La base de données [postgres](https://www.postgresql.org/docs/12/static/app-initdb.html) est une base de données par défaut qui est destinée aux utilisateurs, aux utilitaires et aux applications tierces. (L’autre base de données par défaut est **azure_maintenance** . Son rôle consiste à séparer les processus de service administré des actions des utilisateurs. Vous ne pouvez pas accéder à cette base de données.)
 
     > [!NOTE]
     > Les connexions à votre serveur de base de données Azure pour PostgreSQL communiquent via le port 5432. Quand vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Si c’est le cas, vous ne pouvez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 5432.
@@ -86,7 +86,7 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
 
 Lorsque vous créez votre serveur Azure Database pour PostgreSQL, une base de données par défaut nommée **postgres** est créée. Pour vous connecter à votre serveur de base de données, vous avez besoin de son nom de serveur complet et des informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment, dans l’article se rapportant au guide de démarrage rapide. Si vous ne l’avez pas fait, vous pouvez facilement localiser le nom du serveur et les informations de connexion dans la page **Vue d’ensemble** du serveur sur le portail Azure.
 
-Ouvrez la page **Vue d’ensemble** de votre serveur. Prenez note du **Nom du serveur** et du **Nom de connexion de l’administrateur du serveur**. Placez le curseur sur chaque champ, afin de faire apparaître le symbole de copie à droite du texte. Sélectionnez ce symbole pour copier les valeurs qui vous intéressent.
+Ouvrez la page **Vue d’ensemble** de votre serveur. Prenez note du **Nom du serveur** et du **Nom de connexion de l’administrateur du serveur** . Placez le curseur sur chaque champ, afin de faire apparaître le symbole de copie à droite du texte. Sélectionnez ce symbole pour copier les valeurs qui vous intéressent.
 
  :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
@@ -152,19 +152,19 @@ Vous disposez au choix de deux moyens de supprimer les ressources que vous avez 
 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur nouvellement créé :
 
-1. Localisez votre groupe de ressources dans le portail. Dans le menu de gauche, sélectionnez **Groupes de ressources**. Sélectionnez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple.
+1. Localisez votre groupe de ressources dans le portail. Dans le menu de gauche, sélectionnez **Groupes de ressources** . Sélectionnez ensuite le nom de votre groupe de ressources, **myresourcegroup** dans l’exemple.
 
-2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**. Pour confirmer la suppression, dans la zone de texte, entrez le nom de votre groupe de ressources (**myresourcegroup** dans l’exemple). Sélectionnez **Supprimer**.
+2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer** . Pour confirmer la suppression, dans la zone de texte, entrez le nom de votre groupe de ressources ( **myresourcegroup** dans l’exemple). Sélectionnez **Supprimer** .
 
 Pour ne supprimer que le serveur nouvellement créé :
 
-1. Localisez votre serveur dans le portail, s’il n’est pas ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Recherchez ensuite le serveur que vous avez créé.
+1. Localisez votre serveur dans le portail, s’il n’est pas ouvert. Dans le menu de gauche, sélectionnez **Toutes les ressources** . Recherchez ensuite le serveur que vous avez créé.
 
-2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**.
+2. Dans la page **Vue d’ensemble** , sélectionnez **Supprimer** .
 
     :::image type="content" source="./media/quickstart-create-database-portal/9-delete.png" alt-text="Azure Database pour PostgreSQL dans le menu":::
 
-3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Entrez votre nom de serveur dans la zone de texte, par exemple **mydemoserver**. Sélectionnez **Supprimer**.
+3. Vérifiez le nom du serveur à supprimer et affichez les bases de données affectées situées sous celui-ci. Entrez votre nom de serveur dans la zone de texte, par exemple **mydemoserver** . Sélectionnez **Supprimer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

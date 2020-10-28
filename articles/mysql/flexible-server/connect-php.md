@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 77e4e2e1548beaa840f46953ef5bb4e94345416f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944156"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545104"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Démarrage rapide : Utiliser PHP pour se connecter et interroger des données dans Azure Database pour MySQL - Serveur flexible
 
@@ -34,7 +34,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 
 ### <a name="install-php"></a>Installer PHP
 
-Installez PHP sur votre serveur, ou créez une [application web](https://docs.microsoft.com/azure/app-service/overview) Azure incluant PHP.  Reportez-vous à [Créer et gérer des règles de pare-feu](./how-to-manage-firewall-portal.md) pour apprendre à créer des règles de pare-feu.
+Installez PHP sur votre serveur, ou créez une [application web](../../app-service/overview.md) Azure incluant PHP.  Reportez-vous à [Créer et gérer des règles de pare-feu](./how-to-manage-firewall-portal.md) pour apprendre à créer des règles de pare-feu.
 
 #### <a name="macos"></a>macOS
 
@@ -56,9 +56,9 @@ Installez PHP sur votre serveur, ou créez une [application web](https://docs.m
 Obtenez les informations requises pour vous connecter à Azure Database pour MySQL - Serveur flexible. Vous devez disposer du nom du serveur complet et des informations d'identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources** , puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver** .
 3. Sélectionnez le nom du serveur.
-4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
+4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur** . Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## <a name="connecting-to-flexible-server-using-tlsssl-in-php"></a>Connexion à un serveur flexible à l'aide du protocole TLS/SSL dans PHP
@@ -76,7 +76,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 ## <a name="connect-and-create-a-table"></a>Se connecter et créer une table
 
-Utilisez le code suivant pour vous connecter et créer une table à l’aide de l’instruction SQL **CREATE TABLE**.
+Utilisez le code suivant pour vous connecter et créer une table à l’aide de l’instruction SQL **CREATE TABLE** .
 
 Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Il appelle les méthodes [mysqli_init](https://secure.php.net/manual/mysqli.init.php) et [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) pour se connecter à MySQL. Ensuite, il appelle la méthode [mysqli_query](https://secure.php.net/manual/mysqli.query.php) pour exécuter la requête. Enfin, il appelle la méthode [mysqli_close](https://secure.php.net/manual/mysqli.close.php) pour fermer la connexion.
 
@@ -116,7 +116,7 @@ mysqli_close($conn);
 
 ## <a name="insert-data"></a>Insertion des données
 
-Utilisez le code suivant pour vous connecter et insérer des données à l’aide d’une instruction SQL **INSERT**.
+Utilisez le code suivant pour vous connecter et insérer des données à l’aide d’une instruction SQL **INSERT** .
 
 Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Le code utilise la méthode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) pour créer une instruction Insert préparée, puis lie les paramètres de chaque valeur de colonne insérée à l’aide de la méthode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il exécute l’instruction à l’aide de la méthode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php), puis ferme l’instruction à l’aide de la méthode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -154,7 +154,7 @@ mysqli_close($conn);
 
 ## <a name="read-data"></a>Lire les données
 
-Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **SELECT**.  Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Le code utilise la méthode [mysqli_query](https://secure.php.net/manual/mysqli.query.php) pour exécuter la requête sql, et la méthode [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) pour extraire les lignes ainsi créées.
+Utilisez le code suivant pour vous connecter et lire des données à l’aide d’une instruction SQL **SELECT** .  Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Le code utilise la méthode [mysqli_query](https://secure.php.net/manual/mysqli.query.php) pour exécuter la requête sql, et la méthode [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) pour extraire les lignes ainsi créées.
 
 Remplacez les paramètres db_name, de l’hôte, du nom d’utilisateur et du mot de passe par vos propres valeurs.
 
@@ -186,7 +186,7 @@ mysqli_close($conn);
 
 ## <a name="update-data"></a>Mettre à jour des données
 
-Utilisez le code suivant pour vous connecter et mettre à jour les données à l’aide d’une instruction SQL **UPDATE**.
+Utilisez le code suivant pour vous connecter et mettre à jour les données à l’aide d’une instruction SQL **UPDATE** .
 
 Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Le code utilise la méthode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) pour créer une instruction Update préparée, puis lie les paramètres de chaque valeur de colonne mise à jour à l’aide de la méthode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il exécute l’instruction à l’aide de la méthode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php), puis ferme l’instruction à l’aide de la méthode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -224,7 +224,7 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Suppression de données
-Utilisez le code suivant pour vous connecter et lire les données à l’aide d’une instruction SQL **DELETE**.
+Utilisez le code suivant pour vous connecter et lire les données à l’aide d’une instruction SQL **DELETE** .
 
 Ce code utilise la classe **d’extension MySQL améliorée** (mysqli) incluse dans PHP. Le code utilise la méthode [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) pour créer une instruction Delete préparée, puis lie les paramètres de la clause Where à l’aide de la méthode [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il exécute l’instruction à l’aide de la méthode [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php), puis ferme l’instruction à l’aide de la méthode [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 

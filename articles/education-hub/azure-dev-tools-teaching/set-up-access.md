@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87100868"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676532"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Configuration de l’accès pour Azure Dev Tools
 
@@ -30,7 +30,7 @@ Vous pouvez demander l’accès à votre Abonnement Visual Studio via le [Portai
 ## <a name="for-students-faculty-and-administrators"></a>Pour les étudiants, les enseignants et les administrateurs
 Les étudiants accèdent aux outils de développement Azure via le [Hub Education](https://aka.ms/devtoolsforteaching).
 
-Tant les étudiants que les professeurs peuvent avoir accès à tous les avantages du téléchargement de logiciels via le Hub Education. Le Hub Education, disponible au sein du portail Azure, offre à vos étudiants un accès aisé à l’ensemble du catalogue de logiciels, ainsi qu’un accès à l’ensemble du catalogue [Microsoft Learn](https://docs.microsoft.com/learn/).
+Tant les étudiants que les professeurs peuvent avoir accès à tous les avantages du téléchargement de logiciels via le Hub Education. Le Hub Education, disponible au sein du portail Azure, offre à vos étudiants un accès aisé à l’ensemble du catalogue de logiciels, ainsi qu’un accès à l’ensemble du catalogue [Microsoft Learn](/learn/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Gérer des comptes d’étudiants](manage-students.md)

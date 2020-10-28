@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91564780"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543812"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database pour MySQL - Serveur unique
 
@@ -55,7 +55,7 @@ Le service à serveur unique crée automatiquement des sauvegardes de serveur et
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
 
-Trois références SKU sont disponibles pour le service à serveur unique : De base, Usage général et À mémoire optimisée. Le niveau De base conviendra à un développement à faible coût et à des charges de travail à faible simultanéité. Les niveaux Usage général et À mémoire optimisée conviendront quant à eux aux charges de travail de production nécessitant une simultanéité et une mise à l'échelle de haut niveau, ainsi que des performances prévisibles. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. La mise à l'échelle du stockage s'effectue en ligne et prend en charge la croissance automatique du stockage. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous ne payez que pour les ressources que vous consommez. Pour plus d’informations, consultez  [Niveaux tarifaires](concepts-service-tiers.md).
+Trois références SKU sont disponibles pour le service à serveur unique : De base, Usage général et À mémoire optimisée. Le niveau De base conviendra à un développement à faible coût et à des charges de travail à faible simultanéité. Les niveaux Usage général et À mémoire optimisée conviendront quant à eux aux charges de travail de production nécessitant une simultanéité et une mise à l'échelle de haut niveau, ainsi que des performances prévisibles. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. La mise à l'échelle du stockage s'effectue en ligne et prend en charge la croissance automatique du stockage. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous ne payez que pour les ressources que vous consommez. Pour plus d’informations, consultez [Niveaux tarifaires](./concepts-pricing-tiers.md).
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Sécurité, conformité et gouvernance de niveau entreprise
 
@@ -63,7 +63,7 @@ Le service à serveur unique utilise le module de chiffrement conforme à la nor
 
 Le service permet un accès privé aux serveurs via une [liaison privée](concepts-data-access-security-private-link.md) et fournit la fonctionnalité [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md). Advanced Threat Protection détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès à vos bases de données ou d'exploitation de celles-ci.
 
-Outre l'authentification native, le service à serveur unique prend en charge l'authentification [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). L'authentification Azure AD est un mécanisme de connexion aux serveurs MySQL utilisant des identités définies et gérées dans Azure AD. Avec l'authentification Azure AD, vous pouvez gérer les identités des utilisateurs de la base de données et d'autres services Azure à un emplacement central, ce qui simplifie et centralise le contrôle d'accès.
+Outre l'authentification native, le service à serveur unique prend en charge l'authentification [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). L'authentification Azure AD est un mécanisme de connexion aux serveurs MySQL utilisant des identités définies et gérées dans Azure AD. Avec l'authentification Azure AD, vous pouvez gérer les identités des utilisateurs de la base de données et d'autres services Azure à un emplacement central, ce qui simplifie et centralise le contrôle d'accès.
 
 La fonctionnalité d'[enregistrement d'audit](concepts-audit-logs.md) est disponible pour suivre toute l'activité au niveau de la base de données. 
 
@@ -79,9 +79,9 @@ Le service à serveur unique est équipé de fonctionnalités intégrées d'anal
 
 Le service exécute la version de la communauté de MySQL. Cela permet une compatibilité totale des applications et requiert un coût de refactorisation minimal pour migrer une application existante développée sur le moteur MySQL vers un service à serveur unique. La migration vers le serveur unique peut être effectuée à l'aide de l'une des options suivantes :
 
-- **Image mémoire et restauration** : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](concepts-migrate-dump-restore.md). 
-- **Azure Database Migration Service** : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) peut être utilisé. 
-- **Réplication des données entrantes** : pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes, qui repose sur la réplication binlog, peut également être utilisée. Pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes est préférée par les experts qui, en pratique, cherchent à mieux contrôler la migration. Pour plus d'informations, consultez [Réplication des données entrantes](concepts-data-in-replication.md).
+- **Image mémoire et restauration**  : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que mysqldump/mydumper peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](concepts-migrate-dump-restore.md). 
+- **Azure Database Migration Service**  : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) peut être utilisé. 
+- **Réplication des données entrantes**  : pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes, qui repose sur la réplication binlog, peut également être utilisée. Pour les migrations avec temps d'arrêt minimal, la réplication des données entrantes est préférée par les experts qui, en pratique, cherchent à mieux contrôler la migration. Pour plus d'informations, consultez [Réplication des données entrantes](concepts-data-in-replication.md).
 
 ## <a name="contacts"></a>Contacts
 Pour toute question ou suggestion au sujet de l’utilisation d’Azure Database pour MySQL, envoyez un e-mail à l’équipe Azure Database pour MySQL ([@Ask Azure DB pour MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Cette adresse e-mail n’est pas un alias de support technique.
@@ -108,4 +108,3 @@ Maintenant que vous avez lu l'introduction au mode de déploiement Azure Databas
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

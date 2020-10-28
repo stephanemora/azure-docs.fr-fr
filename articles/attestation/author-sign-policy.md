@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006817"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675996"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Guide pratique pour créer et signer une stratégie d’attestation
 
@@ -36,7 +36,7 @@ issuancerules
  
 Un fichier de stratégie comporte trois sections, comme indiqué ci-dessus :
 
-- **version** :  la version est le numéro de version de la grammaire qui est suivie. 
+- **version**  :  la version est le numéro de version de la grammaire qui est suivie. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Un fichier de stratégie comporte trois sections, comme indiqué ci-dessus :
 
     La seule version prise en charge est la version « 1.0 ».
 
-- **authorizationrules** : collection de règles de revendication qui sont vérifiées en premier, pour déterminer si Azure Attestation doit passer à la section **issuancerules**. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies.
+- **authorizationrules**  : collection de règles de revendication qui sont vérifiées en premier, pour déterminer si Azure Attestation doit passer à la section **issuancerules** . Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies.
 
-- **issuancerules** : collection de règles de revendication qui sont évaluées pour ajouter des informations supplémentaires au résultat de l’attestation, tel que défini dans la stratégie. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies et sont également facultatives.
+- **issuancerules**  : collection de règles de revendication qui sont évaluées pour ajouter des informations supplémentaires au résultat de l’attestation, tel que défini dans la stratégie. Les règles de revendication s’appliquent dans l’ordre dans lequel elles sont définies et sont également facultatives.
 
 Pour plus d’informations, consultez [Revendication et règles de revendication](claim-rule-grammar.md).
    
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez [Revendication et règles de revendication
 
 1. Créez un fichier.
 1. Ajoutez une version au fichier.
-1. Ajoutez des sections pour **authorizationrules** et **issuancerules**.
+1. Ajoutez des sections pour **authorizationrules** et **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Pour plus d’informations, consultez [Revendication et règles de revendication
   };
   ```
 
-  Si le jeu de revendications entrantes contient une revendication correspondant au type, à la valeur et à l’émetteur, l’action permit() indique au moteur de stratégie de traiter la section **issuancerules**.
+  Si le jeu de revendications entrantes contient une revendication correspondant au type, à la valeur et à l’émetteur, l’action permit() indique au moteur de stratégie de traiter la section **issuancerules** .
   
-5. Ajoutez des règles de revendication à la section **issuancerules**.
+5. Ajoutez des règles de revendication à la section **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ Après avoir créé un fichier de stratégie, pour charger une stratégie au for
      ```
 
 2. (Facultatif) Signez la stratégie. Azure Attestation prend en charge les algorithmes suivants :
-     - **Aucun** : ne pas signer la charge utile de la stratégie.
-     - **RS256** : algorithme pris en charge pour signer la charge utile de la stratégie
+     - **Aucun**  : ne pas signer la charge utile de la stratégie.
+     - **RS256**  : algorithme pris en charge pour signer la charge utile de la stratégie
 
 3. Chargez la signature JWS et validez la stratégie.
      - Si le fichier de stratégie est exempt d’erreurs de syntaxe, il est accepté par le service.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurer Azure Attestation à l’aide de PowerShell](quickstart-powershell.md)
-- [Attester une enclave SGX à l’aide d’exemples de code](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Attester une enclave SGX à l’aide d’exemples de code](/samples/browse/?expanded=azure&terms=attestation)

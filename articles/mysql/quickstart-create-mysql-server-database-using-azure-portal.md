@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906565"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541398"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL via le portail Azure
 
@@ -24,13 +24,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 Ouvrez votre navigateur Web, puis accédez au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
-Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
+Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de [ressources de calcul et de stockage](./concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
 Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes ci-après :
 
 1. Sélectionnez **Créer une ressource** (+) dans l’angle supérieur gauche du portail.
 
-2. Sélectionnez **Bases de données** > **Azure Database pour MySQL**. Vous pouvez également entrer **MySQL** dans la zone de recherche pour localiser le service.
+2. Sélectionnez **Bases de données** > **Azure Database pour MySQL** . Vous pouvez également entrer **MySQL** dans la zone de recherche pour localiser le service.
 
   
 >[!div class="mx-imgBorder"]
@@ -47,12 +47,12 @@ Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souh
 Resource group | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant. Vous pouvez utiliser un groupe de ressources pour organiser vos dépendances appartenant à un projet unique.
 Nom du serveur | Nom de serveur unique | Entrez un nom unique qui identifie votre serveur Azure Database pour MySQL. Par exemple, « mysqldbserver ». Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
 Source de données |*Aucun* | Sélectionnez *Aucun* pour créer un serveur en partant de zéro. (Vous sélectionneriez *Sauvegarde* si vous créiez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour MySQL existant).
-Connexion d’administrateur serveur | myadmin | Entrez un nom d’utilisateur pour votre administrateur de serveur. Vous ne pouvez pas utiliser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public** comme nom d’utilisateur pour l’administrateur.
+Connexion d’administrateur serveur | myadmin | Entrez un nom d’utilisateur pour votre administrateur de serveur. Vous ne pouvez pas utiliser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public** comme nom d’utilisateur pour l’administrateur.
 Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Le mot de passe doit comprendre entre 8 et 128 caractères, avec une combinaison de lettres majuscules ou minuscules, de chiffres et de caractères non alphanumériques ( !, $, #,%, etc.).
 Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
 Emplacement | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
 Version | *La version principale la plus récente*| La version principale la plus récente (sauf si vous avez des exigences spécifiques).
-Calcul + Stockage | **Usage général**, **Gen 5**, **2 vCores**, **5 Go**, **7 jours**, **Géoredondant** |Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur**. Sélectionnez ensuite le niveau tarifaire approprié. Pour plus d’informations, consultez la [page relative à la tarification](https://azure.microsoft.com/pricing/details/mysql/). Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Sélectionnez **OK**.
+Calcul + Stockage | **Usage général** , **Gen 5** , **2 vCores** , **5 Go** , **7 jours** , **Géoredondant** |Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Configurer le serveur** . Sélectionnez ensuite le niveau tarifaire approprié. Pour plus d’informations, consultez la [page relative à la tarification](https://azure.microsoft.com/pricing/details/mysql/). Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde** . Sélectionnez **OK** .
 
    > [!NOTE]
    > Choisissez le niveau tarifaire De base si votre charge de travail n’a pas besoin d’une grande capacité de calcul et d’E/S. Notez que les serveurs créés avec le niveau tarifaire De base ne peuvent plus ensuite être mis à l’échelle vers le niveau Usage général ou Mémoire optimisée. 
@@ -61,23 +61,23 @@ Calcul + Stockage | **Usage général**, **Gen 5**, **2 vCores**, **5 Go**, **7 
    
 5. Dans la barre d’outils, sélectionnez **Notifications** (icône de cloche) pour surveiller le processus de déploiement.
    
-Par défaut, les bases de données suivantes sont créées sous votre serveur : **information_schema**, **mysql**, **performance_schema**, et **sys**.
+Par défaut, les bases de données suivantes sont créées sous votre serveur : **information_schema** , **mysql** , **performance_schema** , et **sys** .
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur
-Par défaut, le serveur créé est protégé par un pare-feu et n’est pas accessible publiquement. Pour accorder l’accès à votre adresse IP, accédez à votre ressource de serveur dans le portail Azure, puis sélectionnez **Sécurité de la connexion** dans le menu de gauche de votre ressource de serveur. Si vous ne savez pas comment trouver votre ressource, consultez [Guide pratique pour ouvrir une ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Par défaut, le serveur créé est protégé par un pare-feu et n’est pas accessible publiquement. Pour accorder l’accès à votre adresse IP, accédez à votre ressource de serveur dans le portail Azure, puis sélectionnez **Sécurité de la connexion** dans le menu de gauche de votre ressource de serveur. Si vous ne savez pas comment trouver votre ressource, consultez [Guide pratique pour ouvrir une ressource](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Option Azure Database pour MySQL":::
    
-Sélectionnez à présent **Ajouter l’adresse IP actuelle du client**, puis sélectionnez **Enregistrer**. Vous pouvez ajouter des adresses IP supplémentaires ou fournir une plage d’adresses IP pour permettre la connexion à votre serveur à partir de ces adresses IP. Pour plus d’informations, consultez [Comment gérer les règles de pare-feu sur un serveur Azure Database pour MySQL](./concepts-firewall-rules.md).
+Sélectionnez à présent **Ajouter l’adresse IP actuelle du client** , puis sélectionnez **Enregistrer** . Vous pouvez ajouter des adresses IP supplémentaires ou fournir une plage d’adresses IP pour permettre la connexion à votre serveur à partir de ces adresses IP. Pour plus d’informations, consultez [Comment gérer les règles de pare-feu sur un serveur Azure Database pour MySQL](./concepts-firewall-rules.md).
 
 > [!NOTE]
 > Vérifiez si votre réseau autorise le trafic sortant sur le port 3306 qu’Azure Database pour MySQL utilise afin d’éviter des problèmes de connectivité.  
 
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>Se connecter au serveur Azure Database pour MySQL à l’aide du client de ligne de commande mysql
-Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [MySQL Workbench](./connect-workbench.md) pour vous connecter au serveur à partir de votre environnement local. Dans ce démarrage rapide, nous allons exécuter **mysql.exe** dans [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour la connexion au serveur.
+Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [MySQL Workbench](./connect-workbench.md) pour vous connecter au serveur à partir de votre environnement local. Dans ce démarrage rapide, nous allons exécuter **mysql.exe** dans [Azure Cloud Shell](../cloud-shell/overview.md) pour la connexion au serveur.
 
-1. Lancez Azure Cloud Shell dans le portail en cliquant sur l’icône en surbrillance en haut à gauche. Notez le nom de votre serveur, le nom de connexion de l’administrateur de serveur, ainsi que le mot de passe et l’abonnement du serveur venant d’être créé dans la section **Vue d’ensemble**, comme illustré dans l’image ci-dessous.
+1. Lancez Azure Cloud Shell dans le portail en cliquant sur l’icône en surbrillance en haut à gauche. Notez le nom de votre serveur, le nom de connexion de l’administrateur de serveur, ainsi que le mot de passe et l’abonnement du serveur venant d’être créé dans la section **Vue d’ensemble** , comme illustré dans l’image ci-dessous.
 
     >[!NOTE]
     >Si vous lancez Cloud Shell pour la première fois, vous voyez s’afficher une invite permettant de créer un groupe de ressources et un compte de stockage. Il s’agit d’une étape unique qui sera automatiquement associée à toutes les sessions. 
@@ -120,7 +120,7 @@ Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
   mysql> CREATE DATABASE guest;
   Query OK, 1 row affected (0.27 sec)
   ```
-4. Basculez vers la base de données **invité**.
+4. Basculez vers la base de données **invité** .
   ```
   mysql> USE guest;
   Database changed 
@@ -129,10 +129,10 @@ Vous pouvez choisir [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Vous avez réussi à créer un serveur Azure Database pour MySQL dans un groupe de ressources.  Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources ou en supprimant simplement le serveur MySQL. Pour supprimer le groupe de ressources, suivez ces étapes :
-1. Depuis le portail Azure, recherchez et sélectionnez **Groupes de ressources**. 
+1. Depuis le portail Azure, recherchez et sélectionnez **Groupes de ressources** . 
 2. Dans la liste des groupes de ressources, choisissez le nom de votre groupe de ressources.
-3. Dans la page Vue d’ensemble de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
-4. Dans la boîte de dialogue de confirmation, entrez le nom de votre groupe de ressources, puis sélectionnez **Supprimer**.
+3. Dans la page Vue d’ensemble de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources** .
+4. Dans la boîte de dialogue de confirmation, entrez le nom de votre groupe de ressources, puis sélectionnez **Supprimer** .
 
 Pour supprimer le serveur, vous pouvez cliquer sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre serveur, comme indiqué ci-dessous :
 > [!div class="mx-imgBorder"]
@@ -140,6 +140,6 @@ Pour supprimer le serveur, vous pouvez cliquer sur le bouton **Supprimer** dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
->[Créer une application PHP sur Windows avec MySQL](../app-service/app-service-web-tutorial-php-mysql.md)
->[Créer une application PHP sur Linux avec MySQL](../app-service/containers/tutorial-php-mysql-app.md)
->[Créer une application Spring basée sur Java avec MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Créer une application PHP sur Windows avec MySQL](../app-service/tutorial-php-mysql-app.md)
+>[Créer une application PHP sur Linux avec MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
+>[Créer une application Spring basée sur Java avec MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

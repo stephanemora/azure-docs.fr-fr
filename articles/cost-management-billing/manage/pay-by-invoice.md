@@ -6,19 +6,20 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 0667e253d50ecc34acef822a928a95e49f13282e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.custom: contentperfq2
+ms.openlocfilehash: df95305d1b014579ca6294a9015ac7879d8ce0b3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439790"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670425"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
-Si vous passez au paiement par facture, cela signifie que vous devez payer votre facture dans les 30 jours à compter de la date de facture par chèque/virement bancaire. Afin de pouvoir payer votre abonnement Azure par facture, envoyez une requête au support Azure. Une fois votre requête approuvée, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le [Portail Azure](https://portal.azure.com).
+Si vous passez au paiement par facture, cela signifie que vous devez payer votre facture dans les 30 jours à compter de la date de facture par chèque/virement bancaire. Afin de pouvoir payer votre abonnement Azure par facture, envoyez une requête au support Azure. Une fois votre requête approuvée, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le Portail Azure.
 
 > [!IMPORTANT]
 > * Le paiement par facture (chèque/virement) est disponible seulement pour les clients qui utilisent Azure pour le compte d’une société.
@@ -27,21 +28,21 @@ Si vous passez au paiement par facture, cela signifie que vous devez payer votre
 
 ## <a name="request-to-pay-by-invoice"></a>Demander un paiement par facture
 
-1. Accédez au [portail Azure](https://portal.azure.com) pour soumettre une demande de support. Recherchez et sélectionnez **Aide + support**.
+1. Accédez au portail Azure pour soumettre une demande de support. Recherchez et sélectionnez **Aide + support** .
 
     ![Recherche d’aide et de support, portail Microsoft Azure](./media/pay-by-invoice/search-for-help-and-support.png)
 
-2. Sélectionnez **Nouvelle demande de support**.
+2. Sélectionnez **Nouvelle demande de support** .
 
     ![Lien de la nouvelle demande de support, écran Aide + support, portail Microsoft Azure](./media/pay-by-invoice/help-and-support.png)
 
-2. Sélectionnez **Facturation** comme **Type de problème**. Le *type de problème* est la catégorie de demande de support. Sélectionnez l’abonnement que vous souhaitez payer par facture, choisissez un plan de support, puis cliquez sur **Suivant**.
+2. Sélectionnez **Facturation** comme **Type de problème** . Le *type de problème* est la catégorie de demande de support. Sélectionnez l’abonnement que vous souhaitez payer par facture, choisissez un plan de support, puis cliquez sur **Suivant** .
 
-3. Sélectionnez **Paiement** comme **Type de problème**. Le *type de problème* est la sous-catégorie de demande de support.
+3. Sélectionnez **Paiement** comme **Type de problème** . Le *type de problème* est la sous-catégorie de demande de support.
 
-4. Sélectionnez **Passer au paiement par facture** comme **Sous-type de problème**.
+4. Sélectionnez **Passer au paiement par facture** comme **Sous-type de problème** .
 
-5. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant**.
+5. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant** .
 
      Client nouveau ou existant :<br>
      Si existant, mode de paiement actuel :<br>
@@ -66,10 +67,10 @@ Si vous passez au paiement par facture, cela signifie que vous devez payer votre
      (Nouveau quota) Cœurs demandés :<br>
      Région spécifique & série d’abonnements :<br>
 
-    - Le **nom de la société** et l’**adresse de la société** doivent correspondre aux informations que vous avez fournies pour le compte Azure. Pour afficher ou mettre à jour les informations, consultez [Modifier les informations de profil de votre compte Azure](change-azure-account-profile.md).
-    - Ajoutez vos informations de contact de facturation dans le portail Azure pour que la limite de crédit puisse être approuvée. Les détails du contact doivent être liés au service financier et comptabilité fournisseurs de l’entreprise. Pour mettre à jour les informations de contact de facturation, accédez au [portail Azure](https://portal.azure.com).
+    - Le **nom de la société** et l’ **adresse de la société** doivent correspondre aux informations que vous avez fournies pour le compte Azure. Pour afficher ou mettre à jour les informations, consultez [Modifier les informations de profil de votre compte Azure](change-azure-account-profile.md).
+    - Ajoutez vos informations de contact de facturation dans le portail Azure pour que la limite de crédit puisse être approuvée. Les détails du contact doivent être liés au service financier et comptabilité fournisseurs de l’entreprise.
 
-6. Vérifiez vos coordonnées et votre méthode de contact préférée, puis sélectionnez **Créer**.
+6. Vérifiez vos coordonnées et votre méthode de contact préférée, puis sélectionnez **Créer** .
 
 Si nous avons besoin de vérifier votre solvabilité en raison du montant du crédit dont vous avez besoin, nous vous enverrons une demande de contrôle de solvabilité.
 
@@ -77,19 +78,19 @@ Si nous avons besoin de vérifier votre solvabilité en raison du montant du cr�
 
 Une fois autorisé à payer par facture, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le portail Azure.
 
-Si vous avez un compte de programme Microsoft Online Services, vous pouvez modifier votre abonnement Azure afin de payer par chèque/virement bancaire. Avec un Contrat client Microsoft, vous pouvez modifier votre profil de facturation pour payer par chèque/virement bancaire. [Découvrez comment vérifier votre type de compte](#check-access-to-a-microsoft-customer-agreement).
+Si vous avez un compte de programme Microsoft Online Services, vous pouvez modifier votre abonnement Azure afin de payer par chèque/virement bancaire. Avec un Contrat client Microsoft, vous pouvez modifier votre profil de facturation pour payer par chèque/virement bancaire.
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Modifier l’abonnement Azure pour payer par chèque/virement bancaire
 
-Suivez les étapes ci-dessous pour modifier votre abonnement Azure afin de payer par facture (chèque/virement bancaire). *Une fois le paiement par facture (chèque/virement bancaire) adopté, vous ne pouvez pas repasser au paiement par carte de crédit*.
+Suivez les étapes ci-dessous pour modifier votre abonnement Azure afin de payer par facture (chèque/virement bancaire). *Une fois le paiement par facture (chèque/virement bancaire) adopté, vous ne pouvez pas repasser au paiement par carte de crédit* .
 
-1. Accédez au [portail Azure](https://portal.azure.com) pour vous connecter en tant qu’administrateur de compte. Recherchez et sélectionnez **Gestion des coûts + facturation**.
+1. Accédez au portail Azure pour vous connecter en tant qu’administrateur de compte. Recherchez et sélectionnez **Gestion des coûts + facturation** .
 
     ![Capture d’écran montrant la recherche de « gestion des coûts + facturation » dans le Portail Azure.](./media/pay-by-invoice/search.png)
 
 1. Sélectionnez l’abonnement que vous souhaitez faire passer au paiement par facture.
-1. Sélectionnez **Modes de paiement**.
-1. Dans la barre de commandes, sélectionnez le bouton **Payer par facture**.
+1. Sélectionnez **Modes de paiement** .
+1. Dans la barre de commandes, sélectionnez le bouton **Payer par facture** .
 
     ![Bouton Payer par facture, Modes de paiement, portail Microsoft Azure](./media/pay-by-invoice/pay-by-invoice.png)
 
@@ -97,13 +98,13 @@ Suivez les étapes ci-dessous pour modifier votre abonnement Azure afin de payer
 
 Suivez les étapes ci-dessous pour modifier le profil de facturation pour passer au paiement par chèque/virement bancaire. Seule la personne qui s’est inscrite à Azure peut modifier le mode de paiement par défaut d’un profil de facturation.
 
-1. Accédez au [portail Azure](https://portal.azure.com) pour afficher vos informations de facturation. Recherchez et sélectionnez **Gestion des coûts + facturation**.
-1. Dans le menu, choisissez **Profils de facturation**.
+1. Accédez au portail Azure pour afficher vos informations de facturation. Recherchez et sélectionnez **Gestion des coûts + facturation** .
+1. Dans le menu, choisissez **Profils de facturation** .
 
     ![Option de menu Profils de facturation, Gestion des coûts + facturation, portail Microsoft Azure](./media/pay-by-invoice/billing-profile.png)
 
 1. Sélectionnez un profil de facturation.
-1. Dans le menu **Profil de facturation**, sélectionnez **Modes de paiement**.
+1. Dans le menu **Profil de facturation** , sélectionnez **Modes de paiement** .
 
    ![Option de menu Modes de paiement, Profils de facturation, Gestion des coûts, portail Microsoft Azure](./media/pay-by-invoice/billing-profile-payment-methods.png)
 
@@ -122,10 +123,6 @@ Il peut arriver que Microsoft ait besoin de documents juridiques si les informat
 
 * Différence de nom entre le nom du compte et le nom de la société
 * Modification du nom
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
-
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

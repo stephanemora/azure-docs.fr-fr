@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662364"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547722"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application .NET Core
 
@@ -29,7 +29,7 @@ Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Re
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Prenez note du **NOM D’HÔTE** et de la clé d’accès **PRINCIPALE**. Vous utiliserez ces valeurs ultérieurement pour construire le secret *CacheConnection*.
+Prenez note du **NOM D’HÔTE** et de la clé d’accès **PRINCIPALE** . Vous utiliserez ces valeurs ultérieurement pour construire le secret *CacheConnection* .
 
 
 
@@ -41,15 +41,15 @@ Ouvrez une nouvelle fenêtre de commande et exécutez la commande suivante pour 
 dotnet new console -o Redistest
 ```
 
-Dans votre fenêtre de commande, remplacez par le nouveau répertoire de projet *Redistest*.
+Dans votre fenêtre de commande, remplacez par le nouveau répertoire de projet *Redistest* .
 
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Ajouter Secret Manager au projet
 
-Dans cette section, vous allez ajouter l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) à votre projet. L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source.
+Dans cette section, vous allez ajouter l’outil [Secret Manager](/aspnet/core/security/app-secrets) à votre projet. L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source.
 
-Ouvrez votre fichier *Redistest.csproj*. Ajoutez un élément `DotNetCliToolReference` afin d’inclure *Microsoft.Extensions.SecretManager.Tools*. Ajoutez également un élément `UserSecretsId`, comme indiqué ci-dessous, puis enregistrez le fichier.
+Ouvrez votre fichier *Redistest.csproj* . Ajoutez un élément `DotNetCliToolReference` afin d’inclure *Microsoft.Extensions.SecretManager.Tools* . Ajoutez également un élément `UserSecretsId`, comme indiqué ci-dessous, puis enregistrez le fichier.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -76,7 +76,7 @@ Exécutez la commande suivante pour restaurer vos packages :
 dotnet restore
 ```
 
-Dans la fenêtre de commande, exécutez la commande suivante pour stocker un nouveau secret nommé *CacheConnection*, après avoir remplacé les espaces réservés (y compris les crochets pointus) pour le nom de cache et la clé d’accès principale :
+Dans la fenêtre de commande, exécutez la commande suivante pour stocker un nouveau secret nommé *CacheConnection* , après avoir remplacé les espaces réservés (y compris les crochets pointus) pour le nom de cache et la clé d’accès principale :
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
@@ -88,7 +88,7 @@ Ajoutez l’instruction `using` suivante à *Program.cs* :
 using Microsoft.Extensions.Configuration;
 ```
 
-Ajoutez les membres suivants à la classe `Program` dans *Program.cs*. Ce code initialise une configuration permettant d’accéder au secret de l’utilisateur pour la chaîne de connexion du cache Azure pour Redis.
+Ajoutez les membres suivants à la classe `Program` dans *Program.cs* . Ce code initialise une configuration permettant d’accéder au secret de l’utilisateur pour la chaîne de connexion du cache Azure pour Redis.
 
 ```csharp
 private static IConfigurationRoot Configuration { get; set; }
@@ -126,7 +126,7 @@ using StackExchange.Redis;
 
 La connexion au cache Azure pour Redis est gérée par la classe `ConnectionMultiplexer`. Cette classe doit être partagée et réutilisée dans votre application cliente. Ne créez pas une nouvelle connexion pour chaque opération. 
 
-Dans *Program.cs*, ajoutez les membres suivants à la classe `Program` de votre application console :
+Dans *Program.cs* , ajoutez les membres suivants à la classe `Program` de votre application console :
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -150,7 +150,7 @@ La valeur du secret *CacheConnection* est accessible à l’aide du fournisseur 
 
 ## <a name="executing-cache-commands"></a>Exécution des commandes de cache
 
-Dans *Program.cs*, ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour votre application console :
+Dans *Program.cs* , ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour votre application console :
 
 ```csharp
 static void Main(string[] args)
@@ -191,7 +191,7 @@ static void Main(string[] args)
 }
 ```
 
-Enregistrez *Program.cs*.
+Enregistrez *Program.cs* .
 
 Le cache Azure pour Redis dispose d’un nombre configurable de bases de données (16 par défaut) pouvant être utilisées pour séparer de manière logique les données dans un cache Azure pour Redis. Le code se connecte à la base de données par défaut, DB 0. Pour plus d’informations, consultez les sections [What are Redis databases?](cache-development-faq.md#what-are-redis-databases) (Que sont les bases de données Redis ?) et [Configuration du serveur Redis par défaut](cache-configure.md#default-redis-server-configuration).
 
@@ -252,7 +252,7 @@ class Employee
 }
 ```
 
-Au bas de la procédure `Main()` dans *Program.cs*et avant l’appel à `Dispose()`, ajoutez les lignes de code suivantes à mettre en cache et récupérez un objet .NET sérialisé :
+Au bas de la procédure `Main()` dans *Program.cs* et avant l’appel à `Dispose()`, ajoutez les lignes de code suivantes à mettre en cache et récupérez un objet .NET sérialisé :
 
 ```csharp
     // Store .NET object to cache
@@ -293,13 +293,13 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 > La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
 >
 
-Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
+Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources** .
 
-Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources* . Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources** .
 
 ![DELETE](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
+Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer** .
 
 Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
@@ -317,4 +317,4 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser le cache Azure 
 Vous souhaitez optimiser et réduire vos coûts de cloud ?
 
 > [!div class="nextstepaction"]
-> [Démarrer l’analyse des coûts avec Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Démarrer l’analyse des coûts avec Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
