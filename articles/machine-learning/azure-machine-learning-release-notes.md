@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996758"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139369"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -27,38 +27,19 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
 ### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.16.0
 + **Résolutions de bogue et améliorations**
   + **azure-cli-ml**
-    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Ces limites facultatives peuvent être définies via 1. Définition des paramètres `cpu_cores_limit` et `memory_gb_limit` dans la méthode `AKSEndpoint.deploy_configuration()` et `AKSWebservice.deploy_configuration()` 2. Définition des indicateurs `--cpu-cores-limit` et `--memory-gb-limit` dans les appels CLI applicables 3. Définition de `cpuLimit` et `memoryInGBLimit` dans le `containerResourceRequirements` des fichiers de configuration de déploiement .json/.yml Plus d’informations sur les ressources et les limites de Kubernetes sont disponibles à l’adresse https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-interpret**
-    + Correction des descriptions de packages entraînant une erreur de chargement pour les packages azureml-interpret, azureml-explain-model, azureml-contrib-interpret et azureml-tensorboard
-  + **azureml-contrib-k8s**
-    + Ajout de la prise en charge de l’association du calcul ArcKubernetes
-  + **azureml-contrib-mir**
-    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Ces limites facultatives peuvent être définies via 1. Définition des paramètres `cpu_cores_limit` et `memory_gb_limit` dans la méthode `AKSEndpoint.deploy_configuration()` et `AKSWebservice.deploy_configuration()` 2. Définition des indicateurs `--cpu-cores-limit` et `--memory-gb-limit` dans les appels CLI applicables 3. Définition de `cpuLimit` et `memoryInGBLimit` dans le `containerResourceRequirements` des fichiers de configuration de déploiement .json/.yml Plus d’informations sur les ressources et les limites de Kubernetes sont disponibles à l’adresse https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-server**
-    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Ces limites facultatives peuvent être définies via 1. Définition des paramètres `cpu_cores_limit` et `memory_gb_limit` dans la méthode `AKSEndpoint.deploy_configuration()` et `AKSWebservice.deploy_configuration()` 2. Définition des indicateurs `--cpu-cores-limit` et `--memory-gb-limit` dans les appels CLI applicables 3. Définition de `cpuLimit` et `memoryInGBLimit` dans le `containerResourceRequirements` des fichiers de configuration de déploiement .json/.yml Plus d’informations sur les ressources et les limites de Kubernetes sont disponibles à l’adresse https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Ces limites facultatives peuvent être utilisées en définissant les indicateurs `--cpu-cores-limit` et `--memory-gb-limit` dans les appels CLI applicables.
   + **azureml-core**
     + Épingler les versions majeures de dépendances directes d’azureml-core
-    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Plus d’informations sur les ressources et les limites de Kubernetes sont disponibles à l’adresse https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice et AKSEndpoints prennent désormais en charge les limites de ressources de processeur et de mémoire au niveau pod. Pour en savoir plus, accédez à [Kubernetes Resources and Limits (Ressources et limites de Kubernetes)](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits).
     + Mise à jour de run.log_table pour autoriser la consignation de lignes individuelles.
-    + Ajout de la méthode statique `Run.get(workspace, run_id)` pour récupérer une exécution uniquement à l’aide d’un espace de travail - Ajout de la méthode d’instance `Workspace.get_run(run_id)` pour récupérer une exécution dans l’espace de travail
+    + Ajout de la méthode statique `Run.get(workspace, run_id)` pour récupérer une exécution uniquement à l’aide d’un espace de travail. 
+    + Ajout de la méthode d’instance `Workspace.get_run(run_id)` pour récupérer une exécution dans l’espace de travail.
     + Introduction de la propriété de commande dans la configuration de l’exécution, ce qui permet aux utilisateurs d’envoyer des commandes au lieu de scripts et d’arguments.
-  + **azureml-dataprep-native**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` prend officiellement en charge Python 3.8.
-  + **azureml-explain-model**
-    + Correction des descriptions de packages entraînant une erreur de chargement pour les packages azureml-interpret, azureml-explain-model, azureml-contrib-interpret et azureml-tensorboard
   + **azureml-interpret**
     + Correction du comportement de l’indicateur is_raw client dans azureml-interpréter
-    + Correction des descriptions de packages entraînant une erreur de chargement pour les packages azureml-interpret, azureml-explain-model, azureml-contrib-interpret et azureml-tensorboard
-  + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` prend officiellement en charge Python 3.8.
   + **azureml-sdk**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` prend officiellement en charge Python 3.8.
-  + **azureml-tensorboard**
-    + Correction des descriptions de packages entraînant une erreur de chargement pour les packages azureml-interpret, azureml-explain-model, azureml-contrib-interpret et azureml-tensorboard
-  + **azureml-train**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` prend officiellement en charge Python 3.8.
+    + `azureml-sdk` prend officiellement en charge Python 3.8.
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` prend officiellement en charge Python 3.8.
     + Ajout de l’environnement organisé TensorFlow 2.3
     + Introduction de la propriété de commande dans la configuration de l’exécution, ce qui permet aux utilisateurs d’envoyer des commandes au lieu de scripts et d’arguments.
   + **azureml-widgets**
@@ -366,7 +347,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **azureml-pipeline-steps**
     + Mises à jour de la documentation pour azureml-pipeline-steps.
     +  Ajout de la possibilité dans le `load_yaml()` de ParallelRunConfig pour les utilisateurs de définir des environnements inlined avec le reste de la configuration ou dans un fichier distinct
-  + **azureml-train-automl-client**.
+  + **azureml-train-automl-client** .
     + Suppression de la possibilité de spécifier `enable_cache` dans le cadre d’AutoMLConfig
   + **azureml-train-automl-runtime**
     + Ajout d’une disponibilité limitée de caractérisation à plusieurs nœuds distribuée sur plusieurs GPU avec BERT.
@@ -516,7 +497,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
     + La prévision AutoML prend désormais en charge la prévision des clients au-delà de l’horizon maximal spécifié, sans nouvel apprentissage du modèle. Lorsque la destination de la prévision se situe au-delà de l’horizon maximal spécifié, la fonction forecast () continue d’effectuer des prédictions de points à la date ultérieure à l’aide d’un mode d’opération récursif. Pour une illustration de la nouvelle fonctionnalité, consultez la section « Prévision au-delà de l’horizon maximal » du notebook « forecasting-forecast-function » dans le [dossier](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning).
   
   + **azureml-pipeline-steps**
-    + Désormais publié, ParallelRunStep fait partie du package **azureml-pipeline-steps**. La version de ParallelRunStep présente dans **azureml-contrib-pipeline-steps** est déconseillée. Modifications par rapport à la préversion publique :
+    + Désormais publié, ParallelRunStep fait partie du package **azureml-pipeline-steps** . La version de ParallelRunStep présente dans **azureml-contrib-pipeline-steps** est déconseillée. Modifications par rapport à la préversion publique :
       + Ajout d'un paramètre `run_max_try` configurable facultatif pour contrôler le nombre maximal d’appels visant à exécuter la méthode pour un lot donné ; la valeur par défaut est 3.
       + Aucun PipelineParameters n’est plus généré automatiquement. Les valeurs configurables suivantes peuvent être définies comme PipelineParameter de manière explicite.
         + mini_batch_size
@@ -1762,7 +1743,7 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
 ### <a name="azure-portal"></a>Portail Azure
 + **Fonctionnalité en préversion**
   + La diffusion en continu des fichiers journaux et des fichiers de sortie est désormais disponible pour les pages de détail de l’exécution. Ces fichiers diffusent des mises à jour en temps réel lorsque l’aperçu est activé.
-  + La possibilité de définir un quota au niveau de l’espace de travail est publiée en version préliminaire. Les quotas AmlCompute sont alloués au niveau de l’abonnement, mais nous vous permettons désormais de distribuer ces quotas entre les espaces de travail et de les allouer pour un partage et une gouvernance équitables. Cliquez simplement sur le panneau **Utilisations+quotas** dans la barre de navigation de gauche de votre espace de travail, puis sélectionnez l’onglet **Configurer les quotas**. Vous devez être administrateur d’abonnement pour pouvoir définir des quotas au niveau de l’espace de travail, car il s’agit d’une opération qui a lieu sur les différents espaces de travail.
+  + La possibilité de définir un quota au niveau de l’espace de travail est publiée en version préliminaire. Les quotas AmlCompute sont alloués au niveau de l’abonnement, mais nous vous permettons désormais de distribuer ces quotas entre les espaces de travail et de les allouer pour un partage et une gouvernance équitables. Cliquez simplement sur le panneau **Utilisations+quotas** dans la barre de navigation de gauche de votre espace de travail, puis sélectionnez l’onglet **Configurer les quotas** . Vous devez être administrateur d’abonnement pour pouvoir définir des quotas au niveau de l’espace de travail, car il s’agit d’une opération qui a lieu sur les différents espaces de travail.
 
 ## <a name="2019-08-05"></a>05-08-2019
 
@@ -1899,7 +1880,7 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
   + **azureml-pipeline-steps**
     + La banque de données DBFS est maintenant prise en charge pour les entrées et les sorties dans DatabricksStep.
     + Mise à jour de la documentation d’Azure Batch Step concernant les entrées/sorties
-    + Dans AzureBatchStep, modification de la valeur par défaut *delete_batch_job_after_finish* sur *true*.
+    + Dans AzureBatchStep, modification de la valeur par défaut *delete_batch_job_after_finish* sur *true* .
   + **azureml-telemetry**
     +  Déplacement d’azureml-contrib-opendatasets vers azureml-opendatasets.
     + Les classes de jeu de données ouvertes peuvent être inscrites auprès de l’espace de travail Azure Machine Learning et tirer parti des fonctionnalités de jeu de données AML de manière intégrée.
@@ -1931,7 +1912,7 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
 
 + **Nouvelles fonctionnalités**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** est maintenant disponible en tant que **azureml-opendatasets**. L’ancien package peut continuer à fonctionner, mais nous vous recommandons d’utiliser **azureml-opendatasets** pour des fonctionnalités et des améliorations plus riches.
+    + **azureml-contrib-opendatasets** est maintenant disponible en tant que **azureml-opendatasets** . L’ancien package peut continuer à fonctionner, mais nous vous recommandons d’utiliser **azureml-opendatasets** pour des fonctionnalités et des améliorations plus riches.
     + Ce nouveau package vous permet d’inscrire des jeux de données ouverts en tant que Dataset dans un espace de travail Azure Machine Learning et de tirer parti des fonctionnalités offertes par le jeu de données.
     + Il comprend également des fonctionnalités existantes, telles que l’utilisation de jeux de données ouverts en tant que dataframes Pandas/SPARK et les jointures d’emplacement pour certains jeux de données tels que la météo.
 

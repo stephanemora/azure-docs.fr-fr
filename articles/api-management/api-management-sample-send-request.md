@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210351"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093274"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -178,7 +178,7 @@ La première étape pour générer la ressource de tableau de bord consiste à c
 ### <a name="making-the-requests"></a>Construction des requêtes
 Une fois l’opération créée, vous pouvez configurer une stratégie spécifiquement pour cette opération. 
 
-![Opération de tableau de bord](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Capture d’écran montrant l’écran Étendue de la stratégie.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 La première étape consiste à extraire les paramètres de requête à partir de la requête entrante, de façon à pouvoir les transférer vers le serveur principal. Dans cet exemple, le tableau de bord affiche des informations reposant sur une période donnée et comporte donc des paramètres `fromDate` et `toDate`. Vous pouvez utiliser la stratégie `set-variable` pour extraire les informations de l’URL de la requête.
 

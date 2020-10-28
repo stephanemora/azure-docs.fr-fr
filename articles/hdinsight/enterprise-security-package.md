@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327890"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Pack Sécurité Entreprise pour Azure HDInsight
 
@@ -20,7 +20,7 @@ Le package de sécurité d’entreprise est un package facultatif que vous pouve
 
 * Intégration à Active Directory pour l’authentification.
 
-    Avant, vous pouviez créer des clusters HDInsight avec un utilisateur administrateur local et un utilisateur SSH local. L’utilisateur administrateur local pouvait accéder à tous les fichiers, dossiers, tables et colonnes.  Avec le Pack Sécurité Entreprise, vous activez le contrôle d’accès en fonction du rôle en intégrant HDInsight à votre service Azure Active Directory Domain Services.
+    Avant, vous pouviez créer des clusters HDInsight avec un utilisateur administrateur local et un utilisateur SSH local. L’utilisateur administrateur local pouvait accéder à tous les fichiers, dossiers, tables et colonnes.  Grâce à Pack Sécurité Entreprise, vous activez le contrôle d’accès en fonction du rôle Azure en intégrant HDInsight à votre service Azure Active Directory Domain Services.
 
     Pour plus d'informations, consultez les pages suivantes :
 
