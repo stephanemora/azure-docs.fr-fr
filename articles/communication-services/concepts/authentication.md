@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930278"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202954"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Cet article fournit des informations sur l’authentification des clients auprès d’Azure Communication Services à l’aide des *clés d’accès* et des *jetons d’accès utilisateur*. Chaque interaction client avec Azure Communication Services doit être authentifiée.
+Cet article fournit des informations sur l’authentification des clients auprès d’Azure Communication Services à l’aide des *clés d’accès* et des *jetons d’accès utilisateur* . Chaque interaction client avec Azure Communication Services doit être authentifiée.
 
 Le tableau suivant décrit les options d’authentification prises en charge par les bibliothèques clientes d’Azure Communication Services :
 
@@ -33,7 +33,7 @@ Le tableau suivant décrit les options d’authentification prises en charge par
 
 Chaque option d’autorisation est décrite brièvement ci-dessous :
 
-- Authentification par **clé d’accès** pour les opérations SMS et d’administration. L’authentification par clé d’accès est adaptée aux applications qui s’exécutent dans un environnement de service approuvé. Pour s’authentifier avec une clé d’accès, le client génère un [code HMAC (Hash-based Method Authentication Code)](https://en.wikipedia.org/wiki/HMAC) et l’intègre dans l’en-tête `Authorization` de chaque requête HTTP. Pour plus d’informations, consultez [S’authentifier avec une clé d’accès](#authenticate-with-an-access-key).
+- Authentification par **clé d’accès** pour les opérations SMS et d’administration. L’authentification par clé d’accès est adaptée aux applications qui s’exécutent dans un environnement de service approuvé. Pour s’authentifier avec une clé d’accès, le client génère un [code HMAC (Hash-based Message Authentication Code)](https://en.wikipedia.org/wiki/HMAC) et l’intègre dans l’en-tête `Authorization` de chaque requête HTTP. Pour plus d’informations, consultez [S’authentifier avec une clé d’accès](#authenticate-with-an-access-key).
 - Authentification par **jeton d’accès utilisateur** pour les conversations et les appels. Les jetons d’accès utilisateur permettent à vos applications clientes de s’authentifier directement auprès d’Azure Communication Services. Ces jetons sont générés sur un service de provisionnement de jetons côté serveur, que vous créez. Ils sont ensuite fournis aux appareils clients qui utilisent ce jeton pour initialiser les bibliothèques clientes de conversation et d’appel. Pour plus d’informations, consultez [S’authentifier avec un jeton d’accès utilisateur](#authenticate-with-a-user-access-token).
 
 ## <a name="authenticate-with-an-access-key"></a>S’authentifier à l’aide d’une clé d’accès

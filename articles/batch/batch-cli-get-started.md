@@ -4,12 +4,12 @@ description: Obtenez une brève introduction aux commandes Batch dans l’interf
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055509"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144751"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -79,7 +79,7 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
     
     Lorsque vous vous connectez à Azure de manière interactive, comme décrit dans la section précédente, vos informations d’identification sont mises en cache, afin qu’Azure CLI puisse vous connecter à votre compte Batch à l’aide de ces mêmes informations d’identification. Si vous vous connectez à Azure à l’aide d’un principal de service, ces informations d’identification sont également utilisées pour vous connecter à votre compte Batch.
 
-    L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle (RBAC). Avec RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles Azure et permettre à Azure AD de gérer l’accès et l’authentification.  
+    L’avantage d’Azure AD est que le contrôle d’accès se fait en fonction du rôle Azure (Azure RBAC). Grâce à Azure RBAC, l’accès dont bénéficie un utilisateur dépend de son rôle, et non du fait qu’il possède ou non les clés du compte. Au lieu de gérer les clés de compte, vous pouvez gérer les rôles Azure et permettre à Azure AD de gérer l’accès et l’authentification.  
 
      Pour vous connecter à votre compte Batch à l’aide d’Azure AD, appelez la commande [az batch account login](/cli/azure/batch/account#az-batch-account-login) : 
 
@@ -119,7 +119,7 @@ az batch pool create my_batch_pool.json
 
 Si vous pouvez créer la plupart des ressources Batch en utilisant uniquement des options de ligne de commande, certaines fonctionnalités requièrent de spécifier un fichier au format JSON contenant les détails des ressources. Par exemple, vous devez utiliser un fichier JSON si vous souhaitez spécifier des fichiers de ressources pour une tâche de démarrage.
 
-Pour afficher la syntaxe JSON requise pour créer une ressource, consultez la documentation [Informations de référence de l’API REST Batch][rest_api]. Chaque rubrique « Ajouter *type de ressource* » dans la référence de l’API REST contient des exemples de scripts JSON pour la création de la ressource en question. Vous pouvez utiliser ces exemples de scripts JSON comme modèles pour les fichiers JSON à utiliser avec Azure CLI. Par exemple, pour afficher la syntaxe JSON pour la création d’un pool, reportez-vous à [Ajouter un pool à un compte][rest_add_pool].
+Pour afficher la syntaxe JSON requise pour créer une ressource, consultez la documentation [Informations de référence de l’API REST Batch][rest_api]. Chaque rubrique « Ajouter *type de ressource*  » dans la référence de l’API REST contient des exemples de scripts JSON pour la création de la ressource en question. Vous pouvez utiliser ces exemples de scripts JSON comme modèles pour les fichiers JSON à utiliser avec Azure CLI. Par exemple, pour afficher la syntaxe JSON pour la création d’un pool, reportez-vous à [Ajouter un pool à un compte][rest_add_pool].
 
 Pour un exemple de script qui spécifie un fichier JSON, consultez [Exécuter un travail et des tâches avec Batch](./scripts/batch-cli-sample-run-job.md).
 
@@ -156,8 +156,8 @@ Pour plus d’informations sur l’exécution de requêtes de liste efficaces av
 Les conseils suivants peuvent vous aider lors de la résolution de problèmes sur Azure CLI :
 
 * Utilisez `-h` pour obtenir le **texte d’aide** d’une commande d’interface de ligne de commande.
-* Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose**. Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
-* L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section Fichiers JSON plus haut dans cet article).
+* Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose** . Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
+* L’option `--json` permet d’afficher la **sortie de commande au format JSON** . Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section Fichiers JSON plus haut dans cet article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Étapes suivantes
