@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576850"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331683"
 ---
 # <a name="introduction-to-azure-defender"></a>Présentation d’Azure Defender
 
@@ -20,7 +20,7 @@ Les fonctionnalités d’Azure Security Center couvrent les deux piliers de la s
 
 - **CSPM (gestion de la posture de sécurité cloud)** - Security Center est disponible **gratuitement** pour tous les utilisateurs Azure. L’expérience gratuite comprend des fonctionnalités CSPM telles que le degré de sécurisation, la détection des erreurs de configuration de sécurité dans vos machines Azure, l’inventaire des ressources et bien plus encore. Utilisez ces fonctionnalités CSPM pour renforcer la posture de votre cloud hybride et suivre la conformité avec les stratégies intégrées.
 
-- **Protection de charge de travail cloud (CWP)** - La plateforme de protection de charge de travail cloud (CWPP), **Azure Defender**, garantit une protection avancée et intelligente de vos ressources et charges de travail Azure et hybrides. L’activation d’Azure Defender offre un large éventail de fonctionnalités de sécurité supplémentaires, tel que décrit sur cette page. Outre les stratégies intégrées, lorsqu’un plan Azure Defender est activé, vous pouvez ajouter des stratégies et des initiatives personnalisées. Vous pouvez ajouter des normes réglementaires, telles que NIST et Azure CIS, ainsi que le benchmark de sécurité Azure pour un aperçu véritablement personnalisé de votre conformité.
+- **Protection de charge de travail cloud (CWP)** - La plateforme de protection de charge de travail cloud (CWPP), **Azure Defender** , garantit une protection avancée et intelligente de vos ressources et charges de travail Azure et hybrides. L’activation d’Azure Defender offre un large éventail de fonctionnalités de sécurité supplémentaires, tel que décrit sur cette page. Outre les stratégies intégrées, lorsqu’un plan Azure Defender est activé, vous pouvez ajouter des stratégies et des initiatives personnalisées. Vous pouvez ajouter des normes réglementaires, telles que NIST et Azure CIS, ainsi que le benchmark de sécurité Azure pour un aperçu véritablement personnalisé de votre conformité.
 
 Le tableau de bord Azure Defender de Security Center offre une visibilité et un contrôle des fonctionnalités CWP pour votre environnement :
 
@@ -36,13 +36,14 @@ Lorsque vous activez Azure Defender à partir de la zone **Tarification et param
 - [Azure Defender pour App Service](defender-for-app-service-introduction.md)
 - [Azure Defender pour Stockage](defender-for-storage-introduction.md)
 - [Azure Defender pour SQL](defender-for-sql-introduction.md)
-- [Azure Defender pour IoT](defender-for-iot-introduction.md)
 - [Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)
 - [Azure Defender pour Key Vault](defender-for-key-vault-introduction.md)
 
 Chacun de ces plans est expliqué séparément dans la documentation relative à Security Center.
 
+> [!TIP]
+> Azure Defender pour IoT (préversion) est un produit distinct. Tous les détails sont disponibles dans [Présentation d’Azure Defender pour IoT (préversion)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Protection cloud hybride
 
@@ -50,7 +51,6 @@ En plus de protéger votre environnement Azure, vous pouvez ajouter des fonction
 
 - Protection de serveurs hors Azure
 - Protection de machines virtuelles dans d’autres clouds (par exemple, AWS et GCP)
-- Protection d’appareils IoT
 
 Vous bénéficierez de renseignements personnalisés sur les menaces et d’alertes hiérarchisées en fonction de votre environnement pour pouvoir vous concentrer sur le plus important.
 

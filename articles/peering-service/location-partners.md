@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: derekol
-ms.openlocfilehash: d6318fc4fc0dc9ded093bdf9d19b9079208556de
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 02135b7e1f2086e430411c31f59ddeb55b2978e7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939934"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201067"
 ---
 # <a name="peering-service-partners"></a>Partenaires de Peering Service
 
@@ -34,14 +34,15 @@ Le tableau présenté dans cet article fournit des informations sur les partenai
 | [BBIX](https://www.bbix.net/en/service/) |Japon |
 | [CCL](https://concepts.co.nz/news/general-news/) |Océanie |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asie|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europe |
+| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, Amérique du Nord |
 | [IIJ](https://www.iij.ad.jp/en/) | Japon |
 | [InterCloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Océanie  |
-| [Liquid Telecom](https://liquidcloud.africa/) | Afrique  |
+| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Afrique  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japon |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asie |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asie |
+| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Afrique|
 
 > [!NOTE]
 >Pour plus d’informations sur l’inscription au Programme Partenaires Peering Service, accédez à peeringservice@microsoft.com.

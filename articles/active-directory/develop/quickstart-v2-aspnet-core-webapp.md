@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613490"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145040"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -37,7 +37,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
 > 1. Accédez au [portail Azure - Inscriptions d’applications](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
-> 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
+> 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire** .
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option n°2 : Inscrire et configurer manuellement vos application et exemple de code
@@ -47,16 +47,16 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 > 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
-> 1. Recherchez et sélectionnez **Azure Active Directory**.
-> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
+> 1. Recherchez et sélectionnez **Azure Active Directory** .
+> 1. Sous **Gérer** , sélectionnez **Inscriptions d’applications** , puis **Nouvelle inscription** .
 > 1. Entrez un **nom** pour votre application (par exemple, `AspNetCore-Quickstart`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
-> 1. Entrez l’**URI de redirection** `https://localhost:44321/`
-> 1. Sélectionnez **Inscription**.
-> 1. Sous **Gérer**, sélectionnez **Authentification**.
-> 1. Sous **URI de redirection**, sélectionnez **Ajouter un URI**, puis entrez `https://localhost:44321/signin-oidc`.
-> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`
-> 1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
-> 1. Sélectionnez **Enregistrer**.
+> 1. Entrez l’ **URI de redirection** `https://localhost:44321/`
+> 1. Sélectionnez **Inscription** .
+> 1. Sous **Gérer** , sélectionnez **Authentification** .
+> 1. Sous **URI de redirection** , sélectionnez **Ajouter un URI** , puis entrez `https://localhost:44321/signin-oidc`.
+> 1. Entrez l’ **URL de déconnexion** `https://localhost:44321/signout-oidc`
+> 1. Sous **Octroi implicite** , sélectionnez **Jetons d’ID** .
+> 1. Sélectionnez **Enregistrer** .
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
@@ -86,7 +86,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-aspnet-core-project"></a>Étape 3 : Configurer votre projet ASP.NET Core
-> 1. Extrayez l’archive .zip dans un dossier local proche de la racine de votre lecteur. Par exemple, dans *C:\Azure-Samples*.
+> 1. Extrayez l’archive .zip dans un dossier local proche de la racine de votre lecteur. Par exemple, dans *C:\Azure-Samples* .
 > 1. Ouvrez la solution dans Visual Studio 2019.
 > 1. Ouvrez le fichier *appsettings.json* pour modifier ce qui suit :
 >
@@ -95,17 +95,17 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >    "TenantId": "common",
 >    ```
 >
->    - Remplacez `Enter_the_Application_Id_here` par l’**ID d’application (client)** de l’application que vous avez inscrite dans le portail Azure. Vous trouverez l’**ID d’application (client)** dans la page **Vue d’ensemble** de l’application.
+>    - Remplacez `Enter_the_Application_Id_here` par l’ **ID d’application (client)** de l’application que vous avez inscrite dans le portail Azure. Vous trouverez l’ **ID d’application (client)** dans la page **Vue d’ensemble** de l’application.
 >    - Remplacez `common` par l’un des éléments suivants :
->       - Si votre application prend en charge les **Comptes dans cet annuaire organisationnel uniquement**, remplacez cette valeur par l’**ID de l’annuaire (locataire)** (un GUID) ou par le **nom du locataire** (par exemple, `contoso.onmicrosoft.com`). L’**ID de l’annuaire (locataire)** se trouve dans la page **Vue d’ensemble** de l’application.
->       - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
->       - Si votre application prend en charge **Tous les utilisateurs de compte Microsoft**, conservez la valeur `common`.
+>       - Si votre application prend en charge les **Comptes dans cet annuaire organisationnel uniquement** , remplacez cette valeur par l’ **ID de l’annuaire (locataire)** (un GUID) ou par le **nom du locataire** (par exemple, `contoso.onmicrosoft.com`). L’ **ID de l’annuaire (locataire)** se trouve dans la page **Vue d’ensemble** de l’application.
+>       - Si votre application prend en charge **Comptes dans un annuaire organisationnel** , remplacez cette valeur par `organizations`
+>       - Si votre application prend en charge **Tous les utilisateurs de compte Microsoft** , conservez la valeur `common`.
 >
-> Pour ce guide de démarrage rapide, ne modifiez pas les autres valeurs du fichier *appsettings.json*.
+> Pour ce guide de démarrage rapide, ne modifiez pas les autres valeurs du fichier *appsettings.json* .
 >
 > #### <a name="step-4-build-and-run-the-application"></a>Étape 4 : Générer et exécuter l’application
 >
-> Générez puis exécutez l’application dans Visual Studio en sélectionnant le menu **Débogage** > **Démarrer le débogage**, ou en appuyant sur la touche `F5`.
+> Générez puis exécutez l’application dans Visual Studio en sélectionnant le menu **Débogage**  > **Démarrer le débogage** , ou en appuyant sur la touche `F5`.
 >
 > Vous êtes invité à entrer vos informations d’identification, puis à donner votre consentement pour les autorisations dont a besoin votre application. Sélectionnez **Accepter** dans l’invite de consentement.
 >
@@ -146,7 +146,7 @@ Le middleware (intergiciel) *Microsoft.AspNetCore.Authentication* utilise une cl
 
 La méthode `AddAuthentication()` configure le service pour ajouter une authentification basée sur les cookies, qui est utilisée dans les scénarios de navigateur, et pour définir la demande d’authentification sur OpenID Connect.
 
-La ligne contenant `.AddMicrosoftIdentityWebApp` ajoute à votre application l’authentification auprès de la plateforme d’identités Microsoft. Elle est ensuite configurée pour se connecter à l’aide du point de terminaison de la plateforme d’identités Microsoft en fonction des informations contenues dans la section `AzureAD` du fichier de configuration *appsettings.json* :
+La ligne contenant `.AddMicrosoftIdentityWebApp` ajoute à votre application l’authentification auprès de la plateforme d’identités Microsoft. Elle est ensuite configurée pour se connecter à l’aide du point de terminaison de la plateforme d’identités Microsoft en fonction des informations contenues dans la section `AzureAD` du fichier de configuration *appsettings.json*  :
 
 | Clé *appsettings.json* | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -154,17 +154,22 @@ La ligne contenant `.AddMicrosoftIdentityWebApp` ajoute à votre application l�
 | `Instance`             | Point de terminaison du service d’émission de jeton de sécurité (STS) pour l’utilisateur à authentifier. Cette valeur est généralement `https://login.microsoftonline.com/`, ce qui indique le cloud public Azure. |
 | `TenantId`             | Nom de votre locataire ou de son ID (GUID), ou *common* pour connecter les utilisateurs avec des comptes professionnels ou scolaires, ou des comptes personnels Microsoft.                             |
 
-La méthode `Configure()` contient deux méthodes importantes, `app.UseCookiePolicy()` et `app.UseAuthentication()`, qui activent leurs fonctionnalités nommées :
+La méthode `Configure()` contient deux méthodes importantes, `app.UseAuthentication()` et `app.UseAuthorization()`, qui activent leurs fonctionnalités nommées : Également dans la méthode `Configure()`, vous devez inscrire les routes de Microsoft Identity Web avec au moins un appel à `endpoints.MapControllerRoute()` ou un appel à `endpoints.MapControllers()`.
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    // more code
-    app.UseAuthentication();
-    app.UseAuthorization();
-    // more code
-}
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
+// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Protéger un contrôleur ou la méthode d’un contrôleur

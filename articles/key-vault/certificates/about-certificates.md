@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923685"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126771"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -57,14 +57,14 @@ Les attributs de certificat sont reproduits dans des attributs de la clé et du 
 
 Un certificat Key Vault comprend les attributs suivants :  
 
--   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp*. Quand une opération se produit entre *nbf* et *exp*, elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
+-   *enabled* : booléen, facultatif, **true** par défaut. Peut être spécifié pour indiquer si les données du certificat peuvent être récupérées en tant que secret ou utilisables en tant que clé. Également utilisé avec *nbf* et *exp* . Quand une opération se produit entre *nbf* et *exp* , elle est autorisée seulement si enabled a la valeur true. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites.  
 
 Des attributs supplémentaires en lecture seule sont inclus dans la réponse :
 
--   *created* : IntDate, indique quand cette version du certificat a été créée.  
--   *updated* : IntDate, indique quand cette version du certificat a été mise à jour.  
--   *exp* : IntDate, contient la valeur de la date d’expiration du certificat X.509.  
--   *nbf* : IntDate, contient la valeur de la date du certificat X.509.  
+-   *created*  : IntDate, indique quand cette version du certificat a été créée.  
+-   *updated*  : IntDate, indique quand cette version du certificat a été mise à jour.  
+-   *exp*  : IntDate, contient la valeur de la date d’expiration du certificat X.509.  
+-   *nbf*  : IntDate, contient la valeur de la date du certificat X.509.  
 
 > [!Note] 
 > Si un certificat Key Vault expire, sa clé et son secret adressables ne sont plus utilisables.  
@@ -141,42 +141,11 @@ Les objets émetteur sont créés dans le coffre et ne peuvent être utilisés q
 
 ## <a name="certificate-contacts"></a>Contacts du certificat
 
-Les contacts du certificat contiennent des informations de contact pour l’envoi de notifications déclenchées par des événements de durée de vie de certificat. Les informations de contact sont partagées par tous les certificats dans le coffre de clés. Une notification est envoyée à tous les contacts spécifiés pour un événement pour n’importe quel certificat dans le coffre de clés.  
-
-Si la stratégie d’un certificat est définie sur le renouvellement automatique, une notification est alors envoyée pour les événements suivants.  
-
-- Avant le renouvellement du certificat
-- Après le renouvellement du certificat, indiquant si le certificat a été renouvelé, ou si une erreur s’est produite, nécessitant un renouvellement manuel du certificat.  
-
-  Quand la stratégie d’un certificat est définie pour un renouvellement manuel (e-mail uniquement), une notification est envoyée lorsqu’il est temps de renouveler le certificat.  
+Les contacts du certificat contiennent des informations de contact pour l’envoi de notifications déclenchées par des événements de durée de vie de certificat. Les informations de contact sont partagées par tous les certificats dans le coffre de clés. Une notification est envoyée à tous les contacts spécifiés pour un événement pour n’importe quel certificat dans le coffre de clés. Pour obtenir des informations sur la façon de définir un contact de certificat, reportez-vous [ici](overview-renew-certificate.md#steps-to-set-certificate-notifications).  
 
 ## <a name="certificate-access-control"></a>Contrôle d’accès aux certificats
 
- Le contrôle d’accès pour les certificats est géré par Key Vault et fourni par le coffre de clés qui contient ces certificats. La stratégie de contrôle d’accès pour les certificats est différente des stratégies de contrôle d’accès pour les clés et les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les certificats afin de maintenir une segmentation et une gestion des certificats appropriées au scénario.  
-
- Les autorisations suivantes peuvent être utilisées, par principal, dans l’entrée de contrôle d’accès aux secrets sur un coffre de clés, et reflètent précisément les opérations autorisées sur un objet secret :  
-
-- Autorisations pour les opérations de gestion des certificats
-  - *get* : obtenir la version actuelle ou n’importe quelle version d’un certificat 
-  - *list* : lister les certificats actuels ou les versions d’un certificat  
-  - *update* : mettre à jour un certificat
-  - *create* : créer un certificat Key Vault
-  - *import* : importer les éléments d’un certificat dans un certificat Key Vault
-  - *delete* : supprimer un certificat, sa stratégie et toutes ses versions  
-  - *recover* : récupérer un certificat supprimé
-  - *backup* : sauvegarder un certificat dans un coffre de clés
-  - *restore* : restaurer un certificat sauvegardé sur un coffre de clés
-  - *managecontacts* : gérer les contacts du certificat Key Vault  
-  - *manageissuers* : gérer les autorités/émetteurs du certificat Key Vault
-  - *getissuers* : obtenir les autorités/émetteurs d’un certificat
-  - *listissuers* : lister les autorités/émetteurs d’un certificat  
-  - *setissuers* : créer ou mettre à jour les autorités/émetteurs d’un certificat Key Vault  
-  - *deleteissuers* : supprimer les autorités/émetteurs d’un certificat Key Vault  
- 
-- Autorisations pour les opérations privilégiées
-  - *purge* : effacer (supprimer définitivement) un certificat supprimé
-
-Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
+ Le contrôle d’accès pour les certificats est géré par Key Vault et fourni par le coffre de clés qui contient ces certificats. La stratégie de contrôle d’accès pour les certificats est différente des stratégies de contrôle d’accès pour les clés et les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les certificats afin de maintenir une segmentation et une gestion des certificats appropriées au scénario.  Pour plus d’informations sur le contrôle d’accès aux certificats, reportez-vous [ici](certificate-access-control.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320198"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenir les journaux des services de données activés pour Azure Arc
 
@@ -22,48 +22,60 @@ ms.locfileid: "90930182"
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour récupérer les journaux des services de données activés pour Azure Arc, vous avez besoin de l’outil Azure Data CLI. [Instructions d’installation](./install-client-tools.md)
+Avant de continuer, vous avez besoin des éléments suivants :
 
-Vous devez être en mesure de vous connecter au service du contrôleur de services de données activé pour Azure Arc en tant qu’administrateur.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instructions d’installation](./install-client-tools.md).
+* Un compte administrateur pour se connecter au contrôleur de services de données activés pour Azure Arc.
 
 ## <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenir les journaux des services de données activés pour Azure Arc
 
-Vous pouvez obtenir les journaux des services de données activés pour Azure Arc pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage.  Pour ce faire, vous pouvez utiliser les outils Kubernetes standard, comme la commande `kubectl logs`, mais dans cet article, vous allez utiliser l’outil Azure Data CLI, qui permet d’obtenir plus facilement tous les journaux en même temps.
+Vous pouvez obtenir les journaux des services de données activés pour Azure Arc pour l’ensemble des pods ou pour des pods spécifiques à des fins de dépannage. Pour ce faire, vous pouvez utiliser les outils Kubernetes standard, comme la commande `kubectl logs`, mais, dans cet article, vous allez utiliser l’outil [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], qui permet d’obtenir plus facilement tous les journaux en même temps.
 
-Tout d’abord, vérifiez que vous êtes connecté au contrôleur de données.
+1. Connectez-vous au contrôleur de données avec un compte administrateur.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Ensuite, exécutez la commande suivante pour vider les journaux :
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Exécutez la commande suivante pour sauvegarder les journaux :
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-Les fichiers journaux sont créés dans le répertoire de travail actuel par défaut, dans un sous-répertoire appelé « logs ».  Vous pouvez générer les fichiers journaux dans un autre répertoire en utilisant le paramètre `--target-folder`.
+   Par exemple :
 
-Vous pouvez choisir de compresser les fichiers en omettant le paramètre `--skip-compress`.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-Vous pouvez déclencher et inclure les images mémoire en omettant `--exclude-dumps`, mais ce n’est pas recommandé, sauf si le support Microsoft a demandé les images mémoire.  Pour collecter l’image mémoire, le paramètre `allowDumps` du contrôleur de données doit être défini sur `true` lors de la création du contrôleur de données.
+Le contrôleur de données crée les fichiers journaux dans le répertoire de travail actuel dans un sous-répertoire appelé `logs`. 
 
-Vous pouvez aussi choisir de filtrer la collecte des journaux pour un pod (`--pod`) ou un conteneur (`--container`) spécifique en utilisant son nom.
+## <a name="options"></a>Options
 
-Vous pouvez également choisir de filtrer pour collecter des journaux d’activité pour une ressource personnalisée spécifique en passant les paramètres `--resource-kind` et `--resource-name`.  La valeur du paramètre `resource-kind` doit être l’un des noms de définition de ressource personnalisée que la commande `kubectl get customresourcedefinition` peut récupérer.
+`azdata arc dc debug copy-logs` fournit les options suivantes pour gérer la sortie.
+
+* Sortie des fichiers journaux dans un autre répertoire en utilisant le paramètre `--target-folder`.
+* Compression des fichiers en omettant le paramètre `--skip-compress`.
+* Déclenchement et inclusion des images mémoire en omettant le paramètre `--exclude-dumps`. Cette méthode n’est pas recommandée, sauf si Support Microsoft a demandé les images mémoire. Pour collecter l’image mémoire, le paramètre `allowDumps` du contrôleur de données doit être défini sur `true` lors de la création du contrôleur de données.
+* Filtre pour collecter uniquement les journaux d’un pod (`--pod`) ou d’un conteneur (`--container`) spécifique par nom.
+* Filtre pour collecter les journaux d’une ressource personnalisée spécifique en transmettant les paramètres `--resource-kind` et `--resource-name`. La valeur du paramètre `resource-kind` doit être l’un des noms de définition de ressource personnalisée que la commande `kubectl get customresourcedefinition` peut récupérer.
+
+Avec ces paramètres, vous pouvez remplacer les `<parameters>` dans l’exemple suivant. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+Par exemple
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemple de hiérarchie de dossiers.  Notez que la hiérarchie de dossiers est organisée par nom de pod, puis par conteneur, et enfin par hiérarchie de répertoires au sein du conteneur.
+Exemple de hiérarchie de dossiers. L’arborescence des dossiers est organisée par nom de pod, puis par conteneur, et enfin par arborescence de répertoires au sein du conteneur.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -181,3 +193,7 @@ Exemple de hiérarchie de dossiers.  Notez que la hiérarchie de dossiers est or
             ├───journal
             └───openvpn
 ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

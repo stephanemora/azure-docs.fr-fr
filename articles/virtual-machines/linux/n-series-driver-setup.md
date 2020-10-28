@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284878"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168475"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -208,7 +208,7 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
+6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui** .
 
 7. Une fois l’installation terminée, copiez /etc/nvidia/gridd.conf.template sur un nouveau fichier gridd.conf dà l’emplacement etc/nvidia /
 
@@ -281,7 +281,7 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
+6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui** .
 
 7. Une fois l’installation terminée, copiez /etc/nvidia/gridd.conf.template sur un nouveau fichier gridd.conf dà l’emplacement etc/nvidia /
   
@@ -310,7 +310,7 @@ Pour interroger l’état de l’appareil GPU, connectez-vous par SSH à la mach
 
 Si le pilote est installé, vous obtenez un résultat qui ressemble à celui indiqué. Notez que **GPU-Util** affiche 0 %, sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
 
-![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+![Capture d’écran montrant la sortie lors de l’interrogation de l’état de l’appareil GPU.](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Serveur X11

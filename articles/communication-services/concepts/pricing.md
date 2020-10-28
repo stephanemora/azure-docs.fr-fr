@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761224"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126188"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Les tarifs pour Azure Communication Services sont basés sur un modèle de paiement à l’utilisation sans frais initiaux. Seules votre consommation et votre utilisation des services vous sont facturées.
+Les tarifs pour Azure Communication Services sont généralement basés sur un modèle de paiement à l’utilisation.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Appels vocaux/vidéo et partage d’écran
 
@@ -51,7 +46,7 @@ Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice 
 - 2 participants x 60 minutes x 0,004 USD par participant par minute = 0,48 USD [les flux vidéo et audio sont facturés au même tarif]
 - 1 participant x 43 minutes x 0,004 USD par participant par minute = 0,172 USD [les flux vidéo et audio sont facturés au même tarif]
 
-**Coût total de l’appel de groupe** : 0,48 USD + 0,172 USD = 0,652 USD
+**Coût total de l’appel de groupe**  : 0,48 USD + 0,172 USD = 0,652 USD
 
 ## <a name="chat"></a>Conversation
 
@@ -84,6 +79,16 @@ Rose consulte les messages et s’engage dans la conversation. Entre-temps, Case
 ## <a name="price"></a>Price 
 
 Les services de téléphonie sont facturés à la minute, tandis que les SMS sont facturés à l’unité. Les tarifs sont déterminés par le type et le lieu du numéro que vous utilisez ainsi que par la destination de vos appels et SMS.
+
+### <a name="telephone-number-leasing"></a>Location de numéros de téléphone
+
+Les frais de location de numéros de téléphone sont facturés au départ, puis tous les mois :
+
+|Type de nombre   |Frais mensuels   |
+|--------------|-----------|
+|Local (États-Unis)     |1 USD/mois        |
+|Numéro gratuit (États-Unis) |2 USD/mois |
+
 
 ### <a name="telephone-calling"></a>Appels téléphoniques
 

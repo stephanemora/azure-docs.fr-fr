@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
 ms.openlocfilehash: 6787983421285122834479cb652fec52ee7bf72b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91360687"
 ---
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
  
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Effectuez une recherche sur **Gestion des coûts + facturation** .
  
    ![Capture d’écran montrant la recherche de « Cost Management + Billing » dans le portail Azure.](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
@@ -23,7 +23,7 @@ ms.locfileid: "91360687"
     
     Le **type de compte de facturation** sur les propriétés de page détermine le type de votre compte. Il peut s’agir d’un compte de facturation Microsoft Online Service Program (MOSP), Contrat Entreprise, Contrat Client Microsoft ou Contrat Partenaire Microsoft. Pour en savoir plus sur le type de compte de facturation, consultez [Afficher vos comptes de facturation dans le portail Azure](../articles/cost-management-billing/manage/view-all-accounts.md).  
  
-4. Si vous avez accès à plusieurs étendues de facturation, vérifiez le type indiqué dans la colonne **Type de compte de facturation**.
+4. Si vous avez accès à plusieurs étendues de facturation, vérifiez le type indiqué dans la colonne **Type de compte de facturation** .
  
     ![Capture d’écran montrant la page répertoriant les comptes de facturation d’un contrat client Microsoft](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

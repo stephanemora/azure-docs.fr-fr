@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619149"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330119"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,13 +108,13 @@ Cette tâche vous permet de démarrer un processus de synchronisation de la conf
 > [!IMPORTANT]
 > Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux PowerShell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
-1. Dans l’_ISE PowerShell_, ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
+1. Dans l’ _ISE PowerShell_ , ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
 
-2. Dans l’*ISE PowerShell*, ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez :
-    * **$DemoScenario = 1**, pour démarrer un travail en arrière-plan qui synchronise le serveur de locataire et les informations de configuration des pools dans le catalogue
+2. Dans l’ *ISE PowerShell* , ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez :
+    * **$DemoScenario = 1** , pour démarrer un travail en arrière-plan qui synchronise le serveur de locataire et les informations de configuration des pools dans le catalogue
 
 3. Appuyez sur **F5** pour exécuter le script de synchronisation. Une nouvelle session PowerShell est ouverte pour synchroniser la configuration des ressources du locataire.
-![Processus de synchronisation](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Capture d’écran montrant la nouvelle session PowerShell qui est ouverte pour synchroniser la configuration des ressources du locataire.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Laissez la fenêtre PowerShell ouverte en arrière-plan et poursuivez le didacticiel. 
 
@@ -128,8 +128,8 @@ Dans cette tâche, vous démarrez un processus qui déploie une instance d’app
 > [!Note]
 > Ce didacticiel ajoute une protection de la géoréplication dans l’application exemple Wingtip Tickets. Dans un scénario de production, pour une application qui utilise la géoréplication, chaque locataire est approvisionné avec une base de données géorépliquée dès le début. Consultez [Conception de services hautement disponibles à l’aide d’Azure SQL Database](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime).
 
-1. Dans l’*ISE PowerShell*, ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la valeur suivante :
-    * **$DemoScenario = 2**, pour créer l’environnement de récupération d’image miroir et répliquer les bases de données de catalogue et de locataire.
+1. Dans l’ *ISE PowerShell* , ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la valeur suivante :
+    * **$DemoScenario = 2** , pour créer l’environnement de récupération d’image miroir et répliquer les bases de données de catalogue et de locataire.
 
 2. Appuyez sur **F5** pour exécuter le script. Une nouvelle session PowerShell est ouverte pour créer les réplicas.
 ![Processus de synchronisation](./media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
@@ -142,7 +142,7 @@ Dans cette tâche, vous démarrez un processus qui déploie une instance d’app
 
 2. Explorez les ressources du groupe de ressources de récupération.  
 
-3. Cliquez sur la base de données Concert Contoso Hell sur le serveur _tenants1-dpt -&lt;utilisateur&gt;-recovery_.  Cliquez sur la géoréplication sur le côté gauche. 
+3. Cliquez sur la base de données Concert Contoso Hell sur le serveur _tenants1-dpt -&lt;utilisateur&gt;-recovery_ .  Cliquez sur la géoréplication sur le côté gauche. 
 
     ![Lien de géoréplication de Contoso Concert](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -181,8 +181,8 @@ Le script de récupération effectue les tâches suivantes :
 
 À présent, imaginez qu’une panne se produise dans la région où l’application est déployée et exécutez le script de récupération :
 
-1. Dans l’*ISE PowerShell*, ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la valeur suivante :
-    * **$DemoScenario = 3**, pour récupérer l’application dans une région de récupération en basculant vers les réplicas.
+1. Dans l’ *ISE PowerShell* , ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la valeur suivante :
+    * **$DemoScenario = 3** , pour récupérer l’application dans une région de récupération en basculant vers les réplicas.
 
 2. Appuyez sur **F5** pour exécuter le script.  
     * Le script s’ouvre dans une nouvelle fenêtre PowerShell, puis démarre une série de travaux PowerShell qui s’exécutent en parallèle. Ces travaux basculent les bases de données de locataire vers la région de récupération.
@@ -212,8 +212,8 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Approvisionner un nouveau locataire dans la région de récupération
 Même avant le basculement de toutes les bases de données de locataire, vous pouvez approvisionner de nouveaux locataires dans la région de récupération.  
 
-1. Dans l’*ISE PowerShell*, ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la propriété suivante :
-    * **$DemoScenario = 4**, pour approvisionner un nouveau locataire dans la région de récupération
+1. Dans l’ *ISE PowerShell* , ouvrez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 et configurez la propriété suivante :
+    * **$DemoScenario = 4** , pour approvisionner un nouveau locataire dans la région de récupération
 
 2. Appuyez sur **F5** pour exécuter le script et approvisionner le nouveau locataire. 
 
@@ -233,19 +233,19 @@ Même avant le basculement de toutes les bases de données de locataire, vous po
     ![Locataires récupérés et nouveaux dans le hub d’événements](./media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
 2. Dans le [portail Azure](https://portal.azure.com), ouvrez la liste des groupes de ressources.  
-    * Remarquez le groupe de ressources que vous avez déployé, en plus du groupe de ressources de récupération, avec le suffixe _-recovery_.  Le groupe de ressources de récupération contient toutes les ressources créées pendant le processus de récupération, plus les nouvelles ressources créées pendant la panne.  
+    * Remarquez le groupe de ressources que vous avez déployé, en plus du groupe de ressources de récupération, avec le suffixe _-recovery_ .  Le groupe de ressources de récupération contient toutes les ressources créées pendant le processus de récupération, plus les nouvelles ressources créées pendant la panne.  
 
 3. Ouvrez le groupe de ressources de récupération et notez les éléments suivants :
-   * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe _-recovery_.  Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
+   * Les versions de récupération des serveurs de catalogue et tenants1, avec le suffixe _-recovery_ .  Toutes les bases de données de catalogue et de locataire restaurées sur ces serveurs portent les noms utilisés dans la région d’origine.
 
    * Le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_ est utilisé  Ce serveur sert à approvisionner les nouveaux locataires pendant la panne.
-   * Le service App Service nommé _events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt_;, qui est l’instance de récupération de l’application Événements. 
+   * Le service App Service nommé _events-wingtip-dpt-&lt;région_récupération&gt;-&lt;utilisateur&gt_ ;, qui est l’instance de récupération de l’application Événements. 
 
      ![Ressources de récupération Azure](./media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Ouvrez le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_.  Remarquez qu’il contient la base de données _hawthornhall_ et le pool élastique _Pool1_.  La base de données _hawthornhall_ est configurée comme une base de données élastique dans le pool élastique _Pool1_.
+4. Ouvrez le serveur SQL _tenants2-dpt-&lt;utilisateur&gt;-recovery_ .  Remarquez qu’il contient la base de données _hawthornhall_ et le pool élastique _Pool1_ .  La base de données _hawthornhall_ est configurée comme une base de données élastique dans le pool élastique _Pool1_ .
 
-5. Revenez au groupe de ressources et cliquez sur la base de données Contoso Concert Hall sur le serveur _tenants1-dpt-&lt;utilisateur&gt;-recovery_. Cliquez sur la géoréplication sur le côté gauche.
+5. Revenez au groupe de ressources et cliquez sur la base de données Contoso Concert Hall sur le serveur _tenants1-dpt-&lt;utilisateur&gt;-recovery_ . Cliquez sur la géoréplication sur le côté gauche.
     
     ![Base de données Contoso après le basculement](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 
@@ -253,7 +253,7 @@ Même avant le basculement de toutes les bases de données de locataire, vous po
 Dans cette tâche, vous mettez à jour l’une des bases de données de locataire. 
 
 1. Dans votre navigateur, recherchez la liste des événements de Contoso Concert Hall et notez le nom du dernier événement.
-2. Dans l’*ISE PowerShell*, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, configurez la valeur suivante :
+2. Dans l’ *ISE PowerShell* , dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1, configurez la valeur suivante :
     * **$DemoScenario = 5** pour supprimer un événement d’un locataire dans la région de récupération.
 3. Appuyez sur **F5** pour exécuter le script.
 4. Actualisez la page d’événements Concert Contoso Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt; utilisateur&gt; avec la valeur d’utilisateur de votre déploiement) et notez que le dernier événement a été supprimé.
@@ -278,7 +278,7 @@ Le basculement déplace efficacement la base de données vers la région d’ori
 ### <a name="run-the-repatriation-script"></a>Exécuter le script de rapatriement
 Considérons à présent que la panne est résolue et que vous exécutez le script de rapatriement.
 
-1. Dans l’*ISE PowerShell*, exécutez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
+1. Dans l’ *ISE PowerShell* , exécutez le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
 2. Vérifiez que le processus de synchronisation de catalogue est toujours en cours dans son instance PowerShell.  Au besoin, relancez-le en définissant :
     * **$DemoScenario = 1** pour démarrer la synchronisation des informations de configuration du serveur de locataire, du pool et de la base de données dans le catalogue.

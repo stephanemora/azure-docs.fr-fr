@@ -1,5 +1,5 @@
 ---
-title: Architectures de continuité d’activité Azure HDInsight
+title: Architectures de continuité de l’activité Azure HDInsight
 description: Cet article traite des différentes architectures de continuité d’activité possibles pour HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856430"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207578"
 ---
-# <a name="azure-hdinsight-business-continuity-architectures"></a>Architectures de continuité d’activité Azure HDInsight
+# <a name="azure-hdinsight-business-continuity-architectures"></a>Architectures de continuité de l’activité Azure HDInsight
 
 Cet article présente quelques exemples d’architectures de continuité d’activité que vous pouvez envisager pour Azure HDInsight. La tolérance vis à vis d’une limitation de fonctionnalités au cours d’une défaillance majeure est une appréciation qui appartient à l’entreprise et qui varie d’une application à une autre. Ainsi, l’indisponibilité totale ou partielle de certaines applications avec des limitations de fonctionnalités ou des retards de traitements sur une période donnée pourra-t-elle être jugée acceptable. Pour d’autres applications, la moindre limitation de fonctionnalités sera inacceptable.
 
@@ -48,15 +48,17 @@ Le cluster secondaire est généralement en lecture seule. Vous pouvez faire en 
 
 #### <a name="hive-active-primary-with-on-demand-secondary"></a>Région primaire active Hive et région secondaire à la demande
 
-Dans une architecture constituée d’une *région primaire active et d’une région secondaire à la demande*, les applications écrivent dans la région primaire active, alors qu’aucun cluster n’est provisionné dans la région secondaire pendant les opérations normales. Le metastore SQL et le stockage de la région secondaire sont persistants, tandis que le cluster HDInsight n’est scripté et déployé à la demande qu’avant les exécutions planifiées de la réplication Hive.
+Dans une architecture constituée d’une *région primaire active et d’une région secondaire à la demande* , les applications écrivent dans la région primaire active, alors qu’aucun cluster n’est provisionné dans la région secondaire pendant les opérations normales. Le metastore SQL et le stockage de la région secondaire sont persistants, tandis que le cluster HDInsight n’est scripté et déployé à la demande qu’avant les exécutions planifiées de la réplication Hive.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Architecture Hive et Interactive Query":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Région primaire active Hive et région secondaire de secours
 
-Dans une architecture constituée d’une *région primaire active et d’une région secondaire de secours*, les applications écrivent dans la région primaire active, tandis qu’un cluster secondaire de secours en mode lecture seule ayant fait l’objet d’un scale-down s’exécute pendant les opérations normales. Pendant les opérations normales, vous pouvez choisir de décharger certaines opérations de lecture sur la région secondaire.
+Dans une architecture constituée d’une *région primaire active et d’une région secondaire de secours* , les applications écrivent dans la région primaire active, tandis qu’un cluster secondaire de secours en mode lecture seule ayant fait l’objet d’un scale-down s’exécute pendant les opérations normales. Pendant les opérations normales, vous pouvez choisir de décharger certaines opérations de lecture sur la région secondaire.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Architecture Hive et Interactive Query":::
+
+Pour plus d’informations sur la réplication Hive et des exemples de code, consultez [Réplication Apache Hive dans les clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

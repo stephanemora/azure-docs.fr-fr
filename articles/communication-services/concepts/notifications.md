@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665393"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320720"
 ---
 # <a name="communication-services-notifications"></a>Notifications Communication Services
 
@@ -40,13 +40,20 @@ Vous pouvez connecter un hub de notification Azure à votre ressource Communicat
 
 Communication Services utilise Azure Notification Hub en tant que service direct pour communiquer avec les différents services de notification Push spécifiques à la plateforme à l’aide de l’API [Envoi direct](https://docs.microsoft.com/rest/api/notificationhubs/direct-send). Cela vous permet de réutiliser vos ressources et configurations Azure Notification Hub existantes pour fournir des notifications d’appel fiables et à faible latence à vos applications.
 
+> [!NOTE]
+> Seules les notifications Push d’appel sont prises en charge.
+
 ### <a name="notification-hub-provisioning"></a>Provisionnement des hubs de notification 
 
-Pour envoyer des notifications Push aux appareils clients à l’aide de Notification Hubs, [créez un hub de notification](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) dans le même abonnement que votre ressource Communication Services. Azure Notification Hubs doit être configuré pour le service de notification de plateforme que vous souhaitez utiliser. Pour savoir comment obtenir des notifications Push dans votre application cliente provenant de Notification Hubs, consultez [Prise en main de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started) et sélectionnez votre plateforme de client cible dans la liste déroulante en haut de la page.
+Pour envoyer des notifications Push aux appareils clients à l’aide de Notification Hubs, [créez un hub de notification](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) dans le même abonnement que votre ressource Communication Services. Azure Notification Hubs doit être configuré pour le service de notification de plateforme que vous souhaitez utiliser. Pour savoir comment obtenir des notifications Push dans votre application cliente provenant de Notification Hubs, consultez [Prise en main de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) et sélectionnez votre plateforme de client cible dans la liste déroulante en haut de la page.
 
-Une fois que votre hub de notification est configuré, vous pouvez l’associer à votre ressource Communication Services en fournissant une chaîne de connexion pour le hub à l’aide du client Azure Resource Manager ou via le portail Azure. La chaîne de connexion doit contenir des autorisations « Envoyer ». Nous vous recommandons de créer une autre stratégie d’accès avec des autorisations « Envoyer » uniquement, en particulier pour votre hub. Découvrez plus en détail les [stratégies de sécurité et d’accès de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
+> [!NOTE]
+> Les plateformes APNs et FCM sont prises en charge.
 
-> REMARQUE :  Pour activer les notifications VOIP d’Apple Push Notification Service, vous devez définir le nom de votre hub de notification comme l’ID de votre ensemble d’applications avec le suffixe `.voip`. Consultez [Utiliser VoIP APNS par le biais de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+Une fois que votre hub de notification est configuré, vous pouvez l’associer à votre ressource Communication Services en fournissant une chaîne de connexion pour le hub à l’aide du client Azure Resource Manager ou par le biais du portail Azure. La chaîne de connexion doit contenir des autorisations « Envoyer ». Nous vous recommandons de créer une autre stratégie d’accès avec des autorisations « Envoyer » uniquement, en particulier pour votre hub. Découvrez plus en détail les [stratégies de sécurité et d’accès de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
+
+> [!IMPORTANT]
+> Pour activer les notifications VOIP d’Apple Push Notification Service, vous devez définir le nom de votre hub de notification comme l’ID de votre ensemble d’applications avec le suffixe `.voip`. Consultez [Utiliser VoIP APNS par le biais de Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Utilisation du client Azure Resource Manager pour configurer le hub de notification
 
@@ -67,6 +74,9 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 Dans le portail, accédez à votre ressource Azure Communication Services. Dans la ressource Communication Services, sélectionnez Notifications Push dans le menu de gauche de la page Communication Services et connectez le hub de notification que vous avez provisionné précédemment. Vous devez fournir votre chaîne de connexion et votre ID de ressource ici :
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Schéma montrant comment Communication Services s’intègre à Event Grid.":::
+
+> [!NOTE]
+> Si la chaîne de connexion du hub de notification Azure est mise à jour, la ressource Communication Services doit également être mise à jour.
 
 #### <a name="device-registration"></a>Enregistrement de l’appareil 
 

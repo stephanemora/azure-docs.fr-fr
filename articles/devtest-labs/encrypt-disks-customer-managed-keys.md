@@ -3,12 +3,12 @@ title: Chiffrer des disques de système d’exploitation avec des clés gérées
 description: Découvrez la procédure de chiffrement de disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc29f8cf924bca6c757843ae8b7062757ff61bf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489818"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329540"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Chiffrer des disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs
 Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés dans Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. En savoir plus sur le [chiffrement de disque](../virtual-machines/windows/disk-encryption.md) dans Azure. 
@@ -26,51 +26,51 @@ La section suivante explique comment le propriétaire d’un labo peut configure
 
 1. Si vous n’avez pas défini de chiffrement de disque, suivez cet article pour [configurer un Key Vault et un ensemble de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Notez les conditions suivantes pour l’ensemble de chiffrement de disque : 
 
-    - L’ensemble de chiffrement de disque doit être **dans la même région et le même abonnement que votre labo**. 
+    - L’ensemble de chiffrement de disque doit être **dans la même région et le même abonnement que votre labo** . 
     - Vérifiez que vous (propriétaire du labo) disposez au moins d’un **accès en lecture** à l’ensemble de chiffrement de disque qui sera utilisé pour chiffrer les disques du système d’exploitation du labo. 
-1. Pour les labos créés avant le 01/08/2020, le propriétaire du labo doit vérifier que l’identité affectée par le système du labo est activée. Pour ce faire, le propriétaire du labo peut accéder à son labo, cliquer sur **Configuration et stratégies**, cliquer sur le panneau **Identité (préversion)** , modifier l’**état** de l’identité affectée par le système en le définissant sur **Activé**, puis cliquer sur **Enregistrer**. Pour les nouveaux labos créés après le 01/08/2020, l’identité affectée par le système du labo sera activée par défaut. 
+1. Pour les labos créés avant le 01/08/2020, le propriétaire du labo doit vérifier que l’identité affectée par le système du labo est activée. Pour ce faire, le propriétaire du labo peut accéder à son labo, cliquer sur **Configuration et stratégies** , cliquer sur le panneau **Identité (préversion)** , modifier l’ **état** de l’identité affectée par le système en le définissant sur **Activé** , puis cliquer sur **Enregistrer** . Pour les nouveaux labos créés après le 01/08/2020, l’identité affectée par le système du labo sera activée par défaut. 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Clés gérées":::
-1. Pour que le labo gère le chiffrement de tous ses disques de système d’exploitation, le propriétaire du labo doit explicitement accorder à l’**identité affectée par le système** du labo le rôle de lecteur sur le chiffrement de disque défini, ainsi que le rôle de contributeur de machine virtuelle sur l’abonnement Azure sous-jacent. Le propriétaire du labo peut le faire en procédant comme suit :
+1. Pour que le labo gère le chiffrement de tous ses disques de système d’exploitation, le propriétaire du labo doit explicitement accorder à l’ **identité affectée par le système** du labo le rôle de lecteur sur le chiffrement de disque défini, ainsi que le rôle de contributeur de machine virtuelle sur l’abonnement Azure sous-jacent. Le propriétaire du labo peut le faire en procédant comme suit :
 
    
-    1. Assurez-vous que vous êtes membre du [rôle Administrateur d’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) au niveau de l’abonnement Azure afin de pouvoir gérer l’accès des utilisateurs aux ressources Azure. 
-    1. Sur la page **Ensemble de chiffrement de disque**, sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche. 
-    1. Sélectionnez **+ Ajouter** dans la barre d’outils, puis **Ajouter une attribution de rôle**.  
+    1. Assurez-vous d’être membre du [rôle Administrateur d’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) au niveau de l’abonnement Azure afin de pouvoir gérer l’accès des utilisateurs aux ressources Azure. 
+    1. Sur la page **Ensemble de chiffrement de disque** , sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche. 
+    1. Sélectionnez **+ Ajouter** dans la barre d’outils, puis **Ajouter une attribution de rôle** .  
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Clés gérées":::
-    1. Sur la page **Ajouter une attribution de rôle**, sélectionnez le rôle **Lecteur** ou un rôle qui autorise plus d’accès. 
+    1. Sur la page **Ajouter une attribution de rôle** , sélectionnez le rôle **Lecteur** ou un rôle qui autorise plus d’accès. 
     1. Tapez le nom du labo pour lequel l’ensemble de chiffrement de disque sera utilisé et sélectionnez le nom du labo (identité affectée par le système pour le labo) dans la liste déroulante. 
     
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Clés gérées":::        
     1. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Clés gérées":::
-3. Ajoutez l’**identité affectée par le système** du labo au rôle **Contributeur de machine virtuelle** en utilisant la page **Contrôle**  -> **d’accès (IAM) de l’abonnement**. Les étapes sont similaires à celles de la procédure précédente. 
+3. Ajoutez l’ **identité affectée par le système** du labo au rôle **Contributeur de machine virtuelle** en utilisant la page **Contrôle**  -> **d’accès (IAM) de l’abonnement** . Les étapes sont similaires à celles de la procédure précédente. 
 
     
     1. Accédez à la page **Abonnement** dans le portail Azure. 
     1. Sélectionnez **Contrôle d’accès (IAM)** . 
-    1. Sélectionnez **+ Ajouter** dans la barre d’outils, puis **Ajouter une attribution de rôle**. 
+    1. Sélectionnez **+ Ajouter** dans la barre d’outils, puis **Ajouter une attribution de rôle** . 
     
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Clés gérées":::
-    1. Sur la page **Ajouter une attribution de rôle**, sélectionnez **Contributeur de machine virtuelle** pour le rôle.
+    1. Sur la page **Ajouter une attribution de rôle** , sélectionnez **Contributeur de machine virtuelle** pour le rôle.
     1. Tapez le nom du labo et sélectionnez le **nom du labo** (identité affectée par le système pour le labo) dans la liste déroulante. 
     1. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
 ## <a name="encrypt-lab-os-disks-with-a-customer-managed-key"></a>Chiffrer des disques de système d’exploitation de labo avec une clé gérée par le client 
 
 1. Sur la page d’accueil de votre labo dans le portail Azure, sélectionnez **Configuration et stratégies** dans le menu de gauche. 
-1. Sur la page **Configuration et stratégies**, sélectionnez **Disques (version préliminaire)** dans la section **Chiffrement**. Par défaut, **Type de chiffrement** est défini sur **Chiffrement au repos avec la clé gérée par la plateforme**.
+1. Sur la page **Configuration et stratégies** , sélectionnez **Disques (version préliminaire)** dans la section **Chiffrement** . Par défaut, **Type de chiffrement** est défini sur **Chiffrement au repos avec la clé gérée par la plateforme** .
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Clés gérées":::
-1. Pour **Type de chiffrement**, sélectionnez **Chiffrement au repos avec la clé gérée par le client** dans la liste déroulante. 
-1. Pour **Ensemble de chiffrement de disque**, sélectionnez l’ensemble de chiffrement de disque créé précédemment. C’est le même ensemble de chiffrement de disque que celui auquel l’identité affectée par le système du labo peut accéder.
+1. Pour **Type de chiffrement** , sélectionnez **Chiffrement au repos avec la clé gérée par le client** dans la liste déroulante. 
+1. Pour **Ensemble de chiffrement de disque** , sélectionnez l’ensemble de chiffrement de disque créé précédemment. C’est le même ensemble de chiffrement de disque que celui auquel l’identité affectée par le système du labo peut accéder.
 1. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Clés gérées":::
-1. Dans la zone de message comportant le texte suivant : *Ce paramètre s’applique aux machines créées récemment dans le labo. L’ancien disque du système d’exploitation reste chiffré avec l’ancien ensemble de chiffrement de disque*, sélectionnez **OK**. 
+1. Dans la zone de message comportant le texte suivant : *Ce paramètre s’applique aux machines créées récemment dans le labo. L’ancien disque du système d’exploitation reste chiffré avec l’ancien ensemble de chiffrement de disque* , sélectionnez **OK** . 
 
     Une fois configurés, les disques du système d’exploitation du labo sont chiffrés avec la clé gérée par le client fournie lors de l’utilisation de l’ensemble de chiffrement de disque. 
    

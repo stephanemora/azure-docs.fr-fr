@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627733"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108131"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutoriel : Transformer et protéger votre API
 
@@ -51,26 +51,26 @@ Cette section montre comment masquer les en-têtes HTTP que vous ne voulez pas m
 
 Pour consulter la réponse d’origine :
 
-1. Dans votre instance du service Gestion des API, sélectionnez **API**.
+1. Dans votre instance du service Gestion des API, sélectionnez **API** .
 1. Sélectionnez **Demo Conference API** dans votre liste d’API.
-1. Sélectionnez l’onglet **Test**, en haut de l’écran.
-1. Sélectionnez l’opération **GetSpeakers**, puis sélectionnez **Envoyer**.
+1. Sélectionnez l’onglet **Test** , en haut de l’écran.
+1. Sélectionnez l’opération **GetSpeakers** , puis sélectionnez **Envoyer** .
 
 La réponse d’origine doit se présenter comme suit :
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Stratégies dans le portail":::
 
-Comme vous pouvez le voir, la réponse comprend les en-têtes **X-AspNet-Version** et **X-Powered-By**.
+Comme vous pouvez le voir, la réponse comprend les en-têtes **X-AspNet-Version** et **X-Powered-By** .
 
 ### <a name="set-the-transformation-policy"></a>Définir la stratégie de transformation
 
-1. Sélectionnez **Demo Conference API** > **Conception** > **Toutes les opérations**.
-4. Dans la section **Traitement sortant**, sélectionnez l’icône Éditeur de code ( **</>** ).
+1. Sélectionnez **Demo Conference API** > **Conception** > **Toutes les opérations** .
+4. Dans la section **Traitement sortant** , sélectionnez l’icône Éditeur de code ( **</>** ).
 
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Stratégies dans le portail" border="false":::
 
 1. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;** , puis sélectionnez **Afficher les extraits de code** dans le coin supérieur droit.
-1. Dans la fenêtre de droite, sous **Stratégies de transformation**, sélectionnez deux fois **+ Définir l’en-tête HTTP** (pour insérer deux extraits de code de stratégie).
+1. Dans la fenêtre de droite, sous **Stratégies de transformation** , sélectionnez deux fois **Définir l’en-tête HTTP** (pour insérer deux extraits de code de stratégie).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Stratégies dans le portail":::
 
@@ -83,7 +83,7 @@ Comme vous pouvez le voir, la réponse comprend les en-têtes **X-AspNet-Version
 
    :::image type="content" source="media/transform-api/set-policy.png" alt-text="Stratégies dans le portail":::
 
-1. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer** .
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Remplacer les URL d’origine dans le corps de la réponse de l’API par les URL de la passerelle APIM
 
@@ -93,8 +93,8 @@ Cette section montre comment protéger vos URL d’origine qui apparaissent dans
 
 Pour consulter la réponse d’origine :
 
-1. Sélectionnez **Demo Conference API** > **Tester**.
-1. Sélectionnez l’opération **GetSpeakers**, puis sélectionnez **Envoyer**.
+1. Sélectionnez **Demo Conference API** > **Tester** .
+1. Sélectionnez l’opération **GetSpeakers** , puis sélectionnez **Envoyer** .
 
     Comme vous pouvez le voir, la réponse comprend les URL de back-end d’origine :
 
@@ -103,23 +103,23 @@ Pour consulter la réponse d’origine :
 
 ### <a name="set-the-transformation-policy"></a>Définir la stratégie de transformation
 
-1.  Sélectionnez **Demo Conference API** > **Toutes les opérations** > **Conception**.
-1.  Dans la section **Traitement sortant**, sélectionnez l’icône Éditeur de code ( **</>** ).
+1.  Sélectionnez **Demo Conference API** > **Toutes les opérations** > **Conception** .
+1.  Dans la section **Traitement sortant** , sélectionnez l’icône Éditeur de code ( **</>** ).
 1.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;** , puis sélectionnez **Afficher les extraits de code** dans le coin supérieur droit.
-1.  Dans la fenêtre de droite, sous **Stratégies de transformation**, sélectionnez **Masquer les URL dans le contenu**. 
-1.  Sélectionnez **Enregistrer**.
+1.  Dans la fenêtre de droite, sous **Stratégies de transformation** , sélectionnez **Masquer les URL dans le contenu** . 
+1.  Sélectionnez **Enregistrer** .
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Protéger une API en ajoutant une stratégie de limite de débit (limitation)
 
 Cette section vous montre comment ajouter une protection pour votre API principale, en configurant les limites de débit. Par exemple, vous pouvez limiter le débit des appels de l’API pour que l’API ne soit pas surutilisée par les développeurs. Dans cet exemple, la limite est fixée à 3 appels par intervalle de 15 secondes, pour chaque ID d’abonnement. Après 15 secondes, un développeur peut de nouveau tenter d’appeler l’API.
 
-1.  Sélectionnez **Demo Conference API** > **Toutes les opérations** > **Conception**.
-1.  Dans la section **Traitement entrant**, sélectionnez l’icône Éditeur de code ( **</>** ).
-1.  Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;** .
+1.  Sélectionnez **Demo Conference API** > **Toutes les opérations** > **Conception** .
+1.  Dans la section **Traitement entrant** , sélectionnez l’icône Éditeur de code ( **</>** ).
+1.  Placez le curseur à l’intérieur de l’élément **&lt;entrant&gt;** , puis sélectionnez **Afficher les extraits de code** dans le coin supérieur droit.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Stratégies dans le portail" border="false":::
 
-1.  Dans la fenêtre de droite, sous **Stratégies de restriction des accès**, cliquez sur **+ Limite le débit des appels par clé**.
+1.  Dans la fenêtre de droite, sous **Stratégies de restriction des accès** , cliquez sur **+ Limite le débit des appels par clé** .
 1.  Remplacez votre code **rate-limit-by-key** (dans l’élément **\<inbound\>** ) par le code suivant :
 
     ```
@@ -155,8 +155,8 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-stripped-response-headers"></a>Tester les en-têtes de réponse supprimés
 
-1. Sélectionnez **Demo Conference API** > **Tester**.
-1. Sélectionnez l’opération **GetSpeakers**, puis sélectionnez **Envoyer**.
+1. Sélectionnez **Demo Conference API** > **Tester** .
+1. Sélectionnez l’opération **GetSpeakers** , puis sélectionnez **Envoyer** .
 
     Comme vous pouvez le voir, les en-têtes ont été retirés :
 
@@ -164,8 +164,8 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-replaced-url"></a>Tester l’URL remplacé
 
-1. Sélectionnez **Demo Conference API** > **Tester**.
-1. Sélectionnez l’opération **GetSpeakers**, puis sélectionnez **Envoyer**.
+1. Sélectionnez **Demo Conference API** > **Tester** .
+1. Sélectionnez l’opération **GetSpeakers** , puis sélectionnez **Envoyer** .
 
     Comme vous pouvez le constater, l’URL a été remplacée.
 
@@ -173,14 +173,14 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ### <a name="test-the-rate-limit-throttling"></a>Tester la limite de débit (limitation)
 
-1. Sélectionnez **Demo Conference API** > **Tester**.
-1. Sélectionnez l’opération **GetSpeakers**. Sélectionnez **Envoyer** trois fois dans une ligne.
+1. Sélectionnez **Demo Conference API** > **Tester** .
+1. Sélectionnez l’opération **GetSpeakers** . Sélectionnez **Envoyer** trois fois dans une ligne.
 
-    Après avoir envoyé la requête 3 fois, vous recevez une réponse **429 Trop de requêtes**.
+    Après avoir envoyé la requête 3 fois, vous recevez une réponse **429 Trop de requêtes** .
 
     :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Stratégies dans le portail":::
 
-1. Attendez environ 15 secondes, puis resélectionnez **Envoyer**. Cette fois, vous devriez obtenir une réponse **200 OK**.
+1. Attendez environ 15 secondes, puis resélectionnez **Envoyer** . Cette fois, vous devriez obtenir une réponse **200 OK** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

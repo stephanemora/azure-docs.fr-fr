@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642195"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108420"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -21,7 +21,7 @@ Pour obtenir des exemples de projets Functions autonomes en Python, consultez le
 
 Azure Functions s’attend à ce qu’une fonction soit une méthode sans état qui traite une entrée et produit une sortie dans un script Python. Par défaut, le runtime s’attend à ce que la méthode soit implémentée en tant que méthode globale nommée `main()` dans le fichier `__init__.py`. Vous pouvez également [spécifier un autre point d’entrée](#alternate-entry-point).
 
-Les données issues des déclencheurs et des liaisons sont liées à la fonction par des attributs de méthode avec la propriété `name` qui est définie dans le fichier *function.json*. L’exemple de fichier _function.json_ ci-dessous décrit une fonction simple déclenchée par une requête HTTP nommée `req` :
+Les données issues des déclencheurs et des liaisons sont liées à la fonction par des attributs de méthode avec la propriété `name` qui est définie dans le fichier *function.json* . L’exemple de fichier _function.json_ ci-dessous décrit une fonction simple déclenchée par une requête HTTP nommée `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -48,7 +48,7 @@ Utilisez les annotations Python incluses dans le package [azure.functions.*](/py
 
 ## <a name="alternate-entry-point"></a>Autre point d’entrée
 
-Vous pouvez changer le comportement par défaut d’une fonction en spécifiant éventuellement les propriétés `scriptFile` et `entryPoint` dans le fichier *function.json*. Par exemple, le fichier _function.json_ (voir ci-dessous) indique au runtime d’utiliser la méthode `customentry()` dans le fichier _main.py_ comme point d’entrée de la fonction Azure.
+Vous pouvez changer le comportement par défaut d’une fonction en spécifiant éventuellement les propriétés `scriptFile` et `entryPoint` dans le fichier *function.json* . Par exemple, le fichier _function.json_ (voir ci-dessous) indique au runtime d’utiliser la méthode `customentry()` dans le fichier _main.py_ comme point d’entrée de la fonction Azure.
 
 ```json
 {
@@ -83,11 +83,11 @@ La structure de dossiers recommandée d’un projet Python Functions se présent
 ```
 Le dossier principal du projet (\_\_app\_\_) peut contenir les fichiers suivants :
 
-* *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-run-local.md#local-settings-file).
-* *requirements.txt* : Contient la liste des packages que le système installe lors de la publication sur Azure.
-* *host.json* : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
+* *local.settings.json*  : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt*  : Contient la liste des packages que le système installe lors de la publication sur Azure.
+* *host.json*  : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
 * *.funcignore* : (facultatif) déclare des fichiers qui ne devraient pas être publiés dans Azure.
-* *Dockerfile* : (facultatif) utilisé lors de la publication de votre projet dans un [conteneur personnalisé](functions-create-function-linux-custom-image.md).
+* *Dockerfile*  : (facultatif) utilisé lors de la publication de votre projet dans un [conteneur personnalisé](functions-create-function-linux-custom-image.md).
 
 Chaque fonction a son propre fichier de code et son propre fichier de configuration de liaison (function.json).
 
@@ -95,7 +95,7 @@ Quand vous déployez votre projet dans une application de fonction sur Azure, l�
 
 ## <a name="import-behavior"></a>Comportement d’importation
 
-Vous pouvez importer des modules dans votre code de fonction en utilisant des références absolues et relatives explicites. Sur la base de la structure de dossiers présentée ci-dessus, les importations suivantes fonctionnent à partir du fichier de fonction *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py* :
+Vous pouvez importer des modules dans votre code de fonction en utilisant des références absolues et relatives explicites. Sur la base de la structure de dossiers présentée ci-dessus, les importations suivantes fonctionnent à partir du fichier de fonction *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*  :
 
 ```python
 from . import example #(explicit relative)
@@ -127,7 +127,7 @@ from example import some_helper_code
 import shared_code
 ```
 
-Le code partagé doit être conservé dans un dossier distinct dans *\_\_app\_\_* . Pour faire référence à des modules dans le dossier *shared\_code*, vous pouvez utiliser la syntaxe suivante :
+Le code partagé doit être conservé dans un dossier distinct dans *\_\_app\_\_* . Pour faire référence à des modules dans le dossier *shared\_code* , vous pouvez utiliser la syntaxe suivante :
 
 ```python
 from __app__.shared_code import my_first_helper_function
@@ -185,7 +185,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée du Stockage Blob Azure sur la base de l’_ID_ présent dans l’URL de la route, puis elle est mise à disposition comme `obj` dans le corps de la fonction.  Ici, le compte de stockage spécifié est la chaîne de connexion trouvée dans le paramètre d’application AzureWebJobsStorage, qui est le même compte de stockage utilisé par l’application de fonction.
+Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée du Stockage Blob Azure sur la base de l’ _ID_ présent dans l’URL de la route, puis elle est mise à disposition comme `obj` dans le corps de la fonction.  Ici, le compte de stockage spécifié est la chaîne de connexion trouvée dans le paramètre d’application AzureWebJobsStorage, qui est le même compte de stockage utilisé par l’application de fonction.
 
 
 ## <a name="outputs"></a>Sorties
@@ -295,21 +295,38 @@ Dans cette fonction, la valeur du paramètre de requête `name` est obtenue à p
 
 De même, vous pouvez définir les `status_code` et `headers` pour le message de réponse dans l’objet [HttpResponse] retourné.
 
-## <a name="scaling-and-concurrency"></a>Mise à l’échelle et accès concurrentiel
+## <a name="scaling-and-performance"></a>Mise à l'échelle et niveau de performance
 
-Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Functions utilise des seuils intégrés (non configurables par l’utilisateur) pour différents types de déclencheurs pour décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Il est important de bien comprendre le fonctionnement des fonctions et la façon dont les performances affectent la mise à l'échelle de l'application de fonction, en particulier lors de la conception d'applications hautement performantes. Voici quelques facteurs à prendre en compte lors de la conception, de l'écriture et de la configuration de vos applications de fonction.
 
-Ce comportement de mise à l’échelle est suffisant pour de nombreuses applications. Toutefois, les applications présentant l’une des caractéristiques suivantes ne peuvent pas être mises à l’échelle de manière aussi efficace :
+### <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
+Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Functions utilise des seuils intégrés pour différents types de déclencheurs afin de décider quand ajouter des instances, comme l'ancienneté des messages et la taille de la file d'attente pour QueueTrigger. Ces seuils ne sont pas configurables par l'utilisateur. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-- L’application doit gérer un grand nombre d’appels simultanés.
-- L’application traite un grand nombre d’événements d’E/S.
-- L’application est liée aux E/S.
+### <a name="improving-throughput-performance"></a>Améliorer les performances de débit
 
-Dans de tels cas, vous pouvez améliorer encore plus les performances en ayant recours à des modèles asynchrones et en utilisant plusieurs processus Worker de langage.
+Pour améliorer les performances, vous devez comprendre comment votre application utilise les ressources et être en mesure de configurer votre application de fonction en conséquence.
 
-### <a name="async"></a>Async
+#### <a name="understanding-your-workload"></a>Comprendre votre charge de travail
 
-Étant donné que Python est un runtime à thread unique, une instance de l’hôte pour Python ne peut traiter qu’un seul appel de fonction à la fois. Pour les applications qui traitent un grand nombre d’événements d’E/S et/ou qui sont liés à des E/S, vous pouvez améliorer les performances en exécutant des fonctions de manière asynchrone.
+Les configurations par défaut conviennent à la plupart des applications Azure Functions. Cependant, vous pouvez améliorer les performances de débit de vos applications en utilisant des configurations basées sur votre profil de charge de travail. La première étape consiste à identifier le type de charge de travail que vous exécutez.
+
+|| Charge de travail liée aux E/S | Charge de travail liée au processeur |
+|--| -- | -- |
+|Caractéristiques de l'application de fonction| <ul><li>L'application doit gérer un grand nombre d'appels simultanés.</li> <li> L'application traite un grand nombre d'événements d'E/S, tels que les appels réseau et les lectures/écritures sur le disque.</li> </ul>| <ul><li>L'application effectue des calculs de longue durée, tels que le redimensionnement d'images.</li> <li>L'application procède à une transformation des données.</li> </ul> |
+|Exemples| <ul><li>API Web</li><ul> | <ul><li>Traitement des données</li><li> Inférence par Machine Learning</li><ul>|
+
+ 
+> [!NOTE]
+>  Comme la charge de travail des fonctions réelles est souvent une combinaison de charges de travail liées aux E/S et au processeur, nous recommandons de profiler la charge de travail sur la base de charges de production réalistes.
+
+
+#### <a name="performance-specific-configurations"></a>Configurations spécifiques aux performances
+
+Après avoir identifié le profil de charge de travail de votre application de fonction, voici les configurations que vous pouvez utiliser pour améliorer les performances de débit de vos fonctions.
+
+##### <a name="async"></a>Async
+
+Étant donné que [Python est un runtime à thread unique](https://wiki.python.org/moin/GlobalInterpreterLock), une instance de l'hôte pour Python ne peut traiter qu'un seul appel de fonction à la fois. Pour les applications qui traitent un grand nombre d'événements d'E/S et/ou qui sont liées aux E/S, vous pouvez considérablement améliorer les performances en exécutant des fonctions de manière asynchrone.
 
 Pour exécuter une fonction de manière asynchrone, utilisez l’instruction `async def`, qui exécute la fonction avec [asyncio](https://docs.python.org/3/library/asyncio.html) directement :
 
@@ -317,6 +334,21 @@ Pour exécuter une fonction de manière asynchrone, utilisez l’instruction `as
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Voici un exemple de fonction avec déclencheur HTTP qui utilise le client http [aiohttp](https://pypi.org/project/aiohttp/) :
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 Une fonction sans le mot clé `async` est exécutée automatiquement dans un pool de threads asyncio :
 
@@ -327,11 +359,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Utiliser plusieurs processus Worker de langage
+Afin de tirer pleinement parti de l'exécution asynchrone des fonctions, l'opération/la bibliothèque d'E/S utilisée dans votre code doit également être implémentée de manière asynchrone. L'utilisation d'opérations d'E/S synchrones dans des fonctions définies comme asynchrones **peut nuire** aux performances globales.
+
+Voici quelques exemples de bibliothèques clientes qui ont implémenté un modèle asynchrone :
+- [aiohttp](https://pypi.org/project/aiohttp/) : client/serveur HTTP pour asyncio 
+- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) : primitives de haut niveau, asynchrones et prêtes à l'emploi destinées à fonctionner avec une connexion réseau
+- [Janus Queue](https://pypi.org/project/janus/) : file d'attente thread-safe et compatible asyncio pour Python
+- [pyzmq](https://pypi.org/project/pyzmq/) : liaisons Python pour ZeroMQ
+ 
+
+##### <a name="use-multiple-language-worker-processes"></a>Utiliser plusieurs processus Worker de langage
 
 Par défaut, chaque instance d’hôte Functions a un seul processus Worker de langage. Vous pouvez augmenter le nombre de processus Worker par hôte (jusqu’à 10) à l’aide du paramètre d’application [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers.
 
+Pour les applications liées au processeur, vous devez définir le nombre de Workers de langage de manière à ce qu'il soit supérieur ou égal au nombre de cœurs disponibles par application de fonction. Pour en savoir plus, consultez [Références SKU des instances disponibles](functions-premium-plan.md#available-instance-skus). 
+
+Les applications liées aux E/S peuvent également bénéficier de l'augmentation du nombre de processus Worker au-delà du nombre de cœurs disponibles. Gardez à l'esprit que la définition d'un nombre de Workers trop élevé peut avoir un impact sur les performances globales en raison du nombre accru de changements de contexte requis. 
+
 FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande.
+
 
 ## <a name="context"></a>Context
 

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226565"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169063"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Linux pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription-service.md). Actuellement, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge.
 
@@ -68,19 +68,19 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 1. Démarrez Eclipse.
 
-1. Dans le champ **Workspace** (Espace de travail) de **Eclipse IDE Launcher**, entrez le nom d’un nouveau répertoire d’espace de travail. Sélectionnez ensuite **Launch** (Lancer).
+1. Dans le champ **Workspace** (Espace de travail) de **Eclipse IDE Launcher** , entrez le nom d’un nouveau répertoire d’espace de travail. Sélectionnez ensuite **Launch** (Lancer).
 
-   ![Capture d’écran d’Eclipse Launcher](../media/speech-devices-sdk/eclipse-launcher-linux.png)
+   ![Capture d’écran montrant l’utilitaire Eclipse Launcher.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. La fenêtre principale de l’IDE Eclipse apparaît au bout d’un instant. Fermez l’écran d’accueil s’il en existe un.
 
 1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)**  > **New (Nouveau)**  > **Java Project (Projet Java)** . Si ce n’est pas disponible, choisissez **Project** (Projet), puis **Java Project** (Projet Java).
 
-1. L’Assistant **New Java Project** (Nouveau projet Java) démarre. **Accédez**  à l’emplacement de l’exemple de projet. Sélectionnez **Terminer**.
+1. L’Assistant **New Java Project** (Nouveau projet Java) démarre. **Accédez**  à l’emplacement de l’exemple de projet. Sélectionnez **Terminer** .
 
    ![Capture d’écran de l’Assistant New Java Project (Nouveau projet Java)](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel. Sélectionnez **Terminer**.
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel. Sélectionnez **Terminer** .
 
    ![Capture d’écran de l’explorateur de package](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -107,13 +107,13 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Properties (Propriétés)** , puis **Run/Debug Settings**  (Paramètres d’exécution/débogage) > **New... (Nouveau...)** > **Java Application** (Application Java). 
 
-1. La fenêtre **Edit Configuration** (Modifier la configuration) apparaît. Dans le champ **Name (Nom)** , entrez **Main (Principal)** et utilisez **Search (Rechercher)** pour la **Main Class (Classe principale)** pour rechercher et sélectionner **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
+1. La fenêtre **Edit Configuration** (Modifier la configuration) apparaît. Dans le champ **Name (Nom)** , entrez **Main (Principal)** et utilisez **Search (Rechercher)** pour la **Main Class (Classe principale)** pour rechercher et sélectionner **com.microsoft.cognitiveservices.speech.samples.FunctionsList** .
 
    ![Capture d’écran de la modification de la configuration du lancement](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
 1. Copiez les fichiers binaires audio de votre architecture cible, de **Linux-ARM** ou **Linux-x64** vers l’emplacement du projet Java, par exemple **/home/wcaltest/JRE-Sample-Release**
 
-1. Dans la même fenêtre **Edit Configuration**, sélectionnez la page **Environment** (Environnement) puis **New** (Nouveau). La fenêtre **New Environment Variable** (Nouvelle variable d’environnement) apparaît. Dans le champ **Name** (Nom), entrez **LD_LIBRARY_PATH** et, dans le champ **Value** (Valeur), entrez le dossier contenant les fichiers *.so, par exemple **/home/wcaltest/JRE-Sample-Release**
+1. Dans la même fenêtre **Edit Configuration** , sélectionnez la page **Environment** (Environnement) puis **New** (Nouveau). La fenêtre **New Environment Variable** (Nouvelle variable d’environnement) apparaît. Dans le champ **Name** (Nom), entrez **LD_LIBRARY_PATH** et, dans le champ **Value** (Valeur), entrez le dossier contenant les fichiers *.so, par exemple **/home/wcaltest/JRE-Sample-Release**
 
 1. Copiez `kws.table` et `participants.properties` dans le dossier **target/classes** du projet
 
@@ -147,7 +147,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
     Pour utiliser un nouveau mot clé, mettez à jour la ligne suivante dans `FunctionsList.java`, puis copiez le mot clé dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `machine.zip` :
 
-   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes**.
+   * Copiez le fichier `kws.table` du package zip dans le dossier projet **target/classes** .
 
    * Mettez à jour le `FunctionsList.java` avec le nom du mot clé :
 
@@ -161,22 +161,22 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
 1. L’exemple d’application du Kit de développement logiciel (SDK) Speech Devices démarre et affiche les options suivantes :
 
-   ![Exemple d’application et options du Kit de développement logiciel (SDK) Speech Devices](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Capture d’écran montrant un exemple d’application et d’options du SDK Speech Devices.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans `participants.properties`, dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Essayez la nouvelle démonstration de **Transcription de conversation** . Démarrez la transcription avec **Session** > **Démarrer** . Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans `participants.properties`, dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Application de démonstration de la transcription de conversation](../media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![Capture d’écran montrant une application de démonstration de la transcription de conversation.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Créer et exécuter l’application autonome
 
 1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur votre projet. Choisissez **Export** (Exporter). 
-1. La fenêtre **Export** (Exporter) apparaît. Développez **Java**, sélectionnez **Runnable JAR file** (Fichier JAR exécutable), puis sélectionnez **Suivant**.
+1. La fenêtre **Export** (Exporter) apparaît. Développez **Java** , sélectionnez **Runnable JAR file** (Fichier JAR exécutable), puis sélectionnez **Suivant** .
 
-   ![Capture d’écran de la fenêtre Export (Exporter)](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![Capture d’écran montrant la fenêtre d’exportation.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
 1. La fenêtre **Runnable JAR File Export** (Fichier JAR exécutable) apparaît. Choisissez une **Export destination** (Destination de l’exportation) pour l’application, puis sélectionnez **Finish** (Terminer).
  
-   ![Capture d’écran de l’exportation du fichier JAR exécutable](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![Capture d’écran montrant la fenêtre d’exportation d’un fichier JAR exécutable.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. Placez `kws.table` et `participants.properties` dans le dossier de destination sélectionné ci-dessus, car ces fichiers sont nécessaires à l’application.
 

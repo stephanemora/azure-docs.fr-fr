@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 332c81c8502dac6f057c6ea41c7662e1edde1599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf306fd5675e07fb4eb6c9fd56760aaebd960b7b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855192"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167370"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure
 
@@ -42,11 +42,14 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 
 Pour plus d'informations sur les limites de l'équilibreur de charge, consultez la section « Adresse IP frontale privée par équilibreur de charge » de l'article [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
 
+> [!IMPORTANT]
+> Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
+
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers**, comme illustré dans ce diagramme.
+Vous avez déjà configuré un cluster WSFC à utiliser pour une instance SAP ASCS/SCS à l’aide du **partage de fichiers** , comme illustré dans ce diagramme.
 
 ![Instance SAP ASCS/SCS à haute disponibilité][sap-ha-guide-figure-6001]
 

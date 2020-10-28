@@ -4,16 +4,16 @@ description: Découvrez Azure Analysis Services, une plateforme complètement ma
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018795"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201509"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -35,7 +35,7 @@ Azure Analysis Services s’intègre à de nombreux services Azure qui vous perm
 
 ## <a name="the-right-tier-when-you-need-it"></a>Le niveau approprié, quand vous en avez besoin
 
-Azure Analysis Services est disponible pour les niveaux **Développeur**, **De base** et **Standard**. Dans chaque niveau, les coûts de plan varient en fonction de la puissance de traitement, des QPU (Query Processing Units) et de la taille de la mémoire. Lorsque vous créez un serveur, vous sélectionnez un plan au sein d’un niveau. Vous pouvez modifier les plans vers le haut ou vers le bas au sein du même niveau, ou le passer à un niveau supérieur, mais vous ne pouvez pas le rétrograder d’un niveau supérieur à un niveau inférieur.
+Azure Analysis Services est disponible pour les niveaux **Développeur** , **De base** et **Standard** . Dans chaque niveau, les coûts de plan varient en fonction de la puissance de traitement, des QPU (Query Processing Units) et de la taille de la mémoire. Lorsque vous créez un serveur, vous sélectionnez un plan au sein d’un niveau. Vous pouvez modifier les plans vers le haut ou vers le bas au sein du même niveau, ou le passer à un niveau supérieur, mais vous ne pouvez pas le rétrograder d’un niveau supérieur à un niveau inférieur.
 
 ### <a name="developer-tier"></a>Niveau Développeur
 
@@ -71,7 +71,7 @@ Ce niveau est destiné aux applications de production stratégiques qui nécessi
 |S9v2 <sup>[1](#naar)</sup>    |    1 280    |    400     |
 
 <a name="naar">1</a> - Non disponible dans toutes les régions.   
-<a name="rec">2</a> - v2 est recommandé.
+<a name="rec">2</a> - S8 et S9 sont [dépréciés](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 est recommandé. 
 
 ## <a name="availability-by-region"></a>Disponibilité par région
 
@@ -85,7 +85,7 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Centre du Canada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |USA Est     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA Est 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA Est 2     |     S8, S9, S8v2, S9v2   |    1    |
+|USA Est 2     |     S8v2, S9v2   |    1    |
 |Centre-Nord des États-Unis     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centre-Nord des États-Unis     |     S8v2, S9v2    |    1     |
 |USA Centre     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -93,9 +93,9 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |États-Unis - partie centrale méridionale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centre-USA Ouest   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA Ouest     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|USA Ouest     |    S8, S9, S8v2, S9v2   |    2  |
+|USA Ouest     |    S8v2, S9v2   |    2  |
 |USA Ouest 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|USA Ouest 2    |    S8, S9, S8v2, S9v2  |    1     |
+|USA Ouest 2    |    S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europe
 
@@ -105,17 +105,18 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Europe Nord     |    S8v2, S9v2      |    3     |
 |Sud du Royaume-Uni     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europe Ouest     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europe Ouest    |   S8, S9, S8v2, S9v2  |  1  |
+|Europe Ouest    |   S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asie-Pacifique 
 
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
 |Australie Est     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australie Est     |    S8, S9, S8v2, S9v2    |    1     |
+|Australie Est     |    S8v2, S9v2    |    1     |
 |Sud-Australie Est     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japon Est     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Asie Sud-Est     |     S8v2, S9v2     |   1      |
 |Inde Ouest     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Évolutif selon vos besoins

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999313"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091149"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -45,73 +45,73 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 
 ## <a name="set-up-your-workload-protection"></a>Configurer la protection de votre charge de travail
 
-Azure Security Center comprend un ensemble de recommandations qui sont disponibles lorsque vous installez le **module complémentaire Azure Policy pour Kubernetes**.
+Azure Security Center comprend un ensemble de recommandations qui sont disponibles lorsque vous installez le **module complémentaire Azure Policy pour Kubernetes** .
 
 1. Pour configurer les recommandations, vous devez d’abord installer le module complémentaire :
 
-    1. Sur la page de recommandations, recherchez la recommandation nommée **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**.
+    1. Sur la page de recommandations, recherchez la recommandation nommée **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters** .
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
 
         > [!TIP]
         > La recommandation est incluse dans cinq contrôles de sécurité différents, et celui que vous sélectionnez à l’étape suivante importe peu.
 
-    1. À partir de l’un des contrôles de sécurité, sélectionnez la recommandation pour afficher les ressources sur lesquelles vous pouvez installer le module complémentaire, puis sélectionnez **Corriger**. 
+    1. À partir de l’un des contrôles de sécurité, sélectionnez la recommandation pour afficher les ressources sur lesquelles vous pouvez installer le module complémentaire, puis sélectionnez **Corriger** . 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
 
 1. Environ 30 minutes après l’installation du module complémentaire, Security Center affiche l’état d’intégrité des clusters pour les recommandations suivantes, chacune dans le contrôle de sécurité approprié, comme indiqué ci-dessous :
 
     > [!TIP]
-    > Certaines recommandations ont des paramètres qui doivent être personnalisés via Azure Policy pour les utiliser efficacement. Par exemple, pour tirer parti de la recommandation **Les images conteneur doivent être déployées à partir de registres approuvés uniquement**, vous devez définir vos registres de confiance.
+    > Certaines recommandations ont des paramètres qui doivent être personnalisés via Azure Policy pour les utiliser efficacement. Par exemple, pour tirer parti de la recommandation **Les images conteneur doivent être déployées à partir de registres approuvés uniquement** , vous devez définir vos registres de confiance.
     > 
     > Si vous n’entrez pas les paramètres nécessaires pour les recommandations qui requièrent une configuration, vos charges de travail seront affichées comme défectueuses.
 
-    | Nom de la recommandation                                                                   | Contrôle de sécurité                         | Configuration requise |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Les limites de mémoire et du processeur du conteneur doivent être appliquées (préversion)                          | Protéger les applications contre les attaques DDoS | Non                     |
-    | Les conteneurs privilégiés doivent être évités (préversion)                                     | Gérer l’accès et les autorisations            | Non                     |
-    | Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs (préversion)     | Gérer l’accès et les autorisations            | Non                     |
-    | Tout conteneur avec une réaffectation de privilèges doit être évité (préversion)                       | Gérer l’accès et les autorisations            | Non                     |
-    | L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée (préversion)                           | Gérer l’accès et les autorisations            | Non                     |
-    | Éviter les conteneurs partageant des espaces de noms d'hôte sensibles (préversion)              | Gérer l’accès et les autorisations            | Non                     |
-    | Les fonctionnalités Linux les moins privilégiées doivent être appliquées pour les conteneurs (préversion)       | Gérer l’accès et les autorisations            | **Oui**                |
-    | L’utilisation des montages de volume HostPath de pad doit être limitée à une liste connue (préversion)    | Gérer l’accès et les autorisations            | **Oui**                |
-    | Les conteneurs doivent écouter uniquement sur les ports autorisés (préversion)                              | Restreindre l’accès réseau non autorisé     | **Oui**                |
-    | Les services doivent écouter uniquement sur les ports autorisés (préversion)                                | Restreindre l’accès réseau non autorisé     | **Oui**                |
-    | L'utilisation du réseau hôte et des ports doit être restreinte (préversion)                     | Restreindre l’accès réseau non autorisé     | **Oui**                |
-    | Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être restreint (préversion) | Corriger les configurations de sécurité        | **Oui**                |
-    | Les images conteneur doivent être déployées à partir de registres approuvés uniquement (préversion)            | Corriger les vulnérabilités                | **Oui**                |
+    | Nom de la recommandation                                                         | Contrôle de sécurité                         | Configuration requise |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Les limites de mémoire et du processeur du conteneur doivent être appliquées                          | Protéger les applications contre les attaques DDoS | Non                     |
+    | Les conteneurs privilégiés doivent être évités                                     | Gérer l’accès et les autorisations            | Non                     |
+    | Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs     | Gérer l’accès et les autorisations            | Non                     |
+    | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
+    | L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée                           | Gérer l’accès et les autorisations            | Non                     |
+    | Éviter les conteneurs partageant des espaces de noms d’hôte sensibles              | Gérer l’accès et les autorisations            | Non                     |
+    | Les fonctionnalités Linux les moins privilégiées doivent être appliquées pour les conteneurs       | Gérer l’accès et les autorisations            | **Oui**                |
+    | L’utilisation des montages de volume HostPath de pad doit être limitée à une liste connue    | Gérer l’accès et les autorisations            | **Oui**                |
+    | Les conteneurs doivent écouter uniquement sur les ports autorisés                              | Restreindre l’accès réseau non autorisé     | **Oui**                |
+    | Les services doivent écouter uniquement sur les ports autorisés                                | Restreindre l’accès réseau non autorisé     | **Oui**                |
+    | L’utilisation du réseau hôte et des ports doit être limitée                     | Restreindre l’accès réseau non autorisé     | **Oui**                |
+    | Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être limité | Corriger les configurations de sécurité        | **Oui**                |
+    | Les images conteneur doivent être déployées à partir de registres approuvés uniquement            | Corriger les vulnérabilités                | **Oui**                |
 
 
 1. Pour forcer les recommandations avec des paramètres à être personnalisées, définissez les paramètres :
 
-    1. Dans le menu de Security Center, sélectionnez **Stratégie de sécurité**.
+    1. Dans le menu de Security Center, sélectionnez **Stratégie de sécurité** .
     1. Sélectionnez l’abonnement approprié.
-    1. Dans la section **Stratégie par défaut de Security Center**, sélectionnez **Afficher la stratégie actuelle**.
+    1. Dans la section **Stratégie par défaut de Security Center** , sélectionnez **Afficher la stratégie actuelle** .
     1. Sélectionnez « ASC Default ».
     1. Ouvrez l’onglet **Paramètres** et modifiez les valeurs selon vos besoins.
-    1. Sélectionnez **Vérifier + enregistrer**.
-    1. Sélectionnez **Enregistrer**.
+    1. Sélectionnez **Vérifier + enregistrer** .
+    1. Sélectionnez **Enregistrer** .
 
 
 1. Pour appliquer les recommandations, 
 
-    1. Ouvrez la page Détails de la recommandation et sélectionnez **Refuser** :
+    1. Ouvrez la page Détails de la recommandation et sélectionnez **Refuser**  :
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**":::
 
         Cette opération ouvre le volet dans lequel vous définissez l’étendue. 
 
-    1. Une fois que vous avez défini l’étendue, sélectionnez **Remplacer par Refuser**.
+    1. Une fois que vous avez défini l’étendue, sélectionnez **Remplacer par Refuser** .
 
 1. Pour voir quelles recommandations s’appliquent à vos clusters :
 
-    1. Ouvrez la page d'[inventaire des ressources](asset-inventory.md) de Security Center et utilisez le filtre de type de ressource pour **Services Kubernetes**.
+    1. Ouvrez la page d' [inventaire des ressources](asset-inventory.md) de Security Center et utilisez le filtre de type de ressource pour **Services Kubernetes** .
 
     1. Sélectionnez un cluster à examiner et passez en revue les recommandations disponibles pour celui-ci. 
 
-1. Lorsque vous affichez une recommandation de l’ensemble de protection de la charge de travail, vous voyez le nombre de pods affectés (« composants Kubernetes ») avec le cluster. Pour obtenir la liste des pods spécifiques, sélectionnez le cluster, puis **Effectuer une action**.
+1. Lorsque vous affichez une recommandation de l’ensemble de protection de la charge de travail, vous voyez le nombre de pods affectés (« composants Kubernetes ») avec le cluster. Pour obtenir la liste des pods spécifiques, sélectionnez le cluster, puis **Effectuer une action** .
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recommandation **Le module complémentaire Azure Policy pour Kubernetes doit être installé et activé sur vos clusters**"::: 
 

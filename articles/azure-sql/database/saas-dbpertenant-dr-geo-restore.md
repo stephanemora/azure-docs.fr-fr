@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618997"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330102"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ Imaginez qu’une panne se produise dans la région où l’application est dép
 
 3. Surveillez l’état du processus de récupération dans la fenêtre PowerShell.
 
-    ![Processus de récupération](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![Capture d’écran montrant la fenêtre PowerShell dans laquelle vous pouvez superviser l’état du processus de récupération.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > Pour explorer le code des travaux de récupération, examinez les scripts PowerShell dans le dossier ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs.
@@ -202,7 +202,7 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
 
   * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
-    ![Processus de récupération](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![Capture d’écran affichant une page d’événements hors connexion.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Approvisionner un nouveau locataire dans la région de récupération
 Avant même que les bases de données de locataire ne soient restaurées, vous pouvez provisionner de nouveaux locataires dans la région de récupération. Les nouvelles bases de données de locataire provisionnées dans la région de récupération sont rapatriées ultérieurement avec les bases de données récupérées.   

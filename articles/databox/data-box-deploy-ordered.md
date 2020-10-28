@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575297"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206750"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -55,7 +55,7 @@ Avant de commencer, assurez-vous que :
 
 #### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-* Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 ou ultérieure. Vous pouvez également effectuer l’[installation à l’aide de MSI](https://aka.ms/installazurecliwindows).
+* Installez [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 ou ultérieure. Vous pouvez également effectuer l’[installation à l’aide de MSI](https://aka.ms/installazurecliwindows).
 
 **Se connecter à Azure**
 
@@ -164,13 +164,13 @@ La sortie suivante s’affiche :
     WSManStackVersion              3.0
 ```
 
-Si votre version de Windows PowerShell est inférieure à la version 6.2.4, vous devez la mettre à niveau. Pour installer la dernière version de Windows PowerShell, consultez [Installation d’Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
+Si votre version de Windows PowerShell est inférieure à la version 6.2.4, vous devez la mettre à niveau. Pour installer la dernière version de Windows PowerShell, consultez [Installation d’Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
 
 **Installer Azure PowerShell et les modules Data Box**
 
 Vous devez installer les modules Azure PowerShell afin d’utiliser Azure PowerShell pour commander un service Azure Data Box. Pour installer les modules Azure PowerShell :
 
-1. Installez le [module Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+1. Installez le [module Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 2. Installez ensuite Az.DataBox à l’aide de la commande `Install-Module -Name Az.DataBox`.
 
 ```azurepowershell
@@ -184,7 +184,7 @@ Version              Name                                Repository           De
 
 #### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Ouvrez une fenêtre de commande Windows PowerShell, puis connectez-vous à Azure avec la commande [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) :
+Ouvrez une fenêtre de commande Windows PowerShell, puis connectez-vous à Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) :
 
 ```azurepowershell
 PS C:\Windows> Connect-AzAccount
@@ -202,7 +202,7 @@ gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaa
 PS C:\Windows\System32>
 ```
 
-Pour plus d’informations sur la connexion à Azure à l’aide de Windows PowerShell, consultez [Se connecter avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Pour plus d’informations sur la connexion à Azure à l’aide de Windows PowerShell, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -213,7 +213,7 @@ Pour plus d’informations sur la connexion à Azure à l’aide de Windows Powe
 Effectuez les étapes suivantes dans le portail Azure pour commander un appareil.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
-2. Sélectionnez **+ Créer une ressource**, puis recherchez *Azure Data Box*. Sélectionnez **Azure Data Box**.
+2. Sélectionnez **+ Créer une ressource** , puis recherchez *Azure Data Box* . Sélectionnez **Azure Data Box** .
 
    ![Capture d’écran de la nouvelle section avec Azure Data Box dans le champ de recherche.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
@@ -221,11 +221,11 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
    ![Capture d’écran de la section Azure Data Box avec l’option Créer en évidence.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
-4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
+4. Vérifiez si le service Data Box est disponible dans votre région. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer** .
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
+    |Type de transfert     | Sélectionnez **Importer vers Azure** .        |
     |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Groupe de ressources | Sélectionnez un groupe de ressources existant. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
     |Pays/région source    |    Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
@@ -233,11 +233,11 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     [![Ordre d’importation Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
-5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
+5. Sélectionnez **Data Box** . La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
     ![Capture d’écran des différentes tailles de données disponibles pour la sélection : Data Box Disk 40 téraoctets, Data Box 100 téraoctets, Data Box Heavy, 1 000 téraoctets et Envoyer vos propres disques 1 téraoctet.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Sous **Ordre**, accédez à l’onglet **Fonctions de base**. Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
+6. Sous **Ordre** , accédez à l’onglet **Fonctions de base** . Entrez ou sélectionnez les informations suivantes, puis sélectionnez **Suivant : Destination des données>** .
 
     |Paramètre  |Value  |
     |---------|---------|
@@ -247,15 +247,15 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     ![Capture d’écran de l’Assistant Commande montrant l’étape de base de l’Assistant avec les informations correctes fournies.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    Par défaut, le mot de passe de déverrouillage de l’appareil est chiffré à l’aide d’une clé managée par Microsoft. Après avoir effectué la commande, vous pouvez ajouter une clé gérée par le client. Une clé gérée par le client vous permet d’utiliser votre propre clé à partir d’un coffre de clés Azure pour protéger votre mot de passe de déverrouillage d’appareil. Pour plus d’informations, consultez [Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    Par défaut, le mot de passe de déverrouillage de l’appareil est chiffré à l’aide d’une clé managée par Microsoft. Après avoir effectué la commande, vous pouvez ajouter une clé gérée par le client. Une clé gérée par le client vous permet d’utiliser votre propre clé à partir d’un coffre de clés pour protéger votre mot de passe de déverrouillage d’appareil. Pour plus d’informations, consultez [Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-7. Dans l’onglet **Destination des données**, sélectionnez **Destination des données**.
+7. Dans l’onglet **Destination des données** , sélectionnez **Destination des données** .
 
     Si vous utilisez un ou plusieurs **comptes de stockage** comme destination de stockage, vous voyez s’afficher l’écran suivant :
 
     ![Azure Data Box - Destination des données](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**.
+    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob** , **Usage général v1** ou **Usage général v2** .
 
     Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).
 
@@ -273,38 +273,68 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     Sélectionnez **Suivant : Sécurité** pour continuer.
 
-1. Dans **Sécurité**, si vous voulez activer le double chiffrement basé sur le logiciel, sélectionnez **Activer le double chiffrement pour la commande**. 
+    L’écran **Sécurité** vous permet d’utiliser votre propre appareil et de partager des mots de passe, de choisir également d’utiliser le double chiffrement. 
+
+    Tous les paramètres dans l’écran **Sécurité** sont facultatifs. Si vous ne changez aucun paramètre, les paramètres par défaut s’appliquent.
+
+    ![Écran Sécurité d’une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. Si vous ne souhaitez pas utiliser les mots de passe générés par le système qu’Azure Data Box utilise par défaut, développez **Bring your own password** (Apporter son propre mot de passe).
+
+   Les mots de passe générés par le système sont sécurisés et sont recommandés, à moins que votre organisation en décide autrement.
+
+   ![Développement des options Bring your own password pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Afin d’utiliser votre propre mot de passe pour votre nouvel appareil, dans **Définir la préférence pour le mot de passe de l’appareil** , sélectionnez **Utiliser votre propre mot de passe** , puis tapez un mot de passe conforme aux exigences de sécurité.
+   
+     ![Écran Sécurité pour l’importation de Data Box ; options d’utilisation de votre propre mot de passe d’appareil](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - Afin d’utiliser vos propres mots de passe pour les partages :
+
+     1. Dans **Définir la préférence pour les mots de passe de partage** , sélectionnez **Utiliser vos propres mots de passe** , puis **Sélectionnez des mots de passe pour les partages** .
+     
+        ![Écran Sécurité pour l’importation de Data Box ; options d’utilisation de vos propres mots de passe de partage](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Tapez un mot de passe pour chaque compte de stockage dans la commande. Le mot de passe sera utilisé sur tous les partages pour le compte de stockage.
+     
+        Afin d’utiliser le même mot de passe pour tous les comptes de stockage, sélectionnez **Copy to all** (Copier pour tous). Lorsque vous avez terminé, sélectionnez **Enregistrer** .
+     
+        ![Écran d’entrée de mots de passe de partage pour une commande d’importation de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       Dans l’écran **Sécurité** , vous pouvez utiliser **View of change passwords** (Vue des changements de mots de passe) pour changer les mots de passe.
+
+1. Dans **Sécurité** , si vous voulez activer le double chiffrement basé sur logiciel, développez **Double-encryption (for highly secure environments)** Double chiffrement (pour les environnements hautement sécurisés) et sélectionnez **Enable double encryption for the order** (Activer le double chiffrement pour la commande).
+
+   ![Écran Sécurité de l’importation de Data Box ; activation du chiffrement basé sur logiciel pour une commande de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Le chiffrement basé sur le logiciel est effectué en plus du chiffrement AES 256 bits des données sur Data Box.
 
    > [!NOTE]
    > L’activation de cette option peut augmenter le temps nécessaire au traitement des commandes et à la copie des données. Une fois votre commande créée, vous ne pouvez pas changer cette option.
 
-   ![Écran Sécurité pour l’importation de Data Box - Double chiffrement](media/data-box-deploy-ordered/select-data-box-import-07c.png)
-
    Sélectionnez **Suivant : Détails du contact** pour continuer.
 
-8. Sous **Détails du contact**, sélectionnez **+ Ajouter une adresse de livraison**.
+8. Sous **Détails du contact** , sélectionnez **+ Ajouter une adresse de livraison** .
 
     ![Capture d’écran de l’Assistant Commande montrant l’étape Coordonnées de l’Assistant avec l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Sélectionnez **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
+9. Dans la zone **Adresse d’expédition** , indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Sélectionnez **Valider l’adresse** . Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
 
    ![Capture d’écran de la boîte de dialogue Ajouter une adresse de livraison avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Si vous avez sélectionné l’expédition autogérée, vous recevez une notification par e-mail une fois la commande passée. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
 
-10. Sélectionnez **Ajouter une adresse de livraison** dès lors que les détails de l’expédition ont été correctement validés. Vous revenez à l’onglet **Détails du contact**.
+10. Sélectionnez **Ajouter une adresse de livraison** dès lors que les détails de l’expédition ont été correctement validés. Vous revenez à l’onglet **Détails du contact** .
 
-11. Quand vous êtes de nouveau dans l’onglet **Détails du contact**, ajoutez une ou plusieurs adresses e-mail. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
+11. Quand vous êtes de nouveau dans l’onglet **Détails du contact** , ajoutez une ou plusieurs adresses e-mail. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
 
     Nous vous recommandons d’utiliser un e-mail de groupe afin de continuer à recevoir des notifications si un administrateur du groupe quitte l’entreprise.
 
     ![Capture d’écran de la section E-mail de l’étape Coordonnées de l’Assistant Commande avec la zone de texte E-mail et l’option Suivant : Passer en revue et commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-12. Sous **Passer en revue + commander**, passez en revue les informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
+12. Sous **Passer en revue + commander** , passez en revue les informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
 
-13. Sélectionnez **Commander**. La création d’une commande peut prendre quelques minutes.
+13. Sélectionnez **Commander** . La création d’une commande peut prendre quelques minutes.
 
     ![Capture d’écran de l’Assistant Commande montrant l’étape Passer en revue et commander et l’option Commander en évidence.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
@@ -338,7 +368,7 @@ Effectuez les étapes suivantes l’aide d’Azure CLI pour commander un appare
    |query| Chaîne de requêtes JMESPath. Pour plus d’informations, consultez [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Inclure la journalisation détaillée. | --verbose |
 
-2. Dans l’invite de commandes de votre choix ou dans votre terminal, utilisez la commande [az data box job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) pour créer votre commande Azure Data Box.
+2. Dans l’invite de commandes de votre choix ou dans votre terminal, exécutez [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) pour créer votre commande Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -431,7 +461,7 @@ Effectuez les étapes suivantes l’aide d’Azure PowerShell pour commander un 
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
 
-2. Notez vos paramètres pour votre commande Data Box. Ces paramètres incluent vos informations personnelles/professionnelles, le nom de l’abonnement, les informations sur l’appareil et les informations d’expédition. Vous devrez les utiliser comme paramètres quand vous exécuterez la commande PowerShell pour créer la commande Data Box. Le tableau suivant indique la configuration des paramètres utilisés pour [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+2. Notez vos paramètres pour votre commande Data Box. Ces paramètres incluent vos informations personnelles/professionnelles, le nom de l’abonnement, les informations sur l’appareil et les informations d’expédition. Vous devrez les utiliser comme paramètres quand vous exécuterez la commande PowerShell pour créer la commande Data Box. Le tableau suivant indique la configuration des paramètres utilisés pour [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Configuration (paramètre) | Description |  Exemple de valeur |
     |---|---|---|
@@ -452,7 +482,7 @@ Effectuez les étapes suivantes l’aide d’Azure PowerShell pour commander un 
     |CompanyName| Nom de l’entreprise pour laquelle vous travaillez.| « Contoso, LTD » |
     |StorageAccountResourceId [Obligatoire]| ID du compte de stockage Azure à partir duquel vous voulez importer des données.| <AzStorageAccount>.id |
 
-3. Dans l’invite de commandes de votre choix ou dans votre terminal, utilisez la commande [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) pour créer votre commande Azure Data Box.
+3. Dans l’invite de commandes de votre choix ou dans votre terminal, utilisez la commande [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) pour créer votre commande Azure Data Box.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
@@ -485,7 +515,7 @@ Effectuez les étapes suivantes l’aide d’Azure PowerShell pour commander un 
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
-Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé**.
+Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé** .
 
 Si l’appareil n’est pas disponible, vous recevez une notification. Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. Pendant la préparation de l’appareil, les actions suivantes se produisent :
 
@@ -494,11 +524,11 @@ Si l’appareil n’est pas disponible, vous recevez une notification. Si l’ap
 * Un mot de passe qui permet de déverrouiller l’appareil est également généré.
 * La Data Box est verrouillée pour empêcher tout accès non autorisé à l’appareil à tout moment.
 
-Une fois l’appareil préparé, le portail affiche la commande avec l’état **Traité**.
+Une fois l’appareil préparé, le portail affiche la commande avec l’état **Traité** .
 
 ![Commande de Data Box traitée](media/data-box-overview/data-box-order-status-processed.png)
 
-Ensuite, Microsoft prépare et achemine l’appareil via un transporteur régional. Vous recevez un numéro de suivi une fois l’appareil expédié. Le portail affiche la commande dont l’état est **Distribué**.
+Ensuite, Microsoft prépare et achemine l’appareil via un transporteur régional. Vous recevez un numéro de suivi une fois l’appareil expédié. Le portail affiche la commande dont l’état est **Distribué** .
 
 ![Commande de Data Box expédiée](media/data-box-overview/data-box-order-status-dispatched.png)
 
@@ -506,7 +536,7 @@ Ensuite, Microsoft prépare et achemine l’appareil via un transporteur région
 
 ### <a name="track-a-single-order"></a>Suivre une commande unique
 
-Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
+Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ Pour obtenir des informations de suivi sur une commande Azure Data Box unique e
 
 ### <a name="list-all-orders"></a>Lister toutes les commandes
 
-Si vous avez commandé plusieurs appareils, vous pouvez exécuter [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+Si vous avez commandé plusieurs appareils, vous pouvez exécuter [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
 La commande affiche également les horodatages de chaque commande.
 
 ```azurecli
@@ -590,7 +620,7 @@ Le tableau suivant indique les informations des paramètres pour `az databox job
 
 ### <a name="track-a-single-order"></a>Suivre une commande unique
 
-Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
+Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
 
 > [!NOTE]
 > `Get-AzDataBoxJob` permet d’afficher les commandes uniques et multiples. Pour les commandes uniques, cependant, vous devez spécifier le nom de la commande.
@@ -623,7 +653,7 @@ Pour obtenir des informations de suivi sur une commande Azure Data Box unique e
 
 ### <a name="list-all-orders"></a>Lister toutes les commandes
 
-Si vous avez commandé plusieurs appareils, vous pouvez exécuter [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+Si vous avez commandé plusieurs appareils, vous pouvez exécuter [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
 La commande affiche également les horodatages de chaque commande.
 
 ```azurepowershell
@@ -656,17 +686,17 @@ PS C:\WINDOWS\system32>
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
-Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble**, puis sélectionnez **Annuler** dans la barre de commandes.
+Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** , puis sélectionnez **Annuler** dans la barre de commandes.
 
 Après avoir passé commande, vous pouvez l’annuler à tout moment tant qu’elle n’a pas été traitée.
 
-Pour supprimer une commande annulée, accédez à **Vue d’ensemble**, puis sélectionnez **Supprimer** dans la barre de commandes.
+Pour supprimer une commande annulée, accédez à **Vue d’ensemble** , puis sélectionnez **Supprimer** dans la barre de commandes.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ### <a name="cancel-an-order"></a>Annuler une commande
 
-Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). Vous devez spécifier la raison de l’annulation de la commande.
+Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Vous devez spécifier la raison de l’annulation de la commande.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](ht
 
 ### <a name="delete-an-order"></a>Supprimer une commande
 
-Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) pour la supprimer.
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) pour la supprimer.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -742,7 +772,7 @@ Voici un exemple de la commande avec la sortie :
 
 ### <a name="cancel-an-order"></a>Annuler une commande
 
-Pour annuler une commande Azure Data Box, exécutez [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). Vous devez spécifier la raison de l’annulation de la commande.
+Pour annuler une commande Azure Data Box, exécutez [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob). Vous devez spécifier la raison de l’annulation de la commande.
 
 ```azurepowershell
 Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
@@ -776,7 +806,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Supprimer une commande
 
-Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) pour la supprimer.
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) pour la supprimer.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003207"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167183"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,12 @@ Pour plus d’informations sur les versions du cycle de vie, consultez [Versions
 AKS prend en charge la création de pools de nœuds avec processeur graphique (GPU). Azure fournit actuellement une ou plusieurs machines virtuelles avec processeur graphique (GPU). Les machines virtuelles avec processeur graphique (GPU) sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs.
 
 Pour plus d’informations, consultez [Utilisation des GPU sur AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Nœuds d’informatique confidentielle (préversion publique)
+
+AKS prend en charge la création de pools de nœuds d’informatique confidentielle basés sur Intel SGX (machines virtuelles DCSv2). Les nœuds d’informatique confidentielle permettent aux conteneurs de s’exécuter dans un environnement d’exécution isolé et approuvé basé sur le matériel. L’isolement entre des conteneurs combinés avec l’intégrité du code par le biais d’une attestation peut être utile pour votre stratégie de sécurité de conteneur de défense en profondeur. Les nœuds d’informatique confidentielle prennent en charge à la fois les conteneurs confidentiels (applications Docker existantes) et les conteneurs reconnaissant les enclaves.
+
+Pour plus d’informations, consultez [Nœuds d’informatique confidentielle sur AKS][conf-com-node].
 
 ### <a name="storage-volume-support"></a>Prise en charge du volume de stockage
 
@@ -143,3 +149,4 @@ En savoir plus sur le déploiement et la gestion d’AKS avec le démarrage rapi
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

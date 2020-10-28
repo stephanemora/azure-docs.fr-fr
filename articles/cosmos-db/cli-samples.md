@@ -1,25 +1,27 @@
 ---
-title: Exemples d’interface Azure CLI pour Azure Cosmos DB
-description: Exemples d’interface Azure CLI pour Azure Cosmos DB
+title: Exemples d’interface Azure CLI pour l’API Core (SQL) Azure Cosmos DB
+description: Exemples d’interface Azure CLI pour l’API Core (SQL) Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5ed9af0c133f746f5761d6c41a5fdb9f25589ac
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840334"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276374"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemples de CLI pour Azure Cosmos DB
+# <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Exemples Azure CLI pour l’API (SQL) Core Azure Cosmos DB
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour Azure Cosmos DB. Utilisez les liens sur la droite pour accéder aux exemples spécifiques aux API. Les exemples communs sont les mêmes pour toutes les API. Des pages d’informations de référence pour toutes les commandes Azure Cosmos DB CLI sont disponibles dans les [Informations de référence sur Azure CLI](/cli/azure/cosmosdb). Vous trouverez également les exemples de scripts CLI Azure Cosmos DB dans le [dépôt GitHub CLI Azure Cosmos DB](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-Ces exemples nécessitent Azure CLI version 2.9.1 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Ces exemples nécessitent Azure CLI version 2.12.1 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+
+Pour obtenir des exemples d’interface Azure CLI destinés à d’autres API, consultez [Exemples d’interface CLI pour Cassandra](cli-samples-cassandra.md), [Exemples d’interface CLI pour l’API MongoDB](cli-samples-mongodb.md), [Exemples d’interface CLI pour Gremlin](cli-samples-gremlin.md), [Exemples d’interface CLI pour Table](cli-samples-table.md).
 
 ## <a name="common-samples"></a>Exemples communs
 
@@ -28,7 +30,7 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 |Tâche | Description |
 |---|---|
 | [Ajouter des régions de basculement](scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Ajoutez une région, changez la priorité de basculement, déclenchez un basculement manuel.|
-| [Clés de compte et chaînes de connexion](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | Listez les clés de compte, les clés en lecture seule, regénérez les clés et listez les chaînes de connexion.|
+| [Clés de compte et chaînes de connexion](scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json)  | Listez les clés de compte, les clés en lecture seule, regénérez les clés et listez les chaînes de connexion.|
 | [Sécuriser avec le pare-feu IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte Cosmos avec le pare-feu IP configuré.|
 | [Sécuriser un nouveau compte avec des points de terminaison de service](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte Cosmos et sécurisez-le avec des points de terminaison de service.|
 | [Sécuriser un compte existant avec des points de terminaison de service](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Mettez à jour un compte Cosmos pour le sécuriser avec des points de terminaison de service quand le sous-réseau est finalement configuré.|
@@ -42,44 +44,4 @@ Ces exemples s’appliquent à toutes les API Azure Cosmos DB.
 | [Créer un compte, une base de données et un conteneur Azure Cosmos avec mise à l’échelle automatique](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, une base de données et un conteneur Azure Cosmos DB avec mise à l’échelle automatique pour l’API Core (SQL). |
 | [Opérations de débit](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et un conteneur, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
 | [Verrouiller des ressources contre la suppression](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
-|||
-
-## <a name="mongodb-api-samples"></a>Exemples d’API MongoDB
-
-|Tâche | Description |
-|---|---|
-| [Créer un compte, une base de données et une collection Azure Cosmos](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, une base de données et une collection Azure Cosmos DB pour l’API MongoDB. |
-| [Créer un compte et une base de données avec mise à l’échelle automatique et deux collections Azure Cosmos avec débit partagé](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte et une base de données avec mise à l’échelle automatique et deux collections Azure Cosmos DB avec débit partagé pour l’API MongoDB. |
-| [Opérations de débit](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et une collection, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
-| [Verrouiller des ressources contre la suppression](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
-|||
-
-## <a name="cassandra-api-samples"></a>Exemples d’API Cassandra
-
-|Tâche | Description |
-|---|---|
-| [Créer un compte, un espace de clés et une table Azure Cosmos](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, un espace de clés et une table Azure Cosmos pour l’API Cassandra. |
-| [Créer un compte, un espace de clés et une table Azure Cosmos avec mise à l’échelle automatique](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, un espace de clés et une table Azure Cosmos DB avec mise à l’échelle automatique pour l’API Cassandra. |
-| [Opérations de débit](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une table et un espace de clés, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
-| [Verrouiller des ressources contre la suppression](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
-|||
-
-## <a name="gremlin-api-samples"></a>Exemples d’API Gremlin
-
-|Tâche | Description |
-|---|---|
-| [Créer un compte, une base de données et un graphe Azure Cosmos](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte, une base de données et un graphe Azure Cosmos DB pour l’API Gremlin. |
-| [Créer un compte, une base de données et un graphe Azure Cosmos avec mise à l’échelle automatique](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte, une base de données et un graphe Azure Cosmos DB avec mise à l’échelle automatique pour l’API Gremlin. |
-| [Opérations de débit](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une base de données et un graphe, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
-| [Verrouiller des ressources contre la suppression](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
-|||
-
-## <a name="table-api-samples"></a>Exemples d’API Table
-
-|Tâche | Description |
-|---|---|
-| [Créer un compte et une table Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Créez un compte et une table Azure Cosmos DB pour l’API Table. |
-| [Créer un compte et une table Azure Cosmos avec mise à l’échelle automatique](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte et une table Azure Cosmos DB avec mise à l’échelle automatique pour l’API Table. |
-| [Opérations de débit](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Opérations sur une table, comme la lecture du débit, la mise à jour du débit et la migration entre le débit standard et le débit avec mise à l’échelle automatique.|
-| [Verrouiller des ressources contre la suppression](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Empêchez la suppression de ressources à l’aide de verrous de ressources.|
 |||

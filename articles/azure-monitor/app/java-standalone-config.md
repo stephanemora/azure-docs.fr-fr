@@ -4,12 +4,12 @@ description: Supervision des performances des applications Java sans code s’ex
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537655"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215261"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Options de configuration - Agent autonome Java pour Azure Monitor Application Insights
 
@@ -164,9 +164,10 @@ Si vous souhaitez capturer certaines métriques JMX :
 }
 ```
 
-Vous pouvez également définir les métriques JMX à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_JMX_METRICS`.
+Les valeurs de métrique JMX numériques et booléennes sont prises en charge. Les métriques JMX booléennes sont mappées à `0` pour false et à `1` pour true.
 
-Ce contenu de variable d’environnement doit être une donnée JSON correspondant à la structure ci-dessus, par exemple `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`.
+[//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
+[//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (y compris les métriques de Spring Boot Actuator)
 
@@ -216,7 +217,7 @@ L’échantillonnage s'effectue sous forme de fonction sur l’ID d’opération
 
 Par exemple, si vous définissez l’échantillonnage sur 10 %, vous ne verrez que 10 % de vos transactions, mais chacun de ces 10 % présentera les détails des transactions de bout en bout.
 
-Voici un exemple montrant comment définir l'échantillonnage sur **10 % de toutes les transactions**. Vérifiez que le taux d'échantillonnage est correct pour votre cas d’utilisation :
+Voici un exemple montrant comment définir l'échantillonnage sur **10 % de toutes les transactions** . Vérifiez que le taux d'échantillonnage est correct pour votre cas d’utilisation :
 
 ```json
 {

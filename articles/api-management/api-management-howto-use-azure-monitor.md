@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243237"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093580"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -59,9 +59,9 @@ Pour accéder aux métriques :
 
     ![Mesures](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes**. 
+2. Dans la liste déroulante, sélectionner les métriques qui vous intéressent. Par exemple, **Demandes** . 
 3. Le graphique affiche le nombre total d’appels d’API.
-4. Le graphique peut être filtré à l’aide des dimensions de la métrique **Requêtes**. Par exemple, cliquez sur **Ajouter un filtre**, choisissez **Code de réponse de back-end**, entrez 500 comme valeur. À présent, le graphique montre le nombre de requêtes qui ont échoué dans le back-end d’API.   
+4. Le graphique peut être filtré à l’aide des dimensions de la métrique **Requêtes** . Par exemple, cliquez sur **Ajouter un filtre** , choisissez **Code de réponse de back-end** , entrez 500 comme valeur. À présent, le graphique montre le nombre de requêtes qui ont échoué dans le back-end d’API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurer une règle d’alerte pour une demande non autorisée
 
@@ -75,25 +75,25 @@ Pour configurer des alertes :
 
 1. Sélectionnez **Alertes** dans la barre de menus vers le bas de la page.
 
-    ![alertes](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Capture d’écran affichant l’élément Alertes dans le menu situé en bas de la page.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Cliquez sur **Nouvelle règle d’alerte** pour cette alerte.
-3. Cliquez sur **Ajouter une condition**.
+3. Cliquez sur **Ajouter une condition** .
 4. Sélectionnez **Métriques** dans la liste déroulante Type de signal.
 5. Sélectionnez **Demande de passerelle non autorisée** comme signal à superviser.
 
-    ![alertes](./media/api-management-azure-monitor/signal-type.png)
+    ![Capture d’écran faisant ressortir le champ Type de signal et le nom du signal Demandes de la passerelle non autorisées.](./media/api-management-azure-monitor/signal-type.png)
 
-6. Dans la vue **Configurer la logique du signal**, spécifiez un seuil après lequel l’alerte doit être déclenchée et cliquez sur **Terminé**.
+6. Dans la vue **Configurer la logique du signal** , spécifiez un seuil après lequel l’alerte doit être déclenchée et cliquez sur **Terminé** .
 
-    ![alertes](./media/api-management-azure-monitor/threshold.png)
+    ![Capture d’écran montrant l’affichage Configurer la logique du signal.](./media/api-management-azure-monitor/threshold.png)
 
 7. Sélectionnez un groupe d’actions existant ou créez-en un. Dans l’exemple ci-dessous, un e-mail est envoyé aux administrateurs. 
 
     ![alertes](./media/api-management-azure-monitor/action-details.png)
 
 8. Entrez un nom et une description de la règle d’alerte, et choisissez le niveau de gravité. 
-9. Appuyez sur **Créer une règle d’alerte**.
+9. Appuyez sur **Créer une règle d’alerte** .
 10. À présent, essayez d’appeler l’API de conférence sans clé API. L’alerte est déclenchée et un e-mail est envoyé aux administrateurs. 
 
 ## <a name="activity-logs"></a>Journaux d’activité
@@ -110,11 +110,11 @@ Vous pouvez accéder aux journaux d’activité dans votre service de Gestion de
 Pour afficher les journaux d’activité :
 
 1. Sélectionnez votre instance de service APIM.
-2. Cliquez sur **Journal d’activité**.
+2. Cliquez sur **Journal d’activité** .
 
     ![journal d’activité](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
-3. Sélectionnez l’étendue de filtrage souhaitée, puis cliquez sur **Appliquer**.
+3. Sélectionnez l’étendue de filtrage souhaitée, puis cliquez sur **Appliquer** .
 
 ## <a name="resource-logs"></a>Journaux de ressources
 
@@ -123,11 +123,11 @@ Les journaux de ressources offrent des informations détaillées sur les opérat
 Pour configurer les journaux de ressources :
 
 1. Sélectionnez votre instance de service APIM.
-2. Cliquez sur **Paramètres de diagnostic**.
+2. Cliquez sur **Paramètres de diagnostic** .
 
     ![journaux de ressources](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de ressources avec les métriques dans un compte de stockage, les envoyer en streaming à un hub d’événement ou les envoyer aux journaux Azure Monitor. 
+3. Cliquez sur **Activer les diagnostics** . Vous pouvez archiver les journaux de ressources avec les métriques dans un compte de stockage, les envoyer en streaming à un hub d’événement ou les envoyer aux journaux Azure Monitor. 
 
 Le service Gestion des API fournit actuellement des journaux de ressources (par lot toutes les heures) pour chaque requête d’API, chaque entrée ayant le schéma suivant :
 
