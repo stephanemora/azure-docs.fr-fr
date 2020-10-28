@@ -84,6 +84,8 @@
       href: concepts/logging-and-diagnostics.md
     - name: Mesures
       href: concepts/metrics.md
+    - name: Dépannage
+      href: concepts/troubleshooting-info.md
 - name: Exemples
   items:
     - name: Exemple de bannière d’appel de groupe
@@ -105,4 +107,4 @@
 - name: Ressources
   items:
     - name: Notes de publication
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'
