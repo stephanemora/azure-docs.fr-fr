@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930949"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317444"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -82,7 +82,7 @@ Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 pour
 
 ## <a name="high-availability-ports"></a>Ports à haute disponibilité
 
-Une règle d’équilibreur de charge configurée avec **tous les protocoles et le port 0**. 
+Une règle d’équilibreur de charge configurée avec **tous les protocoles et le port 0** . 
 
 Cette règle permet de fournir une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un équilibreur de charge standard interne. 
 
@@ -128,6 +128,7 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 
 ## <a name="limitations"></a>Limites
 
+- En savoir plus sur les [limites](https://aka.ms/lblimits) des équilibreurs de charge 
 - L’équilibreur de charge offre un équilibrage de charge et le réacheminement de ports pour les protocoles TCP ou UDP spécifiques. Les règles d’équilibrage de charge et les règles NAT de trafic entrant prennent en charge les protocoles TCP et UDP, mais aucun autre protocole IP, notamment ICMP.
 - Le flux sortant depuis une machine virtuelle back-end vers un front-end d’un équilibreur de charge interne est voué à l’échec.
 - Une règle d’équilibreur de charge ne peut pas s’étendre sur deux réseaux virtuels.  Les front-ends et leurs instances back-end doivent être dans le même réseau virtuel.  

@@ -1,30 +1,29 @@
 ---
-title: Comparer les caractéristiques du produit de réseau de distribution de contenu (CDN) Azure | Microsoft Docs
+title: Comparer les fonctionnalités des produits d’Azure Content Delivery Network (CDN)
 description: Apprenez-en davantage sur les fonctionnalités prises en charge par chaque produit de réseau de distribution de contenu Azure (Content Delivery Network, CDN).
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: mdgattuso
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8d8b01e8c5f4ea3054e639ecc9dd8b14bbf048b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81260511"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148737"
 ---
-# <a name="compare-azure-cdn-product-features"></a>Comparer les caractéristiques du produit CDN Azure
+# <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quelles sont les comparaisons entre les fonctionnalités des produits d’Azure CDN ?
 
-Azure Content Delivery Network (CDN) comprend quatre produits : **Azure CDN Standard fourni par Microsoft**, **Azure CDN Standard fourni par Akamai**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**. Pour plus d’informations sur la migration d’un profil **Azure CDN Standard fourni par Verizon** vers **Azure CDN Premium fourni par Verizon**, consultez [Migrer un profil Azure CDN Verizon Standard vers Verizon Premium](cdn-migrate.md). Notez que s’il existe bel et bien un chemin de mise à niveau de Verizon Standard vers Verizon Premium, il n’existe actuellement aucun mécanisme de conversion entre les autres produits.
+Azure Content Delivery Network (CDN) comprend quatre produits : 
+
+* **Azure CDN Standard par Microsoft**
+* **Azure CDN Standard par Akamai**
+* **Azure CDN Standard de Verizon**
+* **Azure CDN Premium de Verizon** 
 
 Le tableau suivant répertorie les fonctionnalités disponibles avec chaque produit.
 
@@ -75,8 +74,16 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque prod
 | [Types MIME de compression](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Par défaut uniquement |Configurable |Configurable  |Configurable  |
 | Encodages de compression  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
+## <a name="migration"></a>Migration
 
+Pour plus d’informations sur la migration d’un profil **Azure CDN Standard fourni par Verizon** vers **Azure CDN Premium fourni par Verizon** , consultez [Migrer un profil Azure CDN Verizon Standard vers Verizon Premium](cdn-migrate.md). 
 
+> [!NOTE]
+> S’il existe bel et bien un chemin de mise à niveau de Verizon Standard vers Verizon Premium, il n’existe actuellement aucun mécanisme de conversion entre les autres produits.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Découvrez-en plus sur [Azure CDN](cdn-overview.md).
 
 
 

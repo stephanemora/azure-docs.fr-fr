@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069473"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131302"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -24,9 +24,9 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 Azure Data Factory prend en charge l’affichage et le chargement des journaux d’erreurs pour les activités qui n’ont pas été exécutées sur l’IR auto-hébergé ou partagé. Vous pouvez suivre les étapes ci-dessous pour obtenir l’ID du rapport d’erreur, puis saisir l’ID du rapport pour localiser les problèmes connexes connus.
 
-1. Accédez à la page **Exécutions d’activités**.
+1. Accédez à la page **Exécutions d’activités** .
 
-1. Sous la colonne **ERREUR**, cliquez sur le bouton ci-dessous.
+1. Sous la colonne **ERREUR** , cliquez sur le bouton ci-dessous.
 
     ![Page Exécutions d’activités](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
 
@@ -34,7 +34,7 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 
     ![Envoyer les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Vous pouvez choisir les journaux que vous souhaitez envoyer. Pour *IR auto-hébergé*, vous pouvez charger les journaux relatifs à l’activité ayant échoué ou tous les journaux sur le nœud de l’IR auto-hébergé. Pour *IR partagé*, vous pouvez uniquement charger les journaux relatifs à l’activité ayant échoué.
+1. Vous pouvez choisir les journaux que vous souhaitez envoyer. Pour *IR auto-hébergé* , vous pouvez charger les journaux relatifs à l’activité ayant échoué ou tous les journaux sur le nœud de l’IR auto-hébergé. Pour *IR partagé* , vous pouvez uniquement charger les journaux relatifs à l’activité ayant échoué.
 
     ![Choisir les journaux](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -52,7 +52,7 @@ Azure Data Factory prend en charge l’affichage et le chargement des journaux d
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous tentez d’activer le certificat TLS/SSL (avancé) à partir de **Configuration Manager IR auto-hébergé** -> **Accès à distance à partir de l’intranet**, après avoir sélectionné le certificat TLS/SSL, l’erreur ci-dessous s’affiche :
+Lorsque vous tentez d’activer le certificat TLS/SSL (avancé) à partir de **Configuration Manager IR auto-hébergé** -> **Accès à distance à partir de l’intranet** , après avoir sélectionné le certificat TLS/SSL, l’erreur ci-dessous s’affiche :
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,15 +65,15 @@ Il s'agit d'un problème connu dans WCF. La validation TLS/SSL WCF vérifie uniq
 #### <a name="resolution"></a>Résolution
 
 Le certificat générique est pris en charge dans le runtime d’intégration Azure Data Factory v2 IR auto-hébergé. Ce problème se produit généralement parce que le certificat SSL n’est pas correct. Le dernier DNSName dans le SAN doit être valide. Suivez les étapes ci-dessous pour le vérifier. 
-1.  Ouvrez la console de gestion, vérifiez à la fois le *Sujet* et le *Nom alternatif du sujet* dans les Détails du Certificat. Dans le cas ci-dessus, par exemple, le dernier élément de *Autre nom de l’objet*, qui est « DNS Name = microsoft.com.com », n’est pas légitime.
+1.  Ouvrez la console de gestion, vérifiez à la fois le *Sujet* et le *Nom alternatif du sujet* dans les Détails du Certificat. Dans le cas ci-dessus, par exemple, le dernier élément de *Autre nom de l’objet* , qui est « DNS Name = microsoft.com.com », n’est pas légitime.
 2.  Contactez l’entreprise émettrice du certificat pour supprimer le nom DNS incorrect.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problème lié à la limite de tâches simultanées
 
 #### <a name="symptoms"></a>Symptômes
 
-Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour*.
-La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton*Mettre à jour*, dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
+Lorsque vous essayez d’augmenter la limite des tâches simultanées à partir de l’interface utilisateur Azure Data Factory, elle reste bloquée au stade *mise à jour* .
+La valeur maximale des tâches simultanées a été définie sur 24 et vous souhaitez augmenter le nombre afin que les tâches puissent s’exécuter plus rapidement. La valeur minimale que vous puissiez entrer est 3 et la valeur maximale que vous puissiez entrer est 32. Vous avez augmenté la valeur de 24 à 32 et cliqué sur le bouton *Mettre à jour* , dans l’interface utilisateur elle reste bloquée sur *Mise à jour* comme vous pouvez le voir ci-dessous. Après rafraîchissement, la valeur était toujours de 24 et n'a jamais été actualisée à 32.
 
 ![Mise à jour de l'état](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
@@ -102,7 +102,7 @@ Lorsque nous traitons des cas liés à la liaison SSL/TLS, nous pouvons rencontr
 
 - Voici un moyen rapide et intuitif de résoudre les échecs de génération de chaîne de certificats X. 509.
  
-    1. Exportez le certificat, qui doit être vérifié. Accédez à Gérer le certificat de l’ordinateur et recherchez le certificat que vous souhaitez vérifier, puis cliquez avec le bouton droit sur **Toutes les tâches** -> **Exporter**.
+    1. Exportez le certificat, qui doit être vérifié. Accédez à Gérer le certificat de l’ordinateur et recherchez le certificat que vous souhaitez vérifier, puis cliquez avec le bouton droit sur **Toutes les tâches** -> **Exporter** .
     
         ![Exporter des tâches](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ Lorsque nous traitons des cas liés à la liaison SSL/TLS, nous pouvons rencontr
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. **L’outil de récupération d’URL** s’ouvre alors. Vous pouvez vérifier des certificats depuis AIA, CDP et OCSP en cliquant sur le bouton **Récupérer**.
+    1. **L’outil de récupération d’URL** s’ouvre alors. Vous pouvez vérifier des certificats depuis AIA, CDP et OCSP en cliquant sur le bouton **Récupérer** .
 
         ![Bouton de récupération](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,14 +164,14 @@ Si vous prenez Process Monitor, vous pouvez voir le résultat suivant :
 
 > [!TIP] 
 > Vous pouvez définir le filtre comme indiqué dans la capture d’écran ci-dessous.
-> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared*.
-> En fait, cela chargera d’abord la dll à partir du dossier *GAC*, puis du dossier *Partagé* et enfin du dossier de la *Passerelle*. Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
+> Il indique que la dll **System.ValueTuple** ne se trouve pas dans le dossier associé GAC ou dans *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , ou dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
+> En fait, cela chargera d’abord la dll à partir du dossier *GAC* , puis du dossier *Partagé* et enfin du dossier de la *Passerelle* . Par conséquent, vous pouvez placer la dll dans n’importe quel chemin d’accès, ce qui peut être utile.
 
 ![Configurer des filtres](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
 #### <a name="resolution"></a>Résolution
 
-Il peut arriver que**System. ValueTuple. dll** se trouve dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan*. Copiez **System. ValueTuple. dll** dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* pour résoudre le problème.
+Il peut arriver que **System. ValueTuple. dll** se trouve dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* . Copiez **System. ValueTuple. dll** dans le dossier *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* pour résoudre le problème.
 
 Vous pouvez utiliser la même méthode pour résoudre d’autres problèmes de fichier ou d’assembly manquant.
 
@@ -179,7 +179,7 @@ Vous pouvez utiliser la même méthode pour résoudre d’autres problèmes de f
 
 La raison pour laquelle vous voyez le fichier System. ValueTuple. dll sous *%windir%\Microsoft.NET\assembly* et *%windir%\assembly* est qu’il s’agit d’un comportement .NET. 
 
-À partir de l’erreur ci-dessous, vous pouvez voir clairement que l’assembly *System. ValueTuple* n’est pas là. Ce problème se produit lorsque l’application tente de vérifier l’assembly *System. ValueTuple. dll*.
+À partir de l’erreur ci-dessous, vous pouvez voir clairement que l’assembly *System. ValueTuple* n’est pas là. Ce problème se produit lorsque l’application tente de vérifier l’assembly *System. ValueTuple. dll* .
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -201,7 +201,7 @@ Le runtime d’intégration auto-hébergé passe soudainement à hors connexion 
 
 #### <a name="resolution"></a>Résolution
 
-Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier : *%programdata%\Microsoft\Data Transfer\DataManagementGateway*et vérifier si le fichier nommé **Configurations** est bien supprimé. S’il est supprimé, suivez les instructions [ici](https://www.netwrix.com/how_to_detect_who_deleted_file.html) pour auditer qui supprime le fichier.
+Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier : *%programdata%\Microsoft\Data Transfer\DataManagementGateway* et vérifier si le fichier nommé **Configurations** est bien supprimé. S’il est supprimé, suivez les instructions [ici](https://www.netwrix.com/how_to_detect_who_deleted_file.html) pour auditer qui supprime le fichier.
 
 ![Vérifier le fichier de configuration](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ Si aucune des causes ci-dessus ne s’applique, vous pouvez accéder au dossier�
 
 #### <a name="symptoms"></a>Symptômes
 
-Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination* ; *la source n’est pas accessible par l’IR de destination*.
+Après avoir créé l’IR auto-hébergé pour les magasins de données source et de destination, vous souhaitez connecter les deux IR ensemble pour terminer une copie. Si les banques de données sont configurées dans différents réseaux virtuels ou si elles ne peuvent pas comprendre le mécanisme de passerelle, vous allez atteindre des erreurs telles que : *le pilote de source est introuvable dans l’IR de destination*  ; *la source n’est pas accessible par l’IR de destination* .
  
 #### <a name="cause"></a>Cause
 
@@ -288,14 +288,14 @@ Accédez au journal des événements Microsoft Integration Runtime pour vérifie
 
 ![Journal des événements](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException*, suivez les instructions ci-dessous :
+Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException* , suivez les instructions ci-dessous :
 
 
 1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
 
     ![Compte de service d’ouverture de session](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation R/W sur le dossier : *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
+2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation R/W sur le dossier : *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
 
     - Par défaut, si le compte d’ouverture de session du service n’a pas été modifié, il doit avoir l’autorisation de lecture/écriture.
 
@@ -305,7 +305,7 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException*, suivez 
         1. Désinstallez correctement le runtime d’intégration IR auto-hébergé actuel.
         1. Installez le runtime d’intégration IR auto-hébergé bits.
         1. Suivez les instructions ci-dessous pour modifier le compte de service : 
-            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared*.
+            1. Accédez au dossier d’installation de l’IR auto-hébergé et basculez vers le dossier : *Microsoft Integration Runtime\4.0\Shared* .
             1. Démarrez une ligne de commande avec des privilèges élevés. Remplacez *\<user>* et *\<password>* par vos propres nom d’utilisateur et mot de passe, puis exécutez la commande suivante :
                        
                 ```
@@ -325,13 +325,13 @@ Si l’erreur s’affiche comme ci-dessus *UnauthorizedAccessException*, suivez 
             1. Vous pouvez utiliser un utilisateur local/de domaine pour le compte d’ouverture de session du service IR.            
         1. Inscrire le runtime d’intégration.
 
-Si l’erreur s’affiche comme suit : *Échec du démarrage du service « Integration Runtime Service » (DIAHostService). Vérifiez que vous disposez des droits nécessaires pour démarrer les services système*, suivez les instructions ci-dessous :
+Si l’erreur s’affiche comme suit : *Échec du démarrage du service « Integration Runtime Service » (DIAHostService). Vérifiez que vous disposez des droits nécessaires pour démarrer les services système* , suivez les instructions ci-dessous :
 
 1. Vérifiez le compte de service d’ouverture de session *DIAHostService* dans le panneau de service Windows.
    
     ![Compte de service d’ouverture de session](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation**Ouvrir une session en tant que service** pour démarrer le Service Windows :
+2. Vérifiez si le compte de service d’ouverture de session dispose de l’autorisation **Ouvrir une session en tant que service** pour démarrer le Service Windows :
 
     ![Ouvrir une session en tant que service](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
@@ -351,7 +351,7 @@ Impossible de trouver le bouton de **Inscription** dans l’interface utilisateu
 
 #### <a name="cause"></a>Cause
 
-Depuis la sortie d’*Integration Runtime 3.0*, le bouton **Register** sur un nœud IR existant a été supprimé pour permettre un environnement plus propre et plus sécurisé. Si un nœud a été inscrit sur un IR (qu’il soit en ligne ou non), pour le réinscrire dans un autre IR, vous devez désinstaller le nœud précédent, puis installer et inscrire le nœud.
+Depuis la sortie d’ *Integration Runtime 3.0* , le bouton **Register** sur un nœud IR existant a été supprimé pour permettre un environnement plus propre et plus sécurisé. Si un nœud a été inscrit sur un IR (qu’il soit en ligne ou non), pour le réinscrire dans un autre IR, vous devez désinstaller le nœud précédent, puis installer et inscrire le nœud.
 
 #### <a name="resolution"></a>Résolution
 
@@ -431,7 +431,7 @@ Le runtime d’intégration auto-hébergé ne peut pas se connecter au service D
     ```
         
    > [!NOTE]     
-   > L’URL du service peut varier en fonction de votre emplacement Data Factory. L’URL du service se trouve sous **UI ADF** > **Connexions** > **Runtimes d’intégration** >  **Modifier l’IR auto-hébergé** > **Nœuds** > **Afficher les URL du service**.
+   > L’URL du service peut varier en fonction de votre emplacement Data Factory. L’URL du service se trouve sous **UI ADF** > **Connexions** > **Runtimes d’intégration** >  **Modifier l’IR auto-hébergé** > **Nœuds** > **Afficher les URL du service** .
             
     Voici la réponse attendue :
             
@@ -476,7 +476,7 @@ Voici la réponse attendue :
 
 #### <a name="cause"></a>Cause 
 
-Le nœud Runtime intégré auto-hébergé peut avoir un État **inactif**, comme indiqué dans la capture d’écran suivante :
+Le nœud Runtime intégré auto-hébergé peut avoir un État **inactif** , comme indiqué dans la capture d’écran suivante :
 
 ![Nœud du runtime d’intégration auto-hébergé inactif](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
@@ -484,7 +484,7 @@ Ce comportement se produit lorsque les nœuds ne peuvent pas communiquer entre e
 
 #### <a name="resolution"></a>Résolution
 
-1. Connectez-vous à la machine virtuelle hébergée sur un nœud. Sous **Journaux des applications et des services** > **Runtime d’intégration**, ouvrez Observateur d’événements, puis filtrez tous les journaux d’erreurs.
+1. Connectez-vous à la machine virtuelle hébergée sur un nœud. Sous **Journaux des applications et des services** > **Runtime d’intégration** , ouvrez Observateur d’événements, puis filtrez tous les journaux d’erreurs.
 
 1. Vérifiez si un journal des erreurs contient l’erreur suivante : 
     
@@ -569,7 +569,7 @@ Prenez la trace netmon et analysez-la plus en détail.
  
     *Package réseau provenant du système Linux A avec TTL 64 -> B TTL 64 moins 1 = 63 -> C TTL 63 moins 1 = 62 -> TTL 62 moins 1 = 61 Runtime d’intégration auto-hébergé*
 
-- Dans le cas idéal, la durée de vie (TTL) sera de 128, ce qui signifie que le système Windows exécute notre Data Factory. Comme indiqué dans l’exemple ci-dessous, *128 – 107 = 21 tronçons*, ce qui signifie que 21 tronçons pour le package ont été envoyés depuis Data Factory vers le runtime d’intégration auto-hébergé au cours de la négociation TCP 3.
+- Dans le cas idéal, la durée de vie (TTL) sera de 128, ce qui signifie que le système Windows exécute notre Data Factory. Comme indiqué dans l’exemple ci-dessous, *128 – 107 = 21 tronçons* , ce qui signifie que 21 tronçons pour le package ont été envoyés depuis Data Factory vers le runtime d’intégration auto-hébergé au cours de la négociation TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +587,11 @@ Lorsque vous essayez d’établir une connexion Telnet à **8.8.8.8 888** avec l
 ![trace netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888**, de sorte que vous y voyez deux packages supplémentaires **SynReTransmit**. Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
+Cela signifie que vous n’avez pas pu établir la connexion TCP côté serveur **8.8.8.8** sur la base du port **888** , de sorte que vous y voyez deux packages supplémentaires **SynReTransmit** . Étant donné que la source **SELF-HOST2** n’a pas pu établir de connexion à **8.8.8.8** au niveau du premier package, elle continue à établir la connexion.
 
 > [!TIP]
-> - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4**.
-> - Entrez **IPv4.Address == 8.8.8.8** comme filtre, puis cliquez sur **Appliquer**. Après cela, vous verrez uniquement la communication de l’ordinateur local à la destination **8.8.8.8**.
+> - Vous pouvez cliquer sur **Charger le filtre** -> **Filtre standard** -> **Adresses** -> **Adresses IPv4** .
+> - Entrez **IPv4.Address == 8.8.8.8** comme filtre, puis cliquez sur **Appliquer** . Après cela, vous verrez uniquement la communication de l’ordinateur local à la destination **8.8.8.8** .
 
 ![filtre d’adresses 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -615,6 +615,37 @@ L’exemple ci-dessous montre à quoi ressemblerait un scénario approprié.
 
     ![Flux de travail de négociation TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Réception d’un e-mail visant à mettre à jour la configuration du réseau pour permettre la communication avec les nouvelles adresses IP
+
+#### <a name="symptoms"></a>Symptômes
+
+Vous pouvez recevoir la notification par e-mail ci-dessous, qui vous recommande de mettre à jour la configuration du réseau afin de permettre la communication avec les nouvelles adresses IP pour Azure Data Factory d’ici le 8 novembre 2020 :
+
+   ![E-mail de notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>Résolution
+
+Cette notification concerne les **communications sortantes** de votre **runtime d’intégration** (IR) exécuté **localement** ou à l’intérieur d’un **réseau privé virtuel Azure** vers le service ADF. Par exemple, si vous avez un IR auto-hébergé ou un IR Azure SQL Server Integration Services (SSIS) dans un réseau virtuel Azure qui doit accéder au service ADF, vous devez vérifier si vous devez ajouter cette nouvelle plage d’adresses IP dans vos règles de **groupe de sécurité réseau (NSG)** . Si votre règle NSG sortante utilise une étiquette de service, il n’y aura aucun impact.
+
+#### <a name="more-details"></a>Détails supplémentaires
+
+Ces nouvelles plages d’adresses IP **n’ont d’incidence que sur les règles de communications sortantes** entre votre **pare-feu local** ou **réseau privé virtuel Azure** et le service ADF (voir [Configuration du pare-feu et de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) à titre de référence) dans les scénarios où vous avez un IR auto-hébergé ou un IR SSIS dans un réseau local ou un réseau virtuel Azure qui doit communiquer avec le service ADF.
+
+Pour les utilisateurs actuels qui utilisent **VPN Azure**  :
+
+1. Vérifiez toutes les règles NSG sortantes dans votre réseau privé où SSIS ou Azure SSIS est configuré. S’il n’existe aucune restriction sur les communications sortantes, alors il n’y a pas d’impact sur celles-ci.
+1. Si vous avez des restrictions sur les règles de trafic sortant, vérifiez si vous utilisez ou non une étiquette de service. Si vous utilisez une étiquette de service, vous n’avez pas besoin de modifier ou d’ajouter quoi que ce soit, car les nouvelles plages d’adresses IP se trouvent sous l’étiquette de service actuelle. 
+  
+    ![Vérification de la destination](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. Si vous utilisez des adresses IP directement dans vos règles, vérifiez si vous ajoutez toutes les plages d’adresses IP dans [le lien de téléchargement des plages d’adresses IP des étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Nous avons déjà placé les nouvelles plages d’adresses IP dans ce fichier. Pour les nouveaux utilisateurs : Il vous suffit de suivre la configuration pertinente de l’IR auto-hébergé ou SSIS dans notre document pour configurer les règles NSG.
+
+Pour les utilisateurs actuels qui dispose d’un IR SSIS ou auto-hébergé **local**  :
+
+- Vérifiez auprès de votre équipe d’infrastructure réseau si les nouvelles plages d’adresses IP doivent être incluses pour les règles de trafic sortant.
+- Pour les règles de pare-feu basées sur des noms de domaine complets, aucune mise à jour n’est requise lorsque vous utilisez les paramètres documentés dans [Configuration du pare-feu et de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Certains pare-feu locaux prennent en charge les étiquettes de service. Si vous utilisez le fichier config mis à jour relatif aux étiquettes de service Azure, aucune autre modification n’est nécessaire.
 
 ## <a name="self-hosted-ir-sharing"></a>Partage du runtime d’intégration auto-hébergé
 

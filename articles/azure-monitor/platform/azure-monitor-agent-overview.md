@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263774"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132701"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Vue d’ensemble de l’agent Azure Monitor (préversion)
 L’agent Azure Monitor (AMA) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles et les remet à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor, notamment son installation et la configuration de la collecte de données.
@@ -84,7 +84,7 @@ L’agent Azure Monitor envoie des données aux métriques Azure Monitor ou à u
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-Pour obtenir la liste des versions de système d’exploitation Windows et Linux que l’agent Log Analytics prend actuellement en charge, consultez [Systèmes d’exploitation pris en charge](agents-overview.md#supported-operating-systems).
+Pour obtenir la liste des versions de système d’exploitation Windows et Linux que l’agent Azure Monitor prend actuellement en charge, consultez [Systèmes d’exploitation pris en charge](agents-overview.md#supported-operating-systems).
 
 
 

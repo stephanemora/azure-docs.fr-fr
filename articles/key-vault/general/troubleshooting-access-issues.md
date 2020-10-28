@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3110e02c2c4cb8b254e80a55997577db95ba1be0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075652"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125250"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -51,7 +51,7 @@ L’application nécessite également l’affectation d’au moins un rôle IAM 
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Comment faire pour redéployer Key Vault avec un modèle ARM sans supprimer les stratégies d’accès existantes ?
 
-Actuellement, un redéploiement Key Vault a pour effet de supprimer toutes les stratégies d’accès de Key Vault et de les remplacer par une stratégie d’accès dans un modèle ARM. Il n’existe pas d’option incrémentielle pour les stratégies d’accès du Key Vault. Pour conserver les stratégies d’accès existantes dans Key Vault, vous devez les lire, puis remplir le modèle ARM avec ces stratégies afin d’éviter toute interruption d’accès.
+Actuellement, un redéploiement Key Vault a pour effet de supprimer toutes les stratégies d’accès de Key Vault et de les remplacer par une stratégie d’accès dans un modèle ARM. Il n’existe pas d’option incrémentielle pour les stratégies d’accès du Key Vault. Afin de conserver dans Key Vault les stratégies d’accès existantes, vous devez lire celles-ci dans Key Vault, puis remplir le modèle ARM à l’aide de ces stratégies pour éviter toute interruption d’accès.
 
 Une autre option qui peut être utile pour ce scénario consiste à utiliser des rôles RBAC en guise d’alternative aux stratégies d’accès. Avec RBAC, vous pouvez redéployer le coffre de clés sans spécifier à nouveau la stratégie. Vous trouverez d’autres informations sur cette solution [ici](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 

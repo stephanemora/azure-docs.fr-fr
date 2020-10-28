@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552898"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145414"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
-Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. 
+Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur.
 
 ![Utilisateur comme signal dans les décisions prises par l’accès conditionnel](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -66,13 +66,15 @@ Les options suivantes sont disponibles pour l’exclusion lors de la création d
 
 ### <a name="preventing-administrator-lockout"></a>Empêcher le verrouillage de l’administrateur
 
-Pour empêcher qu’un administrateur ne se verrouille hors de son répertoire lors de la création d’une stratégie appliquée à **tous les utilisateurs** et **toutes les applications**, l’avertissement suivant s’affiche.
+Pour empêcher qu’un administrateur ne se verrouille hors de son répertoire lors de la création d’une stratégie appliquée à **tous les utilisateurs** et **toutes les applications** , l’avertissement suivant s’affiche.
 
 > Ne vous enfermez pas dehors ! Nous vous recommandons d’appliquer d’abord une stratégie à un petit ensemble d’utilisateurs pour vérifier qu’elle fonctionne comme prévu. Nous vous recommandons également d’exclure au moins un administrateur de cette stratégie. Cette opération garantit que vous disposez toujours d’un accès et que vous pouvez mettre à jour une stratégie si une modification est nécessaire. Vérifiez les utilisateurs et les applications concernés.
 
 Par défaut, la stratégie fournit une option permettant d’exclure l’utilisateur actuel de la stratégie, mais cette valeur par défaut peut être remplacée par l’administrateur, comme indiqué dans l’image suivante. 
 
 ![Attention, ne vous enfermez pas dehors !](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Que faire si votre accès au portail Azure est verrouillé ?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317019"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167948"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Meilleures pratiques en matière de configuration de cluster (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,8 +47,6 @@ Le tableau suivant répertorie les options de quorum disponibles dans l’ordre 
 |**Systèmes d’exploitation pris en charge**| Tous |Windows Server 2016+| Tous|
 
 
-
-
 ### <a name="disk-witness"></a>Témoin de disque
 
 Un témoin de disque est un petit disque en cluster qui se trouve dans le groupe de stockage disponible du cluster. Ce disque est hautement disponible et peut basculer d’un nœud vers un autre. Il contient une copie de la base de données du cluster, dont la taille par défaut est généralement inférieure à 1 Go. Le témoin de disque est l’option de quorum par défaut pour tous les clusters qui utilisent des disques partagés Azure (ou toute solution de disque partagé comme SCSI, iSCSI ou SAN Fiber Channel partagé).  Un volume partagé en cluster ne peut pas être utilisé comme témoin de disque.
@@ -58,7 +56,7 @@ Configurer un disque partagé Azure comme témoin de disque.
 Pour commencer, consultez [Configurer un témoin de disque](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Systèmes d’exploitation pris en charge** : Tous   
+**Systèmes d’exploitation pris en charge**  : Tous   
 
 
 ### <a name="cloud-witness"></a>Témoin de cloud
@@ -68,7 +66,7 @@ Un témoin de cloud est un type de témoin de quorum de cluster de basculement q
 Pour commencer, consultez [Configurer un témoin de cloud](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
+**Systèmes d’exploitation pris en charge**  : Windows Server 2016 et versions ultérieures   
 
 
 ### <a name="file-share-witness"></a>Témoin de partage de fichiers
@@ -80,54 +78,55 @@ Si vous envisagez d’utiliser un partage de fichiers Azure, vous pouvez le mont
 Pour commencer, consultez [Configurer un témoin de partage de fichiers](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Systèmes d’exploitation pris en charge** : Windows Server 2012 et ultérieur   
+**Systèmes d’exploitation pris en charge**  : Windows Server 2012 et ultérieur   
 
 ## <a name="connectivity"></a>Connectivité
 
-Dans un environnement réseau local traditionnel, une instance de cluster de basculement SQL Server apparaît comme une seule instance de SQL Server s’exécutant sur un seul ordinateur. Étant donné que l’instance de cluster de basculement bascule d’un nœud à l’autre, le nom de réseau virtuel (VNN) de l’instance fournit un point de connexion unifié et permet aux applications de se connecter à l’instance de SQL Server sans savoir quel nœud est actuellement actif. Lorsqu'un basculement se produit, le nom du réseau virtuel est inscrit sur le nouveau nœud actif après son démarrage. Ce processus est transparent pour un client ou une application qui se connecte à SQL Server, ce qui permet de réduire les temps d’arrêts pour le client ou l'application lors d'une défaillance. 
+Dans un environnement réseau local traditionnel, une instance de cluster de basculement SQL Server apparaît comme une seule instance de SQL Server s’exécutant sur un seul ordinateur. Étant donné que l’instance de cluster de basculement bascule d’un nœud à l’autre, le nom de réseau virtuel (VNN) de l’instance fournit un point de connexion unifié et permet aux applications de se connecter à l’instance de SQL Server sans savoir quel nœud est actuellement actif. Lorsqu'un basculement se produit, le nom du réseau virtuel est inscrit sur le nouveau nœud actif après son démarrage. Ce processus est transparent pour un client ou une application qui se connecte à SQL Server, ce qui permet de réduire les temps d’arrêts pour le client ou l'application lors d'une défaillance. De même, l’écouteur de groupe de disponibilité utilise un VNN pour acheminer le trafic vers le réplica approprié. 
 
-Utilisez un VNN avec Azure Load Balancer ou un nom de réseau distribué (DNN) pour acheminer le trafic vers le VNN de l’instance de cluster de basculement avec SQL Server sur les machines virtuelles Azure. La fonctionnalité DNN est actuellement disponible uniquement pour SQL Server 2019 CU2 et versions ultérieures et le sera bientôt sur une machine virtuelle Windows Server 2016 (ou version ultérieure). 
+Utilisez un VNN avec Azure Load Balancer ou un nom de réseau distribué (DNN) pour acheminer le trafic vers le VNN de l’instance de cluster de basculement avec SQL Server sur les machines virtuelles Azure ou pour remplacer l’écouteur de VNN existant dans un groupe de disponibilité (AG). 
+
 
 Le tableau suivant compare la capacité de prise en charge de la connexion HADR : 
 
 | |**Nom de réseau virtuel (VNN)**  |**Nom de réseau distribué (DNN)**  |
 |---------|---------|---------|
-|**Version de système d’exploitation minimale**| Tous | Tous |
-|**Version minimale de SQL Server** |Tous |SQL Server 2019 CU2|
-|**Solution HADR prise en charge** | Instance de cluster de basculement <br/> Groupe de disponibilité | Instance de cluster de basculement|
+|**Version de système d’exploitation minimale**| Tous | Windows Server 2016 |
+|**Version minimale de SQL Server** |Tous |SQL Server 2019 CU2 (pour FCI)<br/> SQL Server 2019 CU8 (pour AG)|
+|**Solution HADR prise en charge** | Instance de cluster de basculement <br/> Groupe de disponibilité | Instance de cluster de basculement <br/> Groupe de disponibilité|
 
 
-### <a name="virtual-network-name-vnn"></a>Nom de réseau virtuel (VNN)
+### <a name="virtual-network-name-vnn"></a>Nom de réseau virtuel
 
-Étant donné que le point d’accès IP virtuel fonctionne différemment dans Azure, vous devez configurer [Azure Load Balancer](../../../load-balancer/index.yml) pour acheminer le trafic vers l’adresse IP des nœuds FCI. Dans les machines virtuelles Azure, un équilibreur de charge contient l’adresse IP du VNN sur lequel s’appuient les ressources de SQL Server en cluster. L’équilibreur de charge distribue les flux entrants arrivant au frontal, puis achemine ce trafic vers les instances définies par le pool principal. Vous configurez le flux de trafic à l’aide de règles d’équilibrage de charge et de sondes d’intégrité. Avec l’instance FCI de SQL Server, les instances di pool principal sont les machines virtuelles Azure exécutant SQL Server. 
+Étant donné que le point d’accès de l’adresse IP virtuelle fonctionne différemment dans Azure, vous devez configurer [Azure Load Balancer](../../../load-balancer/index.yml) pour acheminer le trafic vers l’adresse IP des nœuds FCI ou de l’écouteur de groupe de disponibilité. Dans les machines virtuelles Azure, un équilibreur de charge contient l’adresse IP du VNN sur lequel s’appuient les ressources de SQL Server en cluster. L’équilibreur de charge distribue les flux entrants arrivant au frontal, puis achemine ce trafic vers les instances définies par le pool principal. Vous configurez le flux de trafic à l’aide de règles d’équilibrage de charge et de sondes d’intégrité. Avec l’instance FCI de SQL Server, les instances di pool principal sont les machines virtuelles Azure exécutant SQL Server. 
 
 Il y a un léger délai de basculement lorsque vous utilisez l’équilibreur de charge, car la sonde d’intégrité effectue des vérifications actives toutes les 10 secondes par défaut. 
 
-Pour commencer, découvrez comment [configurer Azure Load Balancer pour une instance FCI](hadr-vnn-azure-load-balancer-configure.md). 
+Pour commencer, découvrez comment configurer Azure Load Balancer pour une [instance de cluster de basculement](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou un [groupe de disponibilité](availability-group-vnn-azure-load-balancer-configure.md).
 
-**Systèmes d’exploitation pris en charge** : Tous   
-**Version de SQL pris en charge** : Tous   
-**Solution HADR prise en charge** : Instance de cluster de basculement et groupes de disponibilité   
+**Systèmes d’exploitation pris en charge**  : Tous   
+**Version de SQL pris en charge**  : Tous   
+**Solution HADR prise en charge**  : Instance de cluster de basculement et groupes de disponibilité   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nom de réseau distribué (DNN)
 
-Le nom de réseau distribué est une nouvelle fonctionnalité Azure pour SQL Server 2019 CU2. Le DNN permet aux clients SQL Server de se connecter d’une autre façon à l’instance de cluster de basculement SQL Server sans utiliser d’équilibreur de charge. 
+Le nom de réseau distribué est une nouvelle fonctionnalité Azure pour SQL Server 2019. Le DNN permet aux clients SQL Server de se connecter d’une autre façon à l’instance de cluster de basculement ou au groupe de disponibilité SQL Server sans utiliser d’équilibreur de charge. 
 
-Quand une ressource DNN est créée, le cluster lie le nom DNS à l’adresse IP de tous les nœuds du cluster. Le client SQL essaiera de se connecter à chaque adresse IP de cette liste pour trouver le nœud sur lequel l’instance de cluster de basculement est en cours d’exécution. Vous pouvez accélérer ce processus en spécifiant `MultiSubnetFailover=True` dans la chaîne de connexion. Ce paramètre indique au fournisseur d’essayer toutes les adresses IP en parallèle, afin que le client puisse se connecter instantanément à l’instance FCI. 
+Quand une ressource DNN est créée, le cluster lie le nom DNS à l’adresse IP de tous les nœuds du cluster. Le client SQL essaiera de se connecter à chaque adresse IP de cette liste pour trouver la ressource à laquelle se connecter.  Vous pouvez accélérer ce processus en spécifiant `MultiSubnetFailover=True` dans la chaîne de connexion. Ce paramètre indique au fournisseur d’essayer toutes les adresses IP en parallèle, afin que le client puisse se connecter instantanément à la FCI ou à l’écouteur. 
 
 Un nom de réseau distribué est recommandé sur un équilibreur de charge dans la mesure du possible pour les raisons suivantes : 
 - La solution de bout en bout est plus robuste, car vous n’avez plus à gérer la ressource d’équilibreur de charge. 
 - L’élimination des sondes de l’équilibreur de charge réduit la durée du basculement. 
-- Le DNN simplifie l’approvisionnement et la gestion de l’instance de cluster de basculement avec SQL Server sur des machines virtuelles Azure. 
+- Le DNN simplifie l’approvisionnement et la gestion de l’instance de cluster de basculement ou de l’écouteur de groupe de disponibilité avec SQL Server sur des machines virtuelles Azure. 
 
-La plupart des fonctionnalités SQL Server fonctionnent de manière transparente avec l’instance FCI. Dans ces cas-là, vous pouvez simplement remplacer le nom DNS VNN existant par le nom DNS DNN, ou définir la valeur DNN avec le nom DNS VNN existant. Toutefois, certains composants côté serveur requièrent un alias réseau qui mappe le nom VNN au nom DNN. Des cas spécifiques peuvent nécessiter l’utilisation explicite du nom DNS DNN, par exemple lorsque vous définissez certaines URL dans une configuration côté serveur. 
+La plupart des fonctionnalités SQL Server fonctionnent de manière transparente avec les FCI et les groupes de disponibilité lors de l’utilisation du DNN, mais certaines fonctionnalités peuvent nécessiter une attention particulière. Pour en savoir plus, consultez [Interopérabilité FCI et DNN](failover-cluster-instance-dnn-interoperability.md) et [Interopérabilité AG et DNN](availability-group-dnn-interoperability.md). 
 
-Pour commencer, découvrez comment [configurer une ressource DNN pour une instance FCI](hadr-distributed-network-name-dnn-configure.md). 
+Pour commencer, apprenez à configurer une ressource de nom de réseau distribué pour une [instance de cluster de basculement](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou un [groupe de disponibilité](availability-group-distributed-network-name-dnn-listener-configure.md).
 
-**Systèmes d’exploitation pris en charge** : Windows Server 2016 et versions ultérieures   
-**Version de SQL pris en charge** : SQL Server 2019 et versions ultérieures   
-**Solution HADR prise en charge** : Instance de cluster de basculement uniquement
+**Systèmes d’exploitation pris en charge**  : Windows Server 2016 et versions ultérieures   
+**Version de SQL pris en charge**  : SQL Server 2019 CU2 (FCI) et SQL Server 2019 CU8 (AG)   
+**Solution HADR prise en charge**  : Instance de cluster de basculement et groupes de disponibilité   
 
 
 ## <a name="limitations"></a>Limites
@@ -146,5 +145,5 @@ Concernant Machines virtuelles Azure, MSDTC n’est pas pris en charge pour Wind
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez déterminé les bonnes pratiques appropriées pour votre solution, commencez par [préparer votre machine virtuelle SQL Server pour l’instance FCI](failover-cluster-instance-prepare-vm.md). Vous pouvez également créer votre groupe de disponibilité à l’aide de l'[interface de ligne de commande Azure](availability-group-az-cli-configure.md) ou de [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md). 
+Une fois que vous avez déterminé les meilleures pratiques appropriées pour votre solution, commencez par [préparer votre machine virtuelle SQL Server pour une FCI](failover-cluster-instance-prepare-vm.md) ou par créer votre groupe de disponibilité à l’aide du [portail Azure](availability-group-azure-portal-configure.md), [d’Azure CLI ou de PowerShell](availability-group-az-cli-configure.md) ou de [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md). 
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071776"
+ms.locfileid: "92116701"
 ---
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -46,7 +46,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 Une définition d’image est un regroupement logique des versions d’une image. La définition d’image contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et d’autres informations sur l’utilisation de l’image. Une définition d’image est similaire à un plan, qui inclut l’ensemble des détails concernant la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition d’image, mais à partir des versions de l’image créées sur la base de la définition.
 
-Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher**, **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
+Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher** , **Offre** et **SKU** . Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
 |Définition de l’image|Serveur de publication|Offre|Sku|
 |---|---|---|---|
@@ -56,10 +56,11 @@ Il existe trois paramètres pour chaque définition d’image, qui sont utilisé
 
 Ces trois définitions présentent des ensembles de valeurs uniques. Le format ressemble à celui qui est utilisé pour spécifier un éditeur (publisher), une offre et une SKU pour des [images Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) dans Azure PowerShell, afin d’obtenir la toute dernière version d’une image d’une Place de marché Microsoft Azure. Chaque définition d’image doit disposer d’un ensemble unique de ces valeurs.
 
-Les définitions d’images doivent définir les paramètres suivants qui déterminent les types de versions d’images qu’elles peuvent contenir :
--   État de système d’exploitation : vous pouvez définir l’état du système d’exploitation sur la valeur [Généralisée ou Spécialisée](#generalized-and-specialized-images).
-- Système d’exploitation : Windows ou Linux.
+Les paramètres suivants déterminent les types de versions d’images qu’elles peuvent contenir :
 
+- État de système d’exploitation : vous pouvez définir l’état du système d’exploitation sur la valeur [Généralisée ou Spécialisée](#generalized-and-specialized-images). Ce champ doit obligatoirement être renseigné.
+- Système d’exploitation : Windows ou Linux. Ce champ doit obligatoirement être renseigné.
+-   Génération d’Hyper-V : spécifiez si l’image a été créée à partir d’un disque dur virtuel Hyper-V de génération 1 ou de [génération 2](../articles/virtual-machines/generation-2.md). Par défaut, il s’agit de génération 1.
 
 
 Voici d’autres paramètres qui peuvent être configurés sur votre définition d’image de sorte à faciliter le suivi de vos ressources :
@@ -71,7 +72,6 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 - Étiquette : vous pouvez ajouter des étiquettes lorsque vous créez votre définition d’image. Pour en savoir plus sur les étiquettes, voir [Organisation des ressources Azure à l’aide d’étiquettes](../articles/azure-resource-manager/management/tag-resources.md).
 - Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 - Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
--   Génération d’Hyper-V : spécifiez si l’image a été créée à partir d’un disque dur virtuel Hyper-V de génération 1 ou de [génération 2](../articles/virtual-machines/generation-2.md). Par défaut, il s’agit de génération 1.
 - Informations sur le plan d’achat d’images de la Place de marché - `-PurchasePlanPublisher`, `-PurchasePlanName` et `-PurchasePlanProduct`. Pour en savoir plus sur les informations relatives au plan d’achat, consultez [Trouver des images dans la Place de marché Azure](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) et [Donner des informations sur le plan d’achat de la Place de marché Azure lors de la création d’images](../articles/virtual-machines/marketplace-images.md).
 
 
@@ -116,7 +116,7 @@ Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier 
 ## <a name="scaling"></a>Mise à l'échelle
 La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
 
-Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.  Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images ou régions ne sont jamais les mêmes, mais nous vous invitons à suivre les règles suivantes sur la création de réplicas dans une région :
+Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.   Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images ou régions ne sont jamais les mêmes, mais nous vous invitons à suivre les règles suivantes sur la création de réplicas dans une région :
 
 - Pour les déploiements non-VMSS (Virtual Machine Scale Sets) : pour chaque lot de 20 machines virtuelles que vous créez simultanément, nous vous recommandons de ne garder qu’un réplica. Par exemple, si vous créez 120 machines virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de conserver au moins 6 réplicas de votre image. 
 - Pour les déploiements VMSS (Virtual Machine Scale Sets) - Pour chaque déploiement de groupe identique avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Ainsi, si vous créez 5 groupes identiques simultanément, chacun doté de 600 instances de VM utilisant la même image dans une seule région, nous vous suggérons de conserver au moins 5 réplicas de votre image. 
@@ -220,9 +220,9 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 Pour lister toutes les ressources de galerie d’images partagées de différents abonnements auxquels vous avez accès sur le portail Azure, suivez les étapes ci-dessous :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources**.
+1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources** .
 1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
-1. Recherchez des ressources de type **Galerie d’images partagée**.
+1. Recherchez des ressources de type **Galerie d’images partagée** .
   
 Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
 

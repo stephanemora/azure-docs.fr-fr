@@ -3,12 +3,12 @@ title: Déployer une application .NET dans un conteneur vers Azure Service Fabri
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91817631"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122061"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -30,24 +30,24 @@ Dans ce tutoriel, vous allez apprendre à :
 1. Si vous n’avez pas d’abonnement Azure, [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
 3. Installez le [runtime Service Fabric version 6.2 ou supérieure](service-fabric-get-started.md) et le [kit de développement logiciel (SDK) Service Fabric version 3.1](service-fabric-get-started.md) ou supérieure.
-4. Installez [Visual Studio 2019 version 16.1](https://www.visualstudio.com/) ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+4. Installez [Visual Studio 2019 version 16.1](https://www.visualstudio.com/) ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET** .
 5. Installez [Azure PowerShell][link-azure-powershell-install].
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Télécharger et exécuter Fabrikam Fiber CallCenter
 
-1. Téléchargez l’exemple d’application [Fabrikam Fiber CallCenter][link-fabrikam-github].  Cliquez sur le lien **Télécharger l’archive**.  À partir du répertoire *sourceCode* du fichier *fabrikam.zip*, extrayez le fichier *sourceCode.zip* puis le répertoire *VS2015* sur votre ordinateur.
+1. Téléchargez l’exemple d’application [Fabrikam Fiber CallCenter][link-fabrikam-github].  Cliquez sur le lien **Télécharger l’archive** .  À partir du répertoire *sourceCode* du fichier *fabrikam.zip* , extrayez le fichier *sourceCode.zip* puis le répertoire *VS2015* sur votre ordinateur.
 
-2. Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute sans erreur.  Lancez Visual Studio en tant qu’**administrateur** et ouvrez le fichier [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Appuyez sur F5 pour déboguer et exécuter l’application.
+2. Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute sans erreur.  Lancez Visual Studio en tant qu’ **administrateur** et ouvrez le fichier [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Appuyez sur F5 pour déboguer et exécuter l’application.
 
    ![Capture d’écran de la page d’accueil de l’application Fabrikam Fiber CallCenter s’exécutant sur l’hôte local. La page montre un tableau de bord avec une liste d’appels de support.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>Conteneuriser l’application
 
-1. Cliquez avec le bouton droit sur le projet **FabrikamFiber.Web** > **Ajouter** > **Prise en charge de l’orchestrateur de conteneur**.  Sélectionnez **Service Fabric** en tant qu’orchestrateur de conteneur et cliquez sur **OK**.
+1. Cliquez avec le bouton droit sur le projet **FabrikamFiber.Web** > **Ajouter** > **Prise en charge de l’orchestrateur de conteneur** .  Sélectionnez **Service Fabric** en tant qu’orchestrateur de conteneur et cliquez sur **OK** .
 
 2. Si vous y êtes invité, cliquez sur **Oui** pour passer de Docker aux conteneurs Windows maintenant.
 
-   Un nouveau projet d’application Service Fabric **FabrikamFiber.CallCenterApplication** est créé dans la solution.  Un fichier Docker est ajouté au projet **FabrikamFiber.Web** existant.  Un répertoire **PackageRoot** est aussi ajouté au projet **FabrikamFiber.Web**, qui contient le manifeste et les paramètres du nouveau service FabrikamFiber.Web.
+   Un nouveau projet d’application Service Fabric **FabrikamFiber.CallCenterApplication** est créé dans la solution.  Un fichier Docker est ajouté au projet **FabrikamFiber.Web** existant.  Un répertoire **PackageRoot** est aussi ajouté au projet **FabrikamFiber.Web** , qui contient le manifeste et les paramètres du nouveau service FabrikamFiber.Web.
 
    Le conteneur est désormais prêt à être généré et empaqueté dans une application Service Fabric. Une fois l’image de conteneur intégrée sur votre ordinateur, vous pouvez la placer dans n’importe quel registre de conteneur et la transmettre à n’importe quel hôte pour l’exécuter.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Mettre à jour la configuration web
 
-De retour dans le projet **FabrikamFiber.Web**, mettez à jour la chaîne de connexion dans le fichier **web.config** pour pointer vers le serveur SQL Server dans le conteneur.  Mettez à jour la partie *Server* de la chaîne de connexion du serveur avec le nom du serveur créé par le script précédent. Ce nom est du genre « fab-fiber-751718376.database.windows.net ». Dans le code XML suivant, vous devez mettre à jour uniquement l’attribut `connectionString` ; les attributs `providerName` et `name` n’ont pas besoin d’être changés.
+De retour dans le projet **FabrikamFiber.Web** , mettez à jour la chaîne de connexion dans le fichier **web.config** pour pointer vers le serveur SQL Server dans le conteneur.  Mettez à jour la partie *Server* de la chaîne de connexion du serveur avec le nom du serveur créé par le script précédent. Ce nom est du genre « fab-fiber-751718376.database.windows.net ». Dans le code XML suivant, vous devez mettre à jour uniquement l’attribut `connectionString` ; les attributs `providerName` et `name` n’ont pas besoin d’être changés.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -118,7 +118,7 @@ De retour dans le projet **FabrikamFiber.Web**, mettez à jour la chaîne de con
 ```
 
 >[!NOTE]
->Vous pouvez utiliser l’instance SQL Server de votre choix pour le débogage local, tant qu’elle est accessible à partir de votre hôte. **localdb** ne prend cependant pas en charge la communication `container -> host`. Si vous souhaitez utiliser une autre base de données SQL lors de la création d’une version build de votre application web, ajoutez une autre chaîne de connexion à votre fichier *web.release.config*.
+>Vous pouvez utiliser l’instance SQL Server de votre choix pour le débogage local, tant qu’elle est accessible à partir de votre hôte. **localdb** ne prend cependant pas en charge la communication `container -> host`. Si vous souhaitez utiliser une autre base de données SQL lors de la création d’une version build de votre application web, ajoutez une autre chaîne de connexion à votre fichier *web.release.config* .
 
 ## <a name="run-the-containerized-application-locally"></a>Exécutez l’application en conteneur localement
 
@@ -151,29 +151,29 @@ Vous pouvez :
 
 Ce didacticiel crée un cluster à partir de Visual Studio, idéal pour ces scénarios test. Si vous créez un cluster d’une autre façon ou si vous utilisez un cluster existant, vous pouvez copier et coller votre point de terminaison de connexion ou le sélectionner depuis votre abonnement.
 
-Avant de démarrer, ouvrez FabrikamFiber.Web->PackageRoot->ServiceManifest.xml dans l’Explorateur de solutions. Notez le port du front-end web listé dans **Point de terminaison**.
+Avant de démarrer, ouvrez FabrikamFiber.Web->PackageRoot->ServiceManifest.xml dans l’Explorateur de solutions. Notez le port du front-end web listé dans **Point de terminaison** .
 
 Lors de la création du cluster :
 
-1. Cliquez avec le bouton droit sur le projet de l’application **FabrikamFiber.CallCenterApplication** dans l’Explorateur de solutions et choisissez **Publier**.
+1. Cliquez avec le bouton droit sur le projet de l’application **FabrikamFiber.CallCenterApplication** dans l’Explorateur de solutions et choisissez **Publier** .
 2. Connectez-vous avec votre compte Azure afin d’avoir accès à votre ou vos abonnements.
-3. Sélectionnez le menu déroulant pour le **Point de terminaison de connexion** puis l’option **Créer un cluster...** .
-4. Dans la boîte de dialogue **Créer un cluster**, modifiez les paramètres suivants :
+3. Sous le menu déroulant pour le **Point de terminaison de connexion** , sélectionnez l’option **Créer un cluster...** .
+4. Dans la boîte de dialogue **Créer un cluster** , modifiez les paramètres suivants :
 
-    a. Spécifiez le nom de votre cluster dans le champ **Nom du cluster**, ainsi que l’abonnement et l’emplacement à utiliser. Notez le nom de votre groupe de ressources de cluster.
+    a. Spécifiez le nom de votre cluster dans le champ **Nom du cluster** , ainsi que l’abonnement et l’emplacement à utiliser. Notez le nom de votre groupe de ressources de cluster.
 
     b. Facultatif : Vous pouvez modifier le nombre de nœuds. Par défaut, vous disposez de trois nœuds, qui est le minimum requis pour tester des scénarios Service Fabric.
 
-    c. Sélectionnez l’onglet **Certificat**. Dans cet onglet, tapez un mot de passe à utiliser pour sécuriser le certificat de votre cluster. Ce certificat aide à sécuriser votre cluster. Vous pouvez aussi modifier le chemin vers l’emplacement où vous voulez enregistrer le certificat. Visual Studio peut aussi importer le certificat pour vous, car il s’agit d’une étape nécessaire à la publication de l’application dans le cluster.
+    c. Sélectionnez l’onglet **Certificat** . Dans cet onglet, tapez un mot de passe à utiliser pour sécuriser le certificat de votre cluster. Ce certificat aide à sécuriser votre cluster. Vous pouvez aussi modifier le chemin vers l’emplacement où vous voulez enregistrer le certificat. Visual Studio peut aussi importer le certificat pour vous, car il s’agit d’une étape nécessaire à la publication de l’application dans le cluster.
 
-    d. Sélectionnez l’onglet **Détail de la machine virtuelle**. Spécifiez le mot de passe que vous voulez utiliser pour les machines virtuelles qui forment le cluster. Le nom d’utilisateur et le mot de passe peuvent être utilisés pour se connecter aux machines virtuelles à distance. Vous devez aussi sélectionner une taille de machine virtuelle et pouvez changer l’image de la machine virtuelle si nécessaire.
+    d. Sélectionnez l’onglet **Détail de la machine virtuelle** . Spécifiez le mot de passe que vous voulez utiliser pour les machines virtuelles qui forment le cluster. Le nom d’utilisateur et le mot de passe peuvent être utilisés pour se connecter aux machines virtuelles à distance. Vous devez aussi sélectionner une taille de machine virtuelle et pouvez changer l’image de la machine virtuelle si nécessaire.
 
     > [!IMPORTANT]
-    > Choisissez une référence SKU prenant en charge les conteneurs en cours d’exécution. Le système d’exploitation Windows Server sur vos nœuds de cluster doit être compatible avec le système d’exploitation Windows Server de votre conteneur. Pour plus d’informations, consultez [Système d’exploitation Windows Server du conteneur et compatibilité avec le système d’exploitation hôte](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Par défaut, ce tutoriel crée une image Docker basée sur Windows Server 2016 LTSC. Les conteneurs basés sur cette image seront exécutés sur les clusters créés avec Windows Server 2016 Datacenter avec Containers. Toutefois, si vous créez un cluster ou que vous utilisez un cluster existant basé sur Windows Server Datacenter Core 1709 avec Containers, vous devez modifier l’image de système d’exploitation Windows Server sur laquelle est basé le conteneur. Ouvrez le **Dockerfile** dans le projet **FabrikamFiber.Web**, commentez l’instruction `FROM` existante (basée sur `windowsservercore-ltsc`) et ne commentez pas l’instruction `FROM` basée sur `windowsservercore-1709`.
+    > Choisissez une référence SKU prenant en charge les conteneurs en cours d’exécution. Le système d’exploitation Windows Server sur vos nœuds de cluster doit être compatible avec le système d’exploitation Windows Server de votre conteneur. Pour plus d’informations, consultez [Système d’exploitation Windows Server du conteneur et compatibilité avec le système d’exploitation hôte](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Par défaut, ce tutoriel crée une image Docker basée sur Windows Server 2016 LTSC. Les conteneurs basés sur cette image seront exécutés sur les clusters créés avec Windows Server 2016 Datacenter avec Containers. Toutefois, si vous créez un cluster ou que vous utilisez un cluster existant basé sur Windows Server Datacenter Core 1709 avec Containers, vous devez modifier l’image de système d’exploitation Windows Server sur laquelle est basé le conteneur. Ouvrez le **Dockerfile** dans le projet **FabrikamFiber.Web** , commentez l’instruction `FROM` existante (basée sur `windowsservercore-ltsc`) et ne commentez pas l’instruction `FROM` basée sur `windowsservercore-1709`.
 
-    e. Dans l’onglet **Avancé**, indiquez le port de l’application à ouvrir dans l’équilibreur de charge lorsque le cluster est déployé. Il s’agit du port que vous avez noté avant de commencer la création du cluster. Vous pouvez aussi ajouter une clé Application Insights existante à utiliser pour y diriger les fichiers de journal des applications.
+    e. Dans l’onglet **Avancé** , indiquez le port de l’application à ouvrir dans l’équilibreur de charge lorsque le cluster est déployé. Il s’agit du port que vous avez noté avant de commencer la création du cluster. Vous pouvez aussi ajouter une clé Application Insights existante à utiliser pour y diriger les fichiers de journal des applications.
 
-    f. Une fois la modification des paramètres terminée, cliquez sur le bouton **Créer**.
+    f. Une fois la modification des paramètres terminée, cliquez sur le bouton **Créer** .
 
 5. La création prend plusieurs minutes, la fenêtre de sortie vous informe lorsque le cluster est complètement créé.
 
@@ -229,7 +229,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 ## <a name="deploy-the-application-to-azure"></a>Déploiement de l’application dans Azure
 
-À présent que l’application est prête, vous pouvez la déployer sur le cluster dans Azure directement à partir de Visual Studio.  Cliquez avec le bouton droit sur le projet de l’application **FabrikamFiber.CallCenterApplication** dans l’Explorateur de solutions et choisissez **Publier**.  Dans **Point de terminaison de connexion**, sélectionnez le point de terminaison du cluster précédemment créé.  Dans **Azure Container Registry**, sélectionnez le registre de conteneur précédemment créé.  Cliquez sur **Publier** pour déployer l’application vers le cluster dans Azure.
+À présent que l’application est prête, vous pouvez la déployer sur le cluster dans Azure directement à partir de Visual Studio.  Cliquez avec le bouton droit sur le projet de l’application **FabrikamFiber.CallCenterApplication** dans l’Explorateur de solutions et choisissez **Publier** .  Dans **Point de terminaison de connexion** , sélectionnez le point de terminaison du cluster précédemment créé.  Dans **Azure Container Registry** , sélectionnez le registre de conteneur précédemment créé.  Cliquez sur **Publier** pour déployer l’application vers le cluster dans Azure.
 
 ![Publication de l’application][publish-app]
 

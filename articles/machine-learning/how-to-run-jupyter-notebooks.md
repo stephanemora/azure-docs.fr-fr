@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460031"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221420"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 
@@ -42,17 +42,17 @@ Dans votre espace de travail Azure Machine Learning, créez un bloc-notes Jupyte
 Pour créer un bloc-notes : 
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
-1. Sur le côté gauche, sélectionnez **Bloc-notes**. 
-1. Sélectionnez l’icône **Créer un fichier** dans la section **Mes fichiers** au-dessus de la liste **Fichiers utilisateur**.
+1. Sur le côté gauche, sélectionnez **Bloc-notes** . 
+1. Sélectionnez l’icône **Créer un fichier** dans la section **Mes fichiers** au-dessus de la liste **Fichiers utilisateur** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Créer un fichier":::
 
 1. Nommez le fichier. 
-1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-note**.
+1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-note** .
 1. Sélectionnez un répertoire de fichiers.
 1. Sélectionnez **Create** (Créer).
 
-Vous pouvez également créer des fichiers texte.  Sélectionnez le type de fichier **Texte**, puis ajoutez l’extension au nom (par exemple, monfichier.py ou monfichier.txt).  
+Vous pouvez également créer des fichiers texte.  Sélectionnez le type de fichier **Texte** , puis ajoutez l’extension au nom (par exemple, monfichier.py ou monfichier.txt).  
 
 Vous pouvez également charger des dossiers et fichiers, dont des blocs-notes, avec les outils disponibles en haut de la page Blocs-notes.  Les blocs-notes et la plupart des types de fichiers texte figurent dans la section d’aperçu.  Aucun aperçu n’est disponible pour la plupart des autres types de fichiers.
 
@@ -75,14 +75,14 @@ Vous pouvez accéder à toutes les opérations Git à l’aide d’une fenêtre 
 Pour accéder au terminal :
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
-1. Sur le côté gauche, sélectionnez **Bloc-notes**.
+1. Sur le côté gauche, sélectionnez **Bloc-notes** .
 1. Sélectionnez un bloc-notes dans la section **Fichiers utilisateur** sur le côté gauche.  Si aucun bloc-notes ne s’y trouve, commencez par [créer un bloc-notes](#create).
-1. Sélectionnez ou créez une cible de **calcul**, puis attendez qu’elle s’exécute.
-1. Sélectionnez l’icône **Ouvrir le terminal**.
+1. Sélectionnez ou créez une cible de **calcul** , puis attendez qu’elle s’exécute.
+1. Sélectionnez l’icône **Ouvrir le terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Créer un fichier":::
 
-1. Si vous ne voyez pas l’icône, sélectionnez les points de suspension ( **...** ) à droite de la cible de calcul, puis choisissez **Ouvrir le terminal**.
+1. Si vous ne voyez pas l’icône, sélectionnez les points de suspension ( **...** ) à droite de la cible de calcul, puis choisissez **Ouvrir le terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Créer un fichier":::
 
@@ -108,6 +108,16 @@ Vous pouvez modifier le bloc-notes sans vous connecter à une instance de calcul
 Quand une instance de calcul est en cours d’exécution, vous pouvez également utiliser la saisie semi-automatique du code, optimisée par [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), dans n’importe quel bloc-notes Python.
 
 Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’outils du bloc-notes.  Azure Machine Learning ne fournit pas de mises à jour et ne corrige pas les bogues de Jupyter ou JupyterLab, car il s’agit de produits open source qui sortent des limites du Support Microsoft.
+
+### <a name="focus-mode"></a>Mode focus
+
+Utilisez le mode focus pour développer votre affichage actuel afin de pouvoir vous concentrer sur vos onglets actifs. Le mode focus masque l’explorateur de fichiers Notebooks.
+
+1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. En fonction de la largeur de la fenêtre, il peut se trouver sous l’élément de menu **…** dans la barre d’outils.
+1. En mode focus, revenez à l’affichage standard en sélectionnant  **Affichage standard** .
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Créer un fichier":::
+
 
 ### <a name="use-intellisense"></a>Utiliser IntelliSense
 
@@ -139,7 +149,7 @@ Dans la barre d’outils du bloc-notes, sélectionnez le menu, puis **Fichier&gt
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Créer un fichier":::
 
-Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier  *ipynb*  initial, et non le fichier de point de contrôle.
+Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes.  L’enregistrement automatique met à jour uniquement le fichier  *ipynb*  initial, et non le fichier de point de contrôle.
  
 Sélectionnez **Points de contrôle** dans le menu du bloc-notes pour créer un point de contrôle nommé et restaurer le bloc-notes à un point de contrôle enregistré.
 
@@ -170,7 +180,7 @@ Vous *pouvez* supprimer des blocs-notes **Fichiers utilisateur** de l’une des 
 Pour exécuter une expérience à partir d’un bloc-notes, vous devez d’abord vous connecter à une [instance de calcul](concept-compute-instance.md) en cours d’exécution. Si vous n’avez pas d’instance de calcul, procédez comme suit pour en créer une : 
 
 1. Sélectionnez **+** dans la barre d’outils du bloc-notes. 
-2. Nommez l’instance de calcul, puis choisissez une **taille de machine virtuelle**. 
+2. Nommez l’instance de calcul, puis choisissez une **taille de machine virtuelle** . 
 3. Sélectionnez **Create** (Créer).
 4. L’instance de calcul est automatiquement connectée au bloc-notes et vous pouvez maintenant exécuter vos cellules.
 
@@ -193,7 +203,7 @@ Ces actions ne modifient pas l’état du bloc-notes ou les valeurs des variable
 
 Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes et toutes les variables dans celui-ci.
 
-|Action  |Résultats  |
+|Action  |Résultat  |
 |---------|---------| --------|
 | Modifier le noyau | Le bloc-notes utilise le nouveau noyau. |
 | Changer d’instance de calcul    |     Le bloc-notes utilise automatiquement la nouvelle instance de calcul. |
@@ -222,6 +232,9 @@ Le bloc-notes trouve automatiquement tous les noyaux Jupyter installés sur l’
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> Pour la gestion des packages au sein d’un notebook, utilisez les fonctions magic **%pip** ou **%conda** pour installer automatiquement des packages dans le **noyau en cours d’exécution** , au lieu de **!pip** ou **!conda** qui se réfèrent à tous les packages (y compris les packages en dehors du noyau en cours d’exécution).
 
 Vous pouvez installer n’importe lequel des [noyaux Jupyter disponibles](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 

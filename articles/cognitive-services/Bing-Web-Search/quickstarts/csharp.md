@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921696"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217284"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
 
@@ -29,14 +29,14 @@ Cet exemple de programme dans ce guide de démarrage rapide utilise uniquement d
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
 * Windows : [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
-* Linux/macOS : [Mono](https://www.mono-project.com/)  
-* Une clé d’abonnement
+* Linux/macOS : [Visual Studio Code](https://code.visualstudio.com/) et [.NET Core](https://dotnet.microsoft.com/download)
+* [Un abonnement Azure gratuit](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Créer un projet et déclarer des dépendances
 
-Créez un projet dans Visual Studio ou Mono. Utilisez le code suivant pour importer les espaces de noms et les types requis :
+Créer un projet de console dans Visual Studio ou VS Code. Utilisez le code suivant pour importer les espaces de noms et les types requis :
 
 ```csharp
 using System;

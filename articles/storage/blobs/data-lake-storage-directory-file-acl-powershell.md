@@ -10,18 +10,18 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8083d42d9ce79bcf31e3875f2ff5d5f06970a7ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713403"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131511"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
 Cet article explique comment utiliser PowerShell pour créer et gérer des répertoires, des fichiers et des autorisations dans des comptes de stockage dotés d’un espace de noms hiérarchique (HNS) activé. 
 
-[Référence](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0) | [Mappage Gen1 à Gen2](#gen1-gen2-map) | [Envoyer des commentaires](https://github.com/Azure/azure-powershell/issues)
+[Référence](https://docs.microsoft.com/powershell/module/Az.Storage/) | [Mappage Gen1 à Gen2](#gen1-gen2-map) | [Envoyer des commentaires](https://github.com/Azure/azure-powershell/issues)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,15 +39,15 @@ Cet article explique comment utiliser PowerShell pour créer et gérer des répe
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Pour mettre à niveau votre version de PowerShell, consultez [Mise à niveau des instances Windows PowerShell existantes](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+   Pour mettre à niveau votre version de PowerShell, consultez [Mise à niveau des instances Windows PowerShell existantes](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
     
-2. Installez le module **Az.Storage**.
+2. Installez le module **Az.Storage** .
 
    ```powershell
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   Pour plus d’informations sur l’installation des modules PowerShell, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+   Pour plus d’informations sur l’installation des modules PowerShell, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
@@ -266,9 +266,9 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 Vous pouvez utiliser le paramètre `-Force` pour supprimer le fichier sans invite.
 
-## <a name="manage-access-permissions"></a>Gérer les autorisations d’accès
+## <a name="manage-access-control-lists-acls"></a>Gérer les listes de contrôle d’accès (ACL, access control list)
 
-Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers. Ces autorisations sont capturées dans des listes de contrôle d’accès (ACL).
+Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers.
 
 > [!NOTE]
 > Si vous utilisez Azure Active Directory (Azure AD) pour autoriser des commandes, assurez-vous que le [rôle Propriétaire des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) est attribué à votre principal de sécurité. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -277,7 +277,7 @@ Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des
 
 Obtenez la liste ACL d’un répertoire ou d’un fichier à l’aide de l’applet de commande `Get-AzDataLakeGen2Item`.
 
-Cet exemple obtient la liste ACL du répertoire racine d’un **conteneur**, puis l’affiche sur la console.
+Cet exemple obtient la liste ACL du répertoire racine d’un **conteneur** , puis l’affiche sur la console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -285,7 +285,7 @@ $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
 $filesystem.ACL
 ```
 
-Cet exemple obtient la liste ACL d’un **répertoire**, puis affiche cette liste ACL dans la console.
+Cet exemple obtient la liste ACL d’un **répertoire** , puis affiche cette liste ACL dans la console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -294,7 +294,7 @@ $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $d
 $dir.ACL
 ```
 
-Cet exemple obtient la liste ACL d’un **fichier**, puis affiche cette liste ACL dans la console.
+Cet exemple obtient la liste ACL d’un **fichier** , puis affiche cette liste ACL dans la console.
 
 ```powershell
 $filePath = "my-directory/upload.txt"

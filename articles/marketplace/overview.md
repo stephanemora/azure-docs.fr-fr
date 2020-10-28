@@ -3,16 +3,16 @@ title: Qu’est-ce que la place de marché commerciale Microsoft ?
 description: Vue d’ensemble des avantages et des options pour les partenaires Microsoft qui listent des solutions sur la Place de marché commerciale Microsoft.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
+ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
-ms.date: 10/01/2020
-ms.openlocfilehash: 91ae1ce8cb61a0bbc4907c21f0e5e6b869cedb85
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/15/2020
+ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654265"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107043"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Qu’est-ce que la place de marché commerciale Microsoft ?
 
@@ -26,21 +26,41 @@ La place de Marché commerciale Microsoft a deux magasins en ligne : [Microsoft
 
 Quand vous créez une offre de la Place de marché commerciale dans l’Espace partenaires, elle peut figurer dans l’un ou l’autre des magasins en ligne ou dans les deux, selon le type d’offre, les catégories et d’autres options que vous sélectionnez. Dans les rares cas où l’offre est pertinente pour les utilisateurs des deux magasins en ligne, elle peut apparaître dans les deux. Pour plus d’informations, consultez [Sélectionner un magasin en ligne](determine-your-listing-type.md#selecting-an-online-store) et [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
-**Microsoft AppSource** est destiné aux solutions métier, comme des applications SaaS, et aux applications qui s’étendent directement dans Dynamics 365, Microsoft 365 et Microsoft Power Platform. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
+### <a name="microsoft-appsource"></a>Microsoft AppSource
+
+[Microsoft AppSource](https://appsource.microsoft.com/) est destiné aux solutions métier, comme des applications SaaS, et aux applications qui s’étendent directement dans Dynamics 365, Microsoft 365 et Microsoft Power Platform. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
 
 Voici un exemple de page de la liste des offres dans AppSource :
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource":::.
 
-La **Place de marché Azure** concerne des solutions qui sont créées sur ou pour Azure, et qui sont destinées aux professionnels de l’informatique et aux développeurs. Ceci comprend des listes pour des services de conseil et des services managés. Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à accélérer son utilisation.
+####  <a name="appsource-in-product-experience"></a>Expérience intégrée au produit AppSource
+
+Les clients peuvent également accéder à vos offres AppSource via Microsoft 365, Dynamics 365, Power Platform et Azure. L’exemple suivant montre comment accéder aux compléments AppSource à partir du menu **Fichier** dans Power BI.
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource"::: 
+
+Cette option ouvre une fenêtre dans laquelle le client peut rechercher des compléments Power BI par nom ou catégorie. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource"::: 
+
+### <a name="azure-marketplace"></a>Place de marché Azure
+
+La [Place de marché Azure](https://azuremarketplace.microsoft.com/) concerne des solutions qui sont créées sur ou pour Azure, et qui sont destinées aux professionnels de l’informatique et aux développeurs. Ceci comprend des listes pour des services de conseil et des services managés. Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à accélérer son utilisation.
 
 Voici un exemple de page de la liste des offres dans la Place de marché Azure :
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource"::: 
 
-Comme la Place de marché Azure est basée sur Azure, les clients peuvent accéder aux solutions via l’option **Créer une ressource** dans le [portail Azure](https://portal.azure.com/).
+#### <a name="azure-marketplace-in-the-azure-portal"></a>Place de marché Azure dans le portail Azure
+
+Les clients Azure peuvent découvrir et déployer les solutions proposées par la Place de marché, via l’option **Créer une ressource** dans le [portail Azure](https://portal.azure.com/).
 
 :::image type="content" source="media/overview/create-resource.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource"::: 
+
+Cette option ouvre la Place de marché Azure dans le portail Azure, où ils peuvent rechercher des solutions par nom ou par catégorie.
+
+:::image type="content" source="media/overview/search-portal.png" alt-text="Illustre une page de la liste des offres dans Microsoft AppSource"::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Avantages de la vente avec Microsoft
 

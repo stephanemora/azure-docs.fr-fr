@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cff39f93f9caddfdbe48788f14b62642a373e2bf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044766"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148192"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Démarrage rapide : Obtenir un numéro de téléphone à l’aide du portail Azure
 
@@ -35,49 +35,49 @@ Pour commencer le provisionnement de numéros, accédez à votre ressource Commu
 
 ### <a name="getting-new-phone-numbers"></a>Obtenir de nouveaux numéros de téléphone
 
-Accédez au panneau Numéros de téléphone dans le menu des ressources.
+Accédez au panneau **Numéros de téléphone** dans le menu des ressources.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
-Appuyez sur le bouton `Get` pour lancer l’Assistant. L’Assistant sur le panneau `Phone numbers` vous présente une série de questions qui vous aideront à choisir le numéro de téléphone qui correspond le mieux à votre scénario. 
+Appuyez sur le bouton **Obtenir** pour lancer l’Assistant. L’Assistant sur le panneau **Numéros de téléphone** vous présente une série de questions qui vous aideront à choisir le numéro de téléphone qui correspond le mieux à votre scénario. 
 
-Vous devez d’abord choisir le pays ou la région (`Country/region`) où vous souhaitez provisionner le numéro de téléphone. Après avoir sélectionné le pays ou la région, vous devrez sélectionner le forfait téléphonique (`use case`) qui répond le mieux à vos besoins. 
+Vous devez d’abord choisir **le pays ou la région** où vous souhaitez provisionner le numéro de téléphone. Après avoir sélectionné le pays ou la région, vous devrez sélectionner le **Cas d’usage** qui répond le mieux à vos besoins. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
-### <a name="select-a-phone-plan"></a>Sélectionner un forfait téléphonique
+### <a name="select-your-phone-number-features"></a>Sélectionner les fonctionnalités de votre numéro de téléphone
 
-La sélection d’un forfait téléphonique se décompose en deux étapes : 
+La configuration de votre numéro de téléphone comprend deux étapes : 
 
-1. La sélection du [Type de numéro](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. La sélection du [forfait](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
+1. La sélection du [type de numéro](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
+2. La sélection des [fonctionnalités du numéro](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)
 
-Nous proposons actuellement deux types de numéro : `Geographic` et `Toll-free`. Une fois que vous avez sélectionné un Type de numéro, plusieurs Forfaits parmi lesquels vous pouvez effectuer un choix vous sont proposés.
+Vous avez le choix entre deux types de numéros de téléphone : **géographique** et **gratuit** . Une fois que vous avez sélectionné un type de numéro, vous pouvez choisir la fonctionnalité.
 
-Dans notre exemple, nous avons choisi un type de numéro `Toll-free` avec les forfaits `Outbound calling` et `Inbound and Outbound SMS`.
+Dans notre exemple, nous avons sélectionné le type de numéro **Gratuit** avec les fonctionnalités **Appels sortants** et **SMS entrant et sortant** .
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
-À partir de là, cliquez sur le bouton `Next: Numbers` au bas de la page pour personnaliser le ou les numéros de téléphone que vous souhaitez provisionner.
+À partir de là, cliquez sur le bouton **Suivant : Numéros** au bas de la page pour personnaliser le ou les numéros de téléphone que vous souhaitez provisionner.
 
 ### <a name="customizing-phone-numbers"></a>Personnalisation de numéros de téléphone
 
-Dans la page `Numbers`, vous allez personnaliser le ou les numéros de téléphone que vous souhaitez provisionner.
+Dans la page **Numéros** , vous allez personnaliser le ou les numéros de téléphone que vous souhaitez provisionner.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
 > [!NOTE]
-> Ce guide de démarrage rapide présente le flux de personnalisation du type de numéro `Toll-free`. L’expérience peut être légèrement différente si vous avez choisi le type de numéro `Geographic`, mais le résultat final sera le même.
+> Ce guide de démarrage rapide présente le flux de personnalisation du type de numéro **Gratuit** . L’expérience peut être légèrement différente si vous avez choisi le type de numéro **Géographique** , mais le résultat final sera le même.
 
-Choisissez l’indicatif régional (`Area code`) dans la liste des indicatifs régionaux disponibles, entrez la quantité que vous souhaitez provisionner, puis cliquez sur `Search` (Rechercher) pour rechercher les numéros qui répondent aux spécifications sélectionnées. Les numéros de téléphone qui répondent à vos besoins s’affichent avec leur coût mensuel.
+Choisissez l’ **indicatif régional** dans la liste des indicatifs régionaux disponibles, entrez la quantité que vous souhaitez provisionner, puis cliquez sur **Rechercher** pour rechercher les numéros qui répondent aux spécifications sélectionnées. Les numéros de téléphone qui répondent à vos besoins s’affichent avec leur coût mensuel.
 
 :::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
 > [!NOTE]
-> La disponibilité dépend du type de numéro, de l’emplacement et du forfait que vous avez sélectionnés.
+> La disponibilité dépend du type de numéro, de l’emplacement et des fonctionnalités que vous avez sélectionnés.
 > Les numéros sont réservés pendant une courte durée avant que la transaction n’expire. Si la transaction expire, vous devez resélectionner les numéros.
 
-Pour afficher le récapitulatif de l’achat et passer votre commande, cliquez sur le bouton `Next: Summary` (Suivant : Récapitulatif) situé au bas de la page.
+Pour afficher le récapitulatif de l’achat et passer votre commande, cliquez sur le bouton **Suivant : Récapitulatif** situé au bas de la page.
 
 ### <a name="place-order"></a>Passer une commande
 
@@ -86,7 +86,7 @@ La page récapitulative passe en revue le type de numéro, les fonctionnalités,
 > [!NOTE]
 > Les tarifs indiqués sont les **frais récurrents mensuels** qui couvrent le coût de location du numéro de téléphone sélectionné pour vous. Cette vue n’inclut pas les **coûts du paiement à l’utilisation** qui sont engendrés quand vous passez ou recevez des appels. Les tarifs sont [disponibles ici](../../concepts/pricing.md). Ces coûts dépendent du type de numéro et des destinations appelées. Par exemple, un tarif à la minute pour un appel d’un numéro régional de Seattle à un numéro régional à New York et pour un appel du même numéro à un numéro de téléphone mobile britannique peut être différent.
 
-Enfin, cliquez sur `Place order` (Passer la commande) en bas de la page pour confirmer.
+Enfin, cliquez sur **Passer la commande** en bas de la page pour confirmer.
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
@@ -103,12 +103,14 @@ Sélectionnez le panneau Phone Numbers (Numéros de téléphone) dans le menu po
 > [!NOTE]
 > L’affichage des numéros provisionnés sur cette page peut prendre quelques minutes.
 
-### <a name="customizing-phone-number-features"></a>Personnalisation des fonctionnalités de numéros de téléphone
-Dans la page `Numbers`, cliquez sur le numéro de téléphone dont vous souhaitez personnaliser le forfait.
+
+### <a name="customizing-phone-numbers"></a>Personnalisation de numéros de téléphone
+
+Dans la page **Numéros** , vous pouvez sélectionner un numéro de téléphone pour le configurer.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Capture d’écran montrant la page principale d’une ressource Communication Services.":::
 
-Sélectionnez les fonctionnalités dans la liste des fonctionnalités d’appel et de SMS disponibles, puis cliquez sur `Confirm` pour appliquer la sélection.
+Sélectionnez les fonctionnalités dans les options disponibles, puis cliquez sur **Confirmer** pour appliquer votre sélection.
 
 ## <a name="troubleshooting"></a>Dépannage
 

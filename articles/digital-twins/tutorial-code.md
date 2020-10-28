@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057482"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201344"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -39,7 +39,7 @@ Pour commencer, il vous faut :
 
 Une fois que vous êtes prêt à utiliser votre instance Azure Digital Twins, commencez à configurer le projet d’application cliente. 
 
-Ouvrez une invite de commandes ou une autre fenêtre de console sur votre ordinateur, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *TutorielCodeDigitalTwins*).
+Ouvrez une invite de commandes ou une autre fenêtre de console sur votre ordinateur, puis créez un répertoire de projet vide dans lequel vous souhaitez stocker votre travail au cours de ce tutoriel. Nommez le répertoire comme vous le souhaitez (par exemple *TutorielCodeDigitalTwins* ).
 
 Accédez au nouveau répertoire.
 
@@ -104,40 +104,21 @@ Ensuite, vous allez ajouter du code à ce fichier pour activer certaines fonctio
 
 La première chose que votre application doit faire, c’est s’authentifier auprès du service Azure Digital Twins. Vous pouvez ensuite créer une classe cliente de service pour accéder aux fonctions du SDK.
 
-Pour vous authentifier, vous avez besoin de trois informations :
-* L’*ID de l’annuaire (locataire)* pour votre abonnement
-* L’*ID d’application (client)* créé quand vous avez configuré l’instance Azure Digital Twins
-* Le *hostName* de votre instance Azure Digital Twins
+Pour vous authentifier, vous avez besoin du *nom d’hôte* de votre instance Azure Digital Twins.
 
->[!TIP]
-> Si vous ne connaissez pas votre *ID de l’annuaire (locataire)* , vous pouvez l’obtenir en exécutant la commande suivante dans [Azure Cloud Shell](https://shell.azure.com) :
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-Dans *Program.cs*, collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Affectez le *hostName* de votre instance Azure Digital Twins comme valeur de `adtInstanceUrl`, votre *ID d’application* comme `clientId`, et votre *ID d’annuaire* comme `tenantId`.
+Dans *Program.cs* , collez le code suivant sous la ligne « Hello, World ! » dans la méthode `Main`. Définissez la valeur de `adtInstanceUrl` sur le *hostName* de votre instance Azure Digital Twins.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
-Enregistrez le fichier . 
-
-Notez que cet exemple utilise des informations d’identification de navigateur interactives :
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-Ce type d’informations d’identification entraîne l’ouverture d’une fenêtre de navigateur vous invitant à fournir vos informations d’identification Azure. 
+Enregistrez le fichier. 
 
 >[!NOTE]
-> Pour plus d’informations sur les autres types d’informations d’identification, consultez la documentation des [bibliothèques d’authentification de plateforme des identités Microsoft](../active-directory/develop/reference-v2-libraries.md).
+> Cet exemple utilise `DefaultAzureCredential` pour l’authentification. Pour plus d’informations sur les autres types d’informations d’identification, consultez la documentation des [bibliothèques d’authentification de la plateforme d’identités Microsoft](../active-directory/develop/reference-v2-libraries.md), ou l’article Azure Digital Twins sur l’[authentification des applications clientes](how-to-authenticate-client.md).
 
 Dans votre fenêtre de commande, exécutez le code avec cette commande : 
 
@@ -146,16 +127,16 @@ dotnet run
 ```
 
 Cette opération restaure les dépendances lors de la première exécution, puis exécute le programme. 
-* Si aucune erreur ne se produit, le programme imprime *Service client created - ready to go*.
+* Si aucune erreur ne se produit, le programme imprime *Service client created - ready to go* .
 * Étant donné qu’il n’y a pas encore de gestion des erreurs dans ce projet, si un problème se produit, une exception est levée par le code.
 
 ### <a name="upload-a-model"></a>Charger un modèle
 
-Azure Digital Twins n’a aucun vocabulaire de domaine intrinsèque. C’est vous qui définissez, à l’aide de **modèles**, les types d’éléments de votre environnement que vous pouvez représenter dans Azure Digital Twins. Les [modèles](concepts-twins-graph.md) sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-models.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language)** .
+Azure Digital Twins n’a aucun vocabulaire de domaine intrinsèque. C’est vous qui définissez, à l’aide de **modèles** , les types d’éléments de votre environnement que vous pouvez représenter dans Azure Digital Twins. Les [modèles](concepts-twins-graph.md) sont similaires aux classes dans les langages de programmation orientés objet. Ils fournissent des modèles de [jumeaux numériques](concepts-models.md) définis par l’utilisateur à suivre et à instancier ultérieurement. Ils sont écrits dans un langage de type JSON appelé **DTDL (Digital Twins Definition Language)** .
 
 La première étape de la création d’une solution Azure Digital Twins consiste à définir au moins un modèle dans un fichier DTDL.
 
-Dans le répertoire où vous avez créé votre projet, créez un fichier *.json* nommé *SampleModel.json*. Collez-y le corps de fichier suivant : 
+Dans le répertoire où vous avez créé votre projet, créez un fichier *.json* nommé *SampleModel.json* . Collez-y le corps de fichier suivant : 
 
 ```json
 {
@@ -283,7 +264,7 @@ Désormais, ce tutoriel encapsulera tous les appels aux méthodes de service dan
 
 ### <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
-Maintenant que vous avez chargé un modèle dans Azure Digital Twins, vous pouvez utiliser cette définition de modèle pour créer des **jumeaux numériques**. Les [jumeaux numériques](concepts-twins-graph.md) sont des instances d’un modèle ; ils représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). Cette section crée quelques jumeaux numériques basés sur le modèle que vous avez chargé.
+Maintenant que vous avez chargé un modèle dans Azure Digital Twins, vous pouvez utiliser cette définition de modèle pour créer des **jumeaux numériques** . Les [jumeaux numériques](concepts-twins-graph.md) sont des instances d’un modèle ; ils représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). Cette section crée quelques jumeaux numériques basés sur le modèle que vous avez chargé.
 
 Ajoutez une nouvelle instruction `using` en haut, car vous aurez besoin du sérialiseur JSON .NET intégré dans `System.Text.Json` :
 
@@ -314,19 +295,26 @@ for(int i=0; i<3; i++) {
 
 Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. Ensuite, répétez l’opération pour réexécuter le programme. 
 
-Notez qu’aucune erreur n’est générée quand les jumeaux sont créés la deuxième fois, bien qu’ils existent déjà après la première exécution. Contrairement à la création de modèle, la création de jumeau est, au niveau REST, un appel *PUT* avec une sémantique *upsert*. Cela signifie que si un jumeau existe déjà, toute tentative visant à le recréer ne fera que le remplacer. Aucune erreur n’est requise.
+Notez qu’aucune erreur n’est générée quand les jumeaux sont créés la deuxième fois, bien qu’ils existent déjà après la première exécution. Contrairement à la création de modèle, la création de jumeau est, au niveau REST, un appel *PUT* avec une sémantique *upsert* . Cela signifie que si un jumeau existe déjà, toute tentative visant à le recréer ne fera que le remplacer. Aucune erreur n’est requise.
 
 ### <a name="create-relationships"></a>Créer des relations
 
-Ensuite, vous pouvez créer des **relations** entre les jumeaux que vous avez créés, afin de les raccorder sur un **graphe de jumeaux**. Les [graphes de jumeaux](concepts-twins-graph.md) servent à représenter votre environnement entier.
+Ensuite, vous pouvez créer des **relations** entre les jumeaux que vous avez créés, afin de les raccorder sur un **graphe de jumeaux** . Les [graphes de jumeaux](concepts-twins-graph.md) servent à représenter votre environnement entier.
 
-Pour pouvoir créer des relations, vous avez besoin de l’espace de noms `Azure.DigitalTwins.Core.Serialization`. Vous l’avez ajouté au projet précédemment avec cette instruction `using` :
+Pour faciliter la création de relations, cet exemple de code utilise l’espace de noms `Azure.DigitalTwins.Core.Serialization`. Vous l’avez ajouté au projet précédemment avec cette instruction `using` :
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` n’est pas nécessaire pour utiliser des relations et des jumeaux numériques ; il s’agit d’un espace de noms facultatif qui peut aider à obtenir des données dans le format approprié. Certaines alternatives à son utilisation sont les suivantes :
+>* Concaténation de chaînes pour former un objet JSON
+>* Utilisation d’un analyseur JSON, comme `System.Text.Json`, pour générer dynamiquement un objet JSON
+>* Modélisation de vos types personnalisés en C#, par leur instanciation et leur sérialisation dans des chaînes
+
 Ajoutez une nouvelle méthode statique à la classe `Program`, sous la méthode `Main` :
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +336,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Ensuite, ajoutez le code suivant à la fin de la méthode `Main` pour appeler le code `CreateRelationship` :
+Ensuite, ajoutez le code suivant à la fin de la méthode `Main` pour appeler la méthode `CreateRelationship` et utiliser le code que vous venez d’écrire :
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -455,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();

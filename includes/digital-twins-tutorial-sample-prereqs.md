@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: d8741ced0ea829da6912a85db10f881e23fa4530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062aa975deb71cdf7c76842d1e94152aff73b068
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292675"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92323332"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -18,8 +18,8 @@ Si vous ne disposez pas d’abonnement Azure, **créez un [compte gratuit](https
 
 Avant de commencer, **installez [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), version 16.5 ou ultérieure** sur votre ordinateur de développement. Si une version antérieure est déjà installée, vous pouvez ouvrir l’application *Visual Studio Installer* sur votre ordinateur et suivre les invites pour mettre à jour votre installation.
 
-Ce tutoriel est piloté par un exemple de projet écrit en C#. L’exemple se trouve ici : [Exemples Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Téléchargez l’exemple de projet** sur votre machine en suivant le lien de l’exemple, puis en sélectionnant le bouton *Télécharger le zip* sous le titre.
+Ce tutoriel est piloté par un exemple de projet écrit en C#. L’exemple se trouve ici : [Exemples Azure Digital Twins de bout en bout](/samples/azure-samples/digital-twins-samples/digital-twins-samples). **Téléchargez l’exemple de projet** sur votre machine en suivant le lien de l’exemple, puis en sélectionnant le bouton *Télécharger le zip* sous le titre.
 
-Cela téléchargera un dossier *.ZIP* sur votre machine : **Azure_Digital_Twins_samples.zip**. Décompressez le dossier et extrayez les fichiers.
+Cette opération téléchargera un dossier *.ZIP* sur votre machine : **Azure_Digital_Twins_end_to_end_samples.zip** . Décompressez le dossier et extrayez les fichiers.
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421286"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316002"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Démarrage rapide : Configurer Azure Attestation avec Azure PowerShell
 
@@ -186,7 +186,7 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-Les types d’environnements d’exécution approuvés (TEE, Trusted Execution Environment) pris en charge sont « sgxenclave » et « vbsenclave ».
+Les types d’environnements d’exécution de confiance (TEE, Trusted Execution Environment) pris en charge sont « SgxEnclave », « OpenEnclave » et « VbsEnclave ».
 
 Set-AttestationPolicy définit une nouvelle stratégie pour l’environnement TEE spécifié. L’applet de commande accepte une stratégie au format texte ou JWT et est contrôlée par le paramètre PolicyFormat. « Text » est la valeur par défaut de PolicyFormat. 
 

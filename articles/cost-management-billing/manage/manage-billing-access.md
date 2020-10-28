@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371811"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166214"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
 
@@ -51,19 +51,19 @@ Une fois que l’administrateur du compte a affecté les rôles appropriés aux 
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com/) en tant qu’administrateur de compte.
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Effectuez une recherche sur **Gestion des coûts + facturation** .
 
-    ![Capture d’écran montrant la recherche dans le portail Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Capture d’écran mettant en évidence Cost Management + Billing dans la section Services.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements**.
+1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements** .
 
     ![Capture d’écran montrant comment sélectionner des abonnements](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Sélectionnez **Factures**, puis **Accéder aux factures**.
+1. Sélectionnez **Factures** , puis **Accéder aux factures** .
 
     ![Capture d’écran montrant comment déléguer l’accès aux factures](./media/manage-billing-access/aa-optin01.png)
 
-1. Sélectionnez **Activé**, puis enregistrez.
+1. Sélectionnez **Activé** , puis enregistrez.
 
     ![Capture d’écran montrant les options Activé-Désactivé pour déléguer l’accès aux factures](./media/manage-billing-access/aa-optinallow01.png)
 
@@ -77,24 +77,24 @@ La fonctionnalité Lecteur de facturation est en préversion et ne prend pas enc
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com/) en tant qu’administrateur de compte.
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Effectuez une recherche sur **Gestion des coûts + facturation** .
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements**.
+1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis choisir **Abonnements** .
 
     ![Capture d’écran montrant comment sélectionner des abonnements](./media/manage-billing-access/billing-select-subscriptions.png)
 
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. En haut de la page, sélectionnez **Ajouter**.
+1. En haut de la page, sélectionnez **Ajouter** .
 
     ![Capture d'écran illustrant l’ajout d’une attribution de rôle](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. Dans la liste déroulante **Rôle**, choisissez **Lecteur de facturation**.
-1. Dans la zone de texte **Sélectionner**, tapez le nom ou l’e-mail de l’utilisateur que vous souhaitez ajouter.
+1. Dans la liste déroulante **Rôle** , choisissez **Lecteur de facturation** .
+1. Dans la zone de texte **Sélectionner** , tapez le nom ou l’e-mail de l’utilisateur que vous souhaitez ajouter.
 1. Sélectionnez l’utilisateur.
-1. Sélectionnez **Enregistrer**.
-    ![Capture d’écran illustrant l’ajout d’une attribution de rôle](./media/manage-billing-access/billing-save-role-assignment.png)
+1. Sélectionnez **Enregistrer** .
+    ![Capture d’écran mettant en évidence le bouton Enregistrer.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Après quelques instants, le rôle Lecteur de facturation est attribué à l’utilisateur concernant l’abonnement.
 

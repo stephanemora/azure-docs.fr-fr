@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874059"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207187"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
@@ -37,7 +37,7 @@ Suivez une version vidéo de ce tutoriel ci-dessous :
 
 ## <a name="writing-a-new-query"></a>Écriture d’une nouvelle requête
 
-Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
+Les requêtes peuvent commencer par un nom de table ou la commande *search* . Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
 
 > [!NOTE]
 > Le langage de requête Kusto utilisé par Azure Monitor est sensible à la casse. Les mots clés du langage sont généralement écrits en minuscules. Quand vous utilisez des noms de tables ou de colonnes dans une requête, veillez à utiliser la casse adéquate, comme indiqué dans le volet Schéma.
@@ -51,11 +51,11 @@ SecurityEvent
 | take 10
 ```
 
-La requête ci-dessus retourne 10 résultats à partir de la table *SecurityEvent*, sans ordre spécifique. Il s’agit d’une méthode très courante pour avoir un aperçu d’une table et comprendre sa structure et son contenu. Examinons la façon dont elle est construite :
+La requête ci-dessus retourne 10 résultats à partir de la table *SecurityEvent* , sans ordre spécifique. Il s’agit d’une méthode très courante pour avoir un aperçu d’une table et comprendre sa structure et son contenu. Examinons la façon dont elle est construite :
 
 * La requête commence par le nom de table *SecurityEvent* : cette partie définit l’étendue de la requête.
 * Le caractère barre verticale (|) sépare les commandes ; ainsi, la sortie de la première commande est l’entrée de la commande suivante. Vous pouvez enchaîner un nombre quelconque d’éléments avec le caractère barre verticale.
-* Le caractère barre verticale est suivi de la commande **take**, qui retourne un nombre spécifique d’enregistrements arbitraires à partir de la table.
+* Le caractère barre verticale est suivi de la commande **take** , qui retourne un nombre spécifique d’enregistrements arbitraires à partir de la table.
 
 Nous pourrions exécuter la requête sans ajouter `| take 10` : elle serait toujours valide, mais pourrait retourner jusqu’à 10 000 résultats.
 
@@ -83,14 +83,14 @@ SecurityEvent
 
 Cette opération pourrait cependant retourner trop de résultats et également prendre un certain temps. La requête ci-dessus trie *l’intégralité* de la table SecurityEvent en fonction de la colonne TimeGenerated. Ensuite, le portail Analytics limite l’affichage à 10 000 enregistrements uniquement. Bien sûr, cette approche n’est pas optimale.
 
-La meilleure façon d’obtenir uniquement les 10 enregistrements les plus récents consiste à utiliser **top**, qui trie la table entière côté serveur, puis retourne les premiers enregistrements :
+La meilleure façon d’obtenir uniquement les 10 enregistrements les plus récents consiste à utiliser **top** , qui trie la table entière côté serveur, puis retourne les premiers enregistrements :
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-L’ordre décroissant étant l’ordre de tri par défaut, nous omettons généralement l’argument **desc**. La sortie doit ressembler à ceci :
+L’ordre décroissant étant l’ordre de tri par défaut, nous omettons généralement l’argument **desc** . La sortie doit ressembler à ceci :
 
 ![Top 10](media/get-started-queries/top10.png)
 
@@ -112,7 +112,7 @@ Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressio
 | == | Vérifier l’égalité<br>(avec respect de la casse) | `Level == 8` |
 | =~ | Vérifier l’égalité<br>(sans respect de la casse) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | Vérifier l’inégalité<br>(les deux expressions sont identiques) | `Level != 4` |
-| *and*, *or* | Requis entre les conditions| `Level == 16 or CommandLine != ""` |
+| *and* , *or* | Requis entre les conditions| `Level == 16 or CommandLine != ""` |
 
 Pour filtrer en fonction de plusieurs conditions, vous pouvez utiliser **and** :
 
@@ -170,9 +170,9 @@ L’exemple précédent génère cette sortie :
 
 Vous pouvez également utiliser **project** pour renommer des colonnes et en définir de nouvelles. L’exemple suivant utilise project pour effectuer les opérations suivantes :
 
-* Sélectionner uniquement les colonnes d’origine *Computer* et *TimeGenerated*.
-* Renommer la colonne *Activity* en *EventDetails*.
-* Créer une colonne nommée *EventCode*. La fonction **substring()** est utilisée pour obtenir uniquement les quatre premiers caractères du champ Activity.
+* Sélectionner uniquement les colonnes d’origine *Computer* et *TimeGenerated* .
+* Affiche la colonne *Activity* en tant que *EventDetails* .
+* Créer une colonne nommée *EventCode* . La fonction **substring()** est utilisée pour obtenir uniquement les quatre premiers caractères du champ Activity.
 
 
 ```Kusto
@@ -181,7 +181,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter la colonne *EventCode*. Notez que cette colonne peut ne pas s’afficher à la fin des résultats de la table, auquel cas vous devrez développer les détails d’un enregistrement pour l’afficher.
+**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter la colonne *EventCode* . Notez que cette colonne peut ne pas s’afficher à la fin des résultats de la table, auquel cas vous devrez développer les détails d’un enregistrement pour l’afficher.
 
 ```Kusto
 SecurityEvent
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize : agréger des groupes de lignes
-Utilisez **summarize** pour identifier des groupes d’enregistrements, en fonction d’une ou plusieurs colonnes, et leur appliquer des agrégations. L’utilisation la plus courante de **summarize** est *count*, qui retourne le nombre de résultats contenus dans chaque groupe.
+Utilisez **summarize** pour identifier des groupes d’enregistrements, en fonction d’une ou plusieurs colonnes, et leur appliquer des agrégations. L’utilisation la plus courante de **summarize** est *count* , qui retourne le nombre de résultats contenus dans chaque groupe.
 
 La requête suivante passe en revue tous les enregistrements *Perf* générés au cours de la dernière heure, les regroupe par *ObjectName* et compte les enregistrements dans chaque groupe : 
 ```Kusto
@@ -226,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Résumer en fonction d’une colonne d’heure
 Le regroupement des résultats peut également reposer sur une colonne de temps ou une autre valeur continue. Cependant, une simple agrégation `by TimeGenerated` créerait des groupes pour chaque milliseconde de la plage de temps, car ce sont des valeurs uniques. 
 
-Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 7 derniers jours :
+Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin** . La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible ( *Available MBytes* ) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 7 derniers jours :
 
 ```Kusto
 Perf 

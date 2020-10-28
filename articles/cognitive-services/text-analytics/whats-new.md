@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015922"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166180"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -25,6 +25,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 
 * Prise en charge de la langue Hindi pour la fonctionnalité Analyse des sentiments v3.x, à partir de la version `2020-04-01` du modèle. 
 * La version `2020-09-01` du modèle pour le point de terminaison /languages de la v3 améliore la détection de la langue et renforce la précision.
+* Disponibilité de la v3 dans les régions Inde Centre et Émirats arabes unis Nord.
 
 ## <a name="september-2020"></a>Septembre 2020
 

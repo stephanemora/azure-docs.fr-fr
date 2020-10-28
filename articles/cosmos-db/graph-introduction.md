@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409610"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279837"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Présentation de l’API Gremlin dans Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
   Ne vous souciez plus de gérer les ressources de base de données et d’ordinateur. La plupart des plateformes de bases de données de graphes existantes dépendent des limites de leur infrastructure et nécessitent souvent un degré élevé de maintenance pour assurer leur fonctionnement. 
   
-  En tant que service complètement managé, Cosmos DB élimine la nécessité de gérer les machines virtuelles, de mettre à jour les logiciels d’exécution, de gérer le partitionnement ou la réplication, et de vous préoccuper des mises à niveau complexes de la couche Données. Chaque graphique est automatiquement sauvegardé et protégé contre les défaillances régionales. Ces garanties permettent aux développeurs de se concentrer sur la création de valeur applicative plutôt que sur l’exploitation et la gestion de leurs bases de données de graphes. 
+  En tant que service complètement managé, Cosmos DB élimine la nécessité de gérer les machines virtuelles, de mettre à jour les logiciels d’exécution, de gérer le partitionnement ou la réplication, et de vous préoccuper des mises à niveau complexes de la couche Données. Chaque graphique est automatiquement sauvegardé et protégé contre les défaillances régionales. Les développeurs peuvent ainsi se concentrer sur la création de valeur applicative plutôt que sur l’exploitation et la gestion de leurs bases de données de graphes. 
 
 * **Indexation automatique**
 
@@ -110,19 +110,19 @@ Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes 
 
 Ce graphe présente les types suivants de *sommets* (également appelés « label » dans Gremlin) :
 
-* **Personnes** : le graphique comporte trois personnes (Robin, Thomas et Ben).
-* **Centres d’intérêt** : leurs centres d'intérêt, dans cet exemple, le football.
+* **Personnes**  : le graphique comporte trois personnes (Robin, Thomas et Ben).
+* **Centres d’intérêt**  : leurs centres d'intérêt, dans cet exemple, le football.
 * **Appareils** : les appareils utilisés par ces personnes.
-* **Systèmes d’exploitation** : systèmes d'exploitation de ces appareils.
-* **Lieu** : lieux à partir desquels s’effectue l’accès aux appareils
+* **Systèmes d’exploitation**  : systèmes d'exploitation de ces appareils.
+* **Lieu**  : lieux à partir desquels s’effectue l’accès aux appareils
 
-Nous représentons les relations entre ces entités à l’aide des types d’*arêtes* suivants :
+Nous représentons les relations entre ces entités à l’aide des types d’ *arêtes* suivants :
 
-* **Connaît** : par exemple, « Thomas connaît Robin »
-* **S’intéresse** : pour représenter les centres d'intérêt des personnes dans notre graphe, par exemple, « Ben s'intéresse au football »
-* **ExécuteSE** : l'ordinateur portable exécute le système d'exploitation Windows
-* **Utilise** : pour représenter l'appareil qu'une personne utilise. Par exemple, Robin utilise un téléphone Motorola dont le numéro de série est 77
-* **Situé dans** : pour représenter le lieu d’accès aux appareils
+* **Connaît**  : par exemple, « Thomas connaît Robin »
+* **S’intéresse**  : pour représenter les centres d'intérêt des personnes dans notre graphe, par exemple, « Ben s'intéresse au football »
+* **ExécuteSE**  : l'ordinateur portable exécute le système d'exploitation Windows
+* **Utilise**  : pour représenter l'appareil qu'une personne utilise. Par exemple, Robin utilise un téléphone Motorola dont le numéro de série est 77
+* **Situé dans**  : pour représenter le lieu d’accès aux appareils
 
 La console Gremlin est un terminal interactif offert par Apache TinkerPop. Ce terminal sert à interagir avec les données de graphe. Pour plus d’informations, consultez le document de démarrage rapide expliquant [comment utiliser la console Gremlin](create-graph-gremlin-console.md). Vous pouvez également effectuer ces opérations à l’aide de pilotes de Gremlin dans la plateforme de votre choix (Java, Node.js, Python ou .NET). Les exemples suivants montrent comment exécuter des requêtes sur ces données de graphe à l’aide de la console Gremlin.
 

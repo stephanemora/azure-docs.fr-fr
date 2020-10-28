@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305781"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203618"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Configurer l’authentification unique (SSO) basée sur SAML d’une application dans votre locataire Azure Active Directory (Azure AD)
 
@@ -43,8 +43,8 @@ Dès que vous avez terminé l’ajout d’une application à votre locataire Azu
 
 Pour configurer l’authentification unique pour une application :
 
-1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise**. Ensuite, recherchez et sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
-1. Dans la section **Gérer**, sélectionnez **Authentification unique** pour ouvrir le volet **Authentification unique** à des fins de modification.
+1. Dans le portail Azure AD, sélectionnez **Applications d’entreprise** . Ensuite, recherchez et sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
+1. Dans la section **Gérer** , sélectionnez **Authentification unique** pour ouvrir le volet **Authentification unique** à des fins de modification.
 
     > [!IMPORTANT]
     > Si l’application utilise la norme OpenID Connect (OIDC) pour l’authentification unique, vous ne verrez pas d’option d’authentification unique dans la navigation. Reportez-vous au Guide de démarrage rapide sur l’authentification unique basée sur OIDC pour savoir comment la configurer.
@@ -68,7 +68,7 @@ Pour configurer l’authentification unique pour une application :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous aurez terminé cette série de guides de démarrage rapide, envisagez de supprimer l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
+Quand vous aurez terminé cette série de guides de démarrage rapide, supprimez l’application pour nettoyer votre locataire de test. La suppression de l’application est traitée dans le dernier guide de démarrage rapide de cette série : consultez [Supprimer une application](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

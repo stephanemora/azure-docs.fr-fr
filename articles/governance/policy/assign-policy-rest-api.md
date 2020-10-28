@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Nouvelle attribution de stratégie avec une API REST'
 description: Dans ce démarrage rapide, vous allez utiliser une API REST pour créer une attribution Azure Policy afin d’identifier des ressources non conformes.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88137086"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074003"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec une API REST
 
@@ -64,7 +64,7 @@ URI DE L’API REST :
 Corps de la demande :
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
 - **Description**  : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
-- **policyDefinitionId** : ID de définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **policyDefinitionId** : ID de définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ .
 
 ## <a name="identify-non-compliant-resources"></a>Identifier des ressources non conformes
 

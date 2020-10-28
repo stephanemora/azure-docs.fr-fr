@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212707"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102321"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -43,7 +43,7 @@ Azure Virtual WAN permet une architecture de réseau de transit global en fourni
 
 **Figure 2 : Réseau de transit global et Virtual WAN**
 
-Dans l’architecture Azure Virtual WAN, les hubs WAN virtuels sont provisionnés dans des régions Azure, auxquelles vous pouvez choisir de connecter vos branches, réseaux virtuels et utilisateurs distants. Les sites de branche physiques sont connectés au hub avec Premium ExpressRoute ou des VPN site à site ; les réseaux virtuels sont connectés au hub par des connexions de réseau virtuel ; et les utilisateurs distants peuvent se connecter directement au hub à l’aide d’un VPN utilisateur (VPN point à site). Virtual WAN prend également en charge la connexion de réseaux virtuels inter-régions qui permet de connecter un réseau virtuel dans une région à un hub WAN virtuel situé dans une autre région.
+Dans l’architecture Azure Virtual WAN, les hubs WAN virtuels sont provisionnés dans des régions Azure, auxquelles vous pouvez choisir de connecter vos branches, réseaux virtuels et utilisateurs distants. Les sites de succursale physiques sont connectés au hub via des connexions ExpressRoute Premium ou Standard ou des connexions VPN site à site, les réseaux virtuels sont connectés au hub par des connexions de réseau virtuel et les utilisateurs distants peuvent se connecter directement au hub à l’aide d’un VPN utilisateur (VPN point à site). Virtual WAN prend également en charge la connexion de réseaux virtuels inter-régions qui permet de connecter un réseau virtuel dans une région à un hub WAN virtuel situé dans une autre région.
 
 Vous pouvez établir un WAN virtuel en créant un seul hub WAN virtuel dans la région qui possède le plus grand nombre de rayons (branches, réseaux virtuels, utilisateurs), puis en connectant à ce hub les rayons qui se trouvent dans d’autres régions. Cette approche est conseillée quand l’empreinte informatique de l’entreprise se limite principalement à une région avec quelques rayons à distance.  
   
@@ -87,7 +87,7 @@ Branche à réseau virtuel est le principal chemin d’accès pris en charge par
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach et Virtual WAN
 
-ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. Virtual WAN prend en charge les connexions de circuits ExpressRoute. La connexion d’un site de succursale à Virtual WAN avec ExpressRoute nécessite 1) un circuit Premium 2) que ce circuit se trouve dans un emplacement avec Global Reach.
+ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. Virtual WAN prend en charge les connexions de circuits ExpressRoute. La connexion d’un site de succursale à Virtual WAN avec ExpressRoute nécessite 1) un circuit Premium ou Standard et 2) que ce circuit se trouve dans un emplacement doté de Global Reach.
 
 ExpressRoute Global Reach est une fonctionnalité de module complémentaire pour ExpressRoute. Avec Global Reach, vous pouvez associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux locaux. Les branches connectées à Azure Virtual WAN à l’aide d’ExpressRoute nécessitent ExpressRoute Global Reach pour communiquer entre elles.
 

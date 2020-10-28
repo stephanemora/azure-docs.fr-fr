@@ -4,28 +4,28 @@ titleSuffix: Azure App Configuration
 description: Découvrez comment créer un magasin Azure App Configuration à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824187"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149008"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Démarrage rapide : Créer un magasin Azure App Configuration avec un modèle Resource Manager
 
 Ce guide de démarrage rapide explique comment :
 
-- Déployer un magasin App Configuration avec un modèle Resource Manager
-- Créer des paires clé/valeur dans un magasin App Configuration avec un modèle Resource Manager
-- Lire les paires clé/valeur dans un magasin App Configuration à partir d’un modèle Resource Manager
+- Déployer un magasin App Configuration à l’aide d’un modèle Azure Resource Manager (modèle ARM).
+- Créer des paires clé/valeur dans un magasin App Configuration à l’aide d’un modèle ARM.
+- Lire des paires clé/valeur dans un magasin App Configuration à partir d’un modèle ARM.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -35,14 +35,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Il crée un magasin App Configuration avec deux paires clé/valeur à l’intérieur de celui-ci. Il utilise ensuite la fonction `reference` pour générer les valeurs des deux ressources clé/valeur. La lecture de la valeur de la clé de cette manière permet de l’utiliser ailleurs dans le modèle.
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Il crée un magasin App Configuration avec deux paires clé/valeur à l’intérieur de celui-ci. Il utilise ensuite la fonction `reference` pour générer les valeurs des deux ressources clé/valeur. La lecture de la valeur de la clé de cette manière permet de l’utiliser ailleurs dans le modèle.
 
 Le guide de démarrage rapide utilise l’élément `copy` pour créer plusieurs instances de la ressource clé-valeur. Pour en savoir plus sur l’élément `copy`, consultez [Itération des ressources dans les modèles Resource Manager](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Ce modèle nécessite la version de fournisseur de ressources App Configuration `2020-07-01-preview` ou ultérieure. Cette version utilise la fonction `reference` pour lire les paires clé/valeur. La fonction `listKeyValue` qui était utilisée pour lire les paires clé/valeur dans la version précédente n’est pas disponible à partir de la version `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 Deux ressources Azure sont définies dans le modèle :
 
@@ -83,10 +83,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Dans la zone de recherche du portail Azure, tapez **App Configuration**. Sélectionnez **App Configuration** dans la liste.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Dans la zone de recherche du portail Azure, tapez **App Configuration** . Sélectionnez **App Configuration** dans la liste.
 1. Sélectionnez la ressource App Configuration tout juste créée.
-1. Sous **Opérations**, cliquez sur **Explorateur de configurations**.
+1. Sous **Opérations** , cliquez sur **Explorateur de configurations** .
 1. Vérifiez que deux paires clé/valeur existent.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

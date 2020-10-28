@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f511a898b3b2964f954ba150b05f02486456dcf
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797715"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171483"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
@@ -77,7 +77,7 @@ Créer une application Hugo à l’aide de l’interface de ligne de commande (C
 
 Vous devez avoir un référentiel sur GitHub pour vous connecter à Azure Static Web Apps. Les étapes suivantes vous montrent comment créer un référentiel pour votre site.
 
-1. Créez un référentiel GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app**.
+1. Créez un référentiel GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app** .
 
 1. Ajoutez le référentiel GitHub en tant que référentiel distant pour votre référentiel local. Veillez à remplacer l’espace réservé `<YOUR_USER_NAME>` par votre nom d’utilisateur GitHub dans la commande suivante.
 
@@ -99,27 +99,27 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps**.
+1. Recherchez **Static Web Apps** .
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
 1. Cliquez sur **Créer**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
-1. Pour **Abonnement**, acceptez l’abonnement qui est listé ou sélectionnez-en un nouveau dans la liste déroulante.
+1. Pour **Abonnement** , acceptez l’abonnement qui est listé ou sélectionnez-en un nouveau dans la liste déroulante.
 
-1. Dans _Groupe de ressources_, sélectionnez **Nouveau**. Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **hugo-static-app**, puis sélectionnez **OK**.
+1. Dans _Groupe de ressources_ , sélectionnez **Nouveau** . Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **hugo-static-app** , puis sélectionnez **OK** .
 
-1. Ensuite, entrez un nom pour votre application dans la zone **Nom**. Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
+1. Ensuite, entrez un nom pour votre application dans la zone **Nom** . Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
 
 1. Dans _Region_ (Région), sélectionnez une région disponible proche de vous.
 
-1. Pour _SKU_, sélectionnez **Free** (Gratuit).
+1. Pour _SKU_ , sélectionnez **Free** (Gratuit).
 
    :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
 1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
 
-1. Sélectionnez l’**organisation** sous laquelle vous avez créé le référentiel.
+1. Sélectionnez l’ **organisation** sous laquelle vous avez créé le référentiel.
 
 1. Sélectionnez **hugo-static-app** comme _Repository_ (Référentiel).
 
@@ -135,7 +135,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Définissez _App location_ (Emplacement de l’application) sur **/** .
 
-1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public**.
+1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public** .
 
    Il n’est pas nécessaire de fournir une valeur pour _API location_ (Emplacement de l’API), puisque vous ne déployez pas d’API pour le moment.
 
@@ -150,6 +150,37 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 1. Dans la fenêtre _Overview_ (Vue d’ensemble) du portail Azure de la ressource Azure Static Web Apps nouvellement créée, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
+
+#### <a name="custom-hugo-version"></a>Version de Hugo personnalisée
+
+Lorsque vous générez une application web statique, un [fichier de workflow](./github-actions-workflow.md) est généré. Celui-ci contient les paramètres de configuration de la publication de l’application. Vous pouvez désigner une version spécifique de Hugo dans le fichier de workflow, en fournissant une valeur pour `HUGO_VERSION` dans la section `env`. L’exemple de configuration suivant montre comment définir une version spécifique de Hugo.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          app_artifact_location: "public" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+        env:
+          HUGO_VERSION: 0.58.0
+```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

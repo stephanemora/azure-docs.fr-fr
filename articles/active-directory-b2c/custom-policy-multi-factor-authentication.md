@@ -7,46 +7,40 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 69096e5f650a131c5af7ec4da60b7cbca225a56f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116607"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102066"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
 
-Cette fonctionnalité permettent aux applications de gérer des scénarios tels que le suivant :
+Cette fonctionnalité permet aux applications de gérer des scénarios tels que :
 
 - Vous n’avez pas besoin de l'authentification multifacteur pour accéder à une application, mais en avez besoin pour une autre. Par exemple, le client peut se connecter à une application d’assurance automobile avec un compte local ou social, mais il doit confirmer le numéro de téléphone avant d’accéder à l’application d’assurance habitation inscrite dans le même annuaire.
 - Vous n’avez pas besoin l'authentification multifacteur pour accéder à une application en général, mais en avez besoin pour accéder à des portions sensibles de celle-ci. Par exemple, le client peut se connecter à une application bancaire avec un compte local ou social pour consulter le solde de son compte, mais il doit confirmer le numéro de téléphone avant d’effectuer un virement.
 
 ## <a name="set-multi-factor-authentication"></a>Définir l'authentification multifacteur
 
-Quand vous créez un flux d’utilisateur, vous avez la possibilité d’activer l’authentification multifacteur.
-
-![Définir l'authentification multifacteur](./media/custom-policy-multi-factor-authentication/add-policy.png)
-
-Définissez **Authentification multifacteur** sur **Activé**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com)
+1. Utilisez le filtre **Annuaire + abonnement** dans le menu du haut pour sélectionner l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C** . Ou sélectionnez **Tous les services** , puis recherchez et sélectionnez **Azure AD B2C** .
+1. Sélectionnez **Flux d’utilisateurs** .
+1. Sélectionnez le flux d’utilisateurs pour lequel vous souhaitez activer l’authentification multifacteur. Par exemple, *B2C_1_signinsignup* .
+1. Sélectionner **Propriétés** .
+1. Dans la section **Authentification multifacteur** , sélectionnez la **méthode MFA** souhaitée puis, sous **Application MFA** , sélectionnez **Always-on** ou **[Conditionnelle](conditional-access-user-flow.md) (recommandé)** . Pour l’option Conditionnelle, créez une [stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md) et spécifiez les applications auxquelles vous souhaitez appliquer la stratégie. 
+1. Sélectionnez Enregistrer. La MFA est maintenant activée pour ce flux d’utilisateurs.
 
 Vous pouvez utiliser **Exécuter maintenant** sur le flux d’utilisateur à des fins de vérification. Vérifiez le scénario suivant :
 
 Un compte client est créé dans votre locataire avant l’étape d'authentification multifacteur. Lors de cette étape, le client est invité à fournir un numéro de téléphone et à le confirmer. Si la vérification aboutit, le numéro de téléphone est associé au compte en vue d’une utilisation ultérieure. Même si le client annule ou abandonne, il peut être invité à confirmer à nouveau un numéro de téléphone lors de la connexion suivante avec activation de l'authentification multifacteur.
 
-## <a name="add-multi-factor-authentication"></a>Ajouter une authentification multifacteur
-
-Il est possible d’activer l’authentification multifacteur sur un flux d’utilisateur que vous avez précédemment créé.
-
-Pour activer l’authentification multifacteur :
-
-1. Ouvrez le flux d’utilisateur, puis sélectionnez **Propriétés**.
-2. En regard d’**Authentification multifacteur**, sélectionnez **Activé**.
-3. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
 
 

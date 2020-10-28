@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Bien démarrer avec Azure Sentinel'
-description: Utilisez ce guide de démarrage rapide pour apprendre rapidement à afficher et superviser ce qui se passe dans votre environnement à l’aide d’Azure Sentinel. 
+description: Utilisez ce guide de démarrage rapide pour apprendre rapidement à afficher et superviser ce qui se passe dans votre environnement à l’aide d’Azure Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889139"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208224"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
@@ -26,7 +26,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à être rapidement cap
 
 ## <a name="get-visualization"></a>Visualisation
 
-Pour visualiser et bénéficier d’une analyse de ce qui se passe dans votre environnement, examinons tout d’abord le tableau de bord général pour avoir une idée de la sécurité de votre organisation. Vous pouvez cliquer sur chaque élément de ces vignettes pour explorer les données brutes à partir desquelles elles ont été créées. Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise une technique de fusion pour mettre en corrélation les alertes et les incidents. Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent un incident que vous pouvez examiner et résoudre.
+Pour visualiser et bénéficier d’une analyse de ce qui se passe dans votre environnement, examinons tout d’abord le tableau de bord général pour avoir une idée de la sécurité de votre organisation. Vous pouvez cliquer sur chaque élément de ces vignettes pour explorer les données brutes à partir desquelles elles ont été créées. Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise une technique de fusion pour mettre en corrélation les alertes et les incidents. Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent un incident actionnable que vous pouvez examiner et résoudre.
 
 - Dans le portail Azure, sélectionnez Azure Sentinel, puis sélectionnez l’espace de travail que vous souhaitez surveiller.
 
@@ -38,15 +38,15 @@ Pour visualiser et bénéficier d’une analyse de ce qui se passe dans votre en
 
 Le corps de la page de vue d’ensemble donne un aperçu de l’état de la sécurité de votre espace de travail :
 
-- **Événements et alertes au fil du temps** : présente le nombre d’événements et le nombre d’alertes créés à partir de ces événements. Si vous voyez un pic inhabituel, vous devriez voir des alertes. Si vous voyez quelque chose d’inhabituel avec un pic d’événements mais que vous ne voyez pas d’alertes, cela peut indiquer un problème.
+- **Événements et alertes au fil du temps**  : présente le nombre d’événements et le nombre d’alertes créés à partir de ces événements. Si vous voyez un pic inhabituel, vous devriez voir des alertes. Si vous voyez quelque chose d’inhabituel avec un pic d’événements mais que vous ne voyez pas d’alertes, cela peut indiquer un problème.
 
-- **Événements potentiellement malveillants** : lorsque du trafic est détecté venant de sources considérées comme malveillantes, Azure Sentinel vous alerte sur la carte. Si vous voyez de l’orange, il s’agit de trafic entrant : quelqu’un tente d’accéder à votre organisation depuis une adresse IP malveillante connue. Si vous voyez une activité sortante (en rouge), cela signifie que des données de votre réseau sont diffusées hors de votre organisation vers une adresse IP malveillante connue.
+- **Événements potentiellement malveillants**  : lorsque du trafic est détecté venant de sources considérées comme malveillantes, Azure Sentinel vous alerte sur la carte. Si vous voyez de l’orange, il s’agit de trafic entrant : quelqu’un tente d’accéder à votre organisation depuis une adresse IP malveillante connue. Si vous voyez une activité sortante (en rouge), cela signifie que des données de votre réseau sont diffusées hors de votre organisation vers une adresse IP malveillante connue.
 
    ![Carte de trafic malveillant](./media/qs-get-visibility/map.png)
 
-- **Incidents récents** : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associées aux incidents. Si vous voyez des pics soudains dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Microsoft Defender for Identity (anciennement Azure ATP), il est possible que quelqu’un tente actuellement une attaque.
+- **Incidents récents**  : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associées aux incidents. Si vous voyez un pic soudain dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Microsoft Defender for Identity (anciennement Azure ATP), il est possible que quelqu’un tente actuellement une attaque.
 
-- **Anomalies de source de données** : les analystes de données de Microsoft ont créé des modèles qui recherchent constamment les anomalies dans les données de vos sources de données. S’il n’y a pas d’anomalie, rien ne s’affiche. Si des anomalies sont détectées, vous devez allez voir ce qui s’est produit. Par exemple, cliquez sur le pic d’activité Azure. Vous pouvez cliquer sur le **graphique** pour voir quand le pic s’est produit, puis filtrer les activités qui se sont produites pendant cette période pour voir ce qui a provoqué le pic.
+- **Anomalies de source de données**  : les analystes de données de Microsoft ont créé des modèles qui recherchent constamment les anomalies dans les données de vos sources de données. S’il n’y a pas d’anomalie, rien ne s’affiche. Si des anomalies sont détectées, vous devez allez voir ce qui s’est produit. Par exemple, cliquez sur le pic d’activité Azure. Vous pouvez cliquer sur le **graphique** pour voir quand le pic s’est produit, puis filtrer les activités qui se sont produites pendant cette période pour voir ce qui a provoqué le pic.
 
    ![Sources de données anormales](./media/qs-get-visibility/anomolies.png)
 
@@ -54,10 +54,10 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent Azure AD, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/platform/workbooks-overview.md).
 
-1. Sous **Paramètres**, sélectionnez **Classeurs**. Sous **Installés**, vous pouvez voir tous vos classeurs installés. Sous **Tous**, vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
+1. Sous **Paramètres** , sélectionnez **Classeurs** . Sous **Installés** , vous pouvez voir tous vos classeurs installés. Sous **Tous** , vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
 2. Recherchez un classeur spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces classeurs propose. 
 3. En supposant que vous utilisiez Azure AD, pour être opérationnel avec Azure Sentinel, nous vous recommandons d’installer au moins les classeurs suivants :
-   - **Azure AD** : Utilisez une ou plusieurs des actions suivantes :
+   - **Azure AD**  : Utilisez une ou plusieurs des actions suivantes :
        - **connexions Azure AD** analyse les connexions pour détecter les anomalies. Ce classeur fournit les connexions ayant échoué à partir d’applications, d’appareils et d’emplacements afin que vous puissiez vérifier, en un clin d’œil, si quelque chose d’inhabituel se produit. Faites attention lorsque plusieurs connexions échouent. 
        - **Journaux d’audit Azure AD** analyse les activités d’administration, comme la modification des utilisateurs (ajout, suppression, etc.), la création de groupe et les modifications.  
 
@@ -74,14 +74,14 @@ Pour plus d’informations sur l’utilisation des requêtes, consultez [Tutorie
 
 Si vous souhaitez ajouter une nouvelle vignette, vous pouvez l’ajouter à un classeur existant, qu’il s’agisse d’un classeur que vous créez ou d’un classeur intégré d’Azure Sentinel. 
 1. Dans Log Analytics, créez une vignette selon les instructions figurant dans [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Une fois la vignette créée, sous **Épingler**, sélectionnez le classeur dans lequel vous voulez que la vignette apparaisse.
+2. Une fois la vignette créée, sous **Épingler** , sélectionnez le classeur dans lequel vous voulez que la vignette apparaisse.
 
 ## <a name="create-new-workbooks"></a>Créer des classeurs
 Vous pouvez créer un classeur de toutes pièces ou utiliser un classeur intégré comme point de départ de votre nouveau classeur.
 
-1. Pour créer un classeur de toutes pièces, sélectionnez **Classeurs**, puis **+Nouveau classeur**.
+1. Pour créer un classeur de toutes pièces, sélectionnez **Classeurs** , puis **+Nouveau classeur** .
 2. Sélectionnez l’abonnement dans lequel le classeur est créé, puis donnez-lui un nom descriptif. Chaque classeur est une ressource Azure comme n’importe quelle autre, et vous pouvez lui affecter des rôles (RBAC) pour en définir et en limiter l’accès. 
-3. Pour lui permettre de s’afficher dans vos classeurs dans lesquels épingler des visualisations, vous devez le partager. Cliquez sur **Partager**, puis sur **Gérer les utilisateurs**. 
+3. Pour lui permettre de s’afficher dans vos classeurs dans lesquels épingler des visualisations, vous devez le partager. Cliquez sur **Partager** , puis sur **Gérer les utilisateurs** . 
  
 1. Utilisez les options **Vérifier l’accès** et **Attributions de rôles** comme vous le feriez pour toute autre ressource Azure. Pour plus d’informations, consultez [Partager des classeurs Azure avec le contrôle d’accès en fonction du rôle (RBAC)](../azure-portal/azure-portal-dashboard-share-access.md).
 
@@ -119,7 +119,7 @@ Générez des détections sur les [sources de données que vous avez connectées
 
 Quand vous créez une détection, tirez parti des détections intégrées élaborées par les chercheurs en sécurité de Microsoft qui sont adaptées aux sources de données que vous avez connectées.
 
-Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique**, puis à **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
+Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique** , puis à **Modèles de règle** . Cet onglet contient toutes les règles intégrées Azure Sentinel.
 
    ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

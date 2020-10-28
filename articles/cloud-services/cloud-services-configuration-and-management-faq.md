@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070008"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144693"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -193,10 +193,10 @@ Windows 10 et Windows Server 2016 prennent en charge HTTP/2 à la fois côté cl
 
 1. Exécutez regedit.exe.
 2. Accédez à la clé de registre : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
-3. Créez une valeur DWORD nommée **DuoEnabled**.
+3. Créez une valeur DWORD nommée **DuoEnabled** .
 4. Définissez-la sur 1.
 5. Redémarrez votre serveur.
-6. Accédez à votre **site web par défaut** et sous **Liaisons**, créez une liaison TLS avec le certificat auto-signé qui vient d’être créé. 
+6. Accédez à votre **site web par défaut** et sous **Liaisons** , créez une liaison TLS avec le certificat auto-signé qui vient d’être créé. 
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -217,7 +217,7 @@ Pour plus d’informations, consultez [HTTP/2 sur IIS](https://blogs.iis.net/dav
 ## <a name="permissions"></a>Autorisations
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Comment implémenter l’accès en fonction du rôle pour les Services cloud ?
-Les Services cloud ne prennent pas en charge le modèle de contrôle d’accès en fonction du rôle (RBAC), car il ne s’agit pas d’un service Azure Resource Manager.
+Azure Cloud Services ne prend pas en charge le modèle de contrôle d’accès en fonction du rôle Azure (Azure RBAC), car il ne s’agit pas d’un service Azure Resource Manager.
 
 Voir [Comprendre les différents rôles dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -230,8 +230,8 @@ Microsoft suit un processus strict qui ne permet pas à ses ingénieurs internes
 
 Cette erreur peut se produire si vous utilisez le fichier RDP à partir d’une machine jointe à Azure Active Directory. Pour résoudre ce problème, effectuez les étapes suivantes :
 
-1. Cliquez avec le bouton droit sur le fichier RDP que vous avez téléchargé, puis sélectionnez **Modifier**.
-2. Ajoutez « &#92; » comme préfixe avant le nom d’utilisateur. Par exemple, utilisez **.\nom_utilisateur** au lieu de **nom_utilisateur**.
+1. Cliquez avec le bouton droit sur le fichier RDP que vous avez téléchargé, puis sélectionnez **Modifier** .
+2. Ajoutez « &#92; » comme préfixe avant le nom d’utilisateur. Par exemple, utilisez **.\nom_utilisateur** au lieu de **nom_utilisateur** .
 
 ## <a name="scaling"></a>Mise à l'échelle
 
@@ -255,7 +255,7 @@ Pour plus d’informations sur la façon d’activer la journalisation Diagnosti
 ## <a name="generic"></a>Générique
 
 ### <a name="how-do-i-add-nosniff-to-my-website"></a>Comment ajouter des directives « nosniff » à mon site web ?
-Pour empêcher les clients de détecter les types MIME, ajoutez un paramètre au fichier *web.config*.
+Pour empêcher les clients de détecter les types MIME, ajoutez un paramètre au fichier *web.config* .
 
 ```xml
 <configuration>

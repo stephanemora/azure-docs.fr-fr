@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998541"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277027"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
 
@@ -61,16 +61,16 @@ Le cycle de vie normal d’une instance d’hôte est le suivant :
 
 1. Lire le flux de modification.
 1. Si aucune modification n’est apportée, veillez pendant un intervalle de temps prédéfini (personnalisable avec `WithPollInterval` dans le générateur) et accédez à #1.
-1. En cas de modifications, envoyez-les au **délégué**.
+1. En cas de modifications, envoyez-les au **délégué** .
 1. Lorsque le délégué finit de traiter **correctement** les modifications, mettez à jour le magasin de baux avec le dernier point traité dans le temps et accédez à #1.
 
 ## <a name="error-handling"></a>Gestion des erreurs
 
 Le processeur de flux de modification résiste aux erreurs de code utilisateur. Cela signifie que si votre implémentation de délégué a une exception non gérée (étape #4), le thread qui traite ce lot de modifications particulier sera arrêté et un nouveau thread sera créé. Le nouveau thread vérifie le dernier point dans le temps du magasin de baux pour cette plage de valeurs de clé de partition, et redémarre à partir de là, en envoyant efficacement le même lot de modifications au délégué. Ce comportement se poursuit jusqu’à ce que votre délégué traite correctement les modifications et c’est la raison pour laquelle le processeur de flux de modification a une garantie « au moins une fois », car si le code de délégué lève une exception, il relance ce lot.
 
-Pour empêcher votre processeur de flux de modification de « se bloquer » en relançant continuellement le même lot de modifications, vous devez ajouter une logique dans votre code de délégué pour écrire des documents, en cas d’exception, dans une file d’attente de lettres mortes. Cette conception garantit que vous pouvez effectuer le suivi des modifications non traitées tout en continuant à traiter les futures modifications. La file d’attente de lettres mortes peut simplement être un autre conteneur Cosmos. Le magasin de données exact n’a pas d’importance. Il suffit juste que les modifications non traitées soient conservées.
+Pour empêcher votre processeur de flux de modification de « se bloquer » en relançant continuellement le même lot de modifications, vous devez ajouter une logique dans votre code de délégué pour écrire des documents, en cas d’exception, dans une file d’attente de lettres mortes. Cette conception garantit que vous pouvez effectuer le suivi des modifications non traitées tout en continuant à traiter les futures modifications. La file d’attente de lettres mortes peut être un autre conteneur Cosmos. Le magasin de données exact n’a pas d’importance. Il suffit juste que les modifications non traitées soient conservées.
 
-En outre, vous pouvez utiliser l’[estimateur de flux de modification](how-to-use-change-feed-estimator.md) pour surveiller la progression de vos instances de processeur de flux de modification au fur et à mesure qu’elles lisent le flux de modification. En plus de surveiller si le processeur de flux de modification se bloque en relançant en continu le même lot de modifications, vous pouvez également comprendre si votre processeur de flux de modification est en retard en raison des ressources disponibles, telles que le processeur, la mémoire et la bande passante réseau.
+En outre, vous pouvez utiliser l’[estimateur de flux de modification](how-to-use-change-feed-estimator.md) pour surveiller la progression de vos instances de processeur de flux de modification au fur et à mesure qu’elles lisent le flux de modification. Vous pouvez utiliser cette estimation pour déterminer si votre processeur de flux de modification est « bloqué » ou en retard en raison des ressources disponibles, telles que l’UC, la mémoire et la bande passante réseau.
 
 ## <a name="deployment-unit"></a>Unité de déploiement
 
@@ -94,7 +94,32 @@ En outre, le processeur de flux de modification peut s’ajuster de manière dyn
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Flux de modification et débit provisionné
 
-Vous êtes facturé pour les unités de requête consommées, car des unités de requête sont consommées lorsque vous déplacez des données vers et à partir des conteneurs Cosmos. La facturation tient compte de toutes les unités de requête consommées par le conteneur de baux.
+Les opérations de lecture du flux de modification sur le conteneur analysé consomment des unités de requête. 
+
+Les opérations sur le conteneur de baux consomment des unités de requête. Plus le nombre d’instances utilisant le même conteneur de baux est élevé, plus la consommation potentielle d’unités de requête sera importante. N’oubliez pas de surveiller votre consommation d’unités de requête sur le conteneur de baux si vous décidez de mettre à l’échelle et d’augmenter le nombre d’instances.
+
+## <a name="starting-time"></a>Heure de début
+
+Par défaut, lorsqu’un processeur de flux de modification démarre pour la première fois, il initialise le conteneur de baux et démarre son [cycle de vie de traitement](#processing-life-cycle). Toutes les modifications survenues dans le conteneur analysé avant la première initialisation du processeur de flux de modification ne seront pas détectées.
+
+### <a name="reading-from-a-previous-date-and-time"></a>Lecture à partir d’une date et d’une heure précédentes
+
+Il est possible d’initialiser le processeur de flux de modification pour lire les modifications à partir d’une **date et d’une heure spécifiques** , en passant une instance `DateTime` dans l’extension de générateur `WithStartTime` :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+Le processeur de flux de modification sera initialisé pour cette date et cette heure spécifiques et commencera à lire les modifications survenues en amont.
+
+### <a name="reading-from-the-beginning"></a>Lecture à partir du début
+
+Dans d’autres scénarios tels que la migration de données ou l’analyse de l’intégralité de l’historique d’un conteneur, nous devons lire le flux de modification à partir du **début de la durée de vie de ce conteneur** . Pour ce faire, nous pouvons utiliser `WithStartTime` sur l’extension du générateur, mais en passant `DateTime.MinValue.ToUniversalTime()`, ce qui génère la représentation UTC de la valeur `DateTime` minimale, comme ci-après :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+Le processeur de flux de modification est initialisé et commence à lire les modifications à partir du début de la durée de vie du conteneur.
+
+> [!NOTE]
+> Ces options de personnalisation ne fonctionnent que pour configurer le point de départ dans le temps du processeur de flux de modification. Une fois que le conteneur de baux a été initialisé pour la première fois, les modifier n’a plus aucun effet.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>Où héberger le processeur de flux de modification
 
@@ -105,7 +130,7 @@ Le processeur de flux de modification peut être hébergé sur n’importe quell
 * Un travail en arrière-plan dans [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * Un [service hébergé ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-Si le processeur de flux de modification peut s’exécuter dans des environnements à courte durée de vie, étant donné que le conteneur de baux conserve l’état, le cycle de démarrage et d’arrêt de ces environnements ajoutera un délai à la réception des notifications (en raison de la surcharge liée au démarrage du processeur chaque fois que l’environnement est démarré).
+Si le processeur de flux de modification peut s’exécuter dans des environnements à courte durée de vie, étant donné que le conteneur de baux conserve l’état, le cycle de démarrage de ces environnements ajoutera du retard à la réception des notifications (en raison de la surcharge liée au démarrage du processeur chaque fois que l’environnement est démarré).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

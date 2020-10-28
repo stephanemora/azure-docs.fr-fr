@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054744"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096196"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -57,7 +57,7 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Fournisseurs d’identité d’inscription ou de connexion
 
-L’ID des fournisseurs d’identité est configuré dans l’élément **ClaimsExchange** du parcours utilisateur. Pour localiser le titre du fournisseur d’identité, `ClaimsProvider` est affecté comme valeur d’**ElementType**, tandis que l’ID de `ClaimsExchange` est affecté comme valeur de **StringId**.
+L’ID des fournisseurs d’identité est configuré dans l’élément **ClaimsExchange** du parcours utilisateur. Pour localiser le titre du fournisseur d’identité, `ClaimsProvider` est affecté comme valeur d’ **ElementType** , tandis que l’ID de `ClaimsExchange` est affecté comme valeur de **StringId** .
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -343,7 +343,42 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 
 ## <a name="verification-display-control-user-interface-elements"></a>Éléments de l’interface utilisateur du contrôle de l’affichage de vérification
 
-Voici les ID d’un [contrôle d’affichage de vérification](display-control-verification.md)
+Voici les ID d’un [contrôle d’affichage de vérification](display-control-verification.md) avec la [version de mise en page](page-layout.md) 2.1.0 ou ultérieure.
+
+| id | Valeur par défaut |
+| -- | ------------- |
+|intro_msg| La vérification est nécessaire. Cliquez sur le bouton Envoyer.|
+|success_send_code_msg | Le code de vérification a été envoyé à votre boîte de réception. Veuillez le copier dans la zone d’entrée ci-dessous.|
+|failure_send_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Entrez une adresse e-mail valide et réessayez.|
+|success_verify_code_msg | Adresse e-mail vérifiée. Vous pouvez maintenant continuer.|
+|failure_verify_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Recommencez.|
+|but_send_code | Envoyer le code de vérification|
+|but_verify_code | Vérifier le code|
+|but_send_new_code | Envoyer le nouveau code|
+|but_change_claims | Modifier l'adresse e-mail|
+
+### <a name="verification-display-control-example"></a>Exemple de contrôle d’affichage de vérification
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>Éléments de l’interface utilisateur du contrôle de l’affichage de vérification (déconseillé)
+
+Voici les ID d’un [contrôle d’affichage de vérification](display-control-verification.md) avec la [version de mise en page](page-layout.md) 2.0.0.
 
 | id | Valeur par défaut |
 | -- | ------------- |
@@ -355,7 +390,7 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 |verification_control_but_verify_code |Vérifier le code |
 |verification_control_code_sent| Le code de vérification a été envoyé. Veuillez le copier dans la zone d’entrée ci-dessous. |
 
-### <a name="verification-display-control-example"></a>Exemple de contrôle d’affichage de vérification
+### <a name="verification-display-control-example-deprecated"></a>Exemple de contrôle d’affichage de vérification (déconseillé)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ Voici les ID d’un message d’erreur de [profil technique à mot de passe à u
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

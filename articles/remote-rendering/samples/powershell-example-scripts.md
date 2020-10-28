@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279013"
 ---
 # <a name="example-powershell-scripts"></a>Exemples de scripts PowerShell
 
@@ -22,18 +22,21 @@ Azure Remote Rendering fournit les deux API REST suivantes :
 
 Le [dépôt d’exemples ARR](https://github.com/Azure/azure-remote-rendering) contient des exemples de scripts situés dans le dossier *Scripts* qui permettent d’interagir avec les API REST du service. Cet article décrit leur utilisation.
 
+> [!TIP]
+> Il existe également un [outil basé sur l’interface utilisateur appelé ARRT](azure-remote-rendering-asset-tool.md), qui permet d’interagir avec le service, ce qui constitue une alternative pratique à l’utilisation de scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "Capture d’écran ARRT")
+
 > [!CAUTION]
-> Une fréquence trop élevée d’appels aux fonctions de l’API REST provoque la limitation du serveur, qui retourne une défaillance. Dans ce cas, l’ID de code d’échec HTTP est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs**.
+> Une fréquence trop élevée d’appels aux fonctions de l’API REST provoque la limitation du serveur, qui retourne une défaillance. Dans ce cas, l’ID de code d’échec HTTP est 429 (« trop de demandes »). En règle générale, il doit y avoir un délai de **5 à 10 secondes entre les appels successifs** .
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour exécuter les exemples de scripts, vous avez besoin d’une configuration fonctionnelle d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Pour exécuter les exemples de scripts, vous avez besoin d’une configuration fonctionnelle d’[Azure PowerShell](/powershell/azure/).
 
 1. Installez Azure PowerShell :
     1. Ouvrez une fenêtre PowerShell avec des droits d’administrateur.
     1. Exécutez l’instruction suivante : `Install-Module -Name Az -AllowClobber`
 
-1. Si vous recevez des erreurs concernant l’exécution des scripts, vérifiez que votre [stratégie d’exécution](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) est correctement configurée :
+1. Si vous recevez des erreurs concernant l’exécution des scripts, vérifiez que votre [stratégie d’exécution](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) est correctement configurée :
     1. Ouvrez une fenêtre PowerShell avec des droits d’administrateur.
     1. Exécutez l’instruction suivante : `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
@@ -44,7 +47,7 @@ Pour exécuter les exemples de scripts, vous avez besoin d’une configuration f
     1. Exécutez `Connect-AzAccount`, puis suivez les instructions à l’écran.
 
     > [!NOTE]
-    > Si votre organisation a plusieurs abonnements, vous devrez peut-être spécifier les arguments SubscriptionId et Tenant. Pour plus d’informations, consultez la [documentation sur Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > Si votre organisation a plusieurs abonnements, vous devrez peut-être spécifier les arguments SubscriptionId et Tenant. Pour plus d’informations, consultez la [documentation sur Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Téléchargez le dossier *Scripts* à partir du [dépôt GitHub Azure Remote Rendering](https://github.com/Azure/azure-remote-rendering).
 
@@ -90,14 +93,14 @@ Pour `region`, consultez la [liste des régions disponibles](../reference/region
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Cette structure doit être remplie si vous souhaitez exécuter **RenderingSession.ps1** :
+Cette structure doit être remplie si vous souhaitez exécuter **RenderingSession.ps1**  :
 
 - **vmSize :** sélectionnez la taille de la machine virtuelle. Sélectionnez [*standard*](../reference/vm-sizes.md) ou [*premium*](../reference/vm-sizes.md). Arrêtez les sessions de rendu lorsque vous n’en avez plus besoin.
 - **maxLeaseTime :** durée souhaitée du bail pour la machine virtuelle. Celle-ci sera arrêtée lorsque le bail expirera. La durée du bail peut être prolongée (voir ci-dessous).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Cette structure doit être remplie si vous souhaitez exécuter **Conversion.ps1**.
+Cette structure doit être remplie si vous souhaitez exécuter **Conversion.ps1** .
 
 Pour plus d’informations, consultez [Préparer un compte de stockage Azure](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
@@ -116,9 +119,9 @@ Utilisation normale avec un fichier arrconfig.json entièrement rempli :
 .\RenderingSession.ps1
 ```
 
-Le script appellera l’[API REST de gestion des sessions](../how-tos/session-rest-api.md) pour lancer une machine virtuelle de rendu avec les paramètres spécifiés. Si l’opération réussit, il récupérera le *sessionId*. Il interrogera ensuite les propriétés de la session jusqu’à ce que la session soit prête ou qu’une erreur se produise.
+Le script appellera l’[API REST de gestion des sessions](../how-tos/session-rest-api.md) pour lancer une machine virtuelle de rendu avec les paramètres spécifiés. Si l’opération réussit, il récupérera le *sessionId* . Il interrogera ensuite les propriétés de la session jusqu’à ce que la session soit prête ou qu’une erreur se produise.
 
-Pour utiliser un **autre fichier de configuration** :
+Pour utiliser un **autre fichier de configuration**  :
 
 ```PowerShell
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
@@ -130,7 +133,7 @@ Vous pouvez **remplacer certains paramètres** dans le fichier de configuration�
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
 ```
 
-Si vous souhaitez **démarrer une session sans l’interroger**, vous pouvez utiliser ceci :
+Si vous souhaitez **démarrer une session sans l’interroger** , vous pouvez utiliser ceci :
 
 ```PowerShell
 .\RenderingSession.ps1 -CreateSession
@@ -216,13 +219,13 @@ Avec cette opération, vous pouvez :
 
 ### <a name="additional-command-line-options"></a>Options supplémentaires de la ligne de commande
 
-Pour utiliser un **autre fichier de configuration** :
+Pour utiliser un **autre fichier de configuration**  :
 
 ```PowerShell
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Si vous souhaitez **démarrer une conversion de modèle sans l’interroger**, vous pouvez utiliser ceci :
+Si vous souhaitez **démarrer une conversion de modèle sans l’interroger** , vous pouvez utiliser ceci :
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
@@ -259,7 +262,7 @@ Chargez uniquement les données à partir du LocalAssetDirectoryPath donné.
 .\Conversion.ps1 -Upload
 ```
 
-Démarrez uniquement le processus de conversion d’un modèle déjà chargé dans le stockage Blob (sans exécuter l’option de chargement ni interroger l’état de la conversion). Le script retournera un *conversionId*.
+Démarrez uniquement le processus de conversion d’un modèle déjà chargé dans le stockage Blob (sans exécuter l’option de chargement ni interroger l’état de la conversion). Le script retournera un *conversionId* .
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset

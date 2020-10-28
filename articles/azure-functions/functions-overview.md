@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0583b68df603b04d47ac6104f0cf127b3c4bedd0
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77621003"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173721"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Présentation d’Azure Functions
 
@@ -25,23 +25,23 @@ Même si vous pouvez toujours programmer directement pour une multitude de servi
 
 Voici quelques fonctionnalités clés d’Azure Functions :
 
-- **Applications serverless** : Functions vous permet de développer des applications [serverless](https://azure.microsoft.com/solutions/serverless/) sur Microsoft Azure.
+- **Applications serverless**  : Functions vous permet de développer des applications [serverless](https://azure.microsoft.com/solutions/serverless/) sur Microsoft Azure.
 
-- **Choix du langage** : Écrivez des fonctions en choisissant parmi les langages [C#, Java, JavaScript, Python et PowerShell](supported-languages.md).
+- **Choix du langage**  : Écrivez des fonctions en choisissant parmi les langages [C#, Java, JavaScript, Python et PowerShell](supported-languages.md).
 
-- **Modèle tarifaire avec paiement à l’utilisation** : Payez seulement pour le temps passé à exécuter votre code. Reportez-vous à l’option de plan d’hébergement de consommation dans la [section relative à la tarification](#pricing).  
+- **Modèle tarifaire avec paiement à l’utilisation**  : Payez seulement pour le temps passé à exécuter votre code. Reportez-vous à l’option de plan d’hébergement de consommation dans la [section relative à la tarification](#pricing).  
 
-- **Apportez vos propres dépendances** : Functions prend en charge NuGet et NPM, ce qui vous donne accès à vos bibliothèques favorites.
+- **Apportez vos propres dépendances**  : Functions prend en charge NuGet et NPM, ce qui vous donne accès à vos bibliothèques favorites.
 
-- **Sécurité intégrée** : Protégez les fonctions déclenchées par HTTP avec fournisseurs OAuth comme Azure Active Directory, Facebook, Google, Twitter et Compte Microsoft.
+- **Sécurité intégrée**  : Protégez les fonctions déclenchées par HTTP avec fournisseurs OAuth comme Azure Active Directory, Facebook, Google, Twitter et Compte Microsoft.
 
-- **Intégration simplifiée** : Effectuez facilement une intégration aux services Azure et aux offres SaaS (Software-as-a-Service).
+- **Intégration simplifiée**  : Effectuez facilement une intégration aux services Azure et aux offres SaaS (Software-as-a-Service).
 
-- **Développement flexible** : Configurez une intégration continue et déployez votre code via [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md) et d’autres [outils de développement pris en charge](../app-service/deploy-local-git.md).
+- **Développement flexible**  : Configurez une intégration continue et déployez votre code via [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md) et d’autres [outils de développement pris en charge](../app-service/deploy-local-git.md).
 
-- **Architecture serverless avec état** : Orchestrez les applications serverless avec [Durable Functions](durable/durable-functions-overview.md).
+- **Architecture serverless avec état**  : Orchestrez les applications serverless avec [Durable Functions](durable/durable-functions-overview.md).
 
-- **Open source** : Le runtime Azure Functions est open source et disponible sur [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
+- **Open source**  : Le runtime Azure Functions est open source et disponible sur [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 
 ## <a name="what-can-i-do-with-functions"></a>Que puis-je faire avec Azure Functions ?
 
@@ -49,33 +49,33 @@ Functions est une solution idéale pour le traitement des données en bloc, l’
 
 Une série de modèles est disponible pour vous permettre de commencer avec des scénarios clés, notamment :
 
-- **HTTP** : Exécuter du code basé sur des [requêtes HTTP](functions-create-first-azure-function.md)
+- **HTTP**  : Exécuter du code basé sur des [requêtes HTTP](functions-create-first-azure-function.md)
 
-- **Minuteur** : Planifier l’[exécution du code à des moments prédéfinis](./functions-create-scheduled-function.md)
+- **Minuteur**  : Planifier l’ [exécution du code à des moments prédéfinis](./functions-create-scheduled-function.md)
 
-- **Azure Cosmos DB** : Traiter des [documents Azure Cosmos DB nouveaux et modifiés](./functions-create-cosmos-db-triggered-function.md)
+- **Azure Cosmos DB**  : Traiter des [documents Azure Cosmos DB nouveaux et modifiés](./functions-create-cosmos-db-triggered-function.md)
 
-- **Stockage Blob** : Traiter des [objets blob du Stockage Azure nouveaux et modifiés](./functions-create-storage-blob-triggered-function.md)
+- **Stockage Blob**  : Traiter des [objets blob du Stockage Azure nouveaux et modifiés](./functions-create-storage-blob-triggered-function.md)
 
-- **Stockage File d’attente** : Répondre à des [messages d’une file d’attente de Stockage Azure](./functions-create-storage-queue-triggered-function.md)
+- **Stockage File d’attente**  : Répondre à des [messages d’une file d’attente de Stockage Azure](./functions-create-storage-queue-triggered-function.md)
 
-- **Event Grid** : Répondre à des [événements Azure Event Grid via des abonnements et des filtres](../event-grid/resize-images-on-storage-blob-upload-event.md)
+- **Event Grid**  : Répondre à des [événements Azure Event Grid via des abonnements et des filtres](../event-grid/resize-images-on-storage-blob-upload-event.md)
 
-- **Event Hub** : Répondre à [de gros volumes d’événements Azure Event Hub](./functions-bindings-event-hubs.md)
+- **Event Hub**  : Répondre à [de gros volumes d’événements Azure Event Hub](./functions-bindings-event-hubs.md)
 
-- **File d’attente Service Bus** : Se connecter à d’autres services Azure ou à des services locaux en [répondant à des messages de file d’attente Service Bus](./functions-bindings-service-bus.md)
+- **File d’attente Service Bus**  : Se connecter à d’autres services Azure ou à des services locaux en [répondant à des messages de file d’attente Service Bus](./functions-bindings-service-bus.md)
 
-- **Rubrique Service Bus** : Se connecter à d’autres services Azure ou à des services locaux en [répondant à des messages de rubrique Service Bus](./functions-bindings-service-bus.md)
+- **Rubrique Service Bus**  : Se connecter à d’autres services Azure ou à des services locaux en [répondant à des messages de rubrique Service Bus](./functions-bindings-service-bus.md)
 
 ## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Combien coûte Azure Functions ?
 
 Azure Functions propose trois sortes de plans tarifaires. Choisissez celui qui répond le mieux à vos besoins :
 
-- **Plan Consommation** : Azure fournit toutes les ressources de calcul nécessaires. Vous n’avez pas à vous préoccuper de la gestion des ressources et seul le temps pendant lequel votre code s’exécute est facturé.
+- **Plan Consommation**  : Azure fournit toutes les ressources de calcul nécessaires. Vous n’avez pas à vous préoccuper de la gestion des ressources et seul le temps pendant lequel votre code s’exécute est facturé.
 
-- **Plan Premium** : Vous spécifiez un nombre d’instances préparées à l’utilisation qui sont toujours en ligne et prêtes à répondre immédiatement. Lorsque votre fonction est exécutée, Azure fournit toutes les ressources de calcul supplémentaires nécessaires. Vous payez les instances chauffées au préalable qui s’exécutent en continu ainsi que toutes les instances supplémentaires dont vous avez besoin à mesure qu’Azure effectue le scale-in/scale-out de votre application.
+- **Plan Premium**  : Vous spécifiez un nombre d’instances préparées à l’utilisation qui sont toujours en ligne et prêtes à répondre immédiatement. Lorsque votre fonction est exécutée, Azure fournit toutes les ressources de calcul supplémentaires nécessaires. Vous payez les instances chauffées au préalable qui s’exécutent en continu ainsi que toutes les instances supplémentaires dont vous avez besoin à mesure qu’Azure effectue le scale-in/scale-out de votre application.
 
-- **Plan App Service** : Exécutez vos fonctions exactement comme vos applications web. Si vous utilisez App Service pour vos autres applications, vos fonctions peuvent s’exécuter sur le même plan, sans coûts supplémentaires.
+- **Plan App Service**  : Exécutez vos fonctions exactement comme vos applications web. Si vous utilisez App Service pour vos autres applications, vos fonctions peuvent s’exécuter sur le même plan, sans coûts supplémentaires.
 
 Pour plus d’informations sur les plans d’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Vous trouverez toutes les informations sur la tarification sur la [page Tarification de Functions](https://azure.microsoft.com/pricing/details/functions/).
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309198"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173958"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
 
@@ -227,7 +227,11 @@ Pour plus d’informations, consultez la documentation de NGINX sur la [terminai
 
 
 ## <a name="example-api-request"></a>Exemple de demande API
-Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST.
+Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST.  Nous avons également fourni un outil de visualisation dans le conteneur qui est accessible en ajoutant la **version de démonstration** au point de terminaison du conteneur, par exemple :
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Utilisez l’exemple de requête cURL ci-dessous pour envoyer une requête au conteneur que vous avez déployé en remplaçant la variable `serverURL` par la valeur appropriée.
 
@@ -395,7 +399,7 @@ Fans certains cas, en utilisant la détection de négation, un terme de négatio
 
 ### <a name="relation-extraction-output"></a>Sortie d’extraction de relations
 
-La sortie d’extraction de relations contient des références URI à la *source* de la relation, et sa *cible*. Les entités ayant le rôle de relation de `ENTITY` sont affectées au champ `target`. Les entités ayant le rôle de relation de `ATTRIBUTE` sont affectées au champ `source`. Les relations d’abréviation contiennent des champs `source` et `target` bidirectionnels, et `bidirectional` sera défini sur `true`. 
+La sortie d’extraction de relations contient des références URI à la *source* de la relation, et sa *cible* . Les entités ayant le rôle de relation de `ENTITY` sont affectées au champ `target`. Les entités ayant le rôle de relation de `ATTRIBUTE` sont affectées au champ `source`. Les relations d’abréviation contiennent des champs `source` et `target` bidirectionnels, et `bidirectional` sera défini sur `true`. 
 
 ```json
 "relations": [

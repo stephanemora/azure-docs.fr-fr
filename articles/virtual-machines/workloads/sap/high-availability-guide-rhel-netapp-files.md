@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 51da96ab5c42c0b48f53969139bd8b87690b8319
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 14c5cd480f17e137965ae4bbf6700a36eb92cc3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329276"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167829"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP
 
@@ -182,85 +182,88 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Déployez les machin
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 192.168.14.9 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple, **frontend.QAS.ASCS**)
-         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple, **192.168.14.9**)
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple, **frontend.QAS.ASCS** )
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple, **192.168.14.9** )
          1. Cliquez sur OK
       1. Adresse IP 192.168.14.10 pour les instances ASCS ERS
-         * Répéter les étapes du point « a » afin de créer une adresse IP pour l’instance ERS (par exemple, **192.168.14.10** et **frontend.QAS.ERS**)
+         * Répéter les étapes du point « a » afin de créer une adresse IP pour l’instance ERS (par exemple, **192.168.14.10** et **frontend.QAS.ERS** )
    1. Créer le pool principal
       1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-      1. Entrer le nom du nouveau pool principal (par exemple, **backend.QAS**)
+      1. Entrer le nom du nouveau pool principal (par exemple, **backend.QAS** )
       1. Cliquer sur Ajouter une machine virtuelle
       1. Sélectionnez une machine virtuelle. 
       1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
       1. Cliquez sur Ajouter.
    1. Créer les sondes d’intégrité
-      1. Port 620**00** pour l’instance ASCS
+      1. Port 620 **00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple, **health.QAS.ASCS**).
-         1. Sélectionner le protocole TCP et le port 620**00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple, **health.QAS.ASCS** ).
+         1. Sélectionner le protocole TCP et le port 620 **00** , et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
          1. Cliquez sur OK
-      1. Port 621**01** pour les instances ASCS ERS
-            * Répéter les étapes du point « c » afin de créer une sonde d’intégrité pour l’instance ERS (par exemple, 621**01** et **health.QAS.ERS**)
+      1. Port 621 **01** pour les instances ASCS ERS
+            * Répéter les étapes du point « c » afin de créer une sonde d’intégrité pour l’instance ERS (par exemple, 621 **01** et **health.QAS.ERS** )
    1. Règles d’équilibrage de charge
       1. Règles d’équilibreur de charge pour ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle règle d’équilibreur de charge (par exemple, **lb.QAS.ASCS**)
-         1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS**, **backend.QAS** et **health.QAS.ASCS**)
+         1. Entrer le nom de la nouvelle règle d’équilibreur de charge (par exemple, **lb.QAS.ASCS** )
+         1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS** , **backend.QAS** et **health.QAS.ASCS** )
          1. Sélectionnez **Ports haute disponibilité**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
-         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **lb.QAS.ERS**)
+         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **lb.QAS.ERS** )
 1. Sinon, si votre scénario requiert l’équilibrage de charge de base (interne), procédez comme suit :  
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 192.168.14.9 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple, **frontend.QAS.ASCS**)
-         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple, **192.168.14.9**)
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple, **frontend.QAS.ASCS** )
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple, **192.168.14.9** )
          1. Cliquez sur OK
       1. Adresse IP 192.168.14.10 pour les instances ASCS ERS
-         * Répéter les étapes du point « a » afin de créer une adresse IP pour l’instance ERS (par exemple, **192.168.14.10** et **frontend.QAS.ERS**)
+         * Répéter les étapes du point « a » afin de créer une adresse IP pour l’instance ERS (par exemple, **192.168.14.10** et **frontend.QAS.ERS** )
    1. Créer le pool principal
       1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-      1. Entrer le nom du nouveau pool principal (par exemple, **backend.QAS**)
+      1. Entrer le nom du nouveau pool principal (par exemple, **backend.QAS** )
       1. Cliquer sur Ajouter une machine virtuelle
       1. Sélectionner le groupe à haute disponibilité créé précédemment pour l’instance ASCS 
       1. Sélectionner les machines virtuelles du cluster (A)SCS
       1. Cliquez sur OK
    1. Créer les sondes d’intégrité
-      1. Port 620**00** pour l’instance ASCS
+      1. Port 620 **00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple, **health.QAS.ASCS**).
-         1. Sélectionner le protocole TCP et le port 620**00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple, **health.QAS.ASCS** ).
+         1. Sélectionner le protocole TCP et le port 620 **00** , et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
          1. Cliquez sur OK
-      1. Port 621**01** pour les instances ASCS ERS
-            * Répéter les étapes du point « c » afin de créer une sonde d’intégrité pour l’instance ERS (par exemple, 621**01** et **health.QAS.ERS**)
+      1. Port 621 **01** pour les instances ASCS ERS
+            * Répéter les étapes du point « c » afin de créer une sonde d’intégrité pour l’instance ERS (par exemple, 621 **01** et **health.QAS.ERS** )
    1. Règles d’équilibrage de charge
-      1. TCP 32**00** pour l’instance ASCS
+      1. TCP 32 **00** pour l’instance ASCS
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple, **lb.QAS.ASCS.3200**).
-         1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS**)
+         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple, **lb.QAS.ASCS.3200** ).
+         1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS** )
          1. Conserver le protocole **TCP** et indiquer le port **3200**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
       1. Ports supplémentaires pour l’instance ASCS
-         * Répéter les étapes du point « d » pour les ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 et TCP pour l’instance ASCS
+         * Répéter les étapes du point « d » pour les ports 36 **00** , 39 **00** , 81 **00** , 5 **00** 13, 5 **00** 14, 5 **00** 16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
-         * Répéter les étapes du point « d » pour les ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 et TCP pour les instances ASCS ERS
+         * Répéter les étapes du point « d » pour les ports 32 **01** , 33 **01** , 5 **01** 13, 5 **01** 14, 5 **01** 16 et TCP pour les instances ASCS ERS
+
+      > [!IMPORTANT]
+      > Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.  
 
       > [!Note]
       > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
       > [!IMPORTANT]
-      > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
+      > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0** . Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer).
 
 ## <a name="disable-id-mapping-if-using-nfsv41"></a>Désactiver le mappage d’ID (en cas d’utilisation de NFSv4.1)
 
 Les instructions de cette section s’appliquent seulement si vous utilisez des volumes Azure NetApp Files avec le protocole NFSv4.1. Effectuez la configuration sur toutes les machines virtuelles où des volumes Azure NetApp Files NFSv4.1 seront montés.  
 
-1. Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine par défaut Azure NetApp Files, par exemple **`defaultv4iddomain.com`** et que le mappage est défini sur **nobody**.  
+1. Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine par défaut Azure NetApp Files, par exemple **`defaultv4iddomain.com`** et que le mappage est défini sur **nobody** .  
 
     > [!IMPORTANT]
     > Veillez à définir le domaine NFS dans `/etc/idmapd.conf` sur la machine virtuelle pour qu’elle corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **`defaultv4iddomain.com`** . En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que `nobody`.  
@@ -275,7 +278,7 @@ Les instructions de cette section s’appliquent seulement si vous utilisez des 
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Vérifiez `nfs4_disable_idmapping`. Cette option doit avoir la valeur **Y**. Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.  
+4. **[A]** Vérifiez `nfs4_disable_idmapping`. Cette option doit avoir la valeur **Y** . Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -504,7 +507,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/**QAS**/ASCS**00** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ASCS**00**, puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/ **QAS** /ASCS **00** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ASCS **00** , puis réessayez.
 
    ```
    sudo chown qasadm /usr/sap/QAS/ASCS00
@@ -571,7 +574,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
-   Si aucun sous-dossier n’est créé dans /usr/sap/**QAS**/ERS**01** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ERS**01**, puis réessayez.
+   Si aucun sous-dossier n’est créé dans /usr/sap/ **QAS** /ERS **01** lors de l’installation, essayez de définir le propriétaire et le groupe du dossier ERS **01** , puis réessayez.
 
    ```
    sudo chown qaadm /usr/sap/QAS/ERS01
@@ -754,7 +757,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    Les étapes ci-dessous partent du principe que vous installez le serveur d’applications sur un serveur différent des serveurs ASCS/SCS et HANA. Dans le cas contraire, certaines des étapes ci-dessous (par exemple la configuration de la résolution de nom d’hôte) ne sont pas nécessaires.  
 
-   Les éléments suivants sont précédés de [**A]** (applicable à PAS et à AAS), de **[P]** (applicable uniquement à PAS) ou de **[S]** (applicable uniquement à AAS).  
+   Les éléments suivants sont précédés de [ **A]** (applicable à PAS et à AAS), de **[P]** (applicable uniquement à PAS) ou de **[S]** (applicable uniquement à AAS).  
 
 1. **[A]** Configurer la résolution de noms d’hôte Vous pouvez utiliser un serveur DNS ou modifier le fichier /etc/hosts sur tous les nœuds. Cet exemple montre comment utiliser le fichier /etc/hosts.
    Remplacez l’adresse IP et le nom d’hôte dans les commandes suivantes :  
@@ -942,7 +945,7 @@ Suivez ces étapes pour installer un serveur d’applications SAP.
      DATABASE: QAS
    ```
 
-   La sortie indique que l’adresse IP de l’entrée par défaut pointe vers la machine virtuelle et non vers l’adresse IP de l’équilibreur de charge. Cette entrée doit être modifiée pour pointer vers le nom d’hôte virtuel de l’équilibreur de charge. Assurez-vous d’utiliser le même port (**30313** dans la sortie ci-dessus) et le même nom de base de données (**QAS** dans la sortie ci-dessus) !
+   La sortie indique que l’adresse IP de l’entrée par défaut pointe vers la machine virtuelle et non vers l’adresse IP de l’équilibreur de charge. Cette entrée doit être modifiée pour pointer vers le nom d’hôte virtuel de l’équilibreur de charge. Assurez-vous d’utiliser le même port ( **30313** dans la sortie ci-dessus) et le même nom de base de données ( **QAS** dans la sortie ci-dessus) !
 
    ```
    su - qasadm

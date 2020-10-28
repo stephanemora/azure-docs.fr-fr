@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930088"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201900"
 ---
 # <a name="securing-azure-sql-edge"></a>Sécurisation d’Azure SQL Edge
 
@@ -92,8 +92,8 @@ Le chiffrement ne résout pas les problèmes de contrôle d'accès. Toutefois, i
 
 Les meilleures pratiques de sécurité d’Azure SQL Edge incluent notamment l’écriture d’applications clientes sécurisées. Pour plus d’informations sur la façon de mieux sécuriser des applications clientes au niveau de la couche réseau, consultez [Configuration du réseau client](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>Affichages catalogue et fonctions de sécurité SQL Server  
- Des informations de sécurité sont exposées dans plusieurs affichages et fonctions optimisés à des fins de performances et d’utilité. Le tableau ci-dessous contient des informations sur les vues et les fonctions de sécurité.  
+### <a name="security-catalog-views-and-functions"></a>Affichages catalogue et fonctions de sécurité  
+Des informations de sécurité sont exposées dans plusieurs affichages et fonctions optimisés à des fins de performances et d’utilité. Le tableau ci-dessous contient des informations sur les affichages et les fonctions de sécurité dans Azure SQL Edge.  
   
 |Fonctions et affichages|Liens|  
 |---------------------------|---------|  

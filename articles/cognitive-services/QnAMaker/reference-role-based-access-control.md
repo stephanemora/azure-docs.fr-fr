@@ -1,19 +1,19 @@
 ---
-title: 'Contrôle d’accès en fonction du rôle (RBAC) : QnA Maker'
+title: Contrôle d’accès en fonction du rôle Azure (RBAC Azure) – QnA Maker
 description: Contrôler l’accès à QnA Maker avec les rôles Azure pour votre ressource QnA Maker
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 05/15/2020
-ms.openlocfilehash: efc2ca6ac00a8e310bc5c0b52741ae79fc5f3dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f24efaacefb269134232d3d88f4fff09413552e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776202"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146191"
 ---
-# <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+# <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
 Utilisez le tableau suivant pour déterminer les besoins d’accès à votre ressource QnA Maker.
 
-[!INCLUDE [RBAC list](./includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC list](./includes/role-based-access-control.md)]

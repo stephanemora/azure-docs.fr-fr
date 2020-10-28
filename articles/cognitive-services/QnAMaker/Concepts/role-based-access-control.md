@@ -5,28 +5,28 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 967fdae49f904f6c1cb450b637a8dbc5c481b135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776882"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147518"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborer avec d’autres auteurs et éditeurs
 
-Collaborez avec d’autres auteurs et éditeurs à l’aide du contrôle d’accès en fonction du rôle (RBAC) placé sur votre ressource QnA Maker.
+Collaborez avec d’autres auteurs et éditeurs à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC) placé sur votre ressource QnA Maker.
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>L’accès est fourni sur la ressource QnA Maker
 
 Toutes les autorisations sont contrôlées par les autorisations placées sur la ressource QnA Maker. Ces autorisations permettent la lecture, l’écriture, la publication et l’accès complet.
 
-Cette fonctionnalité de contrôle d’accès en fonction du rôle comprend :
-* Azure Active Directory (AAD) offre une compatibilité descendante de 100 % avec l’authentification basée sur les clés pour les propriétaires et les contributeurs. Les clients peuvent utiliser l’authentification basée sur les clés ou sur le contrôle d’accès en fonction du rôle pour leurs requêtes.
+Cette fonctionnalité Azure RBAC comprend :
+* Azure Active Directory (AAD) offre une compatibilité descendante de 100 % avec l’authentification basée sur les clés pour les propriétaires et les contributeurs. Les clients peuvent utiliser l’authentification par clé ou via Azure RBAC pour leurs requêtes.
 * Ajoutez rapidement des auteurs et des éditeurs à toutes les bases de connaissances de la ressource, car le contrôle se trouve au niveau de la ressource, et non au niveau de la base de connaissances.
 
 ## <a name="access-is-provided-by-a-defined-role"></a>L’accès est fourni par un rôle défini
 
-[!INCLUDE [RBAC permissions table](../includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC permissions table](../includes/role-based-access-control.md)]
 
 ## <a name="authentication-flow"></a>Flux d’authentification
 

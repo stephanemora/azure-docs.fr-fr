@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192821"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146321"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ L’authentification est le processus par lequel l’identité d’un utilisateu
 Chaque abonnement Azure peut être associé à une instance d’Azure Active Directory. Seuls les utilisateurs et les identités de service qui sont définis dans votre service Azure Active Directory peuvent accéder à votre compte Data Lake Storage Gen1, à l’aide du portail Azure, des outils de ligne de commande, ou via les applications clientes que votre organisation crée avec le Kit de développement logiciel (SDK) Data Lake Storage Gen1. Les principaux avantages de l’utilisation d’Azure Active Directory en tant que mécanisme de contrôle d’accès centralisé sont les suivants :
 
 * Gestion du cycle de vie des identités simplifiée. L’identité d’un utilisateur ou d’un service (une identité de principal du service) peut être rapidement créée et révoquée en supprimant ou en désactivant simplement le compte dans le répertoire.
-* Authentification multifacteur [L’authentification multifacteur](../active-directory/authentication/multi-factor-authentication.md) fournit une couche supplémentaire de sécurité pour les connexions et les transactions utilisateur.
+* Authentification multifacteur [L’authentification multifacteur](../active-directory/authentication/concept-mfa-howitworks.md) fournit une couche supplémentaire de sécurité pour les connexions et les transactions utilisateur.
 * Authentification à partir de n’importe quel client via un protocole ouvert standard, tel qu’OAuth ou OpenID.
 * Fédération avec les services de répertoire d’entreprise et les fournisseurs d’identité cloud.
 
@@ -42,7 +42,7 @@ Une fois qu’un utilisateur est authentifié par Azure Active Directory pour ac
 * [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) pour la gestion des comptes
 * ACL POSIX pour accéder aux données dans le magasin
 
-### <a name="rbac-for-account-management"></a>RBAC pour la gestion des comptes
+### <a name="azure-rbac-for-account-management"></a>Azure RBAC pour la gestion des comptes
 
 Par défaut, quatre rôles de base sont définis pour Data Lake Storage Gen1. Les rôles permettent d’exécuter différentes opérations sur un compte Data Lake Storage Gen1 via le portail Azure, les applets de commande PowerShell et les API REST. Les rôles Propriétaire et Collaborateur peuvent effectuer un large éventail de fonctions d’administration sur le compte. Vous pouvez assigner le rôle Lecteur aux utilisateurs qui voient uniquement les données de gestion des comptes.
 

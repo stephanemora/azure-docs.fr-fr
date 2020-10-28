@@ -1,23 +1,23 @@
 ---
 title: Informations sur la conformité réglementaire pour Azure Security Benchmark
 description: Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932173"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311461"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Informations sur l’initiative intégrée Conformité réglementaire Azure Security Benchmark
 
 L’article suivant explique en détail comment la définition de l’initiative intégrée Conformité réglementaire Azure Policy est mappée à des **domaines de conformité** et des **contrôles** dans Azure Security Benchmark.
-Pour plus d’informations sur cette norme de conformité, consultez [Azure Security Benchmark](../../../security/benchmarks/overview.md). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
+Pour plus d’informations sur cette norme de conformité, consultez [Azure Security Benchmark](../../../security/benchmarks/overview.md). Pour comprendre la _propriété_ , consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
-Les mappages suivants concernent les contrôles des **tests d’évaluation de sécurité Azure**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
-Ensuite, recherchez et sélectionnez la définition d’initiative intégrée Conformité réglementaire **Azure Security Benchmark**.
+Les mappages suivants concernent les contrôles des **tests d’évaluation de sécurité Azure** . Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions** .
+Ensuite, recherchez et sélectionnez la définition d’initiative intégrée Conformité réglementaire **Azure Security Benchmark** .
 
 Cette initiative intégrée est déployée dans le cadre de l’[exemple de blueprint Azure Security Benchmark](../../blueprints/samples/azure-security-benchmark.md).
 
@@ -29,7 +29,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
-**ID** : Azure Security Benchmark 1.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -45,9 +45,9 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 |[Key Vault doit utiliser un point de terminaison de service de réseau virtuel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea4d6841-2173-4317-9747-ff522a45120f) |Cette stratégie audite Key Vault s’il n’est pas configuré pour utiliser un point de terminaison de service de réseau virtuel. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_KeyVault_Audit.json) |
 |[Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |L’éventuel accès juste-à-temps (JIT) au réseau sera supervisé par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 |[Les ports de gestion doivent être fermés sur vos machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22730e10-96f6-4aac-ad84-9383d35b5917) |Les ports de gestion à distance ouverts exposent votre machine virtuelle à un niveau de risque élevé des attaques basées sur Internet. Ces attaques tentent d’attaquer par force brute les informations d’identification afin d’obtenir un accès administrateur à l’ordinateur. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OpenManagementPortsOnVirtualMachines_Audit.json) |
-|[Le point de terminaison privé doit être activé pour les serveurs MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a1302fb-a631-4106-9753-f3d494733990) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database for MariaDB privée. Configurez une connexion de point de terminaison privé pour permettre l’accès au trafic provenant uniquement de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_EnablePrivateEndPoint_Audit.json) |
-|[Le point de terminaison privé doit être activé pour les serveurs MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7595c971-233d-4bcf-bd18-596129188c49) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database pour MySQL privée. Configurez une connexion de point de terminaison privé pour permettre l’accès au trafic provenant uniquement de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnablePrivateEndPoint_Audit.json) |
-|[Le point de terminaison privé doit être activé pour les serveurs PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database pour PostgreSQL privée. Configurez une connexion de point de terminaison privé pour permettre l’accès au trafic provenant uniquement de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
+|[Le point de terminaison privé doit être activé pour les serveurs MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a1302fb-a631-4106-9753-f3d494733990) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database for MariaDB privée. Configurez une connexion de point de terminaison privé pour autoriser l’accès uniquement au trafic provenant de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_EnablePrivateEndPoint_Audit.json) |
+|[Le point de terminaison privé doit être activé pour les serveurs MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7595c971-233d-4bcf-bd18-596129188c49) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database pour MySQL privée. Configurez une connexion de point de terminaison privé pour autoriser l’accès uniquement au trafic provenant de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnablePrivateEndPoint_Audit.json) |
+|[Le point de terminaison privé doit être activé pour les serveurs PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0564d078-92f5-4f97-8398-b9f58a51f70b) |Les connexions des points de terminaison privés permettent de sécuriser les communications en rendant la connectivité à Azure Database pour PostgreSQL privée. Configurez une connexion de point de terminaison privé pour autoriser l’accès uniquement au trafic provenant de réseaux connus et empêcher l’accès à partir de toutes les autres adresses IP, y compris dans Azure. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnablePrivateEndPoint_Audit.json) |
 |[Service Bus doit utiliser un point de terminaison de service de réseau virtuel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |Cette stratégie audite Service Bus s’il n’est pas configuré pour utiliser un point de terminaison de service de réseau virtuel. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |
 |[SQL Server doit utiliser un point de terminaison de service de réseau virtuel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5d2f14-d830-42b6-9899-df6cfe9c71a3) |Cette stratégie audite tout serveur SQL Server non configuré pour utiliser un point de terminaison de service de réseau virtuel. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_SQLServer_AuditIfNotExists.json) |
 |[Les comptes de stockage doivent limiter l’accès réseau](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |L’accès réseau aux comptes de stockage doit être limité. Configurez les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions de clients Internet ou locaux spécifiques, l’accès au trafic peut être autorisé à partir de réseaux virtuels Azure spécifiques ou vers des plages d’adresses IP Internet publiques |Audit, Refuser, Désactivé |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
@@ -58,7 +58,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Surveiller et consigner la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**ID** : Azure Security Benchmark 1.2 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.2 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="protect-critical-web-applications"></a>Protéger les applications web critiques
 
-**ID** : Azure Security Benchmark 1.3 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.3 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**ID** : Azure Security Benchmark 1.4 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.4 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="record-network-packets-and-flow-logs"></a>Consigner les paquets réseau et les journaux de flux
 
-**ID** : Azure Security Benchmark 1.5 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.5 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
-**ID** : Azure Security Benchmark 1.11 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 1.11 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="configure-central-security-log-management"></a>Configurer la gestion des journaux de sécurité centrale
 
-**ID** : Azure Security Benchmark 2.2 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.2 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Activer la journalisation d’audit pour les ressources Azure
 
-**ID** : Azure Security Benchmark 2.3 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.3 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="collect-security-logs-from-operating-systems"></a>Collecter les journaux de sécurité des systèmes d’exploitation
 
-**ID** : Azure Security Benchmark 2.4 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.4 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="configure-security-log-storage-retention"></a>Configurer la conservation du stockage des journaux de sécurité
 
-**ID** : Azure Security Benchmark 2.5 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.5 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>Activer des alertes en cas d’activité anormale
 
-**ID** : Azure Security Benchmark 2.7 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.7 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="centralize-anti-malware-logging"></a>Centraliser la journalisation anti-programme malveillant
 
-**ID** : Azure Security Benchmark 2.8 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 2.8 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Tenir un inventaire des comptes d’administration
 
-**ID** : Azure Security Benchmark 3.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 3.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-dedicated-administrative-accounts"></a>Utiliser des comptes d’administration dédiés
 
-**ID** : Azure Security Benchmark 3.3 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 3.3 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**ID** : Azure Security Benchmark 3.5 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 3.5 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-azure-active-directory"></a>Utiliser Azure Active Directory
 
-**ID** : Azure Security Benchmark 3.9 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 3.9 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>Examiner et rapprocher régulièrement l’accès utilisateur
 
-**ID** : Azure Security Benchmark 3.10 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 3.10 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>Conserver un inventaire des informations sensibles
 
-**ID** : Azure Security Benchmark 4.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 4.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Chiffrer toutes les informations sensibles en transit
 
-**ID** : Azure Security Benchmark 4.4 **Propriété** : Partagé
+**ID**  : Azure Security Benchmark 4.4 **Propriété**  : Partagé
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>Utiliser un outil de découverte actif pour identifier les données sensibles
 
-**ID** : Azure Security Benchmark 4.5 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 4.5 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**ID** : Azure Security Benchmark 4.6 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 4.6 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>Chiffrer des informations sensibles au repos
 
-**ID** : Azure Security Benchmark 4.8 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 4.8 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**ID** : Azure Security Benchmark 4.9 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 4.9 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>Exécuter les outils d’analyse des vulnérabilités automatisés
 
-**ID** : Azure Security Benchmark 5.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 5.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**ID** : Azure Security Benchmark 5.2 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 5.2 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,23 +336,23 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>Déployer une solution de gestion de correctif logiciel tiers automatisée
 
-**ID** : Azure Security Benchmark 5.3 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 5.3 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Régulièrement, de nouvelles versions sont publiées pour Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications API afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Java pour les applications de fonction afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. L’utilisation de la version la plus récente de Java pour les applications web est recommandée pour tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
-|[Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Régulièrement, de nouvelles versions sont publiées pour le logiciel PHP, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de PHP pour les applications API afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Régulièrement, de nouvelles versions sont publiées pour le logiciel PHP, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de PHP pour les applications web afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
-|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications API afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications de fonction afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications web afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Régulièrement, de nouvelles versions sont publiées pour Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications API, afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Java pour les applications de fonction afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[Vérifier que la version de Java est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Java, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. L’utilisation de la version la plus récente de Java pour les applications web est recommandée pour tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Régulièrement, de nouvelles versions sont publiées pour le logiciel PHP, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de PHP pour les applications API afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Vérifier que la version de PHP est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Régulièrement, de nouvelles versions sont publiées pour le logiciel PHP, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de PHP pour les applications web afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications API, afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application de fonction](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications de fonction afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[Vérifier que la version de Python est la plus récente, si elle est utilisée dans le cadre de l’application web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Régulièrement, de nouvelles versions sont publiées pour le logiciel Python, soit en raison de failles de sécurité, soit pour inclure des fonctionnalités supplémentaires. Nous vous recommandons d’utiliser la version la plus récente de Python pour les applications web afin de tirer parti des correctifs de sécurité, le cas échéant, et/ou des nouvelles fonctionnalités. Actuellement, cette stratégie s’applique uniquement aux applications web Linux. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 |[Les services Kubernetes doivent être mis à niveau vers une version non vulnérable de Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |Mettez à niveau votre cluster Kubernetes Services vers une version ultérieure de Kubernetes pour le protéger des vulnérabilités connues de votre version Kubernetes actuelle. La vulnérabilité CVE-2019-9946 a été corrigée dans Kubernetes versions 1.11.9+, 1.12.7+, 1.13.5+ et 1.14.0+ |Audit, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**ID** : Azure Security Benchmark 5.5 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 5.5 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-only-approved-applications"></a>Utiliser des applications approuvées uniquement
 
-**ID** : Azure Security Benchmark 6.8 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 6.8 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-only-approved-azure-services"></a>Utiliser des services Azure approuvés uniquement
 
-**ID** : Azure Security Benchmark 6.9 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 6.9 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="implement-approved-application-list"></a>Implémenter une liste d’applications approuvées
 
-**ID** : Azure Security Benchmark 6.10 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 6.10 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="maintain-secure-operating-system-configurations"></a>Préserver la sécurité des configurations du système d'exploitation
 
-**ID** : Azure Security Benchmark 7.4 **Propriété** : Partagé
+**ID**  : Azure Security Benchmark 7.4 **Propriété**  : Partagé
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**ID** : Azure Security Benchmark 7.10 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 7.10 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="manage-azure-secrets-securely"></a>Gérer les secrets Azure en toute sécurité
 
-**ID** : Azure Security Benchmark 7.11 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 7.11 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -421,7 +421,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="manage-identities-securely-and-automatically"></a>Gérer les identités de façon sécurisée et automatique 
 
-**ID** : Azure Security Benchmark 7.12 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 7.12 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
-**ID** : Azure Security Benchmark 8.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 8.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**ID** : Azure Security Benchmark 8.3 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 8.3 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-regular-automated-back-ups"></a>garantir des sauvegardes automatisées régulières
 
-**ID** : Azure Security Benchmark 9.1 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 9.1 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**ID** : Azure Security Benchmark 9.2 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 9.2 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>garantir la protection des sauvegardes et des clés gérées par le client
 
-**ID** : Azure Security Benchmark 9.4 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 9.4 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -486,7 +486,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**ID** : Azure Security Benchmark 10.4 **Propriété** : Customer
+**ID**  : Azure Security Benchmark 10.4 **Propriété**  : Customer
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

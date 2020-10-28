@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715931"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167693"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -68,7 +68,7 @@ Des étapes d’inscription s’exécutent avant et après le traitement de la c
 
 - *La classe de démarrage est destinée uniquement à la configuration et à l’inscription.* Évitez d’utiliser des services inscrits au cours du processus de démarrage. Par exemple, n’essayez pas de consigner un message dans un enregistreur d’événements inscrit lors du démarrage. Cette étape du processus d’inscription est trop précoce pour que vos services soient disponibles. Une fois la méthode `Configure` exécutée, le runtime Functions continue d’inscrire des dépendances supplémentaires, ce qui peut affecter le fonctionnement de vos services.
 
-- *Le conteneur d’injection de dépendances contient uniquement des types inscrits explicitement*. Les seuls services disponibles en tant que types injectables sont ceux qui sont configurés dans la méthode `Configure`. Par conséquent, des types spécifiques d’Azure Functions, tels que `BindingContext` et `ExecutionContext`, ne sont pas disponibles pendant la configuration ou en tant que types injectables.
+- *Le conteneur d’injection de dépendances contient uniquement des types inscrits explicitement* . Les seuls services disponibles en tant que types injectables sont ceux qui sont configurés dans la méthode `Configure`. Par conséquent, des types spécifiques d’Azure Functions, tels que `BindingContext` et `ExecutionContext`, ne sont pas disponibles pendant la configuration ou en tant que types injectables.
 
 ## <a name="use-injected-dependencies"></a>Utiliser les dépendances injectées
 
@@ -118,9 +118,9 @@ Cet exemple utilise le package [Microsoft.Extensions.Http](https://www.nuget.org
 
 Les durées de service des applications Azure Functions sont identiques à celles du service d’[injection de dépendance ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Pour une application Azure Functions, les différentes durées de vie de service se comportent comme suit :
 
-- **Temporaire** : Des services temporaires sont créés à chaque demande du service.
-- **Inclus dans l’étendue** : La durée de vie du service étendu correspond à celle d’exécution de la fonction. Les services délimités sont créés une fois par exécution. Les demandes ultérieures pour ce service pendant l’exécution réutilisent l’instance de service existante.
-- **Singleton** : La durée de vie de service singleton correspond à celle de l’hôte, et est réutilisée entre les exécutions de la fonction sur cette instance. Les services à durée de vie singleton sont recommandés pour des connexions et des clients, par exemple, pour des instances `DocumentClient` ou `HttpClient`.
+- **Temporaire**  : Des services temporaires sont créés à chaque demande du service.
+- **Inclus dans l’étendue**  : La durée de vie du service étendu correspond à celle d’exécution de la fonction. Les services délimités sont créés une fois par exécution. Les demandes ultérieures pour ce service pendant l’exécution réutilisent l’instance de service existante.
+- **Singleton**  : La durée de vie de service singleton correspond à celle de l’hôte, et est réutilisée entre les exécutions de la fonction sur cette instance. Les services à durée de vie singleton sont recommandés pour des connexions et des clients, par exemple, pour des instances `DocumentClient` ou `HttpClient`.
 
 Affichez ou téléchargez un exemple [des différentes durées de vie de service](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) sur GitHub.
 
@@ -132,7 +132,7 @@ Application Insights est ajouté automatiquement par Azure Functions.
 
 > [!WARNING]
 > - N’ajoutez pas `AddApplicationInsightsTelemetry()` à la collection de services, car il enregistre des services en conflit avec les services fournis par l’environnement.
-> - N’inscrivez pas votre propre `TelemetryConfiguration` ou `TelemetryClient` si vous utilisez la fonctionnalité intégrée Application Insights. Si vous devez configurer votre propre instance `TelemetryClient`, créez-en une via la `TelemetryConfiguration` injectée, comme indiqué dans [Superviser Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - N’inscrivez pas votre propre `TelemetryConfiguration` ou `TelemetryClient` si vous utilisez la fonctionnalité intégrée Application Insights. Si vous devez configurer votre propre instance `TelemetryClient`, créez-en une via l’instance `TelemetryConfiguration` injectée, comme indiqué dans [Journaliser des données de télémétrie personnalisées dans les fonctions C#](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> et ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-Ajoutez des fournisseurs de configuration à la propriété `ConfigurationBuilder` de `IFunctionsConfigurationBuilder`. Pour plus d’informations sur l’utilisation de fournisseurs de configuration, consultez [Configuration dans ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Ajoutez des fournisseurs de configuration à la propriété `ConfigurationBuilder` de `IFunctionsConfigurationBuilder`. Pour plus d’informations sur l’utilisation de fournisseurs de configuration, consultez [Configuration dans ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 `FunctionsHostBuilderContext` est obtenu à partir de `IFunctionsConfigurationBuilder.GetContext()`. Utilisez ce contexte pour récupérer le nom de l’environnement actuel et résoudre l’emplacement des fichiers de configuration dans le dossier de votre application de fonction.
 

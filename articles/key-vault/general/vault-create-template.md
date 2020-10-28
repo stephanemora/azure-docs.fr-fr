@@ -1,6 +1,6 @@
 ---
-title: Guide Azure - Créer un coffre de clés et une stratégie d’accès à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
-description: Présente comment créer des coffres de clés Azure et des stratégies d’accès à l’aide d’un modèle Azure Resource Manager.
+title: Créer un coffre de clés Azure et une stratégie d’accès de coffre à l’aide d’un modèle Azure Resource Manager (ARM)
+description: Cet article explique comment créer des coffres de clés Azure et des stratégies d’accès à l’aide d’un modèle Azure Resource Manager.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,27 +10,27 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804253"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282329"
 ---
-# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Comment créer des coffres de clés Azure et des stratégies d’accès à l’aide d’un modèle Azure Resource Manager
+# <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Comment créer un coffre de clés Azure et une stratégie d’accès à l’aide d’un modèle Resource Manager
 
-[Azure Key Vault](../general/overview.md) est un service cloud qui propose un magasin sécurisé pour les secrets, comme les clés, les mots de passe, les certificats et autres secrets. Ce guide porte essentiellement sur le processus de déploiement d’un modèle ARM (Azure Resource Manager) en vue de créer un coffre de clés.
+[Azure Key Vault](../general/overview.md) est un service cloud qui fournit un magasin sécurisé pour des secrets tels que des clés, des mots de passe et des certificats. Ce guide décrit le processus de déploiement d’un modèle ARM (Azure Resource Manager) en vue de créer un coffre de clés.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce qui est décrit dans cet article :
+Pour accomplir les étapes décrites dans cet article :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 
-## <a name="create-key-vault-resource-manager-template"></a>Créer un modèle Resource Manager de coffre de clés
+## <a name="create-a-key-vault-resource-manager-template"></a>Créer un modèle Resource Manager de coffre de clés
 
 Le modèle suivant montre comment créer un coffre de clés de façon très simple. Certaines valeurs sont spécifiées dans le modèle.
 
@@ -87,11 +87,11 @@ Le modèle suivant montre comment créer un coffre de clés de façon très simp
 Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez [Référence sur le modèle ARM de coffre de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> Si le modèle est redéployé, il remplace toutes les stratégies d’accès existantes dans le coffre de clés. Il est recommandé de remplir la `accessPolicies` propriété avec les stratégies d’accès existantes pour éviter de perdre l’accès au coffre de clés. 
+> Si un modèle est redéployé, toutes les stratégies d’accès existantes dans le coffre de clés seront remplacées. Nous vous recommandons de renseigner la propriété `accessPolicies` avec les stratégies d’accès existantes afin d’éviter de perdre l’accès au coffre de clés. 
 
-## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Ajouter une stratégie d’accès au modèle Resource Manager de coffre de clés
+## <a name="add-an-access-policy-to-a-key-vault-resource-manager-template"></a>Ajouter une stratégie d’accès à un modèle Resource Manager de coffre de clés
 
-Vous pouvez déployer des stratégies d’accès à un coffre de clés existant sans redéploiement de l’intégralité du modèle de coffre de clés. Le modèle suivant montre comment créer des stratégies d’accès.
+Vous pouvez déployer des stratégies d’accès à un coffre de clés existant sans redéploiement de l’intégralité du modèle de coffre de clés. Le modèle suivant montre comment créer des stratégies d’accès :
 
 ```json
 {
@@ -160,23 +160,23 @@ Vous pouvez déployer des stratégies d’accès à un coffre de clés existant 
 }
 
 ```
-Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez [Référence sur le modèle ARM de coffre de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez notre page de [référence sur le modèle ARM de coffre de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## <a name="other-available-key-vault-resource-manager-templates"></a>Autres modèles Resource Manager de coffre de clés
+## <a name="more-key-vault-resource-manager-templates"></a>Modèles Resource Manager de coffre de clés supplémentaires
 
 Il existe d’autres modèles Resource Manager pour les objets Key Vault :
 
 | Secrets | Keys | Certificats |
 |--|--|--|
-|[Démarrage rapide](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Référence](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[Démarrage rapide](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Référence](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
-Autres modèles de Key Vault : [Référence Resource Manager pour Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Des modèles de coffre de clés supplémentaires sont disponibles ici : [Référence Resource Manager relative aux coffres de clés](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Déployer les modèles
 
-Vous pouvez utiliser le Portail Azure pour déployer les modèles ci-dessus à l’aide de l’option « Créer votre propre modèle dans l’éditeur » dans le guide ci-dessous : [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+Vous pouvez utiliser le portail Azure pour déployer les modèles précédents à l’aide de l’option **Build your own template in editor** (Créer votre modèle dans l’éditeur), comme décrit ici : [Déployer des ressources à partir d’un modèle personnalisé](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
-Vous pouvez également enregistrer les modèles ci-dessus dans des fichiers et utiliser les commandes suivantes :  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) et [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) :
+Vous pouvez également enregistrer les modèles précédents dans des fichiers et utiliser ces commandes :  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) et [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) :
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -188,7 +188,7 @@ az group deployment create --resource-group ExampleGroup --template-file key-vau
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous prévoyez d’utiliser d’autres démarrages rapides et tutoriels, il peut être utile de conserver ces ressources. Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, vous supprimez le coffre de clés et les ressources associées. Pour supprimer le groupe de ressources avec Azure CLI ou Azure PowerShell, procédez comme suit.
+Si vous prévoyez d’utiliser d’autres démarrages rapides et tutoriels, il peut être utile de conserver ces ressources. Lorsque vous n’avez plus besoin des ressources, supprimez le groupe de ressources. Si vous supprimez le groupe, le coffre de clés et les ressources associées sont également supprimés. Pour supprimer le groupe de ressources avec Azure CLI ou Azure PowerShell, procédez comme suit :
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 
@@ -211,12 +211,12 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="resources"></a>Ressources
 
-- Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
-- En savoir plus sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)
+- Consultez une [présentation d’Azure Key Vault](../general/overview.md).
+- Découvrez [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Examinez les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Sécuriser l’accès à un coffre de clés](secure-your-key-vault.md)
 - [S’authentifier auprès d’un coffre de clés](authentication.md)
-- [Guide du développeur Azure Key Vault](developers-guide.md)
+- [Guide du développeur de coffre de clés Azure](developers-guide.md)

@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les informations collectées au cours d
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776423"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152035"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
@@ -35,7 +35,7 @@ Utilisez les informations que vous avez rassemblées dans l’article [Planifica
 ## <a name="create-the-jump-box"></a>Créer le serveur de renvoi
 
 >[!IMPORTANT]
->Si vous avez laissé l’option **Réseau virtuel** vierge au cours de l’approvisionnement initial sur l’écran **Créer un cloud privé**, suivez le didacticiel [Configurer la mise en réseau pour votre cloud privé VMware ](tutorial-configure-networking.md)**avant** de passer à cette section.  
+>Si vous avez laissé l’option **Réseau virtuel** vierge au cours de l’approvisionnement initial sur l’écran **Créer un cloud privé** , suivez le didacticiel [Configurer la mise en réseau pour votre cloud privé VMware](tutorial-configure-networking.md)**avant** de passer à cette section.  
 
 Après avoir déployé Azure VMware Solution, vous créerez le serveur de rebond du réseau virtuel qui se connecte à vCenter et NSX. Une fois que vous avez configuré les circuits ExpressRoute et ExpressRoute Global Reach, le serveur de renvoi n’est pas nécessaire.  Mais il est pratique d’accéder à vCenter et à NSX dans votre Azure VMware Solution.  
 
@@ -67,7 +67,7 @@ Dans cet exemple, le réseau 10.74.72.0/22 entré pendant le déploiement dériv
 
 Connectez-vous au serveur de rebond que vous avez créé à l’étape précédente. Une fois que vous êtes connecté, ouvrez un navigateur web et connectez-vous à vCenter et à la console d’administration NSX-T.  
 
-Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console d’administration NSX-T dans le Portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
+Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console d’administration NSX-T dans le Portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble** , sélectionnez **Identité > Par défaut** . 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Créez un segment réseau dans Azure VMware Solution
 
@@ -82,7 +82,7 @@ Pour créer un segment réseau NSX-T dans Azure VMware Solution, suivez le didac
 
 Revenez à l’étape [Vérifier les itinéraires réseau publiés](#verify-network-routes-advertised) . Vous verrez un ou plusieurs itinéraires supplémentaires dans la liste représentant le ou les segments réseau que vous avez créés à l’étape précédente.  
 
-Pour les machines virtuelles, vous allez attribuer le ou les segments que vous avez créés à l’étape [Vérifier le segment NSX-T publié](#verify-advertised-nsx-t-segment).  
+Pour les machines virtuelles, vous allez attribuer le ou les segments que vous avez créés à l’étape [Créer un segment réseau sur Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution).  
 
 Comme DNS est requis, identifiez le serveur DNS que vous souhaitez utiliser.  
 

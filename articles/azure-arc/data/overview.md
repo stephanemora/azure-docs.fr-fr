@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944563"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316965"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Présentation des services de données avec Azure Arc (préversion)
 
@@ -33,7 +33,7 @@ Les services de données avec Azure Arc, tels que SQL Managed Instance avec Azur
 
 ## <a name="elastic-scale"></a>Mise à l’échelle élastique
 
-L'élasticité de type cloud disponible localement vous permet d'effectuer dynamiquement un scale-up ou un scale-down de vos bases de données en fonction de la capacité de votre infrastructure, de la même manière que dans Azure. Cette fonctionnalité peut convenir aux scénarios d'augmentation du trafic qui se caractérisent par des besoins volatils, notamment aux scénarios nécessitant l'ingestion et l'interrogation de données en temps réel, quelle que soit l'échelle, avec un temps de réponse inférieur à la seconde. En outre, vous pouvez effectuer un scale-out des instances de base de données à l'aide de l'option de déploiement hyperscale unique d'Azure Database pour PostgreSQL Hyperscale. Cette fonctionnalité permet aux charges de travail de données de bénéficier d'une optimisation supplémentaire en termes de capacité grâce à des lectures et à des écritures de scale-*out* uniques.
+L'élasticité de type cloud disponible localement vous permet d'effectuer dynamiquement un scale-up ou un scale-down de vos bases de données en fonction de la capacité de votre infrastructure, de la même manière que dans Azure. Cette fonctionnalité peut convenir aux scénarios d'augmentation du trafic qui se caractérisent par des besoins volatils, notamment aux scénarios nécessitant l'ingestion et l'interrogation de données en temps réel, quelle que soit l'échelle, avec un temps de réponse inférieur à la seconde. En outre, vous pouvez effectuer un scale-out des instances de base de données à l'aide de l'option de déploiement hyperscale unique d'Azure Database pour PostgreSQL Hyperscale. Cette fonctionnalité permet aux charges de travail de données de bénéficier d'une optimisation supplémentaire en termes de capacité grâce à des lectures et à des écritures de scale- *out* uniques.
 
 ## <a name="self-service-provisioning"></a>Approvisionnement en libre-service
 
@@ -41,7 +41,7 @@ Azure Arc offre également d'autres avantages liés au cloud, tels qu'un déploi
 
 ## <a name="unified-management"></a>Gestion unifiée
 
-À l'aide d'outils que vous connaissez déjà, comme le portail Azure, Azure Data Studio et Azure Data CLI, vous pouvez désormais profiter d'une vue unifiée sur toutes les ressources de données déployées avec Azure Arc. Vous pouvez non seulement visualiser et gérer différentes bases de données relationnelles au sein de votre environnement et d'Azure, mais également bénéficier de journaux et de données de télémétrie à partir d'API Kubernetes pour analyser la capacité et l'intégrité de l'infrastructure sous-jacente. Outre les fonctionnalités localisées d'analytique des journaux d'activité et d'analyse des performances, vous pouvez désormais tirer parti d'Azure Monitor pour obtenir des insights opérationnels complets sur l'ensemble de votre patrimoine.
+À l’aide d’outils que vous connaissez déjà, comme le portail Azure, d’Azure Data Studio et de l’[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], vous pouvez désormais profiter d’une vue unifiée sur toutes les ressources de données déployées avec Azure Arc. Vous pouvez non seulement visualiser et gérer différentes bases de données relationnelles au sein de votre environnement et d'Azure, mais également bénéficier de journaux et de données de télémétrie à partir d'API Kubernetes pour analyser la capacité et l'intégrité de l'infrastructure sous-jacente. Outre les fonctionnalités localisées d'analytique des journaux d'activité et d'analyse des performances, vous pouvez désormais tirer parti d'Azure Monitor pour obtenir des insights opérationnels complets sur l'ensemble de votre patrimoine.
 
 ## <a name="disconnected-scenario-support"></a>Prise en charge de scénarios déconnectés
 

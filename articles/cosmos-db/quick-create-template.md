@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85483293"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282189"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB à l’aide d’un modèle Resource Manager
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez utiliser Azure Cosmos DB pour créer et interroger rapidement des bases de données de clés/valeurs, de documents et de graphes. Ce guide de démarrage rapide porte essentiellement sur le processus de déploiement d’un modèle Resource Manager (Azure Resource Manager) pour créer une base de données Azure Cosmos DB et un conteneur dans cette base de données. Vous pouvez ensuite stocker des données dans ce conteneur.
+Azure Cosmos DB est la base de données NoSQL rapide de Microsoft avec des API ouvertes pour toute échelle. Vous pouvez utiliser Azure Cosmos DB pour créer et interroger rapidement des bases de données de clés/valeurs, de documents et de graphes. Ce guide de démarrage rapide porte essentiellement sur le processus de déploiement d’un modèle Resource Manager (Azure Resource Manager) pour créer une base de données Azure Cosmos DB et un conteneur dans cette base de données. Vous pouvez ensuite stocker des données dans ce conteneur.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -62,21 +62,21 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
     Sauf si elles sont spécifiées, utilisez les valeurs par défaut pour créer les ressources Azure Cosmos.
 
     * **Abonnement** : sélectionnez un abonnement Azure.
-    * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
-    * **Emplacement** : sélectionnez un emplacement.  Par exemple, **USA Centre**.
-    * **Nom du compte** : entrez un nom pour le compte Azure Cosmos. Il doit être globalement unique.
+    * **Groupe de ressources**  : sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK** .
+    * **Emplacement** : sélectionnez un emplacement.  Par exemple, **USA Centre** .
+    * **Nom du compte**  : entrez un nom pour le compte Azure Cosmos. Il doit être globalement unique.
     * **Emplacement** : entrez un emplacement où vous voulez créer votre compte Azure Cosmos. Le compte Azure Cosmos peut être au même emplacement que le groupe de ressources.
-    * **Région principale** : Région du réplica principal pour le compte Azure Cosmos.
-    * **Région secondaire** : Région du réplica secondaire pour le compte Azure Cosmos.
+    * **Région principale**  : Région du réplica principal pour le compte Azure Cosmos.
+    * **Région secondaire**  : Région du réplica secondaire pour le compte Azure Cosmos.
     * **Niveau de cohérence par défaut** : niveau de cohérence par défaut du compte Azure Cosmos.
     * **Préfixe d’obsolescence maximale** : nombre maximal de demandes périmées. Requis pour BoundedStaleness.
     * **Intervalle maximal en secondes** : temps de retard maximal. Requis pour BoundedStaleness.
-    * **Nom de la base de données** : Nom de la base de données Azure Cosmos.
-    * **Nom du conteneur** : Nom du conteneur Azure Cosmos.
+    * **Nom de la base de données**  : Nom de la base de données Azure Cosmos.
+    * **Nom du conteneur**  : Nom du conteneur Azure Cosmos.
     * **Débit** :  Débit pour le conteneur, la valeur minimale du débit est de 400 RU/s.
-    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
+    * **J’accepte les termes et conditions mentionnés ci-dessus**  : cochez la case.
 
-3. Sélectionnez **Achat**. Une fois que le compte Azure Cosmos a été déployé, vous recevez une notification :
+3. Sélectionnez **Achat** . Une fois que le compte Azure Cosmos a été déployé, vous recevez une notification :
 
    :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Déployer sur Azure":::
 

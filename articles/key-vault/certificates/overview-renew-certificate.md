@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588801"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124149"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renouveler des certificats Azure Key Vault
 
@@ -25,12 +25,20 @@ En utilisant des certificats à courte durée de vie ou en augmentant la fréque
 
 Cet article explique comment renouveler vos certificats Azure Key Vault.
 
-## <a name="get-notified-about-certificate-expirations"></a>Recevoir des notifications concernant les expirations de certificats
-Pour recevoir une notification lorsque vos certificats sont sur le point d’expirer, effectuez les étapes suivantes :
+## <a name="get-notified-about-certificate-expiration"></a>Recevoir des notifications concernant l’expiration des certificats
+Pour être informé des événements de la durée de vie d’un certificat, vous devez ajouter le contact de ce dernier. Les contacts du certificat contiennent des informations de contact pour l’envoi de notifications déclenchées par des événements de durée de vie de certificat. Les informations de contact sont partagées par tous les certificats dans le coffre de clés. Une notification est envoyée à tous les contacts spécifiés pour un événement pour n’importe quel certificat dans le coffre de clés.
 
-Tout d’abord, ajoutez un contact de certificat à votre coffre de clés à l’aide de l’applet de commande PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+### <a name="steps-to-set-certificate-notifications"></a>Étapes de définition des notifications de certificat :
+Tout d’abord, ajoutez un contact de certificat à votre coffre de clés. Vous pouvez effectuer l’ajout à l’aide du portail Azure ou de l’applet de commande PowerShell [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
 
 Ensuite, configurez le moment où vous souhaitez être averti de l’expiration du certificat. Pour configurer les attributs de cycle de vie du certificat, consultez [Configurer la rotation automatique d’un certificat dans Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Si la stratégie d’un certificat est définie sur le renouvellement automatique, une notification est alors envoyée pour les événements suivants.
+
+- Avant le renouvellement du certificat
+- Après le renouvellement du certificat, indiquant si le certificat a été renouvelé, ou si une erreur s’est produite, nécessitant un renouvellement manuel du certificat.  
+
+  Quand la stratégie d’un certificat est définie pour un renouvellement manuel (e-mail uniquement), une notification est envoyée lorsqu’il est temps de renouveler le certificat.  
 
 Dans Key Vault, il existe trois catégories de certificats :
 -   Certificats créés à l’aide d’une autorité de certification intégrée, telle que DigiCert ou GlobalSign
@@ -49,8 +57,8 @@ En utilisant Azure Key Vault, vous pouvez importer des certificats à partir de 
 Pour renouveler un certificat d’autorité de certification non intégrée, effectuez les étapes suivantes :
 
 1. Connectez-vous au portail Azure, puis ouvrez le certificat que vous souhaitez renouveler.
-1. Dans le volet du certificat, sélectionnez **Nouvelle version**.
-1. Sélectionnez **Opération de certificat**.
+1. Dans le volet du certificat, sélectionnez **Nouvelle version** .
+1. Sélectionnez **Opération de certificat** .
 1. Sélectionnez **Télécharger CSR** pour télécharger un fichier CSR sur votre disque local.
 1. Envoyez la demande de signature de certificat à l’autorité de certification de votre choix pour signer la demande.
 1. Ramenez la demande signée et sélectionnez **Fusionner CSR** dans le même volet d’opération de certificat.
@@ -71,7 +79,7 @@ Si le certificat émis est à l’état *Désactivé* dans le portail Azure, acc
 
 **Comment faire pour tester la fonctionnalité de rotation automatique du certificat ?**
 
-Créez un certificat avec une validité de **1 mois**, puis définissez l’action de durée de vie pour la rotation à **1 %** . Avec ce paramètre, il y aura une rotation du certificat toutes les 7,2 heures.
+Créez un certificat avec une validité de **1 mois** , puis définissez l’action de durée de vie pour la rotation à **1 %** . Avec ce paramètre, il y aura une rotation du certificat toutes les 7,2 heures.
   
 **Les étiquettes seront-elles répliquées après le renouvellement automatique du certificat ?**
 

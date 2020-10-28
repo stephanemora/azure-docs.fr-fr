@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256754"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103150"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
@@ -46,7 +46,7 @@ De nombreuses applications modernes ont un frontal d’application monopage écr
 
 Le diagramme ci-dessous illustre l’octroi du code d’autorisation OAuth 2.0 (avec des détails sur le PKCE omis), dans lequel l’application reçoit un code du point de terminaison de la plateforme d’identité Microsoft `authorize` et l’utilise pour les jetons et les jetons d’actualisation à l’aide de requêtes web intersites. Le jeton d’actualisation expire toutes les 24 heures, et l’application doit demander un autre code. En plus du jeton d’accès, une `id_token` qui représente l’utilisateur connecté à l’application cliente est généralement également demandée par le biais du même flux et/ou d’une demande de connexion OpenID distincte (non illustrée ici).
 
-![Flux de code pour les applications monopages](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagramme montrant le flot du code d’autorisation OAuth 2 entre une application à page unique et le point de terminaison du service d’émission de jeton de sécurité." border="false":::
 
 Pour voir ce scénario en action, consultez le [didacticiel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage JavaScript à l’aide d’un flux de code d’autorisation](tutorial-v2-javascript-auth-code.md).
 

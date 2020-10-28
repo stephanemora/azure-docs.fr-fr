@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376603"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157820"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Appel Azure Communication Services pour iOS.
 
@@ -28,7 +28,7 @@ Pour suivre ce tutoriel, vous devez disposer des prérequis suivants :
 
 ### <a name="creating-the-xcode-project"></a>Création du projet Xcode
 
-Dans Xcode, créez un projet iOS et sélectionnez le modèle **Single View App**. Ce tutoriel utilise le [framework SwiftUI](https://developer.apple.com/xcode/swiftui/) ; vous devez donc définir **Swift** comme **langage** et **SwiftUI** comme **interface utilisateur**. Vous n’allez pas créer de tests au cours de ce guide démarrage rapide. N’hésitez pas à décocher **Inclure des tests**.
+Dans Xcode, créez un projet iOS et sélectionnez le modèle **Single View App** . Ce tutoriel utilise le [framework SwiftUI](https://developer.apple.com/xcode/swiftui/) ; vous devez donc définir **Swift** comme **langage** et **SwiftUI** comme **interface utilisateur** . Vous n’allez pas créer de tests au cours de ce guide démarrage rapide. N’hésitez pas à décocher **Inclure des tests** .
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Capture d’écran représentant la fenêtre Nouveau projet dans Xcode.":::
 
@@ -41,10 +41,10 @@ Ajoutez la bibliothèque de client Appel Azure Communication Services et ses dé
 
 1. [Téléchargez](https://github.com/Azure/Communication/releases) la bibliothèque de client Appel Communication Services pour iOS.
 2. Dans Xcode, cliquez sur votre fichier projet et sélectionnez la cible de build pour ouvrir l’éditeur de paramètres du projet.
-3. Sous l’onglet **General**, accédez à la section **Frameworks, Libraries, and Embedded Content** (Frameworks, bibliothèques et contenu incorporé), puis cliquez sur l’icône **« + »** .
+3. Sous l’onglet **General** , accédez à la section **Frameworks, Libraries, and Embedded Content** (Frameworks, bibliothèques et contenu incorporé), puis cliquez sur l’icône **« + »** .
 4. En bas à gauche de la boîte de dialogue, utilisez la liste déroulante pour choisir **Add Files** (Ajouter des fichiers) et accédez au répertoire **AzureCommunicationCalling.framework** du package de la bibliothèque de client décompressé.
-    1. Répétez la dernière étape pour ajouter **AzureCore.framework** et **AzureCommunication.framework**.
-5. Ouvrez l’onglet **Build Settings** (Paramètres de build) de l’éditeur de paramètres du projet, puis faites défiler jusqu’à la section **Search Paths** (Chemins de recherche). Ajoutez une nouvelle entrée **Framework Search Paths** pour le répertoire contenant **AzureCommunicationCalling.framework**.
+    1. Répétez la dernière étape pour ajouter **AzureCore.framework** et **AzureCommunication.framework** .
+5. Ouvrez l’onglet **Build Settings** (Paramètres de build) de l’éditeur de paramètres du projet, puis faites défiler jusqu’à la section **Search Paths** (Chemins de recherche). Ajoutez une nouvelle entrée **Framework Search Paths** pour le répertoire contenant **AzureCommunicationCalling.framework** .
     1. Ajoutez une autre entrée Framework Search Paths pointant vers le dossier contenant les dépendances.
 
 :::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Capture d’écran représentant la fenêtre Nouveau projet dans Xcode.":::
@@ -53,7 +53,7 @@ Ajoutez la bibliothèque de client Appel Azure Communication Services et ses dé
 
 Pour accéder au microphone de l’appareil, vous devez mettre à jour la liste des propriétés d’informations de votre application avec un `NSMicrophoneUsageDescription`. Vous affectez une valeur `string` comme valeur associée qui sera incluse dans la boîte de dialogue affichée par le système pour demander l’accès à l’utilisateur.
 
-Cliquez avec le bouton droit sur l’entrée `Info.plist` de l’arborescence du projet, puis sélectionnez **Open As** > **Source Code**. Ajoutez les lignes suivantes dans la section `<dict>` tout en haut, puis enregistrez le fichier.
+Cliquez avec le bouton droit sur l’entrée `Info.plist` de l’arborescence du projet, puis sélectionnez **Open As** > **Source Code** . Ajoutez les lignes suivantes dans la section `<dict>` tout en haut, puis enregistrez le fichier.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -125,7 +125,7 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Initialisez une instance de `CallAgent` avec un jeton d’accès utilisateur qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant au rappel `onAppear` dans **ContentView.swift** :
+Initialisez une instance de `CallAgent` avec un jeton d’accès utilisateur qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant au rappel `onAppear` dans **ContentView.swift**  :
 
 ```swift
 var userCredential: CommunicationUserCredential?
@@ -155,7 +155,7 @@ Vous devez remplacer `<USER ACCESS TOKEN>` par un jeton d’accès utilisateur v
 
 ## <a name="start-a-call"></a>Démarrer un appel
 
-La méthode `startCall` est définie en tant qu’action qui sera exécutée lors d’un appui sur le bouton *Start Call*. Mettez à jour l’implémentation pour démarrer un appel avec `ASACallAgent` :
+La méthode `startCall` est définie en tant qu’action qui sera exécutée lors d’un appui sur le bouton *Start Call* . Mettez à jour l’implémentation pour démarrer un appel avec `ASACallAgent` :
 
 ```swift
 func startCall()
@@ -175,7 +175,7 @@ Vous pouvez également utiliser les propriétés dans `ACSStartCallOptions` pour
 
 ## <a name="end-a-call"></a>Terminer un appel
 
-Implémentez la méthode `endCall` pour terminer l’appel en cours en cas d’appui sur le bouton *End Call*.
+Implémentez la méthode `endCall` pour terminer l’appel en cours en cas d’appui sur le bouton *End Call* .
 
 ```swift
 func endCall()
@@ -194,10 +194,10 @@ Vous pouvez générer et exécuter votre application sur un simulateur iOS en s�
 
 :::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Capture d’écran représentant la fenêtre Nouveau projet dans Xcode.":::
 
-Vous pouvez établir un appel VoIP sortant en fournissant un ID d’utilisateur dans le champ de texte et en appuyant sur le bouton **Start Call**. L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent. 
+Vous pouvez établir un appel VoIP sortant en fournissant un ID d’utilisateur dans le champ de texte et en appuyant sur le bouton **Start Call** . L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent. 
 
 > [!NOTE]
-> La première fois que vous effectuez un appel, le système vous invite à accorder l’accès au microphone. Dans une application de production, vous devez utiliser l’API `AVAudioSession` [vérifier l’état de l’autorisation](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) et mettre à jour le comportement de votre application de manière appropriée lorsque l’autorisation n’est pas accordée.
+> La première fois que vous effectuez un appel, le système vous invite à accorder l’accès au microphone. Dans une application de production, vous devez utiliser l’API `AVAudioSession` pour [vérifier l’état de l’autorisation](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) et mettre à jour le comportement de votre application de manière appropriée quand l’autorisation n’est pas accordée.
 
 ## <a name="sample-code"></a>Exemple de code
 

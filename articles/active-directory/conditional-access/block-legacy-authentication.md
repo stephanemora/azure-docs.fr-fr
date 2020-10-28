@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602001"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145528"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -37,10 +37,7 @@ Si votre environnement est prêt à bloquer l’authentification héritée pour 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose de connaître : 
-
-- [Concepts de base](overview.md) de l’accès conditionnel Azure AD 
-- [Meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le Portail Microsoft Azure
+Cet article suppose que vous connaissez bien les [concepts de base](overview.md) de l’accès conditionnel Azure AD.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -83,8 +80,8 @@ Pour plus d’informations sur ces protocoles et services d’authentification, 
 
 Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
 
-1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
-1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
+1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions** .
+1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente** .
 1. **Ajouter des filtres** > **Application cliente** > sélectionnez tous les protocoles d’authentification hérités. Sélectionnez en dehors de la boîte de dialogue de filtrage pour appliquer vos sélections, puis fermez la boîte de dialogue.
 
 Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
@@ -100,7 +97,7 @@ Il existe deux façon d’utiliser des stratégies d’accès conditionnel pour 
  
 ### <a name="directly-blocking-legacy-authentication"></a>Blocage direct de l’authentification héritée
 
-Le moyen le plus simple de bloquer l’authentification héritée dans toute votre organisation consiste à configurer une stratégie d’accès conditionnel qui s’applique spécifiquement aux clients d’authentification héritée et bloque l’accès. Lorsque vous affectez des utilisateurs et des applications à la stratégie, veillez à exclure les utilisateurs et les comptes de service qui doivent encore se connecter à l’aide de l’authentification héritée. Configurez la condition des applications clientes en sélectionnant **Clients Exchange ActiveSync** et **Autres clients**. Pour bloquer l’accès à ces applications clientes, configurez les contrôles d’accès pour bloquer l’accès.
+Le moyen le plus simple de bloquer l’authentification héritée dans toute votre organisation consiste à configurer une stratégie d’accès conditionnel qui s’applique spécifiquement aux clients d’authentification héritée et bloque l’accès. Lorsque vous affectez des utilisateurs et des applications à la stratégie, veillez à exclure les utilisateurs et les comptes de service qui doivent encore se connecter à l’aide de l’authentification héritée. Configurez la condition des applications clientes en sélectionnant **Clients Exchange ActiveSync** et **Autres clients** . Pour bloquer l’accès à ces applications clientes, configurez les contrôles d’accès pour bloquer l’accès.
 
 ![Condition des applications clientes configurée pour bloquer l’authentification héritée](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
@@ -112,13 +109,13 @@ Même si votre organisation n’est pas prête à bloquer l’authentification h
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-En bloquant l’accès avec **Autres clients**, vous empêchez également Exchange Online PowerShell et Dynamics 365 d’utiliser l’authentification de base.
+En bloquant l’accès avec **Autres clients** , vous empêchez également Exchange Online PowerShell et Dynamics 365 d’utiliser l’authentification de base.
 
 La configuration d’une stratégie pour **d’autres clients** bloque l’organisation entière à partir de certains clients tels que SPConnect. Ce blocage se produit, car les clients plus anciens s’authentifient de manière inattendue. Ce problème ne concerne pas aux principales applications Office, telles que les anciens clients Office.
 
 L’entrée en vigueur de la stratégie peut prendre jusqu’à 24 heures.
 
-Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la condition **Autre clients**. Toutefois, l’expérience de l’utilisateur final est toujours la même : un accès bloqué.
+Vous pouvez sélectionner tous les contrôles d’octroi disponibles pour la condition **Autre clients** . Toutefois, l’expérience de l’utilisateur final est toujours la même : un accès bloqué.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

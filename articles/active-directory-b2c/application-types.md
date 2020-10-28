@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84295420"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215402"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Active Directory B2C
-
+ 
 Azure Active Directory B2C (Azure AD B2C) prend en charge l’authentification pour une large gamme d’architectures d’applications modernes. Toutes sont basées sur les protocoles standard [OAuth 2.0](protocols-overview.md) ou [OpenID Connect](protocols-overview.md). Cet article décrit les types d’applications que vous pouvez créer, indépendamment de votre langage et de votre plateforme préférés. Il vous permet également de comprendre les principaux scénarios avant de commencer à créer des applications.
 
 Chaque application qui utilise Azure AD B2C doit être inscrite auprès de votre [locataire Azure AD B2C](tutorial-create-tenant.md) dans le [portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte et attribue des valeurs, par exemple :
@@ -75,6 +75,26 @@ Pour voir ce scénario à l’œuvre, exécutez l’un des exemples de code de c
 
 Outre la simplification des connexions, une application de serveur web peut également nécessiter l’accès à un service web backend. Dans ce cas, l’application web peut exécuter un [flux OpenID Connect](openid-connect.md) légèrement différent et acquérir des jetons à l’aide de codes d’autorisation et de jetons d’actualisation. Ce scénario est représenté dans la section [API Web](#web-apis)ci-après.
 
+## <a name="single-page-applications"></a>Applications monopages
+De nombreuses applications web modernes sont créées en tant qu’applications monopages (« SPA ») côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework d’application monopage, comme Angular, Vue et React. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur.
+
+Azure AD B2C offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
+
+### <a name="authorization-code-flow-with-pkce"></a>Flux de code d’autorisation (avec PKCE)
+- [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./authorization-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’ **ID** afin de représenter l’utilisateur authentifié et des jetons d’ **accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’ **actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. 
+
+Il s’agit de l’approche **recommandée** . Le fait d’avoir des jetons d’actualisation à durée de vie limitée permet à votre application de s’adapter aux [restrictions de confidentialité des cookies des navigateurs modernes](../active-directory/develop/reference-third-party-cookies-spas.md), tels que Safari ITP.
+
+Pour tirer parti de ce flux, votre application peut utiliser une bibliothèque d’authentification qui le prend en charge, par exemple [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+
+<!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
+![Authentification des applications monopages](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+
+### <a name="implicit-grant-flow"></a>Octroi de flux implicite
+- [Flux implicite OAuth 2.0](implicit-flow-single-page-application.md). Certaines infrastructures, telles que [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), ne prennent en charge que le flux d’octroi implicite. Le flux d’octroi implicite permet à l’application d’obtenir des jetons d’ **ID** et d’ **accès** . Contrairement au flux de code d’autorisation, le flux d’octroi implicite ne retourne pas de **jeton d’actualisation** . 
+
+Ce flux d’authentification n’inclut pas de scénarios d’application utilisant des frameworks JavaScript multiplateformes, tels qu’Electron et React-Native. Ces scénarios exigent davantage de capacités pour l’interaction avec les plateformes natives.
+
 ## <a name="web-apis"></a>API Web
 
 Vous pouvez utiliser Azure AD B2C pour sécuriser les services web, comme l’API web RESTful de votre application. Les API web peuvent utiliser OAuth 2.0 pour sécuriser leurs données, en authentifiant les requêtes HTTP entrantes à l’aide de jetons. L’appelant d’une API web ajoute un jeton dans l’en-tête d’autorisation d’une requête HTTP :
@@ -85,7 +105,7 @@ Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
 Accept: application/json
 ...
-```
+``` 
 
 L’API web peut ensuite utiliser le jeton pour vérifier l’identité de l’appelant de l’API et extraire les informations à son sujet, à partir des revendications encodées dans le jeton. Pour plus d’informations sur les différents types de jetons et de revendications disponibles pour une application, voir la [référence sur les jetons Azure AD B2C](tokens-overview.md).
 

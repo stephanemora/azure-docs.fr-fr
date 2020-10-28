@@ -1,23 +1,23 @@
 ---
-title: Choisir un niveau tarifaire ou une référence SKU
+title: Sélectionnez un niveau tarifaire
 titleSuffix: Azure Cognitive Search
-description: 'Le service Recherche cognitive Azure peut être approvisionné dans les références SKU suivantes : Gratuit, De base et Standard, sachant que la référence Standard est disponible en différentes configurations de ressources et différents niveaux de capacité.'
+description: 'Le service Recherche cognitive Azure peut être approvisionné aux niveaux suivants : Gratuit, De base et Standard, sachant que la référence Standard est disponible en différentes configurations de ressources et différents niveaux de capacité.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948083"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101271"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
-Lorsque vous créez un service Recherche cognitive Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui sont fixes pendant toute la durée de vie du service. Les niveaux disponibles sont : Gratuit, De base, Standard et À stockage optimisé. Les niveaux Standard et À stockage optimisé sont proposés dans diverses configurations et capacités.
+Lorsque vous créez un service Recherche cognitive Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire qui est fixé pour toute la durée de vie du service. Les niveaux disponibles sont : Gratuit, De base, Standard et À stockage optimisé. Les niveaux Standard et À stockage optimisé sont proposés dans diverses configurations et capacités.
 
 La plupart des clients commencent par le niveau Gratuit qui leur permet d’évaluer le service. Une fois l’évaluation terminée, il est courant de créer un deuxième service à l’un des niveaux supérieurs pour les déploiements de développement et de production.
 
@@ -27,22 +27,22 @@ Le tableau suivant décrit les contraintes de fonctionnalité liées aux niveaux
 
 | Fonctionnalité | Limites |
 |---------|-------------|
-| [indexeurs](search-indexer-overview.md) | Les indexeurs ne sont pas disponibles sur S3 HD. |
+| [indexeurs](search-indexer-overview.md) | Les indexeurs ne sont pas disponibles sur S3 HD.  |
 | [Enrichissement par IA](search-security-manage-encryption-keys.md) | Fonctionne au niveau Gratuit, mais n’est pas recommandé. |
 | [Clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) | Non disponibles au niveau Gratuit. |
 | [Accès au pare-feu IP](service-configure-firewall.md) | Non disponibles au niveau Gratuit. |
-| [Intégration à Azure Private Link](service-create-private-endpoint.md) | Non disponibles au niveau Gratuit. |
+| [Point de terminaison privé (intégration à Azure Private Link)](service-create-private-endpoint.md) | Pour les connexions entrantes à un service de recherche ; non disponible au niveau Gratuit. Pour les connexions sortantes, par des indexeurs, à d'autres ressources Azure ; non disponible aux niveaux Gratuit et S3 HD. Pour les indexeurs qui utilisent des ensembles de compétences ; non disponible aux niveaux Gratuit, De base, S1 et S3 HD.|
 
 La plupart des fonctionnalités sont disponibles à tous les niveaux, notamment au niveau Gratuit, mais les fonctionnalités gourmandes en ressources peuvent ne pas fonctionner correctement si vous ne leur accordez pas les capacités suffisantes. Par exemple, [l’enrichissement par IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service Gratuit, sauf si le jeu de données est restreint.
 
-## <a name="tiers-skus"></a>Niveaux (références SKU)
+## <a name="tiers"></a>Niveaux
 
 Les niveaux se différencient par :
 
 + Quantité d’index et d’indexeurs (limites maximales)
 + Taille et la vitesse des partitions (stockage physique)
 
-Le niveau que vous sélectionnez détermine le taux facturable. La capture d’écran suivante du portail Azure indique les niveaux disponibles, après la déduction indiquée sur le portail et dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/). Les niveaux les plus courants sont **Gratuit**, **De base** et **Standard**.
+Le niveau que vous sélectionnez détermine le taux facturable. La capture d’écran suivante du portail Azure indique les niveaux disponibles, après la déduction indiquée sur le portail et dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/). Les niveaux les plus courants sont **Gratuit** , **De base** et **Standard** .
 
 Le niveau **Gratuit** crée un service de recherche limité pour les projets plus petits, notamment les guides de démarrage rapides et les tutoriels. En interne, les réplicas et les partitions sont partagées entre plusieurs abonnés. Vous ne pouvez pas mettre à l’échelle un service gratuit ni exécuter des charges de travail importantes.
 
@@ -138,7 +138,7 @@ En ce qui concerne le service lui-même, le seul moyen de réduire votre facture
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Comment évaluer les besoins en capacité
 
-Dans Recherche cognitive Azure, la capacité est structurée sous forme de *réplicas* et de *partitions*.
+Dans Recherche cognitive Azure, la capacité est structurée sous forme de *réplicas* et de *partitions* .
 
 + Les réplicas sont des instances du service de recherche. Chaque réplica héberge une copie à charge équilibrée d’un index. Par exemple, un service avec six réplicas comporte six copies de chaque index chargé dans le service.
 
@@ -158,7 +158,7 @@ Pour déterminer la taille d’un index, vous devez en [créer un](search-what-i
 Pour la recherche en texte intégral, la structure de données principale constitue une structure d’[index inversé](https://en.wikipedia.org/wiki/Inverted_index), dont les caractéristiques diffèrent de celles des données sources. Dans le cas d’un index inversé, la taille et la complexité sont déterminées par le contenu, et non nécessairement par la quantité de données qui l’alimentent. Une source de données volumineuse avec un haut niveau de redondance peut générer un index plus restreint qu’un jeu de données plus modeste présentant un contenu extrêmement variable. Il est donc généralement impossible de déduire la taille de l’index d’après celle du jeu de données d’origine.
 
 > [!NOTE] 
-> Même si l’estimation des besoins futurs en matière d’index et de stockage semble très approximative, elle en vaut la peine. Si la capacité d’un niveau se révèle insuffisante, vous devrez approvisionner un nouveau service à un niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Un service ne peut faire l’objet d’aucune mise à niveau sur place d’une référence SKU vers une autre.
+> Même si l’estimation des besoins futurs en matière d’index et de stockage semble très approximative, elle en vaut la peine. Si la capacité d’un niveau se révèle insuffisante, vous devrez approvisionner un nouveau service à un niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Un service ne peut faire l'objet d'aucune mise à niveau sur place d'un niveau vers un autre.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Estimer avec le niveau gratuit

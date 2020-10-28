@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998481"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122172"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Démarrage rapide : Déployer un cluster AKS (Azure Kubernetes Service) avec des nœuds d’informatique confidentielle à l’aide d’Azure CLI (préversion)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Si vous disposez déjà d’un cluster AKS qui remplit les exigences ci-dessus, [passez à la section avec cluster existant](#existing-cluster) pour ajouter un nouveau pool de nœuds d’informatique confidentielle.
 
-Tout d’abord, créez un groupe de ressources pour le cluster avec la commande az group create. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans la région *westus2* :
+Tout d’abord, créez un groupe de ressources pour le cluster avec la commande az group create. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans la région *westus2*  :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -118,6 +118,8 @@ Passez à la section de déploiement de l’application [Hello World à partir d
 ```azurecli-interactive
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
+
+![Création d’un cluster AKS DCSv2](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
 
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>Ajout d’un nœud d’informatique confidentielle à un cluster AKS existant<a id="existing-cluster"></a>
 

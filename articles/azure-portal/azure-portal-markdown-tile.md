@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263944"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281756"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 
@@ -27,17 +27,17 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
 
    ![Capture d’écran montrant la barre latérale du portail](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Si vous avez créé des tableaux de bord personnalisés, dans la vue de tableau de bord, utilisez la liste déroulante pour sélectionner le tableau de bord où doit apparaître la vignette Markdown personnalisée. Sélectionnez l’icône Modifier pour ouvrir la **Galerie de vignettes**.
+1. Si vous avez créé des tableaux de bord personnalisés, dans la vue de tableau de bord, utilisez la liste déroulante pour sélectionner le tableau de bord où doit apparaître la vignette Markdown personnalisée. Sélectionnez l’icône Modifier pour ouvrir la **Galerie de vignettes** .
 
    ![Capture d’écran montrant la vue de tableau de bord en mode modification](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Dans la **Galerie de vignettes**, recherchez la vignette appelée **Markdown**, puis sélectionnez **Ajouter**. La vignette est ajoutée au tableau de bord et le volet **Modifier le balisage Markdown** s’ouvre.
+1. Dans la **Galerie de vignettes** , recherchez la vignette appelée **Markdown** , puis sélectionnez **Ajouter** . La vignette est ajoutée au tableau de bord et le volet **Modifier le balisage Markdown** s’ouvre.
 
-1. Entrez des valeurs pour le **Titre** et le **Sous-titre**, qui s’afficheront sur la vignette une fois que vous serez passé à un autre champ.
+1. Entrez des valeurs pour le **Titre** et le **Sous-titre** , qui s’afficheront sur la vignette une fois que vous serez passé à un autre champ.
 
    ![Capture d’écran montrant les résultats de la saisie du titre et du sous-titre](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Sélectionnez l’une des options permettant d’inclure le contenu Markdown : **Modification intraligne** ou **Insérer du contenu à l’aide d’une URL**.
+1. Sélectionnez l’une des options permettant d’inclure le contenu Markdown : **Modification intraligne** ou **Insérer du contenu à l’aide d’une URL** .
 
    - Sélectionnez **Modification intraligne** si vous souhaitez entrer le contenu Markdown directement.
 
@@ -48,9 +48,9 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
       ![Capture d’écran montrant la saisie de l’URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Pour renforcer la sécurité, vous pouvez créer un fichier Markdown et le stocker dans un [objet blob de compte de stockage Azure où le chiffrement est activé](../storage/common/storage-service-encryption.md), puis référencer le fichier à l’aide de l’option URL. Le contenu Markdown est chiffré à l’aide des options de chiffrement du compte de stockage. Seuls les utilisateurs disposant d’autorisations d’accès au fichier peuvent voir le contenu Markdown dans le tableau de bord.
+      > Pour renforcer la sécurité, vous pouvez créer un fichier Markdown et le stocker dans un [objet blob de compte de stockage Azure où le chiffrement est activé](../storage/common/storage-service-encryption.md), puis référencer le fichier à l’aide de l’option URL. Le contenu Markdown est chiffré à l’aide des options de chiffrement du compte de stockage. Seuls les utilisateurs disposant d’autorisations d’accès au fichier peuvent voir le contenu Markdown dans le tableau de bord. Définissez une règle de partage des ressources cross-origin (CORS) sur le compte de stockage afin que le portail Azure ( _https://portal.azure.com/_ ) puisse accéder au fichier Markdown dans le blob.
 
-1. Sélectionnez **Terminé** pour faire disparaître le volet **Modifier le balisage Markdown**. Votre contenu s’affiche sur la vignette Markdown, que vous pouvez ensuite redimensionner en faisant glisser la poignée vers le coin inférieur droit.
+1. Sélectionnez **Terminé** pour faire disparaître le volet **Modifier le balisage Markdown** . Votre contenu s’affiche sur la vignette Markdown, que vous pouvez ensuite redimensionner en faisant glisser la poignée vers le coin inférieur droit.
 
    ![Capture d’écran montrant la vignette Markdown personnalisée](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 

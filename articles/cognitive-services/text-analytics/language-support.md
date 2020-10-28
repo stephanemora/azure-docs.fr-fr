@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977729"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147477"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
@@ -119,13 +119,108 @@ ms.locfileid: "91977729"
 
 #### <a name="language-detection"></a>[Détection de la langue](#tab/language-detection)
 
-L’API Analyse de texte peut détecter une grande variété de langues, variantes, dialectes et certaines langues régionales/culturelles.  La fonction de détection de la langue renvoie le « script » d’une langue. Par exemple, pour la phrase « I have a dog », elle renvoie `en` à la place de `en-US`. Le chinois est un cas spécial unique : la fonction de détection de la langue renvoie `zh_CHS` ou `zh_CHT` si elle parvient à déterminer le script dans le texte fourni. Dans les situations où un script spécifique n’est pas identifié dans un document chinois, elle renvoie simplement `zh`.
-
-Nous ne publions pas la liste exacte des langues pour cette fonctionnalité, mais elle peut détecter une grande variété de langues, de variantes, de dialectes, et de certaines langues régionales/de culture. 
+L’API Analyse de texte peut détecter une grande variété de langues, de variantes, de dialectes ainsi que certaines langues régionales/culturelles et peut retourner les langues détectées avec leur nom et leur code. Les paramètres du code de langue de la fonctionnalité Détection de langue de cette API sont conformes à la norme [BCP-47](https://tools.ietf.org/html/bcp47), avec la plupart d’entre eux conformes aux identificateurs [ISO-639-1](https://www.iso.org/iso-639-language-codes.html). 
 
 Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez essayer Détection de langue pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
+| Langage | Code de langue |  Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albanais|`sq`|✓|    |
+|Arabe|`ar`|✓|    |
+|Arménien|`hy`|✓|    |
+|Basque|`eu`|✓|    |
+|Biélorusse|`be`|✓|    |
+|Bengali|`bn`|✓|    |
+|Bosniaque|`bs`|✓|2020-09-01|
+|Bulgare|`bg`|✓|    |
+|Birman|`my`|✓|    |
+|Catalan, valencien|`ca`|✓|    |
+|Khmer central|`km`|✓|    |
+|Chinois|`zh`|✓|    |
+|Chinois (simplifié)|`zh_chs`|✓|    |
+|Chinois traditionnel|`zh_cht`|✓|    |
+|Croate|`hr`|✓|    |
+|Tchèque|`cs`|✓|    |
+|Danois|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Divehi, Dhivehi, maldivien|`dv`|✓|    |
+|Néerlandais, flamand|`nl`|✓|    |
+|Anglais|`en`|✓|    |
+|Espéranto|`eo`|✓|    |
+|Estonien|`et`|✓|    |
+|Fidjien|`fj`|✓|2020-09-01|
+|Finnois|`fi`|✓|    |
+|Français|`fr`|✓|    |
+|Galicien|`gl`|✓|    |
+|Géorgien|`ka`|✓|    |
+|Allemand|`de`|✓|    |
+|Grec|`el`|✓|    |
+|Goudjrati|`gu`|✓|    |
+|Haïtien, créole haïtien|`ht`|✓|    |
+|Hébreu|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong blanc|`mww`|✓|2020-09-01|
+|Hongrois|`hu`|✓|    |
+|Islandais|`is`|✓|    |
+|Indonésien|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Irlandais|`ga`|✓|    |
+|Italien|`it`|✓|    |
+|Japonais|`ja`|✓|    |
+|Kannada|`kn`|✓|    |
+|Kazakh|`kk`|✓|2020-09-01|
+|Coréen|`ko`|✓|    |
+|Kurde|`ku`|✓|    |
+|Lao|`lo`|✓|    |
+|Latin|`la`|✓|    |
+|Letton|`lv`|✓|    |
+|Lituanien|`lt`|✓|    |
+|Macédonien|`mk`|✓|    |
+|Malgache|`mg`|✓|2020-09-01|
+|Malais|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltais|`mt`|✓|    |
+|Maori|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Norvégien|`no`|✓|    |
+|Norvégien (Nynorsk)|`nn`|✓|    |
+|Odia|`or`|✓|    |
+|Pachto, pachtou|`ps`|✓|    |
+|Persan|`fa`|✓|    |
+|Polonais|`pl`|✓|    |
+|Portugais|`pt`|✓|    |
+|Pendjabi, penjabi|`pa`|✓|    |
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Roumain, moldave|`ro`|✓|    |
+|Russe|`ru`|✓|    |
+|Samoan|`sm`|✓|2020-09-01|
+|Serbe|`sr`|✓|    |
+|Singhalais, cingalais|`si`|✓|    |
+|Slovaque|`sk`|✓|    |
+|Slovène|`sl`|✓|    |
+|Somali|`so`|✓|    |
+|Espagnol, castillan|`es`|✓|    |
+|Swahili|`sw`|✓|    |
+|Suédois|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Tahitien|`ty`|✓|2020-09-01|
+|Tamoul|`ta`|✓|    |
+|Télougou|`te`|✓|    |
+|Thaï|`th`|✓|    |
+|Tonga|`to`|✓|2020-09-01|
+|Turc|`tr`|✓|    |
+|Ukrainien|`uk`|✓|    |
+|Ourdou|`ur`|✓|    |
+|Ouzbek|`uz`|✓|    |
+|Vietnamien|`vi`|✓|    |
+|Gallois|`cy`|✓|    |
+|Yiddish|`yi`|✓|    |
+|Yucatec Maya|`yua`|✓|    |
+
+
 ---
+
 
 ## <a name="see-also"></a>Voir aussi
 
