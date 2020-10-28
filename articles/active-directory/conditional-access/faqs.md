@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258623"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145236"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -63,4 +63,4 @@ Pour afficher les onglets affectés, vous devez utiliser le client web Teams dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
+- Pour configurer des stratégies d’accès conditionnel pour votre environnement, consultez l’article [Planifier un déploiement d’accès conditionnel](plan-conditional-access.md). 

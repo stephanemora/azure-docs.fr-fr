@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265933"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145261"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -100,9 +100,9 @@ L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessi
    > [!NOTE]
    > Il est recommandé de définir une fréquence d’invite d’authentification égale pour les applications Microsoft Office clés, comme Exchange Online et SharePoint Online, afin d’offrir une meilleure expérience utilisateur.
 
-1. Accédez à **Contrôles d’accès** > **Session** et cliquez sur **Fréquence de connexion**.
+1. Accédez à **Contrôles d’accès** > **Session** et cliquez sur **Fréquence de connexion** .
 1. Entrez la valeur voulue de jours et d’heures dans la première zone de texte.
-1. Sélectionnez une valeur d’**Heures** ou de **Jours** à partir de la liste déroulante.
+1. Sélectionnez une valeur d’ **Heures** ou de **Jours** à partir de la liste déroulante.
 1. Enregistrez votre stratégie.
 
 ![Stratégie d’accès conditionnel configurée pour la fréquence de connexion](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
@@ -134,9 +134,8 @@ Utilisez l’outil What-If (Scénarios) pour simuler une connexion de l’utilis
 
 ## <a name="policy-deployment"></a>Déploiement de stratégie
 
-Pour vous assurer que votre stratégie fonctionne comme prévu, la meilleure pratique recommandée consiste à la tester avant de la déployer en production. Dans l’idéal, utilisez un locataire de test pour vérifier si votre nouvelle stratégie fonctionne comme prévu. Pour plus d’informations, consultez l’article [Bonnes pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).
+Pour vous assurer que votre stratégie fonctionne comme prévu, la meilleure pratique recommandée consiste à la tester avant de la déployer en production. Dans l’idéal, utilisez un locataire de test pour vérifier si votre nouvelle stratégie fonctionne comme prévu. Pour plus d’informations, consultez l’article [Planifier un déploiement d’accès conditionnel](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment configurer une stratégie d’accès conditionnel, consultez l’article [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel à Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
-* Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez l’article [Bonnes pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).
+* Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez l’article [Planifier un déploiement d’accès conditionnel](plan-conditional-access.md).

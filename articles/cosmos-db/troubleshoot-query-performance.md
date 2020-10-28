@@ -4,27 +4,27 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089987"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277171"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
-Cet article décrit une approche générale recommandée pour le dépannage des requêtes dans Azure Cosmos DB. Bien que vous ne devriez pas considérer les étapes décrites dans cet article comme une protection complète contre les problèmes de requête potentiels, nous avons inclus ici les conseils sur les performances les plus courants. Vous devez utiliser cet article comme point de départ pour le dépannage des requêtes lentes ou coûteuses dans l’API Core (SQL) d’Azure Cosmos DB. Vous pouvez également utiliser des [journaux de diagnostic](cosmosdb-monitor-resource-logs.md) pour identifier les requêtes qui sont lentes ou qui consomment un débit significatif.
+Cet article décrit une approche générale recommandée pour le dépannage des requêtes dans Azure Cosmos DB. Bien que vous ne devriez pas considérer les étapes décrites dans cet article comme une protection complète contre les problèmes de requête potentiels, nous avons inclus ici les conseils sur les performances les plus courants. Vous devez utiliser cet article comme point de départ pour le dépannage des requêtes lentes ou coûteuses dans l’API Core (SQL) d’Azure Cosmos DB. Vous pouvez également utiliser des [journaux de diagnostic](cosmosdb-monitor-resource-logs.md) pour identifier les requêtes qui sont lentes ou qui consomment un débit significatif. Si vous utilisez l’API d’Azure Cosmos DB pour MongoDB, vous devez utiliser le [guide de résolution des problèmes de requête relatif à l’API d’Azure Cosmos DB pour MongoDB](mongodb-troubleshoot-query.md).
 
-Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos DB en deux catégories :
+Les optimisations de requête dans Azure Cosmos DB sont classées de manière générale comme suit :
 
 - celles qui réduisent les frais en unités de requête (RU) de la requête
 - Optimisations qui réduisent simplement la latence
 
-Si vous réduisez les frais en RU d’une requête, vous diminuez presque certainement aussi la latence.
+Si vous réduisez les frais en RU d’une requête, vous diminuez généralement aussi la latence.
 
 Cet article fournit des exemples que vous pouvez recréer à l’aide du [jeu de données nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -44,13 +44,13 @@ Avant de lire ce guide, il est utile de prendre en compte les problèmes courant
 
 ## <a name="get-query-metrics"></a>Obtenir les métriques de requête
 
-Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure. Une fois que vous avez exécuté votre requête dans l’Explorateur de données, les métriques de requête apparaissent en regard de l’onglet **Résultats** :
+Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure. Une fois que vous avez exécuté votre requête dans l’Explorateur de données, les métriques de requête apparaissent en regard de l’onglet **Résultats**  :
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Obtention de métriques de requête" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Après avoir obtenu les métriques de requête, comparez le **nombre de documents récupérés** au **nombre de documents de sortie** pour votre requête. Utilisez cette comparaison pour identifier les sections pertinentes à vérifier dans cet article.
 
-Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
+Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie** , il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Reportez-vous aux sections suivantes pour comprendre les optimisations de requête pertinentes pour votre scénario.
 
@@ -92,7 +92,7 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Requêtes où le nombre de documents récupérés dépasse le nombre de documents de sortie
 
- Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents retournés par la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
+ Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents retournés par la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie** , il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Voici un exemple de requête d’analyse qui n’a pas été entièrement servie par l’index :
 
@@ -191,7 +191,7 @@ Stratégie d’indexation mise à jour :
 
 **Frais en RU :** 2.98 RU
 
-Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout moment, sans impact sur les performances ou la disponibilité en écriture. Si vous ajoutez une nouvelle propriété à l’index, les requêtes qui utilisent la propriété utiliseront immédiatement le nouvel index disponible. La requête utilisera le nouvel index pendant sa construction. Ainsi, les résultats de la requête peuvent être incohérents pendant que la reconstruction de l’index est en cours. Si une nouvelle propriété est indexée, les requêtes qui utilisent uniquement des index existants ne seront pas affectées lors de la reconstruction de l’index. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout moment, sans impact sur la disponibilité en lecture ou en écriture. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Comprendre quelles fonctions système utilisent l’index
 
@@ -384,7 +384,7 @@ Supposons qu’un seul élément du tableau tags correspond au filtre, et qu’i
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Requêtes où le nombre de documents récupérés est égal au nombre de documents de sortie
 
-Si le **nombre de documents récupérés** est à peu près égal au **nombre de documents de sortie**, le moteur de requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé `TOP`, le **nombre de documents récupérés** peut dépasser le **nombre de documents de sortie** de 1. Vous n’avez pas besoin de vous en préoccuper.
+Si le **nombre de documents récupérés** est à peu près égal au **nombre de documents de sortie** , le moteur de requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé `TOP`, le **nombre de documents récupérés** peut dépasser le **nombre de documents de sortie** de 1. Vous n’avez pas besoin de vous en préoccuper.
 
 ### <a name="minimize-cross-partition-queries"></a>Réduire les requêtes entre les partitions
 
@@ -469,7 +469,7 @@ Voici l’index composite approprié :
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Optimisations qui réduisent la latence des requêtes
 
-Dans de nombreux cas, les frais en RU peuvent être acceptables, même si la latence des requêtes est encore trop élevée. Les sections suivantes présentent différents conseils pour réduire la latence des requêtes. Si vous exécutez la même requête plusieurs fois sur le même jeu de données, elle aura les mêmes frais en RU à chaque fois. Mais la latence des requêtes peut varier d’une exécution de requête à une autre.
+Dans de nombreux cas, les frais en RU peuvent être acceptables, même si la latence des requêtes est encore trop élevée. Les sections suivantes présentent différents conseils pour réduire la latence des requêtes. Si vous exécutez la même requête plusieurs fois sur le même jeu de données, elle aura généralement les mêmes frais de RU à chaque fois. Mais la latence des requêtes peut varier d’une exécution de requête à une autre.
 
 ### <a name="improve-proximity"></a>Améliorer la proximité
 
