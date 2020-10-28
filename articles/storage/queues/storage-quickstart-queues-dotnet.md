@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939200"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783468"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour .NET
 
@@ -34,12 +34,12 @@ Ressources supplémentaires :
 * [Documentation de référence de l’API](/dotnet/api/azure.storage.queues)
 * [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exemples](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
 * Dernière version du [Kit SDK .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation. Veillez à disposer du Kit de développement logiciel (SDK), et non du runtime.
 
 ## <a name="setting-up"></a>Configuration
@@ -48,9 +48,9 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 ### <a name="create-the-project"></a>Créer le projet
 
-Créez une application .NET Core nommée *QueuesQuickstartV12*.
+Créez une application .NET Core nommée *QueuesQuickstartV12* .
 
-1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom *QueuesQuickstartV12*. Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : *Program.cs*.
+1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom *QueuesQuickstartV12* . Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : *Program.cs* .
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -77,7 +77,7 @@ dotnet add package Azure.Storage.Queues
 1. Ouvrez le fichier *Program.cs* dans votre éditeur.
 1. Supprimez l'instruction `Console.WriteLine("Hello World!");`.
 1. Ajoutez des directives `using`.
-1. Mettez à jour la déclaration de méthode `Main` pour [prendre en charge le code asynchrone](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. Mettez à jour la déclaration de méthode `Main` pour [prendre en charge le code asynchrone](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -334,7 +334,7 @@ Dans ce guide de démarrage rapide, vous avez appris à créer une file d’atte
 Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et autres documentations, visitez :
 
 > [!div class="nextstepaction"]
-> [Azure pour les développeurs .NET et .NET Core](https://docs.microsoft.com/dotnet/azure/)
+> [Azure pour les développeurs .NET et .NET Core](/dotnet/azure/)
 
 * Pour plus d’informations, consultez les [bibliothèques Stockage Azure pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * Pour voir d’autres exemples d’applications Stockage File d’attente Azure, passez à [Exemples de bibliothèques clientes Stockage File d’attente Azure V12 pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450345"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782941"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,7 +64,7 @@ Les travaux SQL Agent sont constitués de séries spécifiées de scripts T-SQL 
 Un travail peut s’exécuter sur un serveur local ou sur plusieurs serveurs distants. Travaux SQL Agent est un composant du moteur de base de données interne qui est exécuté au sein du service Managed Instance.
 Il existe plusieurs concepts clés dans les travaux SQL Agent :
 
-- **Étapes de travail** : ensemble d’une ou plusieurs étapes qui doivent être exécutées au sein du travail. Pour chaque étape de travail, vous pouvez définir une stratégie de nouvelle tentative et l’action qui doit se produire si l’étape de travail réussit ou échoue.
+- **Étapes de travail**  : ensemble d’une ou plusieurs étapes qui doivent être exécutées au sein du travail. Pour chaque étape de travail, vous pouvez définir une stratégie de nouvelle tentative et l’action qui doit se produire si l’étape de travail réussit ou échoue.
 - Les **planifications** définissent quand le travail doit être exécuté.
 - Les **notifications** vous permettent de définir des règles qui sont utilisées pour notifier les opérateurs via des e-mails une fois le travail terminé.
 
@@ -173,7 +173,7 @@ Certaines des fonctionnalités de SQL Agent disponibles dans SQL Server ne sont 
 - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
 
-Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Tâches de base de données élastique (préversion)
 
@@ -210,11 +210,11 @@ Pour la préversion actuelle, une base de données existante dans Azure SQL Data
 
 La *base de données de travaux* ne doit pas nécessairement être nouvelle, mais elle doit être nettoyée, vide et configurée avec l’objectif de service S0 ou supérieur. L’objectif de service recommandé pour la *base de données de travaux* est au moins S1, mais le meilleur choix varie en fonction des besoins en termes de performances de vos travaux : nombre d’étapes de travail, nombre de cibles de travail et fréquence d’exécution des travaux. Par exemple, une base de données S0 peut convenir à un agent de travail qui exécute un petit nombre de travaux par heure ciblant moins de dix bases de données, mais elle risque de ne pas être assez rapide pour l’exécution d’un travail toutes les minutes. Dans ce cas, un niveau de service plus élevé peut être préférable.
 
-Si les opérations sur la base de données de travaux sont plus lentes que prévu, [supervisez](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) les performances de la base de données et l’utilisation des ressources dans la base de données de travaux pendant les périodes de lenteur en utilisant le portail Azure ou la vue de gestion dynamique [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si l’utilisation d’une ressource, telle que le processeur, les E/S de données ou l’écriture de journal, approche 100 % et correspond aux périodes de lenteur, envisagez de mettre la base de données à l’échelle de manière incrémentielle pour atteindre des objectifs de service plus élevés (dans le [modèle DTU](service-tiers-dtu.md) ou dans le [modèle vCore](service-tiers-vcore.md)) jusqu’à ce que les performances de la base de données de travaux soient satisfaisantes.
+Si les opérations sur la base de données de travaux sont plus lentes que prévu, [supervisez](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) les performances de la base de données et l’utilisation des ressources dans la base de données de travaux pendant les périodes de lenteur en utilisant le portail Azure ou la vue de gestion dynamique [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si l’utilisation d’une ressource, telle que le processeur, les E/S de données ou l’écriture de journal, approche 100 % et correspond aux périodes de lenteur, envisagez de mettre la base de données à l’échelle de manière incrémentielle pour atteindre des objectifs de service plus élevés (dans le [modèle DTU](service-tiers-dtu.md) ou dans le [modèle vCore](service-tiers-vcore.md)) jusqu’à ce que les performances de la base de données de travaux soient satisfaisantes.
 
 ##### <a name="job-database-permissions"></a>Autorisations associées à la base de données de travaux
 
-Durant la création de l’agent de travail, un schéma, des tables et un rôle appelé *jobs_reader* sont créés dans la *base de données de travaux*. Le rôle, créé avec l’autorisation suivante, est conçu pour permettre aux administrateurs de contrôler plus précisément les accès aux travaux à des fins de monitoring :
+Durant la création de l’agent de travail, un schéma, des tables et un rôle appelé *jobs_reader* sont créés dans la *base de données de travaux* . Le rôle, créé avec l’autorisation suivante, est conçu pour permettre aux administrateurs de contrôler plus précisément les accès aux travaux à des fins de monitoring :
 
 |Nom de rôle |Autorisations de schéma « jobs » |Autorisations de schéma « jobs_internal » |
 |---------|---------|---------|
@@ -227,13 +227,13 @@ Durant la création de l’agent de travail, un schéma, des tables et un rôle 
 
 Un *groupe cible* définit l’ensemble de bases de données sur lequel une étape de travail s’exécute. Un groupe cible peut contenir les éléments suivants, dont le nombre et la combinaison peuvent varier :
 
-- **Serveur SQL logique** : si un serveur est spécifié, toutes les bases de données présentes sur le serveur au moment de l’exécution du travail font partie du groupe. Les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être énuméré et mis à jour avant l’exécution du travail.
+- **Serveur SQL logique**  : si un serveur est spécifié, toutes les bases de données présentes sur le serveur au moment de l’exécution du travail font partie du groupe. Les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être énuméré et mis à jour avant l’exécution du travail.
 - **Pool élastique** : si un pool élastique est spécifié, toutes les bases de données qui se trouvent dans ce pool au moment de l’exécution du travail font partie du groupe. Au même titre qu’un serveur, les informations d’identification de la base de données master doivent être fournies pour que le groupe puisse être mis à jour avant l’exécution du travail.
 - **Base de données unique** : spécifiez une ou plusieurs bases de données individuelles à inclure dans le groupe.
 - **Carte de partitions** : bases de données d’une carte de partitions.
 
 > [!TIP]
-> Au moment de l’exécution du travail, *l’énumération dynamique* réévalue l’ensemble des bases de données dans les groupes de cibles qui incluent des serveurs ou des pools. L’énumération dynamique garantit que **les travaux s’exécutent sur toutes les bases de données qui existent dans le serveur ou le pool au moment de l’exécution du travail**. La réévaluation de la liste des bases de données au moment de l’exécution est particulièrement utile dans les scénarios où l’appartenance au pool ou au serveur change fréquemment.
+> Au moment de l’exécution du travail, *l’énumération dynamique* réévalue l’ensemble des bases de données dans les groupes de cibles qui incluent des serveurs ou des pools. L’énumération dynamique garantit que **les travaux s’exécutent sur toutes les bases de données qui existent dans le serveur ou le pool au moment de l’exécution du travail** . La réévaluation de la liste des bases de données au moment de l’exécution est particulièrement utile dans les scénarios où l’appartenance au pool ou au serveur change fréquemment.
 
 Il est possible de désigner des pools et des bases de données uniques comme faisant partie ou non du groupe. Vous pouvez ainsi créer un groupe cible avec n’importe quelle combinaison de bases de données. Par exemple, vous pouvez ajouter un serveur à un groupe cible, mais exclure certaines bases de données d’un pool élastique (ou exclure un pool entier).
 
@@ -243,16 +243,16 @@ Les exemples suivants montrent comment différentes définitions de groupes cibl
 
 ![Exemples de groupe cible](./media/job-automation-overview/targetgroup-examples1.png)
 
-L’**exemple 1** montre un groupe cible se composant d’une liste de bases de données individuelles. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, l’action de l’étape de travail sera exécutée dans chacune de ces bases de données.<br>
-L’**exemple 2** montre un groupe cible qui contient un serveur comme cible. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, le serveur est énuméré dynamiquement pour déterminer la liste des bases de données qui se trouvent actuellement dans le serveur. L’action de l’étape de travail sera exécutée dans chacun de ces bases de données.<br>
-L’**exemple 3** montre un groupe cible similaire à l’*exemple 2*, mais une base de données individuelle est explicitement exclue. L’action de l’étape de travail ne sera *pas* exécutée dans la base de données exclue.<br>
-L’**exemple 4** montre un groupe cible qui contient un pool élastique comme cible. Semblable à *exemple 2*, le pool est énuméré dynamiquement à l’exécution du travail pour déterminer la liste des bases de données dans le pool.
+L’ **exemple 1** montre un groupe cible se composant d’une liste de bases de données individuelles. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, l’action de l’étape de travail sera exécutée dans chacune de ces bases de données.<br>
+L’ **exemple 2** montre un groupe cible qui contient un serveur comme cible. Lorsqu’une étape de travail est exécutée à l’aide de ce groupe cible, le serveur est énuméré dynamiquement pour déterminer la liste des bases de données qui se trouvent actuellement dans le serveur. L’action de l’étape de travail sera exécutée dans chacun de ces bases de données.<br>
+L’ **exemple 3** montre un groupe cible similaire à l’ *exemple 2* , mais une base de données individuelle est explicitement exclue. L’action de l’étape de travail ne sera *pas* exécutée dans la base de données exclue.<br>
+L’ **exemple 4** montre un groupe cible qui contient un pool élastique comme cible. Semblable à *exemple 2* , le pool est énuméré dynamiquement à l’exécution du travail pour déterminer la liste des bases de données dans le pool.
 <br><br>
 
 ![Exemples de groupes cibles supplémentaires](./media/job-automation-overview/targetgroup-examples2.png)
 
-L’**exemple 5** et l’**exemple 6** montrent des scénarios avancés où les serveurs, les pools élastiques et les bases de données peuvent être combinés avec des règles d’inclusion et d’exclusion.<br>
-L’**exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.
+L’ **exemple 5** et l’ **exemple 6** montrent des scénarios avancés où les serveurs, les pools élastiques et les bases de données peuvent être combinés avec des règles d’inclusion et d’exclusion.<br>
+L’ **exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.
 
 > [!NOTE]
 > La base de données de travaux peut être la cible d’un travail. Dans ce scénario, la base de données de travaux est traitée comme toute autre base de données cible. L’utilisateur du travail doit être créé et disposer d’autorisations suffisantes dans la base de données de travaux, et les informations d’identification délimitées à la base de données de l’utilisateur du travail doivent également exister dans la base de données de travaux, comme pour toute autre base de données cible.
@@ -260,7 +260,7 @@ L’**exemple 7** montre que les partitions d’une carte de partitions peuvent 
 
 #### <a name="job"></a>Travail
 
-Un *travail* est un élément unitaire exécuté selon une planification ou de manière ponctuelle. Un travail est constitué d’une ou plusieurs *étapes de travail*.
+Un *travail* est un élément unitaire exécuté selon une planification ou de manière ponctuelle. Un travail est constitué d’une ou plusieurs *étapes de travail* .
 
 ##### <a name="job-step"></a>Étape de travail
 
@@ -272,7 +272,7 @@ Les résultats des étapes d’un travail sur chaque base de données sont enreg
 
 #### <a name="job-history"></a>Historique des travaux
 
-L’historique d’exécution des travaux est stocké dans la *base de données de travaux*. Un travail de nettoyage système vide les éléments de l’historique d’exécution qui datent de plus de 45 jours. Pour supprimer ceux de moins de 45 jours, appelez la procédure stockée **sp_purge_history** dans la *base de données des travaux*.
+L’historique d’exécution des travaux est stocké dans la *base de données de travaux* . Un travail de nettoyage système vide les éléments de l’historique d’exécution qui datent de plus de 45 jours. Pour supprimer ceux de moins de 45 jours, appelez la procédure stockée **sp_purge_history** dans la *base de données des travaux* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Performances, capacité et limitations de l’agent
 
@@ -288,7 +288,7 @@ Pour éviter la surcharge des ressources durant l’exécution de travaux sur de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation de SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Présentation de SQL Server Agent](/sql/ssms/agent/sql-server-agent)
 - [Guide pour créer et gérer des travaux élastiques](elastic-jobs-overview.md)
 - [Créer et gérer des tâches élastiques à l’aide de PowerShell](elastic-jobs-powershell-create.md)
 - [Créer et gérer des tâches élastiques à l’aide de T-SQL (Transact-SQL)](elastic-jobs-tsql-create-manage.md)

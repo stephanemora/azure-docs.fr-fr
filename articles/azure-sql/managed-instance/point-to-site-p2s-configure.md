@@ -12,25 +12,25 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 3baf2d7ed7c326895ae40948fc2d0a4cc03021f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331904"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788364"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Démarrage rapide : Configurer une connexion point à site à Azure SQL Managed Instance à partir d’un emplacement local
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Ce guide de démarrage rapide vous montre comment vous connecter à Azure SQL Managed Instance à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) à partir d’un ordinateur client local via une connexion point à site. Pour plus d’informations sur les connexions point à site, consultez l’article [À propos des VPN point à site](../../vpn-gateway/point-to-site-about.md).
+Ce guide de démarrage rapide vous montre comment vous connecter à Azure SQL Managed Instance à l’aide de [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) à partir d’un ordinateur client local via une connexion point à site. Pour plus d’informations sur les connexions point à site, consultez l’article [À propos des VPN point à site](../../vpn-gateway/point-to-site-about.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Dans ce guide de démarrage rapide :
 
 - Utilise les ressources créées dans [Créer une instance gérée](instance-create-quickstart.md) comme point de départ.
-- PowerShell 5.1 et Azure PowerShell 1.4.0 ou ultérieur doivent être installés sur votre ordinateur client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
-- La version la plus récente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) doit être installée sur votre ordinateur client local.
+- PowerShell 5.1 et Azure PowerShell 1.4.0 ou ultérieur doivent être installés sur votre ordinateur client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](/powershell/azure/install-az-ps#install-the-azure-powershell-module).
+- La version la plus récente de [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) doit être installée sur votre ordinateur client local.
 
 ## <a name="attach-a-vpn-gateway-to-a-virtual-network"></a>Attacher une passerelle VPN à un réseau virtuel
 

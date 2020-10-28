@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327500"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895199"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé en utilisant le portail Azure
 
@@ -50,7 +50,7 @@ L’hôte bastion sera utilisé pour se connecter de façon sécurisée à la ma
     | Groupe de ressources   | Sélectionnez **CreatePrivateEndpointQS-rg** |
     | **Détails de l’instance** |                                                                 |
     | Nom             | Entrez **myVNet**                                    |
-    | Région           | Sélectionnez **\<your-web-app-region>** . </br> Sélectionnez la région dans laquelle votre application web est déployée.|
+    | Région           | Sélectionnez **Europe Ouest** .|
 
 3. Sélectionnez l’onglet **Adresses IP** , ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
@@ -101,7 +101,7 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
     | Groupe de ressources | Sélectionnez **CreatePrivateEndpointQS-rg** |
     | **Détails de l’instance** |  |
     | Nom de la machine virtuelle | Entrez **myVM** . |
-    | Région | Sélectionnez **\<your-web-app-region>** . </br> Sélectionnez la région dans laquelle votre application web est déployée. |
+    | Région | Sélectionnez **Europe Ouest** . |
     | Options de disponibilité | Sélectionnez **Aucune redondance d’infrastructure requise** . |
     | Image | Sélectionnez **Windows Server 2019 Datacenter - Gen1** |
     | Instance Azure Spot | Sélectionnez **Non** |
@@ -149,7 +149,7 @@ Dans cette section, vous allez créer un point de terminaison privé pour l’ap
     | Resource group | Sélectionnez **CreatePrivateEndpointQS-rg** . Vous avez créé ce groupe de ressources dans la section précédente.|
     | **Détails de l’instance** |  |
     | Nom  | Entrez **myPrivateEndpoint** . |
-    | Région | Sélectionnez **\<your-web-app-region>** . </br> Sélectionnez la région dans laquelle votre application web est déployée. |
+    | Région | Sélectionnez **Europe Ouest** . |
 
 6. Sélectionnez l’onglet **Ressource** ou le bouton **Suivant : Ressource** en bas de la page.
     

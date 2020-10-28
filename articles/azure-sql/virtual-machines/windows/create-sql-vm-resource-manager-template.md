@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789775"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Démarrage rapide : Créer une machine virtuelle SQL Server à l’aide d’un modèle ARM
 
@@ -20,7 +20,7 @@ Utilisez ce modèle Azure Resource Manager (modèle ARM) pour déployer une mach
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -58,26 +58,26 @@ Vous trouverez d’autres modèles de machine virtuelle SQL Server sur Azure dan
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
-    * **Abonnement**: Sélectionnez un abonnement Azure.
-    * **Groupe de ressources** : groupe de ressources préparé pour votre machine virtuelle SQL Server. 
-    * **Région** : Sélectionnez une région.  Par exemple, **USA Centre**.
-    * **Nom de la machine virtuelle** : entrez un nom pour la machine virtuelle SQL Server. 
-    * **Taille de machine virtuelle** : choisissez la taille appropriée pour votre machine virtuelle dans la liste déroulante.
-    * **Nom de réseau virtuel existant** : entrez le nom du réseau virtuel préparé pour votre machine virtuelle SQL Server. 
-    * **Groupe de ressources du réseau virtuel existant** : entrez le groupe de ressources dans lequel votre réseau virtuel a été préparé. 
-    * **Nom du sous-réseau existant** : nom de votre sous-réseau préparé. 
-    * **Offre de l’image** : choisissez l’image SQL Server et Windows Server qui correspond le mieux à vos besoins métier. 
-    * **Référence SKU SQL** : choisissez l’édition de la référence SKU SQL Server qui correspond le mieux à vos besoins métier. 
-    * **Nom d’utilisateur administrateur** : nom d’utilisateur de l’administrateur de la machine virtuelle. 
-    * **Mot de passe administrateur** : mot de passe utilisé par le compte administrateur de la machine virtuelle. 
-    * **Type de charge de travail de stockage** :  type de stockage pour la charge de travail qui correspond le mieux à votre entreprise. 
-    * **Nombre de disques de données SQL** :  nombre de disques que SQL Server utilise pour les fichiers de données.  
-    * **Chemin d’accès aux données** :  chemin des fichiers de données SQL Server. 
-    * **Nombre de disques de journaux SQL** :  nombre de disques que SQL Server utilise pour les fichiers journaux. 
-    * **Chemin d’accès au journal** :  chemin des fichiers journaux SQL Server. 
+    * **Abonnement** : Sélectionnez un abonnement Azure.
+    * **Groupe de ressources**  : groupe de ressources préparé pour votre machine virtuelle SQL Server. 
+    * **Région**  : Sélectionnez une région.  Par exemple, **USA Centre** .
+    * **Nom de la machine virtuelle**  : entrez un nom pour la machine virtuelle SQL Server. 
+    * **Taille de machine virtuelle**  : choisissez la taille appropriée pour votre machine virtuelle dans la liste déroulante.
+    * **Nom de réseau virtuel existant**  : entrez le nom du réseau virtuel préparé pour votre machine virtuelle SQL Server. 
+    * **Groupe de ressources du réseau virtuel existant**  : entrez le groupe de ressources dans lequel votre réseau virtuel a été préparé. 
+    * **Nom du sous-réseau existant**  : nom de votre sous-réseau préparé. 
+    * **Offre de l’image**  : choisissez l’image SQL Server et Windows Server qui correspond le mieux à vos besoins métier. 
+    * **Référence SKU SQL**  : choisissez l’édition de la référence SKU SQL Server qui correspond le mieux à vos besoins métier. 
+    * **Nom d’utilisateur administrateur**  : nom d’utilisateur de l’administrateur de la machine virtuelle. 
+    * **Mot de passe administrateur**  : mot de passe utilisé par le compte administrateur de la machine virtuelle. 
+    * **Type de charge de travail de stockage**  :  type de stockage pour la charge de travail qui correspond le mieux à votre entreprise. 
+    * **Nombre de disques de données SQL**  :  nombre de disques que SQL Server utilise pour les fichiers de données.  
+    * **Chemin d’accès aux données**  :  chemin des fichiers de données SQL Server. 
+    * **Nombre de disques de journaux SQL**  :  nombre de disques que SQL Server utilise pour les fichiers journaux. 
+    * **Chemin d’accès au journal**  :  chemin des fichiers journaux SQL Server. 
     * **Emplacement** :  emplacement de toutes les ressources ; cette valeur doit rester la valeur par défaut `[resourceGroup().location]`. 
 
-3. Sélectionnez **Revoir + créer**. Une fois que la machine virtuelle SQL Server a été déployée avec succès, vous recevez une notification.
+3. Sélectionnez **Revoir + créer** . Une fois que la machine virtuelle SQL Server a été déployée avec succès, vous recevez une notification.
 
 Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure, vous pouvez utiliser Azure PowerShell, l’interface de ligne de commande Azure et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Pour obtenir un tutoriel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Pour d’autres façons de déployer une machine virtuelle SQL Server, consultez : 
 - [Azure portal](create-sql-vm-portal.md)

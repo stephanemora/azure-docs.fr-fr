@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008401"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787378"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le stockage File d’attente
 
@@ -52,7 +52,7 @@ Cet article fournit la liste des pratiques validées concernant les performances
 
 Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
 
-Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Nombre maximal de comptes de stockage
 
@@ -128,7 +128,7 @@ Définissez la limite de connexions avant d’ouvrir une connexion.
 
 Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.  
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
 
@@ -146,7 +146,7 @@ Même si le parallélisme peut être très utile pour les performances, soyez pr
 
 ## <a name="client-libraries-and-tools"></a>Outils et bibliothèques clientes
 
-Pour des performances optimales, utilisez toujours les bibliothèques clientes et les outils fournis par Microsoft les plus récents. Les bibliothèques clientes du stockage Azure sont disponibles pour plusieurs langages. Le stockage Azure prend également en charge PowerShell et Azure CLI. Microsoft s’attelle au développement de ces outils et de ces bibliothèques clientes dans une optique de performances. Il veille à leur mise à jour continue avec les versions de service les plus récentes et s’assure qu’ils répondent, en interne, à la plupart des pratiques validées concernant les performances. Pour plus d’informations, consultez la [documentation de référence du stockage Azure](/azure/storage/#reference).
+Pour des performances optimales, utilisez toujours les bibliothèques clientes et les outils fournis par Microsoft les plus récents. Les bibliothèques clientes du stockage Azure sont disponibles pour plusieurs langages. Le stockage Azure prend également en charge PowerShell et Azure CLI. Microsoft s’attelle au développement de ces outils et de ces bibliothèques clientes dans une optique de performances. Il veille à leur mise à jour continue avec les versions de service les plus récentes et s’assure qu’ils répondent, en interne, à la plupart des pratiques validées concernant les performances. Pour plus d’informations, consultez la [documentation de référence du stockage Azure](./reference.md).
 
 ## <a name="handle-service-errors"></a>Gérer les erreurs de service
 

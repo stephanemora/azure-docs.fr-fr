@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297145"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748087"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -113,7 +113,7 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
 
    ```
 
-4. Pour créer un IoT Hub, ajoutez les lignes suivantes à la collection **ressources**. Le code JSON spécifie les propriétés minimales requises pour créer un hub IoT. Les valeurs **name** et **location** sont passées en tant que paramètres à partir d’un autre fichier. Pour en savoir plus sur les propriétés que vous pouvez spécifier pour un hub IoT dans un modèle, consultez les [informations de référence sur le modèle Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Pour créer un IoT Hub, ajoutez les lignes suivantes à la collection **ressources** . Le code JSON spécifie les propriétés minimales requises pour créer un hub IoT. Les valeurs **name** et **location** sont passées en tant que paramètres à partir d’un autre fichier. Pour en savoir plus sur les propriétés que vous pouvez spécifier pour un hub IoT dans un modèle, consultez les [informations de référence sur le modèle Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,7 +133,7 @@ Utilisez un modèle JSON pour créer un service d’approvisionnement et un IoT 
 
    ``` 
 
-5. Pour créer le service d’approvisionnement, ajoutez les lignes suivantes après la spécification du IoT Hub dans la collection **ressources**. Les valeurs **name** et **location** du service de provisionnement sont passées en tant que paramètres. La collection **iotHubs** spécifie les hubs IoT à lier au service de provisionnement. Vous devez spécifier au moins les propriétés **connectionString** et **location** pour chaque IoT Hub lié. Vous pouvez également définir les propriétés telles que **allocationWeight** et **applyAllocationPolicy** sur chaque IoT Hub, ainsi que les propriétés comme **allocationPolicy** et  **authorizationPolicies** dans le service d’approvisionnement proprement dit. Pour plus d’informations, consultez l’article [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Informations de référence sur le modèle Microsoft.Devices/provisioningServices).
+5. Pour créer le service d’approvisionnement, ajoutez les lignes suivantes après la spécification du IoT Hub dans la collection **ressources** . Les valeurs **name** et **location** du service de provisionnement sont passées en tant que paramètres. La collection **iotHubs** spécifie les hubs IoT à lier au service de provisionnement. Vous devez spécifier au moins les propriétés **connectionString** et **location** pour chaque IoT Hub lié. Vous pouvez également définir les propriétés telles que **allocationWeight** et **applyAllocationPolicy** sur chaque IoT Hub, ainsi que les propriétés comme **allocationPolicy** et  **authorizationPolicies** dans le service d’approvisionnement proprement dit. Pour plus d’informations, consultez l’article [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Informations de référence sur le modèle Microsoft.Devices/provisioningServices).
 
    La propriété **dependsOn** permet de s’assurer que Resource Manager crée l’IoT Hub avant le service d’approvisionnement. Le modèle nécessite que la chaîne de connexion du IoT Hub spécifie sa liaison avec le service d’approvisionnement. Vous devez donc créer en premier lieu le Hub et ses clés. Le modèle utilise des fonctions telles que **concat** et **listKeys** pour créer la chaîne de connexion à partir de variables paramétrées. Pour en savoir plus, consultez l’article [Fonctions des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 

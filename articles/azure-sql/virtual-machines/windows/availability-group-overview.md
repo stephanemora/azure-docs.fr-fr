@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166537"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789911"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Le diagramme suivant illustre un groupe de disponibilité pour SQL Server sur l
 
 ## <a name="vm-redundancy"></a>Redondance des machines virtuelles 
 
-Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou dans des [zones de disponibilité](/azure/availability-zones/az-overview) différentes.
+Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou dans des [zones de disponibilité](../../../availability-zones/az-overview.md) différentes.
 
 Un groupe à haute disponibilité est un regroupement de ressources configurées de sorte qu’il n’y ait pas deux terrains dans la même zone de disponibilité. Cela empêche d’impacter plusieurs ressources présentes dans le groupe au cours des lancements de déploiements. 
 
@@ -74,7 +74,7 @@ Il existe plusieurs options pour déployer un groupe de disponibilité sur SQL 
 
 Le tableau suivant fournit une comparaison des options disponibles : 
 
-| |**[Portail Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](availability-group-az-cli-configure.md)**|**[Modèles de démarrage rapide](availability-group-quickstart-template-configure.md)**|**[Manuelle](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Portail Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modèles de démarrage rapide](availability-group-quickstart-template-configure.md)**|**[Manuelle](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Version SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Édition de SQL Server** |Entreprise |Entreprise |Entreprise |Entreprise, Standard|
@@ -100,6 +100,6 @@ Sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous reco
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez en revue les [bonnes pratiques pour HADR](hadr-cluster-best-practices.md), puis commencez à déployer votre groupe de disponibilité avec le [portail Azure](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](availability-group-az-cli-configure.md), les [modèles de démarrage rapide](availability-group-quickstart-template-configure.md) ou [manuellement](availability-group-manually-configure-prerequisites-tutorial.md).
+Passez en revue les [bonnes pratiques pour HADR](hadr-cluster-best-practices.md), puis commencez à déployer votre groupe de disponibilité avec le [portail Azure](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), les [modèles de démarrage rapide](availability-group-quickstart-template-configure.md) ou [manuellement](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Vous pouvez également déployer un [groupe de disponibilité sans cluster](availability-group-clusterless-workgroup-configure.md) ou un groupe de disponibilité dans [plusieurs régions](availability-group-manually-configure-multiple-regions.md). 
+Vous pouvez également déployer un [groupe de disponibilité sans cluster](availability-group-clusterless-workgroup-configure.md) ou un groupe de disponibilité dans [plusieurs régions](availability-group-manually-configure-multiple-regions.md).

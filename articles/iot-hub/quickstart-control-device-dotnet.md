@@ -12,13 +12,14 @@ ms.custom:
 - mvc
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: 1b3b8382c81015e3278954dd0443ba44520e2e3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2f6d858275ca5a51ea7d8ef6edc23b741cc2466
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87315136"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747560"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (.NET)
 
@@ -76,7 +77,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyDotnetDevice** : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyDotnetDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom tout au long de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **MyDotnetDevice**  : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyDotnetDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom tout au long de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -118,11 +119,11 @@ Vous utiliserez cette valeur plus loin dans ce démarrage rapide. La chaîne de 
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre hub après l’exécution de la méthode directe.
 
-1. Dans une fenêtre de terminal local, accédez au dossier racine de l’exemple de projet C#. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2**.
+1. Dans une fenêtre de terminal local, accédez au dossier racine de l’exemple de projet C#. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2** .
 
-2. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.cs**.
+2. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.cs** .
 
-    Remplacez la valeur de la variable `s_connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.cs**.
+    Remplacez la valeur de la variable `s_connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.cs** .
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les packages requis pour l’application d’appareil simulé :
 
@@ -144,11 +145,11 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison côté service sur votre IoT Hub. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception. Une application back-end de l’IoT Hub s’exécute généralement dans le cloud.
 
-1. Dans une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet C#. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application**.
+1. Dans une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet C#. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application** .
 
-2. Utilisez un éditeur de texte pour ouvrir le fichier **BackEndApplication.cs**.
+2. Utilisez un éditeur de texte pour ouvrir le fichier **BackEndApplication.cs** .
 
-    Remplacez la valeur de la variable `s_connectionString` par la chaîne de connexion de service que vous avez notée précédemment. Ensuite, enregistrez vos modifications dans **BackEndApplication.cs**.
+    Remplacez la valeur de la variable `s_connectionString` par la chaîne de connexion de service que vous avez notée précédemment. Ensuite, enregistrez vos modifications dans **BackEndApplication.cs** .
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises pour l’application back-end :
 

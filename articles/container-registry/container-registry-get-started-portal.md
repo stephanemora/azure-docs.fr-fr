@@ -3,13 +3,13 @@ title: Guide de démarrage rapide - Créer un registre dans le portail
 description: Apprenez rapidement à créer un registre de conteneurs Azure privé à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031786"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746682"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs Azure à l’aide du portail Azure
 
@@ -25,23 +25,23 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry**.
+Sélectionnez **Créer une ressource** > **Conteneurs** > **Container Registry** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Accéder au registre de conteneurs dans le portail":::
 
-Sous l’onglet **Informations de base**, entrez les valeurs appropriées pour **Groupe de ressources** et **Nom du registre**. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Pour ce guide de démarrage rapide, créez un groupe de ressources dans l’emplacement `West US` nommé `myResourceGroup`, et sélectionnez « De base » pour **SKU**.
+Sous l’onglet **Informations de base** , entrez les valeurs appropriées pour **Groupe de ressources** et **Nom du registre** . Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Pour ce guide de démarrage rapide, créez un groupe de ressources dans l’emplacement `West US` nommé `myResourceGroup`, et sélectionnez « De base » pour **SKU** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Accéder au registre de conteneurs dans le portail":::
 
-Acceptez les valeurs par défaut pour les autres paramètres. Sélectionnez ensuite **Passer en revue + créer** . Après avoir passé en revue les paramètres, sélectionnez **Créer**.
+Acceptez les valeurs par défaut pour les autres paramètres. Sélectionnez ensuite **Passer en revue + créer** . Après avoir passé en revue les paramètres, sélectionnez **Créer** .
 
-Dans ce guide de démarrage rapide, vous allez créer un registre*De base*. Il s’agit d’une option à coût optimisé pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles (SKU), consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
+Dans ce guide de démarrage rapide, vous allez créer un registre *De base* . Il s’agit d’une option à coût optimisé pour les développeurs qui apprennent à se servir d’Azure Container Registry. Pour plus d’informations sur les niveaux de service disponibles (SKU), consultez [Niveaux de service des registres de conteneurs][container-registry-skus].
 
 Quand le message **Déploiement réussi** s’affiche, sélectionnez le registre de conteneurs dans le portail. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Accéder au registre de conteneurs dans le portail":::
 
-Prenez note du nom du registre et de la valeur du **serveur de connexion**. Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
+Prenez note du nom du registre et de la valeur du **serveur de connexion** . Vous utilisez ces valeurs dans les étapes suivantes quand vous effectuez l’envoi (push) et le tirage (pull) d’images avec Docker.
 
 ## <a name="log-in-to-registry"></a>Se connecter au registre
 
@@ -67,7 +67,7 @@ Pour lister les images de votre registre, accédez à ce dernier dans le portail
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Accéder au registre de conteneurs dans le portail":::
 
-En sélectionnant le référentiel **hello-world**, vous voyez l’image étiquetée `v1` sous **Étiquettes**.
+En sélectionnant le référentiel **hello-world** , vous voyez l’image étiquetée `v1` sous **Étiquettes** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 

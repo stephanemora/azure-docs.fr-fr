@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 562185697f8f80fc52b06be80a9f15271f16c0a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: c67d4dbb68048d273b1f9acd83a8460447e5abe4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961439"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748902"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Créer une application à plusieurs conteneurs (préversion) à l’aide d’une configuration Docker Compose
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud*. Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard**, exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *USA Centre Sud* . Pour afficher tous les emplacements pris en charge pour App Service sous Linux au niveau **Standard** , exécutez la commande [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -129,7 +129,7 @@ Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.ne
 
 ![Exemple d’application à plusieurs conteneurs sur Web App pour conteneurs][1]
 
-**Félicitations**, vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs.
+**Félicitations** , vous avez créé une application à plusieurs conteneurs dans Web App pour conteneurs.
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 

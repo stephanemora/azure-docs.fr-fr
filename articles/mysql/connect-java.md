@@ -4,28 +4,28 @@ description: Découvrez comment utiliser Java et JDBC avec une base de données 
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: a54e950286a37c207d902090f015b3732e0ff10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88517580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745264"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Utiliser Java et JDBC avec Azure Database pour MySQL
 
-Cette rubrique illustre la création d’un exemple d’application qui utilise Java et [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) pour stocker et récupérer des informations dans [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/).
+Cette rubrique illustre la création d’un exemple d’application qui utilise Java et [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) pour stocker et récupérer des informations dans [Azure Database pour MySQL](./index.yml).
 
 JDBC est l’API Java standard pour se connecter à des bases de données relationnelles classiques.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [Azure CLI](/cli/azure/install-azure-cli). Nous vous recommandons d’utiliser Azure Cloud Shell. Vous serez ainsi connecté automatiquement et vous aurez accès à tous les outils dont vous avez besoin.
-- Un [Java Development Kit](https://aka.ms/azure-jdks) pris en charge, version 8 (inclus dans Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [Azure CLI](/cli/azure/install-azure-cli). Nous vous recommandons d’utiliser Azure Cloud Shell. Vous serez ainsi connecté automatiquement et vous aurez accès à tous les outils dont vous avez besoin.
+- Un [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) pris en charge, version 8 (inclus dans Azure Cloud Shell).
 - L’outil de build [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Préparer l’environnement de travail
@@ -68,7 +68,7 @@ az group create \
 La première chose que nous allons créer est un serveur MySQL managé.
 
 > [!NOTE]
-> Vous trouverez des informations plus détaillées sur la création de serveurs MySQL dans l’article [Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> Vous trouverez des informations plus détaillées sur la création de serveurs MySQL dans l’article [Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Dans [Azure Cloud Shell](https://shell.azure.com/), exécutez le script suivant :
 
@@ -180,7 +180,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Ensuite, ajoutez le code Java qui utilisera JDBC pour stocker et récupérer des données à partir de votre serveur MySQL.
 
-Créez un fichier *src/main/java/DemoApplication.java*, qui contient :
+Créez un fichier *src/main/java/DemoApplication.java* , qui contient :
 
 ```java
 package com.example.demo;
@@ -237,7 +237,7 @@ Ce code Java utilisera les fichiers *application.properties* et *schema.sql* que
 Dans ce fichier, vous pouvez voir que nous avons commenté des méthodes pour insérer, lire, mettre à jour et supprimer des données : nous allons coder ces méthodes dans le reste de cet article, et vous pourrez en supprimer les marques de commentaire les unes après les autres.
 
 > [!NOTE]
-> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties*. Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
+> Les informations d’identification de base de données sont stockées dans les propriétés *user* et *password* du fichier *application.properties* . Ces informations d’identification sont utilisées lors de l’exécution de `DriverManager.getConnection(properties.getProperty("url"), properties);`, car le fichier de propriétés est passé comme argument.
 
 > [!NOTE]
 > La ligne `AbandonedConnectionCleanupThread.uncheckedShutdown();` à la fin est une commande spécifique du pilote MySQL visant à détruire un thread interne lors de l’arrêt de l’application.
@@ -326,11 +326,11 @@ public class Todo {
 }
 ```
 
-Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql*.
+Cette classe est un modèle de domaine mappé sur la table `todo` que vous avez créée lors de l’exécution du script *schema.sql* .
 
 ### <a name="insert-data-into-azure-database-for-mysql"></a>Insertion des données dans Azure Database pour MySQL
 
-Dans le fichier *src/main/java/DemoApplication.java*, après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
+Dans le fichier *src/main/java/DemoApplication.java* , après la méthode main, ajoutez la méthode suivante pour insérer des données dans la base de données :
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -368,7 +368,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons lire les données précédemment insérées pour valider le bon fonctionnement de notre code.
 
-Dans le fichier *src/main/java/DemoApplication.java*, après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
+Dans le fichier *src/main/java/DemoApplication.java* , après la méthode `insertData`, ajoutez la méthode suivante pour lire des données de la base de données :
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -412,7 +412,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Nous allons mettre à jour les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `readData`, ajoutez la méthode suivante pour mettre à jour des données dans la base de données :
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -456,7 +456,7 @@ L’exécution de la classe main doit maintenant produire la sortie suivante :
 
 Enfin, nous allons supprimer les données que nous avons insérées précédemment.
 
-Toujours dans le fichier *src/main/java/DemoApplication.java*, après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
+Toujours dans le fichier *src/main/java/DemoApplication.java* , après la méthode `updateData`, ajoutez la méthode suivante pour supprimer des données dans la base de données :
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

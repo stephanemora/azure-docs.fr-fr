@@ -5,13 +5,13 @@ description: Découvrez comment créer rapidement un cluster Kubernetes, déploy
 services: container-service
 ms.topic: quickstart
 ms.date: 10/06/2020
-ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.custom: mvc, seo-javascript-october2019, devx-track-azurecli
+ms.openlocfilehash: 30c00b1dfda3e30f047faf0deed7151aaf8c3fae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91850435"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745775"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide du portail Azure
 
@@ -31,33 +31,33 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 Pour créer un cluster AKS, exécutez les étapes suivantes :
 
-1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil** , sélectionnez **Créer une ressource** .
 
-2. Sélectionnez **Conteneurs** >  **Kubernetes Service**.
+2. Sélectionnez **Conteneurs** >  **Kubernetes Service** .
 
-3. Sur la page **Bases**, configurez les options suivantes :
-    - **Détails du projet** : Choisissez un **abonnement** Azure, puis sélectionnez ou créez un **groupe de ressources** Azure, comme *myResourceGroup*.
-    - **Détails du cluster** : Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*. Sélectionnez une **région** et une **version de Kubernetes** pour le cluster AKS.
+3. Sur la page **Bases** , configurez les options suivantes :
+    - **Détails du projet** : Choisissez un **abonnement** Azure, puis sélectionnez ou créez un **groupe de ressources** Azure, comme *myResourceGroup* .
+    - **Détails du cluster** : Entrez un **nom du cluster Kubernetes** , tel que *myAKSCluster* . Sélectionnez une **région** et une **version de Kubernetes** pour le cluster AKS.
     - **Pool de nœuds principal** : Sélectionnez une **taille de nœud** de machine virtuelle pour les nœuds AKS. Elle ne sera *pas modifiable* une fois le cluster AKS déployé.
-            - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Pour effectuer ce démarrage rapide, définissez le **Nombre de nœuds** à *1*. Le nombre de nœuds est *modifiable* après le déploiement du cluster.
+            - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Pour effectuer ce démarrage rapide, définissez le **Nombre de nœuds** à *1* . Le nombre de nœuds est *modifiable* après le déploiement du cluster.
     
     ![Créer un cluster AKS - fournir des informations de base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Sélectionnez **Suivant : Pools de nœuds** à l’issue du processus.
 
-4. Dans la page **Pools de nœuds**, conservez les options par défaut. Au bas de la page, cliquez sur **Suivant : Authentification**.
+4. Dans la page **Pools de nœuds** , conservez les options par défaut. Au bas de la page, cliquez sur **Suivant : Authentification** .
     > [!CAUTION]
     > La propagation et la mise en disponibilité des nouveaux principaux de service AAD créés peuvent prendre plusieurs minutes, ce qui entraîne des erreurs « Principal du service introuvable » et des échecs de validation dans le portail Azure. Si vous rencontrez ce problème, consultez ces [solutions d’atténuation](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster).
 
-5. Sur la page **Authentification**, configurez les options suivantes :
-    - Créez un principal de service en laissant dans le champ **Principal du Service** **(nouveau) le principal du service par défaut**. Ou vous pouvez choisir *Configurer un principal du service* pour utiliser un principal existant. Si vous utilisez un principal du service existant, vous devez indiquer l’ID client SPN et le secret associés.
+5. Sur la page **Authentification** , configurez les options suivantes :
+    - Créez un principal de service en laissant dans le champ **Principal du Service** **(nouveau) le principal du service par défaut** . Ou vous pouvez choisir *Configurer un principal du service* pour utiliser un principal existant. Si vous utilisez un principal du service existant, vous devez indiquer l’ID client SPN et le secret associés.
     - Activez l’option pour le contrôle RBAC (contrôle d’accès en fonction du rôle) Kubernetes. Ces options fournissent un contrôle plus précis sur l’accès aux ressources Kubernetes déployées dans votre cluster AKS.
 
     Vous pouvez également utiliser une identité managée au lieu d’un principal de service. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
-Par défaut, le réseau *De base* est utilisé et Azure Monitor pour conteneurs est activé. Cliquez sur **Vérifier + créer**, puis **Créer** lorsque la validation est terminée.
+Par défaut, le réseau *De base* est utilisé et Azure Monitor pour conteneurs est activé. Cliquez sur **Vérifier + créer** , puis **Créer** lorsque la validation est terminée.
 
-La création du cluster AKS ne prend que quelques minutes. Une fois votre déploiement terminé, cliquez sur **Accédez à la ressource** ou accédez au groupe de ressources du cluster AKS, par exemple *myResourceGroup*, puis sélectionnez la ressource AKS, par exemple *myAKSCluster*. Le tableau de bord du cluster AKS s’affiche, comme dans l’exemple suivant :
+La création du cluster AKS ne prend que quelques minutes. Une fois votre déploiement terminé, cliquez sur **Accédez à la ressource** ou accédez au groupe de ressources du cluster AKS, par exemple *myResourceGroup* , puis sélectionnez la ressource AKS, par exemple *myAKSCluster* . Le tableau de bord du cluster AKS s’affiche, comme dans l’exemple suivant :
 
 ![Exemple de tableau de bord AKS dans le portail Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -81,7 +81,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Vérifiez que l’état du nœud est *Ready* :
+L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Vérifiez que l’état du nœud est *Ready*  :
 
 ```output
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -207,7 +207,7 @@ Pour surveiller la progression, utilisez la commande [kubectl get service][kubec
 kubectl get service azure-vote-front --watch
 ```
 
-Dans un premier temps, la valeur *EXTERNAL-IP* du service *azure-vote-front* apparaît comme étant en attente (*pending*).
+Dans un premier temps, la valeur *EXTERNAL-IP* du service *azure-vote-front* apparaît comme étant en attente ( *pending* ).
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -228,12 +228,12 @@ Pour voir l’application Azure Vote en action, ouvrez un navigateur web en util
 
 Azure Monitor pour conteneurs a été activé quand vous avez créé le cluster. Cette fonctionnalité de surveillance fournit des indicateurs d’intégrité pour le cluster AKS et les pods en cours d’exécution sur le cluster.
 
-Ces données s’afficheront sur le Portail Azure au bout de quelques minutes. Pour afficher l’état actuel, la durée de fonctionnement et l’utilisation des ressources pour les pods Azure Vote, accédez à la ressource AKS dans le portail Azure, comme *myAKSCluster*. Vous pouvez alors accéder à l’état d’intégrité en procédant comme suit :
+Ces données s’afficheront sur le Portail Azure au bout de quelques minutes. Pour afficher l’état actuel, la durée de fonctionnement et l’utilisation des ressources pour les pods Azure Vote, accédez à la ressource AKS dans le portail Azure, comme *myAKSCluster* . Vous pouvez alors accéder à l’état d’intégrité en procédant comme suit :
 
-1. Sous **Supervision** à gauche, choisissez **Insights**.
-1. Dans la partie supérieure, choisissez **+ Ajouter un filtre**.
+1. Sous **Supervision** à gauche, choisissez **Insights** .
+1. Dans la partie supérieure, choisissez **+ Ajouter un filtre** .
 1. Sélectionnez *Espace de noms* en guise de propriété, puis choisissez *\<All but kube-system\>* .
-1. Choisissez de visualiser les **Conteneurs**.
+1. Choisissez de visualiser les **Conteneurs** .
 
 Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illustré dans l’exemple suivant :
 

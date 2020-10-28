@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152345"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746189"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -133,19 +133,19 @@ Quand il n’est plus nécessaire, [supprimez le groupe de ressources](../azure-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
->  [Déployer à partir de Git local](deploy-local-git.md)
+> [Déployer à partir de Git local](deploy-local-git.md)
 
 > [!div class="nextstepaction"]
-> ASP.NET Core avec SQL Database
+> [Build a .NET Core and SQL Database web app in Azure App Service](tutorial-dotnetcore-sqldb-app.md) (Créer une application web .NET Core et SQL Database dans Azure App Service)
 
 > [!div class="nextstepaction"]
 > Python avec Postgres
 
 > [!div class="nextstepaction"]
->  [PHP avec MySQL](tutorial-php-mysql-app.md)
+> [PHP avec MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
->  [Se connecter à une base de données Azure SQL à l’aide de Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Se connecter à Azure SQL Database à l’aide de Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> Mapper un domaine personnalisé
+> [Mapper un domaine personnalisé](app-service-web-tutorial-custom-domain.md)

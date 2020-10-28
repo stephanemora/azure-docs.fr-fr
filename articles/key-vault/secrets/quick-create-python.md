@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: 751e4dbace2b61f53ef9b8d9bef45aa6ce17f9ca
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047869"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786103"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour Python
 
@@ -24,14 +24,14 @@ Bien démarrer avec la bibliothèque de client de secrets Azure Key Vault pour P
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Python 2.7+ ou 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ ou 3.5.3+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/install-azure-cli) dans une fenêtre de terminal Linux.
 
 
 ## <a name="set-up-your-local-environment"></a>Configurer votre environnement local
-Ce guide de démarrage rapide utilise la bibliothèque Azure Identity avec Azure CLI pour authentifier l’utilisateur auprès des services Azure. Les développeurs peuvent également utiliser Visual Studio ou Visual Studio Code pour authentifier leurs appels. Pour plus d’informations, consultez [Authentifier le client avec la bibliothèque de client Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Ce guide de démarrage rapide utilise la bibliothèque Azure Identity avec Azure CLI pour authentifier l’utilisateur auprès des services Azure. Les développeurs peuvent également utiliser Visual Studio ou Visual Studio Code pour authentifier leurs appels. Pour plus d’informations, consultez [Authentifier le client avec la bibliothèque de client Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-Vérifiez que le code de la section précédente se trouve dans un fichier nommé *kv_secrets.py*. Exécutez ensuite le code avec la commande suivante :
+Vérifiez que le code de la section précédente se trouve dans un fichier nommé *kv_secrets.py* . Exécutez ensuite le code avec la commande suivante :
 
 ```terminal
 python kv_secrets.py

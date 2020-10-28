@@ -14,13 +14,14 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - devx-track-js
+- devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 07508046e1689c3b8c2a3bb323a98994d10df8a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0452e117b733d4e5363fe4a6d6a94ee45c34d57d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334121"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748588"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (Node.js)
 
@@ -68,7 +69,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyNodeDevice** : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyNodeDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devrez utiliser ce nom tout au long de cet article et mettre à jour le nom de l'appareil dans les exemples d'application avant de les exécuter.
+   **MyNodeDevice**  : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyNodeDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devrez utiliser ce nom tout au long de cet article et mettre à jour le nom de l'appareil dans les exemples d'application avant de les exécuter.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
@@ -88,7 +89,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     Vous utiliserez cette valeur plus loin dans ce guide de démarrage rapide.
 
-1. Vous avez aussi besoin du _point de terminaison compatible Event Hubs_, du _chemin d’accès compatible Event Hubs_ et de la _clé principale du service_ à partir de votre IoT Hub pour permettre à l’application back-end de se connecter à votre IoT Hub et de récupérer les messages. Les commandes suivantes extraient ces valeurs pour votre IoT Hub :
+1. Vous avez aussi besoin du _point de terminaison compatible Event Hubs_ , du _chemin d’accès compatible Event Hubs_ et de la _clé principale du service_ à partir de votre IoT Hub pour permettre à l’application back-end de se connecter à votre IoT Hub et de récupérer les messages. Les commandes suivantes extraient ces valeurs pour votre IoT Hub :
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
@@ -106,11 +107,11 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub et envoie les données de télémétrie simulée (température et humidité).
 
-1. Ouvrez une fenêtre de votre terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device**.
+1. Ouvrez une fenêtre de votre terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device** .
 
-1. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.js**.
+1. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.js** .
 
-    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.js**.
+    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.js** .
 
 1. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises et exécuter l’application d’appareil simulé :
 
@@ -127,7 +128,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison **Événements** du service sur votre IoT Hub. L’application reçoit les messages appareil-à-cloud envoyés à partir de votre appareil simulé. Une application back-end IoT Hub s’exécute généralement dans le cloud pour recevoir et traiter les messages appareil-à-cloud.
 
-1. Ouvrez une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet Node.js. Puis, accédez au dossier **iot-hub\Quickstarts\read-d2c-messages**.
+1. Ouvrez une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet Node.js. Puis, accédez au dossier **iot-hub\Quickstarts\read-d2c-messages** .
 
 1. Ouvrez le fichier **ReadDeviceToCloudMessages.js** dans un éditeur de texte de votre choix. Mettez à jour les variables suivantes et enregistrez vos modifications dans le fichier.
 

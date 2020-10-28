@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 5a077a325f29e38ce3647b2662c72aaad5adfc2b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ad9c64f2846b59fcc833ad56c4da378f7819dae3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150670"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747403"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Démarrage rapide : Envoyer des données de télémétrie IoT à partir d’un appareil Android
 
@@ -82,7 +83,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 ## <a name="send-simulated-telemetry"></a>Envoyer des données de télémétrie simulée
 
-1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
+1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* .
 
 2. Dans Android Studio, ouvrez *gradle.properties* pour l’exemple de projet et remplacez l’espace réservé **Device_Connection_String** par la chaîne de connexion d’appareil que vous avez notée précédemment.
 
@@ -90,7 +91,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle**. Vérifiez que la build est terminée.
+3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle** . Vérifiez que la build est terminée.
 
    > [!NOTE]
    > Si la synchronisation du projet échoue, c’est peut-être pour l’une des raisons suivantes :

@@ -15,13 +15,14 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - devx-track-js
+- devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 13baface2bce9e98f08e37b8a16ba1e2b435205a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52b4ec2ed7b05dfb905d490cf1bf11aed25ea562
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91281573"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747512"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Démarrage rapide : Utiliser Node.js pour contrôler un appareil connecté à un hub Azure IoT
 
@@ -73,7 +74,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyNodeDevice** : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyNodeDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom tout au long de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **MyNodeDevice**  : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **MyNodeDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom tout au long de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -117,11 +118,11 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre hub après l’exécution de la méthode directe.
 
-1. Dans une fenêtre de votre terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2**.
+1. Dans une fenêtre de votre terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2** .
 
-2. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.js**.
+2. Utilisez un éditeur de texte pour ouvrir le fichier **SimulatedDevice.js** .
 
-    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.js**.
+    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion d’appareil que vous avez notée précédemment. Enregistrez ensuite les changements apportés à **SimulatedDevice.js** .
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises et exécuter l’application d’appareil simulé :
 
@@ -138,11 +139,11 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 L’application back-end se connecte au point de terminaison côté service sur votre IoT Hub. L’application effectue des appels de méthode directe à un appareil via votre IoT Hub et écoute les accusés de réception. Une application back-end de l’IoT Hub s’exécute généralement dans le cloud.
 
-1. Dans une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application**.
+1. Dans une autre fenêtre de terminal local, accédez au dossier racine de l’exemple de projet Node.js. Ensuite, accédez au dossier **iot-hub\Quickstarts\back-end-application** .
 
-2. Utilisez un éditeur de texte pour ouvrir le fichier **BackEndApplication.js**.
+2. Utilisez un éditeur de texte pour ouvrir le fichier **BackEndApplication.js** .
 
-    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion de service que vous avez notée précédemment. Ensuite, enregistrez vos modifications dans **BackEndApplication.js**.
+    Remplacez la valeur de la variable `connectionString` par la chaîne de connexion de service que vous avez notée précédemment. Ensuite, enregistrez vos modifications dans **BackEndApplication.js** .
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises et exécuter l’application back-end :
 

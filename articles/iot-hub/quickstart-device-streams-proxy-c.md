@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e2182ee67683c4dfb963aeb320984a82d78b26c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 35c120b6d7715ac6fefe0e8712040108568ee8de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148858"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747426"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C (préversion)
 
@@ -88,7 +88,7 @@ Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](i
 
     Cette opération doit prendre quelques minutes.
 
-1. Créez un sous-répertoire *cmake* dans le répertoire racine du dépôt Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire *azure-iot-sdk-c* :
+1. Créez un sous-répertoire *cmake* dans le répertoire racine du dépôt Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire *azure-iot-sdk-c*  :
 
     ```cmd/sh
     mkdir cmake
@@ -104,7 +104,7 @@ Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](i
       make -j
       ```
 
-   * Dans Windows, exécutez les commandes suivantes à l’invite de commandes développeur pour Visual Studio 2015 ou 2017. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire *cmake*.
+   * Dans Windows, exécutez les commandes suivantes à l’invite de commandes développeur pour Visual Studio 2015 ou 2017. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire *cmake* .
 
       ```cmd
       rem For VS2015

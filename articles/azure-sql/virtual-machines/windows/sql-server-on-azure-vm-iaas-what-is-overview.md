@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272155"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793090"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure (Windows) ?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,9 +29,9 @@ ms.locfileid: "91272155"
 
 [SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) vous permet d’utiliser des versions complètes de SQL Server dans le cloud sans devoir gérer du matériel local. Les machines virtuelles SQL Server simplifient également les coûts de licence quand vous payez à l’utilisation.
 
-Les machines virtuelles Azure sont exécutées dans différentes [régions géographiques](https://azure.microsoft.com/regions/) du monde entier. Elles offrent également un éventail de [tailles de machine](../../../virtual-machines/windows/sizes.md). La galerie d’images de machine virtuelle vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Les machines virtuelles constituent ainsi une bonne solution pour différentes charges de travail SQL Server.
+Les machines virtuelles Azure sont exécutées dans différentes [régions géographiques](https://azure.microsoft.com/regions/) du monde entier. Elles offrent également un éventail de [tailles de machine](../../../virtual-machines/sizes.md). La galerie d’images de machine virtuelle vous permet de créer une machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation appropriés. Les machines virtuelles constituent ainsi une bonne solution pour différentes charges de travail SQL Server.
 
-Si vous ne connaissez pas SQL Server sur les machines virtuelles Azure, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure*, qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
+Si vous ne connaissez pas SQL Server sur les machines virtuelles Azure, regardez la vidéo *Vue d’ensemble de SQL Server sur les machines virtuelles Azure* , qui fait partie de notre [série de vidéos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner) approfondies :
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="automated-updates"></a>Mises à jour automatisées
@@ -42,7 +42,7 @@ SQL Server sur machines virtuelles Azure peut utiliser la fonctionnalité [Mise 
 
 SQL Server sur machines virtuelles Azure peut tirer parti de la fonctionnalité [Sauvegarde automatisée](automated-backup.md), qui crée à intervalles réguliers des sauvegardes de votre base de données dans le stockage blob. Vous pouvez utiliser cette technique manuellement. Pour plus d’informations, voir [Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server](azure-storage-sql-server-backup-restore-use.md).
 
-Azure offre également une solution de sauvegarde de classe entreprise pour les instances SQL Server s’exécutant sur des machines virtuelles Azure. Solution de sauvegarde entièrement managée, elle prend en charge les groupes de disponibilité Always On, la rétention à long terme, la récupération jusqu`à une date et heure, ainsi que des fonctions de gestion et de surveillance centralisées. Pour plus d’informations, consultez [Sauvegarde Azure pour SQL Server dans des machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure offre également une solution de sauvegarde de classe entreprise pour les instances SQL Server s’exécutant sur des machines virtuelles Azure. Solution de sauvegarde entièrement managée, elle prend en charge les groupes de disponibilité Always On, la rétention à long terme, la récupération jusqu`à une date et heure, ainsi que des fonctions de gestion et de surveillance centralisées. Pour plus d’informations, consultez [Sauvegarde Azure pour SQL Server dans des machines virtuelles Azure](../../../backup/backup-azure-sql-database.md).
   
 
 ## <a name="high-availability"></a>Haute disponibilité
@@ -109,18 +109,18 @@ Si vous disposez d’une base de données existante, vous voudrez la déplacer v
 
 Le portail Azure fournit une page unique sur laquelle vous pouvez gérer [toutes vos ressources Azure SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), y compris vos machines virtuelles SQL.
 
-Pour accéder à la page **Ressources Azure SQL**, dans le menu du portail Azure, sélectionnez **Azure SQL**, ou recherchez et sélectionnez **Azure SQL** depuis n’importe quelle page.
+Pour accéder à la page **Ressources Azure SQL** , dans le menu du portail Azure, sélectionnez **Azure SQL** , ou recherchez et sélectionnez **Azure SQL** depuis n’importe quelle page.
 
 ![Rechercher Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > Azure SQL permet d’accéder rapidement et facilement à l’ensemble de vos bases de données Azure SQL, pools élastiques, serveurs logiques, instances managées et machines virtuelles. Azure SQL n'est pas un service ou une ressource. 
 
-Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter**. 
+Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter** . 
 
 ![Créer une ressource Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Après avoir sélectionné **+ Ajouter**, affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
+Après avoir sélectionné **+ Ajouter** , affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
 
 ![Détails de la vignette Bases de données](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,7 +135,7 @@ Pour plus d’informations, consultez :
 Azure conserve uniquement une image de machine virtuelle pour chaque combinaison de système d’exploitation, de version et d’édition prise en charge. Cela signifie qu’au fil du temps, les images sont actualisées et les images plus anciennes sont supprimées. Pour plus d’informations, consultez la section **Images** des [FAQ relatifs aux machines virtuelles SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programme d’amélioration du produit (CEIP)
-Le Programme d’amélioration du produit est activé par défaut. Il transmet régulièrement des rapports à Microsoft afin de contribuer à améliorer SQL Server. Aucune tâche de gestion n’est requise dans le cadre de ce programme, sauf si vous souhaitez le désactiver après sa mise en service. Vous pouvez personnaliser ou désactiver le CEIP en vous connectant à la machine virtuelle avec le Bureau à distance. Exécutez ensuite l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server** . Suivez les instructions pour désactiver la création de rapports. Pour plus d’informations sur la collecte de données, consultez la [Déclaration de confidentialité de SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
+Le Programme d’amélioration du produit est activé par défaut. Il transmet régulièrement des rapports à Microsoft afin de contribuer à améliorer SQL Server. Aucune tâche de gestion n’est requise dans le cadre de ce programme, sauf si vous souhaitez le désactiver après sa mise en service. Vous pouvez personnaliser ou désactiver le CEIP en vous connectant à la machine virtuelle avec le Bureau à distance. Exécutez ensuite l’utilitaire **Rapports d’erreurs et d’utilisation SQL Server** . Suivez les instructions pour désactiver la création de rapports. Pour plus d’informations sur la collecte de données, consultez la [Déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Produits et services associés
 ### <a name="windows-virtual-machines"></a>Machines virtuelles Windows
@@ -150,7 +150,7 @@ Le Programme d’amélioration du produit est activé par défaut. Il transmet r
 * [Créer un nom de domaine complet dans le portail Azure](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
-* [Documentation SQL Server](https://docs.microsoft.com/sql/index)
+* [Documentation SQL Server](/sql/index)
 * [Comparaison Azure SQL Database](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -165,5 +165,5 @@ Obtenez des réponses aux questions fréquentes à propos des machines virtuelle
 
 Afficher les architectures de référence pour l’exécution d’applications multiniveau sur SQL Server dans IaaS
 
-* [Application multiniveau Windows sur Azure avec SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Exécuter une application multiniveau dans plusieurs régions Azure pour une haute disponibilité](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Application multiniveau Windows sur Azure avec SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Exécuter une application multiniveau dans plusieurs régions Azure pour une haute disponibilité](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

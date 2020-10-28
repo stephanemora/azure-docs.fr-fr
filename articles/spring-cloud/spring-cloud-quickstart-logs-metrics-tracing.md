@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093053"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746641"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble**, puis sélectionnez **Journaux** dans la section **Supervision**. Sélectionnez **Exécuter** pour l’un des exemples de requête Azure Spring Cloud.
+1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble** , puis sélectionnez **Journaux** dans la section **Supervision** . Sélectionnez **Exécuter** pour l’un des exemples de requête Azure Spring Cloud.
 
    [ ![Entrée Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,21 +75,21 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Mesures
 
-1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble**, puis sélectionnez **Métriques** dans la section **Supervision**. Ajoutez votre première métrique en sélectionnant l’une des métriques .NET sous **Performance (.NET)** ou **Requête (.NET)** dans la liste déroulante **Métrique**, puis `Avg` pour que **Agrégation** puisse voir la chronologie de cette métrique.
+1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble** , puis sélectionnez **Métriques** dans la section **Supervision** . Ajoutez votre première métrique en sélectionnant l’une des métriques .NET sous **Performance (.NET)** ou **Requête (.NET)** dans la liste déroulante **Métrique** , puis `Avg` pour que **Agrégation** puisse voir la chronologie de cette métrique.
 
    [ ![Entrée de métriques - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
-1. Cliquez sur **Ajouter un filtre** dans la barre d’outils, puis sélectionnez `App=solar-system-weather` pour voir l’utilisation du processeur uniquement pour l’application **solar-system-weather**.
+1. Cliquez sur **Ajouter un filtre** dans la barre d’outils, puis sélectionnez `App=solar-system-weather` pour voir l’utilisation du processeur uniquement pour l’application **solar-system-weather** .
 
    [ ![Utiliser un filtre dans les métriques - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. Abandonnez le filtre créé à l’étape précédente, sélectionnez **Appliquer la division**, puis sélectionnez `App` pour **Valeurs** afin de voir l’utilisation du processeur par les différentes applications.
+1. Abandonnez le filtre créé à l’étape précédente, sélectionnez **Appliquer la division** , puis sélectionnez `App` pour **Valeurs** afin de voir l’utilisation du processeur par les différentes applications.
 
    [ ![Appliquer la division dans les métriques - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
 ## <a name="distributed-tracing"></a>Traçage distribué
 
-1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble**, puis sélectionnez **Suivi distribué** dans la section **Supervision**. Ensuite, sélectionnez l’onglet **Afficher la cartographie d’application** sur la droite.
+1. Dans le portail Azure, accédez à la page **Service | Vue d’ensemble** , puis sélectionnez **Suivi distribué** dans la section **Supervision** . Ensuite, sélectionnez l’onglet **Afficher la cartographie d’application** sur la droite.
 
    [ ![Entrée Suivi distribué - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -142,7 +142,7 @@ Vous verrez des journaux comme ceci :
 
 Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 
-1. Sélectionnez **Azure Explorer**, puis **Spring Cloud**.
+1. Sélectionnez **Azure Explorer** , puis **Spring Cloud** .
 
 1. Cliquez avec le bouton droit sur l’application en cours d’exécution.
 
@@ -150,7 +150,7 @@ Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 
    ![Sélectionnez Journaux de streaming](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Sélectionnez **Instance**.
+1. Sélectionnez **Instance** .
 
    ![Sélectionnez une instance](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -161,7 +161,7 @@ Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 ---
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Journaux** dans la section **Supervision**. Cliquez sur **Exécuter** sur un des exemples de requête pour Azure Spring Cloud. 
+1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Journaux** dans la section **Supervision** . Cliquez sur **Exécuter** sur un des exemples de requête pour Azure Spring Cloud. 
 
    [ ![Entrée Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -171,21 +171,21 @@ Pour obtenir les journaux en utilisant Azure Toolkit for IntelliJ :
 
 ## <a name="metrics"></a>Mesures
 
-1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Métriques** dans la section **Supervision**. Ajoutez votre première métrique en sélectionnant `system.cpu.usage` pour **Métrique** et `Avg` pour **Agrégation** pour voir la chronologie de l’utilisation globale du processeur.
+1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Métriques** dans la section **Supervision** . Ajoutez votre première métrique en sélectionnant `system.cpu.usage` pour **Métrique** et `Avg` pour **Agrégation** pour voir la chronologie de l’utilisation globale du processeur.
 
    [ ![Entrée Métriques](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
-1. Cliquez sur **Ajouter un filtre** dans la barre d’outils ci-dessus, sélectionnez `App=Gateway` pour voir l’utilisation du processeur seulement pour l’application **gateway**.
+1. Cliquez sur **Ajouter un filtre** dans la barre d’outils ci-dessus, sélectionnez `App=Gateway` pour voir l’utilisation du processeur seulement pour l’application **gateway** .
 
    [ ![Utiliser un filtre dans les métriques](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
 
-1. Abandonnez le filtre créé ci-dessus, cliquez sur **Appliquer la division**, puis sélectionnez `App` pour **Valeurs** afin de voir l’utilisation du processeur pour les différentes applications.
+1. Abandonnez le filtre créé ci-dessus, cliquez sur **Appliquer la division** , puis sélectionnez `App` pour **Valeurs** afin de voir l’utilisation du processeur pour les différentes applications.
 
    [ ![Appliquer la division dans les métriques](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
 
 ## <a name="distributed-tracing"></a>Traçage distribué
 
-1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Suivi distribué** dans la section **Supervision**. Cliquez ensuite sur l’onglet **Afficher la cartographie d’application** sur la droite.
+1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Suivi distribué** dans la section **Supervision** . Cliquez ensuite sur l’onglet **Afficher la cartographie d’application** sur la droite.
 
    [ ![Entrée Suivi distribué](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 

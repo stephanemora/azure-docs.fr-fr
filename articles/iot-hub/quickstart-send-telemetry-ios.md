@@ -10,13 +10,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 728218959c385c768804f8890157a8b2ec794170
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87061567"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748612"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT (iOS)
 
@@ -61,7 +62,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **myiOSdevice** : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **myiOSdevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devrez utiliser ce nom tout au long de cet article et mettre à jour le nom de l'appareil dans les exemples d'application avant de les exécuter.
+   **myiOSdevice**  : il s’agit du nom de l’appareil que vous inscrivez. Il est recommandé d’utiliser **myiOSdevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devrez utiliser ce nom tout au long de cet article et mettre à jour le nom de l'appareil dans les exemples d'application avant de les exécuter.
 
    ```azurecli-interactive
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
@@ -111,11 +112,11 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
    open "MQTT Client Sample.xcworkspace"
    ```
 
-2. Développez le projet **MQTT Client Sample**, puis le dossier du même nom.  
+2. Développez le projet **MQTT Client Sample** , puis le dossier du même nom.  
 3. Ouvrez **ViewController.swift** pour le modifier dans XCode. 
 4. Recherchez la variable **connectionString** et mettez à jour sa valeur en fonction de la chaîne de connexion d’appareil que vous avez notée précédemment.
 5. Enregistrez vos modifications. 
-6. Exécutez le projet dans l’émulateur d’appareil avec le bouton **Build and run (Générer et exécuter)** ou la combinaison de touches **commande + r**. 
+6. Exécutez le projet dans l’émulateur d’appareil avec le bouton **Build and run (Générer et exécuter)** ou la combinaison de touches **commande + r** . 
 
    ![Exécuter le projet](media/quickstart-send-telemetry-ios/run-sample.png)
 

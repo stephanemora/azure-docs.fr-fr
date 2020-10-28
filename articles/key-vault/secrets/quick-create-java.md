@@ -2,18 +2,18 @@
 title: Démarrage rapide - Bibliothèque de client Azure Key Vault pour Java
 description: Fournit des critères de format et de contenu pour l’écriture de guides de démarrage rapide liés aux bibliothèques de client du kit Azure SDK.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019628"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786205"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour Java
 
@@ -37,7 +37,7 @@ Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/
 
 ## <a name="setting-up"></a>Configuration
 
-Ce guide de démarrage rapide utilise la bibliothèque Azure Identity avec Azure CLI pour authentifier l’utilisateur auprès des services Azure. Les développeurs peuvent également utiliser Visual Studio ou Visual Studio Code pour authentifier leurs appels. Pour plus d’informations, consultez [Authentifier le client avec la bibliothèque de client Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Ce guide de démarrage rapide utilise la bibliothèque Azure Identity avec Azure CLI pour authentifier l’utilisateur auprès des services Azure. Les développeurs peuvent également utiliser Visual Studio ou Visual Studio Code pour authentifier leurs appels. Pour plus d’informations, consultez [Authentifier le client avec la bibliothèque de client Azure Identity](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 

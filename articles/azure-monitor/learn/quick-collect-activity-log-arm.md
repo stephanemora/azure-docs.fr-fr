@@ -3,16 +3,16 @@ title: Envoyer le journal d’activité Azure à un espace de travail Log Analyt
 description: Utilisez des modèles Resource Manager pour créer un espace de travail Log Analytics et un paramètre de diagnostic afin d’envoyer le journal d’activité à Journaux Azure Monitor.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631849"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747030"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Démarrage rapide : Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide d’un modèle Resource Manager
 
@@ -29,7 +29,7 @@ Le journal d’activité est un journal de plateforme dans Azure qui fournit un 
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle suivant crée un espace de travail Log Analytics vide. Enregistrez ce modèle sous le nom *CreateWorkspace.json*.
+Le modèle suivant crée un espace de travail Log Analytics vide. Enregistrez ce modèle sous le nom *CreateWorkspace.json* .
 
 ```json
 {
@@ -134,7 +134,7 @@ Ce modèle définit une ressource :
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
-Déployez le modèle à l’aide de n’importe quelle méthode standard de [déploiement d’un modèle Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), à l’image des exemples suivants qui utilisent l’interface CLI et PowerShell. Remplacez les exemples de valeurs **Resource Group**, **workspaceName** et **location** par les valeurs appropriées pour votre environnement. Le nom de l’espace de travail doit être unique parmi tous les abonnements Azure.
+Déployez le modèle à l’aide de n’importe quelle méthode standard de [déploiement d’un modèle Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), à l’image des exemples suivants qui utilisent l’interface CLI et PowerShell. Remplacez les exemples de valeurs **Resource Group** , **workspaceName** et **location** par les valeurs appropriées pour votre environnement. Le nom de l’espace de travail doit être unique parmi tous les abonnements Azure.
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle suivant crée un paramètre de diagnostic qui envoie le journal d’activité à un espace de travail Log Analytics. Enregistrez ce modèle sous le nom *CreateDiagnosticSetting.json*.
+Le modèle suivant crée un paramètre de diagnostic qui envoie le journal d’activité à un espace de travail Log Analytics. Enregistrez ce modèle sous le nom *CreateDiagnosticSetting.json* .
 
 ```json
 {
@@ -248,7 +248,7 @@ Ce modèle définit une ressource :
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
-Déployez le modèle à l’aide de n’importe quelle méthode standard de [déploiement d’un modèle Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), à l’image des exemples suivants qui utilisent l’interface CLI et PowerShell. Remplacez les exemples de valeurs **Resource Group**, **workspaceName** et **location** par les valeurs appropriées pour votre environnement. Le nom de l’espace de travail doit être unique parmi tous les abonnements Azure.
+Déployez le modèle à l’aide de n’importe quelle méthode standard de [déploiement d’un modèle Resource Manager](../../azure-resource-manager/templates/deploy-portal.md), à l’image des exemples suivants qui utilisent l’interface CLI et PowerShell. Remplacez les exemples de valeurs **Resource Group** , **workspaceName** et **location** par les valeurs appropriées pour votre environnement. Le nom de l’espace de travail doit être unique parmi tous les abonnements Azure.
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 
@@ -281,15 +281,15 @@ Seules les nouvelles entrées du journal d’activité étant envoyées à l’e
 
 ## <a name="retrieve-data-with-a-log-query"></a>Récupérer des données à l’aide d’une requête de journal
 
-Utilisez le portail Azure pour récupérer des données de l’espace de travail à l’aide de Log Analytics. Dans le portail Azure, recherchez, puis sélectionnez **Monitor**.
+Utilisez le portail Azure pour récupérer des données de l’espace de travail à l’aide de Log Analytics. Dans le portail Azure, recherchez, puis sélectionnez **Monitor** .
 
 ![Portail Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Sélectionnez **Journaux** dans le menu **Azure Monitor**. Fermez la page **Exemples de requêtes**. Si l’étendue n’est pas définie sur l’espace de travail que vous avez créé, cliquez sur **Sélectionner une étendue** et recherchez-le.
+Sélectionnez **Journaux** dans le menu **Azure Monitor** . Fermez la page **Exemples de requêtes** . Si l’étendue n’est pas définie sur l’espace de travail que vous avez créé, cliquez sur **Sélectionner une étendue** et recherchez-le.
 
 ![Étendue Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Dans la fenêtre de requête, tapez `AzureActivity`, puis cliquez sur **Exécuter**. Il s’agit d’une requête simple qui retourne tous les enregistrements de la table *AzureActivity*, qui contient tous les enregistrements envoyés à partir du journal d’activité.
+Dans la fenêtre de requête, tapez `AzureActivity`, puis cliquez sur **Exécuter** . Il s’agit d’une requête simple qui retourne tous les enregistrements de la table *AzureActivity* , qui contient tous les enregistrements envoyés à partir du journal d’activité.
 
 ![Requête simple](media/quick-collect-activity-log/query-01.png)
 

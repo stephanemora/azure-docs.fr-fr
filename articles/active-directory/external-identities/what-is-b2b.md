@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926720"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897260"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 
 Azure AD B2B Collaboration est une fonctionnalité d’Azure Active Directory for External Identities qui vous permet d’inviter des utilisateurs à collaborer avec votre organisation. Azure AD B2B Collaboration vous permet de partager de manière sécurisée les applications et services de votre organisation avec des utilisateurs invités de toute autre organisation, tout en conservant le contrôle sur vos propres données d’entreprise. Collaborez de manière sécurisée avec des partenaires externes issus de petites ou grandes entreprises, même s’ils n’utilisent pas Azure AD ou n’ont pas de service informatique. Un simple processus d’invitation et d’échange d’invitation permet à vos partenaires d’utiliser leurs propres informations d’identification pour accéder aux ressources de votre société. Les développeurs peuvent utiliser les API B2B d’Azure AD pour personnaliser le processus d’invitation ou pour écrire des applications telles que des portails d’inscription libre-service. Pour plus d’informations sur les licences et les tarifs relatifs aux utilisateurs invités, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
 
    > [!IMPORTANT]
-   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité d’évaluation publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > **À compter du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité d’évaluation publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Collaborer avec tous les partenaires qui utilisent leur propre identité
 
@@ -74,8 +74,8 @@ Vous pouvez déléguer la gestion des utilisateurs invités aux propriétaires d
 
 Intégrez vos partenaires externes de façon personnalisée en fonction des besoins de votre organisation.
 
-- Utilisez la [gestion des droits d’utilisation Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) pour configurer des stratégies qui vous aident à [gérer les accès pour les utilisateurs externes](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Utilisez les [API d’invitation B2B Collaboration](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) pour personnaliser vos expériences d’intégration.
+- Utilisez la [gestion des droits d’utilisation Azure AD](../governance/entitlement-management-overview.md) pour configurer des stratégies qui vous aident à [gérer les accès pour les utilisateurs externes](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Utilisez les [API d’invitation B2B Collaboration](/graph/api/resources/invitation) pour personnaliser vos expériences d’intégration.
 
 ## <a name="integrate-with-identity-providers"></a>Intégrer avec des fournisseurs d’identité
 
@@ -95,6 +95,6 @@ Vous pouvez également utiliser des [connecteurs d’API](api-connectors-overvie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide sur l’attribution de licences Azure AD B2B Collaboration](licensing-guidance.md)
+- [Prix des identités externes](external-identities-pricing.md)
 - [Ajouter des utilisateurs invités B2B Collaboration dans le portail](add-users-administrator.md)
 - [Comprendre le processus d’échange d’invitation](redemption-experience.md)

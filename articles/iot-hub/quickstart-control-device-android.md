@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: bd23483997b94f16e926c2849e0879b41316fba3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a1166874ed743efa599743fa6db8341e94c0fe1f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148907"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747668"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Démarrage rapide : contrôler un appareil connecté à un hub IoT (Android)
 
@@ -114,7 +115,7 @@ Ces deux exemples de ce guide de démarrage rapide font partie du dépôt azure-
 
 L’exemple d’application de kit SDK d’appareil peut être exécuté sur un appareil Android physique ou sur un émulateur Android. Cet exemple se connecte à un point de terminaison spécifique de l’appareil sur votre hub IoT, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre hub. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre hub après l’exécution de la méthode directe.
 
-1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
+1. Ouvrez l’exemple de projet Android GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* .
 
 2. Dans Android Studio, ouvrez *gradle.properties* pour l’exemple de projet et remplacez l’espace réservé **Device_Connection_String** par la chaîne de connexion d’appareil que vous avez notée précédemment.
 
@@ -122,7 +123,7 @@ L’exemple d’application de kit SDK d’appareil peut être exécuté sur un 
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle**. Vérifiez que la build est terminée.
+3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle** . Vérifiez que la build est terminée.
 
    > [!NOTE]
    > Si la synchronisation du projet échoue, c’est peut-être pour l’une des raisons suivantes :
@@ -164,7 +165,7 @@ Exécutez cette application sur un appareil Android physique ou un émulateur An
 
 Une application de service back-end IoT Hub s’exécute généralement dans le cloud, où il est plus facile d’atténuer les risques associés à la chaîne de connexion sensible qui contrôle tous les appareils sur un hub IoT. Dans cet exemple, nous l’exécutons comme une application Android uniquement à des fins de démonstration. Les versions de ce guide de démarrage rapide propres à d’autres langages fournissent des exemples qui s’alignent plus étroitement avec une application de service back-end typique.
 
-1. Ouvrez l’exemple de projet Android de service GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample*.
+1. Ouvrez l’exemple de projet Android de service GitHub dans Android Studio. Le projet se trouve dans le répertoire suivant de votre copie clonée ou téléchargée du dépôt [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) : *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample* .
 
 2. Dans Android Studio, ouvrez *gradle.properties* pour l’exemple de projet. Mettez à jour les valeurs des propriétés **ConnectionString** et **DeviceId** avec la chaîne de connexion de service que vous avez notée précédemment et l’ID d’appareil Android que vous avez inscrit.
 
@@ -173,7 +174,7 @@ Une application de service back-end IoT Hub s’exécute généralement dans le 
     DeviceId=MyAndroidDevice
     ```
 
-3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle**. Vérifiez que la build est terminée.
+3. Dans Android Studio, cliquez sur **Fichier** > **Synchronisation du projet avec les fichiers Gradle** . Vérifiez que la build est terminée.
 
    > [!NOTE]
    > Si la synchronisation du projet échoue, c’est peut-être pour l’une des raisons suivantes :
@@ -183,7 +184,7 @@ Une application de service back-end IoT Hub s’exécute généralement dans le 
 
 4. Une fois la build terminée, cliquez sur **Exécuter** > **Exécuter « application »** . Configurez l’application pour l’exécuter sur un appareil Android physique ou un émulateur Android distinct. Pour plus d’informations sur l’exécution d’une application Android sur un appareil physique ou un émulateur, consultez [Exécuter votre application](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Une fois l’application chargée, mettez à jour la valeur **Définir l’intervalle de messagerie** sur **1000** et cliquez sur **Appeler**.
+5. Une fois l’application chargée, mettez à jour la valeur **Définir l’intervalle de messagerie** sur **1000** et cliquez sur **Appeler** .
 
     L’intervalle de messagerie de télémétrie est exprimé en millisecondes. L’intervalle de télémétrie par défaut de l’exemple d’appareil est défini sur 5 secondes. Ce changement met à jour l’appareil IoT Android afin que les données de télémétrie soient envoyées à chaque seconde.
 

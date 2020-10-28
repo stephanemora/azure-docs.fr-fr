@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789520"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Liaison privée vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un **point de terminaison privé**. Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Liaison privée, accédez à la page [Documentation sur Liaison privée](../../private-link/index.yml). Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
+Liaison privée vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un **point de terminaison privé** . Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Liaison privée, accédez à la page [Documentation sur Liaison privée](../../private-link/index.yml). Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
 
 > [!IMPORTANT]
-> Cet article s’applique à la fois à Azure SQL Database et à Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour simplifier, le terme « base de données » fait référence aux bases de données dans Azure SQL Database et Azure Synapse Analytics. De même, toutes les références à « serveur » désignent le [serveur SQL logique](logical-servers.md) qui héberge Azure SQL Database et Azure Synapse Analytics. Cet article ne s’applique *pas* à **Azure SQL Managed Instance**.
+> Cet article s’applique à la fois à Azure SQL Database et à Azure Synapse Analytics (anciennement SQL Data Warehouse). Pour simplifier, le terme « base de données » fait référence aux bases de données dans Azure SQL Database et Azure Synapse Analytics. De même, toutes les références à « serveur » désignent le [serveur SQL logique](logical-servers.md) qui héberge Azure SQL Database et Azure Synapse Analytics. Cet article ne s’applique *pas* à **Azure SQL Managed Instance** .
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Comment configurer Liaison privée pour Azure SQL Database 
 
@@ -75,7 +75,7 @@ Ce scénario part du principe que vous avez créé une machine virtuelle Azure e
 
 ### <a name="check-connectivity-using-telnet"></a>Vérifier la connectivité à l’aide de Telnet
 
-[Telnet Client](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) est une fonctionnalité Windows que vous pouvez utiliser pour tester la connectivité. Selon la version de votre système d’exploitation Windows, vous devrez peut-être activer cette fonctionnalité de manière explicite. 
+[Telnet Client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) est une fonctionnalité Windows que vous pouvez utiliser pour tester la connectivité. Selon la version de votre système d’exploitation Windows, vous devrez peut-être activer cette fonctionnalité de manière explicite. 
 
 Après avoir installé Telnet, ouvrez une fenêtre d’invite de commandes. Exécutez la commande telnet et spécifiez l’adresse IP et le point de terminaison privé de la base de données dans SQL Database.
 

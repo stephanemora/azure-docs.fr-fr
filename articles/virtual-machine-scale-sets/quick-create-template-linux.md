@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mimckitt, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: d040215968b0ebb433edba03e4839ffe7add0e5c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648630"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745854"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle ARM
 
@@ -24,7 +24,7 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 Les modèles ARM vous permettent de déployer des groupes de ressources associées. Dans un modèle unique, vous pouvez créer le groupe de machines virtuelles identiques, installer des applications et configurer des règles de mise à l’échelle automatique. Avec l’utilisation de variables et de paramètres, ce modèle peut être réutilisé pour mettre à jour des groupes identiques existants ou en créer d’autres. Vous pouvez déployer des modèles via le Portail Azure, Azure CLI ou Azure PowerShell, ou à partir de pipelines d’intégration continue/de livraison continue.
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -77,7 +77,7 @@ Pour tester votre groupe identique, installez une application web de base. Lorsq
 
 Le modèle utilise l’extension de script personnalisé pour installer [Bottle](https://bottlepy.org/docs/dev/), un framework web Python, et un serveur HTTP simple.
 
-Deux scripts sont définis dans **fileUris** - *installserver.sh* et *workserver.py*. Ces fichiers sont téléchargés à partir de GitHub, puis *commandToExecute* exécute `bash installserver.sh` pour installer et configurer l’application.
+Deux scripts sont définis dans **fileUris** - *installserver.sh* et *workserver.py* . Ces fichiers sont téléchargés à partir de GitHub, puis *commandToExecute* exécute `bash installserver.sh` pour installer et configurer l’application.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -109,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur web au format *http:\//publicIpAddress:9000/do_work*. L’équilibreur de charge répartit le trafic vers l’une de vos instances de machine virtuelle, comme illustré dans l’exemple suivant :
+Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur web au format *http:\//publicIpAddress:9000/do_work* . L’équilibreur de charge répartit le trafic vers l’une de vos instances de machine virtuelle, comme illustré dans l’exemple suivant :
 
 ![Page web par défaut dans NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
