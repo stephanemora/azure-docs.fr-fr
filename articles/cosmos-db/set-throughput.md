@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777785"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331819"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 
@@ -34,9 +34,9 @@ Le débit approvisionné pour un conteneur est réparti uniformément entre ses 
 
 Si la charge de travail d’une partition logique consomme plus que le débit alloué à la partition physique sous-jacente, vos opérations peuvent être limitées en termes de débit. Le phénomène de _partition à chaud_ se produit lorsqu’une partition logique a un nombre de requêtes qui est supérieur de façon disproportionnée à celui des autres valeurs de clé de partition.
 
-En cas de limitation, vous pouvez augmenter le débit aprovisionné pour l’intégralité du conteneur ou retenter les opérations. Vous devez également vous assurer que vous choisissez une clé de partition qui distribue uniformément le volume de stockage et de demande. Pour plus d’informations sur le partitionnement, consultez [Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB](partition-data.md).
+En cas de limitation, vous pouvez augmenter le débit aprovisionné pour l’intégralité du conteneur ou retenter les opérations. Vous devez également vous assurer que vous choisissez une clé de partition qui distribue uniformément le volume de stockage et de demande. Pour plus d’informations sur le partitionnement, consultez [Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB](partitioning-overview.md).
 
-Il vous est recommandé de configurer le débit au niveau de la granularité du conteneur pour garantir les performances de ce conteneur.
+Il vous est recommandé de configurer le débit au niveau de la granularité du conteneur lorsque vous souhaitez que les performances du conteneur soient prévisibles.
 
 L’illustration suivante montre comment une partition physique héberge une ou plusieurs partitions logiques d’un conteneur :
 
@@ -49,7 +49,7 @@ L’illustration suivante montre comment une partition physique héberge une ou 
 
 Quand vous provisionnez le débit sur une base de données Azure Cosmos, il est partagé entre tous les conteneurs (nommés conteneurs de base de données partagée) de la base de données. Sauf si vous avez spécifié un débit provisionné sur des conteneurs spécifiques dans la base de données. Le partage de débit provisionné au niveau de la base de données entre ses conteneurs est analogue à l’hébergement d’une base de données sur un cluster de machines. Tous les conteneurs d’une base de données partageant les ressources disponibles sur une machine, vous ne pouvez pas prévoir les performances d'un conteneur spécifique. Pour découvrir comment configurer le débit provisionné sur une base de données, consultez [Configurer le débit provisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md). Pour découvrir comme configurer le débit avec mise à l’échelle automatique sur une base de données, consultez [Approvisionner le débit avec mise à l’échelle automatique](how-to-provision-autoscale-throughput.md).
 
-Définir le débit sur une base de données Azure Cosmos vous permet de veiller à ce que vous receviez en permanence le débit provisionné pour cette base de données. Tous les conteneurs d’une base de données partageant le débit provisionné, Azure Cosmos DB n’offre pas de garantie de débit prévisible pour un conteneur donné de cette base de données. La portion de débit qu'un conteneur spécifique peut recevoir dépend de ce qui suit :
+Tous les conteneurs d’une base de données partageant le débit provisionné, Azure Cosmos DB n’offre pas de garantie de débit prévisible pour un conteneur donné de cette base de données. La portion de débit qu'un conteneur spécifique peut recevoir dépend de ce qui suit :
 
 * Nombre de conteneurs.
 * Choix des clés de partition pour différents conteneurs.
@@ -63,9 +63,9 @@ Les exemples suivants démontrent des situations où il est préférable de prov
 
 * Partager le débit approvisionné d’une base de données sur un ensemble de conteneurs est utile quand vous migrez une base de données NoSQL (par exemple, MongoDB ou Cassandra) hébergée sur un cluster de machines virtuelles ou à partir de serveurs physiques locaux vers Azure Cosmos DB. Vous pouvez considérer le débit provisionné configuré sur votre base de données Azure Cosmos en tant qu’équivalent logique (mais plus rentable et élastique) de la capacité de calcul de votre cluster MongoDB ou Cassandra.  
 
-Tous les conteneurs créés à l’intérieur d’une base de données avec un débit provisionné doivent être créés avec une [clé de partition](partition-data.md). À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. En présence de conteneurs partageant un débit provisionné configuré sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit à un conteneur ou une partition logique spécifique. 
+Tous les conteneurs créés à l’intérieur d’une base de données avec un débit provisionné doivent être créés avec une [clé de partition](partitioning-overview.md). À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. En présence de conteneurs partageant un débit provisionné configuré sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit à un conteneur ou une partition logique spécifique. 
 
-Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
+Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partitioning-overview.md).
 
 Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Avec un débit approvisionné standard (manuel), chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s. Avec le débit provisionné avec mise à l’échelle automatique, vous pouvez avoir jusqu’à 25 conteneurs dans une base de données avec une mise à l’échelle automatique de 4 000 RU/s au maximum (mise à l’échelle entre 400 et 4 000 RU/s).
 
@@ -82,11 +82,11 @@ Si vos charges de travail impliquent la suppression et la recréation de toutes 
 Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de données et le conteneur est autorisé. L’exemple suivant montre comment approvisionner le débit standard (manuel) sur une base de données et un conteneur Azure Cosmos :
 
 * Vous pouvez créer une base de données Azure Cosmos nommée *« Z »* avec le débit approvisionné standard (manuel) des unités de requête *« K »* . 
-* Créez ensuite cinq conteneurs nommés *A*, *B*, *C*, *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Notez que vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
+* Créez ensuite cinq conteneurs nommés *A* , *B* , *C* , *D* et *E* dans la base de données. Lors de la création du conteneur B, assurez-vous d’activer **Fournir un débit dédié pour cette option conteneur** et configurez explicitement *"P"* . RU de débit provisionné sur ce conteneur. Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur":::
 
-* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A*, *C*, *D*, et *E*. La quantité exacte de débit disponible pour *A*, *C*, *D*, ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
+* Le début des unités de requête *« K »* est partagé entre les quatre conteneurs *A* , *C* , *D* , et *E* . La quantité exacte de débit disponible pour *A* , *C* , *D* , ou *E* varie. Il n’existe pas de contrat SLA correspondant au débit de chaque conteneur individuel.
 * Le conteneur nommé *B* est assuré de bénéficier en permanence du débit des unités de requête *« P »* . Il est associé à des contrats SLA.
 
 > [!NOTE]
@@ -94,22 +94,55 @@ Vous pouvez combiner les deux modèles. Provisionner le débit sur la base de do
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Mise à jour du débit sur une base de données ou un conteneur
 
-Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit provisionné. Il n’y a pas de limite sur le débit maximum que vous pouvez provisionner sur la base de données ou le conteneur. 
+Après avoir créé un conteneur Azure Cosmos ou une base de données, vous pouvez mettre à jour le débit provisionné. Il n’y a pas de limite sur le débit maximum que vous pouvez provisionner sur la base de données ou le conteneur.
 
-Pour estimer le [débit provisionné minimal](concepts-limits.md#storage-and-database-operations) d’une base de données ou d’un conteneur, recherchez la valeur maximale parmi :
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Débit approvisionné actuel
+
+Vous pouvez récupérer le débit approvisionné d’un conteneur ou d’une base de données dans le portail Azure ou à l’aide des Kits de développement logiciel (SDK) suivants :
+
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
+
+La réponse de ces méthodes contient également le [débit minimal approvisionné](concepts-limits.md#storage-and-database-operations) pour le conteneur ou la base de données :
+
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) sur me Kit de développement logiciel (SDK) Java.
+
+La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Mais en général, il s’agit de la valeur maximale :
 
 * 400 RU/s 
 * Stockage actuel en Go * 10 RU/s
 * Valeur RU/s la plus élevée provisionnée sur la base de données ou le conteneur / 100
 * Nombre de conteneurs * 100 RU/s (base de données de débit partagé uniquement)
 
-La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour voir l’historique du débit provisionné (RU/s) et du stockage sur une ressource.
+### <a name="changing-the-provisioned-throughput"></a>Modification du débit approvisionné
 
-Vous pouvez récupérer le débit minimum d’un conteneur ou d’une base de données par programmation en utilisant les SDK ou visualiser la valeur dans le Portail Microsoft Azure. Lorsque vous utilisez le SDK .NET, la méthode [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) vous permet d'adapter la valeur de débit approvisionnée. Lorsque vous utilisez le SDK Java, la méthode [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) vous permet d'adapter la valeur de débit approvisionnée.
+Vous pouvez mettre à l’échelle le débit approvisionné d’un conteneur ou d’une base de données via le portail Azure ou à l’aide des Kits de développement logiciel (SDK) suivants :
 
-Lorsque vous utilisez le SDK.NET, la méthode [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) vous permet de récupérer le débit minimum d'un conteneur ou d'une base de données. 
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
 
-Vous pouvez à tout moment faire évoluer le débit provisionné d’un conteneur ou d’une base de données. Lorsqu’une opération de mise à l’échelle est effectuée pour augmenter le débit, il peut s’écouler plus de temps en raison des tâches du système pour fournir les ressources nécessaires. Vous pouvez vérifier l’état du fonctionnement de la mise à l’échelle dans le Portail Microsoft Azure ou par programmation à l’aide des SDK. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, vous pouvez obtenir l’état de l’opération de mise à l’échelle en utilisant la méthode `Container.ReadThroughputAsync`.
+Si vous **réduisez le débit approvisionné** , vous pouvez le faire jusqu’à la valeur [minimale](#current-provisioned-throughput).
+
+Si vous **augmentez le débit approvisionné** , la plupart du temps, l’opération est instantanée. Toutefois, dans certains cas, l’opération peut prendre plus de temps en raison des tâches du système pour approvisionner les ressources requises. Dans ce cas, une tentative de modification du débit approvisionné pendant que cette opération est en cours génère une réponse HTTP 423 avec un message d’erreur indiquant qu’une autre opération de mise à l’échelle est en cours.
+
+> [!NOTE]
+> Si vous planifiez une charge de travail d’ingestion très importante qui nécessite une forte augmentation du débit approvisionné, gardez à l’esprit que l’opération de mise à l’échelle n’a pas de contrat SLA et, comme indiqué dans le paragraphe précédent, elle peut prendre beaucoup de temps lorsque l’augmentation est importante. Il serait bon de planifier et de commencer la mise à l’échelle avant que la charge de travail ne démarre et d’utiliser les méthodes ci-dessous pour vérifier la progression.
+
+Vous pouvez vérifier par programmation la progression de la mise à l’échelle en lisant la section [Débit approvisionné actuel](#current-provisioned-throughput) et en utilisant :
+
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) sur le Kit de développement logiciel (SDK) .NET.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) sur le Kit de développement logiciel (SDK) Java.
+
+Vous pouvez utiliser les [métriques Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) pour voir l’historique du débit provisionné (RU/s) et du stockage sur une ressource.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Programme de stockage élevé/faible débit
+
+Comme décrit dans la section [Débit approvisionné actuel](#current-provisioned-throughput) ci-dessus, le débit minimal que vous pouvez approvisionner sur un conteneur ou une base de données dépend de plusieurs facteurs. L’un d’entre eux est la quantité de données actuellement stockées, puisqu’Azure Cosmos DB impose un débit minimal de 10 RU/s par Go de stockage.
+
+Cela peut être un problème dans les situations où vous devez stocker de grandes quantités de données, mais où les exigences en matière de débit sont faibles en comparaison. Pour mieux prendre en charge ces scénarios, Azure Cosmos DB a mis en place un **programme « stockage élevé/faible débit »** qui réduit la contrainte de 10 RU/s par Go à 1 RU/s par Go sur les comptes éligibles.
+
+Vous devez disposer d’au moins un conteneur ou une base de données à débit partagé contenant plus de 1 To de données dans votre compte pour que ce dernier soit éligible. Pour adhérer à ce programme et évaluer votre pleine admissibilité, il vous suffit de remplir [cette enquête](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). L’équipe d’Azure Cosmos DB assurera ensuite le suivi et procédera à votre intégration.
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 Ce tableau présente une comparaison entre l’approvisionnement du débit standard (manuel) sur une base de données et sur un conteneur. 
@@ -126,7 +159,7 @@ Ce tableau présente une comparaison entre l’approvisionnement du débit stand
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [partitions logiques](partition-data.md).
+* En savoir plus sur les [partitions logiques](partitioning-overview.md).
 * Découvrez comment [approvisionner le débit standard (manuel) sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 * Découvrez comment [approvisionner le débit standard (manuel) sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
 * Découvrez comment [approvisionner le débit avec mise à l’échelle automatique sur un conteneur ou une base de données Azure Cosmos](how-to-provision-autoscale-throughput.md).

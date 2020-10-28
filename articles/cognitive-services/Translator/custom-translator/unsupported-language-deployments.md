@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964683"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221194"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
@@ -33,15 +33,15 @@ Pour que vos modèles puissent être candidats au déploiement, ils doivent resp
 * La paire de langues du modèle ne doit pas être prise en charge dans Custom Translator.  Les paires de langues dont l’une des langues est prise en charge depuis ou vers l’anglais, mais qui n’incluent pas l’anglais, sont candidates pour des déploiements de langues non prises en charge.  Par exemple, un modèle de hub pour la paire de langues français-allemand est considéré comme une paire de langues non prise en charge, même si les paires de langues français-anglais et anglais-allemand sont prise en charge.
 
 ## <a name="process"></a>Process
-Après avoir migré à partir du hub les modèles candidats au déploiement, vous pouvez les trouver en accédant à la page **Paramètres** de votre espace de travail, puis en faisant défiler l’écran jusqu’à la fin de la page où se trouve une section intitulée **Unsupported Translator Hub Trainings**.  Cette section apparaît uniquement si vous avez des projets remplissant les conditions préalables mentionnées ci-dessus.
+Après avoir migré à partir du hub les modèles candidats au déploiement, vous pouvez les trouver en accédant à la page **Paramètres** de votre espace de travail, puis en faisant défiler l’écran jusqu’à la fin de la page où se trouve une section intitulée **Unsupported Translator Hub Trainings** .  Cette section apparaît uniquement si vous avez des projets remplissant les conditions préalables mentionnées ci-dessus.
 
-![Migrer à partir du hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Capture d’écran mettant en évidence la section Formations non prises en charge par Translator Hub.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-Dans la page de sélection **Unsupported Translator Hub Trainings**, l’onglet **Unrequested trainings** contient des modèles éligibles pour un déploiement.  Sélectionnez les modèles que vous souhaitez déployer et envoyez une demande.   Avant l’échéance de déploiement du 30 avril, vous pouvez sélectionner autant de modèles que vous le souhaitez pour le déploiement.
+Dans la page de sélection **Unsupported Translator Hub Trainings** , l’onglet **Unrequested trainings** contient des modèles éligibles pour un déploiement.  Sélectionnez les modèles que vous souhaitez déployer et envoyez une demande.   Avant l’échéance de déploiement du 30 avril, vous pouvez sélectionner autant de modèles que vous le souhaitez pour le déploiement.
  
-![Migrer à partir du hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Capture d’écran montrant l’onglet Formations non demandées.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequested trainings**, mais apparaît sous l’onglet **Requested trainings**.  Vous pouvez afficher vos formations demandées à tout moment.
+Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequested trainings** , mais apparaît sous l’onglet **Requested trainings** .  Vous pouvez afficher vos formations demandées à tout moment.
 
 ![Migrer à partir du hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 

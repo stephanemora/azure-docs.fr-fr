@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509655"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220854"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -70,12 +70,12 @@ Pour demander un déploiement :
 
 2. Pour un modèle formé réussi, il affiche le bouton « Déployer », s'il n'est pas déployé.
 
-    ![Déployer un modèle](media/how-to/how-to-deploy-model.png)
+    ![Capture d’écran mettant en évidence le bouton Déployer permettant de déployer un modèle.](media/how-to/how-to-deploy-model.png)
 
 3.  Cliquez sur Déployer.
 4.  Sélectionnez **Deployed (Déployé)** pour la ou les régions où vous souhaitez déployer votre modèle, puis cliquez sur Enregistrer. Vous pouvez sélectionner **Deployed (Déployé)** pour plusieurs régions.
 
-    ![Déployer un modèle](media/how-to/how-to-deploy-model-regions.png)
+    ![Capture d’écran montrant où vous pouvez déployer un modèle ou annuler son déploiement.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
 
@@ -90,9 +90,9 @@ Pour mettre à jour les paramètres de déploiement :
 
 2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)** .
 
-    ![Déployer un modèle](media/how-to/how-to-update-undeploy-model.png)
+    ![Capture d’écran mettant en évidence le bouton Mettre à jour pour la mise à jour des paramètres de déploiement.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Sélectionnez **Update**.
+3.  Sélectionnez **Update** .
 4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)** .
 
     ![Déployer un modèle](media/how-to/how-to-undeploy-model.png)

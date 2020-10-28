@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045635"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221262"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Tester des requêtes Stream Analytics localement avec Visual Studio
 
@@ -28,11 +28,11 @@ Dans votre projet Azure Stream Analytics, double-cliquez sur **Script.asaql** po
  
 ### <a name="add-local-input"></a>Ajouter une entrée locale
 
-Pour valider votre requête par rapport aux données statiques locales, cliquez avec le bouton droit sur l’entrée, et sélectionnez **Ajouter une entrée locale**.
+Pour valider votre requête par rapport aux données statiques locales, cliquez avec le bouton droit sur l’entrée, et sélectionnez **Ajouter une entrée locale** .
    
-![Ajouter une entrée locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Capture d’écran mettant en évidence l’option de menu Ajouter une entrée locale.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-Dans la fenêtre indépendante, sélectionnez l’exemple de données dans votre chemin local, puis **Enregistrer**.
+Dans la fenêtre indépendante, sélectionnez l’exemple de données dans votre chemin local, puis **Enregistrer** .
    
 ![Ajouter une entrée locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -40,7 +40,7 @@ Un fichier nommé **local_EntryStream.json** est automatiquement ajouté à votr
    
 ![Liste des fichiers du dossier d’entrées locales](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
-Dans l’éditeur de requête, sélectionnez **Exécution locale**. Ou vous pouvez appuyer sur F5.
+Dans l’éditeur de requête, sélectionnez **Exécution locale** . Ou vous pouvez appuyer sur F5.
    
 ![Exécution locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
@@ -58,15 +58,15 @@ Vérifiez les résultats dans le dossier local.
    
 
 ### <a name="sample-input"></a>Exemple d’entrée
-Vous pouvez également collecter des exemples de données d’entrée à partir de vos sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données**. 
+Vous pouvez également collecter des exemples de données d’entrée à partir de vos sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données** . 
 
 ![Exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Vous pouvez échantillonner uniquement une diffusion en continu de données à partir d’Event Hubs ou d’IoT Hubs. Les autres sources d’entrée ne sont pas prises en charge. Dans la boîte de dialogue contextuelle, entrez le chemin local utilisé pour enregistrer les exemples de données et sélectionnez **Échantillon**.
+Vous pouvez échantillonner uniquement une diffusion en continu de données à partir d’Event Hubs ou d’IoT Hubs. Les autres sources d’entrée ne sont pas prises en charge. Dans la boîte de dialogue contextuelle, entrez le chemin local utilisé pour enregistrer les exemples de données et sélectionnez **Échantillon** .
 
 ![Configuration des exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie**. 
+Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie** . 
 
 ![Sortie des exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 

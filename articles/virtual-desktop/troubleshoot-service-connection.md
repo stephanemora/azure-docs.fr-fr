@@ -3,15 +3,15 @@ title: Détecter un problème de connexion au service dans Windows Virtual Deskt
 description: Comment résoudre des problèmes lorsque vous configurez des connexions de service dans un environnement de locataire Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089902"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108947"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connexions au service Windows Virtual Desktop
 
@@ -45,6 +45,13 @@ Si l’utilisateur peut démarrer les clients Bureau à distance et s’authenti
 Cette erreur se produit généralement lorsqu’un utilisateur a déplacé son abonnement d’un locataire Azure AD vers un autre. Par conséquent, le service perd le suivi de ses attributions d’utilisateurs, car celles-ci sont encore liées à l’ancien locataire Azure AD.
 
 Pour résoudre ce problème, il vous suffit de réaffecter les utilisateurs à leurs groupes d’applications.
+
+Cela peut également se produire si un fournisseur de services de chiffrement a créé l’abonnement, puis l’a transféré au client. Pour résoudre ce problème, réinscrivez le fournisseur de ressources.
+
+1. Connectez-vous au portail Azure.
+2. Accédez à **Abonnements** , puis sélectionnez votre abonnement.
+3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources** .
+4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization** , puis **Réinscrire** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

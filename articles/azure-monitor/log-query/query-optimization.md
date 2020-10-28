@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327712"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203481"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -131,9 +131,9 @@ SecurityEvent
 
 Bien que certaines commandes d’agrégation telles que [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) et [avg()](/azure/kusto/query/avg-aggfunction) aient un faible impact sur le processeur en raison de leur logique, d’autres sont plus complexes et incluent des heuristiques et des estimations qui leur permettent d’être exécutées efficacement. Par exemple, [dcount()](/azure/kusto/query/dcount-aggfunction) utilise l’algorithme HyperLogLog pour fournir une estimation proche du nombre distinct de grands jeux de données sans compter réellement chaque valeur ; les fonctions centile réalisent des approximations similaires à l’aide de l’algorithme de rang centile le plus proche. Plusieurs commandes incluent des paramètres facultatifs pour réduire leur impact. Par exemple, la fonction [makeset()](/azure/kusto/query/makeset-aggfunction) a un paramètre facultatif pour définir la taille maximale du jeu, ce qui affecte de manière significative le processeur et la mémoire.
 
-Les commandes [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) peuvent entraîner une utilisation élevée du processeur quand elles traitent un grand ensemble de données. Leur complexité est directement liée au nombre de valeurs possibles, appelé *cardinalité*, des colonnes qui sont utilisées comme `by` dans la commande summarize ou comme attributs dans la commande join. Pour plus d’informations sur les commandes join et summarize et sur leur optimisation, consultez les articles de la documentation et les conseils d’optimisation qui leur sont consacrés.
+Les commandes [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) and [summarize](/azure/kusto/query/summarizeoperator) peuvent entraîner une utilisation élevée du processeur quand elles traitent un grand ensemble de données. Leur complexité est directement liée au nombre de valeurs possibles, appelé *cardinalité* , des colonnes qui sont utilisées comme `by` dans la commande summarize ou comme attributs dans la commande join. Pour plus d’informations sur les commandes join et summarize et sur leur optimisation, consultez les articles de la documentation et les conseils d’optimisation qui leur sont consacrés.
 
-Par exemple, les requêtes suivantes produisent exactement le même résultat, car **CounterPath** est toujours mappé un-à-un à **CounterName** et **ObjectName**. La seconde est plus efficace, car la dimension d’agrégation est plus petite :
+Par exemple, les requêtes suivantes produisent exactement le même résultat, car **CounterPath** est toujours mappé un-à-un à **CounterName** et **ObjectName** . La seconde est plus efficace, car la dimension d’agrégation est plus petite :
 
 ```Kusto
 //less efficient
@@ -318,14 +318,14 @@ SecurityEvent
 
 ## <a name="time-span-of-the-processed-query"></a>Intervalle de temps de la requête traitée
 
-Tous les journaux dans Journaux Azure Monitor sont partitionnés en fonction de la colonne **TimeGenerated**. Le nombre de partitions accessibles est directement lié à l’intervalle de temps. La réduction de l’intervalle de temps est la méthode la plus efficace pour garantir l’exécution d’une requête d’invite.
+Tous les journaux dans Journaux Azure Monitor sont partitionnés en fonction de la colonne **TimeGenerated** . Le nombre de partitions accessibles est directement lié à l’intervalle de temps. La réduction de l’intervalle de temps est la méthode la plus efficace pour garantir l’exécution d’une requête d’invite.
 
 Une requête sur une période de plus de 15 jours est considérée comme une requête consommant une quantité excessive de ressources. Une requête sur une période de plus de 90 jours est considérée comme une requête abusive et peut être limitée.
 
 L’intervalle de temps peut être défini à l’aide du sélecteur d’intervalle de temps dans l’écran Log Analytics, comme décrit dans [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](scope.md#time-range). Il s’agit de la méthode recommandée, car l’intervalle de temps sélectionné est transmis au back-end à l’aide des métadonnées de requête. 
 
 Une autre méthode consiste à inclure explicitement une condition [where](/azure/kusto/query/whereoperator) sur **TimeGenerated** dans la requête. Vous devez utiliser cette méthode, car elle garantit que l’intervalle de temps est fixe, même quand la requête est utilisée à partir d’une interface différente.
-Vous devez vous assurer que toutes les parties de la requête ont des filtres **TimeGenerated**. Quand une requête a des sous-requêtes qui extraient des données de différentes tables ou de la même table, chacune doit inclure sa propre [where](/azure/kusto/query/whereoperator).
+Vous devez vous assurer que toutes les parties de la requête ont des filtres **TimeGenerated** . Quand une requête a des sous-requêtes qui extraient des données de différentes tables ou de la même table, chacune doit inclure sa propre [where](/azure/kusto/query/whereoperator).
 
 ### <a name="make-sure-all-sub-queries-have-timegenerated-filter"></a>Vérifiez que toutes les sous-requêtes ont un filtre TimeGenerated
 
@@ -372,7 +372,7 @@ by Computer
 
 Ce problème peut également se produire lorsque vous effectuez un filtrage par période juste après l’[union](/azure/kusto/query/unionoperator?pivots=azuremonitor) de plusieurs tables. Lorsque vous effectuez l’union, chaque sous-requête doit être délimitée. Vous pouvez utiliser l’instruction [let](/azure/kusto/query/letstatement) pour garantir la cohérence de la portée.
 
-Par exemple, la requête suivante analyse toutes les données des tables *Heartbeat* et *Perf*, et pas seulement celles du jour passé :
+Par exemple, la requête suivante analyse toutes les données des tables *Heartbeat* et *Perf* , et pas seulement celles du jour passé :
 
 ```Kusto
 Heartbeat 
@@ -414,7 +414,7 @@ Azure Data Explorer utilise plusieurs niveaux de stockage : en mémoire, disque
 Une requête qui traite des données datant de plus de 14 jours est considérée comme une requête consommant une quantité excessive de ressources.
 
 
-Bien que certaines requêtes nécessitent l’utilisation d’anciennes données, il existe des cas où les anciennes données sont utilisées par erreur. Cela se produit quand les requêtes sont exécutées sans que soit fourni d’intervalle de temps dans leurs métadonnées et que toutes les références de table n’incluent pas le filtre sur la colonne **TimeGenerated**. Dans ces cas, le système analyse toutes les données stockées dans la table concernée. Quand la conservation des données est longue, elle peut couvrir des intervalles de temps longs et, donc, des données aussi anciennes que la période de conservation des données.
+Bien que certaines requêtes nécessitent l’utilisation d’anciennes données, il existe des cas où les anciennes données sont utilisées par erreur. Cela se produit quand les requêtes sont exécutées sans que soit fourni d’intervalle de temps dans leurs métadonnées et que toutes les références de table n’incluent pas le filtre sur la colonne **TimeGenerated** . Dans ces cas, le système analyse toutes les données stockées dans la table concernée. Quand la conservation des données est longue, elle peut couvrir des intervalles de temps longs et, donc, des données aussi anciennes que la période de conservation des données.
 
 Voici certains exemples :
 

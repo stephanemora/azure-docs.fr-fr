@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
-ms.date: 03/05/2020
-ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/05/2020
+ms.openlocfilehash: a102c9f375b37579cf6f92b08d67f762d3dfd26a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78943964"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220888"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scénario : Les journaux Apache Hive saturent l’espace disque sur les nœuds principaux dans Azure HDInsight
 
@@ -23,7 +23,8 @@ Cet article décrit les étapes de résolution des problèmes, et les solutions 
 Sur un cluster Apache Hive/LLAP, des journaux indésirables occupent la totalité de l’espace disque sur les nœuds principaux. Pour cette raison, les problèmes suivants peuvent se produire.
 
 1. L’accès SSH échoue car aucun espace n’est laissé sur le nœud principal.
-2. Ambari indique *ERREUR HTTP : 503 Service indisponible*.
+2. Ambari indique *ERREUR HTTP : 503 Service indisponible* .
+3. Le redémarrage de HiveServer2 Interactive échoue.
 
 Les journaux `ambari-agent` signalent les éléments suivants lorsque le problème se produit.
 ```
@@ -35,7 +36,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Cause
 
-Dans les configurations Hive-log4j avancées, le paramètre *log4j.appender.RFA.MaxBackupIndex* est omis. Une génération sans fin de fichiers journaux en résulte.
+Dans les configurations hive-log4j avancées, la planification de suppression par défaut actuelle est définie pour les fichiers de plus de 30 jours en fonction de la date de dernière modification.
 
 ## <a name="resolution"></a>Résolution
 
@@ -43,30 +44,28 @@ Dans les configurations Hive-log4j avancées, le paramètre *log4j.appender.RFA.
 
 2. Accédez à la section `Advanced hive-log4j` dans les paramètres avancés.
 
-3. Définissez le paramètre `log4j.appender.RFA` sur RollingFileAppender. 
+3. Définissez le paramètre `appender.RFA.strategy.action.condition.age` sur l’âge de votre choix. Exemple pour 14 jours : `appender.RFA.strategy.action.condition.age = 14D`.
 
-4. Définissez `log4j.appender.RFA.MaxFileSize` et `log4j.appender.RFA.MaxBackupIndex` comme suit.
+4. Si vous ne voyez aucun paramètre associé, ajoutez les paramètres suivants.
+    ```
+    # automatically delete hive log
+    appender.RFA.strategy.action.type = Delete
+    appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
+    appender.RFA.strategy.action.condition.type = IfLastModified
+    appender.RFA.strategy.action.condition.age = 30D
+    appender.RFA.strategy.action.PathConditions.type = IfFileName
+    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    ```
 
-```
-log4jhive.log.maxfilesize=1024MB
-log4jhive.log.maxbackupindex=10
-
-log4j.appender.RFA=org.apache.log4j.RollingFileAppender
-log4j.appender.RFA.File=${hive.log.dir}/${hive.log.file}
-log4j.appender.RFA.MaxFileSize=${log4jhive.log.maxfilesize}
-log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
-log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
-log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
-```
 5. Définissez `hive.root.logger` sur `INFO,RFA` comme suit. Le paramètre par défaut est DEBUG, ce qui augmente considérablement la taille des journaux.
 
-```
-# Define some default values that can be overridden by system properties
-hive.log.threshold=ALL
-hive.root.logger=INFO,RFA
-hive.log.dir=${java.io.tmpdir}/${user.name}
-hive.log.file=hive.log
-```
+    ```
+    # Define some default values that can be overridden by system properties
+    hive.log.threshold=ALL
+    hive.root.logger=INFO,RFA
+    hive.log.dir=${java.io.tmpdir}/${user.name}
+    hive.log.file=hive.log
+    ```
 
 6. Enregistrez les configurations et redémarrez les composants nécessaires.
 
@@ -78,4 +77,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

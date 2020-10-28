@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948162"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144993"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procédure : Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
@@ -26,10 +26,7 @@ Cet article vous donne les informations dont vous avez besoin pour configurer un
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose de connaître : 
-
-- [Concepts de base](overview.md) de l’accès conditionnel Azure AD 
-- [Meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le Portail Microsoft Azure
+Cet article suppose que vous connaissez bien les [concepts de base](overview.md) de l’accès conditionnel. 
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -45,13 +42,13 @@ L’accès conditionnel Azure AD permet de répondre à cette exigence avec une 
 
 ## <a name="implementation"></a>Implémentation
 
-Le défi de ce scénario consiste à traduire l’*accès à partir d’un emplacement réseau non approuvé* en une condition d’accès conditionnel. Dans une stratégie d’accès conditionnel, vous pouvez configurer la [condition d’emplacements](location-condition.md) de façon à gérer les scénarios liés aux emplacements réseau. Cette condition permet de sélectionner des emplacements nommés, qui sont des regroupements logiques de plages d’adresses IP, de pays et de régions.  
+Le défi de ce scénario consiste à traduire l’ *accès à partir d’un emplacement réseau non approuvé* en une condition d’accès conditionnel. Dans une stratégie d’accès conditionnel, vous pouvez configurer la [condition d’emplacements](location-condition.md) de façon à gérer les scénarios liés aux emplacements réseau. Cette condition permet de sélectionner des emplacements nommés, qui sont des regroupements logiques de plages d’adresses IP, de pays et de régions.  
 
 En règle générale, une organisation possède au moins une plage d’adresses, par exemple, 199.30.16.0-199.30.16.15.
 Pour configurer un emplacement nommé :
 
 - Spécifiez cette plage (199.30.16.0/28) 
-- Attribuez un nom descriptif, par exemple, **Réseau d’entreprise**. 
+- Attribuez un nom descriptif, par exemple, **Réseau d’entreprise** . 
 
 Au lieu de tenter de définir tous les emplacements non approuvés, vous pouvez :
 
@@ -65,7 +62,7 @@ Au lieu de tenter de définir tous les emplacements non approuvés, vous pouvez�
 
 ## <a name="policy-deployment"></a>Déploiement de stratégie
 
-Suivant l’approche décrite dans cet article, vous pouvez maintenant configurer une stratégie d’accès conditionnel pour les emplacements non approuvés. Pour vous assurer que votre stratégie fonctionne comme prévu, la meilleure pratique recommandée consiste à la tester avant de la déployer en production. Dans l’idéal, utilisez un locataire de test pour vérifier si votre nouvelle stratégie fonctionne comme prévu. Pour plus d’informations, consultez [Guide pratique pour déployer une nouvelle stratégie](best-practices.md#how-should-you-deploy-a-new-policy). 
+Suivant l’approche décrite dans cet article, vous pouvez maintenant configurer une stratégie d’accès conditionnel pour les emplacements non approuvés. Pour vous assurer que votre stratégie fonctionne comme prévu, la meilleure pratique recommandée consiste à la tester avant de la déployer en production. Dans l’idéal, utilisez un locataire de test pour vérifier si votre nouvelle stratégie fonctionne comme prévu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

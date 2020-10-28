@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667691"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166452"
 ---
 # <a name="get-started-with-custom-keyword"></a>Bien démarrer avec Mot clé personnalisé
 
@@ -34,9 +34,9 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer ce mot cl
 > Les modèles de mots clés personnalisés et les fichiers `.table` résultants peuvent **uniquement** être créés dans Speech Studio.
 > Vous ne pouvez pas créer de mots clés personnalisés à partir du kit SDK ni avec des appels REST.
 
-1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
+1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous** , ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. Sur la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), créez un **Nouveau projet**. 
+1. Sur la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), créez un **Nouveau projet** . 
 
 1. Entrez un **Nom** et une **Description** facultative, puis sélectionnez la langue. Vous avez besoin d’un projet par langue et la prise en charge est actuellement limitée à la langue `en-US` (anglais des États-Unis).
 
@@ -46,15 +46,15 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer ce mot cl
 
     ![Sélectionner votre projet de mot clé](media/custom-keyword/custom-kws-portal-project-list.png)
 
-1. Pour créer un nouveau modèle de mot clé, cliquez sur **Entraîner le modèle**.
+1. Pour créer un nouveau modèle de mot clé, cliquez sur **Entraîner le modèle** .
 
-1. Entrez un **nom** pour le modèle, une **description** facultative et le **mot clé** de votre choix, puis cliquez sur **Suivant**. Consultez les [instructions](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sur le choix d’un mot clé efficace.
+1. Entrez un **nom** pour le modèle, une **description** facultative et le **mot clé** de votre choix, puis cliquez sur **Suivant** . Consultez les [instructions](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sur le choix d’un mot clé efficace.
 
     ![Entrez votre mot clé](media/custom-keyword/custom-kws-portal-new-model.png)
 
 1. Le portail crée des propositions de prononciation pour votre mot clé. Écoutez chaque prononciation en cliquant sur les boutons de lecture, supprimez les coches en regard des prononciations incorrectes. Une fois que seules les bonnes prononciations sont cochées, cliquez sur **Entraîner** pour commencer à générer le modèle de mot clé. 
 
-    ![Vérifier votre mot clé](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Capture d’écran montrant où vous choisissez les bonnes prononciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. La génération du modèle peut prendre jusqu’à trente minutes. La liste de mots clés passe de **Traitement en cours** à **Terminé** lorsque le modèle est terminé. Vous pouvez ensuite télécharger le fichier.
 

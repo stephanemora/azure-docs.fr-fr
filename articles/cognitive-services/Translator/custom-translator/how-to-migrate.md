@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537984"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220871"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -55,7 +55,7 @@ Pour migrer un projet :
 
 3. Cliquez sur le lien « Migrate » (Migrer) du projet correspondant.
 
-    ![Migrer à partir du hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Capture d’écran mettant en évidence le bouton Migrer pour le projet sélectionné.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Quand vous appuyez sur le lien de migration, vous obtenez un formulaire dans lequel vous pouvez effectuer les tâches suivantes :
    * Spécifier l’espace de travail vers lequel effectuer un transfert dans Custom Translator.
@@ -76,7 +76,7 @@ Pour migrer un espace de travail :
 
 3. Dans la page « Settings » (Paramètres), cliquez sur « Migrate Workspace data to Custom Translator » (Migrer les données de l’espace de travail vers Custom Translator).
 
-    ![Migrer à partir du hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Capture d’écran mettant en évidence l’option Migrer les données de l’espace de travail vers Custom Translator.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. Dans la page suivante, sélectionnez une de ces deux options :
 

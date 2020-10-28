@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628053"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165330"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -59,7 +59,7 @@ Les fichiers doivent être regroupées par type dans un jeu de données et charg
 
 Pour télécharger vos données, accédez au <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Dans le portail, cliquez sur **Upload data** (Charger des données) pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
 
-![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-select-audio.png)
+![Capture d’écran mettant en évidence l’option Chargement audio dans le portail Speech.](./media/custom-speech/custom-speech-select-audio.png)
 
 Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Vos données doivent être correctement mises en forme avant d’être chargées. Des données correctement mises en forme garantissent un traitement précis par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
 
