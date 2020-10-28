@@ -13,6 +13,7 @@
     - name: Création d’un circuit ExpressRoute - CLI
       href: howto-circuit-cli.md
     - name: Créer un circuit ExpressRoute - Modèle ARM
+      displayName: Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutoriels

@@ -18,6 +18,7 @@
         - name: Créer une zone publique - CLI
           href: dns-getstarted-cli.md
         - name: Créer une zone publique - Modèle ARM
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: DNS privé
       items:
