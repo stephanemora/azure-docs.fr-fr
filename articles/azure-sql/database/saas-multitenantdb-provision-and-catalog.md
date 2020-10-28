@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619614"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331938"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Approvisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Cet article décrit l’approvisionnement et l’inscription de nouveaux locataires dans un modèle de *base de données partitionnée multilocataire*.
+Cet article décrit l’approvisionnement et l’inscription de nouveaux locataires dans un modèle de *base de données partitionnée multilocataire* .
 
 Cet article comprend deux parties principales :
 
@@ -70,7 +70,7 @@ Le catalogue peut aussi servir à activer la création de rapport pour plusieurs
 
 ### <a name="elastic-database-client-library"></a>Bibliothèque cliente de base de données élastique
 
-Dans Wingtip, le catalogue est implémenté dans la base de données *tenantcatalog*. La base de données *tenantcatalog* est créée à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](elastic-database-client-library.md). La bibliothèque permet à une application de créer, gérer et utiliser une *carte de partitions* reposant sur des bases de données. Une carte de partitions croise la clé du locataire avec sa partition, c’est-à-dire avec sa base de données partitionnée.
+Dans Wingtip, le catalogue est implémenté dans la base de données *tenantcatalog* . La base de données *tenantcatalog* est créée à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library, bibliothèque cliente de bases de données élastiques)](elastic-database-client-library.md). La bibliothèque permet à une application de créer, gérer et utiliser une *carte de partitions* reposant sur des bases de données. Une carte de partitions croise la clé du locataire avec sa partition, c’est-à-dire avec sa base de données partitionnée.
 
 Pendant l’approvisionnement des locataires, les fonctions de la bibliothèque cliente de bases de données élastiques peuvent être utilisées dans des applications ou des scripts PowerShell pour créer les entrées dans la carte de partitions. Ces fonctions peuvent ensuite être utilisées pour se connecter à la base de données appropriée. La bibliothèque cliente de base de données élastiques met en cache les informations de connexion pour réduire le trafic sur la base de données de catalogues et accélérer le processus de connexion.
 
@@ -109,7 +109,7 @@ Les scripts d’approvisionnement des locataires de ce didacticiel prennent en c
 - Approvisionnement d’un locataire dans une base de données existante partagée avec d’autres locataires.
 - Approvisionnement d’un locataire dans sa propre base de données.
 
-Les données de locataire sont ensuite initialisées et inscrites dans la carte de partitions du catalogue. Dans l’exemple d’application, les bases de données qui contiennent plusieurs locataires reçoivent un nom générique, tel que *tenants1* ou *tenants2*. Les bases de données contenant un seul locataire prennent le nom du locataire. Les conventions de nommage spécifiques utilisées dans l’exemple ne sont pas un élément essentiel du modèle, car l’utilisation d’un catalogue permet d’attribuer n’importe quel nom à la base de données.
+Les données de locataire sont ensuite initialisées et inscrites dans la carte de partitions du catalogue. Dans l’exemple d’application, les bases de données qui contiennent plusieurs locataires reçoivent un nom générique, tel que *tenants1* ou *tenants2* . Les bases de données contenant un seul locataire prennent le nom du locataire. Les conventions de nommage spécifiques utilisées dans l’exemple ne sont pas un élément essentiel du modèle, car l’utilisation d’un catalogue permet d’attribuer n’importe quel nom à la base de données.
 
 <a name="goto_1_tutorial"></a>
 
@@ -143,35 +143,35 @@ Dans cette section figure une liste des principales actions liées à l’approv
 
 Voici des étapes clés du flux de travail de provisionnement :
 
-- **Calculer la clé du nouveau locataire** : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
-- **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
-- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
-- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue.
-- **Ajouter le nom du locataire à la table des extensions d'un catalogue** : Le nom du lieu est ajouté à la table Tenants dans le catalogue.  Voici comment la base de données de catalogues peut être étendue pour prendre en charge des données supplémentaires spécifiques de l’application.
-- **Ouvrir la page Événements du nouveau locataire** : La page des événements *Bushwillow Blues* est ouverte dans le navigateur.
+- **Calculer la clé du nouveau locataire**  : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
+- **Vérifier si la clé de locataire existe déjà**  : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
+- **Initialiser le locataire dans la base de données de locataire par défaut**  : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
+- **Inscrire le locataire dans le catalogue**  : Le mappage entre la clé du nouveau locataire et la base de données tenants1 existante est ajouté au catalogue.
+- **Ajouter le nom du locataire à la table des extensions d'un catalogue**  : Le nom du lieu est ajouté à la table Tenants dans le catalogue.  Voici comment la base de données de catalogues peut être étendue pour prendre en charge des données supplémentaires spécifiques de l’application.
+- **Ouvrir la page Événements du nouveau locataire**  : La page des événements *Bushwillow Blues* est ouverte dans le navigateur.
 
-   ![événements](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Capture d’écran montrant la page Événements pour un nouveau locataire.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Étapes du débogueur
 
 Pour comprendre comment l’application Wingtip implémente le provisionnement d’un nouveau locataire dans une base de données partagée, ajoutez un point d’arrêt et suivez les étapes du flux de travail :
 
-1. Dans *PowerShell ISE*, ouvrez ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* et définissez les paramètres suivants :
-   - **$TenantName** = **Bushwillow Blues**, le nom d’un nouveau lieu.
-   - **$VenueType** = **blues**, l’un des types prédéfinis de lieux : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minuscules, sans espace).
-   - **$DemoScenario** = **1**, pour provisionner un locataire dans une base de données partagée avec d’autres locataires.
+1. Dans *PowerShell ISE* , ouvrez ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* et définissez les paramètres suivants :
+   - **$TenantName** = **Bushwillow Blues** , le nom d’un nouveau lieu.
+   - **$VenueType** = **blues** , l’un des types prédéfinis de lieux : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minuscules, sans espace).
+   - **$DemoScenario** = **1** , pour provisionner un locataire dans une base de données partagée avec d’autres locataires.
 
-2. Ajoutez un point d'arrêt en plaçant votre curseur n'importe où sur la ligne 38, qui indique : *New-Tenant `* , puis appuyez sur **F9**.
+2. Ajoutez un point d'arrêt en plaçant votre curseur n'importe où sur la ligne 38, qui indique : *New-Tenant `* , puis appuyez sur **F9** .
 
-   ![point d’arrêt](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Capture d’écran faisant ressortir la ligne qui comporte New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
-3. Exécutez le script en appuyant sur **F5**.
+3. Exécutez le script en appuyant sur **F5** .
 
 4. Une fois que l’exécution du script s’arrête au point d’arrêt, appuyez sur **F11** pour effectuer un pas à pas détaillé du code.
 
    ![La capture d’écran montre l’ISE Windows PowerShell ISE avec le menu Déboguer ouvert et l’option Effectuer un pas à pas détaillé sélectionnée.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
-5. Suivez l’exécution du script à l’aide des options du menu **Débogage**, **F10** et **F11**, pour parcourir les fonctions appelées.
+5. Suivez l’exécution du script à l’aide des options du menu **Débogage** , **F10** et **F11** , pour parcourir les fonctions appelées.
 
 Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
@@ -181,14 +181,14 @@ Pour plus d’informations sur le débogage des scripts PowerShell, consultez [C
 
 Voici des étapes clés du flux de travail pendant le suivi de script :
 
-- **Calculer la clé du nouveau locataire** : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
-- **Vérifier si la clé de locataire existe déjà** : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
-- **Créer une base de données de locataire** : La base de données est créée en copiant la base de données *basetenantdb* à l’aide d’un modèle Resource Manager.  Le nom de la nouvelle base de données est basé sur le nom du locataire.
-- **Ajouter la base de données au catalogue** : La nouvelle base de données de locataire est inscrite sous forme de partition dans le catalogue.
-- **Initialiser le locataire dans la base de données de locataire par défaut** : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
-- **Inscrire le locataire dans le catalogue** : Le mappage entre la clé du nouveau locataire et la base de données *sequoiasoccer* existante est ajouté au catalogue.
-- **Le nom du locataire est ajouté au catalogue** : Le nom du lieu est ajouté à la table d’extension Tenants dans le catalogue.
-- **Ouvrir la page Événements du nouveau locataire** : La page des événements *Sequoia Soccer* est ouverte dans le navigateur.
+- **Calculer la clé du nouveau locataire**  : Une fonction de hachage est utilisée pour créer la clé de locataire à partir du nom du locataire.
+- **Vérifier si la clé de locataire existe déjà**  : Le catalogue est examiné pour vérifier que la clé n’a pas déjà été inscrite.
+- **Créer une base de données de locataire**  : La base de données est créée en copiant la base de données *basetenantdb* à l’aide d’un modèle Resource Manager.  Le nom de la nouvelle base de données est basé sur le nom du locataire.
+- **Ajouter la base de données au catalogue**  : La nouvelle base de données de locataire est inscrite sous forme de partition dans le catalogue.
+- **Initialiser le locataire dans la base de données de locataire par défaut**  : La base de données de locataire est mise à jour pour ajouter les informations du nouveau locataire.
+- **Inscrire le locataire dans le catalogue**  : Le mappage entre la clé du nouveau locataire et la base de données *sequoiasoccer* existante est ajouté au catalogue.
+- **Le nom du locataire est ajouté au catalogue**  : Le nom du lieu est ajouté à la table d’extension Tenants dans le catalogue.
+- **Ouvrir la page Événements du nouveau locataire**  : La page des événements *Sequoia Soccer* est ouverte dans le navigateur.
 
    ![événements](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -196,16 +196,16 @@ Voici des étapes clés du flux de travail pendant le suivi de script :
 
 Suivons maintenant le script de création d’un locataire dans sa propre base de données :
 
-1. Toujours dans ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, définissez les paramètres suivants :
-   - **$TenantName** = **Sequoia Soccer**, le nom d’un nouveau lieu.
-   - **$VenueType** = **soccer**, l’un des types de lieux prédéfinis : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minuscules, sans espace).
-   - **$DemoScenario** = **2**, pour provisionner un locataire dans sa propre base de données.
+1. Toujours dans ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* , définissez les paramètres suivants :
+   - **$TenantName** = **Sequoia Soccer** , le nom d’un nouveau lieu.
+   - **$VenueType** = **soccer** , l’un des types de lieux prédéfinis : blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minuscules, sans espace).
+   - **$DemoScenario** = **2** , pour provisionner un locataire dans sa propre base de données.
 
-2. Ajoutez un nouveau point d’arrêt en plaçant votre curseur n’importe où sur la ligne 57 qui indique *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* , et appuyez sur **F9**.
+2. Ajoutez un nouveau point d’arrêt en plaçant votre curseur n’importe où sur la ligne 57 qui indique *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* , et appuyez sur **F9** .
 
    ![point d’arrêt](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
-3. Exécutez le script en appuyant sur **F5**.
+3. Exécutez le script en appuyant sur **F5** .
 
 4. Une fois que l’exécution du script s’arrête au point d’arrêt, appuyez sur **F11** pour effectuer un pas à pas détaillé du code.  Utilisez **F10** et **F11** pour parcourir les fonctions et suivre l’exécution.
 
@@ -213,8 +213,8 @@ Suivons maintenant le script de création d’un locataire dans sa propre base d
 
 Cet exercice permet d’approvisionner un lot de 17 clients. Nous vous recommandons de provisionner ce groupe de locataires avant de suivre d’autres didacticiels Wingtip Tickets pour pouvoir utiliser plusieurs bases de données.
 
-1. Dans *PowerShell ISE*, ouvrez...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* et affectez la valeur 4 au paramètre *$DemoScenario* :
-   - **$DemoScenario** = **4**, pour provisionner un groupe de locataires dans une base de données partagée.
+1. Dans *PowerShell ISE* , ouvrez...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* et affectez la valeur 4 au paramètre *$DemoScenario* :
+   - **$DemoScenario** = **4** , pour provisionner un groupe de locataires dans une base de données partagée.
 
 2. Appuyez sur **F5** pour exécuter le script.
 
@@ -237,13 +237,13 @@ La liste complète des locataires et la base de données correspondante à chacu
 - Le nom du locataire est stocké dans la table Tenants.
 - Le nom de la base de données est stocké dans les tables de gestion des partitions.
 
-1. Dans SQL Server Management Studio (SSMS), connectez-vous au serveur de locataires à l’adresse **catalog-mt.\<USER\>.database.windows.net**, avec l’ID de connexion **developer** et le mot de passe **P\@ssword1**
+1. Dans SQL Server Management Studio (SSMS), connectez-vous au serveur de locataires à l’adresse **catalog-mt.\<USER\>.database.windows.net** , avec l’ID de connexion **developer** et le mot de passe **P\@ssword1**
 
     ![Boîte de dialogue de connexion de SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. Dans l’Explorateur d’objets SSMS, accédez aux vues de la base de données *tenantcatalog*.
+2. Dans l’Explorateur d’objets SSMS, accédez aux vues de la base de données *tenantcatalog* .
 
-3. Cliquez avec le bouton droit sur la vue *TenantsExtended* et choisissez **Sélectionner les 1 000 premières lignes**. Notez le mappage entre le nom de locataire et la base de données pour les différents locataires.
+3. Cliquez avec le bouton droit sur la vue *TenantsExtended* et choisissez **Sélectionner les 1 000 premières lignes** . Notez le mappage entre le nom de locataire et la base de données pour les différents locataires.
 
     ![Vue ExtendedTenants dans SSMS](./media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
 

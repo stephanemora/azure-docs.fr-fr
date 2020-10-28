@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557619"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329404"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrer vos données vers un compte d’API Table Azure Cosmos DB
 
@@ -66,13 +66,13 @@ Utilisez les options de source suivantes lorsque vous définissez le Stockage Ta
 * **/s.Filter :** facultatif. Chaîne de filtrage à appliquer
 * **/s.Projection :** facultatif. Liste des colonnes à sélectionner
 
-Pour récupérer la chaîne de connexion source lors de l’importation à partir du Stockage Table Azure, ouvrez le portail Azure, puis cliquez sur **Comptes de stockage** > **Compte** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
+Pour récupérer la chaîne de connexion source lors de l’importation à partir du Stockage Table Azure, ouvrez le portail Azure, puis cliquez sur **Comptes de stockage** > **Compte** > **Clés d’accès** , puis utilisez le bouton Copier pour copier la **chaîne de connexion** .
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Capture d’écran des options sources HBase":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Capture d’écran affichant les options Comptes de stockage > Compte > Clés d’accès avec la mise en évidence du bouton Copier.":::
 
-Pour récupérer la chaîne de connexion source lors de l’importation à partir du compte d’API Table Azure Cosmos DB (préversion), ouvrez le portail Azure, puis cliquez sur **Azure Cosmos DB** > **Chaîne de connexion** > **Clés d’accès**, puis utilisez le bouton Copier pour copier la **chaîne de connexion**.
+Pour récupérer la chaîne de connexion source lors de l’importation à partir du compte d’API Table Azure Cosmos DB (préversion), ouvrez le portail Azure, puis cliquez sur **Azure Cosmos DB** > **Chaîne de connexion** > **Clés d’accès** , puis utilisez le bouton Copier pour copier la **chaîne de connexion** .
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Capture d’écran des options sources HBase":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Capture d’écran affichant les options Comptes de stockage > Compte > Clés d’accès avec la mise en évidence du bouton Copier.":::
 
 [Exemple de commande du Stockage Table Azure](#azure-table-storage)
 

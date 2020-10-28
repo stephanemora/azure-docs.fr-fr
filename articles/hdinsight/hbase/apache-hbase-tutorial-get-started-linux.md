@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958359"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370319"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutoriel : Utiliser Apache HBase dans Azure HDInsight
 
@@ -42,7 +42,7 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Dans la boîte de dialogue **Déploiement personnalisé**, entrez les valeurs suivantes :
+2. Dans la boîte de dialogue **Déploiement personnalisé** , entrez les valeurs suivantes :
 
     |Propriété |Description |
     |---|---|
@@ -50,14 +50,14 @@ La procédure suivante utilise un modèle Azure Resource Manager pour créer un 
     |Resource group|Créez un groupe d’administration Azure Resource ou utilisez un groupe existant.|
     |Emplacement|Spécifiez l’emplacement du groupe de ressources. |
     |ClusterName|Entrez un nom pour le cluster HBase.|
-    |ID de connexion et mot de passe du cluster|Le nom de connexion par défaut est **admin**.|
-    |Nom d’utilisateur et mot de passe SSH|Le nom d’utilisateur par défaut est **sshuser**.|
+    |ID de connexion et mot de passe du cluster|Le nom de connexion par défaut est **admin** .|
+    |Nom d’utilisateur et mot de passe SSH|Le nom d’utilisateur par défaut est **sshuser** .|
 
     Tous les autres paramètres sont facultatifs.  
 
     Chaque cluster possède une dépendance de compte Stockage Azure. Après avoir supprimé un cluster, les données restent dans le compte de stockage. Le nom du compte de stockage par défaut du cluster est le nom du cluster suivi du suffixe « store ». Il est codé en dur dans la section des variables du modèle.
 
-3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis sélectionnez **Acheter**. La création d’un cluster prend environ 20 minutes.
+3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus** , puis sélectionnez **Acheter** . La création d’un cluster prend environ 20 minutes.
 
 Après la suppression d’un cluster HBase, vous pouvez créer un autre cluster HBase à l’aide du même conteneur d’objets blob par défaut. Le nouveau cluster utilise les tables HBase créées dans le cluster d’origine. Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.
 
@@ -207,9 +207,51 @@ Vous pouvez interroger les données des tables HBase à l’aide d’[Apache Hiv
 
 1. Pour quitter votre connexion SSH, utilisez `exit`.
 
+### <a name="separate-hive-and-hbase-clusters"></a>Séparer les clusters Hive et HBase
+
+La requête Hive pour accéder aux données HBase n’a pas besoin d’être exécutée à partir du cluster HBase. Tout cluster fourni avec Hive (y compris Spark, Hadoop, HBase ou Interactive Query) peut être utilisé pour interroger des données HBase, à condition que les étapes suivantes soient effectuées :
+
+1. Les deux clusters doivent être attachés aux mêmes réseau et sous-réseau virtuels
+2. Copie de `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` depuis les nœuds principaux du cluster HBase sur les nœuds principaux du cluster Hive
+
+### <a name="secure-clusters"></a>Clusters sécurisés
+
+Les données HBase peuvent également être interrogées à partir de Hive, au moyen de HBase activé pour ESP : 
+
+1. Lorsque vous suivez un modèle à plusieurs clusters, les deux clusters doivent être activés pour ESP. 
+2. Pour autoriser Hive à interroger des données HBase, assurez-vous que l’utilisateur `hive` est autorisé à accéder aux données HBase via le plug-in Apache Ranger pour HBase
+3. Lorsque vous utilisez des clusters distincts activés pour ESP, le contenu de `/etc/hosts` à partir des nœuds principaux du cluster HBase doit être ajouté à `/etc/hosts` des nœuds principaux du cluster Hive. 
+> [!NOTE]
+> Après la mise à l’échelle d’un des clusters, `/etc/hosts` doit être ajouté à nouveau
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Utilisation des API REST HBase à l’aide de Curl
 
 L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
+
+1. Pour activer les API REST HBase dans le cluster HDInsight, ajoutez le script de démarrage personnalisé suivant à la section **Action de script** . Vous pouvez ajouter le script de démarrage lorsque vous créez le cluster ou après sa création. Pour **Type de nœud** , sélectionnez **Serveurs de région** afin de vous assurer que le script s’exécute uniquement dans les serveurs de région HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Pour faciliter l’utilisation, définissez la variable d’environnement. Modifiez les commandes ci-dessous en remplaçant `MYPASSWORD` par le mot de passe de connexion au cluster. Remplacez `MYCLUSTERNAME` par le nom de votre cluster HBase. Entrez ensuite les commandes.
 
@@ -288,9 +330,9 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
 
 1. Connectez-vous à l’interface utilisateur web d’Ambari sur `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster HBase.
 
-1. Dans le menu de gauche, sélectionnez **HBase**.
+1. Dans le menu de gauche, sélectionnez **HBase** .
 
-1. Sélectionnez **Liens rapides** en haut de la page, pointez vers le lien de nœud Zookeeper actif, puis sélectionnez **HBase Master UI**.  L’interface utilisateur est ouverte dans un autre onglet de navigateur :
+1. Sélectionnez **Liens rapides** en haut de la page, pointez vers le lien de nœud Zookeeper actif, puis sélectionnez **HBase Master UI** .  L’interface utilisateur est ouverte dans un autre onglet de navigateur :
 
    ![Interface utilisateur HMaster Apache HBase HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -307,10 +349,10 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
 Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster. Vous pouvez utiliser la commande HBase `disable 'Contacts'`. Si vous ne comptez pas continuer à utiliser cette application, effectuez les étapes suivantes pour supprimer le cluster HBase que vous avez créé :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Dans la zone **Recherche** située en haut, tapez **HDInsight**.
-1. Sous **Services**, sélectionnez **Clusters HDInsight**.
+1. Dans la zone **Recherche** située en haut, tapez **HDInsight** .
+1. Sous **Services** , sélectionnez **Clusters HDInsight** .
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel.
-1. Cliquez sur **Supprimer**. Cliquez sur **Oui**.
+1. Cliquez sur **Supprimer** . Cliquez sur **Oui** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

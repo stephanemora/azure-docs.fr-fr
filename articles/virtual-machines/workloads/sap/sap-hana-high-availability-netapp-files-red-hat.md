@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978167"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144186"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Haute disponibilité du scale-up SAP HANA avec Azure NetApp Files sur Red Hat Enterprise Linux
 
@@ -51,7 +51,7 @@ ms.locfileid: "91978167"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Cet article explique comment configurer la réplication du système SAP HANA dans le cadre d’un déploiement de scale-up lorsque les systèmes de fichiers HANA sont montés via NFS à l’aide d’Azure NetApp Files (ANF). Les exemples de configuration et les commandes d’installation utilisent le numéro d’instance **03** et l’ID système HANA **HN1**. La réplication SAP HANA se compose d’un nœud principal et d’au moins un nœud secondaire.
+Cet article explique comment configurer la réplication du système SAP HANA dans le cadre d’un déploiement de scale-up lorsque les systèmes de fichiers HANA sont montés via NFS à l’aide d’Azure NetApp Files (ANF). Les exemples de configuration et les commandes d’installation utilisent le numéro d’instance **03** et l’ID système HANA **HN1** . La réplication SAP HANA se compose d’un nœud principal et d’au moins un nœud secondaire.
 
 Lorsque les étapes de ce document sont marquées des préfixes suivants, la signification est la suivante :
 
@@ -101,17 +101,17 @@ Afin d’atteindre la haute disponibilité SAP HANA du système de scale-up sur 
 
 Les systèmes de fichiers SAP HANA sont montés sur des partages NFS à l’aide d’Azure NetApp Files sur chaque nœud. Les systèmes de fichiers /hana/data, /hana/log et /hana/shared sont uniques à chaque nœud. 
 
-Monté sur node1 (**hanadb1**)
+Monté sur node1 ( **hanadb1** )
 
-- 10.32.2.4:/**hanadb1**-data-mnt00001 sur /hana/data
-- 10.32.2.4:/**hanadb1**-log-mnt00001 sur /hana/log
-- 10.32.2.4:/**hanadb1**-shared-mnt00001 sur /hana/shared
+- 10.32.2.4:/ **hanadb1** -data-mnt00001 sur /hana/data
+- 10.32.2.4:/ **hanadb1** -log-mnt00001 sur /hana/log
+- 10.32.2.4:/ **hanadb1** -shared-mnt00001 sur /hana/shared
 
-Monté sur node2 (**hanadb2**)
+Monté sur node2 ( **hanadb2** )
 
-- 10.32.2.4:/**hanadb2**-data-mnt00001 sur /hana/data
-- 10.32.2.4:/**hanadb2**-log-mnt00001 sur /hana/log
-- 10.32.2.4:/**hanadb2**-shared-mnt00001 sur /hana/shared
+- 10.32.2.4:/ **hanadb2** -data-mnt00001 sur /hana/data
+- 10.32.2.4:/ **hanadb2** -log-mnt00001 sur /hana/log
+- 10.32.2.4:/ **hanadb2** -shared-mnt00001 sur /hana/shared
 
 > [!NOTE]
 > Les systèmes de fichiers /hana/shared, /hana/data et /hana/log ne sont pas partagés entre les deux nœuds. Chaque nœud de cluster a ses propres systèmes de fichiers distincts.   
@@ -143,7 +143,7 @@ Les instructions suivantes supposent que vous avez déjà déployé votre [rése
 
 3.  Configurez un pool de capacité Azure NetApp Files en suivant les instructions de la page [Configuration d’un pool de capacité Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-    L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de service *Ultra*. Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](../../../azure-netapp-files/azure-netapp-files-service-levels.md)*Ultra* ou *Premium* d’Azure NetApp Files.
+    L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de service *Ultra* . Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](../../../azure-netapp-files/azure-netapp-files-service-levels.md)*Ultra* ou *Premium* d’Azure NetApp Files.
 
 4.  Déléguez un sous-réseau à Azure NetApp Files, comme décrit dans les instructions de la page [Déléguer un sous-réseau à Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -224,91 +224,96 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Effectuez ensuite le
 3.  Créer un groupe à haute disponibilité. Définir le domaine de mise à jour maximal.
 4.  Créer un équilibrage de charge (interne). Nous vous recommandons Standard Load Balancer.
     Sélectionnez le réseau virtuel créé à l’étape 2.
-5.  Créez la machine virtuelle 1 (**hanadb1**). 
-6.  Créez la machine virtuelle 2 (**hanadb2**).  
+5.  Créez la machine virtuelle 1 ( **hanadb1** ). 
+6.  Créez la machine virtuelle 2 ( **hanadb2** ).  
 7.  Lors de la création de la machine virtuelle, nous n’ajouterons aucun disque, car tous nos points de montage se trouveront sur des partages NFS d’Azure NetApp Files. 
-8.  Si vous utilisez Standard Load Balancer, suivez ces étapes de configuration :
-    1.  Commencez par créer un pool d’adresses IP frontales :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
-        1.  Définissez l’**affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.32.0.10**).
-        1.  Sélectionnez **OK**.
-        1.  Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
-    1.  Créez ensuite un pool principal :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-        1.  Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
-        1.  Cliquez sur **Ajouter une machine virtuelle**.
-        1.  Sélectionnez **Machine virtuelle**.
-        1.  Sélectionnez les machines virtuelles du cluster SAP HANA et leurs adresses IP.
-        1.  Sélectionnez **Ajouter**.
-    1.  Créez ensuite une sonde d’intégrité :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
-        1.  Sélectionnez TCP pour le protocole et le port 625**03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
-        1.  Sélectionnez **OK**.
-    1.  Ensuite, créez les règles d’équilibrage de charge :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
-        1.  Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
-        1.  Sélectionnez **Ports HA**.
-        1.  Augmentez le **délai d’inactivité** à 30 minutes.
-        1.  Veillez à **activer l’IP flottante** .
-        1.  Sélectionnez **OK**.
+
+> [!IMPORTANT]
+> Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.    
 
 > [!NOTE] 
 > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-9. Si à l’inverse votre scénario exige d’utiliser l’équilibreur de charge de base, suivez ces étapes de configuration :
-    1.  Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
-        1.  Définissez l’**affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.32.0.10**).
-        1.  Sélectionnez **OK**.
+8.  Si vous utilisez Standard Load Balancer, suivez ces étapes de configuration :
+    1.  Commencez par créer un pool d’adresses IP frontales :
+        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend** ).
+        1.  Définissez l’ **affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.32.0.10** ).
+        1.  Sélectionnez **OK** .
         1.  Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
     1.  Créez ensuite un pool principal :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-        1.  Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
-        1.  Cliquez sur **Ajouter une machine virtuelle**.
+        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
+        1.  Entrer le nom du nouveau pool principal (par exemple **hana-backend** ).
+        1.  Cliquez sur **Ajouter une machine virtuelle** .
+        1.  Sélectionnez **Machine virtuelle**.
+        1.  Sélectionnez les machines virtuelles du cluster SAP HANA et leurs adresses IP.
+        1.  Sélectionnez **Ajouter** .
+    1.  Créez ensuite une sonde d’intégrité :
+        1.  Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp** ).
+        1.  Sélectionnez TCP pour le protocole et le port 625 **03** . Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
+        1.  Sélectionnez **OK** .
+    1.  Ensuite, créez les règles d’équilibrage de charge :
+        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb** ).
+        1.  Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **hana-frontend** , **hana-backend** et **hana-hp** ).
+        1.  Sélectionnez **Ports HA** .
+        1.  Augmentez le **délai d’inactivité** à 30 minutes.
+        1.  Veillez à **activer l’IP flottante** .
+        1.  Sélectionnez **OK** .
+
+
+9. Si à l’inverse votre scénario exige d’utiliser l’équilibreur de charge de base, suivez ces étapes de configuration :
+    1.  Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
+        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend** ).
+        1.  Définissez l’ **affectation** sur **Statique** et entrez l’adresse IP (par exemple, **10.32.0.10** ).
+        1.  Sélectionnez **OK** .
+        1.  Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
+    1.  Créez ensuite un pool principal :
+        1.  Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales** , puis cliquez sur **Ajouter** .
+        1.  Entrer le nom du nouveau pool principal (par exemple **hana-backend** ).
+        1.  Cliquez sur **Ajouter une machine virtuelle** .
         1.  Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
         1.  Sélectionnez les machines virtuelles du cluster SAP HANA.
-        1.  Sélectionnez **OK**.
+        1.  Sélectionnez **OK** .
     1.  Créez ensuite une sonde d’intégrité :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
-        1.  Sélectionnez **TCP** pour le protocole et le port 625**03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
-        1.  Sélectionnez **OK**.
+        1.  Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp** ).
+        1.  Sélectionnez **TCP** pour le protocole et le port 625 **03** . Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
+        1.  Sélectionnez **OK** .
     1.  Pour SAP HANA 1.0, créez les règles d’équilibrage de charge :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-        1.  Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**15).
-        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
-        1.  Conservez le **Protocole**à **TCP**, puis entrez le port 3**03**15.
+        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge** , puis cliquez sur **Ajouter** .
+        1.  Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3 **03** 15).
+        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend** ).
+        1.  Conservez le **Protocole** à **TCP** , puis entrez le port 3 **03** 15.
         1.  Augmentez le **délai d’inactivité** à 30 minutes.
         1.  Veillez à **activer l’IP flottante** .
-        1.  Sélectionnez **OK**.
-        1.  Répétez ces étapes pour le port 3**03**17.
+        1.  Sélectionnez **OK** .
+        1.  Répétez ces étapes pour le port 3 **03** 17.
     1.  Pour SAP HANA 2.0, créez les règles d’équilibrage de charge pour la base de données du système :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**13).
-        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
-        1.  Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**13.
+        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3 **03** 13).
+        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend** ).
+        1.  Conservez le **Protocole** à **TCP** , puis entrez le port 3 **03** 13.
         1.  Augmentez le **délai d’inactivité** à 30 minutes.
         1.  Veillez à **activer l’IP flottante** .
-        1.  Sélectionnez **OK**.
-        1.  Répétez ces étapes pour le port 3**03**14.
+        1.  Sélectionnez **OK** .
+        1.  Répétez ces étapes pour le port 3 **03** 14.
     1.  Pour SAP HANA 2.0, créez d’abord les règles d’équilibrage de charge pour la base de données locataire :
-        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**40).
-        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **hana-frontend**).
-        1.  Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**40.
+        1.  Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge** , puis cliquez sur **Ajouter** .
+        1.  Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3 **03** 40).
+        1.  Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **hana-frontend** ).
+        1.  Conservez le **Protocole** à **TCP** , puis entrez le port 3 **03** 40.
         1.  Augmentez le **délai d’inactivité** à 30 minutes.
         1.  Veillez à **activer l’IP flottante** .
-        1.  Sélectionnez **OK**.
-        1.  Répétez ces étapes pour les ports 3**03**41 et 3**03**42.
+        1.  Sélectionnez **OK** .
+        1.  Répétez ces étapes pour les ports 3 **03** 41 et 3 **03** 42.
 
 Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la note SAP [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer). Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0** . Pour plus d’informations, consultez [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) (Sondes d’intégrité Load Balancer). Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Monter le volume Azure NetApp Files
 
@@ -320,7 +325,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
     mkdir -p /hana/shared
     ```
 
-2. **[A]** Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, par exemple **defaultv4iddomain.com**, et que le mappage est défini sur **nobody**.
+2. **[A]** Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine Azure NetApp Files par défaut, par exemple **defaultv4iddomain.com** , et que le mappage est défini sur **nobody** .
 
     ```
     sudo cat /etc/idmapd.conf
@@ -333,10 +338,10 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
     ```
 
     > [!IMPORTANT]    
-    > Veillez à définir le domaine NFS dans /etc/idmapd.conf sur la machine virtuelle pour qu’il corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **defaultv4iddomain.com**. En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire, la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que « nobody ».
+    > Veillez à définir le domaine NFS dans /etc/idmapd.conf sur la machine virtuelle pour qu’il corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **defaultv4iddomain.com** . En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire, la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que « nobody ».
     
 
-3. **[1]** Montez les volumes spécifiques aux nœuds sur node1 (**hanadb1**). 
+3. **[1]** Montez les volumes spécifiques aux nœuds sur node1 ( **hanadb1** ). 
 
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
@@ -344,7 +349,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
     ```
     
-4.  **[2]** Montez les volumes spécifiques aux nœuds sur node2 (**hanadb2**).
+4.  **[2]** Montez les volumes spécifiques aux nœuds sur node2 ( **hanadb2** ).
     
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
@@ -368,7 +373,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     ```
 
-6. **[A]** Vérifiez **nfs4_disable_idmapping**. Cette option doit avoir la valeur **Y**. Pour créer la structure de répertoire où se trouve **nfs4_disable_idmapping**, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.
+6. **[A]** Vérifiez **nfs4_disable_idmapping** . Cette option doit avoir la valeur **Y** . Pour créer la structure de répertoire où se trouve **nfs4_disable_idmapping** , exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.
 
     ```
     # Check nfs4_disable_idmapping 
@@ -381,7 +386,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
-   Pour plus d’informations sur la modification du paramètre **nfs_disable_idmapping**, consultez [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
+   Pour plus d’informations sur la modification du paramètre **nfs_disable_idmapping** , consultez [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
 
 
 ## <a name="sap-hana-installation"></a>Installation de SAP HANA
@@ -413,7 +418,7 @@ Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chap
 
     Exécutez le programme **hdblcm** depuis le DVD HANA. Entrez les valeurs suivantes à l’invite :  
     Choose installation : Entrer **1** (pour l’installation)  
-    Select additional components for installation : tapez **1**.  
+    Select additional components for installation : tapez **1** .  
     Enter Installation Path [/hana/shared] : appuyez sur Entrée pour accepter la valeur par défaut  
     Enter Local Host Name [..] : Appuyer sur Entrée pour utiliser la valeur par défaut  
     Do you want to add additional hosts to the system? (y/n) [n] : **n**  
@@ -477,7 +482,7 @@ Dans cet exemple, chaque nœud de cluster possède ses propres systèmes de fich
    pcs property set maintenance-mode=true
    ```
 
-2. **[1]** Créez les ressources du système de fichiers pour les montages **hanadb1**.
+2. **[1]** Créez les ressources du système de fichiers pour les montages **hanadb1** .
 
     ```
     pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
@@ -485,7 +490,7 @@ Dans cet exemple, chaque nœud de cluster possède ses propres systèmes de fich
     pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
-3. **[2]** Créez les ressources du système de fichiers pour les montages **hanadb2**.
+3. **[2]** Créez les ressources du système de fichiers pour les montages **hanadb2** .
 
     ```
     pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
@@ -558,7 +563,7 @@ Dans cet exemple, chaque nœud de cluster possède ses propres systèmes de fich
 
    Vérifiez l’état du cluster et celui de toutes les ressources.
    > [!NOTE]
-   > Cet article contient des références au terme  *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+   > Cet article contient des références au terme  *esclave* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
    
     ```
     sudo pcs status

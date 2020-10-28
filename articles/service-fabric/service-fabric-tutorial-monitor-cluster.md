@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020095"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331989"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutoriel : Superviser un cluster Service Fabric dans Azure
 
@@ -55,9 +55,9 @@ Pour accéder à la solution Service Fabric Analytics, accédez au [portail Azur
 
 Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** .
 
-Dans **Vue d’ensemble**, des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
+Dans **Vue d’ensemble** , des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
-![Solution Service Fabric](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Capture d’écran montrant le graphe Service Fabric.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 L’image ci-dessus montre la page d’accueil de la solution Service Fabric Analytics. Cette page d’accueil fournit une capture instantanée de ce qui se passe dans votre cluster.
 
@@ -74,7 +74,7 @@ L’image ci-dessus montre la page d’accueil de la solution Service Fabric Ana
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Afficher les événements Service Fabric, notamment les actions sur les nœuds
 
-Dans la page Service Fabric Analytics, cliquez sur le graphe des **Événements de cluster**.  Les journaux pour tous les événements système qui ont été collectés s’affichent. Pour référence, il s’agit de la table **WADServiceFabricSystemEventsTable** dans le compte Stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
+Dans la page Service Fabric Analytics, cliquez sur le graphe des **Événements de cluster** .  Les journaux pour tous les événements système qui ont été collectés s’affichent. Pour référence, il s’agit de la table **WADServiceFabricSystemEventsTable** dans le compte Stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
     
 ![Canal opérationnel de requêtes](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Afficher les événements d’application Service Fabric
 
-Vous pouvez afficher les événements pour les services fiables et les applications d’acteurs fiables déployés sur le cluster.  Dans la page Service Fabric Analytics, cliquez sur le graphe de **Événements d’application**.
+Vous pouvez afficher les événements pour les services fiables et les applications d’acteurs fiables déployés sur le cluster.  Dans la page Service Fabric Analytics, cliquez sur le graphe de **Événements d’application** .
 
 Exécutez la requête suivante pour afficher les événements de vos applications de services fiables :
 ```kusto
@@ -227,13 +227,13 @@ Pour configurer des événements plus détaillés pour des acteurs fiables, vous
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Afficher les compteurs de performances avec les journaux Azure Monitor
 Pour afficher les compteurs de performances, ouvrez le [portail Azure](https://portal.azure.com) et accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. 
 
-Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** , puis **espace de travail Log Analytics**, puis **Paramètres avancés**.
+Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** , puis **espace de travail Log Analytics** , puis **Paramètres avancés** .
 
-Cliquez sur **Données**, puis sur **Compteurs de performances Windows**. Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Cliquez sur **Enregistrer**, puis sur **OK**.
+Cliquez sur **Données** , puis sur **Compteurs de performances Windows** . Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Cliquez sur **Enregistrer** , puis sur **OK** .
 
-Fermez le panneau Paramètres avancés et sélectionnez **Récapitulatif de l’espace de travail** sous le titre **Général**. Pour chacune des solutions activées il existe une vignette graphique, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
+Fermez le panneau Paramètres avancés et sélectionnez **Récapitulatif de l’espace de travail** sous le titre **Général** . Pour chacune des solutions activées il existe une vignette graphique, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
-Il existe des vignettes graphiques pour le canal opérationnel et les événements de services fiables. La représentation graphique du flux de données correspondant aux compteurs que vous avez sélectionnés s’affiche dans **Métriques de nœud**. 
+Il existe des vignettes graphiques pour le canal opérationnel et les événements de services fiables. La représentation graphique du flux de données correspondant aux compteurs que vous avez sélectionnés s’affiche dans **Métriques de nœud** . 
 
 Sélectionnez un graphe de **métrique de conteneur** pour afficher des détails supplémentaires. Vous pouvez également interroger les données du compteur de performances de la même façon que les événements de cluster et appliquer des filtres sur les nœuds, le nom du compteur de performances et les valeurs à l’aide du langage de requête Kusto.
 

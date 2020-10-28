@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973272"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331700"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
@@ -37,7 +37,7 @@ L’appel **Lire** utilise des images et des documents comme entrée. Les condit
 * Les dimensions des PDF ne doivent pas dépasser 17 × 17 pouces, ce qui correspond aux formats de papier Legal ou A3 (maximum).
 
 ### <a name="read-32-preview-allows-selecting-pages"></a>Lire 3.2 en préversion permet de sélectionner des pages
-Avec l’[API Lire 3.2 en préversion](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), pour les grands documents multipages, vous pouvez fournir des numéros de pages ou des plages de pages spécifiques en tant que paramètre d’entrée pour extraire du texte de ces pages uniquement. Il s’agit d’un nouveau paramètre d’entrée en plus du paramètre de langage facultatif.
+Avec l’[API Lire 3.2 en préversion](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005), pour les grands documents multipages, vous pouvez fournir des numéros de pages ou des plages de pages spécifiques en tant que paramètre d’entrée pour extraire du texte de ces pages uniquement. Il s’agit d’un nouveau paramètre d’entrée en plus du paramètre de langage facultatif.
 
 > [!NOTE]
 > **Entrée de langue** 
@@ -50,7 +50,7 @@ L’[appel de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -59,7 +59,7 @@ L’[appel de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 ## <a name="the-get-read-results-call"></a>L’appel Obtenir les résultats de lecture
 
-La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 1 à 2 secondes pour éviter de dépasser le taux de requêtes par seconde (RPS).
+La deuxième étape consiste à appeler l’opération [Obtenir les résultats de lecture](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750). Cette opération prend en entrée l’ID d’opération créé par l’opération de lecture. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded** . Utilisez un intervalle de 1 à 2 secondes pour éviter de dépasser le taux de requêtes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -71,7 +71,7 @@ La deuxième étape consiste à appeler l’opération [Obtenir les résultats d
 > [!NOTE]
 > Le niveau gratuit limite le taux de requêtes à 20 appels par minute. Le niveau payant autorise un taux de 10 requêtes par seconde (RPS) qui peut être augmenté sur demande. Utilisez le canal de support Azure ou votre équipe de compte pour demander un taux de requêtes par seconde (RPS) supérieur.
 
-Lorsque le champ **État** a la valeur **succeeded**, la réponse JSON contient le contenu du texte extrait de votre image ou document. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et des scores de confiance.
+Lorsque le champ **État** a la valeur **succeeded** , la réponse JSON contient le contenu du texte extrait de votre image ou document. La réponse JSON conserve les regroupements de lignes d’origine des mots reconnus. Elle comprend les lignes de texte extraites et les coordonnées de leur cadre englobant. Chaque ligne de texte inclut tous les mots extraits avec leurs coordonnées et des scores de confiance.
 
 ## <a name="sample-json-output"></a>Exemple de sortir JSON
 
@@ -129,23 +129,17 @@ Voici un exemple de réponse JSON correcte :
 }
 ```
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Lire 3.2 en préversion ajoute un style de ligne de texte (langues latines uniquement)
-L’[API Lire 3.2 en préversion ](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) génère un objet **appearence** qui classe chaque ligne de texte selon le style (écriture d’imprimerie ou manuscrite), avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+L’ [API Lire 3.2 en préversion](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) génère un objet **appearence** qui classe chaque ligne de texte selon le style (écriture d’imprimerie ou manuscrite), avec un score de confiance. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
 
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-Commencez par les [Démarrages rapides du SDK OCR Vision par ordinateur](./quickstarts-sdk/client-library.md) et les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) pour commencer à intégrer des fonctionnalités OCR à vos applications.
+Commencez par les [Démarrages rapides du SDK OCR Lire Vision par ordinateur](./quickstarts-sdk/client-library.md) et les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) pour commencer à intégrer des fonctionnalités OCR à vos applications.
 
 ## <a name="supported-languages-for-print-text"></a>Langues prises en charge pour le texte imprimé
-L’[API Lire 3.2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) prend en charge l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais.
+L’[API Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) gère l’extraction de texte imprimé en anglais, en espagnol, en allemand, en français, en italien, en portugais et en néerlandais.
 
 Pour obtenir la liste complète des langues prises en charge par OCR, consultez l’article [Langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Lire 3.2 en préversion ajoute le chinois simplifié et le japonais
-L’[API Lire 3.2 en préversion publique](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) ajoute la prise en charge du chinois simplifié et du japonais. Si votre scénario nécessite la prise en charge d’autres langues, référez-vous à la rubrique de l’[API OCR](#ocr-api). 
+L’[API Lire 3.2 en préversion publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) ajoute la prise en charge du chinois simplifié et du japonais. Si votre scénario nécessite la prise en charge d’autres langues, référez-vous à la rubrique de l’[API OCR](#ocr-api). 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Langues prises en charge pour le texte manuscrit
 L’opération de lecture prend actuellement en charge l’extraction de texte manuscrit en anglais exclusivement.
@@ -154,7 +148,7 @@ L’opération de lecture prend actuellement en charge l’extraction de texte m
 La [l’API REST Lire 3.x](./QuickStarts/CSharp-hand-text.md) est l’option préférée pour la plupart des clients en raison de la facilité d’intégration et de la productivité rapide prête à l’emploi. Azure et le service de Vision par ordinateur gèrent l’évolutivité, les performances, la sécurité des données et les besoins en matière de conformité tout en répondant aux besoins de vos clients.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Déployer en local avec des conteneurs Docker
-Le [conteneur Docker Lire 2.0 (version préliminaire)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) vous permet de déployer les nouvelles fonctionnalités OCR dans votre propre environnement local. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données.
+Le [conteneur Docker Lire (préversion)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) vous permet de déployer les nouvelles fonctionnalités OCR dans votre propre environnement local. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données.
 
 ## <a name="example-outputs"></a>Exemples de sortie
 
@@ -201,7 +195,7 @@ Comme pour tous les services Cognitive Services, les développeurs qui utilisent
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Commencez avec les [Démarrages rapides du SDK Vision par ordinateur Lire 3.0](./quickstarts-sdk/client-library.md) en C#, Java, JavaScript ou Python.
-- Utilisez les [Démarrages rapides de l’API REST Lire 3.1](./QuickStarts/CSharp-hand-text.md) en C#, Java, JavaScript ou Python pour apprendre à utiliser les API REST.
-- Découvrez l’[API REST Lire 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Découvrez l’[API REST Lire 3.2 en préversion publique](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) avec ajout de la prise en charge du chinois simplifié et du japonais.
+- Commencez avec les [Démarrages rapides du SDK Vision par ordinateur Lire](./quickstarts-sdk/client-library.md) en C#, Java, JavaScript ou Python.
+- Utilisez les [Démarrages rapides de l’API REST Lire](./QuickStarts/CSharp-hand-text.md) en C#, Java, JavaScript ou Python pour apprendre à utiliser les API REST.
+- Découvrez l’[API REST Lire](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Découvrez l’[API REST Lire 3.2 en préversion publique](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) avec ajout de la prise en charge du chinois simplifié et du japonais.

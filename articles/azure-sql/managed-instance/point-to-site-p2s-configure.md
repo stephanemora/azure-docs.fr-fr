@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617687"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331904"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Démarrage rapide : Configurer une connexion point à site à Azure SQL Managed Instance à partir d’un emplacement local
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -67,12 +67,12 @@ Dans ce guide de démarrage rapide :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Ouvrez le groupe de ressources dans lequel vous avez créé la passerelle de réseau virtuel, puis ouvrez la ressource de la passerelle de réseau virtuel.
-3. Sélectionnez **Configuration de point à site**, puis **Télécharger le client VPN**.
+3. Sélectionnez **Configuration de point à site** , puis **Télécharger le client VPN** .
 
     ![Téléchargement du client VPN](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. Sur votre ordinateur client local, décompressez le fichier zip, puis ouvrez le dossier contenant les fichiers extraits.
-5. Ouvrez le dossier **WindowsAmd64** et le fichier **VpnClientSetupAmd64.exe**.
-6. Si le message **Windows a protégé votre ordinateur** apparaît, cliquez sur **Informations complémentaires**, puis sur **Exécuter quand même**.
+5. Ouvrez le dossier **WindowsAmd64** et le fichier **VpnClientSetupAmd64.exe** .
+6. Si le message **Windows a protégé votre ordinateur** apparaît, cliquez sur **Informations complémentaires** , puis sur **Exécuter quand même** .
 
     ![Installer le client VPN](./media/point-to-site-p2s-configure/vpn-client-defender.png)
 7. Dans la boîte de dialogue du contrôle de compte d’utilisateur, cliquez sur **Oui** pour continuer.
@@ -80,25 +80,25 @@ Dans ce guide de démarrage rapide :
 
 ## <a name="connect-to-the-vpn-connection"></a>Établir la connexion VPN
 
-1. Accédez à **VPN** dans **Réseau et Internet** sur votre ordinateur client local et sélectionnez votre réseau virtuel SQL Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet**.
+1. Accédez à **VPN** dans **Réseau et Internet** sur votre ordinateur client local et sélectionnez votre réseau virtuel SQL Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet** .
 
     ![Connexion VPN](./media/point-to-site-p2s-configure/vpn-connection.png)  
-2. Sélectionnez **Connecter**.
-3. Dans la boîte de dialogue, sélectionnez **Connecter**.
+2. Sélectionnez **Connecter** .
+3. Dans la boîte de dialogue, sélectionnez **Connecter** .
 
-    ![Connexion VPN](./media/point-to-site-p2s-configure/vpn-connection2.png)  
-4. Lorsque vous êtes invité à accorder des privilèges élevés au gestionnaire de connexions pour mettre à jour votre table d’itinéraires, choisissez **Continuer**.
+    ![Capture d’écran mettant en évidence le bouton Se connecter.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+4. Lorsque vous êtes invité à accorder des privilèges élevés au gestionnaire de connexions pour mettre à jour votre table d’itinéraires, choisissez **Continuer** .
 5. Sélectionnez **Oui** dans la boîte de dialogue du contrôle de compte d’utilisateur pour continuer.
 
    Vous avez établi une connexion VPN à votre réseau virtuel SQL Managed Instance.
 
-    ![Connexion VPN](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![Capture d’écran mettant en évidence le message de connexion qui s’affiche une fois votre connexion établie.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>Se connecter à SSMS
 
 1. Sur l’ordinateur client local, ouvrez SQL Server Management Studio.
-2. Dans la boîte de dialogue **Se connecter au serveur**, entrez le **nom d’hôte** complet de votre instance gérée dans la zone **Nom du serveur**.
-3. Sélectionnez **Authentification SQL Server**, fournissez votre nom d’utilisateur et votre mot de passe, puis sélectionnez **Connecter**.
+2. Dans la boîte de dialogue **Se connecter au serveur** , entrez le **nom d’hôte** complet de votre instance gérée dans la zone **Nom du serveur** .
+3. Sélectionnez **Authentification SQL Server** , fournissez votre nom d’utilisateur et votre mot de passe, puis sélectionnez **Connecter** .
 
     ![Connecter SSMS](./media/point-to-site-p2s-configure/ssms-connect.png)  
 

@@ -2,13 +2,13 @@
 title: Configuration d’Azure Monitor pour la collecte de données de l’agent de conteneurs | Microsoft Docs
 description: Cet article décrit comment configurer Azure Monitor pour que l’agent de conteneurs contrôle stdout/stderr et la collecte des journaux de variables d’environnement.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994615"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320413"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs
 
@@ -17,7 +17,7 @@ Azure Monitor pour conteneurs collecte stdout, stderr et des variables d’envir
 Cet article montre comment créer la ConfigMap et configurer la collecte de données selon vos besoins.
 
 >[!NOTE]
->Pour Azure Red Hat OpenShift, un fichier de modèle ConfigMap est créé dans l’espace de noms *openshift-azure-logging*. 
+>Pour Azure Red Hat OpenShift, un fichier de modèle ConfigMap est créé dans l’espace de noms *openshift-azure-logging* . 
 >
 
 ## <a name="configmap-file-settings-overview"></a>Vue d’ensemble des paramètres de fichier ConfigMap
@@ -25,11 +25,11 @@ Cet article montre comment créer la ConfigMap et configurer la collecte de donn
 Un fichier ConfigMap de modèle est fourni. Vous pouvez le modifier facilement avec vos personnalisations sans avoir à le créer à partir de zéro. Avant de commencer, vous devez consulter la documentation Kubernetes sur [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) et vous familiariser avec la manière de créer, de configurer et de déployer ConfigMaps. Cela vous permet de filtrer stderr et stdout par espace de noms ou dans l’ensemble du cluster et les variables d’environnement pour les conteneurs en cours d’exécution sur tous les nœuds/pods du cluster.
 
 >[!IMPORTANT]
->La version minimale de l’agent prise en charge pour collecter des variables stdout, stderr et environnementales à partir de charges de travail de conteneur est ciprod06142019 ou ultérieure. Pour vérifier la version de votre agent, sous l’onglet **Nœud**, sélectionnez un nœud, puis dans la valeur note du volet Propriétés de la propriété **Balise d’image de l’agent**. Pour plus d’informations sur les versions de l’agent et le contenu de chaque version, consultez les [notes de publication de l’agent](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
+>La version minimale de l’agent prise en charge pour collecter des variables stdout, stderr et environnementales à partir de charges de travail de conteneur est ciprod06142019 ou ultérieure. Pour vérifier la version de votre agent, sous l’onglet **Nœud** , sélectionnez un nœud, puis dans la valeur note du volet Propriétés de la propriété **Balise d’image de l’agent** . Pour plus d’informations sur les versions de l’agent et le contenu de chaque version, consultez les [notes de publication de l’agent](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### <a name="data-collection-settings"></a>Paramètres de collecte de données
 
-Voici les paramètres qui peuvent être configurés pour contrôler la collecte de données.
+Le tableau suivant décrit les paramètres que vous pouvez configurer pour contrôler la collecte de données :
 
 | Clé | Type de données | Valeur | Description |
 |--|--|--|--|
@@ -43,16 +43,24 @@ Voici les paramètres qui peuvent être configurés pour contrôler la collecte 
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | True ou False | Ce paramètre contrôle l’enrichissement du journal de conteneur pour remplir les valeurs de propriété Name et Image<br> pour chaque enregistrement de journal écrit dans la table ContainerLog de tous les journaux de conteneurs du cluster.<br> La valeur par défaut est `enabled = false` lorsqu’elle n’est pas spécifiée dans ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolean | True ou False | Ce paramètre autorise la collecte des événements Kube de tous les types.<br> Par défaut, les événements Kube de type *Normal* ne sont pas collectés. Quand ce paramètre a la valeur `true`, les événements *Normal* ne sont plus filtrés et tous les événements sont collectés.<br> Par défaut, il a la valeur `false`. |
 
+### <a name="metric-collection-settings"></a>Paramètres de collecte des métriques
+
+Le tableau suivant décrit les paramètres que vous pouvez configurer pour contrôler la collecte des métriques :
+
+| Clé | Type de données | Valeur | Description |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | True ou False | Ce paramètre permet de collecter les métriques d’utilisation de volume persistant dans l’espace de noms kube-system. Par défaut, les métriques d’utilisation des volumes persistants ayant des revendications de volume persistant dans l’espace de noms kube-system ne sont pas collectées. Lorsque ce paramètre est défini sur `true`, les métriques d’utilisation de volume persistant sont collectées pour tous les espaces de noms. Par défaut, il a la valeur `false`. |
+
 ConfigMaps est une liste globale et il ne peut y avoir qu’un seul élément ConfigMap appliqué à l’agent. Vous ne pouvez pas avoir un autre élément ConfigMaps qui annule les collectes.
 
 ## <a name="configure-and-deploy-configmaps"></a>Configurer et déployer ConfigMaps
 
 Procédez comme suit pour configurer et déployer votre fichier de configuration ConfigMap dans votre cluster.
 
-1. [Téléchargez](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) le fichier yaml ConfigMap de modèle et enregistrez-le sous le nom container-azm-ms-agentconfig.yaml. 
+1. Téléchargez le [modèle de fichier YAML ConfigMap](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) et enregistrez-le sous le nom container-azm-ms-agentconfig.yaml. 
 
-   >[!NOTE]
-   >Cette étape n’est pas nécessaire si vous utilisez Azure Red Hat OpenShift, car le modèle ConfigMap existe déjà sur le cluster.
+   > [!NOTE]
+   > Cette étape n’est pas nécessaire si vous utilisez Azure Red Hat OpenShift, car le modèle ConfigMap existe déjà sur le cluster.
 
 2. Modifiez le fichier YAML ConfigMap avec vos personnalisations pour collecter les variables stdout, stderr et/ou d’environnement. Si vous modifiez le fichier yaml ConfigMap pour Azure Red Hat OpenShift, commencez par exécuter la commande `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` pour ouvrir le fichier dans un éditeur de texte.
 
@@ -93,7 +101,7 @@ Les erreurs liées à l’application de modifications de configuration sont ég
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant une gravité *Informations*, laquelle ne signale aucune erreur. La propriété **Balises** contient plus d’informations sur le pod et l’ID de conteneur où l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
+- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant une gravité *Informations* , laquelle ne signale aucune erreur. La propriété **Balises** contient plus d’informations sur le pod et l’ID de conteneur où l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
 
 - Avec Azure Red Hat OpenShift, examinez les journaux omsagent et vérifiez dans la table **ContainerLog** si la collecte des journaux d’openshift-azure-logging est activée.
 

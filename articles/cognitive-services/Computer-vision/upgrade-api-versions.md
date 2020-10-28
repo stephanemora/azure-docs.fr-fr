@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968937"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331836"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Effectuer une mise à niveau de Read v2.x vers Read v3.x
 
@@ -27,11 +27,12 @@ Utilisez le tableau suivant pour déterminer la **chaîne de version** dans le c
 
 |Type de produit| Version | Chaîne de version dans le chemin d’API 3.x |
 |:-----|:----|:----|
-|Service | Read 3.0 | **v3.0** |
-|Conteneur | Read 3.0 (préversion) | **v3.0** |
-|Service/conteneur | Read 3.1 (préversion) | **v3.1-preview.2** |
+|Service | Read 3.0 ou 3.1 | **v3.0** ou **v3.1** respectivement |
+|Service | Read 3.2 (préversion) | **v3.2-preview.1** |
+|Conteneur | Read 3.0 (préversion) ou Read 3.1 (préversion) | **v3.0** ou **v3.1-preview.2** respectivement |
 
-Ensuite, utilisez les sections suivantes pour affiner vos opérations et remplacer la **chaîne de version** dans votre chemin d’API par la valeur de la table. Par exemple, pour les versions cloud et conteneur de **Read v3.1 (préversion)** , remplacez le chemin d’API par **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]** .
+
+Ensuite, utilisez les sections suivantes pour affiner vos opérations et remplacer la **chaîne de version** dans votre chemin d’API par la valeur de la table. Par exemple, pour les versions cloud et conteneur de **Read v3.2 (préversion)** , remplacez le chemin d’API par **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]** .
 
 ## <a name="servicecontainer"></a>Service/conteneur
 
@@ -39,7 +40,7 @@ Ensuite, utilisez les sections suivantes pour affiner vos opérations et remplac
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**chaîne de version**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/< **chaîne de version** >/read/analyze[?language]|
     
 Un nouveau paramètre facultatif de _langue_ est disponible. Si vous ne connaissez pas la langue de votre document ou s’il est multilingue, ne l’incluez pas. 
 
@@ -47,7 +48,7 @@ Un nouveau paramètre facultatif de _langue_ est disponible. Si vous ne connaiss
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**chaîne de version**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/read/operations** /{operationId}     |https://{endpoint}/vision/< **chaîne de version** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>Indicateur d’état `Get Read Operation Result`
 
@@ -173,11 +174,11 @@ Dans la version v3.0, il a été ajusté :
 ## <a name="service-only"></a>Service uniquement
 
 ### `Recognize Text`
-`Recognize Text` est une opération de la *préversion* qui est *dépréciée dans toutes les versions de l’API Vision par ordinateur*. Vous devez migrer de `Recognize Text` vers `Read` (v3.0) ou `Batch Read File` (v2.0, v2.1). La version v3.0 de `Read`, qui comprend des modèles plus récents et plus performants pour la reconnaissance de texte et des fonctionnalités supplémentaires, est recommandée. Pour effectuer une mise à niveau de `Recognize Text` vers `Read` :
+`Recognize Text` est une opération de la *préversion* qui est *dépréciée dans toutes les versions de l’API Vision par ordinateur* . Vous devez migrer de `Recognize Text` vers `Read` (v3.0) ou `Batch Read File` (v2.0, v2.1). La version v3.0 de `Read`, qui comprend des modèles plus récents et plus performants pour la reconnaissance de texte et des fonctionnalités supplémentaires, est recommandée. Pour effectuer une mise à niveau de `Recognize Text` vers `Read` :
 
 |Reconnaître le texte 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**chaîne de version**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/recognizeText[?mode]**|https://{endpoint}/vision/< **chaîne de version** >/read/analyze[?language]|
     
 Le paramètre _Mode_ n'est pas pris en charge dans `Read`. Les textes manuscrits et imprimés sont automatiquement pris en charge.
     
@@ -187,7 +188,7 @@ Un nouveau paramètre facultatif _Langue_ est disponible dans la version v3.0. S
 
 |Reconnaître le texte 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/** {operationId}|https://{endpoint}/vision/<**chaîne de version**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/textOperations/** {operationId}|https://{endpoint}/vision/< **chaîne de version** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>Indicateurs d’état `Get Recognize Text Operation Result`
 Lorsque l’appel de `Get Recognize Text Operation Result` aboutit, il renvoie un champ de chaîne d’état dans le corps du json. 
@@ -212,7 +213,7 @@ L’API v3.0 présente également les améliorations suivantes. Pour plus d’in
 * `angle` orientation générale du texte dans le sens des aiguilles d’une montre, mesurée en degrés entre (-180, 180].
 * `width` et `"height"` vous donnent les dimensions de votre document, et `"unit"` fournit l’unité de ces dimensions (pixels ou pouces, en fonction du type de document).
 * `page` documents multipages pris en charge
-* `language` langue d’entrée du document (à partir du paramètre facultatif _Langue_).
+* `language` langue d’entrée du document (à partir du paramètre facultatif _Langue_ ).
 
 
 Dans la version 2.X, le format de sortie est le suivant : 
@@ -311,4 +312,4 @@ Dans v3.x, il a été ajusté :
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**chaîne de version**>/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/Analyze**     |https://{endpoint}/vision/< **chaîne de version** >/read/syncAnalyze[?language]|

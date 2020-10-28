@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342295"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -28,7 +28,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 ### <a name="windows-machines"></a>[**Machines Windows**](#tab/features-windows)
 
-|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Azure Defender requis**
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines compatibles avec Azure Arc**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
 |[Analytique comportementale des machines virtuelles (et alertes de sécurité)](alerts-reference.md)|✔|✔|✔|Oui|
@@ -42,9 +42,9 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
 |[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|Oui|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
-|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Compatible avec Arc : Oui|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Compatible avec Arc : Oui|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure : Non<br><br>Compatible avec Arc : Oui|
 |Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
 |Évaluation des vulnérabilités tierces|✔|-|-|Non|
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Non|
@@ -52,10 +52,10 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 ### <a name="linux-machines"></a>[**Machines Linux**](#tab/features-linux)
 
-|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Azure Defender requis**
+|**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines compatibles avec Azure Arc**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Oui|
-|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](security-center-alerts-iaas.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
+|[Analytique comportementale des machines virtuelles (et alertes de sécurité)](./azure-defender.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Oui|
 |[Alertes de sécurité réseau](other-threat-protections.md#network-layer)|✔|✔|-|Oui|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|Oui|
@@ -66,8 +66,8 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 |[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|Oui|
 |[Tableau de bord et rapports de conformité réglementaire](security-center-compliance-dashboard.md)|✔|✔|✔|Oui|
 |Recommandations et protection contre les menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|Oui|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Non-Azure : Oui|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Azure : Non<br><br>Compatible avec Arc : Oui|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Azure : Non<br><br>Compatible avec Arc : Oui|
 |[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Non|
 |Évaluation du chiffrement des disques|✔</br>(pour les [scénarios pris en charge](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Non|
 |Évaluation des vulnérabilités tierces|✔|-|-|Non|
@@ -96,10 +96,10 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 | Trend Micro - Deep Security | Gamme Windows Server  | Non | Oui |
 | Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
 | McAfee v10+ | Gamme Windows Server  | Non | Oui |
-| McAfee v10+ | Famille de serveurs Linux  | Non | Oui **\*** |
-| Sophos V9+| Famille de serveurs Linux  | Non | Oui  **\***  |
+| McAfee v10+ | Famille de serveurs Linux  | Non | Oui * *\** _ |
+| Sophos V9+| Famille de serveurs Linux  | Non | Oui _*\**_  |
 
- **\*** L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Il n’est pas reflété dans le portail Azure Security Center.
+ _ *\** * L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Il n’est pas reflété dans le portail Azure Security Center.
 
 > [!NOTE]
 > La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 nécessite l’installation de SCEP après celle de PowerShell (v3.0 ou ultérieure).

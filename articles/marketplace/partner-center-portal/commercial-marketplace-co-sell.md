@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
-ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: ec076567d06a8237db2a708a5276a358f64a8388
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033249"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204909"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
 La saisie d'informations dans l'onglet Co-vente est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir « Co-sell Ready » et « IP Co-sell Ready ». Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d'informations, consultez [Vendre via Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
-L’option Co-vente dans l’Espace partenaires est disponible pour certains types d’offres. La prise en charge d’autres types d’offres se fera progressivement.
+L’option Co-vente dans Espace partenaires est actuellement disponible pour certains types d’offres. La prise en charge d’autres types d’offres se fera progressivement.
 
 | **Type d’offre** | **Page Co-vente disponible dans l’Espace partenaires** |
 |    -----------------------    |    -----------------------------  |
@@ -36,7 +36,7 @@ L’option Co-vente dans l’Espace partenaires est disponible pour certains typ
 
 ## <a name="listing"></a>Énumération
 
-Les référencements de Co-vente aident les équipes commerciales Microsoft à promouvoir votre solution auprès d’un public plus large.
+Les référencements de Co-vente aident les équipes commerciales Microsoft à promouvoir votre solution auprès d’un public plus large. *(Tous les champs sont obligatoires.)*
 
 - Choisissez les plateformes Microsoft pour lesquelles votre offre est conçue ou auxquelles elle s’étend ou s’intègre.
 - Sélectionnez les segments de marché que vous ciblez avec votre offre.
@@ -58,26 +58,26 @@ Les types de solution permettent de définir les scénarios pour lesquels votre 
 
 Les domaines fonctionnels permettent de définir plus précisément votre solution.
 
-Vous pouvez ajouter trois domaines fonctionnels à votre offre. Pour chacun d'eux, vous pouvez choisir deux sous-domaines fonctionnels. Pour sélectionner plusieurs sous-catégories, utilisez la touche `Ctrl` (sous Windows) ou la touche Commande (sous Mac OS).
+Vous pouvez ajouter trois domaines fonctionnels à votre offre. Pour chacun d'eux, vous pouvez choisir deux sous-domaines fonctionnels. Pour sélectionner plusieurs sous-catégories, utilisez la touche `Ctrl` (sous Windows) ou la touche Commande (sous macOS).
 
 ## <a name="documents"></a>Documents
 
-Vous avez la possibilité de fournir des documents annexes que Microsoft va utiliser pour en savoir plus sur votre offre et évaluer son adéquation avec les besoins de vos clients. Tous les documents listés dans le tableau ci-dessous sont facultatifs.
+Vous avez la possibilité de fournir des documents annexes que Microsoft va utiliser pour en savoir plus sur votre offre et évaluer son adéquation avec les besoins de vos clients.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Une page client* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d’une page Microsoft 365 </li> <li> Modèle d'une page Windows 10 </li> </ul> |
-| *Présentation client* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires.|
+| *Une page client (obligatoire)* | Description prête à l'emploi de votre offre. Les équipes commerciales de Microsoft peuvent partager ces informations avec les clients afin de déterminer si votre offre est adaptée à leurs besoins et de s'assurer qu'elle est prête à l'emploi. <br> <br> Utilisez l'un des modèles appropriés disponibles dans l’Espace partenaires : <br> <ul> <li> Modèle d'une page Microsoft Azure </li> <li> Modèle d'une page Microsoft Dynamics 365 </li> <li> Modèle d’une page Microsoft 365 </li> <li> Modèle d'une page Windows 10 </li> </ul> |
+| *Présentation client (obligatoire)* | Jeu de diapositives destiné à présenter votre solution et sa proposition de valeur. Après avoir vérifié que votre offre est prête à l'emploi, les équipes commerciales de Microsoft peuvent partager la présentation avec les clients afin de mettre en avant la valeur que les deux sociétés apportent lors du déploiement d'une solution conjointe. La présentation doit décrire la fonction de votre solution, expliquer ce qu'elle apporte aux clients, indiquer à quels secteurs d'activité elle s'adresse et mettre en avant ses atouts par rapport aux solutions concurrentes. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires.|
 | *Étude de cas client* | Ces informations montrent à un client potentiel que Microsoft et vous avez déjà déployé cette solution avec succès chez d'autres clients. <br> <br> Utilisez le modèle disponible dans l’Espace partenaires. |
-| *Succès clients vérifiables (facultatif)* | Exemples concrets de succès clients découlant du déploiement de votre solution. |
-| *Jeu de diapositives destiné aux partenaires (facultatif)* | Jeu de diapositives contenant des informations qui aideront les revendeurs partenaires à en savoir plus sur votre solution et à préparer leurs équipes commerciales à la vente de votre offre. Il comprend généralement un argumentaire éclair, des informations sur la clientèle visée, les questions à poser aux clients, des points de discussion et des liens vers des vidéos, de la documentation et des informations de support. |
+| *Succès clients vérifiables* | Exemples concrets de succès clients découlant du déploiement de votre solution. |
+| *Jeu de diapositives destiné aux partenaires* | Jeu de diapositives contenant des informations qui aideront les revendeurs partenaires à en savoir plus sur votre solution et à préparer leurs équipes commerciales à la vente de votre offre. Il comprend généralement un argumentaire éclair, des informations sur la clientèle visée, les questions à poser aux clients, des points de discussion et des liens vers des vidéos, de la documentation et des informations de support. |
 | *Diagrammes de l'architecture de référence* | Document présentant le modèle correspondant à l'adresse IP créée par le partenaire, ainsi que sa relation avec les services cloud Microsoft, et comment il répond aux exigences techniques du programme « IP Co-sell ». |
 | *Autres documents* | Vous pouvez également charger cinq documents ou vidéos supplémentaires pour aider les équipes commerciales de Microsoft et les revendeurs partenaires à en savoir plus sur votre solution, votre organisation et/ou ce qui vous différencie de la concurrence. |
 | *URL de référence externe* | Lien vers le site de votre produit, où les équipes commerciales de Microsoft et les revendeurs partenaires peuvent accéder à des informations complémentaires sur votre solution. |
 
 ## <a name="contacts"></a>Contacts
 
-Vos informations de contact permettent aux équipes commerciales de Microsoft et aux revendeurs partenaires de demander des informations supplémentaires à la ressource appropriée de votre organisation. Toutes les équipes commerciales de Microsoft ont accès à ces informations. Si vous souhaitez que votre offre soit disponible dans le cadre du programme Fournisseur de solutions cloud (CSP), ces informations de contact seront également accessibles aux revendeurs partenaires.
+Vos informations de contact permettent aux équipes commerciales de Microsoft et aux revendeurs partenaires de demander des informations supplémentaires à la ressource appropriée de votre organisation. Toutes les équipes commerciales de Microsoft ont accès à ces informations. *(Un contact pour chaque zone géographique dans laquelle votre offre est disponible est requis pour le programme de co-vente.)* Si vous souhaitez que votre offre soit disponible dans le cadre du programme Fournisseur de solutions cloud (CSP), ces informations de contact seront également accessibles aux revendeurs partenaires.
 
 Vous pouvez fournir vos informations de contact en téléchargeant le modèle CSV à partir de l'Espace partenaires, en renseignant chaque ligne avec des informations sur le contact et en important ce fichier CSV. L'importation d'un fichier CSV remplacera les contacts existants.
 
@@ -91,7 +91,7 @@ Vous pouvez également exporter la liste de contacts existante d'une offre, puis
     | **Rôle**    | **Description**  |
     | :------------------- | :-------------------|
     | *:::no-loc text="Partner marketing":::* | Ce rôle est axé sur l'aspect marketing de votre solution et sur la collaboration aux efforts de marketing avec les équipes commerciales de Microsoft et les revendeurs partenaires. Principal point de contact pour les engagements marketing et le contenu des listes d'offres, comme les descriptions de produits, les images et les vidéos. |
-    | *:::no-loc text="Partner sales":::* | Ce rôle est axé sur la vente de votre solution ainsi que sur la collaboration avec les équipes commerciales de Microsoft et les revendeurs partenaires. Pour les solutions de co-vente, fournissez au moins un contact commercial partenaire par région dans laquelle vous souhaitez devenir « Co-sell Ready ». Le même contact commercial partenaire peut couvrir plusieurs régions. |
+    | *:::no-loc text="Partner sales":::* | Ce rôle est axé sur la vente de votre solution ainsi que sur la collaboration avec les équipes commerciales de Microsoft et les revendeurs partenaires. Pour les solutions de co-vente, fournissez au moins un contact commercial partenaire pour chaque région dans laquelle vous souhaitez devenir « Prêt pour la co-vente ». Le même contact commercial partenaire peut couvrir plusieurs régions. |
     | *:::no-loc text="Partner technical sales":::* | Prend en charge l'architecture technique et les considérations relatives au déploiement pendant le cycle de vente, l'intégration après-vente et les périodes de déploiement. |
     | *:::no-loc text="Partner customer success manager":::* | Assure généralement le support client après le déploiement, pour les aider à tirer le meilleur parti de votre solution et à accroître son empreinte au sein de l’organisation. |
 

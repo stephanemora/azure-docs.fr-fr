@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562738"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331496"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Échec de la demande de service. État : 403 (Interdit)
 
@@ -25,11 +25,11 @@ Cette erreur peut se produire sur de nombreux types de demandes de service qui r
 
 ### <a name="cause-1"></a>Cause no 1
 
-La plupart du temps, cette erreur indique que vos autorisations de contrôle d’accès en fonction du rôle (RBAC) pour le service ne sont pas configurées correctement. De nombreuses actions pour une instance Azure Digital Twins nécessitent que vous disposiez du rôle *Propriétaire Azure Digital Twins (préversion)* **sur l’instance que vous essayez de gérer**. 
+La plupart du temps, cette erreur indique que vos autorisations de contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour le service ne sont pas configurées correctement. De nombreuses actions pour une instance Azure Digital Twins nécessitent que vous disposiez du rôle *Propriétaire Azure Digital Twins (préversion)* **sur l’instance que vous essayez de gérer** . 
 
 ### <a name="cause-2"></a>Cause no 2
 
-Si vous utilisez une application cliente pour communiquer avec Azure Digital Twins, cette erreur peut se produire si l’inscription de votre application [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) n’a pas d’autorisations configurées pour le service Azure Digital Twins.
+Si vous utilisez une application cliente pour communiquer avec Azure Digital Twins qui s’authentifie avec une [inscription d’application](how-to-create-app-registration.md), cette erreur peut se produire si l’inscription de votre application n’a pas d’autorisations configurées pour le service Azure Digital Twins.
 
 L’inscription de l’application doit avoir des autorisations d’accès configurées pour les API d’Azure Digital Twins. Ensuite, lorsque votre application cliente s’authentifie auprès de l’inscription d’application, elle recevra les autorisations configurées par l’inscription d’application.
 
@@ -49,7 +49,7 @@ Notez que ce rôle est différent…
 
 #### <a name="fix-issues"></a>Corriger les problèmes 
 
-Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire Azure Digital Twins (préversion)* sur l’**instance Azure Digital Twins**. 
+Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire Azure Digital Twins (préversion)* sur l’ **instance Azure Digital Twins** . 
 
 Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette commande vous-même. Si ce n’est pas le cas, contactez un propriétaire pour l’exécuter à votre place.
 
@@ -59,28 +59,38 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Pour plus d’informations sur cette exigence de rôle et le processus d’attribution, consultez la [section *Configurer les autorisations d’accès de votre utilisateur*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
 
-Si vous disposez déjà de cette attribution de rôle et que vous rencontrez toujours le problème 403, passez à la solution suivante.
+Si vous disposez déjà d’une attribution de rôle *et* que vous utilisez une inscription d’application Azure AD pour authentifier une application cliente, vous pouvez passer à la solution suivante si cette solution n’a pas résolu le problème 403.
 
 ### <a name="solution-2"></a>Solution no 2
 
-La deuxième solution consiste à vérifier que l’inscription d’application Azure AD dispose des autorisations configurées pour le service Azure Digital Twins. Si ce n’est pas le cas, configurez-les.
+Si vous utilisez ne inscription d’application Azure AD pour authentifier une application cliente, la deuxième solution possible consiste à vérifier que l’inscription d’application dispose d’autorisations configurées pour le service Azure Digital Twins. Si ce n’est pas le cas, configurez-les.
 
 #### <a name="check-current-setup"></a>Vérifier la configuration actuelle
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Pour vérifier si les autorisations ont été correctement configurées, accédez à la [page de vue d’ensemble des inscriptions d’applications Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) dans le portail Azure. Vous pouvez accéder à cette page vous-même en recherchant *Inscriptions d’applications* dans la barre de recherche du portail.
+
+Basculez sur l’onglet *Toutes les applications* pour voir toutes les inscriptions d’application qui ont été créées dans votre abonnement.
+
+Vous devez voir apparaître l’inscription d’application que vous venez de créer dans la liste. Sélectionnez-la pour afficher ses détails.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Page Inscriptions d’applications dans le portail Azure":::
 
 Tout d’abord, vérifiez que les paramètres des autorisations Azure Digital Twins ont été correctement définis sur l’inscription. Pour ce faire, sélectionnez *Manifeste* dans la barre de menus pour afficher le code du manifeste de l’inscription de l’application. Faites défiler la fenêtre de code vers le bas et recherchez ces champs sous `requiredResourceAccess`. Les valeurs doivent correspondre à celles de la capture d’écran ci-dessous :
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Page Inscriptions d’applications dans le portail Azure":::
+
+Ensuite, sélectionnez *Autorisations de l’API* dans la barre de menus pour vérifier que cette inscription d’application contient des autorisations de lecture/écriture pour Azure Digital Twins. Vous devriez obtenir une sortie similaire à celle-ci :
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Page Inscriptions d’applications dans le portail Azure":::
 
 #### <a name="fix-issues"></a>Corriger les problèmes
 
-Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans la [section *Configurer des autorisations d’accès pour les applications clientes*](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) de l’article *Guide pratique : Configurer une instance et l’authentification (CLI ou portail)* .
+Si l’un de ces éléments semble différent de ce qui est décrit, suivez les instructions de configuration d’une inscription d’application dans [*Guide pratique : Créer une inscription d’application*](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Lisez les étapes de configuration relatives à la création et à l’authentification d’une nouvelle instance Azure Digital Twins :
-* [*Guide pratique : Configurer une instance et l’authentification (CLI)* ](how-to-set-up-instance-cli.md).
+* [*Guide pratique : Configurer une instance et l’authentification (CLI)*](how-to-set-up-instance-cli.md).
 
 En savoir plus sur la sécurité et les autorisations sur Azure Digital Twins :
 * [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md)

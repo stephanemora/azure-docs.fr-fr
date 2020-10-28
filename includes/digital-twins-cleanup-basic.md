@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: fichier include pour le nettoyage d’une instance Azure Digital Twins de base et l’inscription d’une application
+description: fichier include pour le nettoyage d’une instance Azure Digital Twins de base
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372313"
 ---
 Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer.
 
@@ -23,10 +23,4 @@ Ouvrez Azure Cloud Shell et exécutez la commande suivante pour supprimer le gro
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Ensuite, supprimez l’inscription d’application Azure Active Directory que vous avez créée pour votre application cliente à l’aide de cette commande :
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
