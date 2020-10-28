@@ -17,13 +17,13 @@
     - name: Nouveautés
       items:
         - name: Notes de publication
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes.md
         - name: Changements importants à venir
-          displayName: 'release notes, changelog'
+          displayName: 'release notes, changelog, news'
           href: upcoming-changes.md
         - name: Notes de publication archivées (de plus de six mois)
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes-archive.md
     - name: Notions de base Security Center
       items:
@@ -92,6 +92,7 @@
     - name: Configurer les notifications par e-mail
       href: security-center-provide-security-contact-details.md
     - name: Créer une réponse automatique à une alerte avec un modèle ARM
+      displayName: Resource Manager
       href: quickstart-automation-alert.md
 - name: Tutoriels
   items:
@@ -238,6 +239,7 @@
           displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
           href: export-to-siem.md
         - name: Exporter vers un espace de travail Log Analytics ou Azure Event Hub
+          displayName: continuous
           href: continuous-export.md
         - name: Télécharger un rapport CSV de toutes les alertes
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
