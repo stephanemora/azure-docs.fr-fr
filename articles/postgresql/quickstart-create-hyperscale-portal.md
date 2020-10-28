@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d4925b8ecb7768f1f49b2c971f7234d58339c056
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268450"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481106"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Démarrage rapide : créer un groupe de serveurs Hyperscale (Citus) dans le portail Azure
 
@@ -132,11 +132,11 @@ SELECT gu.login, count(*)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton **Supprimer**.
+Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton **Supprimer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez découvert comment configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données.
 
-- Suivre un tutoriel pour [créer des applications multilocataires scalables](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Suivre un tutoriel pour [créer des applications multilocataires scalables](./tutorial-design-database-hyperscale-multi-tenant.md)
 - Déterminer la [taille initiale](howto-hyperscale-scaling.md#picking-initial-size) optimale pour votre groupe de serveurs

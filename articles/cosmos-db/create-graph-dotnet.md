@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578380"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479049"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Démarrage rapide : Créer une application .NET Framework ou Core à l’aide du compte d’API Gremlin Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez téléchar
 5. Restaurez les packages NuGet dans le projet. Sont concernés ici le pilote Gremlin.Net et le package Newtonsoft.Json.
 
 
-6. Vous pouvez également installer le pilote Gremlin.Net manuellement à l’aide du gestionnaire de package Nuget ou de [l’utilitaire de ligne de commande nuget](https://docs.microsoft.com/nuget/install-nuget-client-tools) : 
+6. Vous pouvez également installer le pilote Gremlin.Net manuellement à l’aide du gestionnaire de package Nuget ou de [l’utilitaire de ligne de commande nuget](/nuget/install-nuget-client-tools) : 
 
     ```bash
     nuget install Gremlin.Net
@@ -104,17 +104,17 @@ Tous les extraits de code suivants proviennent du fichier Program.cs.
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre compte de base de données de graphiques. Dans l’onglet **Vue d’ensemble**, vous pouvez voir deux points de terminaison : 
+1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre compte de base de données de graphiques. Dans l’onglet **Vue d’ensemble** , vous pouvez voir deux points de terminaison : 
  
-   **URI du SDK .NET** : cette valeur est utilisée quand vous vous connectez au compte de graphiques à l’aide de la bibliothèque Microsoft.Azure.Graphs. 
+   **URI du SDK .NET**  : cette valeur est utilisée quand vous vous connectez au compte de graphiques à l’aide de la bibliothèque Microsoft.Azure.Graphs. 
 
-   **Point de terminaison Gremlin** : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Gremlin.Net.
+   **Point de terminaison Gremlin**  : cette valeur est utilisée lorsque vous vous connectez au compte de graphiques à l’aide de la bibliothèque Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copier le point de terminaison&quot;:::
 
-   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin**, supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
+   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin** , supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
 
-1. Ensuite, à partir du portail Azure, copiez la valeur **CLÉ PRIMAIRE** sous l’onglet **Clés**. 
+1. Ensuite, à partir du portail Azure, copiez la valeur **CLÉ PRIMAIRE** sous l’onglet **Clés** . 
 
 1. Après avoir copié l’URI et la CLÉ PRIMAIRE de votre compte, enregistrez-les dans une nouvelle variable d’environnement sur la machine locale exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre d’invite de commandes, puis exécutez la commande suivante. Veillez à remplacer les valeurs <Your_Azure_Cosmos_account_URI> et <Your_Azure_Cosmos_account_PRIMARY_KEY>.
 
@@ -141,7 +141,7 @@ Appuyez sur Ctrl + F5 pour exécuter l’application. L’application imprime le
 
 Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail Azure pour parcourir et interroger vos nouvelles données graphiques.
 
-1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Graphique. Développez les nœuds de conteneur et de base de données, puis cliquez sur **Graphique**.
+1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Graphique. Développez les nœuds de conteneur et de base de données, puis cliquez sur **Graphique** .
 
 2. Cliquez sur le bouton **Appliquer un filtre** pour utiliser la requête par défaut et afficher tous les vertex dans le graphique. Les données générées par l’exemple d’application s’affichent dans le volet Graphiques.
 
@@ -149,9 +149,9 @@ Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail 
 
     :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Copier le point de terminaison&quot;:::
 
-   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin**, supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
+   Pour exécuter cet exemple, copiez la valeur **Point de terminaison Gremlin** , supprimez le numéro de port à la fin, et l’URI devient `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. La valeur de point de terminaison doit ressembler à `testgraphacct.gremlin.cosmosdb.azure.com`
 
-1. Ensuite, à partir du portail Azure, copiez la valeur **CLÉ PRIMAIRE** sous l’onglet **Clés**. 
+1. Ensuite, à partir du portail Azure, copiez la valeur **CLÉ PRIMAIRE** sous l’onglet **Clés** . 
 
 1. Après avoir copié l’URI et la CLÉ PRIMAIRE de votre compte, enregistrez-les dans une nouvelle variable d’environnement sur la machine locale exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre d’invite de commandes, puis exécutez la commande suivante. Veillez à remplacer les valeurs <Your_Azure_Cosmos_account_URI> et <Your_Azure_Cosmos_account_PRIMARY_KEY>.
 
@@ -173,4 +173,3 @@ Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)
-

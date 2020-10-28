@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489317"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -208,7 +208,7 @@ Vous pouvez également vous connecter à l’API Cassandra dans Azure Cosmos DB 
 
 **Windows :**
 
-Si vous utilisez Windows, nous vous recommandons d’activer le [système de fichiers Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Vous pouvez ensuite suivre les commandes Linux ci-dessous.
+Si vous utilisez Windows, nous vous recommandons d’activer le [système de fichiers Windows pour Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Vous pouvez ensuite suivre les commandes Linux ci-dessous.
 
 **Unix/Linux/Mac :**
 
@@ -255,7 +255,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mappage de cohérence 
 
-L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérations de lecture.  Le mappage de cohérence est détaillé [ici](consistency-levels-across-apis.md#cassandra-mapping).
+L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérations de lecture.  Le mappage de cohérence est détaillé [ici](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## <a name="permission-and-role-management"></a>Gestion des rôles et des autorisations
 

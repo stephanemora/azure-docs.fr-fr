@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921671"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364080"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -27,16 +27,16 @@ Dans Azure Active Directory B2C (Azure AD B2C), un *locataire* représente votre
 
 Les ressources principales que vous utilisez dans un locataire Azure AD B2C sont les suivantes :
 
-* **Annuaire** : l’*annuaire* est l’emplacement où Azure AD B2C stocke les informations d’identification et les données de profil de vos utilisateurs, ainsi que les inscriptions de vos applications.
-* **Inscriptions d’applications** : vous inscrivez vos applications web, mobiles et natives auprès d’Azure AD B2C pour activer la gestion des identités. Il en va de même pour toute API que vous souhaitez protéger avec Azure AD B2C.
-* **Flux utilisateur** et **stratégies personnalisées** : il s’agit des expériences d’identités intégrées (flux utilisateur) et entièrement personnalisables (stratégies personnalisées) pour vos applications.
+* **Annuaire**  : l’ *annuaire* est l’emplacement où Azure AD B2C stocke les informations d’identification et les données de profil de vos utilisateurs, ainsi que les inscriptions de vos applications.
+* **Inscriptions d’applications**  : vous inscrivez vos applications web, mobiles et natives auprès d’Azure AD B2C pour activer la gestion des identités. Il en va de même pour toute API que vous souhaitez protéger avec Azure AD B2C.
+* **Flux utilisateur** et **stratégies personnalisées**  : il s’agit des expériences d’identités intégrées (flux utilisateur) et entièrement personnalisables (stratégies personnalisées) pour vos applications.
   * Utilisez les *flux utilisateur* pour une configuration rapide et l’activation de tâches d’identité courantes, telles que l’inscription, la connexion et la modification de profil.
   * Utilisez les *stratégies personnalisées* pour activer les expériences utilisateur non seulement par rapport aux tâches d’identité courantes, mais aussi pour élaborer la prise en charge des workflows d’identités complexes, propres à votre organisation, à vos clients, employés, partenaires et citoyens.
-* **Fournisseurs d’identités** : les paramètres de fédération pour les acteurs suivants :
-  * les fournisseurs d’identités *de réseau social*, comme Facebook, LinkedIn ou Twitter, que vous souhaitez prendre en charge dans vos applications ;
+* **Fournisseurs d’identités**  : les paramètres de fédération pour les acteurs suivants :
+  * les fournisseurs d’identités *de réseau social* , comme Facebook, LinkedIn ou Twitter, que vous souhaitez prendre en charge dans vos applications ;
   * les fournisseurs d’identités *externes* qui prennent en charge les protocoles d’identité standard, tels que OAuth 2.0, OpenID Connect, etc.
   * les comptes *locaux* qui permettent aux utilisateurs de s’inscrire et de se connecter au moyen d’un nom d’utilisateur (d’une adresse e-mail ou d’un autre ID) et d’un mot de passe.
-* **Clés** : ajoutez et gérez des clés de chiffrement pour la signature et la validation des jetons, des secrets clients, des certificats et des mots de passe.
+* **Clés**  : ajoutez et gérez des clés de chiffrement pour la signature et la validation des jetons, des secrets clients, des certificats et des mots de passe.
 
 Un locataire Azure AD B2C est la première ressource que vous devez créer pour commencer à utiliser Azure AD B2C. Découvrez comment, dans le [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -44,20 +44,20 @@ Un locataire Azure AD B2C est la première ressource que vous devez créer pour 
 
 Azure AD B2C définit plusieurs types de comptes utilisateur. Azure Active Directory, Azure Active Directory B2B et Azure Active Directory B2C partagent ces types de comptes.
 
-* **Compte professionnel** : les utilisateurs dotés de comptes professionnels peuvent accéder aux ressources d’un locataire et, lorsqu’ils sont dotés d’un rôle d’administrateur, peuvent aussi gérer des locataires. Les utilisateurs disposant de comptes professionnels peuvent créer des comptes consommateur, réinitialiser des mots de passe, bloquer/débloquer des comptes et définir des autorisations ou attribuer un compte à un groupe de sécurité.
-* **Compte invité** : les utilisateurs externes que vous invitez dans votre locataire en tant qu’invités. Un scénario standard pour inviter un utilisateur dans votre locataire Azure AD B2C consiste à partager les responsabilités d’administration.
-* **Compte consommateur** : les comptes consommateur sont les comptes créés dans votre annuaire Azure AD B2C, lorsque les utilisateurs effectuent le parcours utilisateur d’inscription dans une application que vous avez enregistrée dans votre locataire.
+* **Compte professionnel**  : les utilisateurs dotés de comptes professionnels peuvent accéder aux ressources d’un locataire et, lorsqu’ils sont dotés d’un rôle d’administrateur, peuvent aussi gérer des locataires. Les utilisateurs disposant de comptes professionnels peuvent créer des comptes consommateur, réinitialiser des mots de passe, bloquer/débloquer des comptes et définir des autorisations ou attribuer un compte à un groupe de sécurité.
+* **Compte invité**  : les utilisateurs externes que vous invitez dans votre locataire en tant qu’invités. Un scénario standard pour inviter un utilisateur dans votre locataire Azure AD B2C consiste à partager les responsabilités d’administration.
+* **Compte consommateur**  : les comptes consommateur sont les comptes créés dans votre annuaire Azure AD B2C, lorsque les utilisateurs effectuent le parcours utilisateur d’inscription dans une application que vous avez enregistrée dans votre locataire.
 
 ![Page de gestion des utilisateurs Azure AD B2C dans le portail Azure](media/technical-overview/portal-01-users.png)<br/>*Figure : Annuaire d’utilisateurs d’un locataire Azure AD B2C dans le portail Azure*
 
 ### <a name="consumer-accounts"></a>Comptes consommateur
 
-Avec un compte *consommateur*, les utilisateurs peuvent se connecter aux applications que vous avez sécurisées au moyen d’Azure AD B2C. Toutefois, les utilisateurs disposant de comptes consommateur ne peuvent pas accéder aux ressources Azure, par exemple au portail Azure.
+Avec un compte *consommateur* , les utilisateurs peuvent se connecter aux applications que vous avez sécurisées au moyen d’Azure AD B2C. Toutefois, les utilisateurs disposant de comptes consommateur ne peuvent pas accéder aux ressources Azure, par exemple au portail Azure.
 
 Un compte consommateur peut être associé à ces types d’identités :
 
-* **Identité locale**, avec le nom d’utilisateur et le mot de passe stockés localement dans l’annuaire Azure AD B2C. Nous faisons souvent référence à ces identités en parlant de « comptes locaux ».
-* **Identités de réseau social** ou **d’entreprise**, sachant que l’identité de l’utilisateur est managée par un fournisseur d’identité fédéré, comme Facebook, Microsoft, ADFS ou Salesforce.
+* **Identité locale** , avec le nom d’utilisateur et le mot de passe stockés localement dans l’annuaire Azure AD B2C. Nous faisons souvent référence à ces identités en parlant de « comptes locaux ».
+* **Identités de réseau social** ou **d’entreprise** , sachant que l’identité de l’utilisateur est managée par un fournisseur d’identité fédéré, comme Facebook, Microsoft, ADFS ou Salesforce.
 
 Un utilisateur disposant d’un compte consommateur peut se connecter avec plusieurs identités, par exemple un nom d’utilisateur, une adresse e-mail, un ID employé, un ID gouvernement, etc. Un compte unique peut avoir plusieurs identités, qu’elles soient locales et de réseaux sociaux.
 
@@ -91,11 +91,11 @@ Dans Azure AD B2C, il existe deux voies principales à suivre pour fournir ces e
 
 * Les **stratégies personnalisées** vous permettent de créer vos propres parcours utilisateur pour des scénarios d’expérience d’identité complexes.
 
-Les flux utilisateur comme les stratégies personnalisées sont pilotés par *Identity Experience Framework*, le moteur d’orchestration des stratégies d’Azure AD B2C.
+Les flux utilisateur comme les stratégies personnalisées sont pilotés par *Identity Experience Framework* , le moteur d’orchestration des stratégies d’Azure AD B2C.
 
 ### <a name="user-flow"></a>Flux utilisateur
 
-Pour vous aider à rapidement configurer les tâches d’identité les plus courantes, le portail Azure inclut plusieurs stratégies configurables et prédéfinies, appelées *flux utilisateur*.
+Pour vous aider à rapidement configurer les tâches d’identité les plus courantes, le portail Azure inclut plusieurs stratégies configurables et prédéfinies, appelées *flux utilisateur* .
 
 Vous pouvez configurer des paramètres de flux utilisateur comme ceux mentionnés ici, pour contrôler les comportements d’expérience d’identité dans vos applications :
 
@@ -148,13 +148,13 @@ Le schéma suivant montre comment Azure AD B2C peut communiquer via divers proto
 
 ## <a name="application-integration"></a>Intégration d’applications
 
-Lorsqu’un utilisateur veut se connecter à votre application, qu’il s’agisse d’une application web, mobile, de bureau ou monopage (SPA), cette application initie une requête d’autorisation sur un point de terminaison fourni par un flux d’utilisateur ou une stratégie personnalisée. Le flux d’utilisateur ou la stratégie personnalisée définit et contrôle l’expérience de l’utilisateur. Lorsque ce dernier termine un flux utilisateur, par exemple le flux *d’inscription ou de connexion*, Azure AD B2C génère un jeton, puis redirige l’utilisateur vers votre application.
+Lorsqu’un utilisateur veut se connecter à votre application, qu’il s’agisse d’une application web, mobile, de bureau ou monopage (SPA), cette application initie une requête d’autorisation sur un point de terminaison fourni par un flux d’utilisateur ou une stratégie personnalisée. Le flux d’utilisateur ou la stratégie personnalisée définit et contrôle l’expérience de l’utilisateur. Lorsque ce dernier termine un flux utilisateur, par exemple le flux *d’inscription ou de connexion* , Azure AD B2C génère un jeton, puis redirige l’utilisateur vers votre application.
 
 ![Application mobile, avec des flèches montrant le flux circulant entre l’application et la page de connexion Azure AD B2C](media/technical-overview/app-integration.png)
 
 Plusieurs applications peuvent utiliser le même flux utilisateur ou la même stratégie personnalisée. Une seule application peut utiliser plusieurs flux utilisateur ou stratégies personnalisées.
 
-Par exemple, pour se connecter à une application, l’application utilise le flux utilisateur *d’inscription ou de connexion*. Une fois connecté, l’utilisateur peut avoir envie de modifier son profil ; l’application initie donc une autre requête d’autorisation, cette fois-ci au moyen du flux utilisateur de *modification de profil*.
+Par exemple, pour se connecter à une application, l’application utilise le flux utilisateur *d’inscription ou de connexion* . Une fois connecté, l’utilisateur peut avoir envie de modifier son profil ; l’application initie donc une autre requête d’autorisation, cette fois-ci au moyen du flux utilisateur de *modification de profil* .
 
 ## <a name="seamless-user-experiences"></a>Expérience utilisateur harmonieuse
 
@@ -215,7 +215,7 @@ Vous pouvez attribuer des rôles pour contrôler quelles personnes peuvent effec
 * Créer et gérer des stratégies de framework de confiance dans Identity Experience Framework (stratégies personnalisées)
 * Gérer les secrets pour la fédération et le chiffrement dans Identity Experience Framework (stratégies personnalisées)
 
-Pour plus d’informations sur les rôles Azure AD, notamment la prise en charge des rôles d’administration Azure AD B2C, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Pour plus d’informations sur les rôles Azure AD, notamment la prise en charge des rôles d’administration Azure AD B2C, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### <a name="multi-factor-authentication-mfa"></a>Authentification multifacteur (MFA)
 

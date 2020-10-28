@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279837"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490609"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Présentation de l’API Gremlin dans Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
 * **Stockage et débit extensibles de façon élastique**
 
-  Les graphiques dans le monde réel doivent pouvoir augmenter leur échelle au-delà de la capacité d’un serveur unique. Azure Cosmos DB prend en charge les bases de données de graphes horizontalement scalables dont la taille peut être pratiquement illimitée en termes de stockage et de débit provisionné. Au fur et à mesure que l’échelle de la base de données des graphes augmente, les données sont automatiquement réparties à l’aide du [partitionnement graphique](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Les graphiques dans le monde réel doivent pouvoir augmenter leur échelle au-delà de la capacité d’un serveur unique. Azure Cosmos DB prend en charge les bases de données de graphes horizontalement scalables dont la taille peut être pratiquement illimitée en termes de stockage et de débit provisionné. Au fur et à mesure que l’échelle de la base de données des graphes augmente, les données sont automatiquement réparties à l’aide du [partitionnement graphique](./graph-partitioning.md).
 
 * **Réplication multirégion**
 
@@ -52,7 +52,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
 * **Indexation automatique**
 
-  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview)
+  Par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des nœuds (également appelés sommets) et des arêtes du graphe, et n’attend ou ne nécessite aucun schéma ou création d’index secondaires. En savoir plus sur [l’indexation dans Azure Cosmos DB](/azure/cosmos-db/index-overview)
 
 * **Compatibilité avec Apache TinkerPop**
 

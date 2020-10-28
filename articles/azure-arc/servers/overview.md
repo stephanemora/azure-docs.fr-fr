@@ -2,14 +2,14 @@
 title: Vue d'ensemble des serveurs avec Azure Arc
 description: Apprenez à utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d'Azure comme une ressource Azure.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200965"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460850"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
@@ -29,7 +29,7 @@ Lorsque vous connectez votre machine à des serveurs avec Azure Arc, vous pouvez
 
 - Simplifiez le déploiement avec d'autres services Azure tels qu'Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) et un espace de travail Azure Monitor Log Analytics à l'aide des [extensions de machine virtuelle Azure](manage-vm-extensions.md) prises en charge pour votre machine Windows ou Linux non Azure. Cela comprend l’exécution de la configuration après déploiement ou de l’installation de logiciels à l’aide de l’extension de script personnalisé.
 
-- Utilisez la fonctionnalité [Update Management](../../automation/update-management/update-mgmt-overview.md) d'Azure Automation pour gérer les mises à jour du système d'exploitation de vos serveurs Windows et Linux. Commencez par déployer le rôle [Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md), puis suivez les étapes pour [activer Update Management](../../automation/update-management/update-mgmt-enable-portal.md) sur votre machine Windows ou Linux non Azure.
+- Utilisez la fonctionnalité [Update Management](../../automation/update-management/update-mgmt-overview.md) d'Azure Automation pour gérer les mises à jour du système d'exploitation de vos serveurs Windows et Linux.
 
 - Incluez vos serveurs non Azure pour la détection des menaces, et surveillez de manière proactive les menaces de sécurité potentielles à l'aide d'[Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -45,7 +45,7 @@ Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de cr�
 
 ### <a name="agent-status"></a>État de l’agent
 
-L’agent Connected Machine envoie des messages de pulsation au service de façon régulière (toutes les 5 minutes). Si le service cesse de recevoir ces messages de pulsation d’une machine, cette machine est considérée comme étant hors connexion, et l’état dans le portail est automatiquement remplacé par **Déconnectée** au bout de 15 à 30 minutes. À la prochaine réception d’un message de pulsation de l’agent Connected Machine, son état devient automatiquement **Connecté**.
+L’agent Connected Machine envoie des messages de pulsation au service de façon régulière (toutes les 5 minutes). Si le service cesse de recevoir ces messages de pulsation d’une machine, cette machine est considérée comme étant hors connexion, et l’état dans le portail est automatiquement remplacé par **Déconnectée** au bout de 15 à 30 minutes. À la prochaine réception d’un message de pulsation de l’agent Connected Machine, son état devient automatiquement **Connecté** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597379"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362465"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -66,7 +66,7 @@ Vous pouvez également lire les [scénarios courants](entitlement-management-sce
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>Que sont les packages d’accès et quelles ressources gérer avec eux ?
 
-La gestion des droits d’utilisation introduit sur Azure AD le concept de *package d’accès*. Un package d’accès regroupe toutes les ressources avec l’accès dont un utilisateur a besoin pour travailler sur un projet ou accomplir sa tâche. Les packages d'accès régissent l'accès de vos employés internes et des utilisateurs extérieurs à votre organisation.
+La gestion des droits d’utilisation introduit sur Azure AD le concept de *package d’accès* . Un package d’accès regroupe toutes les ressources avec l’accès dont un utilisateur a besoin pour travailler sur un projet ou accomplir sa tâche. Les packages d'accès régissent l'accès de vos employés internes et des utilisateurs extérieurs à votre organisation.
 
  La gestion des droits d’utilisation vous permet de gérer l’accès utilisateur aux types de ressources ci-dessous :
 
@@ -77,15 +77,15 @@ La gestion des droits d’utilisation introduit sur Azure AD le concept de *pack
 
 Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou des groupes Microsoft 365.  Par exemple :
 
-- Vous pouvez accorder à des utilisateurs des licences pour Microsoft 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [Gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe.
+- Vous pouvez accorder à des utilisateurs des licences pour Microsoft 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [Gestion des licences par groupe](../enterprise-users/licensing-groups-assign.md) pour ce groupe.
 - Vous pouvez accorder à des utilisateurs un accès pour gérer des ressources Azure en utilisant un groupe de sécurité Azure AD dans un package d’accès et en créant une [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe.
-- Vous pouvez accorder à des utilisateurs un accès pour gérer des rôles Azure AD en utilisant des groupes attribuables à des rôles Azure AD dans un package d’accès et en [attribuant un rôle Azure AD à ce groupe](../users-groups-roles/roles-groups-assign-role.md).
+- Vous pouvez accorder à des utilisateurs un accès pour gérer des rôles Azure AD en utilisant des groupes attribuables à des rôles Azure AD dans un package d’accès et en [attribuant un rôle Azure AD à ce groupe](../roles/groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>Comment contrôler qui a accès ?
 
 Avec un package d’accès, un administrateur ou un gestionnaire délégué de package d’accès liste les ressources (groupes, applications et sites) et les rôles dont les utilisateurs ont besoin pour ces ressources.
 
-Les packages d’accès incluent également une ou plusieurs *stratégies*. Une stratégie définit les règles ou barrières mises en place pour l’affectation d’un package d’accès. Chaque stratégie peut être utilisée pour s’assurer que seuls les utilisateurs appropriés sont en mesure de demander l’accès, qu’il existe des approbateurs pour leur requête, et que leur accès à ces ressources est limité dans le temps et qu’il expirera s’il n’est pas renouvelé.
+Les packages d’accès incluent également une ou plusieurs *stratégies* . Une stratégie définit les règles ou barrières mises en place pour l’affectation d’un package d’accès. Chaque stratégie peut être utilisée pour s’assurer que seuls les utilisateurs appropriés sont en mesure de demander l’accès, qu’il existe des approbateurs pour leur requête, et que leur accès à ces ressources est limité dans le temps et qu’il expirera s’il n’est pas renouvelé.
 
 ![Package d’accès et stratégies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Les packages d’accès ne remplacent pas d’autres mécanismes d’affectation
 
 ## <a name="how-do-i-delegate-access"></a>Comment déléguer l’accès ?
 
- Les packages d’accès sont définis dans des conteneurs appelés *catalogues*.  Vous pouvez disposer d’un seul catalogue pour tous vos packages d’accès, ou vous pouvez désigner des personnes pour créer et posséder leurs propres catalogues. Un administrateur peut ajouter des ressources à n’importe quel catalogue, mais un non-administrateur ne peut ajouter à un catalogue que les ressources dont il est propriétaire. Un propriétaire de catalogue peut ajouter d’autres utilisateurs en tant que copropriétaires de catalogue, ou en tant que gestionnaires de package d’accès.  Ces scénarios sont décrits plus en détail dans l’article [Délégation et rôles dans la gestion des droits d’utilisation Azure AD](entitlement-management-delegate.md).
+ Les packages d’accès sont définis dans des conteneurs appelés *catalogues* .  Vous pouvez disposer d’un seul catalogue pour tous vos packages d’accès, ou vous pouvez désigner des personnes pour créer et posséder leurs propres catalogues. Un administrateur peut ajouter des ressources à n’importe quel catalogue, mais un non-administrateur ne peut ajouter à un catalogue que les ressources dont il est propriétaire. Un propriétaire de catalogue peut ajouter d’autres utilisateurs en tant que copropriétaires de catalogue, ou en tant que gestionnaires de package d’accès.  Ces scénarios sont décrits plus en détail dans l’article [Délégation et rôles dans la gestion des droits d’utilisation Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Abrégé de terminologie
 

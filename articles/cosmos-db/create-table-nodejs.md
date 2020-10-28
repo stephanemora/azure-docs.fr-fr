@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 42871d4219424e3e46d6b2dccc5899b02dccc57e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f53958f8d7b0c5c12d78940b30f88b49d667c1e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318991"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487532"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Node.js et Azure Cosmos DB
 
@@ -22,7 +22,7 @@ ms.locfileid: "91318991"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.JS](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 Dans ce guide de démarrage rapide, vous allez créer un compte d’API Table Azure Cosmos DB, puis utiliser l’Explorateur de données et une application Node.js clonée à partir de GitHub pour créer des tables et des entités. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et d’interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
@@ -137,19 +137,19 @@ Cette étape est facultative. Pour savoir comment les ressources de base de donn
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permet à votre application de communiquer avec votre base de données hébergée. 
 
-1. Dans votre compte Azure Cosmos DB, sur le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
+1. Dans votre compte Azure Cosmos DB, sur le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion** . 
 
     :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Afficher et copier les informations de chaîne de connexion nécessaires dans le volet Chaîne de connexion":::
 
 2. Copiez la CHAÎNE DE CONNEXION PRINCIPALE à l’aide du bouton Copier à droite.
 
-3. Ouvrez le fichier *app.config*, puis collez la valeur dans connectionString à la ligne trois. 
+3. Ouvrez le fichier *app.config* , puis collez la valeur dans connectionString à la ligne trois. 
 
     > [!IMPORTANT]
     > Si votre point de terminaison utilise documents.azure.com, cela signifie que vous disposez d’un compte de version préliminaire et que vous devez créer un [nouveau compte d’API Table](#create-a-database-account) à utiliser avec le Kit de développement logiciel (SDK) d’API Table généralement disponible.
     >
 
-3. Enregistrez le fichier *app.config*.
+3. Enregistrez le fichier *app.config* .
 
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
@@ -161,7 +161,7 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Exécutez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier *package.json*.
+2. Exécutez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier *package.json* .
 
    ```
    npm install azure-storage node-uuid async nconf --save

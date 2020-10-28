@@ -16,16 +16,16 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87506440"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367446"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Fonctionnalités de gestion pour les groupes Azure AD d’accès privilégié (préversion)
 
-Dans Privileged Identity Management (PIM), vous pouvez désormais attribuer l’éligibilité à l’appartenance ou à la propriété de groupes d’accès privilégié. À partir de cette préversion, vous pouvez attribuer des rôles intégrés Azure AD (Azure Active Directory) à des groupes cloud et utiliser PIM pour gérer l’éligibilité à l’appartenance ou à la propriété des groupes et les activer. Pour plus d’informations sur les groupes avec attribution de rôle dans Azure AD, consultez [Utiliser des groupes cloud pour gérer les attributions de rôle dans Azure Active Directory (préversion)](../users-groups-roles/roles-groups-concept.md).
+Dans Privileged Identity Management (PIM), vous pouvez désormais attribuer l’éligibilité à l’appartenance ou à la propriété de groupes d’accès privilégié. À partir de cette préversion, vous pouvez attribuer des rôles intégrés Azure AD (Azure Active Directory) à des groupes cloud et utiliser PIM pour gérer l’éligibilité à l’appartenance ou à la propriété des groupes et les activer. Pour plus d’informations sur les groupes avec attribution de rôle dans Azure AD, consultez [Utiliser des groupes cloud pour gérer les attributions de rôle dans Azure Active Directory (préversion)](../roles/groups-concept.md).
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Imposer des stratégies différentes à chaque groupe avec attribution de rôle
 

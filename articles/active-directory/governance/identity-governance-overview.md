@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306461"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362448"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Qu’est-ce qu’Azure AD Identity Governance ?
 
@@ -58,7 +58,7 @@ Les organisations ont besoin d’un processus pour gérer l’accès au-delà de
 
 En règle générale, le service informatique délègue aux décideurs d’entreprise la prise de décision en matière d’approbation d’accès.  De plus, le service informatique peut impliquer les utilisateurs eux-mêmes.  Par exemple, les utilisateurs accédant à des données client confidentielles dans l’application marketing d’une société en Europe doivent connaître les stratégies de l’entreprise. Les utilisateurs invités d’une organisation n’ont peut-être pas connaissance de ses exigences en matière de traitement des données.
 
-Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../users-groups-roles/groups-dynamic-membership.md), moyennant l’approvisionnement des utilisateurs sur des [applications SaaS](../saas-apps/tutorial-list.md) ou des [applications intégrées à SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../external-identities/hybrid-cloud-to-on-premises.md).  Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](access-reviews-overview.md) récurrentes.   La [gestion des droits d’utilisation Azure AD](entitlement-management-overview.md) permet également de définir la manière dont les utilisateurs demandent l’accès pour différents packages d’appartenance aux groupes et aux équipes, rôles d’application et rôles SharePoint Online.
+Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../enterprise-users/groups-dynamic-membership.md), moyennant l’approvisionnement des utilisateurs sur des [applications SaaS](../saas-apps/tutorial-list.md) ou des [applications intégrées à SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../external-identities/hybrid-cloud-to-on-premises.md).  Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](access-reviews-overview.md) récurrentes.   La [gestion des droits d’utilisation Azure AD](entitlement-management-overview.md) permet également de définir la manière dont les utilisateurs demandent l’accès pour différents packages d’appartenance aux groupes et aux équipes, rôles d’application et rôles SharePoint Online.
 
 Lorsqu’un utilisateur tente d’accéder à des applications, Azure AD applique des stratégies [d’accès conditionnel](../conditional-access/index.yml). Par exemple, les stratégies d’accès conditionnel peuvent inclure l’affichage de [conditions d’utilisation](../conditional-access/terms-of-use.md) et un processus [garantissant que l’utilisateur a accepté ces conditions](../conditional-access/require-tou.md) avant de lui permettre d’accéder à une application.
 
@@ -100,7 +100,7 @@ Si vous avez des commentaires sur les fonctionnalités de gouvernance des identi
 Il n’existe pas de solution ou de recommandation parfaite pour tous les clients. Cependant, vous pouvez vous appuyer sur les guides de configuration suivants afin d’appréhender les stratégies de base recommandées par Microsoft pour renforcer la sécurité et la productivité des employés.
 
 - [Configurations des identités et de l’accès aux appareils](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Sécurisation de l’accès privilégié](../users-groups-roles/directory-admin-roles-secure.md)
+- [Sécurisation de l’accès privilégié](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Annexe : rôles les moins privilégiés pour la gestion dans les fonctionnalités Identity Governance
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 469235957ebe26dd44cc6ce464a68167629099ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944650"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476142"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database pour PostgreSQL - Serveur unique
 
@@ -81,8 +81,8 @@ Le service à serveur unique est équipé de fonctionnalités intégrées d'anal
 
 Le service exécute la version de la communauté de PostgreSQL. Cela permet une compatibilité totale des applications et requiert un coût de refactorisation minimal pour migrer une application existante développée sur le moteur PostgreSQL vers un service à serveur unique. La migration vers le serveur unique peut être effectuée à l'aide de l'une des options suivantes :
 
-- **Image mémoire et restauration** : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que Pg_dump et Pg_restore peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore).
-- **Azure Database Migration Service** : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, Azure Database Migration Service peut être utilisé. Consultez [DMS via le portail](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) et [DMS via l'interface CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Image mémoire et restauration**  : pour les migrations hors connexion, au cours desquelles les utilisateurs peuvent se permettre des temps d'arrêt, l'image mémoire et la restauration à l'aide d'outils communautaires tels que Pg_dump et Pg_restore peuvent constituer la méthode de migration la plus rapide. Pour plus d'informations, consultez [Migrer à l'aide de l'image mémoire et de la restauration](./howto-migrate-using-dump-and-restore.md).
+- **Azure Database Migration Service**  : pour les migrations transparentes et simplifiées vers un serveur unique avec temps d'arrêt minimal, Azure Database Migration Service peut être utilisé. Consultez [DMS via le portail](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) et [DMS via l'interface CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Contacts
 
@@ -98,4 +98,3 @@ En outre, tenez compte des points de contact suivants le cas échéant :
 
 Maintenant que vous avez lu l'introduction au mode de déploiement Azure Database pour PostgreSQL - Serveur unique, vous êtes prêt à :
 - Créer votre premier serveur
-  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946013"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341327"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Démarrage rapide : Configuration d’Azure Security Center
 
@@ -37,7 +37,7 @@ Pour activer Azure Defender dans le cadre d’un abonnement, vous devez avoir le
 
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
-1. Dans le menu du portail, sélectionnez **Centre de sécurité**. 
+1. Dans le menu du portail, sélectionnez **Centre de sécurité** . 
 
     La page de présentation de Security Center s’ouvre.
 
@@ -45,7 +45,7 @@ Pour activer Azure Defender dans le cadre d’un abonnement, vous devez avoir le
 
 **Security Center - Vue d’ensemble** donne un aperçu unifié de l’état de sécurité des charges de travail cloud hybrides, ce qui permet de détecter et d’évaluer leur sécurité, ainsi que d’identifier et d’atténuer les risques. Security Center active automatiquement et gratuitement les abonnements Azure qui n’ont pas été intégrés par vous ni par aucun autre utilisateur de l’abonnement.
 
-Pour afficher et filtrer la liste des abonnements, sélectionnez l’élément de menu **Abonnements**. Security Center ajuste l’affichage pour refléter la position de sécurité des abonnements sélectionnés. 
+Pour afficher et filtrer la liste des abonnements, sélectionnez l’élément de menu **Abonnements** . Security Center ajuste l’affichage pour refléter la position de sécurité des abonnements sélectionnés. 
 
 Quelques minutes après le premier lancement de Security Center peuvent s’afficher :
 
@@ -61,13 +61,13 @@ Pour tirer pleinement parti de Security Center, vous devez suivre les étapes ci
 
 Pour suivre les guides de démarrage rapide et les tutoriels Security Center, vous devez activer Azure Defender. Une version d’évaluation gratuite de 30 jours est disponible. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Dans la barre latérale de Security Center, sélectionnez **Bien démarrer**.
+1. Dans la barre latérale de Security Center, sélectionnez **Bien démarrer** .
 
     :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Tableau de bord de présentation de Security Center"::: 
 
     L’onglet **Mise à jour** répertorie les abonnements et les espaces de travail éligibles à l’intégration.
 
-1. Dans la liste **Sélectionner les espaces de travail où activer Azure Defender**, sélectionnez les espaces de travail à mettre à niveau.
+1. Dans la liste **Sélectionner les espaces de travail où activer Azure Defender** , sélectionnez les espaces de travail à mettre à niveau.
    - Si vous sélectionnez des abonnements et des espaces de travail qui ne sont pas éligibles pour la version d’évaluation, l’étape suivante les met à niveau et des frais seront facturés depuis lors.
    - Si vous sélectionnez un espace de travail éligible à un essai gratuit, la prochaine étape activera un essai.
 1. Sélectionnez **Mettre à niveau** pour activer Azure Defender.
@@ -79,10 +79,10 @@ Quand le provisionnement automatique est activé, Security Center installe l’a
 
 Pour activer le provisionnement automatique de l’agent Log Analytics :
 
-1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
+1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres** .
 1. Sélectionnez l’abonnement approprié.
-1. Dans la page **Collecte des données**, définissez **Provisionnement automatique** sur **On** (activé).
-1. Sélectionnez **Enregistrer**.
+1. Dans la page **Collecte des données** , définissez **Provisionnement automatique** sur **On** (activé).
+1. Sélectionnez **Enregistrer** .
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Tableau de bord de présentation de Security Center":::
 
@@ -105,7 +105,7 @@ Dans cette procédure de démarrage rapide, vous avez activé Azure Defender et 
 Vous souhaitez optimiser et réduire vos coûts de cloud ?
 
 > [!div class="nextstepaction"]
-> [Démarrer l’analyse des coûts avec Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Démarrer l’analyse des coûts avec Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

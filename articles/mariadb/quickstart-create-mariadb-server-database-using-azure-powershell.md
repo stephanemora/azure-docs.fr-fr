@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3715b3eb00a1ccb549bf77d14ce33969f9a7eda1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7db89d315e0df51aad7f4660ec5da64425eae2aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87502254"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424430"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>Démarrage rapide : Créer un serveur Azure Database for MariaDB à l’aide de PowerShell
 
@@ -23,13 +23,13 @@ Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer u
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si vous choisissez d’utiliser PowerShell localement, cet article vous demande d’installer le module Az PowerShell et de vous connecter à votre compte Azure avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pour en savoir plus sur l’installation du module Az PowerShell, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Tant que le module PowerShell Az.MariaDb est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Une fois le module PowerShell Az.MariaDb en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
-Si vous utilisez le service Azure Database for MariaDB pour la première fois, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMariaDB**.
+Si vous utilisez le service Azure Database for MariaDB pour la première fois, vous devez inscrire le fournisseur de ressources **Microsoft.DBforMariaDB** .
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -37,7 +37,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si vous avez plusieurs abonnements Azure, sélectionnez l’abonnement approprié dans lequel les ressources doivent être facturées. Sélectionnez un ID d’abonnement spécifique avec l’applet de commande [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Si vous avez plusieurs abonnements Azure, sélectionnez l’abonnement approprié dans lequel les ressources doivent être facturées. Sélectionnez un ID d’abonnement spécifique avec l’applet de commande [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -45,9 +45,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) avec l’applet de commande [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
+Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) avec l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe.
 
-L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest**.
+L’exemple suivant crée un groupe de ressources nommé **myresourcegroup** dans la région **USA Ouest** .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,7 +70,7 @@ Le tableau suivant contient la liste des paramètres couramment utilisés et des
 | SslEnforcement             | activé          | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : Activé, Désactivé.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Capacité de stockage du serveur (en mégaoctets). Un StorageInMb valide est un minimum de 5 120 Mo et augmente par incrément de 1 024 Mo. Pour plus d’informations sur les limites de taille du stockage, consultez [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Version majeure de MariaDB                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Nom d’utilisateur du compte administrateur. Il ne peut pas être **azure_superuser** (superutilisateur), **admin**, **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public**.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Nom d’utilisateur du compte administrateur. Il ne peut pas être **azure_superuser** (superutilisateur), **admin** , **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public** .                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Mot de passe de l’utilisateur administrateur sous la forme d’une chaîne sécurisée. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.                                       |
 
 La valeur du paramètre **Sku** suit la convention **niveau tarifaire\_génération de calcul\_vCores** comme dans les exemples suivants.
@@ -81,7 +81,7 @@ La valeur du paramètre **Sku** suit la convention **niveau tarifaire\_générat
 
 Pour plus d’informations sur les valeurs **Sku** valides par région et par niveau, consultez [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md).
 
-L’exemple suivant crée un serveur MariaDB dans la région **USA Ouest** nommé **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur de serveur **myadmin**. Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Documentez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur MariaDB.
+L’exemple suivant crée un serveur MariaDB dans la région **USA Ouest** nommé **mydemoserver** dans le groupe de ressources **myresourcegroup** avec une connexion d’administrateur de serveur **myadmin** . Il s’agit d’un serveur de génération 5 dans le niveau tarifaire à usage général avec 2 vCores et des sauvegardes géoredondantes activées. Documentez le mot de passe utilisé sur la première ligne de l’exemple, car il s’agit du mot de passe du compte d’administrateur du serveur MariaDB.
 
 > [!TIP]
 > Un nom de serveur est mappé à un nom DNS et doit être globalement unique dans Azure.
@@ -124,7 +124,7 @@ Update-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Ss
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
 
-Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin**.
+Pour vous connecter à votre serveur, vous devez fournir des informations sur l’hôte et des informations d’identification pour l’accès. Utilisez l’exemple suivant pour déterminer les informations de connexion. Notez les valeurs des champs **FullyQualifiedDomainName** et **AdministratorLogin** .
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -201,7 +201,7 @@ Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - 
 
 1. Lancez l’application MySQL Workbench sur votre ordinateur client. Pour télécharger et installer MySQL Workbench, consultez [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. Dans la boîte de dialogue **Configurer une nouvelle connexion**, entrez les informations suivantes dans l’onglet **Paramètres** :
+1. Dans la boîte de dialogue **Configurer une nouvelle connexion** , entrez les informations suivantes dans l’onglet **Paramètres**  :
 
    ![configurer une nouvelle connexion](./media/quickstart-create-mariadb-server-database-using-azure-powershell/setup-new-connection.png)
 
@@ -214,7 +214,7 @@ Pour les autres commandes, consultez le [Manuel de référence de MySQL 5.7 - 
     | Nom d’utilisateur          | myadmin@mydemoserver                      | Connexion d’administrateur serveur que vous avez notée précédemment                |
     | Mot de passe          | *************                             | Utiliser le mot de passe du compte Administrateur que vous avez configuré précédemment      |
 
-1. Pour tester si les paramètres sont correctement configurés, cliquez sur le bouton **Tester la connexion**.
+1. Pour tester si les paramètres sont correctement configurés, cliquez sur le bouton **Tester la connexion** .
 
 1. Sélectionnez la connexion pour vous connecter au serveur.
 
