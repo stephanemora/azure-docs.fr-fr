@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d46b3ba9e3df5e2b3600db2be2a41789fed5242f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070552"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207969"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -57,14 +57,14 @@ AKS s’appuie sur différentes ressources de l'infrastructure Azure, notamment 
 
 Pour permettre cette architecture, chaque déploiement AKS s’étend sur deux groupes de ressources :
 
-1. Vous créez le premier groupe de ressources. Ce groupe contient uniquement la ressource de service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second groupe de ressources au cours du déploiement. Un exemple du second groupe de ressources est *MC_myResourceGroup_myAKSCluster_eastus*. Pour obtenir des informations sur la façon de spécifier le nom de ce second groupe de ressources, consultez la section suivante.
-1. Le second groupe de ressources, nommé *groupe de ressources de nœud*, contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Par défaut, le nom du groupe de ressources de nœud ressemble à ceci : *MC_myResourceGroup_myAKSCluster_eastus*. AKS supprime automatiquement la ressource de nœud à chaque fois que le cluster est supprimé. Cette ressource doit donc être utilisée uniquement pour les ressources qui partagent le cycle de vie du cluster.
+1. Vous créez le premier groupe de ressources. Ce groupe contient uniquement la ressource de service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second groupe de ressources au cours du déploiement. Un exemple du second groupe de ressources est *MC_myResourceGroup_myAKSCluster_eastus* . Pour obtenir des informations sur la façon de spécifier le nom de ce second groupe de ressources, consultez la section suivante.
+1. Le second groupe de ressources, nommé *groupe de ressources de nœud* , contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Par défaut, le nom du groupe de ressources de nœud ressemble à ceci : *MC_myResourceGroup_myAKSCluster_eastus* . AKS supprime automatiquement la ressource de nœud à chaque fois que le cluster est supprimé. Cette ressource doit donc être utilisée uniquement pour les ressources qui partagent le cycle de vie du cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Puis-je nommer mon groupe de ressources d’infrastructure AKS comme je le veux ?
 
-Oui. Par défaut, AKS nomme le groupe de ressources de nœud *MC_resourcegroupname_clustername_location*, mais vous pouvez également entrer votre propre nom.
+Oui. Par défaut, AKS nomme le groupe de ressources de nœud *MC_resourcegroupname_clustername_location* , mais vous pouvez également entrer votre propre nom.
 
-Pour spécifier votre propre nom de groupe de ressources, installez la version *0.3.2* ou une version ultérieure de l’extension Azure CLI [aks-preview][aks-preview-cli]. Lorsque vous créez un cluster AKS à l’aide de la commande [az aks create][az-aks-create], utilisez le paramètre *--node-resource-group* et spécifiez un nom pour le groupe de ressources. Si vous [utilisez un modèle Azure Resource Manager][aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources à l’aide de la propriété *nodeResourceGroup*.
+Pour spécifier votre propre nom de groupe de ressources, installez la version  *0.3.2* ou une version ultérieure de l’extension Azure CLI [aks-preview][aks-preview-cli]. Lorsque vous créez un cluster AKS à l’aide de la commande [az aks create][az-aks-create], utilisez le paramètre *--node-resource-group* et spécifiez un nom pour le groupe de ressources. Si vous [utilisez un modèle Azure Resource Manager][aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources à l’aide de la propriété *nodeResourceGroup* .
 
 * Le groupe de ressources secondaire est automatiquement créé par le fournisseur de ressources Azure dans votre propre abonnement.
 * Vous pouvez spécifier un nom de groupe de ressources personnalisé uniquement lorsque vous créez le cluster.
@@ -100,7 +100,7 @@ Actuellement, vous ne pouvez pas modifier la liste des contrôleurs d’admissio
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>Puis-je utiliser des webhooks de contrôleur d’admission dans AKS ?
 
-Oui, vous pouvez utiliser des webhooks de contrôleur d’admission dans AKS. Il est recommandé d’exclure les espaces de noms AKS internes qui sont signalés par l’**étiquette control-plane**. Par exemple, en ajoutant ce qui suit à la configuration du webhook :
+Oui, vous pouvez utiliser des webhooks de contrôleur d’admission dans AKS. Il est recommandé d’exclure les espaces de noms AKS internes qui sont signalés par l’ **étiquette control-plane** . Par exemple, en ajoutant ce qui suit à la configuration du webhook :
 
 ```
 namespaceSelector:
@@ -111,7 +111,7 @@ namespaceSelector:
 
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Les webhooks de contrôleur d’admission peuvent-ils avoir un impact sur les espaces de noms kube-system et AKS internes ?
 
-Pour maintenir la stabilité du système et empêcher les contrôleurs d’admission personnalisés d’avoir un impact sur les services internes de kube-system, l’espace de noms AKS comprend un **exécuteur d’admission**, qui exclut automatiquement les espaces de noms kube-system et AKS internes. Ce service garantit que les contrôleurs d’admission personnalisés n’affecteront pas les services exécutés dans kube-system.
+Pour maintenir la stabilité du système et empêcher les contrôleurs d’admission personnalisés d’avoir un impact sur les services internes de kube-system, l’espace de noms AKS comprend un **exécuteur d’admission** , qui exclut automatiquement les espaces de noms kube-system et AKS internes. Ce service garantit que les contrôleurs d’admission personnalisés n’affecteront pas les services exécutés dans kube-system.
 
 Si vous avez un cas d’usage critique dans lequel un élément déployé sur kube-system (non recommandé) doit être couvert par votre webhook d’admission personnalisé, vous pouvez ajouter l’étiquette ou l’annotation ci-dessous pour que l’exécuteur d’admission l’ignore.
 
@@ -193,7 +193,7 @@ Bien qu'AKS dispose de mécanismes de résilience capable de gérer une telle co
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Puis-je utiliser des extensions de machine virtuelle personnalisées ?
 
-Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas prise en charge. Pour installer des composants personnalisés, etc. utilisez les API et les mécanismes Kubernetes. Par exemple, utilisez DaemonSets pour installer les composants nécessaires.
+Non, AKS est un service géré et la manipulation des ressources IaaS n’est pas prise en charge. Pour installer des composants personnalisés, etc. utilisez les API et les mécanismes Kubernetes. Par exemple, utilisez DaemonSets pour installer les composants nécessaires.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS stocke-t-il des données client en dehors de la région du cluster ?
 

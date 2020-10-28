@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2020
   ms.author: trbye
-  ms.openlocfilehash: 8fa1b62b193fff2a0ca8f4825ece228f156e5318
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.openlocfilehash: 4b9e79bfca206c014ba16e1ac39a9ddb04559e13
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800849"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92756851"
 landingContent:
 - title: À propos de la traduction vocale
   linkLists:
@@ -30,12 +30,8 @@ landingContent:
       url: spx-overview.md
   - linkListType: quickstart
     links:
-    - text: Traduire la voix en texte
-      url: quickstarts/translate-speech-to-text.md
-    - text: Traduire la parole en plusieurs langues cibles
-      url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - text: Traduire la voix en voix
-      url: quickstarts/translate-speech-to-speech.md
+    - text: Démarrer avec la traduction vocale
+      url: get-started-speech-translation.md
 - title: Développer avec la traduction vocale
   linkLists:
   - linkListType: learn
@@ -56,3 +52,9 @@ landingContent:
       url: https://www.microsoft.com/translator/business/faq/
     - text: Tarification de la traduction vocale
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+- title: Aide et commentaires
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Options d’aide et de support
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

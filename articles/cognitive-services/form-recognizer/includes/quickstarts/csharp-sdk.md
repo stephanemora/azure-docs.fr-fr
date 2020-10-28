@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: dcb851384f8e2aff60220d4e0002b10f930095a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 06b56566108bb482109d02d8d4f9db66dc2a6995
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963042"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755467"
 ---
 > [!IMPORTANT]
 > Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
@@ -25,8 +25,8 @@ ms.locfileid: "91963042"
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * L’[IDE Visual Studio](https://visualstudio.microsoft.com/vs/) ou la version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Un blob Stockage Azure qui contient un jeu de données d’apprentissage. Consultez [Créer un jeu de données d’entraînement pour un modèle personnalisé](../../build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip*).
-* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+* Un blob Stockage Azure qui contient un jeu de données d’apprentissage. Consultez [Créer un jeu de données d’entraînement pour un modèle personnalisé](../../build-training-data-set.md) pour obtenir des conseils et des options pour constituer votre jeu de données d’entraînement. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’ [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) (téléchargez et extrayez *sample_data.zip* ).
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="créez une ressource Form Recognizer"  target="_blank">créer une ressource Form Recognizer<span class="docon docon-navigate-external x-hidden-focus"></span></a> sur le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource** .
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
@@ -38,11 +38,11 @@ ms.locfileid: "91963042"
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
-Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Azure.AI.FormRecognizer`. Sélectionnez la version `3.0.0`, puis **Installer**. 
+Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’ **Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet** . Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** , cochez **Inclure la préversion** et recherchez `Azure.AI.FormRecognizer`. Sélectionnez la version `3.0.0`, puis **Installer** . 
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
-Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `formrecognizer-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs*. 
+Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `formrecognizer-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs* . 
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -63,6 +63,7 @@ Build succeeded.
  0 Error(s)
 ...
 ```
+---
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
@@ -71,8 +72,6 @@ Dans le répertoire de l’application, installez la bibliothèque de client [no
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
-
----
 
 > [!TIP]
 > Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
@@ -84,7 +83,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 Dans la classe **Program** de l’application, créez des variables pour la clé et le point de terminaison de votre ressource.
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
+> Accédez au portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes** . La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources** . 
 >
 > N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
 
@@ -102,7 +101,7 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
  - Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour reconnaître vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
  - Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Reconnaître le contenu des formulaires](#recognize-form-content).
- - Reconnaître les champs communs des tickets de caisse émis aux États-Unis, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer.  Ces champs et métadonnées sont retournés dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Reconnaître les tickets de caisse](#recognize-receipts).
+ - Reconnaître les champs communs des tickets de caisse émis aux États-Unis, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer. Ces champs et métadonnées sont retournés dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Reconnaître les tickets de caisse](#recognize-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -132,10 +131,10 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-En dessous de **Main**, créez une méthode sous le nom `AuthenticateClient`. Vous vous en servirez dans d’autres tâches pour authentifier vos demandes auprès du service Form Recognizer. Cette méthode utilise l’objet `AzureKeyCredential` pour que, le cas échéant, vous puissiez mettre à jour la clé API sans créer de nouveaux objets clients.
+En dessous de **Main** , créez une méthode sous le nom `AuthenticateClient`. Vous vous en servirez dans d’autres tâches pour authentifier vos demandes auprès du service Form Recognizer. Cette méthode utilise l’objet `AzureKeyCredential` pour que, le cas échéant, vous puissiez mettre à jour la clé API sans créer de nouveaux objets clients.
 
 > [!IMPORTANT]
-> Obtenez votre clé et votre point de terminaison à partir du portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
+> Obtenez votre clé et votre point de terminaison à partir du portail Azure. Si la ressource Form Recognizer que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes** . La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources** . 
 >
 > N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
@@ -146,9 +145,9 @@ En dessous de **Main**, créez une méthode sous le nom `AuthenticateClient`. Vo
 
 Les extraits de code présentés dans ce guide utilisent des formulaires distants accessibles par URL. Si vous voulez traiter des documents de formulaire locaux, consultez les méthodes correspondantes dans la [documentation de référence](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) et les [exemples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-Vous devrez aussi ajouter des références aux URL pour vos données d’entraînement et de test. Ajoutez-les à la racine de votre **Program**.
+Vous devrez aussi ajouter des références aux URL pour vos données d’entraînement et de test. Ajoutez-les à la racine de votre **Program** .
 
-* Pour récupérer l’URL SAS des données d’entraînement de votre modèle personnalisé, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Pour récupérer l’URL SAS des données d’entraînement de votre modèle personnalisé, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé** . Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer** . Copiez alors la valeur dans la section **URL** . Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Ensuite, utilisez les étapes ci-dessus pour obtenir l’URL SAS d’un document individuel dans le stockage d’objets blob.
 * Enfin, enregistrez l’URL de l’exemple d’image de ticket de caisse inclus dans les exemples ci-dessous (également disponible sur [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
 
@@ -160,7 +159,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 
 ## <a name="recognize-form-content"></a>Reconnaître le contenu d’un formulaire
 
-Vous pouvez utiliser Form Recognizer pour reconnaître les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. La valeur retournée est une collection d’objets **FormPage** : un pour chaque page du document envoyé. 
+Vous pouvez utiliser Form Recognizer pour reconnaître les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. La valeur retournée est une collection d’objets **FormPage**  : un pour chaque page du document envoyé. 
 
 Pour reconnaître le contenu d’un fichier à un URI donné, utilisez la méthode `StartRecognizeContentFromUri`.
 

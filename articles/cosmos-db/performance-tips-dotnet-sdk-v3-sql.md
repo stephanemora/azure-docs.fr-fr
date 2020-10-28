@@ -4,15 +4,15 @@ description: Découvrez les options de configuration côté client favorisant l�
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802988"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277312"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -39,16 +39,16 @@ Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll
 
 Les quatre types d’application listés ici utilisent un traitement 32 bits des processus hôte par défaut. Pour passer à un traitement 64 bits des processus hôte pour votre type d’application, procédez comme suit :
 
-- **Pour les applications exécutables** : Dans la fenêtre **Propriétés du projet**, dans le volet **Build**, définissez la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64**.
+- **Pour les applications exécutables**  : Dans la fenêtre **Propriétés du projet** , dans le volet **Build** , définissez la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64** .
 
-- **Pour les projets de test basés sur VSTest** : Dans le menu Visual Studio **Test**, sélectionnez **Test** > **Paramètres de test**, puis définissez **Architecture de processeur par défaut** sur **X64**.
+- **Pour les projets de test basés sur VSTest**  : Dans le menu Visual Studio **Test** , sélectionnez **Test** > **Paramètres de test** , puis définissez **Architecture de processeur par défaut** sur **X64** .
 
-- **Pour les applications web ASP.NET déployées localement** : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web**, puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web**.
+- **Pour les applications web ASP.NET déployées localement**  : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web** , puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web** .
 
-- **Pour les applications web ASP.NET déployées sur Azure** : Dans le portail Azure, dans **Paramètres de l’application**, sélectionnez la plateforme **64 bits**.
+- **Pour les applications web ASP.NET déployées sur Azure**  : Dans le portail Azure, dans **Paramètres de l’application** , sélectionnez la plateforme **64 bits** .
 
 > [!NOTE] 
-> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU**. Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86**. Un projet défini sur **N’importe quelle UC** peut facilement basculer vers **x86** si une dépendance x86 exclusive est ajoutée.<br/>
+> Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU** . Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86** . Un projet défini sur **N’importe quelle UC** peut facilement basculer vers **x86** si une dépendance x86 exclusive est ajoutée.<br/>
 > Le fichier ServiceInterop.dll doit se trouver dans le dossier à partir duquel la bibliothèque DLL du kit SDK s’exécute. Cela ne doit être un problème que si vous copiez manuellement des DLL ou si vous avez des systèmes de génération ou de déploiement personnalisés.
     
 **Activer le garbage collection (GC) côté serveur**
@@ -67,32 +67,7 @@ Si vous effectuez des tests à des niveaux de débit élevés ou à des débits 
 
 **Stratégie de connexion : Utiliser le mode de connexion directe**
 
-La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en matière de latence côté client. Deux paramètres essentiels de configuration sont disponibles pour la stratégie de connexion client : le *mode* de connexion et le *protocole* de connexion. Les deux modes de connexion disponibles sont les suivants :
-
-   * Mode direct (par défaut)
-
-     Le mode direct prend en charge la connectivité via le protocole TCP. Il s’agit du mode de connectivité par défaut si vous utilisez le [kit SDK Microsoft.Azure.Cosmos/.NET V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Le mode direct favorise de meilleures performances et requiert moins de tronçons réseau que le mode passerelle.
-
-   * Mode passerelle
-      
-     Si votre application s’exécute dans un réseau d’entreprise doté de restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison. 
-     
-     Toutefois, ce mode suppose un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Ainsi, le mode direct offre de meilleures performances en raison d’un moins grand nombre de tronçons réseau. Nous vous recommandons le mode de connexion passerelle quand vous exécutez des applications dans des environnements présentant un nombre limité de connexions de socket.
-
-     Quand vous utilisez le Kit de développement logiciel (SDK) dans Azure Functions, en particulier dans le [plan Consommation](../azure-functions/functions-scale.md#consumption-plan), prenez en compte les [limites de connexions](../azure-functions/manage-connections.md) actuelles. Dans ce cas, le mode passerelle peut s’avérer préférable si vous utilisez également d’autres clients basés sur HTTP au sein de votre application Azure Functions.
-     
-Lorsque vous utilisez le protocole TCP en mode direct, en plus des ports de passerelle, vous devez veiller à ce que la plage de ports comprise entre 10000 et 20000 soit ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Lorsque vous utilisez le mode direct sur des [points de terminaison privés](./how-to-configure-private-endpoints.md), la plage complète des ports TCP, de 0 à 65535, doit être ouverte. Les ports sont ouverts par défaut pour la configuration de machine virtuelle Azure standard. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur « 503 Service indisponible ». 
-
-Le tableau suivant montre les modes de connexion disponibles pour les différentes API, ainsi que les ports de service utilisés pour chaque API :
-
-|Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
-|---------|---------|---------|---------|
-|Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br><br> Le port 10250 mappe à une API Azure Cosmos DB par défaut pour l’instance MongoDB sans géoréplication, alors que les ports 10255 et 10256 mappent à cette instance avec la géoréplication.   |
-|Direct    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Quand vous utilisez des points de terminaison publics/de service : les ports de la plage 10000 à 20000<br><br>Quand vous utilisez des points de terminaison privés : les ports compris entre 0 et 65535 |
-
-Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Le protocole TCP utilise TLS (Transport Layer Security) pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
-
-Pour le kit SDK V3, vous configurez le mode de connexion lorsque vous créez l’instance `CosmosClient` dans `CosmosClientOptions`. Souvenez-vous que le mode direct est l’option par défaut.
+Le mode de connexion par défaut du Kit de développement logiciel (SDK) .NET v3 est le mode direct. Vous configurez le mode de connexion lorsque vous créez l’instance `CosmosClient` dans `CosmosClientOptions`.  Pour en savoir plus sur les différentes options de connectivité, consultez l’article sur les [modes de connectivité](sql-sdk-connection-modes.md).
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -102,10 +77,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-Comme le protocole TCP est pris en charge en mode direct uniquement, si vous utilisez le mode passerelle, le protocole HTTPS est toujours utilisé pour communiquer avec la passerelle.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Établissez la connexion à Azure Cosmos DB avec différents modes de connexion et protocoles" border="false":::
 
 **Épuisement des ports éphémères**
 
@@ -126,7 +97,7 @@ Dans la mesure du possible, placez toutes les applications qui appellent Azure C
 
 Vous pouvez obtenir la latence la plus faible possible en veillant à ce que l’application appelante soit située dans la même région Azure que le point de terminaison Azure Cosmos DB configuré. Pour obtenir la liste des régions disponibles, voir [Régions Azure](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Établissez la connexion à Azure Cosmos DB avec différents modes de connexion et protocoles" border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Colocalisez les clients dans la même région Azure" border="false":::
 
    <a id="increase-threads"></a>
 
@@ -163,7 +134,7 @@ Lorsque vous travaillez sur Azure Functions, les instances doivent également su
 Pour les charges de travail qui ont des charges utiles de création intensives, attribuez à l’option de requête `EnableContentResponseOnWrite` la valeur `false`. Le service ne renvoie plus la ressource créée ou mise à jour au kit de développement logiciel (SDK). Normalement, comme l’application détient l’objet en cours de création, le service n’a pas besoin de le retourner. Les valeurs d’en-tête sont toujours accessibles, comme des frais de requête. La désactivation de la réponse de contenu peut améliorer les performances, car le kit SDK n’a plus besoin d’allouer de la mémoire ni de sérialiser le corps de la réponse. Cela réduit également l’utilisation de la bande passante réseau pour améliorer encore les performances.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource
@@ -171,7 +142,7 @@ itemResponse.Resource
 
 **Activer l’exécution en bloc pour optimiser le débit plutôt que la latence**
 
-Activez l’*exécution en bloc* pour les scénarios où la charge de travail requiert un débit très élevé et où la latence n’est pas aussi importante. Pour plus d’informations sur l’activation de l’exécution en bloc et sur les scénarios où elle devrait être utilisée, consultez [Introduction à la prise en charge de l’exécution en bloc](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
+Activez l’ *exécution en bloc* pour les scénarios où la charge de travail requiert un débit très élevé et où la latence n’est pas aussi importante. Pour plus d’informations sur l’activation de l’exécution en bloc et sur les scénarios où elle devrait être utilisée, consultez [Introduction à la prise en charge de l’exécution en bloc](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
 **Augmenter System.Net MaxConnections par hôte lors de l’utilisation du mode passerelle**
 
@@ -189,7 +160,7 @@ Les requêtes parallèles fournissent deux paramètres que vous pouvez paramétr
 
     Les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de sorte que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), ces partitions vont limiter les performances de la requête.
    
-- **MaxBufferedItemCount** : Contrôle le nombre de résultats prérécupérés.
+- **MaxBufferedItemCount**  : Contrôle le nombre de résultats prérécupérés.
 
    Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. Cette pré-récupération permet d’améliorer la latence globale d’une requête. Le paramètre `MaxBufferedItemCount` limite le nombre de résultats pré-récupérés (fetch). Définissez `MaxBufferedItemCount` sur le nombre attendu de résultats retournés (ou un nombre plus élevé) pour permettre à la requête de recevoir le maximum d’avantages de la pré-récupération (fetch).
 
@@ -287,4 +258,4 @@ Les frais de requête (à savoir, le coût de traitement des requêtes) d’une 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir un exemple d’application permettant d’évaluer Azure Cosmos DB lors de scénarios hautes performances sur quelques ordinateurs clients, consultez [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md).
 
-Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partition-data.md).
+Pour en savoir plus sur la conception de votre application pour une mise à l’échelle et de hautes performances, consultez [Partitionnement, clés de partition et mise à l’échelle dans Cosmos DB](partitioning-overview.md).
