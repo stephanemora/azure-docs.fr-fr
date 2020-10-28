@@ -8,16 +8,16 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045123"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496037"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
-Cet article décrit les étapes nécessaires à l’utilisation des données Azure Digital Twins pour mettre à jour les informations affichées sur un *plan intérieur* à l’aide d’[Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stocke un graphique de vos relations d’appareils IoT et achemine les données de télémétrie vers différents points de terminaison, ce qui en fait le service parfait pour mettre à jour les superpositions d’informations sur les cartes.
+Cet article décrit les étapes nécessaires à l’utilisation des données Azure Digital Twins pour mettre à jour les informations affichées sur un *plan intérieur* à l’aide d’ [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stocke un graphique de vos relations d’appareils IoT et achemine les données de télémétrie vers différents points de terminaison, ce qui en fait le service parfait pour mettre à jour les superpositions d’informations sur les cartes.
 
 Cette procédure couvre les sujets suivants :
 
@@ -29,9 +29,9 @@ Cette procédure couvre les sujets suivants :
 
 * Suivez le [*Didacticiel Azure Digital Twins : Connecter une solution de bout en bout*](./tutorial-end-to-end.md).
     * Vous allez étendre ce jumeaux avec un point de terminaison et un itinéraire supplémentaires. Vous allez également ajouter une autre fonction à votre application de fonction à partir de ce didacticiel. 
-* Suivez le [*Didacticiel Azure Maps : Utiliser Azure Maps Creator pour créer des cartes d’intérieur*](../azure-maps/tutorial-creator-indoor-maps.md) afin de créer une carte d’intérieur Azure Maps avec un *ensemble d’états des fonctionnalités*.
+* Suivez le [*Didacticiel Azure Maps : Utiliser Azure Maps Creator pour créer des cartes d’intérieur*](../azure-maps/tutorial-creator-indoor-maps.md) afin de créer une carte d’intérieur Azure Maps avec un *ensemble d’états des fonctionnalités* .
     * Les [ensembles d’états des fonctionnalités](../azure-maps/creator-indoor-maps.md#feature-statesets) sont une collections de propriétés dynamiques (états) affectées à des fonctionnalités de jeu de données, telles que des salles ou des équipements. Dans le didacticiel Azure Maps ci-dessus, l’ensemble d’états des fonctionnalités stocke l’état de la salle que vous allez afficher sur une carte.
-    * Vous avez besoin de l’*ID de votre ensemble des états* des fonctionnalités et de l’*ID d’abonnement* Azure Maps.
+    * Vous avez besoin de l’ *ID de votre ensemble des états* des fonctionnalités et de l’ *ID d’abonnement* Azure Maps.
 
 ### <a name="topology"></a>Topologie
 
@@ -50,12 +50,12 @@ Les instances Azure Digital Twins peuvent émettre des événements de mise à j
 Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’appareil IoT, ce qui vous donne la possibilité de modifier la source de données sous-jacente pour la température sans devoir mettre à jour votre logique de mappage. Par exemple, vous pouvez ajouter plusieurs thermomètres ou définir cette pièce de manière à partager un thermomètre avec une autre pièce, tout cela sans devoir mettre à jour votre logique de mappage.
 
 1. Créez une rubrique Event Grid, qui recevra les événements de votre instance Azure Digital Twins.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Créez un point de terminaison pour lier votre rubrique Event Grid à Azure Digital Twins.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,15 +64,15 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
     >[!NOTE]
     >Il existe actuellement un **problème connu** dans Cloud Shell affectant les groupes de commandes suivants : `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Pour le résoudre, exécutez `az login` dans Cloud Shell avant d’exécuter la commande, ou utilisez la [CLI locale](/cli/azure/install-azure-cli?view=azure-cli-latest) au lieu de Cloud Shell. Pour plus d’informations, consultez [*résolution des problèmes : Problèmes connus dans Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Pour le résoudre, exécutez `az login` dans Cloud Shell avant d’exécuter la commande, ou utilisez la [CLI locale](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) au lieu de Cloud Shell. Pour plus d’informations, consultez [*résolution des problèmes : Problèmes connus dans Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
 ## <a name="create-an-azure-function-to-update-maps"></a>Créer une fonction Azure pour mettre les cartes à jour
 
-Vous allez créer une fonction déclenchée par Event Grid à l’intérieur de votre application de fonction à partir du didacticiel de bout en bout ([*Didacticiel : Connecter une solution de bout en bout*](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce. 
+Vous allez créer une fonction déclenchée par Event Grid à l’intérieur de votre application de fonction à partir du didacticiel de bout en bout ( [*Didacticiel : Connecter une solution de bout en bout*](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce. 
 
 Consultez le document suivant pour obtenir des informations de référence : [*Déclencheur Azure Event Grid pour Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 Vous allez devoir définir deux variables d’environnement dans votre application de fonction. L’une est votre [clé d’abonnement principal Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) et l’autre est votre [ID d’ensemble d’états Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

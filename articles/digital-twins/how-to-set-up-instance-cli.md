@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207765"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494968"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurer une instance Azure Digital Twins et l’authentification (interface CLI)
 
@@ -36,7 +36,7 @@ Cette version de cet article suit ces étapes manuellement, une par une, à l’
 
 Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital Twins** à l’aide de la commande Cloud Shell. Vous devrez fournir les éléments suivants :
 * Un groupe de ressources dans lequel la déployer. Si vous n’avez pas encore choisi un groupe de ressources existant, vous pouvez en créer un maintenant avec cette commande :
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Une région pour le déploiement. Pour connaître les régions qui prennent en charge Azure Digital Twins, consultez [*Produits Azure disponibles par région*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -44,7 +44,7 @@ Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital 
 
 Utilisez ces valeurs dans la commande suivante pour créer l’instance :
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ Vous disposez maintenant d’une instance Azure Digital Twins opérationnelle. E
 
 Utilisez la commande suivante pour attribuer le rôle (doit être exécutée par un utilisateur avec les [autorisations suffisantes](#prerequisites-permission-requirements) dans l’abonnement Azure). La commande nécessite de passer le *nom d’utilisateur principal* sur le compte Azure AD de l’utilisateur auquel le rôle doit être attribué. Dans la plupart des cas, cela correspond à l’adresse e-mail de l’utilisateur sur le compte Azure AD.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 Les résultats de cette commande décrivent l’attribution de rôle que vous avez créée.

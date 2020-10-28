@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776491"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678377"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 
@@ -22,11 +22,11 @@ L’apprentissage actif modifie la base de connaissances ou Search Service aprè
 
 ## <a name="turn-on-active-learning"></a>Activation de l’apprentissage actif
 
-Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](use-active-learning.md) pour votre ressource QnA Maker.
+Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) pour votre ressource QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Afficher les questions suggérées
 
-1. Pour afficher les suggestions de questions, sur la page **Modifier** de la base de connaissances, sélectionnez **Afficher les options**, puis **Show active learning suggestions** (Afficher les suggestions d’apprentissage actif).
+1. Pour afficher les suggestions de questions, sur la page **Modifier** de la base de connaissances, sélectionnez **Afficher les options** , puis **Show active learning suggestions** (Afficher les suggestions d’apprentissage actif).
 
     [![Dans la section Modifier du portail, sélectionnez l’option d’affichage des suggestions afin de voir les nouvelles alternatives de question d’apprentissage actif.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

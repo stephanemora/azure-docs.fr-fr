@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145944"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440828"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -39,11 +39,11 @@ Le résultat de ce processus est un ensemble de nœuds (les jumeaux numériques)
 
 ## <a name="create-with-the-apis"></a>Création avec des API
 
-Cette section montre à quoi ressemble la création de jumeaux numériques et de relations à partir d’une application cliente. Il contient des exemples de code .NET qui utilisent les [API DigitalTwins](how-to-use-apis-sdks.md), afin de fournir un contexte supplémentaire sur ce qui se passe à l’intérieur de chacun de ces concepts.
+Cette section montre à quoi ressemble la création de jumeaux numériques et de relations à partir d’une application cliente. Il contient des exemples de code .NET qui utilisent les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins), afin de fournir un contexte supplémentaire sur ce qui se passe à l’intérieur de chacun de ces concepts.
 
 ### <a name="create-digital-twins"></a>Créer des jumeaux numériques
 
-Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour instancier un jumeau de type *Salle* .
+Vous trouverez ci-dessous un extrait de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour instancier un jumeau de type *Salle* .
 
 Dans la préversion actuelle d’Azure Digital Twins, toutes les propriétés d’un jumeau doivent être initialisées pour que le jumeau puisse être créé. Pour ce faire, créez un document JSON qui fournit les valeurs d’initialisation nécessaires.
 
@@ -53,7 +53,7 @@ Vous pouvez également utiliser une classe d’assistance appelée `BasicDigital
 
 ### <a name="create-relationships"></a>Créer des relations
 
-Voici un exemple de code client qui utilise les [API DigitalTwins](how-to-use-apis-sdks.md) pour créer une relation entre un jumeau numérique de type *Étage* , appelé *Rez-de-chaussée* , et un jumeau numérique de type *Salle* , appelé *Café* .
+Voici un exemple de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour créer une relation entre un jumeau numérique de type *Étage* , appelé *Rez-de-chaussée* , et un jumeau numérique de type *Salle* , appelé *Café* .
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

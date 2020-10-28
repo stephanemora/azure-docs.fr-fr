@@ -200,7 +200,7 @@
     - name: Études de cas
       href: data-factory-customer-case-studies.md
     - name: Page de questions Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calculatrice de prix

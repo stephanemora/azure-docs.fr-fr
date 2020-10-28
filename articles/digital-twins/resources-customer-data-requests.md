@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047690"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461757"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Fonctionnalités de demande de données client Azure Digital Twins
 
@@ -25,13 +25,13 @@ Les représentations numériques appelées *jumeaux numériques* dans Azure Digi
 
 La plupart des jumeaux numériques dans Azure Digital Twins ne représentent pas directement les entités personnelles : les objets classiques représentés peuvent être une salle de réunion Office ou une usine. Toutefois, les utilisateurs peuvent décider que certaines entités sont personnelles et gérer eux-mêmes leurs propres méthodes de suivi des ressources ou de l’inventaire afin d’associer des jumeaux numériques à des personnes. Azure Digital Twins gère et stocke toutes les données associées aux jumeaux numériques comme s’il s’agissait de données personnelles.
 
-Pour afficher, exporter et supprimer les données personnelles qui peuvent être référencées dans une demande d’objet de données, un administrateur Azure Digital Twins peut utiliser le [**portail Azure**](https://portal.azure.com/) pour les utilisateurs et les rôles ou les [**API REST Azure Digital Twins**](how-to-use-apis-sdks.md) pour les jumeaux numériques. Le portail Azure et les API REST offrent différentes méthodes permettant aux utilisateurs de traiter de telles demandes d’objet de données.
+Pour afficher, exporter et supprimer les données personnelles qui peuvent être référencées dans une demande d’objet de données, un administrateur Azure Digital Twins peut utiliser le [**portail Azure**](https://portal.azure.com/) pour les utilisateurs et les rôles ou les [**API REST Azure Digital Twins**](/rest/api/azure-digitaltwins/) pour les jumeaux numériques. Le portail Azure et les API REST offrent différentes méthodes permettant aux utilisateurs de traiter de telles demandes d’objet de données.
 
 ## <a name="identifying-customer-data"></a>Identification des données client
 
 Azure Digital Twins considère les *données personnelles* comme des données associées à ses administrateurs et à ses utilisateurs. 
 
-Azure Digital Twins stocke l’*ID d’objet* [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
+Azure Digital Twins stocke l’ *ID d’objet* [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) d’utilisateurs ayant accès à l’environnement. Azure Digital Twins dans le portail Azure affiche les adresses e-mail des utilisateurs, mais ces adresses e-mail ne sont pas stockées dans Azure Digital Twins. Elles sont recherchées dynamiquement dans Azure Active Directory à l’aide de l’ID d’objet Azure Active Directory.
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 

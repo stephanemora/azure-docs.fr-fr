@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202716"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427469"
 ---
 # <a name="configure-authentication"></a>configurer l’authentification ;
 
@@ -48,12 +48,12 @@ Les clés de compte sont recommandées pour un prototypage rapide, pendant le d�
 
  Pour plus d’informations, consultez le [Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles - Authentification Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="azure-role-based-access-control"></a>Contrôle d'accès en fonction du rôle Azure
 
 Pour mieux contrôler le niveau d’accès accordé à votre service, utilisez les rôles suivants lorsque vous donnez l’accès en fonction du rôle :
 
-* **Administrateur Remote Rendering** : Fournit à l’utilisateur des fonctionnalités de conversion, de gestion de session, de rendu et de diagnostic pour Azure Remote Rendering.
-* **Client Remote Rendering** : Fournit à l’utilisateur des fonctionnalités de gestion de session, de rendu et de diagnostic pour Azure Remote Rendering.
+* **Administrateur Remote Rendering**  : Fournit à l’utilisateur des fonctionnalités de conversion, de gestion de session, de rendu et de diagnostic pour Azure Remote Rendering.
+* **Client Remote Rendering**  : Fournit à l’utilisateur des fonctionnalités de gestion de session, de rendu et de diagnostic pour Azure Remote Rendering.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

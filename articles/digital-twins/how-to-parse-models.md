@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cc60af26754eddbe8699019ae8d906a4c1e9e62
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f560f16c6437b219dd1e7017d70976ff4650c2c0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057686"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544356"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analyser et valider des modèles avec la bibliothèque de l’analyseur DTDL
 
@@ -36,7 +36,7 @@ Après avoir créé un package autonome et ajouté l’exécutable à votre chem
 DTDLValidator
 ```
 
-Avec les options par défaut, l’exemple recherche les fichiers `*.json` dans le répertoire actif et tous les sous-répertoires. Vous pouvez également ajouter l’option suivante pour que l’exemple recherche dans le répertoire indiqué et dans tous les sous-répertoires des fichiers portant l’extension *.dtdl* :
+Avec les options par défaut, l’exemple recherche les fichiers `*.json` dans le répertoire actif et tous les sous-répertoires. Vous pouvez également ajouter l’option suivante pour que l’exemple recherche dans le répertoire indiqué et dans tous les sous-répertoires des fichiers portant l’extension *.dtdl*  :
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -77,32 +77,50 @@ Vous pouvez utiliser la bibliothèque de l’analyseur directement, par exemple,
 
 Pour prendre en charge l’exemple de code de l’analyseur ci-dessous, considérez plusieurs modèles définis dans une instance Azure Digital Twins :
 
-> [!TIP] 
-> Le modèle `dtmi:com:contoso:coffeeMaker` utilise la syntaxe du *modèle de capacité*, ce qui signifie qu’il a été installé dans le service en connectant un appareil PnP exposant ce modèle.
-
 ```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
+[
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMaker;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "coffeeMaker",
+        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "waterTemp",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeBar;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "foo",
+        "target": "dtmi:com:contoso:coffeeMaker;1"
+      },
+      {
+        "@type": "Property",
+        "name": "capacity",
+        "schema": "integer"
+      }
+    ]
+  }
+]
 ```
 
 Le code suivant montre un exemple d’utilisation de la bibliothèque de l’analyseur pour refléter ces définitions en C# :

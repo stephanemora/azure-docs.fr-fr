@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "87809005"
 ---
 ## <a name="monitor-event-routes"></a>Surveiller les itinéraires d’événements
 
 Vous pouvez consulter les métriques de routage telles que le nombre, la latence et le taux d’échec dans le [portail Azure](https://portal.azure.com/). 
 
-Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twins pour en extraire les détails. Sélectionnez l’option **Métriques** dans le menu de navigation de l’instance Azure Digital Twins à gauche pour afficher la page *Métriques*.
+Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twins pour en extraire les détails. Sélectionnez l’option **Métriques** dans le menu de navigation de l’instance Azure Digital Twins à gauche pour afficher la page *Métriques* .
 
 :::image type="content" source="../articles/digital-twins/media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Capture d’écran montrant la page des métriques pour Azure Digital Twins.":::
 

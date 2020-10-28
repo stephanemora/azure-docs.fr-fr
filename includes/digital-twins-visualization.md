@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: b637ef2be51ef2bbbe9fa7e1a2374927647ca382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07c2684856cfe21001f996bb62ce4ea3297e8c2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87061710"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92379831"
 ---
 ## <a name="visualization"></a>Visualisation
 
 Bien que le principal moyen d’interagir avec votre instance Azure Digital Twins consiste à utiliser [les API et les kits SDK](../articles/digital-twins/how-to-use-apis-sdks.md), il peut être utile d’afficher une visualisation des jumeaux et des graphes que vous créez dans votre instance.
 
-[**L’explorateur Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) est un exemple d’application pour la visualisation et l’utilisation d’Azure Digital Twins. Suivez les instructions fournies avec l’exemple pour télécharger et exécuter le code de l’application. 
+[**L’explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) est un exemple d’application pour la visualisation et l’utilisation d’Azure Digital Twins. Suivez les instructions fournies avec l’exemple pour télécharger et exécuter le code de l’application. 
 
 Avec cet exemple, vous pouvez voir une représentation visuelle de vos jumeaux numériques et le graphe qu’ils créent, parmi d’autres activités de création et de gestion.
 

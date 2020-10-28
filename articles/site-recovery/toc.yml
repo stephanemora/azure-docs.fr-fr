@@ -48,22 +48,6 @@
           href: tutorial-dr-drill-azure.md
         - name: Basculer vers Azure
           href: vmware-azure-tutorial-failover-failback.md
-    - name: Reprise d’activité Azure VMware Solution sur Azure
-      items:
-        - name: Préparer Azure
-          href: avs-tutorial-prepare-azure.md
-        - name: Préparer Azure VMware Solution
-          href: avs-tutorial-prepare-avs.md
-        - name: Configurer la réplication
-          href: avs-tutorial-replication.md
-        - name: Exécuter une simulation de récupération d'urgence
-          href: avs-tutorial-dr-drill-azure.md
-        - name: Basculer vers Azure
-          href: avs-tutorial-failover.md
-        - name: Reprotéger des machines virtuelles
-          href: avs-tutorial-reprotect.md
-        - name: Effectuer une restauration automatique à partir d’Azure
-          href: avs-tutorial-failback.md
     - name: Récupération d’urgence de machine virtuelle Hyper-V vers Azure
       items:
         - name: Préparer Azure
@@ -164,7 +148,7 @@
       href: recovery-plan-overview.md
     - name: À propos de la migration vers Azure
       href: migrate-overview.md
-    - name: À propos du contrôle d’accès en fonction du rôle Azure avec Site Recovery
+    - name: À propos du contrôle d’accès en fonction du rôle avec Site Recovery
       href: site-recovery-role-based-linked-access-control.md
     - name: À propos de la récupération d’urgence vers un site local secondaire
       items:
@@ -176,6 +160,10 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: Architecture de machines virtuelles Hyper-V vers un site secondaire
           href: hyper-v-vmm-architecture.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
 - name: Guides pratiques
   items:
     - name: Récupération d’urgence depuis Azure vers Azure
@@ -276,7 +264,7 @@
               href: vmware-azure-enable-replication.md
             - name: Exclure les disques de la réplication
               href: vmware-azure-exclude-disk.md
-            - name: Guide pour configurer la réplication avec multilocation et CSP pour les machines virtuelles VMware
+            - name: Guide pour configurer la réplication avec une architecture mutualisée et CSP pour les machines virtuelles VMWare
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Exécuter un basculement et une restauration automatique
           items:

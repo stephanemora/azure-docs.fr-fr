@@ -10,17 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147477"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371182"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
 
-> [!IMPORTANT]
-> La version 3.x de l’API Analyse de texte n’est pas disponible actuellement dans les régions suivantes : Inde Centre, Émirats arabes unis Nord, Chine Nord 2, Chine Est.
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment-analysis)

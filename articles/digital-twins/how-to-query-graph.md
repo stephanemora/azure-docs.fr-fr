@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078474"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461275"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
-Cet article fournit des exemples et des détails supplémentaires pour l’utilisation du [langage du magasin de requêtes Azure Digital Twins](concepts-query-language.md) dans le but d’interroger les informations du [graphe de jumeaux](concepts-twins-graph.md). Vous exécutez des requêtes sur le graphe à l’aide des [**API de requête**](how-to-use-apis-sdks.md) Azure Digital Twins.
+Cet article fournit des exemples et des détails supplémentaires pour l’utilisation du [langage du magasin de requêtes Azure Digital Twins](concepts-query-language.md) dans le but d’interroger les informations du [graphe de jumeaux](concepts-twins-graph.md). Vous exécutez des requêtes sur le graphe à l’aide des [**API de requête**](/rest/api/digital-twins/dataplane/query) Azure Digital Twins.
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -84,7 +84,7 @@ En utilisant des projections, vous pouvez choisir les colonnes qui sont renvoy
 >[!NOTE]
 >À ce stade, les propriétés complexes ne sont pas prises en charge. Pour vous assurer que les propriétés de projection sont valides, combinez les projections avec un contrôle `IS_PRIMITIVE`. 
 
-Voici un exemple de requête qui utilise la projection pour retourner les jumeaux et les relations. La requête ci-dessous projette *Consumer*, *Factory* et *Edge* dans un scénario où une *Factory* avec l’ID *ABC* est liée au *Consumer* via une relation *Factory.customer*, et cette relation est présentée en tant que *Edge*.
+Voici un exemple de requête qui utilise la projection pour retourner les jumeaux et les relations. La requête ci-dessous projette *Consumer* , *Factory* et *Edge* dans un scénario où une *Factory* avec l’ID *ABC* est liée au *Consumer* via une relation *Factory.customer* , et cette relation est présentée en tant que *Edge* .
 
 ```sql
 SELECT Consumer, Factory, Edge 
@@ -93,7 +93,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC' 
 ```
 
-Vous pouvez également utiliser la projection pour retourner une propriété d’un jumeau. La requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec l’ID *ABC* via une relation de *Factory.customer*. 
+Vous pouvez également utiliser la projection pour retourner une propriété d’un jumeau. La requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec l’ID *ABC* via une relation de *Factory.customer* . 
 
 ```sql
 SELECT Consumer.name 
@@ -103,7 +103,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-Vous pouvez également utiliser la projection pour retourner une propriété d’une relation. Comme dans l’exemple précédent, la requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec un ID *ABC* via une relation de *Factory.customer*. Elle retourne maintenant également deux propriétés de cette relation : *Prop1* et *Prop2*. Pour ce faire, elle nomme la relation *Edge* et collecte ses propriétés.  
+Vous pouvez également utiliser la projection pour retourner une propriété d’une relation. Comme dans l’exemple précédent, la requête suivante projette la propriété *Name* des *Consumers* associés à la *Factory* avec un ID *ABC* via une relation de *Factory.customer* . Elle retourne maintenant également deux propriétés de cette relation : *Prop1* et *Prop2* . Pour ce faire, elle nomme la relation *Edge* et collecte ses propriétés.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
@@ -149,20 +149,20 @@ AND T.Temperature = 70
 > [!TIP]
 > L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
 
-Vous pouvez également obtenir des jumeaux en fonction de **la définition ou non d’une certaine propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Location* a été définie :
+Vous pouvez également obtenir des jumeaux en fonction de **la définition ou non d’une certaine propriété** . Voici une requête qui récupère les jumeaux dont la propriété  *Location* a été définie :
 
 ```sql
 SELECT *
 FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
-Cela vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag*, comme décrit dans [Ajouter des étiquettes à des jumeaux numériques](how-to-use-tags.md). Voici une requête qui récupère tous les jumeaux étiquetés avec *red* :
+Cela vous permet d’obtenir des jumeaux par le biais de leurs propriétés *tag* , comme décrit dans [Ajouter des étiquettes à des jumeaux numériques](how-to-use-tags.md). Voici une requête qui récupère tous les jumeaux étiquetés avec *red*  :
 
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-Vous pouvez également obtenir des jumeaux selon le **type d’une propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Temperature* est un nombre :
+Vous pouvez également obtenir des jumeaux selon le **type d’une propriété** . Voici une requête qui récupère les jumeaux dont la propriété *Temperature* est un nombre :
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -219,7 +219,7 @@ La section suivante fournit plusieurs exemples.
 
 Pour obtenir un jeu de données comprenant des relations, utilisez une instruction `FROM` suivie de N instructions `JOIN`, où les instructions `JOIN` expriment les relations basées sur le résultat d’une instruction `FROM` ou `JOIN` précédente.
 
-Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance*. 
+Voici un exemple de requête basée sur les relations. Cet extrait de code sélectionne tous les jumeaux numériques dont la propriété *ID* a la valeur « ABC », ainsi que tous les jumeaux numériques associés à ces jumeaux via une relation de *contenance* . 
 
 ```sql
 SELECT T, CT
@@ -233,10 +233,10 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Interroger les propriétés d’une relation
 
-De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Vous pouvez interroger les jumeaux **selon les propriétés de leurs relations**.
+De même qu’il est possible de décrire les propriétés des jumeaux numériques via DTDL, les relations peuvent elles aussi avoir des propriétés. Vous pouvez interroger les jumeaux **selon les propriétés de leurs relations** .
 Le langage d’Azure Digital Twins permet le filtrage et la projection des relations, en affectant un alias à la relation dans la clause `JOIN`. 
 
-Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition*. Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
+Prenons l’exemple d’une relation *servicedBy* qui comprendrait une propriété *reportedCondition* . Dans la requête ci-dessous, cette relation se voit attribuer l’alias « R » afin de référencer sa propriété.
 
 ```sql
 SELECT T, SBT, R
@@ -246,7 +246,7 @@ WHERE T.$dtId = 'ABC'
 AND R.reportedCondition = 'clean'
 ```
 
-Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de la relation *servicedBy* (et non d’un jumeau numérique ayant une relation *servicedBy*).
+Dans l’exemple ci-dessus, notez que *reportedCondition* est une propriété de la relation *servicedBy* (et non d’un jumeau numérique ayant une relation *servicedBy* ).
 
 ### <a name="query-with-multiple-joins"></a>Interroger avec plusieurs clauses JOIN
 
@@ -312,7 +312,7 @@ Les fonctions de chaîne suivantes sont prises en charge :
 
 ## <a name="run-queries-with-an-api-call"></a>Exécuter des requêtes avec un appel d’API
 
-Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant l’**API de requête**.
+Une fois que vous avez choisi une chaîne de requête, exécutez-la en appelant l’ **API de requête** .
 L’extrait de code suivant illustre cet appel à partir de l’application cliente :
 
 ```csharp
@@ -360,7 +360,7 @@ Voici quelques conseils concernant l’interrogation de données à l’aide d�
 
 * Intéressez-vous au modèle de requête pendant la phase de conception du modèle. Vérifiez que les relations qui doivent être traitées dans une même requête sont modélisées sous la forme d’une relation à niveau unique.
 * Concevez des propriétés de manière à éviter les grands jeux de résultats provenant de la traversée de graphe.
-* Vous pouvez réduire considérablement le nombre de requêtes dont vous avez besoin en générant un tableau de jumeaux et en l’interrogeant à l’aide de l’opérateur `IN`. Par exemple, imaginons un scénario dans lequel des *immeubles* comprennent des *étages*, et ces *étages* comprennent des *pièces*. Pour rechercher les pièces d’un immeuble dont le niveau d’accès est chaud, vous pouvez :
+* Vous pouvez réduire considérablement le nombre de requêtes dont vous avez besoin en générant un tableau de jumeaux et en l’interrogeant à l’aide de l’opérateur `IN`. Par exemple, imaginons un scénario dans lequel des *immeubles* comprennent des *étages* , et ces *étages* comprennent des *pièces* . Pour rechercher les pièces d’un immeuble dont le niveau d’accès est chaud, vous pouvez :
 
     1. Rechercher les étages de l’immeuble en fonction de la relation `contains`
         ```sql
