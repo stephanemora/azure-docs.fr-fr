@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: a8451ea302492d936628f4426a31c9b9e4cc1234
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35e21ff38ff518afb25923dd2ceea6a8ead4a699
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977131"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504175"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Démarrage rapide : Extraire du texte imprimé et manuscrit à l’aide de l’API REST Vision par ordinateur et de JavaScript
 
@@ -27,7 +27,7 @@ La méthode [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
-* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource** .
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
@@ -40,7 +40,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 1. Remplacez éventuellement la valeur de l’attribut `value` du contrôle `inputImage` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte.
 1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `get-text.html`.
 1. Ouvrez une fenêtre de navigateur.
-1. Quand la page web s’affiche dans le navigateur, renseignez les paramètres requis et choisissez le bouton **Lire l’image**.
+1. Quand la page web s’affiche dans le navigateur, renseignez les paramètres requis et choisissez le bouton **Lire l’image** .
 
 ```html
 <!DOCTYPE html>
@@ -54,8 +54,8 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 <script type="text/javascript">
     function processImage() {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         let subscriptionKey = document.getElementById("key").value;
         let endpoint = document.getElementById("endpoint").value;

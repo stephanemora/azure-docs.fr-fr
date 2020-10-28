@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8286c0d45700eb976825403ae4321878f87f00ad
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fde6939cf28585d066bac1b5da09f105f5106ca
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989701"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678304"
 ---
 Découvrez comment bien démarrer avec la bibliothèque de client Custom Vision pour .NET. Suivez les étapes ci-après pour installer le package et essayer l’exemple de code afin de créer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -32,7 +32,7 @@ Utilisez la bibliothèque de client Custom Vision pour .NET pour :
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * L’[IDE Visual Studio](https://visualstudio.microsoft.com/vs/) ou la version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Créer une ressource Custom Vision"  target="_blank">créez une ressource Custom Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour créer une ressource d’entraînement et de prédiction et obtenir vos clés et votre point de terminaison. Attendez qu’elle se déploie, puis cliquez sur le bouton **Accéder à la ressource**.
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Créer une ressource Custom Vision"  target="_blank">créez une ressource Custom Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour créer une ressource d’entraînement et de prédiction et obtenir vos clés et votre point de terminaison. Attendez qu’elle se déploie, puis cliquez sur le bouton **Accéder à la ressource** .
     * Vous aurez besoin de la clé et du point de terminaison des ressources que vous créez pour connecter votre application Custom Vision. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
@@ -46,11 +46,11 @@ Utilisez la bibliothèque de client Custom Vision pour .NET pour :
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
-Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` et `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`. Sélectionnez la version la plus récente, puis **Installer**. 
+Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’ **Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet** . Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** , cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` et `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`. Sélectionnez la version la plus récente, puis **Installer** . 
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
-Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `custom-vision-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs*. 
+Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `custom-vision-quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs* . 
 
 ```console
 dotnet new console -n custom-vision-quickstart
@@ -84,7 +84,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 ---
 
 > [!TIP]
-> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/dotnet/CustomVision/ObjectDetection/Program.cs), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
+> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
 À partir du répertoire du projet, ouvrez le fichier *program.cs* et ajoutez ce qui suit en utilisant les directives `using` suivantes :
 
@@ -96,7 +96,7 @@ Dans la méthode **Main** de l’application, créez des variables pour la clé 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devez vous procurer vos clés d’entraînement et de prédiction.
+> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes** . Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources** . Vous devez vous procurer vos clés d’entraînement et de prédiction.
 >
 > N’oubliez pas de supprimer les clés de votre code une fois que vous avez terminé, et ne les postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
 
@@ -166,11 +166,11 @@ Cette méthode crée la première itération d’entraînement dans le projet. E
 > [!TIP]
 > Entraîner avec des étiquettes sélectionnées
 >
-> Vous pouvez, si vous le souhaitez, effectuer l’entraînement sur un sous-ensemble de vos étiquettes appliquées. Vous pouvez procéder de la sorte si vous n’avez pas encore suffisamment appliqué certaines étiquettes, contrairement à d’autres. Dans l’appel [TrainProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.trainproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_TrainProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_Guid_System_String_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_Models_TrainingParameters_&preserve-view=true), utilisez le paramètre *trainingParameters*. Construisez un [TrainingParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.models.trainingparameters?view=azure-dotnet&preserve-view=true) et définissez sa propriété **SelectedTags** sur une liste d’ID des étiquettes que vous souhaitez utiliser. Le modèle effectue l’entraînement pour ne reconnaître que les étiquettes présentes dans cette liste.
+> Vous pouvez, si vous le souhaitez, effectuer l’entraînement sur un sous-ensemble de vos étiquettes appliquées. Vous pouvez procéder de la sorte si vous n’avez pas encore suffisamment appliqué certaines étiquettes, contrairement à d’autres. Dans l’appel [TrainProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.trainproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_TrainProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_Guid_System_String_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_String_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_Models_TrainingParameters_&preserve-view=true), utilisez le paramètre *trainingParameters* . Construisez un [TrainingParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.models.trainingparameters?view=azure-dotnet&preserve-view=true) et définissez sa propriété **SelectedTags** sur une liste d’ID des étiquettes que vous souhaitez utiliser. Le modèle effectue l’entraînement pour ne reconnaître que les étiquettes présentes dans cette liste.
 
 ## <a name="publish-the-current-iteration"></a>Publier l’itération actuelle
 
-Cette méthode rend l’itération actuelle du modèle disponible pour l’interrogation. Vous pouvez utiliser le nom du modèle comme référence pour envoyer des demandes de prédiction. Vous devez entrer votre propre valeur pour `predictionResourceId`. Vous trouverez l’ID de ressource de prédiction sous l’onglet **Vue d’ensemble** de la ressource dans le portail Azure, listé comme **ID d’abonnement**.
+Cette méthode rend l’itération actuelle du modèle disponible pour l’interrogation. Vous pouvez utiliser le nom du modèle comme référence pour envoyer des demandes de prédiction. Vous devez entrer votre propre valeur pour `predictionResourceId`. Vous trouverez l’ID de ressource de prédiction sous l’onglet **Vue d’ensemble** de la ressource dans le portail Azure, listé comme **ID d’abonnement** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
 
@@ -211,7 +211,7 @@ Making a prediction:
         Japanese Cherry: 0.0%
 ```
 
-Vous pouvez ensuite vérifier que l’image test (trouvée dans **Images/Test/**) est balisée de façon appropriée. Pour quitter l’application, appuyez sur une touche. Vous pouvez aussi revenir sur le [site web Custom Vision](https://customvision.ai) et consulter l’état actuel de votre nouveau projet.
+Vous pouvez ensuite vérifier que l’image test (trouvée dans **Images/Test/** ) est balisée de façon appropriée. Pour quitter l’application, appuyez sur une touche. Vous pouvez aussi revenir sur le [site web Custom Vision](https://customvision.ai) et consulter l’état actuel de votre nouveau projet.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
@@ -223,4 +223,5 @@ Vous avez à présent effectué toutes les étapes du processus de classificatio
 > [Tester et réentraîner un modèle](../../test-your-model.md)
 
 * Qu’est-ce que Custom Vision ?
+* Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs).
 * [Documentation de référence du SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

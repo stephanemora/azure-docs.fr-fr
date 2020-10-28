@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298741"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470755"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,14 +41,14 @@ Pour pouvoir initialiser un objet `IntentRecognizer`, vous devez au préalable c
 Insérez ce code dans le bloc try/catch dans `main()`. Veillez à mettre à jour ces valeurs :
 
 * Remplacez `"YourLanguageUnderstandingSubscriptionKey"` par votre clé de prédiction LUIS.
-* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS. Utilisez l’**identificateur Région** de la [région](https://aka.ms/speech/sdkregion).
+* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS. Utilisez l’ **identificateur Région** de la [région](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
 > Si vous avez besoin d’aide pour trouver ces valeurs, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 Le SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 

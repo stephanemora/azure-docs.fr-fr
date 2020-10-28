@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 70dc07fcbfc740ce0ec6b7a841221e3b0af5f7d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83e2c0486c193608739b78665d9dbbc3a52afc9e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925967"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470897"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,14 +46,14 @@ Pour pouvoir initialiser un objet `IntentRecognizer`, vous devez au préalable c
 Insérez ce code dans la méthode `RecognizeIntentAsync()`. Veillez à mettre à jour ces valeurs :
 
 * Remplacez `"YourLanguageUnderstandingSubscriptionKey"` par votre clé de prédiction LUIS.
-* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS. Utilisez l’**identificateur Région** de la [région](https://aka.ms/speech/sdkregion).
+* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS. Utilisez l’ **identificateur Région** de la [région](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
 > Si vous avez besoin d’aide pour trouver ces valeurs, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 Le SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
@@ -103,9 +103,9 @@ Lorsque le résultat de la reconnaissance est retourné par le service de reconn
 
 Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
-1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
-2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur <kbd>F5</kbd>.
-3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
+1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution** .
+2. **Démarrer votre application**  : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage** , ou appuyez sur <kbd>F5</kbd>.
+3. **Démarrer la reconnaissance**  : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

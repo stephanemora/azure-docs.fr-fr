@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 05/12/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3102742d19e7e0dffa6135c9267f51b1231dafc8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db0b93533822de3e5cb7e16e99b9f3fb4f8a7f9d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970452"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426237"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Démarrage rapide : Envoyer une requête à l'API Recherche d'entreprises locales Bing en C#
 
@@ -29,11 +29,11 @@ Cet exemple d’application récupère des données de réponse locales auprès 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 * N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
-* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
+* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Créer une ressource Recherche Bing"  target="_blank">créez une ressource Recherche Bing<span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource** .
 
 ## <a name="create-the-request"></a>Créer la requête 
 
-Le code suivant crée une `WebRequest`, définit l’en-tête de la clé d’accès et ajoute une chaîne de requête pour *restaurant in Bellevue*.  Ensuite, il envoie la requête et affecte la réponse à une chaîne devant contenir le texte JSON.
+Le code suivant crée une `WebRequest`, définit l’en-tête de la clé d’accès et ajoute une chaîne de requête pour *restaurant in Bellevue* .  Ensuite, il envoie la requête et affecte la réponse à une chaîne devant contenir le texte JSON.
 
 ```csharp
     // Replace the accessKey string value with your valid access key.
@@ -73,8 +73,8 @@ namespace localSearch
     class Program
     {
         // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
+        // **_ Update or verify the following values. _*_
+        // _*********************************************
 
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
