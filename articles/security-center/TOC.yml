@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Couverture des fonctionnalités pour les ressources PaaS Azure
           href: features-paas.md
-    - name: Nouveautés de Security Center
-      displayName: release notes
-      href: release-notes.md
+    - name: Nouveautés
+      items:
+        - name: Notes de publication
+          displayName: changelog
+          href: release-notes.md
+        - name: Changements importants à venir
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Notes de publication archivées (de plus de six mois)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Notions de base Security Center
       items:
         - name: Page Vue d’ensemble de Security Center
@@ -217,8 +225,13 @@
         - name: Personnaliser la politique de protection des informations
           href: security-center-info-protection-policy.md
     - name: Utiliser Azure Defender pour des registres de conteneurs
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Analyser les images de votre registre à la recherche de vulnérabilités
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Désactiver des résultats de vulnérabilités d’images spécifiques
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Exporter les alertes et les recommandations
       items:
         - name: 'Exporter vers une gestion SIEM, SOAR ou ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Utilisateurs existants d’Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Archive des nouveautés de Security Center
-      href: release-notes-archive.md
     - name: Blog sur la feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Évaluation de la protection de point de terminaison et recommandations

@@ -84,3 +84,7 @@
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: Ressources
+  items:
+    - name: Démarrage rapide avec Azure Arc
+      href: 'https://github.com/microsoft/azure_arc'

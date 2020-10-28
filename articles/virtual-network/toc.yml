@@ -240,6 +240,8 @@
               href: virtual-network-public-ip-address.md
             - name: Gérer un préfixe IP public
               href: manage-public-ip-address-prefix.md
+            - name: Mettre à niveau des adresses IP publiques
+              href: virtual-network-public-ip-address-upgrade.md
             - name: Ajouter ou supprimer une adresse IP dans des cartes réseau
               href: virtual-network-network-interface-addresses.md
             - name: Préférence de routage

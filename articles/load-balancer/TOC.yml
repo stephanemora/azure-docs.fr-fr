@@ -110,7 +110,7 @@
         - name: "Modèle Azure\_Resource\_Manager"
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configurer un délai d’inactivité TCP pour l’équilibrage de charge
+    - name: Configurer la réinitialisation et le délai d’inactivité de TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurer le mode de distribution de l’équilibrage de charge
       href: load-balancer-distribution-mode.md

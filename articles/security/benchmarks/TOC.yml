@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Base de référence de sécurité pour Service Fabric
       href: ../../service-fabric/security-baseline.md
+    - name: Base de référence de la sécurité Site Recovery
+      href: ../../site-recovery/security-baseline.md
     - name: Base de référence de la sécurité Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Base de référence de la sécurité Synapse Analytics
