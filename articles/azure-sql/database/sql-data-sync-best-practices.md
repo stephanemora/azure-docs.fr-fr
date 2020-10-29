@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332982"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791441"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Bonnes pratiques pour Azure SQL Data Sync 
 
@@ -41,11 +41,11 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Comptes de base de données avec le moins de privilèges nécessaires
 
--   **Pour la configuration de la synchronisation**. Créer/Modifier la table ; Modifier la base de données ; Créer une procédure ; Sélectionner / Modifier le schéma ; Créer un type défini par l’utilisateur.
+-   **Pour la configuration de la synchronisation** . Créer/Modifier la table ; Modifier la base de données ; Créer une procédure ; Sélectionner / Modifier le schéma ; Créer un type défini par l’utilisateur.
 
--   **Pour la synchronisation continue**. Sélectionner / Insérer / Mettre à jour / Supprimer sur les tables sélectionnées pour la synchronisation et sur les métadonnées de synchronisation et les tables de suivi ; autorisation Exécuter sur les procédures stockées créées par le service ; autorisation Exécuter sur les types de tables définis par l’utilisateur.
+-   **Pour la synchronisation continue** . Sélectionner / Insérer / Mettre à jour / Supprimer sur les tables sélectionnées pour la synchronisation et sur les métadonnées de synchronisation et les tables de suivi ; autorisation Exécuter sur les procédures stockées créées par le service ; autorisation Exécuter sur les types de tables définis par l’utilisateur.
 
--   **Pour annuler le provisionnement**. Modifier sur les tables qui font partie de la synchronisation ; Sélectionner / Supprimer sur les tables de métadonnées de synchronisation, Contrôler sur les tables de suivi de synchronisation, les procédures stockées et les types définis par l’utilisateur.
+-   **Pour annuler le provisionnement** . Modifier sur les tables qui font partie de la synchronisation ; Sélectionner / Supprimer sur les tables de métadonnées de synchronisation, Contrôler sur les tables de suivi de synchronisation, les procédures stockées et les types définis par l’utilisateur.
 
 Azure SQL Database ne prend en charge qu'un seul ensemble d'informations d'identification. Pour accomplir ces tâches avec cette contrainte, prenez en compte les options suivantes :
 
@@ -152,7 +152,7 @@ La propagation des modifications peut échouer pour l'une des raisons suivantes�
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>Que se passe-t-il quand la propagation des modifications échoue ?
 
--   Le groupe de synchronisation affiche un état d’**avertissement**.
+-   Le groupe de synchronisation affiche un état d’ **avertissement** .
 -   Les détails sont affichés dans la visionneuse du journal de l’interface utilisateur du portail.
 -   Si le problème n’est pas résolu pendant 45 jours, la base de données devient obsolète.
 
@@ -168,15 +168,15 @@ Surveillez l’intégrité du groupe de synchronisation et de la base de donnée
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Éviter les bases de données et les groupes de synchronisation obsolètes
 
-Un groupe de synchronisation ou une base de données d’un groupe de synchronisation peut devenir obsolète. Quand l’état d’un groupe de synchronisation est **obsolète**, il cesse de fonctionner. Quand l’état d’une base de données est **obsolète**, il y a un risque de perte de données. Il est préférable d'éviter ce scénario plutôt que de tenter de le récupérer.
+Un groupe de synchronisation ou une base de données d’un groupe de synchronisation peut devenir obsolète. Quand l’état d’un groupe de synchronisation est **obsolète** , il cesse de fonctionner. Quand l’état d’une base de données est **obsolète** , il y a un risque de perte de données. Il est préférable d'éviter ce scénario plutôt que de tenter de le récupérer.
 
 #### <a name="avoid-out-of-date-databases"></a>Éviter les bases de données obsolètes
 
-Une base de données bascule à l’état **obsolète** quand elle est hors connexion depuis 45 jours ou plus. Pour éviter qu’une base de données ne bascule à l’état **obsolète**, veillez à ce qu’aucune des bases de données ne soit hors connexion pendant 45 jours ou plus.
+Une base de données bascule à l’état **obsolète** quand elle est hors connexion depuis 45 jours ou plus. Pour éviter qu’une base de données ne bascule à l’état **obsolète** , veillez à ce qu’aucune des bases de données ne soit hors connexion pendant 45 jours ou plus.
 
 #### <a name="avoid-out-of-date-sync-groups"></a>Éviter les groupes de synchronisation obsolètes
 
-Un groupe de synchronisation bascule à l’état **obsolète** en cas d’échec de propagation d’une modification dans le groupe de synchronisation vers le reste du groupe de synchronisation pendant 45 jours ou plus. Pour éviter qu’un groupe de synchronisation ne bascule à l’état **obsolète**, vérifiez régulièrement le journal d’historique du groupe de synchronisation. Assurez-vous que tous les conflits sont résolus et que les modifications sont propagées dans les bases de données du groupe de synchronisation.
+Un groupe de synchronisation bascule à l’état **obsolète** en cas d’échec de propagation d’une modification dans le groupe de synchronisation vers le reste du groupe de synchronisation pendant 45 jours ou plus. Pour éviter qu’un groupe de synchronisation ne bascule à l’état **obsolète** , vérifiez régulièrement le journal d’historique du groupe de synchronisation. Assurez-vous que tous les conflits sont résolus et que les modifications sont propagées dans les bases de données du groupe de synchronisation.
 
 Un groupe de synchronisation peut échouer à appliquer une modification pour l'une des raisons suivantes :
 
@@ -238,7 +238,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
         -  [Utiliser PowerShell pour synchroniser des données entre plusieurs bases de données dans Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Utiliser PowerShell pour synchroniser des données entre une base de données de SQL Database et une base de données d’une instance SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](sql-data-sync-agent-overview.md)
--   Supervision – [Superviser SQL Data Sync avec les journaux d’activité Azure Monitor](sql-data-sync-monitor-sync.md)
+-   Supervision – [Superviser SQL Data Sync avec les journaux d’activité Azure Monitor](./monitor-tune-overview.md)
 -   Résolution des problèmes - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
 -   Mettre à jour le schéma de synchronisation
     -   Avec Transact-SQL - [Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 Pour plus d’informations sur SQL Database, consultez :
 
 -   [Vue d’ensemble de SQL Database](sql-database-paas-overview.md)
--   [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gestion du cycle de vie des bases de données](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531001"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788079"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser Python et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -45,7 +45,7 @@ Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://az
 
 1. Ouvrez ce [dossier OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) et en haut à gauche, cliquez sur **Télécharger** pour copier les fichiers sur votre ordinateur. 
 
-1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire**. Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire** . Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
 
 ## <a name="1---create-services"></a>1 - Créer les services
 
@@ -55,7 +55,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 ### <a name="start-with-azure-storage"></a>Démarrer avec le stockage Azure
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource**.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource** .
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
@@ -63,23 +63,23 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
-   + **Groupe de ressources**. Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
+   + **Groupe de ressources** . Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
 
-   + **Nom du compte de stockage**. Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus*. 
+   + **Nom du compte de stockage** . Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus* . 
 
-   + **Emplacement**. Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
+   + **Emplacement** . Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
 
-   + **Type de compte**. Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
+   + **Type de compte** . Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
 
 1. Cliquez sur **Vérifier + créer** pour créer le service.
 
 1. Une fois qu’il est créé, cliquez sur **Accéder à la ressource** pour ouvrir la page Vue d’ensemble.
 
-1. Cliquez sur le service **Objets blob**.
+1. Cliquez sur le service **Objets blob** .
 
-1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo*.
+1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo* .
 
-1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
+1. Sélectionnez *cog-search-demo* , puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Créer un compte de stockage" border="false":::
 
@@ -113,11 +113,11 @@ Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’a
 
 1. [Connectez-vous au Portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez le nom de votre service de recherche. Vous pouvez confirmer le nom de votre service en passant en revue l’URL du point de terminaison. Si votre URL de point de terminaison est `https://mydemo.search.windows.net`, le nom du service doit être `mydemo`.
 
-2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+2. Dans **Paramètres** > **Clés** , obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Créer un compte de stockage" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Créer un compte de stockage" border="false":::
 
 Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -188,13 +188,13 @@ print(r.status_code)
 
 La demande doit retourner un code d’état 201 confirmant la réussite.
 
-Dans le portail Azure, dans la page de tableau de bord du service de recherche, vérifiez que cogsrch-py-datasource apparaît dans la liste **Sources de données**. Cliquez sur **Actualiser** pour mettre à jour la page.
+Dans le portail Azure, dans la page de tableau de bord du service de recherche, vérifiez que cogsrch-py-datasource apparaît dans la liste **Sources de données** . Cliquez sur **Actualiser** pour mettre à jour la page.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Créer un compte de stockage" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Étape 2 : Créer un ensemble de compétences
 
-Dans cette étape, vous allez définir un ensemble d’étapes d’enrichissement à appliquer à vos données. Vous appelez chaque étape d’enrichissement une *compétence* et l’ensemble des étapes d’enrichissement un *ensemble de compétences*. Ce tutoriel utilise des [compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) pour l’ensemble de compétences :
+Dans cette étape, vous allez définir un ensemble d’étapes d’enrichissement à appliquer à vos données. Vous appelez chaque étape d’enrichissement une *compétence* et l’ensemble des étapes d’enrichissement un *ensemble de compétences* . Ce tutoriel utilise des [compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) pour l’ensemble de compétences :
 
 + [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
 
@@ -315,7 +315,7 @@ Dans cette section, vous définissez le schéma d’index en spécifiant les cha
 
 Cet exercice utilise les champs et les types de champ suivants :
 
-| Noms de champs : | ID         | content   | languageCode | keyPhrases         | organizations     |
+| Noms de champs : | id         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | Types de champ : | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

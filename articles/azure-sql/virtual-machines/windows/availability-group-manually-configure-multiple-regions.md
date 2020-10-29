@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263179"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789979"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
 
@@ -69,7 +69,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
    >[!NOTE]
    >Parfois, vous serez amené à utiliser PowerShell pour créer la connexion de réseau virtuel à réseau virtuel. Par exemple, si vous utilisez différents comptes Azure, vous ne pouvez pas configurer la connexion dans le portail. Dans ce cas, [configurez une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Créez un contrôleur de domaine dans la nouvelle région](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Créez un contrôleur de domaine dans la nouvelle région](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
    Ce contrôleur de domaine assure l’authentification si le contrôleur de domaine dans le site principal n’est pas disponible.
 
@@ -84,7 +84,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
    - Inclure un pool principal comprenant uniquement des machines virtuelles situées dans la même région que l’équilibrage de charge.
    - Utiliser une sonde de port TCP propre à l’adresse IP.
    - Avoir une règle d’équilibrage de charge propre à SQL Server dans la même région.  
-   - Être un équilibreur de charge Standard si les machines virtuelles dans le pool de back-ends ne font pas partie d’un groupe à haute disponibilité ni d’un groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Être un équilibreur de charge Standard si les machines virtuelles dans le pool de back-ends ne font pas partie d’un groupe à haute disponibilité ni d’un groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
 
 1. [Ajoutez la fonction de Clustering avec basculement au nouveau serveur SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -96,24 +96,24 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. Ajoutez une ressource d’adresse IP au cluster.
 
-   Vous pouvez créer la ressource à adresse IP dans le Gestionnaire du cluster de basculement. Sélectionnez le nom du cluster, cliquez dessus avec le bouton droit sous **Principales ressources du cluster**, puis sélectionnez **Propriétés** : 
+   Vous pouvez créer la ressource à adresse IP dans le Gestionnaire du cluster de basculement. Sélectionnez le nom du cluster, cliquez dessus avec le bouton droit sous **Principales ressources du cluster** , puis sélectionnez **Propriétés**  : 
 
    ![Propriétés du cluster](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   Dans la boîte de dialogue **Propriétés**, sous **Adresse IP**, sélectionnez **Ajouter**, puis ajoutez l’adresse IP correspondant au nom du cluster à partir de la région du réseau distant. Sélectionnez **OK** dans la boîte de dialogue **Adresse IP**, puis de nouveau **OK** dans la boîte de dialogue **Propriétés du cluster** pour enregistrer la nouvelle adresse IP. 
+   Dans la boîte de dialogue **Propriétés** , sous **Adresse IP** , sélectionnez **Ajouter** , puis ajoutez l’adresse IP correspondant au nom du cluster à partir de la région du réseau distant. Sélectionnez **OK** dans la boîte de dialogue **Adresse IP** , puis de nouveau **OK** dans la boîte de dialogue **Propriétés du cluster** pour enregistrer la nouvelle adresse IP. 
 
    ![Ajouter l’adresse IP du cluster](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
 
 1. Ajoutez l’adresse IP en tant que dépendance pour le nom du cluster principal.
 
-   Rouvrez les propriétés du cluster, puis sélectionnez l’onglet **Dépendances**. Configurez une dépendance OU pour les deux adresses IP : 
+   Rouvrez les propriétés du cluster, puis sélectionnez l’onglet **Dépendances** . Configurez une dépendance OU pour les deux adresses IP : 
 
    ![Propriétés du cluster](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
 1. Ajoutez une ressource d’adresse IP au rôle du groupe de disponibilité dans le cluster. 
 
-   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, choisissez **Ajouter une ressource**, **Autres ressources**, puis **Adresse IP**.
+   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, choisissez **Ajouter une ressource** , **Autres ressources** , puis **Adresse IP** .
 
    ![Création d’une adresse IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -161,7 +161,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 Le réplica dans le centre de données distant fait partie du groupe de disponibilité, mais il se trouve dans un autre sous-réseau. Si ce réplica devient le réplica principal, la connexion d’application peut être perturbée. Ce comportement est identique à un groupe de disponibilité local dans un déploiement de plusieurs sous-réseaux. Pour autoriser les connexions des applications clientes, mettez à jour la connexion cliente ou configurez la mise en cache de la résolution du nom sur la ressource de nom de réseau de cluster.
 
-Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles indiquent `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles indiquent `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Erreur de délai d’attente et vous ne pouvez pas vous connecter à un écouteur de groupe de disponibilité AlwaysOn SQL Server 2012 dans un environnement à plusieurs sous-réseaux](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
@@ -169,17 +169,17 @@ Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer
 
 Pour tester la connectivité de l’écouteur à la région distante, vous pouvez basculer le réplica vers la région distante. Si le réplica est asynchrone, le basculement est vulnérable à la perte potentielle de données. Pour effectuer un basculement sans perte de données, modifiez le mode de disponibilité en synchrone et définissez le mode de basculement automatique. Utiliser les étapes suivantes :
 
-1. Dans l’**Explorateur d’objets**, connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
-1. Sous **Groupes de disponibilité AlwaysOn**, **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité, puis sélectionnez **Propriétés**.
-1. Dans la page **Général**, sous **Réplicas de disponibilité**, configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**.
-1. Si vous avez un réplica secondaire dans le même site que le réplica principal pour la haute disponibilité, configurez ce réplica en **Validation asynchrone** et **Manuel**.
+1. Dans l’ **Explorateur d’objets** , connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
+1. Sous **Groupes de disponibilité AlwaysOn** , **Groupes de disponibilité** , cliquez avec le bouton droit sur votre groupe de disponibilité, puis sélectionnez **Propriétés** .
+1. Dans la page **Général** , sous **Réplicas de disponibilité** , configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique** .
+1. Si vous avez un réplica secondaire dans le même site que le réplica principal pour la haute disponibilité, configurez ce réplica en **Validation asynchrone** et **Manuel** .
 1. Sélectionnez OK.
-1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Afficher le tableau de bord**.
+1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Afficher le tableau de bord** .
 1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
-1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
+1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
 1. Sélectionnez **Suivant** et sélectionnez l’instance de SQL Server sur le site de reprise d’activité. Sélectionnez **Suivant** de nouveau.
-1. Connectez-vous à l’instance de SQL Server sur le site de reprise d’activité et sélectionnez **Suivant**.
-1. Dans la page **Synthèse**, vérifiez les paramètres et sélectionnez **Terminer**.
+1. Connectez-vous à l’instance de SQL Server sur le site de reprise d’activité et sélectionnez **Suivant** .
+1. Dans la page **Synthèse** , vérifiez les paramètres et sélectionnez **Terminer** .
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 
@@ -194,12 +194,12 @@ Après avoir testé la connectivité, replacez le réplica principal dans votre 
 
 Pour plus d'informations, voir les rubriques suivantes :
 
-- [Effectuer un basculement manuel planifié d'un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Effectuer un basculement manuel forcé d'un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Effectuer un basculement manuel planifié d'un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server)
+- [Effectuer un basculement manuel forcé d'un groupe de disponibilité (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [Machines virtuelles Azure](../../../virtual-machines/windows/index.yml)
 * [Équilibrages de charge Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Groupes à haute disponibilité Azure](../../../virtual-machines/linux/manage-availability.md)
+* [Groupes à haute disponibilité Azure](../../../virtual-machines/manage-availability.md)

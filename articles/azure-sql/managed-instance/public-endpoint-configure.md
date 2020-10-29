@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619982"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788279"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Un point de terminaison public pour une [instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permet l’accès aux données de votre instance gérée depuis un emplacement extérieur au [réseau virtuel](../../virtual-network/virtual-networks-overview.md). Vous pouvez accéder à votre instance gérée à partir de services Azure multilocataires, tels que Power BI et Azure App Service, ou d’un réseau local. Comme vous utilisez le point de terminaison public sur une instance gérée, vous n’avez pas besoin de recourir à un VPN, ce qui peut aider à éviter les problèmes de débit VPN.
+Un point de terminaison public pour une [instance gérée](./sql-managed-instance-paas-overview.md) permet l’accès aux données de votre instance gérée depuis un emplacement extérieur au [réseau virtuel](../../virtual-network/virtual-networks-overview.md). Vous pouvez accéder à votre instance gérée à partir de services Azure multilocataires, tels que Power BI et Azure App Service, ou d’un réseau local. Comme vous utilisez le point de terminaison public sur une instance gérée, vous n’avez pas besoin de recourir à un VPN, ce qui peut aider à éviter les problèmes de débit VPN.
 
 Dans cet article, vous allez apprendre à :
 
@@ -42,8 +42,8 @@ En raison de la sensibilité des données qui se trouvent sur une instance gér�
 
 1. Démarrez le Portail Microsoft Azure sur <https://portal.azure.com/.>
 1. Ouvrez le groupe de ressources avec l’instance gérée, puis sélectionnez **l’instance gérée SQL** sur laquelle vous souhaitez configurer le point de terminaison.
-1. Dans la page de paramètres **Sécurité**, sélectionnez l’onglet **Réseau virtuel**.
-1. Dans la page de configuration du réseau virtuel, sélectionnez **Activer**, puis cliquez sur l’icône **Enregistrer** afin de mettre à jour la configuration.
+1. Dans la page de paramètres **Sécurité** , sélectionnez l’onglet **Réseau virtuel** .
+1. Dans la page de configuration du réseau virtuel, sélectionnez **Activer** , puis cliquez sur l’icône **Enregistrer** afin de mettre à jour la configuration.
 
 ![Capture d'écran représentant une page Réseau virtuel de SQL Managed Instance, sur laquelle l'option Point de terminaison public est activée.](./media/public-endpoint-configure/mi-vnet-config.png)
 
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Autoriser le trafic du point de terminaison public sur le groupe de sécurité réseau
 
-1. Si la page de configuration de l’instance gérée est toujours ouverte, accédez à l’onglet **Vue d’ensemble**. Dans le cas contraire, revenez à votre ressource **d’instance gérée SQL**. Sélectionnez le lien **Réseau/sous-réseau virtuel**, qui vous permet d’accéder à la page de configuration du réseau virtuel.
+1. Si la page de configuration de l’instance gérée est toujours ouverte, accédez à l’onglet **Vue d’ensemble** . Dans le cas contraire, revenez à votre ressource **d’instance gérée SQL** . Sélectionnez le lien **Réseau/sous-réseau virtuel** , qui vous permet d’accéder à la page de configuration du réseau virtuel.
 
     ![Capture d'écran représentant la page de configuration du réseau virtuel dans laquelle vous pouvez trouver la valeur de votre réseau/sous-réseau virtuel.](./media/public-endpoint-configure/mi-overview.png)
 
@@ -92,7 +92,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Revenez au groupe de ressources contenant votre instance gérée. Vous devez voir le nom du **groupe de sécurité réseau** indiqué ci-dessus, que vous avez noté. Sélectionnez ce nom pour accéder à la page de configuration du groupe de sécurité réseau.
 
-1. Sélectionnez l’onglet **Règles de sécurité de trafic entrant**, et **ajoutez** une règle ayant une priorité plus élevée que la règle **deny_all_inbound** avec les paramètres suivants : </br> </br>
+1. Sélectionnez l’onglet **Règles de sécurité de trafic entrant** , et **ajoutez** une règle ayant une priorité plus élevée que la règle **deny_all_inbound** avec les paramètres suivants : </br> </br>
 
     |Paramètre  |Valeur suggérée  |Description  |
     |---------|---------|---------|
@@ -111,8 +111,8 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtention de la chaîne de connexion du point de terminaison public de l’instance gérée
 
-1. Accédez à la page de configuration de l’instance gérée qui a été activée pour le point de terminaison public. Sélectionnez l’onglet **Chaînes de connexion** sous la configuration **Paramètres**.
-1. Notez que le nom d’hôte du point de terminaison public présente le format <nom_mi>. **public**. <zone_dns>. database.windows.net et que le port utilisé pour la connexion est 3342.
+1. Accédez à la page de configuration de l’instance gérée qui a été activée pour le point de terminaison public. Sélectionnez l’onglet **Chaînes de connexion** sous la configuration **Paramètres** .
+1. Notez que le nom d’hôte du point de terminaison public présente le format <nom_mi>. **public** . <zone_dns>. database.windows.net et que le port utilisé pour la connexion est 3342.
 
     ![Capture d'écran représentant les chaînes de connexion de vos points de terminaison publics et privés.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

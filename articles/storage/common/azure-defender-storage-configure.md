@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289767"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789010"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurer Azure Defender pour le stockage
 
@@ -37,7 +37,7 @@ La liste suivante récapitule la disponibilité d’Azure Defender pour le stock
 
 - État de sortie :
   - [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilité générale)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilité générale)
+  - [Azure Files](../files/storage-files-introduction.md) (disponibilité générale)
   - Azure Data Lake Storage Gen2 (disponibilité générale)
 - Clouds :<br>
     ✔ Clouds commerciaux<br>
@@ -53,10 +53,10 @@ Vous pouvez configurer Azure Defender pour le stockage de plusieurs façons, qui
 Lorsque vous vous abonnez au niveau Standard dans Azure Security Center, Azure Defender est automatiquement configuré sur tous vos comptes de stockage. Vous pouvez activer ou désactiver Azure Defender pour vos comptes de stockage sous un abonnement spécifique comme suit :
 
 1. Lancez **Azure Security Center** dans le [portail Azure](https://portal.azure.com).
-1. Dans le menu principal, sous **Gestion**, sélectionnez **Tarification et paramètres**.
+1. Dans le menu principal, sous **Gestion** , sélectionnez **Tarification et paramètres** .
 1. Sélectionnez l’abonnement pour lequel vous souhaitez activer ou désactiver Azure Defender.
 1. Sélectionnez **Azure Defender sur** pour activer Azure Defender pour l’abonnement.
-1. Sous **Sélectionner un plan Azure Defender par type de ressource**, recherchez la ligne **Stockage**, puis sélectionnez **Activé** dans la colonne **Plan**.
+1. Sous **Sélectionner un plan Azure Defender par type de ressource** , recherchez la ligne **Stockage** , puis sélectionnez **Activé** dans la colonne **Plan** .
 1. Enregistrez vos modifications.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
@@ -66,8 +66,8 @@ Azure Defender est maintenant activé pour tous les comptes de stockage de cet a
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Lancez le [portail Azure](https://portal.azure.com/).
-1. Accédez à votre compte de stockage. Sous **Paramètres**, sélectionnez **Sécurité avancée**.
-1. Sélectionnez **Activer Azure Defender pour le stockage**.
+1. Accédez à votre compte de stockage. Sous **Paramètres** , sélectionnez **Sécurité avancée** .
+1. Sélectionnez **Activer Azure Defender pour le stockage** .
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
 
@@ -81,8 +81,8 @@ Utilisez un modèle Azure Resource Manager pour déployer un compte Stockage Azu
 
 Utilisez Azure Policy pour activer Azure Defender dans les comptes de stockage sous un abonnement ou un groupe de ressources spécifiques.
 
-1. Lancez la page **Azure Policy - Définitions**.
-1. Recherchez la stratégie **Déployer Azure Defender sur les comptes de stockage**.
+1. Lancez la page **Azure Policy - Définitions** .
+1. Recherchez la stratégie **Déployer Azure Defender sur les comptes de stockage** .
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Capture d’écran montrant comment activer Azure Defender pour le stockage dans Security Center":::
 
@@ -98,16 +98,16 @@ Utilisez Azure Policy pour activer Azure Defender dans les comptes de stockage s
 
 Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le paramètre Azure Defender pour un compte de stockage spécifique.
 
-- [Protection avancée contre les menaces – Créer](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Protection avancée contre les menaces – Obtenir](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Protection avancée contre les menaces – Créer](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Protection avancée contre les menaces – Obtenir](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilisez les cmdlets PowerShell suivantes :
 
-- [Activer la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Obtenir la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Désactiver la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Activer la protection avancée contre les menaces](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Obtenir la protection avancée contre les menaces](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Désactiver la protection avancée contre les menaces](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
@@ -138,4 +138,4 @@ Les alertes sont générées en cas de détection de tentatives d’accès ou d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [Journaux dans les comptes de stockage Azure ](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- En savoir plus sur [Azure Security Center](../../security-center/security-center-intro.md)
+- En savoir plus sur [Azure Security Center](../../security-center/security-center-introduction.md)

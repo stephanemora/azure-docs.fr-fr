@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283205"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790812"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Réplication transactionnelle avec Azure SQL Managed Instance (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ Vous pouvez utiliser la réplication transactionnelle pour transmettre les modif
 - Une base de données d’instance dans Azure SQL Managed Instance
 
   > [!NOTE]
-  > Pour bénéficier de toutes les fonctionnalités d’Azure SQL Managed Instance, vous devez utiliser les dernières versions de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Pour bénéficier de toutes les fonctionnalités d’Azure SQL Managed Instance, vous devez utiliser les dernières versions de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Components
 
-Les principaux composants de la réplication transactionnelle sont la **base de données du serveur de publication**, la **base de données du serveur de distribution** et l’**abonné**, comme indiqué dans l’image suivante :  
+Les principaux composants de la réplication transactionnelle sont la **base de données du serveur de publication** , la **base de données du serveur de distribution** et l’ **abonné** , comme indiqué dans l’image suivante :  
 
 ![réplication avec SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -55,7 +55,7 @@ La **base de données du serveur de publication** publie les changements apport�
 
 La **base de données du serveur de distribution** collecte les changements apportés aux articles à partir d’une base de données du serveur de publication et les distribue aux Abonnés. La base de données du serveur de distribution peut être une instance managée Azure SQL ou une instance de SQL Server (n’importe quelle version, tant qu’elle est supérieure ou égale à la version de la base de données du serveur de publication).
 
-L’**abonné** reçoit les modifications apportées sur la base de données du serveur de publication. Une instance de SQL Server et Azure SQL Managed Instance peuvent être des abonnés d’envoi (push) et d’extraction (pull), bien qu’un abonnement par extraction ne soit pas pris en charge quand la base de données du serveur de distribution est une instance managée Azure SQL et que l’abonné n’en est pas une. Une base de données dans Azure SQL Database peut uniquement être un abonné par envoi.
+L’ **abonné** reçoit les modifications apportées sur la base de données du serveur de publication. Une instance de SQL Server et Azure SQL Managed Instance peuvent être des abonnés d’envoi (push) et d’extraction (pull), bien qu’un abonnement par extraction ne soit pas pris en charge quand la base de données du serveur de distribution est une instance managée Azure SQL et que l’abonné n’en est pas une. Une base de données dans Azure SQL Database peut uniquement être un abonné par envoi.
 
 Azure SQL Managed Instance peut prendre en charge le fait d’être un abonné des versions suivantes de SQL Server :
 
@@ -65,21 +65,21 @@ Azure SQL Managed Instance peut prendre en charge le fait d’être un abonné d
 
    > [!NOTE]
    >
-   > - Pour les autres versions de SQL Server qui ne prennent pas en charge la publication sur des objets dans Azure, il est possible d’utiliser la méthode de [republication des données](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) pour déplacer des données vers des versions plus récentes de SQL Server.
+   > - Pour les autres versions de SQL Server qui ne prennent pas en charge la publication sur des objets dans Azure, il est possible d’utiliser la méthode de [republication des données](/sql/relational-databases/replication/republish-data) pour déplacer des données vers des versions plus récentes de SQL Server.
    > - Si vous configurez la réplication avec une version antérieure, les erreurs suivantes peuvent se produire : MSSQL_REPL20084 (le processus n’a pas pu se connecter à l’Abonné) et MSSQ_REPL40532 (impossible d’ouvrir le serveur \<name> demandé par la connexion. La connexion a échoué).
 
 ### <a name="types-of-replication"></a>Types de réplication
 
-Il existe différents [types de réplications](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) :
+Il existe différents [types de réplications](/sql/relational-databases/replication/types-of-replication) :
 
 | Réplication | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| [**Transactionnelle standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | Oui |
-| [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | Oui|
-| [**Réplication de fusion**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Non | Non|
-| [**Pair à pair**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non | Non|
-| [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | Oui|
-| [**Abonnements pouvant être mis à jour**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non | Non|
+| [**Transactionnelle standard**](/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | Oui |
+| [**Capture instantanée**](/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | Oui|
+| [**Réplication de fusion**](/sql/relational-databases/replication/merge/merge-replication) | Non | Non|
+| [**Pair à pair**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non | Non|
+| [**Bidirectionnelle**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | Oui|
+| [**Abonnements pouvant être mis à jour**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non | Non|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matrice de prise en charge
@@ -143,12 +143,12 @@ Dans cette configuration, une base de données dans Azure SQL Database ou Azure 
 - Utiliser l’authentification SQL pour la connectivité entre les participants de la réplication
 - Utiliser un partage de compte Stockage Azure pour le répertoire de travail utilisé par la réplication
 - Ouvrir le port TCP 445 sortant dans les règles de sécurité de sous-réseau pour accéder au partage de fichiers Azure
-- Ouvrir le port TCP 1433 sortant quand la base de données du serveur de publication/distribution est une instance managée SQL et que l’abonné n’en est pas une. Il vous faudra peut-être aussi modifier la règle de sécurité de trafic sortant du groupe de sécurité réseau de l’instance managée SQL pour `allow_linkedserver_outbound` pour l’**Étiquette Service de destination** du port 1433 (en remplaçant `virtualnetwork` par `internet`)
+- Ouvrir le port TCP 1433 sortant quand la base de données du serveur de publication/distribution est une instance managée SQL et que l’abonné n’en est pas une. Il vous faudra peut-être aussi modifier la règle de sécurité de trafic sortant du groupe de sécurité réseau de l’instance managée SQL pour `allow_linkedserver_outbound` pour l’ **Étiquette Service de destination** du port 1433 (en remplaçant `virtualnetwork` par `internet`)
 - Placer les bases de données du serveur de publication et de distribution dans le cloud, ou toutes les deux localement
 - Configurer le peering VPN entre les réseaux virtuels des participants de réplication si les réseaux virtuels sont différents
 
 > [!NOTE]
-> Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier Stockage Azure si le port 445 du groupe de sécurité réseau sortant est bloqué quand la base de données du serveur de distribution est une base de données Azure SQL Managed Instance et que l’abonné est local. Pour résoudre ce problème, [mettez à jour le NSG vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems).
+> Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier Stockage Azure si le port 445 du groupe de sécurité réseau sortant est bloqué quand la base de données du serveur de distribution est une base de données Azure SQL Managed Instance et que l’abonné est local. Pour résoudre ce problème, [mettez à jour le NSG vNet](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md).
 
 ## <a name="with-failover-groups"></a>Avec les groupes de basculement
 
@@ -184,7 +184,7 @@ Si la géoréplication est activée sur une instance managée SQL assumant le r�
    EXEC sp_dropdistributor 1,1
    ```
 
-Si la géoréplication est activée sur une instance de l’**abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
+Si la géoréplication est activée sur une instance de l’ **abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
 
 - Pour un basculement sans perte de données, la réplication continue de fonctionner après le basculement.
 - Pour un basculement avec perte de données, la réplication fonctionne également. Elle répliquera à nouveau les modifications perdues.
@@ -196,16 +196,16 @@ Pour plus d’informations sur la configuration de la réplication transactionne
 
 - [Configurer la réplication entre une base de données du serveur de publication SQL Managed Instance et un abonné](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configurer la réplication entre une base de données du serveur de publication SQL Managed Instance, une base de données du serveur de distribution SQL Managed Instance et un abonné SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur en tant qu’abonné (par exemple `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL Database comme base de données de destination (par exemple **Adventureworks** )
+- [Créer une publication](/sql/relational-databases/replication/publish/create-a-publication).
+- [Créer un abonnement par émission de données](/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur en tant qu’abonné (par exemple `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL Database comme base de données de destination (par exemple **Adventureworks** )
 
 ## <a name="see-also"></a>Voir aussi  
 
 - [Réplication avec une instance managée SQL et un groupe de basculement](transact-sql-tsql-differences-sql-server.md#replication)
 - [Réplication sur SQL Database](../database/replication-to-sql-database.md)
 - [Réplication sur une instance managée](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types de réplication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Surveillance (réplication)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initialiser un abonnement](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Créer une publication](/sql/relational-databases/replication/publish/create-a-publication)
+- [Créer un abonnement par émission de données](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types de réplication](/sql/relational-databases/replication/types-of-replication)
+- [Surveillance (réplication)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initialiser un abonnement](/sql/relational-databases/replication/initialize-a-subscription)

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321337"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793158"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -84,7 +84,7 @@ Les facteurs suivants affectent la quantité de stockage utilisée pour les fich
 > [!IMPORTANT]
 > Le stockage total alloué aux fichiers MDF et LDF vous est facturé.
 
-Pour surveiller la taille totale actuelle de vos fichiers MDF et LDF, utilisez [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Pour surveiller la taille actuelle de chaque fichier MDF et LDF, utilisez [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Pour surveiller la taille totale actuelle de vos fichiers MDF et LDF, utilisez [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Pour surveiller la taille actuelle de chaque fichier MDF et LDF, utilisez [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
@@ -102,5 +102,4 @@ Pour plus d’informations sur les tailles de calcul et de stockage spécifiques
 
 - [Limites de ressources vCore pour Azure SQL Database](resource-limits-vcore-single-databases.md)
 - [Limites de ressources vCore pour les bases de données mises en pool dans Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [Limites de ressources vCore pour Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
-
+- [Limites de ressources vCore pour Azure SQL Managed Instance](../managed-instance/resource-limits.md).

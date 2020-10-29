@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 9c9f5972cdd2690b86610ea585bdd82d736ed163
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803855"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792138"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## <a name="exclude-an-individual-database"></a>Exclure une base de données individuelle
 
-L’exemple suivant montre comment exécuter un travail sur toutes les bases de données d’un serveur, à l’exception de la base de données nommée *MappingDB*.  
+L’exemple suivant montre comment exécuter un travail sur toutes les bases de données d’un serveur, à l’exception de la base de données nommée *MappingDB* .  
 Se connecter à la [*base de données de travail*](job-automation-overview.md#job-database) et exécuter la commande suivante :
 
 ```sql
@@ -179,7 +179,7 @@ Par exemple, pour regrouper tous les résultats de l’exécution d’un même t
 
 L’exemple suivant crée un nouveau travail pour collecter des données de performances de plusieurs bases de données.
 
-Par défaut, l’agent de travail crée la table de sortie dans laquelle sont stockés les résultats retournés. Le principal de base de données associé aux informations d’identification de sortie doit donc disposer au minimum des autorisations suivantes : `CREATE TABLE` sur la base de données, `ALTER`, `SELECT`, `INSERT` et `DELETE` sur la table de sortie ou son schéma et `SELECT` sur la vue de catalogue [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql).
+Par défaut, l’agent de travail crée la table de sortie dans laquelle sont stockés les résultats retournés. Le principal de base de données associé aux informations d’identification de sortie doit donc disposer au minimum des autorisations suivantes : `CREATE TABLE` sur la base de données, `ALTER`, `SELECT`, `INSERT` et `DELETE` sur la table de sortie ou son schéma et `SELECT` sur la vue de catalogue [sys.indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql).
 
 Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
 
@@ -1344,9 +1344,9 @@ Affiche tous les membres de tous les groupes cibles.
 
 ## <a name="resources"></a>Ressources
 
-- ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de la syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+- ![Icône du lien de rubrique](/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de la syntaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer et gérer des tâches élastiques à l’aide de PowerShell](elastic-jobs-powershell-create.md)
-- [Autorisation et privilèges](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Autorisation et privilèges](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6514b149b057d690d37551bd0489c63852addb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207498"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792937"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
  
@@ -66,6 +66,6 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 
 - Comprendre comment
 
-    - [Transférer des données avec Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transférer des données avec Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-    - [Transférer des données avec Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
+    - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transférer des données avec Data Box](../../databox/data-box-quickstart-portal.md).
+    - [Transférer des données avec Import/Export](./storage-import-export-data-to-blobs.md).

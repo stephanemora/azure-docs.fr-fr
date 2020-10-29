@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566990"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786494"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > SQL Server sur les machines virtuelles Azure, y compris celles qui sont déployées à partir d’images généralisées personnalisées, doit être [inscrites auprès d’un fournisseur de ressources de machines virtuelles SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) afin de respecter les exigences de conformité et d’utiliser des fonctionnalités facultatives telles qu’une mise à jour corrective automatisée et des sauvegardes automatiques. Le fournisseur de ressources vous permet également de [spécifier le type de licence](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) pour chaque machine virtuelle SQL Server.
+   > SQL Server sur les machines virtuelles Azure, y compris celles qui sont déployées à partir d’images généralisées personnalisées, doit être [inscrites auprès d’un fournisseur de ressources de machines virtuelles SQL](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) afin de respecter les exigences de conformité et d’utiliser des fonctionnalités facultatives telles qu’une mise à jour corrective automatisée et des sauvegardes automatiques. Le fournisseur de ressources vous permet également de [spécifier le type de licence](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) pour chaque machine virtuelle SQL Server.
 
 1. **Puis-je utiliser mon propre disque dur virtuel pour déployer une machine virtuelle SQL Server ?**
 
@@ -118,7 +118,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    1. Vous disposez de la [mobilité de licence](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) à travers la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue n’importe quels travaux autres que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours. 
-   1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’**une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
+   1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’ **une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
    1. La machine virtuelle SQL Server secondaire utilise la licence [Reprise d’activité](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) dans le portail Azure.
    
 1. **Qu’est-ce qu’une instance passive ?**
@@ -145,11 +145,11 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
  
    Oui, tant que la machine virtuelle SQL Server a été déployée sur le cloud public à l’aide du modèle Resource Manager, et non du modèle classique. Tous les autres clients peuvent s’inscrire auprès du nouveau fournisseur de ressources de machine virtuelle SQL Server. Toutefois, seuls les clients disposant de l’avantage [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) peuvent utiliser leur propre licence pour activer [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) sur une machine virtuelle SQL Server. 
 
-1. **Que se passe-t-il pour la ressource (_Microsoft.SqlVirtualMachine_) de fournisseur de ressources si la ressource de machine virtuelle est déplacée ou supprimée ?** 
+1. **Que se passe-t-il pour la ressource ( _Microsoft.SqlVirtualMachine_ ) de fournisseur de ressources si la ressource de machine virtuelle est déplacée ou supprimée ?** 
 
    Quand la ressource Microsoft.Compute/VirtualMachine est supprimée ou déplacée, la ressource Microsoft.SqlVirtualMachine associée est alors notifiée pour répliquer l’opération de façon asynchrone.
 
-1. **Que se passe-t-il pour la machine virtuelle si la ressource (_Microsoft.SqlVirtualMachine_) de fournisseur de ressources est supprimée ?**
+1. **Que se passe-t-il pour la machine virtuelle si la ressource ( _Microsoft.SqlVirtualMachine_ ) de fournisseur de ressources est supprimée ?**
 
     La ressource Microsoft.Compute/VirtualMachine n’est pas impactée quand la ressource Microsoft.SqlVirtualMachine est supprimée. Toutefois, les changements de licence rétablissent par défaut la source d’image d’origine. 
 
@@ -169,13 +169,13 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Premièrement, la facturation associée à SQL Server peut continuer à s’appliquer en fonction du modèle de licence de la machine virtuelle. Deuxièmement, comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS, cette dernière continue de rechercher l’instance par défaut et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
+   Oui, mais il existe quelques considérations à prendre en compte. Premièrement, la facturation associée à SQL Server peut continuer à s’appliquer en fonction du modèle de licence de la machine virtuelle. Deuxièmement, comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS, cette dernière continue de rechercher l’instance par défaut et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server** . L’une des erreurs peut se présenter comme suit :
 
       Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible.
 
    Si vous décidez de désinstaller l’instance par défaut, vous devez également désinstaller [l’extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
 
-1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS** ?
+1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS**  ?
    
    Oui, si l’instance nommée est la seule instance sur SQL Server et si l’instance par défaut d’origine a été [désinstallé correctement](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). En l’absence d’instance par défaut et si plusieurs instances nommées sont présentes sur une même machine virtuelle SQL Server, l’extension de l’agent IaaS SQL Server échoue à l’installation. 
 
@@ -210,7 +210,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je mettre à niveau mon instance SQL Server 2008/2008 R2 après l’avoir inscrite auprès du fournisseur de ressources de machine virtuelle SQL Server ?**
 
-   Oui. Vous pouvez utiliser n’importe quel support d’installation pour mettre à niveau la version et l’édition de SQL Server. Vous pouvez ensuite mettre à niveau votre [mode d’extension SQL IaaS](sql-vm-resource-provider-register.md#management-modes) de _aucun agent_ vers _complet_. Vous pouvez ainsi tirer profit de tous les avantages de l’extension SQL IaaS tels que la facilité de gestion du portail, les sauvegardes automatisées et la mise à jour corrective automatisée. 
+   Oui. Vous pouvez utiliser n’importe quel support d’installation pour mettre à niveau la version et l’édition de SQL Server. Vous pouvez ensuite mettre à niveau votre [mode d’extension SQL IaaS](sql-vm-resource-provider-register.md#management-modes) de _aucun agent_ vers _complet_ . Vous pouvez ainsi tirer profit de tous les avantages de l’extension SQL IaaS tels que la facilité de gestion du portail, les sauvegardes automatisées et la mise à jour corrective automatisée. 
 
 1. **Comment obtenir des mises à jour de sécurité étendue gratuites pour mes instances SQL Server 2008 et SQL Server 2008 R2 qui sont en fin de support ?**
 
@@ -225,7 +225,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    Oui. Vous pouvez installer une instance de cluster de basculement à l’aide de [partages de fichiers Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) ou d’[espaces de stockage direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) pour le sous-système de stockage. Les partages de fichiers Premium fournissent une capacité d’IOPS et de débit qui répond aux besoins de nombreuses charges de travail. Pour les charges de travail gourmandes en E/S, il peut être préférable d’utiliser des espaces de stockage direct basés sur des disques Premium managés ou des disques Ultra. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > À ce stade, l’[extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md)_complète_ n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension _complète_ des machines virtuelles qui participent à l’ICF, puis d’installer l’extension en mode _léger_ à la place. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL Server. Ces fonctionnalités ne s’opèrent pas pour les machines virtuelles SQL Server une fois l’agent _complet_ désinstallé.
+   > À ce stade, l’ [extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md)_complète_ n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension _complète_ des machines virtuelles qui participent à l’ICF, puis d’installer l’extension en mode _léger_ à la place. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL Server. Ces fonctionnalités ne s’opèrent pas pour les machines virtuelles SQL Server une fois l’agent _complet_ désinstallé.
 
 1. **Quelle est la différence entre les machines virtuelles SQL Server et le service SQL Database ?**
 
@@ -241,7 +241,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 ## <a name="resources"></a>Ressources
 
-**Machines virtuelles Windows** :
+**Machines virtuelles Windows**  :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Approvisionner SQL Server sur une machine virtuelle Windows](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 * [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](performance-guidelines-best-practices.md)
 * [Modèles d’application et stratégies de développement pour SQL Server sur des machines virtuelles Azure](application-patterns-development-strategies.md)
 
-**Machines virtuelles Linux** :
+**Machines virtuelles Linux**  :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Approvisionner SQL Server sur une machine virtuelle Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Forum Aux Questions (Linux)](../linux/frequently-asked-questions-faq.md)
-* [Documentation relative à SQL Server sur Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentation relative à SQL Server sur Linux](/sql/linux/sql-server-linux-overview)

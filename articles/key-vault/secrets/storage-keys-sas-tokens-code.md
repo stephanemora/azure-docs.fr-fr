@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597981"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786069"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Créer une définition SAS et récupérer les jetons de signature d’accès partagé dans le code
 
@@ -23,7 +23,7 @@ Vous pouvez gérer votre compte de stockage avec les jetons de signature d’acc
 > [!NOTE]
 > Nous vous recommandons d’utiliser le [contrôle d’accès en fonction du rôle (RBAC)](../../storage/common/storage-auth-aad.md) pour sécuriser votre compte de stockage et ainsi bénéficier d’une sécurité et d’une facilité d’utilisation supérieures par rapport à une autorisation de clé partagée.
 
-Cet article fournit des exemples de code .NET qui crée une définition SAS et récupère des jetons SAS. Pour plus d’informations, consultez notre exemple [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/), notamment le client généré pour les comptes de stockage gérés par Key Vault. Pour plus d’informations sur la façon de créer et de stocker des jetons SAS, consultez [Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure](overview-storage-keys.md) ou [Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell](overview-storage-keys-powershell.md).
+Cet article fournit des exemples de code .NET qui crée une définition SAS et récupère des jetons SAS. Pour plus d’informations, consultez notre exemple [ShareLink](/samples/azure/azure-sdk-for-net/share-link/), notamment le client généré pour les comptes de stockage gérés par Key Vault. Pour plus d’informations sur la façon de créer et de stocker des jetons SAS, consultez [Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure](overview-storage-keys.md) ou [Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Exemples de code
 
@@ -41,7 +41,7 @@ Une fois la définition SAS créée, vous pouvez récupérer des jetons SAS comm
 
 Si votre jeton de signature d’accès partagé arrive à expiration, vous pouvez récupérer le même secret pour en générer un nouveau.
 
-Vous obtenez des instructions sur l’utilisation d’un jeton SAS récupéré à partir de Key Vault pour accéder aux services de stockage Azure en consultant [Utiliser une signature d’accès partagé de compte pour accéder au service BLOB.](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+Vous obtenez des instructions sur l’utilisation d’un jeton SAS récupéré à partir de Key Vault pour accéder aux services de stockage Azure en consultant [Utiliser une signature d’accès partagé de compte pour accéder au service BLOB.](../../storage/common/storage-account-sas-create-dotnet.md#use-an-account-sas-from-a-client)
 
 > [!NOTE]
 > Votre application doit être préparée à l’actualisation de la SAP si elle reçoit du stockage une erreur 403, afin de pouvoir gérer le cas où une clé a été compromise de sorte que vous devez opérer une rotation de clé avant la fin de la période de rotation normale. 

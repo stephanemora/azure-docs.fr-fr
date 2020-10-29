@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985762"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785780"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
@@ -30,7 +30,7 @@ Les données d’un compte de stockage sont chiffrées, quel que soit le niveau 
 
 Chaque objet blob de blocs, objet blob d’ajout ou objet blob de pages qui a été écrit dans le Stockage Azure après le 20 octobre 2017 est chiffré. Les objets blob créés avant cette date continuent à être chiffrés à l’aide d’un processus en arrière-plan. Pour forcer le chiffrement d’un objet blob qui a été créé avant le 20 octobre 2017, vous pouvez réécrire l’objet. Pour savoir comment vérifier l’état de chiffrement d’un objet blob, consultez [Vérifier l’état de chiffrement d’un objet blob](../blobs/storage-blob-encryption-status.md).
 
-Pour plus d’informations sur les modules cryptographiques de chiffrement de Stockage Azure, consultez [API de chiffrement : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
+Pour plus d’informations sur les modules cryptographiques de chiffrement de Stockage Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal).
 
 Pour plus d’informations sur le chiffrement et la gestion des clés pour les disques managés Azure, consultez [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/windows/disk-encryption.md) pour les machines virtuelles Windows ou [Chiffrement côté serveur de disques managés Azure](../../virtual-machines/linux/disk-encryption.md) pour les machines virtuelles Linux.
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur le chiffrement et la gestion des clés pour les d
 
 Par défaut, les données d'un nouveau compte de stockage sont chiffrées à l'aide de clés managées par Microsoft. Vous pouvez continuer à vous reposer sur les clés managées par Microsoft pour le chiffrement des vos données, ou vous pouvez gérer le chiffrement avec vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, deux options s’offrent à vous. Vous pouvez utiliser l'un ou l'autre type de gestion des clés, ou les deux :
 
-- Vous pouvez spécifier une *clé gérée par le client* à utiliser pour le chiffrement et le déchiffrement des données dans le stockage d’objets blob et dans Azure Files. <sup>1, 2</sup> clés gérées par le client doivent être stockées dans Azure Key Vault ou le modèle de sécurité matérielle (HSM) Azure Key Vault géré (préversion). Pour plus d’informations sur les clés gérées par le client, consultez [Utiliser des clés gérées par le client pour gérer le chiffrement du stockage Azure](encryption-customer-managed-keys.md).
+- Vous pouvez spécifier une *clé gérée par le client* à utiliser pour le chiffrement et le déchiffrement des données dans le stockage d’objets blob et dans Azure Files. <sup>1, 2</sup> clés gérées par le client doivent être stockées dans Azure Key Vault ou le modèle de sécurité matérielle (HSM) Azure Key Vault géré (préversion). Pour plus d’informations sur les clés gérées par le client, consultez [Utiliser des clés gérées par le client pour gérer le chiffrement du stockage Azure](./customer-managed-keys-overview.md).
 - Vous pouvez spécifier une *clé fournie par le client* sur les opérations de stockage Blob. Un client qui effectue une requête de lecture ou d’écriture sur le stockage Blob peut inclure une clé de chiffrement dans la requête afin de contrôler la précision avec laquelle les données blob sont chiffrées et déchiffrées. Pour plus d’informations sur les clés fournies par le client, consultez [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](../blobs/encryption-customer-provided-keys.md).
 
 Le tableau suivant compare les options de gestion de clés pour le chiffrement de Stockage Azure.
@@ -101,8 +101,8 @@ Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé
 
 Si votre étendue de chiffrement est protégée par des clés gérées par le client pour Azure Key Vault, vous pouvez également supprimer la clé associée dans le coffre de clés afin de désactiver l’étendue de chiffrement. Gardez à l’esprit que les clés gérées par le client dans Azure Key Vault sont protégées par la suppression réversible et la protection de la suppression, et une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
 
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/soft-delete-powershell.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/soft-delete-cli.md)
+- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/key-vault-recovery.md)
+- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Il n’est pas possible de supprimer une étendue de chiffrement.

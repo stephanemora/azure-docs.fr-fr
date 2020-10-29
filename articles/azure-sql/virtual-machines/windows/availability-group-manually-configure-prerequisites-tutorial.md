@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 08d3d5bcdace113d3319b5af6375fff21405159a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166894"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790013"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutoriel : Prérequis de la création de groupes de disponibilité sur SQL Server sur des machines virtuelles Azure
 
@@ -37,12 +37,12 @@ Le schéma suivant illustre ce que vous allez créer dans ce didacticiel.
 
 ## <a name="review-availability-group-documentation"></a>Consulter la documentation sur le groupe de disponibilité
 
-Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Si vous n’êtes pas familiarisé avec cette technologie, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Si vous n’êtes pas familiarisé avec cette technologie, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 
 ## <a name="create-an-azure-account"></a>Création d'un compte Azure
 
-Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) ou [activer les avantages de l’abonnement à Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
+Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) ou [activer les avantages de l’abonnement à Visual Studio](/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -144,7 +144,7 @@ Le tableau suivant récapitule les paramètres de configuration du réseau :
 
 ## <a name="create-availability-sets"></a>Créer des groupes à haute disponibilité
 
-Avant de créer des machines virtuelles, vous devez créer des groupes à haute disponibilité. Les groupes à haute disponibilité réduisent le temps d’arrêt lors des événements de maintenance planifiée et non planifiée. Un groupe à haute disponibilité Azure est un groupe de ressources logique qu’Azure place dans des domaines de mise à jour et d’erreur physiques. Un domaine d’erreur garantit que les membres du groupe à haute disponibilité disposent de ressources réseau et d’une alimentation distinctes. Un domaine de mise à jour permet de s’assurer que les membres du groupe à haute disponibilité ne sont pas arrêtés simultanément pour maintenance. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Avant de créer des machines virtuelles, vous devez créer des groupes à haute disponibilité. Les groupes à haute disponibilité réduisent le temps d’arrêt lors des événements de maintenance planifiée et non planifiée. Un groupe à haute disponibilité Azure est un groupe de ressources logique qu’Azure place dans des domaines de mise à jour et d’erreur physiques. Un domaine d’erreur garantit que les membres du groupe à haute disponibilité disposent de ressources réseau et d’une alimentation distinctes. Un domaine de mise à jour permet de s’assurer que les membres du groupe à haute disponibilité ne sont pas arrêtés simultanément pour maintenance. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 Vous avez besoin de deux groupes à haute disponibilité. L’un pour les contrôleurs de domaine. L’autre pour les machines virtuelles SQL Server.
 
@@ -204,7 +204,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 | **Compte de stockage de diagnostics** |*Créé automatiquement* |
 
    >[!IMPORTANT]
-   >Vous pouvez uniquement placer une machine virtuelle dans un groupe de disponibilité lors de sa création. Vous ne pouvez pas modifier le groupe à haute disponibilité après la création d’une machine virtuelle. Consultez la rubrique [Gérer la disponibilité des machines virtuelles](../../../virtual-machines/linux/manage-availability.md).
+   >Vous pouvez uniquement placer une machine virtuelle dans un groupe de disponibilité lors de sa création. Vous ne pouvez pas modifier le groupe à haute disponibilité après la création d’une machine virtuelle. Consultez la rubrique [Gérer la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md).
 
 Azure crée les machines virtuelles.
 
@@ -228,7 +228,7 @@ Dans les étapes suivantes, vous allez configurer la machine **ad-primary-dc** c
 6. Sélectionnez les rôles **Services de domaine Active Directory** et **Serveur DNS** . Lorsque vous y êtes invité, ajoutez les fonctionnalités supplémentaires requises par ces rôles.
 
    > [!NOTE]
-   > Windows vous avertit qu’il n’y a aucune adresse IP statique. Si vous testez la configuration, sélectionnez **Continuer** . Pour les scénarios de production, définissez l’adresse IP comme statique dans le portail Azure ou [utilisez PowerShell pour définir l’adresse IP statique de la machine de contrôleur de domaine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+   > Windows vous avertit qu’il n’y a aucune adresse IP statique. Si vous testez la configuration, sélectionnez **Continuer** . Pour les scénarios de production, définissez l’adresse IP comme statique dans le portail Azure ou [utilisez PowerShell pour définir l’adresse IP statique de la machine de contrôleur de domaine](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip).
    >
 
     ![Boîte de dialogue Ajouter des rôles](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
@@ -376,13 +376,13 @@ Maintenant que vous avez fini de configurer Active Directory et les objets utili
 
 ## <a name="create-sql-server-vms"></a>Créer des machines virtuelles SQL Server
 
-Créez trois machines virtuelles supplémentaires. Cette solution nécessite deux machines virtuelles avec des instances de SQL Server. Une troisième machine virtuelle fonctionnera comme témoin. Windows Server 2016 peut utiliser un [témoin cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Toutefois, pour la cohérence avec les systèmes d’exploitation précédents, cet article utilise une machine virtuelle pour témoin.  
+Créez trois machines virtuelles supplémentaires. Cette solution nécessite deux machines virtuelles avec des instances de SQL Server. Une troisième machine virtuelle fonctionnera comme témoin. Windows Server 2016 peut utiliser un [témoin cloud](/windows-server/failover-clustering/deploy-cloud-witness). Toutefois, pour la cohérence avec les systèmes d’exploitation précédents, cet article utilise une machine virtuelle pour témoin.  
 
 Avant de continuer, envisagez les décisions de conception suivantes.
 
 * **Stockage - Azure Disques managés**
 
-   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../../../virtual-machines/managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Réseau - Adresses IP privées en production**
 
@@ -529,7 +529,7 @@ Pour ajouter les fonctionnalités de clustering de basculement, procédez comme 
 Répétez les étapes sur l’autre machine virtuelle SQL Server.
 
   >[!NOTE]
-  > Cette étape, ainsi que la jonction des machines virtuelles au cluster de basculement, peut désormais être automatisée à l'aide d'une [interface en ligne de commande de machine virtuelle Azure SQL](availability-group-az-cli-configure.md) et de [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md).
+  > Cette étape, ainsi que la jonction des machines virtuelles au cluster de basculement, peut désormais être automatisée à l'aide d'une [interface en ligne de commande de machine virtuelle Azure SQL](./availability-group-az-commandline-configure.md) et de [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md).
   >
 
 

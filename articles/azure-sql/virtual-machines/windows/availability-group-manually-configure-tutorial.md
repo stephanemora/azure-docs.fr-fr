@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168152"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790064"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Tutoriel : Configurer manuellement un groupe de disponibilité (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Cet article configure manuellement l’environnement du groupe de disponibilité
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+Ce tutoriel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 Avant de commencer ce tutoriel, lisez [Prérequis de la création de groupes de disponibilité AlwaysOn sur SQL Server sur machines virtuelles Azure](availability-group-manually-configure-prerequisites-tutorial.md). Si ces conditions préalables sont déjà remplies, vous pouvez passer à l’étape [Création d’un cluster](#CreateCluster).
 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les conditions requises que vous devez remplir av
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Compte du domaine d’installation** | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
 
 >[!NOTE]
-> De nombreuses étapes fournies dans ce tutoriel peuvent maintenant être automatisées avec le [portail Azure](availability-group-azure-portal-configure.md), [PowerShell et Azure CLI](availability-group-az-cli-configure.md) ou les [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md).
+> De nombreuses étapes fournies dans ce tutoriel peuvent maintenant être automatisées avec le [portail Azure](availability-group-azure-portal-configure.md), [PowerShell et Azure CLI](./availability-group-az-commandline-configure.md) ou les [modèles de démarrage rapide Azure](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ Ajoutez l’autre serveur SQL Server au cluster.
    ![Confirmation de l’ajout du nœud](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster** , Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de Azure Data Box Disk ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](https://technet.microsoft.com/library/hh831739).
+   >Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster** , Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de Azure Data Box Disk ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    >
 
 1. Sélectionnez **Suivant** .
@@ -127,7 +127,7 @@ Ajoutez l’autre serveur SQL Server au cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Ajouter un partage de fichiers de quorum de cluster
 
-Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer un quorum de cluster. Ce didacticiel utilise un quorum Nœud et partage de fichiers majoritaires. Pour plus d’informations, consultez [Présentation des configurations de quorum dans un cluster de basculement](https://technet.microsoft.com/library/cc731739.aspx).
+Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer un quorum de cluster. Ce didacticiel utilise un quorum Nœud et partage de fichiers majoritaires. Pour plus d’informations, consultez [Présentation des configurations de quorum dans un cluster de basculement](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
 
 1. Connectez-vous au serveur de membre de témoin de partage de fichiers avec une session Bureau à distance.
 
@@ -176,7 +176,7 @@ Ensuite, configurez le quorum du cluster.
 1. Dans **Sélectionner le témoin de Quorum** , sélectionnez **Configurer un témoin de partage de fichiers** .
 
    >[!TIP]
-   >Windows Server 2016 prend en charge un témoin cloud. Si vous choisissez ce type de témoin, un témoin de partage de fichiers est inutile. Pour plus d’informations, consultez [Déployer un témoin cloud pour un cluster de basculement](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Ce didacticiel utilise un témoin de partage de fichiers, que les systèmes d’exploitation antérieurs prennent en charge.
+   >Windows Server 2016 prend en charge un témoin cloud. Si vous choisissez ce type de témoin, un témoin de partage de fichiers est inutile. Pour plus d’informations, consultez [Déployer un témoin cloud pour un cluster de basculement](/windows-server/failover-clustering/deploy-cloud-witness). Ce didacticiel utilise un témoin de partage de fichiers, que les systèmes d’exploitation antérieurs prennent en charge.
    >
 
 1. Dans **Configurer le témoin de partage de fichiers** , tapez le chemin d’accès du partage que vous avez créé. Sélectionnez **Suivant** .
@@ -347,7 +347,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en effectuant les 
    ![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > N'essayez pas de basculer le groupe de disponibilité à partir du Gestionnaire du Cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement avec des groupes de disponibilité](https://msdn.microsoft.com/library/ff929171.aspx).
+   > N'essayez pas de basculer le groupe de disponibilité à partir du Gestionnaire du Cluster de basculement. Vous devez effectuer toutes les opérations de basculement à partir du **tableau de bord AlwaysOn** dans SSMS. Pour plus d’informations, consultez [Restrictions d’utilisation du Gestionnaire du cluster de basculement avec des groupes de disponibilité](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
 À ce stade, vous avez un groupe de disponibilité avec des réplicas sur les deux instances de SQL Server. Vous pouvez déplacer le groupe de disponibilité entre les instances. Vous ne pouvez pas encore vous connecter au groupe de disponibilité, car vous n’avez pas d’écouteur. Dans les machines virtuelles Azure, l’écouteur requiert un équilibrage de charge. L’étape suivante consiste à créer l’équilibrage de charge dans Azure.
@@ -535,7 +535,7 @@ Pour tester la connexion :
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal.
 
 > [!TIP]
-> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx).
+> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)).
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

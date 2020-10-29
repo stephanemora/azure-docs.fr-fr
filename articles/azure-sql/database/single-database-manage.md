@@ -4,19 +4,19 @@ description: Apprenez à créer et à gérer des serveurs et des bases de donné
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254988"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791526"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs et des bases de données uniques dans Azure SQL Database
 
@@ -43,9 +43,9 @@ Pour créer une base de données Azure SQL unique à l’aide du [portail Azure]
 
 ## <a name="manage-an-existing-server"></a>Gérer un serveur existant
 
-Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
+Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources** .
 
-Pour gérer une base de données existante, accédez à la page **Bases de données SQL**, puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
+Pour gérer une base de données existante, accédez à la page **Bases de données SQL** , puis sélectionnez la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
    ![règle de pare-feu de serveur](./media/single-database-manage/server-firewall-rule.png)
 
@@ -58,7 +58,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour créer et gérer des serveurs, des bases de données uniques et mises en pool ainsi que des pare-feu de niveau serveur avec Azure PowerShell, utilisez les applets de commande PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -74,7 +74,7 @@ Pour créer et gérer des serveurs, des bases de données uniques et mises en po
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Crée un groupe de ressources|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Crée un serveur|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Renvoie des informations concernant les serveurs|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifie les propriétés d’un serveur|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifie les propriétés d’un serveur|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Supprime un serveur|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Crée une règle de pare-feu au niveau du serveur |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtient les règles de pare-feu d’un serveur|
@@ -84,7 +84,7 @@ Pour créer et gérer des serveurs, des bases de données uniques et mises en po
 
 ## <a name="the-azure-cli"></a>L’interface Azure CLI
 
-Pour créer et gérer les serveurs, bases de données et pare-feu avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
+Pour créer et gérer les serveurs, bases de données et pare-feu avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](../../cloud-shell/overview.md) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
 
 > [!TIP]
 > Pour un démarrage rapide d’Azure CLI, consultez [Créer une base de données Azure SQL unique à l’aide d’Azure CLI](az-cli-script-samples-content-guide.md). Pour obtenir des exemples de scripts Azure CLI, consultez [Utiliser CLI pour créer une base de données Azure SQL et configurer une règle de pare-feu de base de données SQL](scripts/create-and-configure-database-cli.md) et [Utiliser CLI pour superviser et mettre à l’échelle une base de données Azure SQL](scripts/monitor-and-scale-database-cli.md).
@@ -144,22 +144,22 @@ Pour créer et gérer les serveurs, bases de données et pare-feu, utilisez les 
 
 | Commande | Description |
 | --- | --- |
-|[Servers - Create or update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
-|[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
-|[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtient un serveur.|
-|[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourne la liste des serveurs d’un abonnement.|
-|[Servers - List by resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
-|[Serveurs - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Met à jour un serveur existant.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Supprimer](https://docs.microsoft.com/rest/api/sql/databases/delete)|Supprime une base de données.|
-|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
-|[Firewall rules - Create or update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
-|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
-|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
-|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
+|[Servers - Create or update](/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Serveurs - Delete](/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
+|[Serveurs - Get](/rest/api/sql/servers/get)|Obtient un serveur.|
+|[Serveurs - List](/rest/api/sql/servers/list)|Retourne la liste des serveurs d’un abonnement.|
+|[Servers - List by resource Group](/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
+|[Serveurs - Update](/rest/api/sql/servers/update)|Met à jour un serveur existant.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Supprimer](/rest/api/sql/databases/delete)|Supprime une base de données.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Firewall rules - Create or update](/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
+|[Firewall rules - Delete](/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
+|[Firewall rules - Get](/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
+|[Firewall rules - List by server](/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

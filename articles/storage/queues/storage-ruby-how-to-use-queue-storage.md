@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459604"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785576"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,14 @@ ms.locfileid: "89459604"
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de files d’attente Microsoft Azure. Les exemples sont écrits à l'aide de l'API Ruby Azure.
-Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
+Les scénarios traités incluent **l’insertion** , la **lecture furtive** , la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente** .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Création d'une application Ruby
-Créez une application Ruby. Pour obtenir les instructions, consultez [Créer une application Ruby dans App Service sur Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
+Créez une application Ruby. Pour obtenir les instructions, consultez [Créer une application Ruby dans App Service sur Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuration de votre application pour accéder au stockage
 Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azure Ruby, qui inclut un ensemble de bibliothèques permettant de communiquer avec les services de stockage REST.
@@ -57,7 +57,7 @@ Pour obtenir ces valeurs à partir d’un compte de stockage classique ou Resour
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au compte de stockage que vous souhaitez utiliser.
-3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès**.
+3. Dans le panneau Paramètres à droite, cliquez sur **Clés d’accès** .
 4. Dans le panneau Clés d’accès qui apparaît, la clé d’accès 1 et la clé d’accès 2 sont affichées. Vous pouvez utiliser les deux. 
 5. Cliquez sur l'icône de copie pour copier la clé dans le Presse-papiers. 
 
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-* Consultez le [blog de l'équipe Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* Consultez le [blog de l'équipe Azure Storage](/archive/blogs/windowsazurestorage/)
 * Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 
 Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).

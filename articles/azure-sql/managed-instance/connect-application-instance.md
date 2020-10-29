@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628364"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791254"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connecter votre application à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Il existe deux options pour connecter des réseaux virtuels :
 Le peering est préférable car il utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. L’appairage de réseaux virtuels est pris en charge entre les réseaux d’une même région. L’appairage de réseaux virtuels mondiaux est également pris en charge avec la limitation décrite dans la remarque ci-dessous.  
 
 > [!IMPORTANT]
-> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 ## <a name="connect-from-on-premises"></a>Connexion en local 
 
@@ -71,10 +71,10 @@ Un autre scénario utilisé par les clients est celui où une passerelle VPN est
 
 ![Peering de réseau virtuel](./media/connect-application-instance/vnet-peering.png)
 
-Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge SQL Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres de peering**.
+Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge SQL Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres de peering** .
 
-1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée à SQL Managed Instance, et cliquez sur **Autoriser le transit par passerelle**.
-2. Dans le réseau virtuel qui héberge SQL Managed Instance, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée pour la passerelle VPN, puis cliquez sur **Utiliser des passerelles distantes**.
+1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Peerings** , puis à la connexion de réseau virtuel appairée à SQL Managed Instance, et cliquez sur **Autoriser le transit par passerelle** .
+2. Dans le réseau virtuel qui héberge SQL Managed Instance, accédez à **Peerings** , puis à la connexion de réseau virtuel appairée pour la passerelle VPN, puis cliquez sur **Utiliser des passerelles distantes** .
 
 ## <a name="connect-azure-app-service"></a>Connexion d’Azure App Service 
 
@@ -100,7 +100,7 @@ Ce scénario est illustré dans le diagramme suivant :
 Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
 - Si vous ne parvenez pas à vous connecter à SQL Managed Instance à partir d’une machine virtuelle Azure au sein du même réseau virtuel, mais que vous y parvenez à partir d’un autre sous-réseau, vérifiez si un groupe de sécurité réseau défini sur le sous-réseau de machine virtuelle bloque l’accès. De plus, ouvrez la connexion sortante sur le port SQL 1433 ainsi que les ports de la plage 11000-11999, car ceux-ci sont nécessaires pour la connexion via la redirection à l’intérieur de la limite Azure.
-- Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
+- Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé** .
 - Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
    ![Chiffres d’entrée et de sortie](./media/connect-application-instance/ingress-egress-numbers.png)
@@ -151,8 +151,8 @@ Les versions minimales suivantes des outils et des pilotes sont recommandées si
 |Pilote JDBC| 6.4.0 |
 |Pilote Node.js| 2.1.1 |
 |Pilote OLEDB| 18.0.2.0 |
-|SSMS| 18.0 ou [ultérieur](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou ultérieur |
+|SSMS| 18.0 ou [ultérieur](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou ultérieur |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

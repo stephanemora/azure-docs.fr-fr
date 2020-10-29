@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6398f63149a7f5dd3102d75c8db324f526c419
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856776"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791152"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
 AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des blobs ou des fichiers vers ou depuis un compte de stockage. Cet article vous aide à télécharger AzCopy, connectez-vous à votre compte de stockage et transférez des fichiers.
 
 > [!NOTE]
-> La version actuellement prise en charge d’AzCopy est la **version 10**.
+> La version actuellement prise en charge d’AzCopy est la **version 10** .
 >
 > Si vous avez besoin d’utiliser une version antérieure d’AzCopy, consultez la section [Utiliser la version précédente d’AzCopy](#previous-version) de cet article.
 
@@ -37,7 +37,7 @@ Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoir
 Ces fichiers sont compressés dans un fichier zip (Windows et Mac) ou un fichier tar (Linux). Pour télécharger et décompresser le fichier tar sur Linux, consultez la documentation de votre distribution Linux.
 
 > [!NOTE]
-> Si vous voulez copier des données depuis et vers le service [Table de stockage Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), installez [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+> Si vous voulez copier des données depuis et vers le service [Table de stockage Azure](../tables/table-storage-overview.md), installez [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
 
 ## <a name="run-azcopy"></a>Exécuter AzCopy
@@ -80,14 +80,14 @@ En utilisant Azure Active Directory, vous pouvez fournir des informations d’id
 
 Le niveau d’autorisation dont vous avez besoin repose sur votre volonté de planifier le chargement des fichiers, ou juste leur téléchargement.
 
-Si vous voulez simplement télécharger les fichiers, vérifiez que le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) a été affecté à votre identité d’utilisateur, à l'identité managée ou au principal de service.
+Si vous voulez simplement télécharger les fichiers, vérifiez que le [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) a été affecté à votre identité d’utilisateur, à l'identité managée ou au principal de service.
 
-> Les identités d’utilisateurs, les identités managées et les principaux de service correspondent chacun à un type de *principal de sécurité*, et nous utiliserons donc le terme *principal de sécurité* pour le reste de cet article.
+> Les identités d’utilisateurs, les identités managées et les principaux de service correspondent chacun à un type de *principal de sécurité* , et nous utiliserons donc le terme *principal de sécurité* pour le reste de cet article.
 
 Si vous souhaitez télécharger des fichiers, vérifiez qu’un de ces rôles a été attribué à votre principal de sécurité :
 
-- [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 Ces rôles peuvent être attribués à votre principal de service sur l’une de ces étendues :
 
@@ -96,14 +96,14 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 - Resource group
 - Abonnement
 
-Pour savoir comment vérifier et attribuer des rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux objets blob et données de file d’attente](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment vérifier et attribuer des rôles, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux objets blob et données de file d’attente](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 > [!NOTE]
 > Gardez à l’esprit que la propagation des affectations de rôles Azure peut prendre cinq minutes.
 
 Vous n’avez pas besoin qu’un de ces rôles soit assigné à votre responsable de la sécurité si votre responsable de la sécurité est ajouté à la liste de contrôle d’accès du conteneur ou du répertoire cible. Dans la liste de contrôle d’accès, votre responsable de la sécurité a besoin de droits d’écriture sur le répertoire cible et d’autorisation d’exécution sur le conteneur et chaque répertoire parent.
 
-Pour en savoir plus, voir [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+Pour en savoir plus, voir [Contrôle d’accès dans Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
 
 #### <a name="authenticate-a-user-identity"></a>Authentifier l’identité d’un utilisateur
 
@@ -119,9 +119,9 @@ Si vous recevez une erreur, essayez d’inclure l’ID de locataire de l’organ
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
+Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire** .
 
-Cette commande retourne un code d’authentification et l’URL d’un site web. Ouvrez le site web, indiquez le code, puis choisissez le bouton **Suivant**.
+Cette commande retourne un code d’authentification et l’URL d’un site web. Ouvrez le site web, indiquez le code, puis choisissez le bouton **Suivant** .
 
 ![Créez un conteneur.](media/storage-use-azcopy-v10/azcopy-login.png)
 
@@ -137,9 +137,9 @@ Avant d’exécuter un script, vous devez vous connecter de manière interactive
 
 Vous pouvez vous connecter à votre compte en utilisant un secret client ou en utilisant le mot de passe d’un certificat qui est associé à l’enregistrement de l’application de votre directeur de service.
 
-Pour en savoir plus sur la création du principal du service, consultez la page [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Pour en savoir plus sur la création du principal du service, consultez la page [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-Pour en savoir plus sur les principaux de service, consultez [Objets application et principal de service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Pour en savoir plus sur les principaux de service, consultez [Objets application et principal de service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
 ##### <a name="using-a-client-secret"></a>Utilisation d’une clé secrète client
 
@@ -163,13 +163,13 @@ Ensuite, tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**. 
+Remplacez l’espace réservé `<application-id>` par l’ID d’application de votre enregistrement d’application de principal de service. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire** . 
 
 ##### <a name="using-a-certificate"></a>Utilisation d’un certificat
 
 Si vous préférez utiliser vos propres informations d’identification pour l’autorisation, vous pouvez télécharger un certificat à l’enregistrement de votre application, puis utiliser ce certificat pour vous connecter.
 
-En plus de télécharger votre certificat dans votre application, vous devrez également avoir une copie du certificat enregistrée sur la machine ou la VM sur laquelle AzCopy sera exécuté. Cette copie du certificat doit être au format.PFX ou.PEM et doit inclure la clé privée. La clé privée doit être protégée par un mot de passe. Si vous utilisez Windows et que votre certificat n’existe que dans une liste de certificats, assurez-vous d’exporter ce certificat vers un fichier PFX (y compris la clé privée). Pour obtenir des instructions, consultez la page sur [la cmdlet Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+En plus de télécharger votre certificat dans votre application, vous devrez également avoir une copie du certificat enregistrée sur la machine ou la VM sur laquelle AzCopy sera exécuté. Cette copie du certificat doit être au format.PFX ou.PEM et doit inclure la clé privée. La clé privée doit être protégée par un mot de passe. Si vous utilisez Windows et que votre certificat n’existe que dans une liste de certificats, assurez-vous d’exporter ce certificat vers un fichier PFX (y compris la clé privée). Pour obtenir des instructions, consultez la page sur [la cmdlet Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)
 
 Ensuite, définissez la variable d’environnement `AZCOPY_SPA_CERT_PASSWORD` pour le mot de passe du certificat.
 
@@ -188,7 +188,7 @@ Ensuite, tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’accès complet ou relatif du fichier de certificat. AzCopy enregistre le chemin d’accès à ce certificat, mais il n’enregistre pas une copie du certificat, alors assurez-vous de garder ce certificat en place. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire**.
+Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’accès complet ou relatif du fichier de certificat. AzCopy enregistre le chemin d’accès à ce certificat, mais il n’enregistre pas une copie du certificat, alors assurez-vous de garder ce certificat en place. Remplacez l’espace réservé `<tenant-id>` par l’ID de locataire de l’organisation à laquelle appartient le compte de stockage. Dans le Portail Microsoft Azure, sélectionnez **Azure Active Directory > Propriétés > ID du répertoire** .
 
 > [!NOTE]
 > Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console. 
@@ -205,7 +205,7 @@ Pour en savoir plus sur l’activation d’une identité managée à l'échelle 
 
 ##### <a name="using-a-system-wide-managed-identity"></a>Utilisation d’une identité managée à l'échelle du système
 
-Commencez par vérifier que vous avez activé une identité managée à l'échelle du système sur votre machine virtuelle. Consultez [Identité managée attribuée par le système](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+Commencez par vérifier que vous avez activé une identité managée à l'échelle du système sur votre machine virtuelle. Consultez [Identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
 Ensuite, dans votre console de commande, entrez la commande suivante et appuyez sur la touche ENTRÉE.
 
@@ -215,7 +215,7 @@ azcopy login --identity
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>Utilisation d'une identité managée attribuée par l’utilisateur
 
-Commencez par vérifier que vous avez activé une identité managée attribuée par l'utilisateur sur votre machine virtuelle. Consultez [Identité managée attribuée par l'utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+Commencez par vérifier que vous avez activé une identité managée attribuée par l'utilisateur sur votre machine virtuelle. Consultez [Identité managée attribuée par l'utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
 Ensuite, dans votre console de commande, entrez une des commandes suivantes et appuyez sur la touche ENTRÉE.
 
@@ -247,7 +247,7 @@ Cet exemple de commande copie de manière récursive les données d’un répert
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](./storage-sas-overview.md).
 
 ## <a name="transfer-files"></a>Transférer les fichiers
 
@@ -261,7 +261,7 @@ Pour obtenir des exemples de commandes, consultez l’un de ces articles.
 
 - [Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)
 
-- [Transfert de données avec AzCopy et le stockage Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+- [Transfert de données avec AzCopy et le stockage Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## <a name="use-azcopy-in-a-script"></a>Utiliser AzCopy dans un script
 
@@ -312,9 +312,9 @@ L’Explorateur Stockage utilise votre clé de compte pour effectuer des opérat
 
 Si vous devez utiliser la version précédente d’AzCopy, consultez l’un des liens suivants :
 
-- [AzCopy sur Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy sur Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy sur Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy sur Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0054b6e9bb73ef2918a8e5c52c59a272bae5da26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cec356b8438952327624e71deebb5e23db281a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612504"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787803"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -29,9 +29,9 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
-3. Dans la section **Paramètres**, cliquez sur **Configuration**.
-4. Sous **Type de compte**, cliquez sur **Mettre à niveau**.
-5. Sous **Confirmer la mise à niveau**, saisissez le nom de votre compte.
+3. Dans la section **Paramètres** , cliquez sur **Configuration** .
+4. Sous **Type de compte** , cliquez sur **Mettre à niveau** .
+5. Sous **Confirmer la mise à niveau** , saisissez le nom de votre compte.
 6. Cliquez sur l’option **Mettre à niveau** figurant en bas du panneau.
 
     ![Mise à niveau du type de compte](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
@@ -40,7 +40,7 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage**. Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide de PowerShell, commencez par mettre à jour PowerShell afin d’utiliser la dernière version du module **Az.Storage** . Pour plus d’informations sur l’installation de PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources, le nom de votre compte de stockage et le niveau d’accès de compte souhaité.
 
@@ -49,7 +49,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Ensuite, appelez la commande suivante pour mettre à niveau le compte, en remplaçant le nom de votre groupe de ressources, le nom de votre compte de stockage et le niveau d’accès de compte souhaité.
 
@@ -78,17 +78,17 @@ La mise à niveau d’un compte de stockage v1 vers un compte v2 universel est g
 
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 
-* **Coûts de stockage** : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
+* **Coûts de stockage**  : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
 
-* **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
+* **Coûts d’accès aux données**  : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
 
-* **Coûts de transaction** : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
+* **Coûts de transaction**  : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
 
-* **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
+* **Coûts de transfert de données de géoréplication**  : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
 
-* **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
+* **Coûts de transfert de données sortantes**  : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
 
-* **Modification du niveau d’accès de stockage** : Le passage du niveau d’accès de stockage froid au niveau d’accès de stockage chaud implique des frais correspondant à la lecture de toutes les données existant dans le compte de stockage. Par ailleurs, le passage du niveau d’accès de stockage chaud au niveau d’accès de stockage froid implique des frais correspondant à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
+* **Modification du niveau d’accès de stockage**  : Le passage du niveau d’accès de stockage froid au niveau d’accès de stockage chaud implique des frais correspondant à la lecture de toutes les données existant dans le compte de stockage. Par ailleurs, le passage du niveau d’accès de stockage chaud au niveau d’accès de stockage froid implique des frais correspondant à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
 > [!NOTE]
 > Pour plus d’informations sur le modèle de tarification des comptes de stockage, consultez la page [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -111,7 +111,7 @@ Pour choisir le niveau d’accès le plus adapté à vos besoins, vous devez dé
 
 Pour analyser vos comptes de stockage existants et rassembler ces informations, vous pouvez utiliser Azure Storage Analytics qui assure la journalisation et fournit les données de mesure d’un compte de stockage. Storage Analytics peut stocker des métriques qui comprennent les statistiques de transactions agrégées et les données de capacité relatives aux demandes adressées à un service de stockage GPv1, GPv2 et de stockage d’objet blob. Ces données sont stockées dans des tables connues dans le même compte de stockage.
 
-Pour plus d’informations, consultez les articles [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) et [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+Pour plus d’informations, consultez les articles [À propos des métriques de Storage Analytics](../blobs/monitor-blob-storage.md) et [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
 
 > [!NOTE]
 > Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte.
@@ -141,7 +141,7 @@ Cette capacité totale utilisée par les données utilisateur et les journaux d�
 
 #### <a name="transaction-costs"></a>Coûts de transaction
 
-La somme des entrées *'TotalBillableRequests'* d’une API dans la table de métriques de transaction indique le nombre total de transactions pour cette API. *Par exemple*, le nombre total de transactions *'GetBlob'* pendant une période donnée peut être calculé par la somme du total de demandes facturables pour toutes les entrées avec la clé de ligne *'user;GetBlob'* .
+La somme des entrées *'TotalBillableRequests'* d’une API dans la table de métriques de transaction indique le nombre total de transactions pour cette API. *Par exemple* , le nombre total de transactions *'GetBlob'* pendant une période donnée peut être calculé par la somme du total de demandes facturables pour toutes les entrées avec la clé de ligne *'user;GetBlob'* .
 
 Pour estimer les frais de transaction pour les comptes de stockage d’objets blob, vous devez classer les transactions en trois groupes correspondant aux trois modèles de tarification.
 

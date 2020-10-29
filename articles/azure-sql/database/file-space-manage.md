@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789605"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gérer l'espace de fichier des bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ La surveillance de l’utilisation de l’espace de fichiers et la réduction de
 
 La plupart des métriques d’espace de stockage affichées dans le portail Azure et les API suivantes mesurent seulement la taille des pages de données utilisées :
 
-- API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) PowerShell
-- T-SQL : [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](/powershell/module/az.monitor/get-azmetric) PowerShell
+- T-SQL : [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Cependant, les API suivantes mesurent aussi la taille de l’espace alloué pour les bases de données et les pools élastiques :
 
-- T-SQL : [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL : [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL : [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL : [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Réduction des fichiers de données
 
@@ -148,7 +148,7 @@ Les résultats de requête permettant de déterminer l’espace alloué à chaqu
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020. Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-Le script PowerShell nécessite le module SQL Server PowerShell. Pour l’installer, consultez [Télécharger le module PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+Le script PowerShell nécessite le module SQL Server PowerShell. Pour l’installer, consultez [Télécharger le module PowerShell](/sql/powershell/download-sql-server-ps-module).
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -214,7 +214,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 Cette commande peut affecter les performances de la base de données pendant qu’elle s’exécute et si c’est possible, elle doit être exécutée pendant des périodes de faible utilisation.  
 
-Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Réduction automatique
 
@@ -226,11 +226,11 @@ Pour activer la réduction automatique, changez le nom de la base de données da
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Pour plus d’informations sur cette commande, consultez les options de [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Pour plus d’informations sur cette commande, consultez les options de [DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ### <a name="rebuild-indexes"></a>Reconstruire des index
 
-Une fois les fichiers de données d’une base de données sont réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Une fois les fichiers de données d’une base de données sont réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

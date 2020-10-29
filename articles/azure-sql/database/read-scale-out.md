@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319424"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790268"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Dans le cadre d’une [architecture à haute disponibilité](high-availability-sla.md#premium-and-business-critical-service-tier-availability), chaque base de données, chaque base de données du pool élastique et chaque instance managée des niveaux de service Premium et Critique pour l’entreprise sont automatiquement provisionnées avec un réplica principal en lecture-écriture et plusieurs réplicas secondaires en lecture seule. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité *Échelle horizontale en lecture* vous permet de décharger les charges de travail en lecture seule à l'aide de la capacité de calcul de l'un des réplicas en lecture seule au lieu de les exécuter sur le réplica en lecture-écriture. De cette façon, certaines charges de travail en lecture seule peuvent être isolées des charges de travail en lecture-écriture et n'affecteront pas leurs performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Aux niveaux de service Premium et Critique pour l’entreprise, les applications peuvent bénéficier d’avantages en matière de performances en exploitant cette capacité supplémentaire sans coût supplémentaire.
+Dans le cadre d’une [architecture à haute disponibilité](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), chaque base de données, chaque base de données du pool élastique et chaque instance managée des niveaux de service Premium et Critique pour l’entreprise sont automatiquement provisionnées avec un réplica principal en lecture-écriture et plusieurs réplicas secondaires en lecture seule. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité *Échelle horizontale en lecture* vous permet de décharger les charges de travail en lecture seule à l'aide de la capacité de calcul de l'un des réplicas en lecture seule au lieu de les exécuter sur le réplica en lecture-écriture. De cette façon, certaines charges de travail en lecture seule peuvent être isolées des charges de travail en lecture-écriture et n'affecteront pas leurs performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Aux niveaux de service Premium et Critique pour l’entreprise, les applications peuvent bénéficier d’avantages en matière de performances en exploitant cette capacité supplémentaire sans coût supplémentaire.
 
 La fonctionnalité *Échelle horizontale en lecture* est également disponible au niveau de service Hyperscale lorsqu'au moins un réplica secondaire est créé. Plusieurs réplicas secondaires peuvent être utilisés pour équilibrer les charges de travail en lecture seule qui nécessitent plus de ressources qu'il n'en existe sur un réplica secondaire.
 
@@ -36,7 +36,7 @@ La fonctionnalité *Échelle horizontale en lecture* est activée par défaut su
 > [!NOTE]
 > L'échelle horizontale en lecture est toujours activée au niveau de service Critique pour l'entreprise de Managed Instance.
 
-Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l'application est redirigée vers un réplica en lecture seule de cette base de données ou instance gérée. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l'application est redirigée vers un réplica en lecture seule de cette base de données ou instance gérée. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données du niveau Standard ou General Purpose vers le niveau Premium, Critique pour l'entreprise ou Hyperscale et que vous souhaitez que toutes vos connexions continuent d'être dirigées vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d'informations sur la désactivation de cette fonctionnalité, consultez [Activer et désactiver l'échelle horizontale en lecture](#enable-and-disable-read-scale-out).
 
@@ -87,16 +87,16 @@ Les affichages couramment utilisés sont les suivants :
 
 | Nom | Objectif |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fournit des métriques sur l'utilisation des ressources au cours de la dernière heure, y compris sur le processeur, les E/S de données et l'utilisation des écritures de journal par rapport aux limites d'objectif de service.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fournit des statistiques d'attente agrégées pour l'instance du moteur de base de données. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fournit des statistiques sur l'état d'intégrité et la synchronisation des réplicas. La taille de la file d'attente de restauration par progression et la vitesse de restauration par progression constituent des indicateurs de la latence des données sur le réplica en lecture seule. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fournit les compteurs de performances du moteur de base de données.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fournit des statistiques d'exécution par requête, telles que le nombre d'exécutions, le temps processeur utilisé, etc.|
-|[sys.dm_exec_query_plan()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fournit les plans de requête mis en cache. |
-|[sys.dm_exec_sql_text()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fournit un texte de requête pour un plan de requête mis en cache.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fournit la progression en temps réel pendant l'exécution des requêtes.|
-|[sys.dm_exec_query_plan_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fournit le dernier plan d'exécution réel connu, y compris les statistiques d'exécution relatives à une requête.|
-|[sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fournit des statistiques de stockage IOPS, de débit et de latence pour tous les fichiers de base de données. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fournit des métriques sur l'utilisation des ressources au cours de la dernière heure, y compris sur le processeur, les E/S de données et l'utilisation des écritures de journal par rapport aux limites d'objectif de service.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fournit des statistiques d'attente agrégées pour l'instance du moteur de base de données. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fournit des statistiques sur l'état d'intégrité et la synchronisation des réplicas. La taille de la file d'attente de restauration par progression et la vitesse de restauration par progression constituent des indicateurs de la latence des données sur le réplica en lecture seule. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fournit les compteurs de performances du moteur de base de données.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fournit des statistiques d'exécution par requête, telles que le nombre d'exécutions, le temps processeur utilisé, etc.|
+|[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fournit les plans de requête mis en cache. |
+|[sys.dm_exec_sql_text()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fournit un texte de requête pour un plan de requête mis en cache.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fournit la progression en temps réel pendant l'exécution des requêtes.|
+|[sys.dm_exec_query_plan_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fournit le dernier plan d'exécution réel connu, y compris les statistiques d'exécution relatives à une requête.|
+|[sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fournit des statistiques de stockage IOPS, de débit et de latence pour tous les fichiers de base de données. |
 
 > [!NOTE]
 > Les vues de gestion dynamique `sys.resource_stats` et `sys.elastic_pool_resource_stats` de la base de données MASTER logique renvoient les données d'utilisation des ressources du réplica principal.
@@ -109,13 +109,13 @@ Une session d'événements étendus sur un réplica en lecture seule basé sur u
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Niveau d'isolement des transactions sur les réplicas en lecture seule
 
-Les requêtes exécutées sur les réplicas en lecture seule sont toujours mappées avec le niveau d'isolement [de capture instantanée](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server). L'isolement de capture instantanée utilise le contrôle de version de ligne pour éviter les scénarios où les lecteurs bloquent les enregistreurs.
+Les requêtes exécutées sur les réplicas en lecture seule sont toujours mappées avec le niveau d'isolement [de capture instantanée](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server). L'isolement de capture instantanée utilise le contrôle de version de ligne pour éviter les scénarios où les lecteurs bloquent les enregistreurs.
 
-Dans de rares cas, si une transaction d'isolement de capture instantanée accède à des métadonnées d'objet qui ont été modifiées dans une autre transaction simultanée, elle peut recevoir l'erreur [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), « La transaction d'isolement de capture instantanée a échoué dans la base de données '%.*ls' car l'objet auquel l'instruction a eu accès a été modifié par une instruction DDL dans une autre transaction simultanée depuis le début de cette transaction. Elle est rejetée, car les métadonnées ne font pas l’objet d’une gestion des versions. Une mise à jour simultanée des métadonnées peut provoquer des incohérences si elle est combinée avec un isolement de capture instantanée. »
+Dans de rares cas, si une transaction d'isolement de capture instantanée accède à des métadonnées d'objet qui ont été modifiées dans une autre transaction simultanée, elle peut recevoir l'erreur [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), « La transaction d'isolement de capture instantanée a échoué dans la base de données '%.*ls' car l'objet auquel l'instruction a eu accès a été modifié par une instruction DDL dans une autre transaction simultanée depuis le début de cette transaction. Elle est rejetée, car les métadonnées ne font pas l’objet d’une gestion des versions. Une mise à jour simultanée des métadonnées peut provoquer des incohérences si elle est combinée avec un isolement de capture instantanée. »
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Requêtes longues sur les réplicas en lecture seule
 
-Les requêtes exécutées sur les réplicas en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si un objet de métadonnées est modifié sur le réplica principal alors qu'une requête contient un verrou correspondant au même objet sur le réplica en lecture seule, la requête peut [bloquer](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications du réplica principal au réplica en lecture seule. Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal. 
+Les requêtes exécutées sur les réplicas en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si un objet de métadonnées est modifié sur le réplica principal alors qu'une requête contient un verrou correspondant au même objet sur le réplica en lecture seule, la requête peut [bloquer](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications du réplica principal au réplica en lecture seule. Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal. 
 
 Si une requête longue exécutée sur un réplica en lecture seule provoque ce type de blocage, elle est automatiquement interrompue et la session reçoit l'erreur 1219, « Votre session a été déconnectée en raison d'une opération DDL de priorité supérieure ».
 
@@ -123,7 +123,7 @@ Si une requête longue exécutée sur un réplica en lecture seule provoque ce t
 > Si vous recevez l'erreur 3961 ou 1219 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête.
 
 > [!TIP]
-> Aux niveaux de service Premium et Critique pour l'entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d'indicateurs de latence des données sur le réplica en lecture seule.
+> Aux niveaux de service Premium et Critique pour l'entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d'indicateurs de latence des données sur le réplica en lecture seule.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture
@@ -137,14 +137,14 @@ Vous pouvez désactiver et réactiver l'échelle horizontale en lecture sur des 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer**.
+Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer** .
 
 ### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Le module Azure Resource Manager continuera à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules Azure Resource Manager. Pour plus d’informations sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-La gestion de l’échelle horizontale en lecture dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+La gestion de l’échelle horizontale en lecture dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](/powershell/azure/install-az-ps).
 
 Vous pouvez activer ou désactiver l’échelle horizontale en lecture dans Azure PowerShell en appelant l’applet de commande [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) et en transmettant la valeur souhaitée (`Enabled` ou `Disabled`) pour le paramètre `-ReadScale`.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Pour plus d’informations, consultez [Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Pour plus d’informations, consultez [Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Utilisation de la base de données `tempdb` sur un réplica en lecture seule
 

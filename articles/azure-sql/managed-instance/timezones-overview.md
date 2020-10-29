@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978354"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790625"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fuseaux horaires d'Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Lorsque vous saisissez les paramètres d’une nouvelle instance, sélectionnez 
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
-Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](https://aka.ms/sql-mi-create-arm-posh) pour régler le fuseau horaire lors de la création de l'instance.
+Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](./scripts/create-powershell-azure-resource-manager-template.md) pour régler le fuseau horaire lors de la création de l'instance.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 
 ## <a name="limitations"></a>Limites
 
-- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié. En guise de solution de contournement, créez une nouvelle instance gérée avec le fuseau horaire approprié, puis soit une sauvegarde et une restauration manuelles, soit, ce que nous recommandons, une [restauration à un moment donné d’une autre instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié. En guise de solution de contournement, créez une nouvelle instance gérée avec le fuseau horaire approprié, puis soit une sauvegarde et une restauration manuelles, soit, ce que nous recommandons, une [restauration à un moment donné d’une autre instance](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Les processus externes lancés à partir des travaux SQL Server Agent ne suivent pas le fuseau horaire de l'instance.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge
@@ -243,7 +243,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 
 ## <a name="see-also"></a>Voir aussi 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936008"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788058"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser REST et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://az
 
 1. Ouvrez ce [dossier OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) et en haut à gauche, cliquez sur **Télécharger** pour copier les fichiers sur votre ordinateur. 
 
-1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire**. Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire** . Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
 
 ## <a name="1---create-services"></a>1 - Créer les services
 
@@ -53,7 +53,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 ### <a name="start-with-azure-storage"></a>Démarrer avec le stockage Azure
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource**.
+1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource** .
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
@@ -61,23 +61,23 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
-   + **Groupe de ressources**. Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
+   + **Groupe de ressources** . Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
 
-   + **Nom du compte de stockage**. Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus*. 
+   + **Nom du compte de stockage** . Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus* . 
 
-   + **Emplacement**. Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
+   + **Emplacement** . Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
 
-   + **Type de compte**. Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
+   + **Type de compte** . Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
 
 1. Cliquez sur **Vérifier + créer** pour créer le service.
 
 1. Une fois qu’il est créé, cliquez sur **Accéder à la ressource** pour ouvrir la page Vue d’ensemble.
 
-1. Cliquez sur le service **Objets blob**.
+1. Cliquez sur le service **Objets blob** .
 
-1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo*.
+1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo* .
 
-1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
+1. Sélectionnez *cog-search-demo* , puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
 
    ![Charger les exemples de fichiers](media/cognitive-search-tutorial-blob/sample-files.png "Charger les exemples de fichiers")
 
@@ -111,11 +111,11 @@ Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’a
 
 1. [Connectez-vous au Portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez le nom de votre service de recherche. Vous pouvez confirmer le nom de votre service en passant en revue l’URL du point de terminaison. Si votre URL de point de terminaison est `https://mydemo.search.windows.net`, le nom du service doit être `mydemo`.
 
-2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+2. Dans **Paramètres** > **Clés** , obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-javascript/service-name-and-keys.png)
 
 Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -123,7 +123,7 @@ Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à vo
 
 Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de Recherche cognitive Azure avec Postman](search-get-started-postman.md).
 
-Les méthodes de requête utilisées dans ce tutoriel sont **POST**, **PUT** et **GET**. Vous allez utiliser les méthodes permettant d’effectuer quatre appels d’API vers votre service de recherche afin de créer une source de données, un ensemble de compétences, un index et un indexeur.
+Les méthodes de requête utilisées dans ce tutoriel sont **POST** , **PUT** et **GET** . Vous allez utiliser les méthodes permettant d’effectuer quatre appels d’API vers votre service de recherche afin de créer une source de données, un ensemble de compétences, un index et un indexeur.
 
 Dans les en-têtes, définissez « Content-type » sur `application/json` et `api-key` sur la clé API d’administration de votre service Recherche cognitive Azure. Une fois que vous avez défini les en-têtes, vous pouvez les utiliser pour chaque demande de cet exercice.
 

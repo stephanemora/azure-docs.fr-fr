@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: jrasnick
 ms.date: 03/10/2020
-ms.openlocfilehash: 54a6293a29a407a7014aafb66587dcb01fc13337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 773f011e0c79dc7b246ddc4a737914c15fe0f2f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89645787"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789537"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Paramétrer les applications et les bases de données dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -122,7 +122,7 @@ Après sa création, cette même instruction SELECT sélectionne un plan différ
 
 ![Un plan de requête avec index corrigés](./media/performance-guidance/query_plan_corrected_indexes.png)
 
-L’insight clé est que la capacité d’E/S d’un système partagé est plus limitée que celle d’un serveur dédié. Il est primordial de réduire les E/S inutiles pour tirer le meilleur parti du système dans les ressources de chaque taille de calcul des niveaux de service. Des choix appropriés de conception physique de base de données peuvent considérablement améliorer la latence des requêtes individuelles, le débit des requêtes simultanées que vous pouvez traiter par unité d’échelle, et réduire les coûts nécessaires pour satisfaire la requête. Pour plus d’informations sur les DMV d’index manquants , consultez [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+L’insight clé est que la capacité d’E/S d’un système partagé est plus limitée que celle d’un serveur dédié. Il est primordial de réduire les E/S inutiles pour tirer le meilleur parti du système dans les ressources de chaque taille de calcul des niveaux de service. Des choix appropriés de conception physique de base de données peuvent considérablement améliorer la latence des requêtes individuelles, le débit des requêtes simultanées que vous pouvez traiter par unité d’échelle, et réduire les coûts nécessaires pour satisfaire la requête. Pour plus d’informations sur les DMV d’index manquants , consultez [sys.dm_db_missing_index_details](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-missing-index-details-transact-sql).
 
 ### <a name="query-tuning-and-hinting"></a>Paramétrage/Compréhension de requêtes
 
@@ -230,9 +230,9 @@ ORDER BY start_time DESC
 > [!NOTE]
 > Bien que le volume de cet exemple soit intentionnellement faible, l’effet des paramètres non optimaux peut s’avérer conséquent, en particulier sur les grandes bases de données. La différence, dans les cas extrêmes, se chiffre en secondes pour les scénarios rapides et en heures pour les scénarios lents.
 
-Vous pouvez examiner **sys.resource_stats** pour déterminer si la ressource d’un test donnée utilise plus ou moins de ressource qu’un autre test. Lorsque vous comparez les données, espacez les tests dans le temps pour qu’ils ne soient pas groupés dans la même fenêtre temporelle de 5 minutes dans la vue **sys.resource_stats**. Le but de cet exercice est de réduire les ressources totales utilisées, et non pas de réduire les ressources. En règle générale, l’optimisation d’une partie de code pour la latence permet également de réduire l’utilisation des ressources. Assurez-vous que les modifications apportées à une application sont nécessaires, et que les modifications n’affectent pas négativement les utilisateurs susceptibles d’utiliser des indicateurs de requêtes dans l’application.
+Vous pouvez examiner **sys.resource_stats** pour déterminer si la ressource d’un test donnée utilise plus ou moins de ressource qu’un autre test. Lorsque vous comparez les données, espacez les tests dans le temps pour qu’ils ne soient pas groupés dans la même fenêtre temporelle de 5 minutes dans la vue **sys.resource_stats** . Le but de cet exercice est de réduire les ressources totales utilisées, et non pas de réduire les ressources. En règle générale, l’optimisation d’une partie de code pour la latence permet également de réduire l’utilisation des ressources. Assurez-vous que les modifications apportées à une application sont nécessaires, et que les modifications n’affectent pas négativement les utilisateurs susceptibles d’utiliser des indicateurs de requêtes dans l’application.
 
-Si une charge de travail présente un ensemble de requêtes répétitives, il est souvent judicieux de capturer et de valider l’optimalité de ces choix de plan, dans la mesure où ils proposeront l’unité de taille de ressource minimum requise pour héberger la base de données. Après la validation, réexaminez régulièrement les plans afin de vous assurer de leur non-dégradation. Pour plus d’informations, consultez la page [Indicateurs de requête (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
+Si une charge de travail présente un ensemble de requêtes répétitives, il est souvent judicieux de capturer et de valider l’optimalité de ces choix de plan, dans la mesure où ils proposeront l’unité de taille de ressource minimum requise pour héberger la base de données. Après la validation, réexaminez régulièrement les plans afin de vous assurer de leur non-dégradation. Pour plus d’informations, consultez la page [Indicateurs de requête (Transact-SQL)](/sql/t-sql/queries/hints-transact-sql-query).
 
 ### <a name="very-large-database-architectures"></a>Architectures de base de données très volumineuses
 

@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293354"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789843"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modification sur place de l’édition SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,8 +34,8 @@ Une fois que l’édition de SQL Server a été modifiée en interne sur la mach
 Pour effectuer une modification sur place de l’édition de SQL Server, voici ce dont vous avez besoin : 
 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
-- Une [machine virtuelle SQL Server sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) inscrite auprès du [fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md).
-- Le support d’installation correspondant à l’**édition de SQL Server souhaitée**. Les clients qui disposent de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d’installation d’une image de machine virtuelle SQL Server de la Place de marché Azure correspondant à l’édition souhaitée (généralement située dans `C:\SQLServerFull`). 
+- Une [machine virtuelle SQL Server sur Windows](./create-sql-vm-portal.md) inscrite auprès du [fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md).
+- Le support d’installation correspondant à l’ **édition de SQL Server souhaitée** . Les clients qui disposent de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d’installation d’une image de machine virtuelle SQL Server de la Place de marché Azure correspondant à l’édition souhaitée (généralement située dans `C:\SQLServerFull`). 
 
 
 ## <a name="upgrade-an-edition"></a>Mettre à niveau une édition
@@ -46,11 +46,11 @@ Pour effectuer une modification sur place de l’édition de SQL Server, voici c
 Pour mettre à niveau l’édition de SQL Server, procurez-vous le support d’installation de SQL Server correspondant à l'édition souhaitée, puis procédez comme suit :
 
 1. Ouvrez Setup.exe à partir du support d’installation de SQL Server. 
-1. Accédez à **Maintenance** et choisissez l’option **Mise à niveau d’édition**. 
+1. Accédez à **Maintenance** et choisissez l’option **Mise à niveau d’édition** . 
 
    ![Sélection pour la mise à niveau de l’édition de SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau de l'édition**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut cesser de répondre pendant quelques minutes, le temps que la modification prenne effet. Une page **Terminé** confirme que la mise à niveau de l’édition est terminée. 
+1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau de l'édition** , puis sélectionnez **Mettre à niveau** . La fenêtre d’installation peut cesser de répondre pendant quelques minutes, le temps que la modification prenne effet. Une page **Terminé** confirme que la mise à niveau de l’édition est terminée. 
 
 Une fois que l’édition de SQL Server est mise à niveau, modifiez la propriété d’édition de la machine virtuelle SQL Server sur le Portail Azure. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
 
@@ -79,7 +79,7 @@ Une fois que vous avez modifié l’édition de SQL Server à l’aide du suppor
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre ressource Machine virtuelle SQL Server. 
-1. Sous **Paramètres**, sélectionnez **Configurer**. Sélectionnez ensuite l’édition souhaitée de SQL Server dans la liste déroulante située en dessous de **Édition**. 
+1. Sous **Paramètres** , sélectionnez **Configurer** . Sélectionnez ensuite l’édition souhaitée de SQL Server dans la liste déroulante située en dessous de **Édition** . 
 
    ![Modifier les métadonnées de l'édition](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -102,5 +102,3 @@ Pour plus d’informations, consultez les articles suivants :
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.md)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
 * [Notes de publication pour SQL Server sur une machine virtuelle Windows](doc-changes-updates-release-notes.md)
-
-

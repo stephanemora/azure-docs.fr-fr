@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209540"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792580"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -45,7 +45,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 | [Données de l’Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | « L’Open Science Data Cloud offre à la communauté scientifiques des ressources pour stocker, partager et analyser des jeux de données scientifiques à l’échelle du téraoctet et du pétaoctet. »| Les jeux de données se trouvent dans différents formats. |
 | [Données climatiques mondiales - WorldClim](https://worldclim.org/) | « WorldClim est un ensemble de couches climatiques mondiales (données climatiques en grille) avec une résolution spatiale d’environ 1 km2. Ces données peuvent être utilisées pour le mappage et la modélisation spatiale. » | Ces fichiers contiennent des données géospatiales. Pour plus d’informations, consultez [Format de données](https://worldclim.org/formats1). |
 | [Données sur la société humaine - Le projet GDELT](https://www.gdeltproject.org/data.html) | « Le projet GDELT est la plus grande base, la plus complète et la plus détaillée base de données ouverte sur la société humaine jamais créée. » | Les fichiers de données brutes sont au format CSV. |
-| [Données de prévision des clics sur les publicités pour l’apprentissage automatisé de Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | « Le plus grand jeu de données jamais publié pour l’apprentissage automatisé. » Pour plus d’informations, consultez [Jeu de données de prévision de clics de 1 To de Criteo](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [Données de prévision des clics sur les publicités pour l’apprentissage automatisé de Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | « Le plus grand jeu de données jamais publié pour l’apprentissage automatisé. » Pour plus d’informations, consultez [Jeu de données de prévision de clics de 1 To de Criteo](/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset). | |
 | [Jeu de données d’exploration de texte ClueWeb09 du projet Lemur](https://www.lemurproject.org/clueweb09.php/) | « Le jeu de données ClueWeb09 a été créé pour soutenir la recherche sur la récupération d’informations et les technologies liées aux langages humains. Il se compose d’environ 1 milliard de pages web dans 10 langues qui ont été collectées en janvier et février 2009. » | Consultez la page [Informations sur le jeu de données](https://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Données de service en ligne

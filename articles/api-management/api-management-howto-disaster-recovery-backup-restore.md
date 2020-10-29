@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075329"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787225"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -61,28 +61,28 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
     > [!NOTE]
     > Si le répertoire par défaut Azure Active Directory n’est pas visible dans votre compte, contactez l’administrateur de l’abonnement Azure pour accorder les autorisations nécessaires à votre compte.
 
-3. Cliquez sur **Nouvelle inscription d’application**.
+3. Cliquez sur **Nouvelle inscription d’application** .
 
     La fenêtre **Créer** s’affiche sur la droite. C’est là que vous entrez les informations appropriées de l’application AAD.
 
 4. Entrez un nom pour l’application.
-5. Pour le type d’application, sélectionnez **Native**.
-6. Entrez une URL d’espace réservé comme `http://resources` pour l’**URI de redirection**, puisqu’il s’agit d’un champ obligatoire, mais la valeur n’est pas utilisée par la suite. Cliquez sur la case à cocher pour enregistrer l'application.
-7. Cliquez sur **Créer**.
+5. Pour le type d’application, sélectionnez **Native** .
+6. Entrez une URL d’espace réservé comme `http://resources` pour l’ **URI de redirection** , puisqu’il s’agit d’un champ obligatoire, mais la valeur n’est pas utilisée par la suite. Cliquez sur la case à cocher pour enregistrer l'application.
+7. Cliquez sur **Créer** .
 
 ### <a name="add-an-application"></a>Ajouter une application
 
-1. Une fois l’application créée, cliquez sur **Autorisations des API**.
-2. Cliquez sur **+ Ajouter une autorisation**.
-4. Appuyez sur **Sélectionner des API Microsoft**.
-5. Choisissez **Gestion des services Azure**.
-6. Appuyez sur **Sélectionner**.
+1. Une fois l’application créée, cliquez sur **Autorisations des API** .
+2. Cliquez sur **+ Ajouter une autorisation** .
+4. Appuyez sur **Sélectionner des API Microsoft** .
+5. Choisissez **Gestion des services Azure** .
+6. Appuyez sur **Sélectionner** .
 
     ![Ajout d’autorisations](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Cliquez sur **Autorisations déléguées** à côté de l’application ajoutée, puis cochez la case **Accès à la gestion des services Azure (aperçu)** .
-8. Appuyez sur **Sélectionner**.
-9. Cliquez sur **Accorder des autorisations**.
+8. Appuyez sur **Sélectionner** .
+9. Cliquez sur **Accorder des autorisations** .
 
 ### <a name="configuring-your-app"></a>Configuration de votre application
 
@@ -115,11 +115,11 @@ namespace GetTokenResourceManagerRequests
 
 Remplacez `{tenant id}`, `{application id}` et `{redirect uri}` en suivant les instructions suivantes :
 
-1. Remplacez `{tenant id}` par l’ID de locataire de l’application Azure Active Directory que vous avez créée. Vous pouvez accéder à l’ID en cliquant sur **Inscriptions d’applications** -> **Points de terminaison**.
+1. Remplacez `{tenant id}` par l’ID de locataire de l’application Azure Active Directory que vous avez créée. Vous pouvez accéder à l’ID en cliquant sur **Inscriptions d’applications** -> **Points de terminaison** .
 
     ![Points de terminaison][api-management-endpoint]
 
-2. Remplacez `{application id}` par la valeur que vous avez obtenue en accédant à la page **Paramètres**.
+2. Remplacez `{application id}` par la valeur que vous avez obtenue en accédant à la page **Paramètres** .
 3. Remplacez `{redirect uri}` par la valeur provenant de l’onglet **URI de redirection** de votre application Azure Active Directory.
 
     Une fois que les valeurs sont spécifiées, l’exemple de code doit renvoyer un jeton similaire à l’exemple suivant :
@@ -152,7 +152,7 @@ où :
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API que vous tentez de sauvegarder
 -   `resourceGroupName` : nom du groupe de ressources de votre service Gestion des API Azure
 -   `serviceName` : Nom du service Gestion des API que vous sauvegardez, spécifié au moment de sa création
--   `api-version` : à remplacer par `2018-06-01-preview`
+-   `api-version` : à remplacer par `2019-12-01`
 
 Dans le corps de la demande, spécifiez le nom du compte de stockage Azure cible, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
@@ -171,10 +171,10 @@ La sauvegarde est une opération longue qui peut prendre plusieurs minutes. Si l
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Contraintes lors de la création d’une requête de sauvegarde ou de restauration
 
--   Le **conteneur** spécifié dans le corps de la demande **doit exister**.
--   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service**, comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
+-   Le **conteneur** spécifié dans le corps de la demande **doit exister** .
+-   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service** , comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
 -   La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
--   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
+-   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus** .
 -   **Autorisez** l’accès depuis le plan de contrôle au compte de stockage Azure, si le [pare-feu][azure-storage-ip-firewall] est activé pour celui-ci. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage utilisé comme destination de sauvegarde ou source de restauration. Cela est dû au fait que les demandes adressées à Stockage Azure ne font pas l’objet d’une traduction d’adresse réseau source en adresse IP publique dans Calcul > (Plan de contrôle de gestion des API Azure). La demande de stockage inter-région fera l’objet d’une traduction d’adresse réseau source.
 
 #### <a name="what-is-not-backed-up"></a>Éléments non sauvegardés
@@ -202,7 +202,7 @@ où :
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API dans lequel vous restaurez une sauvegarde
 -   `resourceGroupName` : Nom du groupe de ressources qui contient le service Gestion des API Azure dans lequel vous restaurez une sauvegarde
 -   `serviceName` : Nom du service Gestion des API en cours de restauration, spécifié au moment de sa création
--   `api-version` : à remplacer par `2018-06-01-preview`
+-   `api-version` : à remplacer par `api-version=2019-12-01`
 
 Dans le corps de la demande, spécifiez l’emplacement du fichier de sauvegarde. C’est-à-dire, ajoutez le nom du compte de stockage Azure, la clé d’accès, le nom du conteneur d’objets blob et le nom de la sauvegarde :
 
@@ -222,7 +222,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 > [!IMPORTANT]
 > Le **SKU** du service à restaurer **doit correspondre** à celui du service sauvegardé utilisé pour la restauration.
 >
-> Les **modifications** de configuration du service (par exemple, API, stratégies, apparence du portail des développeurs) pendant qu’une opération de restauration est en cours **peuvent être écrasées**.
+> Les **modifications** de configuration du service (par exemple, API, stratégies, apparence du portail des développeurs) pendant qu’une opération de restauration est en cours **peuvent être écrasées** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

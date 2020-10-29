@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840487"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792597"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ La première partie de cet article examine différentes techniques de traitement
 ### <a name="note-about-timing-results-in-this-article"></a>Remarque relative aux résultats de minutage fournis dans cet article
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant les nouveaux [niveaux de service DTU](database/service-tiers-dtu.md) ou [niveaux de service vCore](database/service-tiers-vcore.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
+> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives** . Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant les nouveaux [niveaux de service DTU](database/service-tiers-dtu.md) ou [niveaux de service vCore](database/service-tiers-vcore.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 
 ### <a name="transactions"></a>Transactions
 
@@ -93,11 +93,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
+Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
 Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
-**Local vers Azure**:
+**Local vers Azure** :
 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont 
 
 Compte tenu des résultats des tests précédents, l’encapsulation d’une seule opération dans une transaction a réellement pour effet de réduire les performances. Mais lorsque vous augmentez le nombre d’opérations dans une même transaction, vous obtenez une amélioration de performances plus marquée. La différence de performances est également plus manifeste lorsque toutes les opérations interviennent au sein du centre de données Microsoft Azure. L'augmentation du phénomène de latence associée à l'utilisation d'Azure SQL Database or Azure SQL Managed Instance à l'extérieur du centre de données Microsoft Azure masque en partie le gain de performances lié à l'utilisation de transactions.
 
-Bien que l’utilisation de transactions puisse augmenter les performances, nous vous invitons à [respecter les meilleures pratiques en matière de connexions et de transactions](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Utilisez la transaction la plus courte possible et fermez la connexion à la base de données une fois la tâche terminée. L’instruction using dans l’exemple précédent garantit la fermeture de la connexion à la fin de l’exécution du bloc de code suivant.
+Bien que l’utilisation de transactions puisse augmenter les performances, nous vous invitons à [respecter les meilleures pratiques en matière de connexions et de transactions](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Utilisez la transaction la plus courte possible et fermez la connexion à la base de données une fois la tâche terminée. L’instruction using dans l’exemple précédent garantit la fermeture de la connexion à la fin de l’exécution du bloc de code suivant.
 
 L’exemple précédent montre que vous pouvez ajouter une transaction locale au code ADO.NET avec deux lignes. Les transactions offrent un moyen rapide d’améliorer les performances du code qui génère les opérations d’insertion, de mise à jour et de suppression séquentielles. Toutefois, pour de meilleures performances, vous devriez apporter d’autres modifications au code afin de tirer parti des avantages du traitement par lots côté client, tels que les paramètres table.
 
@@ -128,7 +128,7 @@ Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transac
 
 ### <a name="table-valued-parameters"></a>Paramètres table
 
-Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType**.
+Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **\@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
+Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **\@TestTvp** . L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add** . Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
 
 Pour améliorer l’exemple précédent, utilisez une procédure stockée au lieu d’une commande de texte. La commande Transact-SQL suivante crée une procédure stockée qui utilise le paramètre table **SimpleTestTableType** .
 
@@ -212,7 +212,7 @@ Pour plus d’informations sur les paramètres table, consultez [Paramètres tab
 
 ### <a name="sql-bulk-copy"></a>Copie en bloc SQL
 
-La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil en ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT**. L'exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable** dans la table de destination, MyTable.
+La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil en ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT** . L'exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable** dans la table de destination, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ La classe **DataAdapter** vous permet de modifier un objet **DataSet** puis de s
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) prend désormais en charge le traitement par lot.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) prend désormais en charge le traitement par lot.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ Bien que certains scénarios apparaissent comme des candidats évidents pour le 
 
 Par exemple, considérez une application web qui assure le suivi de l’historique de navigation de chaque utilisateur. À chaque demande de page, l’application peut lancer un appel sur la base de données pour enregistrer la page consultée par l’utilisateur. Mais il est possible d’améliorer les performances et l’évolutivité en plaçant dans la mémoire tampon les activités de navigation des utilisateurs puis en envoyant ces données par lots à la base de données. Vous pouvez déclencher la mise à jour de la base de données par temps écoulé et/ou taille de mémoire tampon. Par exemple, une règle peut spécifier que le lot doit être traité après 20 secondes ou lorsque la mémoire tampon atteint 1 000 éléments.
 
-L’exemple de code suivant utilise les [Extensions réactives - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) pour traiter les événements mis en mémoire tampon déclenchés par une classe de surveillance. Lorsque la mémoire tampon est saturée ou qu’un délai d’attente est atteint, le lot de données utilisateur est envoyé à la base de données avec un paramètre table.
+L’exemple de code suivant utilise les [Extensions réactives - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) pour traiter les événements mis en mémoire tampon déclenchés par une classe de surveillance. Lorsque la mémoire tampon est saturée ou qu’un délai d’attente est atteint, le lot de données utilisateur est envoyé à la base de données avec un paramètre table.
 
 La classe NavHistoryData suivante modélise les détails de la navigation utilisateur. Elle contient des informations de base, telles que l’identifiant utilisateur, l’URL consultée et l’heure d’accès.
 

@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077906"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792852"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -282,7 +282,7 @@ Le nom de chaque fichier téléchargé commence par l’ID de version suivi du n
 
 Vous pouvez utiliser AzCopy pour copier des objets blob vers d’autres comptes de stockage. L’opération de copie étant synchrone, lorsque la commande retourne un résultat, cela indique que tous les fichiers ont été copiés. 
 
-AzCopy utilise des [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [serveur à serveur](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur. Vous pouvez augmenter le débit de ces opérations en définissant la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Pour en savoir plus, voir [Optimiser le débit](storage-use-azcopy-configure.md#optimize-throughput).
+AzCopy utilise des [API](/rest/api/storageservices/put-page-from-url) [serveur à serveur](/rest/api/storageservices/put-block-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur. Vous pouvez augmenter le débit de ces opérations en définissant la valeur de la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Pour en savoir plus, voir [Optimiser le débit](storage-use-azcopy-configure.md#optimize-throughput).
 
 > [!NOTE]
 > Ce scénario présente les limitations suivantes dans la version actuelle.
@@ -363,7 +363,7 @@ La commande [sync](storage-ref-azcopy-sync.md) compare les noms de fichiers et l
 Si vous définissez l’indicateur `--delete-destination` sur `true`, AzCopy supprime les fichiers sans invite. Si vous souhaitez qu’une invite s’affiche avant que l’utilitaire AzCopy ne supprime un fichier, définissez l’indicateur `--delete-destination` sur `prompt`.
 
 > [!NOTE]
-> Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
+> Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](../blobs/soft-delete-blob-overview.md) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
 
 > [!TIP]
 > Vous pouvez ajuster votre opération de synchronisation à l’aide d’indicateurs facultatifs. Voici quelques exemples.

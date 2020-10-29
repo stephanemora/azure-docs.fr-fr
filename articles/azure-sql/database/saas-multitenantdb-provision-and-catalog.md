@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331938"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793328"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Approvisionner et inscrire dans un catalogue de nouveaux locataires dans une application SaaS utilisant une base de données Azure SQL Database multilocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-- Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+- Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
 
-- L’application de base de données multilocataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- L’application de base de données multilocataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
 
 - Obtenir les scripts et le code source Wingtip :
     - Les scripts et le code source de l’application de base de données multilocataire Wingtip Tickets SaaS sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB).
@@ -173,7 +173,7 @@ Pour comprendre comment l’application Wingtip implémente le provisionnement d
 
 5. Suivez l’exécution du script à l’aide des options du menu **Débogage** , **F10** et **F11** , pour parcourir les fonctions appelées.
 
-Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Provisionner un locataire dans sa *propre* base de données
 
@@ -263,9 +263,9 @@ Ce type de service automatique peut être simple ou complexe. Par exemple, le sy
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Bibliothèque cliente de base de données élastique](elastic-database-client-library.md)
-- [Déboguer les scripts dans l’ISE Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Déboguer les scripts dans l’ISE Windows PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -277,5 +277,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Approvisionner un lot de locataires supplémentaires
 > * Suivre les étapes de provisionnement des locataires et de leur inscription dans le catalogue
 
-Essayez le [didacticiel Surveillance des performances](../../sql-database/saas-multitenantdb-performance-monitoring.md).
-
+Essayez le [didacticiel Surveillance des performances](./saas-multitenantdb-performance-monitoring.md).

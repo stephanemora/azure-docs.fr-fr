@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789622"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutoriel : Implémenter une base de données géo-distribuée (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
@@ -47,7 +47,7 @@ Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés 
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > Ce tutoriel utilise l’exemple de base de données *AdventureWorksLT*.
+  > Ce tutoriel utilise l’exemple de base de données *AdventureWorksLT* .
 
 - Java et Maven. Consultez [Générer une application à l’aide de SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), mettez en surbrillance **Java** et sélectionnez votre environnement, puis suivez les étapes.
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Vous pouvez également changer les paramètres de géoréplication dans le portail Azure. Pour cela, sélectionnez votre base de données, puis **Paramètres** > **Géoréplication**.
+Vous pouvez également changer les paramètres de géoréplication dans le portail Azure. Pour cela, sélectionnez votre base de données, puis **Paramètres** > **Géoréplication** .
 
 ![Paramètres de géoréplication](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Tapez **Y**, puis appuyez sur **Entrée**.
+1. Tapez **Y** , puis appuyez sur **Entrée** .
 
 1. Passez au répertoire du nouveau projet.
 
@@ -182,7 +182,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    </build>
    ```
 
-1. Enregistrez et fermez le fichier *pom.xml*.
+1. Enregistrez et fermez le fichier *pom.xml* .
 
 1. Ouvrez le fichier *App.java* situé à l’emplacement ..\SqlDbSample\src\main\java\com\sqldbsamples et remplacez son contenu par le code suivant :
 
@@ -290,7 +290,7 @@ Vous pouvez également changer les paramètres de géoréplication dans le porta
    }
    ```
 
-1. Enregistrez et fermez le fichier *App.java*.
+1. Enregistrez et fermez le fichier *App.java* .
 
 1. Dans la console de commandes, exécutez la commande suivante :
 

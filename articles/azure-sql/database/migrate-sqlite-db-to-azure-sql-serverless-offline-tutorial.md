@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448910"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790404"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Guide pratique pour migrer votre base de données SQLite vers Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Une fois que vous aurez suivi les étapes ci-dessous, votre base de données ser
     - Démarrez Azure Data Factory (Créer et Surveiller à partir du service sur le portail Azure)
     - Cliquez sur l’onglet Créer représenté par le crayon bleu à gauche
     - Cliquez sur Connexions en bas à gauche, puis sur Runtimes d’intégration
-    - Ajoutez un nouveau runtime d’intégration auto-hébergé, donnez-lui un nom, sélectionnez *Option 2*.
+    - Ajoutez un nouveau runtime d’intégration auto-hébergé, donnez-lui un nom, sélectionnez *Option 2* .
 
 5. Créez un service lié pour la base de données SQLite source dans votre Data Factory.
 
     ![Capture d’écran montrant le panneau Services liés vide dans Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. Dans **Connexions**, sous **Service lié**, cliquez sur **Nouveau**.
+6. Dans **Connexions** , sous **Service lié** , cliquez sur **Nouveau** .
 
 7. Recherchez et sélectionnez le connecteur ODBC
 
@@ -109,4 +109,4 @@ Une fois que vous aurez suivi les étapes ci-dessous, votre base de données ser
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour démarrer, consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](single-database-create-quickstart.md).
-- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)
+- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)

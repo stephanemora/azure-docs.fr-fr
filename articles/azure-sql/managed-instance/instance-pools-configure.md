@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793107"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Déployer Azure SQL Managed Instance dans un pool d’instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 |Créer une base de données dans l’instance dans le pool|Oui|Oui|
 |Supprimer une base de données de SQL Managed Instance|Oui|Oui|
 
-[Commandes PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibles :
+[Commandes PowerShell](/powershell/module/az.sql/) disponibles :
 
 |Applet de commande |Description |
 |:---|:---|
@@ -52,7 +52,7 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retourne des informations sur l’utilisation d’un pool SQL Managed Instance. |
 
 
-Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Pour les opérations liées aux instances à la fois dans les pools et les instances uniques, utilisez les [commandes de l’instance managée](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) standard, mais la propriété de *nom du pool d’instances* doit être remplie lors de l’utilisation de ces commandes pour une instance d’un pool.
 

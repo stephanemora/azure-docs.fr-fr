@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617755"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791628"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Utilisez la commande PowerShell [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) avec l’exemple suivant pour lancer le basculement du nœud principal, applicable à la fois aux niveaux de service BC et GP.
+Utilisez la commande PowerShell [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) avec l’exemple suivant pour lancer le basculement du nœud principal, applicable à la fois aux niveaux de service BC et GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Utilisation de l’API REST
 
-Pour les utilisateurs expérimentés qui auraient peut-être besoin d’automatiser les basculements de leurs instances SQL Managed Instance à des fins d’implémentation d’un pipeline de test continu ou d’atténuations des performances automatisées, cette fonction peut être obtenue par le biais d’un appel d’API. Pour plus d’informations, consultez [Instances gérées - API REST de basculement](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover).
+Pour les utilisateurs expérimentés qui auraient peut-être besoin d’automatiser les basculements de leurs instances SQL Managed Instance à des fins d’implémentation d’un pipeline de test continu ou d’atténuations des performances automatisées, cette fonction peut être obtenue par le biais d’un appel d’API. Pour plus d’informations, consultez [Instances gérées - API REST de basculement](/rest/api/sql/managed%20instances%20-%20failover/failover).
 
 Pour initier un basculement à l’aide d’un appel d’API REST, commencez par générer le jeton d’authentification à l’aide du client API de votre choix. Le jeton d’authentification généré est utilisé comme propriété d’autorisation dans l’en-tête de la requête d’API et il est obligatoire.
 
@@ -136,11 +136,11 @@ Avant de lancer le basculement, votre sortie indiquera le réplica principal act
 Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de GP que celle indiquée ci-dessus pour BC. Cela est dû au fait que le niveau de service GP est basé sur un seul nœud. Le résultat de la requête T-SQL pour le niveau de service GP affiche un seul nœud avant et après le basculement. La perte de connectivité de votre client pendant le basculement, qui dure généralement moins d’une minute, est l’indication de l’exécution du basculement.
 
 > [!NOTE]
-> L’achèvement du processus de basculement (et non la brève indisponibilité) peut prendre plusieurs minutes à la fois en cas de charges de travail à **haute intensité**. Cela est dû au fait que le moteur d’instance s’occupe de toutes les transactions en cours sur le serveur principal et rattrape son retard sur le nœud secondaire, avant d’être en mesure de basculer.
+> L’achèvement du processus de basculement (et non la brève indisponibilité) peut prendre plusieurs minutes à la fois en cas de charges de travail à **haute intensité** . Cela est dû au fait que le moteur d’instance s’occupe de toutes les transactions en cours sur le serveur principal et rattrape son retard sur le nœud secondaire, avant d’être en mesure de basculer.
 
 > [!IMPORTANT]
 > Les limitations fonctionnelles du basculement manuel initié par l’utilisateur sont les suivantes :
-> - Un (1) basculement peut être initié sur la même Managed Instance toutes les **30 minutes**.
+> - Un (1) basculement peut être initié sur la même Managed Instance toutes les **30 minutes** .
 > - Pour les instances BC, il doit exister un quorum de réplicas pour que la requête de basculement soit acceptée.
 > - Pour les instances BC, il n’est pas possible de spécifier le réplica secondaire accessible en lecture sur lequel initier le basculement.
 

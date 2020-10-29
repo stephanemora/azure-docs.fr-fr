@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075942"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785593"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
 
@@ -27,7 +27,7 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
 ## <a name="recommended-steps"></a>Étapes recommandées
 
-1. Téléchargez les [journaux Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Téléchargez les [journaux Storage Analytics](./storage-analytics-logging.md#download-storage-logging-log-data).
 
 2. Utilisez le script PowerShell suivant pour convertir les journaux du format brut au format tabulaire :
 
@@ -114,7 +114,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération GetBlob** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le Stockage Azure passe beaucoup de temps à écrire des données sur le client. Ce délai indique un problème côté client.
+Dans une **opération GetBlob** avec **RequestStatus = Success** , si le **Temps maximal** est consacré à la **Latence du client** , c’est le signe que le Stockage Azure passe beaucoup de temps à écrire des données sur le client. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
@@ -129,7 +129,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
+Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError** , si le **Temps maximal** est consacré à la **Latence du client** , le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 
@@ -144,7 +144,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération Put** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le client prend plus de temps à envoyer des données au Stockage Azure. Ce délai indique un problème côté client.
+Dans une **opération Put** avec **RequestStatus = Success** , si le **Temps maximal** est consacré à la **Latence du client** , c’est le signe que le client prend plus de temps à envoyer des données au Stockage Azure. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
@@ -159,10 +159,9 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération PutBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
+Dans une **opération PutBlob** avec **RequestStatus = (SAS)NetworkError** , si le **Temps maximal** est consacré à la **Latence du client** , le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 
 * Examinez le code dans votre client afin de comprendre pourquoi et quand le client se déconnecte du service de stockage.
 * Utilisez Wireshark, l’analyseur de message Microsoft ou TCPing pour enquêter sur les problèmes de connectivité réseau provenant du client.
-

@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448141"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792393"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur les changements qu’apportent les Services conne
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Un abonnement Azure**. Si vous n’avez pas d’abonnement, inscrivez-vous pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure** . Si vous n’avez pas d’abonnement, inscrivez-vous pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019, version 16.3** ou ultérieure [Télécharger le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 
@@ -32,13 +32,13 @@ Pour plus d’informations sur les changements qu’apportent les Services conne
 
 Avant de commencer, vérifiez que vous êtes connecté à Visual Studio. Connectez-vous avec le même compte que celui que vous utilisez pour votre abonnement Azure. Ouvrez ensuite un projet web ASP.NET 4.7.1 ou version ultérieure, ou ASP.NET Core 2.0, puis procédez comme suit :
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton de droite sur le projet auquel vous souhaitez ajouter le support Key Vault, puis choisissez **Ajouter** > **Service connecté** > **Ajouter**.
+1. Dans **l’Explorateur de solutions** , cliquez avec le bouton de droite sur le projet auquel vous souhaitez ajouter le support Key Vault, puis choisissez **Ajouter** > **Service connecté** > **Ajouter** .
    La page Service connecté s’affiche et montre des services que vous pouvez ajouter à votre projet.
-1. Dans le menu des services disponibles, choisissez **Azure Key Vault** et cliquez sur **Suivant**.
+1. Dans le menu des services disponibles, choisissez **Azure Key Vault** et cliquez sur **Suivant** .
 
    ![Choisir « Azure Key Vault »](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Sélectionnez l’abonnement que vous souhaitez utiliser, puis choisissez un Key Vault existant et cliquez sur **Terminer**. 
+1. Sélectionnez l’abonnement que vous souhaitez utiliser, puis choisissez un Key Vault existant et cliquez sur **Terminer** . 
 
    ![Sélectionnez votre abonnement](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
@@ -131,12 +131,12 @@ Si votre Key Vault s’exécute sur un autre compte Microsoft que celui auquel v
 
 1. Accédez au [Portail Azure](https://portal.azure.com) et accédez à votre coffre de clés.
 
-1. Choisissez **Stratégies d’accès**, puis **Ajouter une stratégie d’accès**et choisissez le compte avec lequel vous êtes connecté en tant que principal.
+1. Choisissez **Stratégies d’accès** , puis **Ajouter une stratégie d’accès** et choisissez le compte avec lequel vous êtes connecté en tant que principal.
 
-1. Dans Visual Studio, choisissez **Fichier** > **Paramètres du compte**.
-Sélectionnez **Ajouter un compte** dans la section **Tous les comptes**. Connectez-vous avec le compte que vous avez choisi comme principal de votre stratégie d’accès.
+1. Dans Visual Studio, choisissez **Fichier** > **Paramètres du compte** .
+Sélectionnez **Ajouter un compte** dans la section **Tous les comptes** . Connectez-vous avec le compte que vous avez choisi comme principal de votre stratégie d’accès.
 
-1. Choisissez **Outils** > **Options** et recherchez **Authentification du service Azure**. Sélectionnez ensuite le compte que vous venez d’ajouter à Visual Studio.
+1. Choisissez **Outils** > **Options** et recherchez **Authentification du service Azure** . Sélectionnez ensuite le compte que vous venez d’ajouter à Visual Studio.
 
 Désormais, quand vous déboguez votre application, Visual Studio se connecte au compte sur lequel se trouve votre Key Vault.
 
@@ -204,6 +204,6 @@ Affecte les références .NET du fichier projet et `packages.config` (référenc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez suivi ce tutoriel, vos autorisations Key Vault sont configurées pour s’exécuter avec votre propre abonnement Azure, mais cela peut ne pas être souhaitable pour un scénario de production. Vous pouvez créer une identité managée afin de gérer l’accès à Key Vault pour votre application. Consultez [Comment s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Si vous avez suivi ce tutoriel, vos autorisations Key Vault sont configurées pour s’exécuter avec votre propre abonnement Azure, mais cela peut ne pas être souhaitable pour un scénario de production. Vous pouvez créer une identité managée afin de gérer l’accès à Key Vault pour votre application. Consultez [Comment s’authentifier auprès de Key Vault](./authentication.md) et [Attribuer une stratégie d’accès Key Vault](./assign-access-policy-portal.md).
 
 Découvrez plus en détail le développement de coffres de clés en lisant le [Guide du développeur de coffre de clés](developers-guide.md).

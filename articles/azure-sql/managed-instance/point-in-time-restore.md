@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616514"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788347"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données d'Azure SQL Managed Instance à un point antérieur dans le temps
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,12 +62,12 @@ Restaurez une base de données existante sur la même instance de SQL Managed In
 
     ![Restaurer une base de données à l’aide du portail Azure](./media/point-in-time-restore/restore-database-to-mi.png)
 
-4. Dans la page **Restaurer**, sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
+4. Dans la page **Restaurer** , sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
 5. Sélectionnez **Confirmer** pour restaurer votre base de données. Cette action démarre le processus de restauration qui crée une nouvelle base de données et est rempli avec les données de la base de données d’origine au point spécifié dans le temps. Pour plus d’informations sur le processus de récupération, consultez [Heure de récupération](../database/recovery-using-backups.md#recovery-time).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Pour restaurer la base de données à l’aide de PowerShell, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Pour plus d’informations, consultez [.Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Pour plus d’informations, consultez [.Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Pour obtenir une explication détaillée des paramètres disponibles, consultez la [documentation CLI consacrée à la restauration d'une base de données sur une instance de SQL Managed Instance](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Pour obtenir une explication détaillée des paramètres disponibles, consultez la [documentation CLI consacrée à la restauration d'une base de données sur une instance de SQL Managed Instance](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -139,7 +139,7 @@ La restauration d’une base de données supprimée peut être effectuée en uti
 ### <a name="portal"></a>Portail 
 
 
-Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de présentation de l'instance de SQL Managed Instance, puis sélectionnez **Bases de données supprimées**. Choisissez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de présentation de l'instance de SQL Managed Instance, puis sélectionnez **Bases de données supprimées** . Choisissez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
   ![Capture d’écran de la restauration d’une base de données d’instance Azure SQL supprimée](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 Utilisez l'une des méthodes suivantes pour vous connecter à votre base de données de l'instance de SQL Managed Instance :
 
-- [SSMS/Azure Data Studio via une machine virtuelle Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio via une machine virtuelle Azure](./connect-vm-instance-configure.md)
+- [Point à site](./point-to-site-p2s-configure.md)
+- [Point de terminaison public](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Sur le portail Azure, sélectionnez la base de données à partir de l'instance de SQL Managed Instance et sélectionnez **Supprimer**.
+Sur le portail Azure, sélectionnez la base de données à partir de l'instance de SQL Managed Instance et sélectionnez **Supprimer** .
 
    ![Supprimer une base de données à l’aide du portail Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Utilisez l'une des méthodes suivantes pour vous connecter à votre base de données de l'instance de SQL Managed Instance :
 
-- [Machine virtuelle Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Machine virtuelle Azure](./connect-vm-instance-configure.md)
+- [Point à site](./point-to-site-p2s-configure.md)
+- [Point de terminaison public](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

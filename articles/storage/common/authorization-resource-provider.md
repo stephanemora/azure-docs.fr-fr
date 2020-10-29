@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822276"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789673"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
-Azure Resource Manager est le service de déploiement et de gestion d’Azure. Le fournisseur de ressources Stockage Azure est un service basé sur Azure Resource Manager qui permet d’accéder aux ressources de gestion pour Stockage Azure. Vous pouvez utiliser le fournisseur de ressources Stockage Azure pour créer, mettre à jour, gérer et supprimer des ressources comme des comptes de stockage, des points de terminaison privés et des clés d’accès de compte. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager est le service de déploiement et de gestion d’Azure. Le fournisseur de ressources Stockage Azure est un service basé sur Azure Resource Manager qui permet d’accéder aux ressources de gestion pour Stockage Azure. Vous pouvez utiliser le fournisseur de ressources Stockage Azure pour créer, mettre à jour, gérer et supprimer des ressources comme des comptes de stockage, des points de terminaison privés et des clés d’accès de compte. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 Vous pouvez utiliser le fournisseur de ressources Stockage Azure pour effectuer des actions telles que la création ou la suppression d’un compte de stockage, ou l’obtention d’une liste de comptes de stockage dans un abonnement. Pour autoriser les demandes auprès du fournisseur de ressources Stockage Azure, utilisez Azure Active Directory (Azure AD). Cet article explique comment affecter des autorisations à des ressources de gestion et pointe vers des exemples qui montrent comment effectuer des demandes auprès du fournisseur de ressources Stockage Azure.
 
@@ -32,9 +32,9 @@ Stockage Azure prend en charge l’utilisation d’Azure AD pour autoriser les d
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Attribuer des autorisations de gestion avec le contrôle d’accès Azure en fonction du rôle (Azure RBAC)
 
-Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui gère les utilisateurs, les groupes et les applications. Un utilisateur, un groupe ou une application est également appelé « principal de sécurité » dans le contexte de la [Plateforme d’identité Microsoft](/azure/active-directory/develop/). Vous pouvez accorder l’accès aux ressources d’un abonnement à un principal de sécurité défini dans l’annuaire Active Directory en utilisant le contrôle d’accès Azure en fonction du rôle (Azure RBAC).
+Chaque abonnement Azure est associé à un annuaire Azure Active Directory qui gère les utilisateurs, les groupes et les applications. Un utilisateur, un groupe ou une application est également appelé « principal de sécurité » dans le contexte de la [Plateforme d’identité Microsoft](../../active-directory/develop/index.yml). Vous pouvez accorder l’accès aux ressources d’un abonnement à un principal de sécurité défini dans l’annuaire Active Directory en utilisant le contrôle d’accès Azure en fonction du rôle (Azure RBAC).
 
-Quand vous attribuez un rôle Azure à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle Azure à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
+Quand vous attribuez un rôle Azure à un principal de sécurité, vous indiquez également l’étendue à laquelle les autorisations accordées par le rôle sont appliquées. Pour les opérations de gestion, vous pouvez attribuer un rôle au niveau de l’abonnement, du groupe de ressources ou du compte de stockage. Vous pouvez attribuer un rôle Azure à un principal de sécurité en utilisant le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/) ou l’[API REST du fournisseur de ressources Stockage Azure](/rest/api/storagerp).
 
 Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md) et [Rôles Administrateur d’abonnement classique, rôles Azure et rôles Administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -53,7 +53,7 @@ Les rôles intégrés qui accordent des autorisations pour appeler des opératio
 | **Administrateur de l'accès utilisateur** | Peut gérer l’accès au compte de stockage.   | Oui, permet à un principal de sécurité d’attribuer des autorisations à lui-même et à d’autres. |
 | **Contributeur de machine virtuelle** | Peut gérer les machines virtuelles, mais pas le compte de stockage auquel elles sont connectées.   | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
 
-La troisième colonne du tableau indique si le rôle intégré prend en charge **Microsoft.Storage/storageAccounts/listkeys/action**. Cette action accorde des autorisations pour lire et regénérer les clés de compte de stockage. Les autorisations d’accès aux ressources de gestion Stockage Azure n’incluent pas non plus des autorisations d’accès aux données. Cependant, si un utilisateur a accès aux clés de compte, il peut utiliser les clés de compte pour accéder aux données de Stockage Azure via une autorisation de clé partagée.
+La troisième colonne du tableau indique si le rôle intégré prend en charge **Microsoft.Storage/storageAccounts/listkeys/action** . Cette action accorde des autorisations pour lire et regénérer les clés de compte de stockage. Les autorisations d’accès aux ressources de gestion Stockage Azure n’incluent pas non plus des autorisations d’accès aux données. Cependant, si un utilisateur a accès aux clés de compte, il peut utiliser les clés de compte pour accéder aux données de Stockage Azure via une autorisation de clé partagée.
 
 ### <a name="custom-roles-for-management-operations"></a>Rôles personnalisés pour les opérations de gestion
 
@@ -76,6 +76,6 @@ Pour plus d’informations sur les modèles de déploiement Azure, consultez [D�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation d’Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Présentation d’Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md)
 - [Objectifs d’extensibilité pour le fournisseur de ressources de stockage Azure](scalability-targets-resource-provider.md)

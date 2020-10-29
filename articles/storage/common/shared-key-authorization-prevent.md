@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7679c613c4804f7df315918ee5d6946c07eb8b4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787735"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -47,23 +47,23 @@ Pour suivre la manière dont les demandes adressées à un compte de stockage so
 
 Pour créer une métrique qui suit des demandes effectuées avec clé partagée ou signature d’accès partagé, procédez comme suit :
 
-1. Accédez à votre compte de stockage dans le portail Azure. Dans la section **Supervision**, sélectionnez **Métriques**.
-1. Sélectionnez **Ajouter une métrique**. Dans la boîte de dialogue **Métrique**, spécifiez les valeurs suivantes :
+1. Accédez à votre compte de stockage dans le portail Azure. Dans la section **Supervision** , sélectionnez **Métriques** .
+1. Sélectionnez **Ajouter une métrique** . Dans la boîte de dialogue **Métrique** , spécifiez les valeurs suivantes :
     1. Laissez le champ **Étendue** défini sur le nom du compte de stockage.
-    1. Définissez l’**Espace de noms de métrique** sur *Compte*. Cette métrique signale toutes les demandes effectuées sur le compte de stockage.
-    1. Définissez le champ **Métrique** sur *Transactions*.
-    1. Définissez le champ **Agrégation** sur *Somme*.
+    1. Définissez l’ **Espace de noms de métrique** sur *Compte* . Cette métrique signale toutes les demandes effectuées sur le compte de stockage.
+    1. Définissez le champ **Métrique** sur *Transactions* .
+    1. Définissez le champ **Agrégation** sur *Somme* .
 
     La nouvelle métrique affiche le nombre total de transactions effectuées sur le compte de stockage pendant un intervalle de temps donné. La métrique qui en résulte s’affiche comme indiqué dans l’image suivante :
 
     :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
 1. Ensuite, sélectionnez le bouton **Ajouter un filtre** afin de créer un filtre sur la métrique pour le type d’autorisation.
-1. Dans la boîte de dialogue **Filtre**, spécifiez les valeurs suivantes :
-    1. Définissez la valeur **Propriété** sur *Authentification*.
+1. Dans la boîte de dialogue **Filtre** , spécifiez les valeurs suivantes :
+    1. Définissez la valeur **Propriété** sur *Authentification* .
     1. Affectez au champ **Opérateur** le signe égal (=).
-    1. Dans le champ **Valeurs**, sélectionnez *Clé de compte*, puis *SAP*.
-1. Dans l’angle supérieur droit, sélectionnez l’intervalle de temps pour lequel afficher la métrique. Vous pouvez également indiquer le degré de précision de l’agrégation des demandes, en spécifiant des intervalles compris entre 1 minute et 1 mois. Par exemple, définissez l’**Intervalle de temps** sur 30 jours et la **Granularité temporelle** sur 1 jour pour afficher les demandes agrégées par jour au cours des 30 derniers jours.
+    1. Dans le champ **Valeurs** , sélectionnez *Clé de compte* , puis *SAP* .
+1. Dans l’angle supérieur droit, sélectionnez l’intervalle de temps pour lequel afficher la métrique. Vous pouvez également indiquer le degré de précision de l’agrégation des demandes, en spécifiant des intervalles compris entre 1 minute et 1 mois. Par exemple, définissez l’ **Intervalle de temps** sur 30 jours et la **Granularité temporelle** sur 1 jour pour afficher les demandes agrégées par jour au cours des 30 derniers jours.
 
 Une fois que vous avez configuré la métrique, les demandes adressées à votre compte de stockage commencent à s’afficher sur le graphique. L’illustration suivante montre les demandes autorisées avec une clé partagée ou effectuées avec un jeton SAP. Les demandes sont agrégées par jour au cours des 30 derniers jours.
 
@@ -75,7 +75,7 @@ Vous pouvez également configurer une règle d’alerte pour vous avertir quand 
 
 Les journaux du stockage Azure capturent des détails sur les demandes effectuées sur le compte de stockage, y compris la manière dont une demande a été autorisée. Vous pouvez analyser les journaux pour identifier les clients qui autorisent les demandes avec clé partagée ou jeton SAP.
 
-Pour journaliser les demandes adressées à votre compte Stockage Azure afin d’évaluer la manière dont elles sont autorisées, vous pouvez utiliser la journalisation du Stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../common/monitor-storage.md).
+Pour journaliser les demandes adressées à votre compte Stockage Azure afin d’évaluer la manière dont elles sont autorisées, vous pouvez utiliser la journalisation du Stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../blobs/monitor-blob-storage.md).
 
 La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -88,10 +88,10 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Dans la section Supervision, Sélectionnez **Paramètres de diagnostic (préversion)** .
 1. Sélectionnez le service de stockage Azure pour lequel vous souhaitez journaliser les demandes. Par exemple, choisissez **Blob** pour journaliser les demandes dans le stockage Blob.
-1. Sélectionnez **Ajouter le paramètre de diagnostic**.
+1. Sélectionnez **Ajouter le paramètre de diagnostic** .
 1. Fournissez un nom pour le paramètre de diagnostic.
-1. Sous **Détails de la catégorie**, dans la section du **journal**, choisissez **StorageRead**, **StorageWrite**et **StorageDelete** pour journaliser toutes les demandes de données adressées au service sélectionné.
-1. Sous **Détails de la destination**, sélectionnez **Envoyer à Log Analytics**. Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
+1. Sous **Détails de la catégorie** , dans la section du **journal** , choisissez **StorageRead** , **StorageWrite** et **StorageDelete** pour journaliser toutes les demandes de données adressées au service sélectionné.
+1. Sous **Détails de la destination** , sélectionnez **Envoyer à Log Analytics** . Sélectionnez votre abonnement et l’espace de travail Log Analytics que vous avez créé, comme illustré dans l’image suivante.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
@@ -99,7 +99,7 @@ Vous pouvez créer un paramètre de diagnostic pour chaque type de ressource Sto
 
 Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](../common/monitor-storage-reference.md#resource-logs-preview).
+Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-requests-made-with-shared-key-or-sas"></a>Interroger les journaux concernant les demandes effectuées avec clé partagée ou signature d’accès partagé
 
@@ -118,9 +118,9 @@ Vous pouvez également configurer une règle d’alerte basée sur cette requêt
 
 Une fois que vous avez analysé la manière dont les demandes adressées à votre compte de stockage sont autorisées, vous pouvez agir pour empêcher l’accès via une clé partagée. Mais tout d’abord, vous devez mettre à jour les applications qui utilisent l’autorisation avec clé partagée pour utiliser Azure AD à la place. Pour suivre la transition, vous pouvez surveiller les journaux et les métriques, comme décrit dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications). Pour plus d’informations sur l’utilisation d’Azure AD avec des données de blob et de file d’attente, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
 
-Lorsque vous êtes certain de pouvoir rejeter en toute sécurité des demandes autorisées avec clé partagée, vous pouvez définir la propriété **AllowSharedKeyAccess** pour le compte de stockage sur la valeur **false**.
+Lorsque vous êtes certain de pouvoir rejeter en toute sécurité des demandes autorisées avec clé partagée, vous pouvez définir la propriété **AllowSharedKeyAccess** pour le compte de stockage sur la valeur **false** .
 
-La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage accepte les demandes autorisées avec clé partagée lorsque la valeur de la propriété est **null** ou **true**.
+La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage accepte les demandes autorisées avec clé partagée lorsque la valeur de la propriété est **null** ou **true** .
 
 > [!WARNING]
 > Si des clients accèdent actuellement aux données de votre compte de stockage avec une clé partagée, Microsoft recommande de migrer ces clients vers Azure AD avant de désactiver l’accès avec clé partagée au compte de stockage.
@@ -130,8 +130,8 @@ La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne 
 Pour désactiver l’autorisation avec clé partagée pour un compte de stockage dans le portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Localisez le paramètre **Configuration** sous **Paramètres**.
-1. Définissez **Autoriser l’accès avec clé partagée** sur **Désactivé**.
+1. Localisez le paramètre **Configuration** sous **Paramètres** .
+1. Définissez **Autoriser l’accès avec clé partagée** sur **Désactivé** .
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Capture d’écran montrant comment configurer la métrique pour additionner les transactions effectuées avec clé partagée ou signature d’accès partagé":::
 
@@ -182,7 +182,7 @@ az storage container create \
 
 ### <a name="check-the-shared-key-access-setting-for-multiple-accounts"></a>Vérifier le paramètre d’accès avec clé partagée pour plusieurs comptes
 
-Pour vérifier le paramètre d’accès avec clé partagée d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+Pour vérifier le paramètre d’accès avec clé partagée d’un ensemble de comptes de stockage avec des performances optimales, vous pouvez utiliser l’Explorateur Azure Resource Graph dans le portail Azure. Pour en savoir plus sur l’utilisation de l’Explorateur Resource Graph, consultez [Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph](../../governance/resource-graph/first-query-portal.md).
 
 L’exécution de la requête suivante dans l’Explorateur Resource Graph retourne une liste de comptes de stockage, et affiche le paramètre d’accès avec clé partagée pour chaque compte :
 
@@ -195,13 +195,13 @@ resources
 
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Comprendre comment la désactivation de la clé partagée affecte les jetons SAP
 
-Quand la clé partagée est désactivée pour le compte de stockage, le service Stockage Azure gère les jetons SAP en fonction du type de SAP et du service ciblé par la demande. Le tableau suivant montre comment chaque type de signature d’accès partagé est autorisé et comment le service Storage Azure gère cette SAP quand la propriété **AllowSharedKeyAccess** pour le compte de stockage est définie sur **false**.
+Quand la clé partagée est désactivée pour le compte de stockage, le service Stockage Azure gère les jetons SAP en fonction du type de SAP et du service ciblé par la demande. Le tableau suivant montre comment chaque type de signature d’accès partagé est autorisé et comment le service Storage Azure gère cette SAP quand la propriété **AllowSharedKeyAccess** pour le compte de stockage est définie sur **false** .
 
 | Type de SAP | Type d’autorisation | Comportement lorsque la propriété AllowSharedKeyAccess est définie sur false |
 |-|-|-|
 | SAP de délégation d’utilisateur (Stockage Blob uniquement) | Azure AD | La demande est autorisée. Microsoft recommande d’utiliser une SAP de délégation d’utilisateur dans la mesure du possible pour une plus grande sécurité. |
-| SAP de service | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion**, consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
-| SAP de compte | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion**, consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
+| SAP de service | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion** , consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
+| SAP de compte | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion** , consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
 
 Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
@@ -215,11 +215,11 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 |-|-|
 | Portail Azure | Pris en charge. Pour plus d’informations sur l’autorisation avec votre compte Azure AD à partir du portail Azure, consultez [Choisir comment autoriser l’accès à des données de blob dans le portail Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Opération prise en charge pour le stockage blob. Pour plus d’informations sur l’autorisation des opérations AzCopy, consultez [Choisir comment vous allez fournir des informations d’identification d’autorisation](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) dans la documentation AzCopy. |
-| Explorateur de stockage Azure | Pris en charge uniquement pour le stockage Slob et Azure Data Lake Storage Gen2. L’accès Azure AD au stockage de file d’attente n’est pas pris en charge. Veillez à sélectionner le locataires Azure AD approprié. Pour plus d’informations, consultez [Prise en main de l’Explorateur Stockage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure). |
+| Explorateur de stockage Azure | Pris en charge uniquement pour le stockage Slob et Azure Data Lake Storage Gen2. L’accès Azure AD au stockage de file d’attente n’est pas pris en charge. Veillez à sélectionner le locataires Azure AD approprié. Pour plus d’informations, consultez [Prise en main de l’Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure). |
 | Azure PowerShell | Pris en charge. Pour plus d’informations sur l’autorisation des commandes PowerShell pour les opérations d’objet blob ou de file d’attente avec Azure AD, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-active-directory-powershell.md) ou [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données de la file d’attente](../queues/authorize-active-directory-powershell.md). |
 | Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
@@ -236,10 +236,10 @@ La préversion inclut les limitations décrites dans les sections suivantes.
 
 Les métriques et la journalisation Azure dans Azure Monitor ne font pas la distinction entre les différents types de signatures d’accès partagé dans la préversion. Le filtre **SAP** dans Azure Metrics Explorer et le champ **SAP** dans la journalisation d’Azure Storage dans Azure Monitor signalent tous deux les demandes autorisées avec n’importe quel type de SAP. Toutefois, les différents types de signatures d’accès partagé sont autorisés de manière différente et se comportent différemment lorsque l’accès avec clé partagée est désactivé :
 
-- Un jeton SAP de service ou un jeton SAP de compte est autorisé avec une clé partagée, et n’est pas autorisé sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
-- Une SAP de délégation d’utilisateur est autorisée avec Azure AD, et est autorisée sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
+- Un jeton SAP de service ou un jeton SAP de compte est autorisé avec une clé partagée, et n’est pas autorisé sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false** .
+- Une SAP de délégation d’utilisateur est autorisée avec Azure AD, et est autorisée sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false** .
 
-Lorsque vous évaluez le trafic vers votre compte de stockage, gardez à l’esprit que les métriques et les journaux décrits dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications) peuvent inclure des demandes effectuées avec une SAP de délégation d’utilisateur. Pour plus d’informations sur la façon dont le service Stockage Azure répond à une signature d’accès partagé quand la propriété **AllowSharedKeyAccess** est définie sur **false**, consultez [Comprendre comment la désactivation de la clé partagée affecte les jetons SAP](#understand-how-disallowing-shared-key-affects-sas-tokens).
+Lorsque vous évaluez le trafic vers votre compte de stockage, gardez à l’esprit que les métriques et les journaux décrits dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications) peuvent inclure des demandes effectuées avec une SAP de délégation d’utilisateur. Pour plus d’informations sur la façon dont le service Stockage Azure répond à une signature d’accès partagé quand la propriété **AllowSharedKeyAccess** est définie sur **false** , consultez [Comprendre comment la désactivation de la clé partagée affecte les jetons SAP](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false
 

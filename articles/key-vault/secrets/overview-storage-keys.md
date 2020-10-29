@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612181"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786273"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
@@ -32,13 +32,13 @@ Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé, 
 
 Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azure Active Directory (Azure AD), le service Microsoft basé sur le cloud qui gère les identités et les accès. L’intégration d’Azure AD est disponible pour les [objets blob et les files d’attente Azure](../../storage/common/storage-auth-aad.md) et fournit un accès basé sur les jetons OAuth2 au Stockage Azure (comme Azure Key Vault).
 
-Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
+Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](../../active-directory/managed-identities-azure-resources/index.yml) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 
 Azure AD utilise le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID d’application du principal de service
 
-Un locataire Azure AD fournit à chaque application inscrite un [principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+Un locataire Azure AD fournit à chaque application inscrite un [principal de service](../../active-directory/develop/developer-glossary.md#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
 
 Key Vault est une application Microsoft préinscrite dans tous les locataires Azure AD. Key Vault est inscrit sous le même ID d’application dans chaque cloud Azure.
 
@@ -163,6 +163,6 @@ La sortie de cette commande affiche la chaîne de votre définition SAS sous la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur [les clés, les secrets et les certificats](https://docs.microsoft.com/rest/api/keyvault/).
-- Passez en revue les articles de [blog de l’équipe Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Consultez la documentation de référence sur la commande [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest).
+- Apprenez-en davantage sur [les clés, les secrets et les certificats](/rest/api/keyvault/).
+- Passez en revue les articles de [blog de l’équipe Azure Key Vault](/archive/blogs/kv/).
+- Consultez la documentation de référence sur la commande [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest).

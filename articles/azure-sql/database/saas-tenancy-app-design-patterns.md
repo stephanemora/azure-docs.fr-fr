@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250707"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793226"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
 
 - **Possibilités de personnalisation :** &nbsp; Facilité de prise en charge des personnalisations de schéma propres au locataire ou à la classe du locataire.
 
-La discussion sur la location est axée sur la couche *Données*.  Mais réfléchissons un instant à la couche *Application*.  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
+La discussion sur la location est axée sur la couche *Données* .  Mais réfléchissons un instant à la couche *Application* .  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Application à locataire unique autonome avec une base de données à locataire unique
 
@@ -204,7 +204,7 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Conception d’une application multi-locataire avec une base de données par locataire, à l’aide d’un pool élastique."
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Conception d’une application multi-locataire avec des bases de données multi-locataires partitionnées."
-

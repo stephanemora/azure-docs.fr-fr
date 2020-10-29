@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056337"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791832"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  
@@ -24,7 +24,7 @@ Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l�
   
 Vous devez disposer d’une connectivité au Stockage Azure pour utiliser cette fonctionnalité.  
   
-La commande de réparation d’un travail d’exportation est **RepairExport**.
+La commande de réparation d’un travail d’exportation est **RepairExport** .
 
 ## <a name="repairexport-parameters"></a>Paramètres de RepairExport
 
@@ -51,7 +51,7 @@ Les causes d’échec d’exportation incluent les possibilités suivantes :
   
 -   Clé de compte de stockage modifiée pendant le processus de transfert  
   
-Pour exécuter l’outil en mode **RepairExport**, vous devez d’abord connecter le lecteur contenant les fichiers exportés à votre ordinateur. Ensuite, exécutez l’outil Azure Import/Export en spécifiant le chemin d’accès à ce lecteur avec le paramètre `/d`. Vous devez également spécifier le chemin d’accès au fichier journal de copie du lecteur que vous avez téléchargé. L’exemple de ligne de commande ci-dessous exécute l’outil pour réparer tous les fichiers dont l’exportation a échoué :  
+Pour exécuter l’outil en mode **RepairExport** , vous devez d’abord connecter le lecteur contenant les fichiers exportés à votre ordinateur. Ensuite, exécutez l’outil Azure Import/Export en spécifiant le chemin d’accès à ce lecteur avec le paramètre `/d`. Vous devez également spécifier le chemin d’accès au fichier journal de copie du lecteur que vous avez téléchargé. L’exemple de ligne de commande ci-dessous exécute l’outil pour réparer tous les fichiers dont l’exportation a échoué :  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
@@ -81,7 +81,7 @@ Le fichier journal de copie indique qu’une défaillance s’est produite penda
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Utilisation de RepairExport pour valider le contenu du lecteur  
 Vous pouvez également utiliser Azure Import/Export avec l’option **RepairExport** pour vérifier que le contenu sur le lecteur est correct. Le fichier manifeste sur chaque lecteur d’exportation contient des MD5 pour le contenu du lecteur.  
   
-Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageimportexport/jobs) une fois le travail terminé. Pour plus d’informations sur le format d’un fichier manifeste de lecteur, consultez [Format de fichier manifeste du service d’importation/exportation](storage-import-export-file-format-metadata-and-properties.md).  
+Le service Azure Import/Export peut également enregistrer les fichiers manifeste sur un compte de stockage pendant le processus d’exportation. L’emplacement des fichiers manifeste est disponible via l’opération [Get Job](/rest/api/storageimportexport/jobs) une fois le travail terminé. Pour plus d’informations sur le format d’un fichier manifeste de lecteur, consultez [Format de fichier manifeste du service d’importation/exportation](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties).  
   
 L’exemple suivant montre comment exécuter l’outil Azure Import/Export avec les paramètres **/ManifestFile** et **/CopyLogFile** :  
   
@@ -153,6 +153,6 @@ Tout composant dont la vérification échoue sera téléchargé par l’outil et
 ## <a name="next-steps"></a>Étapes suivantes
  
 * [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Préparation des disques durs pour un travail d’importation](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)

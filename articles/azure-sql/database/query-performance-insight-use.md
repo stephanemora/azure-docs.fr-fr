@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790370"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Query Performance Insight fournit une analyse intelligente des requêtes pour le
 
 ## <a name="prerequisites"></a>Prérequis
 
-Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données dans Azure SQL Database par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
+Query Performance Insight nécessite que le [magasin de requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données dans Azure SQL Database par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
 
 > [!NOTE]
 > Si le message « Le magasin de requêtes n’est pas correctement configuré sur cette base de données » s’affiche dans le portail, consultez [Optimisation de la configuration du magasin de requêtes](#optimize-the-query-store-configuration).
@@ -41,15 +41,15 @@ Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.
 
 Vous avez besoin des autorisations du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) suivantes pour utiliser Query Performance Insight :
 
-* Les autorisations **Lecteur**, **Propriétaire**, **Contributeur**, **Contributeur de base de données SQL** ou **Contributeur SQL Server** sont obligatoire pour voir les requêtes et graphiques consommant le plus de ressources.
-* Les autorisations **Owner**, **Contributor**, **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher le texte de requête.
+* Les autorisations **Lecteur** , **Propriétaire** , **Contributeur** , **Contributeur de base de données SQL** ou **Contributeur SQL Server** sont obligatoire pour voir les requêtes et graphiques consommant le plus de ressources.
+* Les autorisations **Owner** , **Contributor** , **SQL DB Contributor** ou **SQL Server Contributor** sont requises pour afficher le texte de requête.
 
 ## <a name="use-query-performance-insight"></a>Utiliser Query Performance Insight
 
 Query Performance Insight est simple d’utilisation :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com/) et recherchez la base de données que vous souhaitez examiner.
-2. Dans le menu de gauche, ouvrez **Performances intelligentes** > **Query Performance Insight**.
+2. Dans le menu de gauche, ouvrez **Performances intelligentes** > **Query Performance Insight** .
   
    ![Query Performance Insight dans le menu](./media/query-performance-insight-use/tile.png)
 
@@ -61,7 +61,7 @@ Query Performance Insight est simple d’utilisation :
    ![Tableau de bord des performances](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Pour qu’Azure SQL Database affiche les informations dans Query Performance Insight, le Magasin des requêtes doit capturer quelques heures de données. Si la base de données n’a pas d’activité ou que le magasin de requêtes est resté inactif pendant une certaine période, les graphiques sont vides quand Query Performance Insight affiche cet intervalle de temps. Vous pouvez activer le magasin de requêtes à tout moment s’il n’est pas en cours d’exécution. Pour plus d’informations, consultez [Bonnes pratiques avec le magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> Pour qu’Azure SQL Database affiche les informations dans Query Performance Insight, le Magasin des requêtes doit capturer quelques heures de données. Si la base de données n’a pas d’activité ou que le magasin de requêtes est resté inactif pendant une certaine période, les graphiques sont vides quand Query Performance Insight affiche cet intervalle de temps. Vous pouvez activer le magasin de requêtes à tout moment s’il n’est pas en cours d’exécution. Pour plus d’informations, consultez [Bonnes pratiques avec le magasin des requêtes](/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 Pour des recommandations sur les performances de base de données, sélectionnez [Recommandations](database-advisor-implement-performance-recommendations.md) dans le panneau de navigation de Query Performance Insight.
@@ -85,9 +85,9 @@ Par défaut, Query Performance Insight affiche les cinq premières requêtes con
    >
    > Pour une comparaison plus fine (jusqu’à une minute), créez un graphique d’utilisation de DTU personnalisé :
    >
-   > 1. Dans le portail Azure, sélectionnez **Azure SQL Database** > **Supervision**.
-   > 2. Sélectionnez **Métriques**.
-   > 3. Sélectionnez **+Ajouter un graphique**.
+   > 1. Dans le portail Azure, sélectionnez **Azure SQL Database** > **Supervision** .
+   > 2. Sélectionnez **Métriques** .
+   > 3. Sélectionnez **+Ajouter un graphique** .
    > 4. Sélectionnez le pourcentage de DTU sur le graphique.
    > 5. Par ailleurs, sélectionnez **Dernières 24 heures** dans le menu en haut à gauche et remplacez la valeur par 1 minute.
    >
@@ -100,7 +100,7 @@ Par défaut, Query Performance Insight affiche les cinq premières requêtes con
    * Durée par requête, qui dépend aussi de la fonction d’agrégation.
    * Nombre total d’exécutions pour une requête particulière.
 
-2. Si vos données deviennent obsolètes, sélectionnez le bouton **Actualiser**.
+2. Si vos données deviennent obsolètes, sélectionnez le bouton **Actualiser** .
 
 3. Utilisez les curseurs et les boutons de zoom pour changer l’intervalle d’observation et examiner les pics de consommation :
 
@@ -160,7 +160,7 @@ Les requêtes de longue durée ont le plus grand risque de verrouiller des resso
 Pour identifier les requêtes longues :
 
 1. Ouvrez l’onglet **Personnalisé** dans Query Performance Insight pour la base de données sélectionnée.
-2. Remplacez la métrique par **durée**.
+2. Remplacez la métrique par **durée** .
 3. Sélectionnez le nombre de requêtes et l’intervalle d’observation.
 4. Sélectionnez la fonction d’agrégation :
 
@@ -177,9 +177,9 @@ Pour identifier les requêtes longues :
    >
    > Pour comprendre la consommation de DTU de base de données plus en détail (jusqu’à une minute), créez un graphique personnalisé dans le portail Azure :
    >
-   > 1. Sélectionner **Azure SQL Database** > **Supervision**.
-   > 2. Sélectionnez **Métriques**.
-   > 3. Sélectionnez **+Ajouter un graphique**.
+   > 1. Sélectionner **Azure SQL Database** > **Supervision** .
+   > 2. Sélectionnez **Métriques** .
+   > 3. Sélectionnez **+Ajouter un graphique** .
    > 4. Sélectionnez le pourcentage de DTU sur le graphique.
    > 5. Par ailleurs, sélectionnez **Dernières 24 heures** dans le menu en haut à gauche et remplacez la valeur par 1 minute.
    >
@@ -197,7 +197,7 @@ Par exemple, de nombreux sites web pilotés par les données accèdent à la bas
 Pour identifier les requêtes fréquemment exécutées (« bavardes ») :
 
 1. Ouvrez l’onglet **Personnalisé** dans Query Performance Insight pour la base de données sélectionnée.
-2. Remplacez la métrique par **nombre d’exécutions**.
+2. Remplacez la métrique par **nombre d’exécutions** .
 3. Sélectionnez le nombre de requêtes et l’intervalle d’observation.
 4. Sélectionnez le bouton **Atteindre >** pour voir la vue personnalisée.
 
@@ -232,22 +232,22 @@ Le premier cas se produit quand le magasin de requêtes est en lecture seule et 
 
    ![Détails du magasin de requêtes](./media/query-performance-insight-use/qds-off.png)
 
-Le deuxième cas se produit quand le magasin de requêtes est désactivé ou que les paramètres ne sont pas définis de façon optimale. Vous pouvez changer la stratégie de conservation et de capture, et aussi activer le magasin de requêtes en exécutant les commandes suivantes fournies dans [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure.
+Le deuxième cas se produit quand le magasin de requêtes est désactivé ou que les paramètres ne sont pas définis de façon optimale. Vous pouvez changer la stratégie de conservation et de capture, et aussi activer le magasin de requêtes en exécutant les commandes suivantes fournies dans [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Stratégie de rétention et de capture recommandée
 
 Il existe deux types de stratégies de rétention :
 
-* **En fonction de la taille** : Si cette stratégie est définie sur **AUTO**, les données sont automatiquement nettoyées quand la taille maximale est atteinte.
-* **En fonction de l’heure** : Par défaut, cette stratégie est définie sur 30 jours. Si le magasin de requêtes manque d’espace, il supprime les informations de requête de plus de 30 jours.
+* **En fonction de la taille**  : Si cette stratégie est définie sur **AUTO** , les données sont automatiquement nettoyées quand la taille maximale est atteinte.
+* **En fonction de l’heure**  : Par défaut, cette stratégie est définie sur 30 jours. Si le magasin de requêtes manque d’espace, il supprime les informations de requête de plus de 30 jours.
 
 Vous pouvez définir la stratégie de capture sur :
 
 * **Tout** : Le magasin des requêtes capture toutes les requêtes.
-* **Auto** : Le magasin des requêtes ignore les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante. Les seuils du nombre d’exécutions, de la durée de compilation et de la durée d’exécution sont déterminés en interne. Il s'agit de l'option par défaut.
-* **Aucun** : Le magasin de requêtes arrête la capture de nouvelles requêtes, mais les statistiques d’exécution pour les requêtes déjà capturées sont toujours collectées.
+* **Auto**  : Le magasin des requêtes ignore les requêtes peu fréquentes et les requêtes avec une durée de compilation et d’exécution insignifiante. Les seuils du nombre d’exécutions, de la durée de compilation et de la durée d’exécution sont déterminés en interne. Il s'agit de l'option par défaut.
+* **Aucun**  : Le magasin de requêtes arrête la capture de nouvelles requêtes, mais les statistiques d’exécution pour les requêtes déjà capturées sont toujours collectées.
 
-Nous vous recommandons de définir toutes les stratégies sur **AUTO** et la stratégie de nettoyage sur 30 jours en exécutant les commandes suivantes dans [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure. (Remplacez `YourDB` par le nom de la base de données.)
+Nous vous recommandons de définir toutes les stratégies sur **AUTO** et la stratégie de nettoyage sur 30 jours en exécutant les commandes suivantes dans [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure. (Remplacez `YourDB` par le nom de la base de données.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Nous vous recommandons de définir toutes les stratégies sur **AUTO** et la str
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Augmentez la taille du magasin de requêtes en vous connectant à une base de données dans [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure et en exécutant la requête suivante. (Remplacez `YourDB` par le nom de la base de données.)
+Augmentez la taille du magasin de requêtes en vous connectant à une base de données dans [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) ou le portail Azure et en exécutant la requête suivante. (Remplacez `YourDB` par le nom de la base de données.)
 
 ```SQL
     ALTER DATABASE [YourDB]

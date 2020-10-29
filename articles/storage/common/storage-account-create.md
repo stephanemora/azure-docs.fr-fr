@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333577"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784352"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit pour vos données de stockage Azure un espace de noms unique, accessible de n’importe où dans le monde via HTTP ou HTTPS. Les données dans votre compte de stockage Azure sont durables et hautement disponibles, sécurisées et massivement évolutives.
 
-Dans cet article sur les procédures, vous apprenez à créer un compte de stockage à l’aide du [Portail Azure](https://portal.azure.com/), d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/), de l’[interface Azure CLI](https://docs.microsoft.com/cli/azure) ou d’un [modèle Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Dans cet article sur les procédures, vous apprenez à créer un compte de stockage à l’aide du [Portail Azure](https://portal.azure.com/), d’[Azure PowerShell](/powershell/azure/), de l’[interface Azure CLI](/cli/azure) ou d’un [modèle Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -199,7 +199,7 @@ Pour créer un compte de stockage universel v2 avec une option de réplication d
 
 # <a name="template"></a>[Modèle](#tab/template)
 
-Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
+Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Pour savoir comment modifier ce modèle ou en créer de nouveaux, consultez :
 
-- [Documentation Azure Resource Manager](/azure/azure-resource-manager/).
+- [Documentation Azure Resource Manager](../../azure-resource-manager/index.yml).
 - [Référence de modèle de compte de stockage](/azure/templates/microsoft.storage/allversions).
 - [Exemples supplémentaires de modèles de compte de stockage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -236,7 +236,7 @@ La suppression d’un compte de stockage supprime l’intégralité du compte, n
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Accédez au compte de stockage dans le [portail Azure](https://portal.azure.com).
-1. Cliquez sur **Supprimer**.
+1. Cliquez sur **Supprimer** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ Vous pouvez également supprimer le groupe de ressources, ce qui supprime le com
 > [!WARNING]
 > Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
 >
-> Si vous essayez de supprimer un compte de stockage associé à une machine virtuelle Azure, vous pouvez obtenir une erreur indiquant que le compte de stockage est toujours en cours d’utilisation. Pour obtenir de l’aide sur la résolution de cette erreur, consultez [Résoudre les erreurs liées à la suppression de compte de stockage](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Si vous essayez de supprimer un compte de stockage associé à une machine virtuelle Azure, vous pouvez obtenir une erreur indiquant que le compte de stockage est toujours en cours d’utilisation. Pour obtenir de l’aide sur la résolution de cette erreur, consultez [Résoudre les erreurs liées à la suppression de compte de stockage](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

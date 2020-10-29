@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f9d2affe39eaf74d4c0a537658d655a0c150d7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439773"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789571"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nouvel administrateur de base de données dans le cloud - Gérer Azure SQL Database après la migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,18 +38,18 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Sur le [portail Azure](https://portal.azure.com/), vous pouvez superviser l'utilisation d'une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Sur le [portail Azure](https://portal.azure.com/), vous pouvez superviser l'utilisation d'une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision** . Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique** . Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
 - Pourcentage E/S des données
 - Pourcentage de la taille de la base de données
 
-Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](service-tiers-dtu.md) et [Modèle d’achat vCore](service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
+Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique** . Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](service-tiers-dtu.md) et [Modèle d’achat vCore](service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
 
 ![Surveillance des niveaux de service des performances de la base de données.](./media/manage-data-after-migrating-to-database/sqldb_service_tier_monitoring.png)
 
-Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique**. Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
+Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique** . Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
 
 Par exemple, si vous pensez que la charge de travail dans votre base de données va augmenter, vous pouvez choisir de configurer une alerte par courrier électronique chaque fois que votre base de données atteint 80 % de n'importe quelle mesure de performances. Vous pouvez l’utiliser comme un avertissement anticipé pour déterminer le moment auquel vous devez passer à la taille de calcul supérieure.
 
@@ -102,7 +102,7 @@ SQL Database prend très au sérieux la sécurité et la confidentialité. La s�
 SQL Database propose deux méthodes d’authentification :
 
 - [Authentification Azure Active Directory](authentication-aad-overview.md)
-- [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
+- [Authentification SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 L’authentification Windows traditionnelle n’est pas prise en charge. Azure Active Directory (Azure AD) est un service centralisé de gestion des identités et des accès. Ce service vous permet de proposer très facilement un accès par authentification unique à tout le personnel de votre organisation. Autrement dit, les informations d’identification sont partagées entre tous les services Azure pour une authentification plus simple. 
 
@@ -113,7 +113,7 @@ Azure AD prend en charge [Microsoft Azure Multi-Factor Authentication](authentic
 |Préférez ne pas utiliser Azure Active Directory (Azure AD) dans Azure|Utilisez l’[authentification SQL](security-overview.md)|
 |Avez utilisé AD avec SQL Server localement|[Fédérez AD avec Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), puis utilisez l’authentification basée sur Azure AD Authentication. Ainsi, vous pouvez utiliser l’authentification unique.|
 |Devez appliquer l’authentification multifacteur|Imposez l’authentification multifacteur en tant que stratégie via l’[accès conditionnel Microsoft](conditional-access-configure.md), et utilisez l’[authentification universelle Azure AD avec prise en charge de l’authentification multifacteur](authentication-mfa-ssms-overview.md).|
-|Avez des comptes Invité issus de comptes Microsoft (live.com, outlook.com) ou d’autres domaines (gmail.com)|Utilisez l’[authentification universelle Azure AD](authentication-mfa-ssms-overview.md) de SQL Database/Data Warehouse, qui tire profit d’[Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
+|Avez des comptes Invité issus de comptes Microsoft (live.com, outlook.com) ou d’autres domaines (gmail.com)|Utilisez l’[authentification universelle Azure AD](authentication-mfa-ssms-overview.md) de SQL Database/Data Warehouse, qui tire profit d’[Azure AD B2B Collaboration](../../active-directory/external-identities/what-is-b2b.md).|
 |Êtes connecté à Windows avec des informations d’identification Azure AD provenant d’un domaine fédéré|Utilisez l’[authentification intégrée Azure AD](authentication-aad-configure.md).|
 |Êtes connecté à Windows avec des informations d’identification d’un domaine non fédéré avec Azure|Utilisez l’[authentification intégrée Azure AD](authentication-aad-configure.md).|
 |Avez des services de niveau intermédiaire qui doivent se connecter à SQL Database ou Azure Synapse Analytics|Utilisez l’[authentification intégrée Azure AD](authentication-aad-configure.md).|

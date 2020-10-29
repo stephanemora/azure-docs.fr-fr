@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165235"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792512"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Créer une FCI avec Espaces de stockage direct (SQL Server sur machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -81,7 +81,7 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Pour plus d’informations sur les étapes suivantes, consultez les instructions de la section « Étape 3 : Configurer les espaces de stockage direct » de la rubrique [Solution hyperconvergée utilisant Espaces de stockage direct dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Pour plus d’informations sur les étapes suivantes, consultez les instructions de la section « Étape 3 : Configurer les espaces de stockage direct » de la rubrique [Solution hyperconvergée utilisant Espaces de stockage direct dans Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## <a name="validate-the-cluster"></a>Valider le cluster
@@ -150,9 +150,9 @@ Configurez la solution de quorum qui répond le mieux aux besoins de votre entre
 
 ## <a name="add-storage"></a>Ajouter du stockage
 
-Les disques Espaces de stockage direct doivent être vides. Ils ne peuvent pas contenir de partitions ou d’autres données. Pour nettoyer les disques, suivez les instructions de la rubrique [Déployer des espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+Les disques Espaces de stockage direct doivent être vides. Ils ne peuvent pas contenir de partitions ou d’autres données. Pour nettoyer les disques, suivez les instructions de la rubrique [Déployer des espaces de stockage direct](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Activer les espaces de stockage direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Activer les espaces de stockage direct](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Le script PowerShell suivant active les Espaces de stockage direct :  
 
@@ -162,7 +162,7 @@ Les disques Espaces de stockage direct doivent être vides. Ils ne peuvent pas c
 
    Dans le **Gestionnaire du cluster de basculement** , vous pouvez maintenant voir le pool de stockage.
 
-1. [Créez un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Créez un volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
    La technologie Espaces de stockage direct crée automatiquement un pool de stockage lorsque vous l’activez. Vous êtes maintenant prêt à créer un volume. La cmdlet PowerShell `New-Volume` automatise le processus de création du volume. Ce processus comprend la mise en forme, l’ajout du volume au cluster et la création d’un CSV. Cet exemple crée un volume partagé de cluster de 800 gigaoctets (Go) :
 
@@ -211,7 +211,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 1. Sélectionnez **Ajouter un nœud à un cluster de basculement SQL Server** . Suivez les instructions de l’Assistant pour installer SQL Server et ajouter le serveur à l’instance de cluster de basculement.
 
    >[!NOTE]
-   >Si vous avez utilisé une image de la galerie de la Place de marché Azure avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé une de ces images, installez les outils de SQL Server séparément. Pour plus d’informations, consultez la page [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Si vous avez utilisé une image de la galerie de la Place de marché Azure avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé une de ces images, installez les outils de SQL Server séparément. Pour plus d’informations, consultez la page [Télécharger SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
@@ -237,7 +237,7 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 
 ## <a name="limitations"></a>Limites
 
-- Les machines virtuelles Azure prennent en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019 avec un stockage sur des CSV et un [équilibreur de charge standard](../../../load-balancer/load-balancer-standard-overview.md).
+- Les machines virtuelles Azure prennent en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019 avec un stockage sur des CSV et un [équilibreur de charge standard](../../../load-balancer/load-balancer-overview.md).
 - Les disques qui ont été joints en tant que disques au format NTFS peuvent être utilisés avec Espaces de stockage direct uniquement si l’option d’éligibilité du disque est décochée ou désactivée lorsque le stockage est ajouté au cluster. 
 - Seule l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en [mode d’administration léger](sql-vm-resource-provider-register.md#management-modes) est prise en charge.
 

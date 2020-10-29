@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 860fcb2948869d21eb78d0b318074b9a5e2ba0b9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332414"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790319"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database, Azure Synapse Analytics, Data Factory et Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ Les applications SaaS maintiennent une quantité potentiellement grande de donn�
 
 L’accès aux données pour tous les clients est simple lorsque toutes les données se trouvent dans une seule base de données. Mais l’accès est plus complexe lors d’une distribution à grande échelle sur des milliers de bases de données. Une façon de maîtriser la complexité consiste à extraire les données à une base de données analytique ou un entrepôt de données pour les requêtes.
 
-Ce didacticiel présente un scénario d’analytique de bout en bout pour l’application Wingtip Tickets. Tout d’abord, [Azure Data Factory (ADF)](../../data-factory/introduction.md) est utilisé comme outil d’orchestration pour extraire les ventes de tickets et les données associées de chaque base de données client. Ces données sont chargées dans des tables de mise en lots dans un magasin d’analytique. Le magasin d’analytique peut être une instance de SQL Database ou un pool SQL. Ce tutoriel utilise [Azure Synapse Analytics (anciennement SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) comme magasin d’analytique.
+Ce didacticiel présente un scénario d’analytique de bout en bout pour l’application Wingtip Tickets. Tout d’abord, [Azure Data Factory (ADF)](../../data-factory/introduction.md) est utilisé comme outil d’orchestration pour extraire les ventes de tickets et les données associées de chaque base de données client. Ces données sont chargées dans des tables de mise en lots dans un magasin d’analytique. Le magasin d’analytique peut être une instance de SQL Database ou un pool SQL. Ce tutoriel utilise [Azure Synapse Analytics (anciennement SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) comme magasin d’analytique.
 
 Ensuite, les données extraites sont transformées et chargées en un ensemble de tables à [schéma en étoile](https://www.wikipedia.org/wiki/Star_schema). Les tables sont constituées d’une table de faits centrale ainsi que de tables de dimension associées :
 
@@ -70,10 +70,10 @@ Ce didacticiel fournit des exemples simples d’informations que vous pouvez rec
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
-- L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md).
+- L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md).
 - Les scripts de base de données Wingtip Tickets SaaS par client et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de l’application sont disponibles au téléchargement sur GitHub. Consultez les instructions de téléchargement. Veillez à *débloquer le fichier zip* avant d’extraire son contenu.
 - Power BI Desktop est installé. [Télécharger Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
+- Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](./saas-dbpertenant-provision-and-catalog.md).
 
 ### <a name="create-data-for-the-demo"></a>Créer des données pour la démonstration
 
@@ -85,7 +85,7 @@ Ce didacticiel explore les analytiques sur les données de ventes de ticket. À 
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Déployer Azure Synapse Analytics, Data Factory et le stockage Blob
 
-Dans l’application Wingtip Tickets, les données transactionnelles des clients sont distribuées sur de nombreuses bases de données. Azure Data Factory (ADF) est utilisé pour orchestrer l’extraction, le chargement et la transformation (ELT) de ces données dans l’entrepôt de données. Pour charger des données plus efficacement dans Azure Synapse Analytics (anciennement SQL Data Warehouse), ADF extrait des données dans des fichiers d’objets blob intermédiaires, puis utilise [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) pour charger les données dans l’entrepôt de données.
+Dans l’application Wingtip Tickets, les données transactionnelles des clients sont distribuées sur de nombreuses bases de données. Azure Data Factory (ADF) est utilisé pour orchestrer l’extraction, le chargement et la transformation (ELT) de ces données dans l’entrepôt de données. Pour charger des données plus efficacement dans Azure Synapse Analytics (anciennement SQL Data Warehouse), ADF extrait des données dans des fichiers d’objets blob intermédiaires, puis utilise [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) pour charger les données dans l’entrepôt de données.
 
 Au cours de cette étape, vous allez déployer les ressources supplémentaires utilisées dans le tutoriel : un pool SQL appelé _tenantanalytics_ , une instance d’Azure Data Factory appelée _dbtodwload-\<user\>_ et un compte de stockage Azure appelé _wingtipstaging\<user\>_ . Le compte de stockage est utilisé pour stocker temporairement des fichiers de données extraits en tant qu’objets blob avant leur chargement dans l’entrepôt de données. Cette étape déploie également le schéma d’entrepôt de données et définit les pipelines ADF qui orchestrent le processus ELT.
 
@@ -97,7 +97,7 @@ Maintenant, examinez les ressources Azure déployées :
 
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de données client et magasin d’analytique
 
-Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;** . Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utilisez le nom de connexion = *developer* et le mot de passe = *P\@ssword1* . Consultez le [didacticiel d’introduction](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
+Utilisez [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;** . Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utilisez le nom de connexion = *developer* et le mot de passe = *P\@ssword1* . Consultez le [didacticiel d’introduction](./saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
 ![Se connecter à SQL Database à partir de SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -148,14 +148,14 @@ Cette section traite des objets créés dans la fabrique de données. L’illust
 
 ![adf_overview](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
-Dans la page Vue d’ensemble, basculez vers l’onglet **Auteur** dans le volet gauche et observez qu’il y a trois [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) et trois [jeux de données](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) créés.
+Dans la page Vue d’ensemble, basculez vers l’onglet **Auteur** dans le volet gauche et observez qu’il y a trois [pipelines](../../data-factory/concepts-pipelines-activities.md) et trois [jeux de données](../../data-factory/concepts-datasets-linked-services.md) créés.
 ![adf_author](./media/saas-tenancy-tenant-analytics-adf/adf_author_tab.JPG)
 
 Les trois pipelines imbriqués sont : SQLDBToDW, DBCopy et TableCopy.
 
 **Pipeline 1 - SQLDBToDW** recherche les noms des bases de données client stockés dans la base de données de catalogue (nom de la table : [__ShardManagement].[ShardsGlobal]) et pour chaque base de données client, exécutez le pipeline **DBCopy** . À l’achèvement, le schéma fourni de la procédure stockée **sp_TransformExtractedData** est exécuté. Cette procédure stockée transforme les données chargées dans les tables de mise en lots et remplit les tables du schéma en étoile.
 
-**Pipeline 2 - DBCopy** recherche les noms des tables et des colonnes sources à partir d’un fichier de configuration stocké dans le stockage d’objets blob.  Le pipeline **TableCopy** est ensuite exécuté pour chacune des quatre tables : TicketFacts CustomerFacts, EventFacts et VenueFacts. L’activité **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** s’exécute en parallèle pour l’ensemble des 20 bases de données. ADF autorise un maximum de 20 itérations de boucle à exécuter en parallèle. Envisagez de créer plusieurs pipelines pour un plus grand nombre de bases de données.
+**Pipeline 2 - DBCopy** recherche les noms des tables et des colonnes sources à partir d’un fichier de configuration stocké dans le stockage d’objets blob.  Le pipeline **TableCopy** est ensuite exécuté pour chacune des quatre tables : TicketFacts CustomerFacts, EventFacts et VenueFacts. L’activité **[Foreach](../../data-factory/control-flow-for-each-activity.md)** s’exécute en parallèle pour l’ensemble des 20 bases de données. ADF autorise un maximum de 20 itérations de boucle à exécuter en parallèle. Envisagez de créer plusieurs pipelines pour un plus grand nombre de bases de données.
 
 **Pipeline 3 - tableauCopier** utilise les numéros de version des lignes dans SQL Database ( _rowversion_ ) pour identifier les lignes modifiées ou mises à jour. Cette activité recherche la version de la ligne du début et de fin pour extraire des lignes à partir des tables sources. La table **CopyTracker** stockée dans chaque base de données client effectue le suivi de la dernière ligne extraite à partir de chaque table source durant chaque exécution. Les lignes nouvelles ou modifiées sont copiées dans les tables de mise en lots correspondantes dans l’entrepôt de données : **raw_Tickets** , **raw_customers** , **raw_Events** et **raw_Venues** . Enfin, la version de la dernière ligne est enregistrée dans la table **CopyTracker** pour l’utiliser comme version de la ligne initiale lors de la prochaine extraction.
 
@@ -276,4 +276,4 @@ Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Autres [didacticiels reposant sur l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- Autres [didacticiels reposant sur l’application SaaS Wingtip](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

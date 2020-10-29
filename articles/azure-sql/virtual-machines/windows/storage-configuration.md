@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272019"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793073"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,19 +46,19 @@ Lors de l’approvisionnement d’une machine virtuelle Azure à l’aide d’un
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
+Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage** . Avec l’option d’optimisation **Général** , par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données** , vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données** , mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-La configuration du disque est entièrement personnalisable pour vous permettre de configurer la topologie de stockage, le type de disque et les E/S par seconde dont vous avez besoin pour votre charge de travail de machine virtuelle SQL Server. Vous avez également la possibilité d’utiliser UltraSSD (préversion) comme option pour le **type de disque** si votre machine virtuelle SQL Server se trouve dans l’une des régions prises en charge (USA Est 2, Asie Sud-Est et Europe Nord) et si vous avez activé les [disques Ultra pour votre abonnement](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+La configuration du disque est entièrement personnalisable pour vous permettre de configurer la topologie de stockage, le type de disque et les E/S par seconde dont vous avez besoin pour votre charge de travail de machine virtuelle SQL Server. Vous avez également la possibilité d’utiliser UltraSSD (préversion) comme option pour le **type de disque** si votre machine virtuelle SQL Server se trouve dans l’une des régions prises en charge (USA Est 2, Asie Sud-Est et Europe Nord) et si vous avez activé les [disques Ultra pour votre abonnement](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache. 
+En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](../../../virtual-machines/premium-storage-performance.md#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](../../../virtual-machines/disks-types.md#premium-ssd). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache. 
 
-La mise en cache du disque pour SSD Premium peut être *ReadOnly*, *ReadWrite* ou *Aucune*. 
+La mise en cache du disque pour SSD Premium peut être *ReadOnly* , *ReadWrite* ou *Aucune* . 
 
 - La mise en cache *ReadOnly* s'avère particulièrement intéressante pour les fichiers de données SQL Server stockés sur le stockage Premium. La mise en cache *ReadOnly* offre une faible latence de lecture, de très hautes performances d'E/S et de débit en cas de lectures à partir du cache, dans la mémoire de la machine virtuelle ou du SSD local. Ces lectures sont nettement plus rapides que les lectures à partir du disque de données, provenant du stockage Blob Azure. Le stockage Premium ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Dès lors, votre application peut offrir de meilleures performances totales en termes d’E/S par seconde et de débit. 
-- La configuration de cache *Aucune* doit être utilisée pour les disques hébergeant le fichier journal SQL Server, car ce fichier journal est écrit de manière séquentielle et ne tire pas parti de la mise en cache *ReadOnly*. 
-- La mise en cache *ReadWrite* ne doit pas être utilisée pour héberger des fichiers SQL Server, car SQL Server ne prend pas en charge la cohérence des données avec le cache *ReadWrite*. Les écritures gaspillent la capacité du cache blob *ReadOnly* et les latences augmentent légèrement si les écritures interviennent dans les couches du cache blob *ReadOnly*. 
+- La configuration de cache *Aucune* doit être utilisée pour les disques hébergeant le fichier journal SQL Server, car ce fichier journal est écrit de manière séquentielle et ne tire pas parti de la mise en cache *ReadOnly* . 
+- La mise en cache *ReadWrite* ne doit pas être utilisée pour héberger des fichiers SQL Server, car SQL Server ne prend pas en charge la cohérence des données avec le cache *ReadWrite* . Les écritures gaspillent la capacité du cache blob *ReadOnly* et les latences augmentent légèrement si les écritures interviennent dans les couches du cache blob *ReadOnly* . 
 
 
    > [!TIP]
@@ -94,14 +94,14 @@ Vous pouvez utiliser le modèle de démarrage rapide suivant pour déployer une 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Pour les machines virtuelles SQL Server existantes, vous pouvez modifier certains paramètres de stockage dans le portail Azure. Ouvrez votre [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Vue d’ensemble**. La page Vue d’ensemble de SQL Server montre l’utilisation actuelle du stockage de votre machine virtuelle. Tous les lecteurs qui existent sur votre machine virtuelle apparaissent dans ce graphique. Pour chaque lecteur, l’espace de stockage s’affiche dans quatre sections :
+Pour les machines virtuelles SQL Server existantes, vous pouvez modifier certains paramètres de stockage dans le portail Azure. Ouvrez votre [ressource Machines virtuelles SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Vue d’ensemble** . La page Vue d’ensemble de SQL Server montre l’utilisation actuelle du stockage de votre machine virtuelle. Tous les lecteurs qui existent sur votre machine virtuelle apparaissent dans ce graphique. Pour chaque lecteur, l’espace de stockage s’affiche dans quatre sections :
 
 * Données SQL
 * Journal SQL
 * Autre (stockage non-SQL)
 * Disponible
 
-Pour modifier les paramètres de stockage, sélectionnez **Configurer** sous **Paramètres**. 
+Pour modifier les paramètres de stockage, sélectionnez **Configurer** sous **Paramètres** . 
 
 ![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 

@@ -10,13 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 661622b296a7a81a8d4c203e86a7c8d61c386e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 0da0a56a64aa9b4500d36da2f6c86fc4c07f4c0f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786052"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatiser la rotation d’un secret pour des ressources qui utilisent un seul jeu d’informations d’authentification
 
@@ -44,9 +44,9 @@ Vous pouvez utiliser le lien de déploiement ci-dessous, si vous n’avez pas de
 
 [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. Sous **Groupe de ressources**, sélectionnez **Créer**. Nommez le groupe **akvrotation**.
-1. Sous **Nom de connexion de l’administrateur SQL**, tapez nom de connexion de l’administrateur SQL. 
-1. Sélectionnez **Revoir + créer**.
+1. Sous **Groupe de ressources** , sélectionnez **Créer** . Nommez le groupe **akvrotation** .
+1. Sous **Nom de connexion de l’administrateur SQL** , tapez nom de connexion de l’administrateur SQL. 
+1. Sélectionnez **Revoir + créer** .
 1. Sélectionnez **Créer**
 
     ![Créer un groupe de ressources](../media/rotate-2.png)
@@ -84,13 +84,13 @@ L’application de fonction nécessite les composants suivants :
 
    [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
-1. Dans la liste **Groupe de ressources**, sélectionnez **akvrotation**.
-1. Dans **Nom du serveur SQL Server**, tapez le nom du serveur SQL Server avec le mot de passe à permuter.
-1. Dans **Nom du coffre de clés**, tapez le nom du coffre de clés.
-1. Dans **Nom de l’application de fonction**, tapez le nom de l’application de fonction.
-1. Dans **Nom du secret**, tapez le nom du secret où le mot de passe sera stocké.
-1. Dans **URL du référentiel**, tapez l’emplacement GitHub du code de fonction ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** ).
-1. Sélectionnez **Revoir + créer**.
+1. Dans la liste **Groupe de ressources** , sélectionnez **akvrotation** .
+1. Dans **Nom du serveur SQL Server** , tapez le nom du serveur SQL Server avec le mot de passe à permuter.
+1. Dans **Nom du coffre de clés** , tapez le nom du coffre de clés.
+1. Dans **Nom de l’application de fonction** , tapez le nom de l’application de fonction.
+1. Dans **Nom du secret** , tapez le nom du secret où le mot de passe sera stocké.
+1. Dans **URL du référentiel** , tapez l’emplacement GitHub du code de fonction ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** ).
+1. Sélectionnez **Revoir + créer** .
 1. Sélectionnez **Create** (Créer).
 
    ![Sélectionnez Vérifier + créer.](../media/rotate-3.png)
@@ -115,7 +115,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Pour plus d’informations sur la création d’une application de fonction et sur le recours à une identité managée pour accéder à Key Vault, consultez [Création d’une application de fonction à partir du Portail Azure](/azure/azure-functions/functions-create-function-app-portal), [Guide pratique pour utiliser une identité managée pour App Service et Azure Functions](/azure/app-service/overview-managed-identity) et [Attribution d’une stratégie d'accès Key Vault à l’aide du Portail Azure](../general/assign-access-policy-portal.md).
+Pour plus d’informations sur la création d’une application de fonction et sur le recours à une identité managée pour accéder à Key Vault, consultez [Création d’une application de fonction à partir du Portail Azure](../../azure-functions/functions-create-function-app-portal.md), [Guide pratique pour utiliser une identité managée pour App Service et Azure Functions](../../app-service/overview-managed-identity.md) et [Attribution d’une stratégie d'accès Key Vault à l’aide du Portail Azure](../general/assign-access-policy-portal.md).
 
 ### <a name="rotation-function"></a>Fonction de permutation
 Déployée dans l’étape précédente, la fonction utilise un événement pour déclencher la permutation d’un secret en mettant à jour Key Vault et la base de données SQL. 
@@ -207,11 +207,11 @@ La création d’un secret avec une date d’expiration proche entraîne la publ
 
 ## <a name="test-and-verify"></a>Tester et vérifier
 
-Pour vérifier que le secret a permuté, accédez à **Key Vault** > **Secrets** :
+Pour vérifier que le secret a permuté, accédez à **Key Vault** > **Secrets**  :
 
 ![Accéder à Secrets](../media/rotate-8.png)
 
-Ouvrez le secret **sqlPassword**, et visualisez la version d’origine et la version permutée :
+Ouvrez le secret **sqlPassword** , et visualisez la version d’origine et la version permutée :
 
 ![Ouvrir le secret sqluser](../media/rotate-9.png)
 
@@ -227,12 +227,12 @@ L’application web nécessite les composants suivants :
 
    [![Image représentant un bouton intitulé « Déployer sur Azure »](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
 
-1. Sélectionnez le groupe de ressources **akvrotation**.
-1. Dans **Nom du serveur SQL Server**, tapez le nom du serveur SQL Server avec le mot de passe à permuter.
-1. Dans **Nom du coffre de clés**, tapez le nom du coffre de clés.
-1. Dans **Nom du secret**, tapez le nom du secret où le mot de passe est stocké.
-1. Dans **URL du dépôt**, tapez l’emplacement GitHub du code de l’application web ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
-1. Sélectionnez **Revoir + créer**.
+1. Sélectionnez le groupe de ressources **akvrotation** .
+1. Dans **Nom du serveur SQL Server** , tapez le nom du serveur SQL Server avec le mot de passe à permuter.
+1. Dans **Nom du coffre de clés** , tapez le nom du coffre de clés.
+1. Dans **Nom du secret** , tapez le nom du secret où le mot de passe est stocké.
+1. Dans **URL du dépôt** , tapez l’emplacement GitHub du code de l’application web ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
+1. Sélectionnez **Revoir + créer** .
 1. Sélectionnez **Create** (Créer).
 
 
@@ -242,7 +242,7 @@ Accédez à l’URL de l’application déployée :
  
 https://akvrotation-app.azurewebsites.net/
 
-Lorsque l’application s’ouvre dans le navigateur, vous voyez la **Valeur du secret généré** et une **Base de données connectée** dont la valeur est *true*.
+Lorsque l’application s’ouvre dans le navigateur, vous voyez la **Valeur du secret généré** et une **Base de données connectée** dont la valeur est *true* .
 
 ## <a name="learn-more"></a>En savoir plus
 

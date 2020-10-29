@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790098"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Utiliser le portail Azure pour configurer un groupe de disponibilité (en préversion) pour SQL Server sur une machine virtuelle Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Pour configurer un groupe de disponibilité Always On à l’aide du portail Az
 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Un groupe de ressources avec un contrôleur de domaine. 
-- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version ultérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) dans le *même* groupe à haute disponibilité ou dans des zones de disponibilité *différentes*, qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL en mode de gestion complète](sql-vm-resource-provider-register.md) et qui utilisent le même compte de domaine pour le service SQL Server sur chaque machine virtuelle.
+- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version ultérieure) Enterprise Edition](./create-sql-vm-portal.md) dans le *même* groupe à haute disponibilité ou dans des zones de disponibilité *différentes* , qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL en mode de gestion complète](sql-vm-resource-provider-register.md) et qui utilisent le même compte de domaine pour le service SQL Server sur chaque machine virtuelle.
 - Deux adresses IP disponibles (non utilisées par une entité) : une pour l’équilibreur de charge interne et l’autre pour l’écouteur de groupe de disponibilité dans le même sous-réseau que le groupe de disponibilité. Si vous utilisez un équilibreur de charge existant, une seule adresse IP disponible suffit pour l’écouteur de groupe de disponibilité. 
 
 ## <a name="permissions"></a>Autorisations
@@ -61,8 +61,8 @@ Si vous ne disposez pas encore d’un cluster, créez-en un à l’aide du porta
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre ressource [machines virtuelles SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Sélectionnez **Haute disponibilité** sous **Paramètres**. 
-1. Sélectionnez **+ Nouveau cluster de basculement Windows Server** pour ouvrir la page **Configurer le cluster de basculement Windows**.  
+1. Sélectionnez **Haute disponibilité** sous **Paramètres** . 
+1. Sélectionnez **+ Nouveau cluster de basculement Windows Server** pour ouvrir la page **Configurer le cluster de basculement Windows** .  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
@@ -70,7 +70,7 @@ Si vous ne disposez pas encore d’un cluster, créez-en un à l’aide du porta
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
-1. Développez **Informations d’identification du cluster de basculement Windows Server** pour fournir les [informations d’identification](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) du compte de service SQL Server, ainsi que les comptes de démarrage et d’opérateur de cluster s’ils sont différents du compte utilisé pour le service SQL Server. 
+1. Développez **Informations d’identification du cluster de basculement Windows Server** pour fournir les [informations d’identification](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) du compte de service SQL Server, ainsi que les comptes de démarrage et d’opérateur de cluster s’ils sont différents du compte utilisé pour le service SQL Server. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail"
     ```
@@ -85,8 +85,8 @@ Pour ce faire, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre ressource [machines virtuelles SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Sélectionnez **Haute disponibilité** sous **Paramètres**. 
-1. Sélectionnez **Intégrer le cluster de basculement Windows Server existant** pour ouvrir la page **Intégrer le cluster de basculement Windows Server**. 
+1. Sélectionnez **Haute disponibilité** sous **Paramètres** . 
+1. Sélectionnez **Intégrer le cluster de basculement Windows Server existant** pour ouvrir la page **Intégrer le cluster de basculement Windows Server** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
@@ -102,13 +102,13 @@ Une fois que votre cluster a été créé ou intégré, créez le groupe de disp
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre ressource [machines virtuelles SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Sélectionnez **Haute disponibilité** sous **Paramètres**. 
-1. Sélectionnez **+ Nouveau groupe de disponibilité Always On** pour ouvrir la page **Créer un groupe de disponibilité**.
+1. Sélectionnez **Haute disponibilité** sous **Paramètres** . 
+1. Sélectionnez **+ Nouveau groupe de disponibilité Always On** pour ouvrir la page **Créer un groupe de disponibilité** .
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
 1. Entrez un nom pour le groupe de disponibilité. 
-1. Sélectionnez **Configurer l’écouteur** pour ouvrir la page **Configurer l’écouteur de groupe de disponibilité**. 
+1. Sélectionnez **Configurer l’écouteur** pour ouvrir la page **Configurer l’écouteur de groupe de disponibilité** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
@@ -116,14 +116,14 @@ Une fois que votre cluster a été créé ou intégré, créez le groupe de disp
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
-1. Choisissez **+ Sélectionner un réplica** pour ouvrir la page **Configurer les réplicas du groupe de disponibilité**.
+1. Choisissez **+ Sélectionner un réplica** pour ouvrir la page **Configurer les réplicas du groupe de disponibilité** .
 1. Sélectionnez les machines virtuelles que vous souhaitez ajouter au groupe de disponibilité, puis choisissez les paramètres de groupe de disponibilité qui répondent le mieux aux besoins de votre entreprise. Sélectionnez **Appliquer** pour enregistrer vos paramètres. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
 1. Vérifiez les paramètres de votre groupe de disponibilité, puis sélectionnez **Appliquer** pour créer votre groupe de disponibilité. 
 
-Vous pouvez vérifier l’état de votre déploiement dans le **journal d’activité**, lequel est accessible à partir de l’icône en forme de cloche dans la barre de navigation supérieure. 
+Vous pouvez vérifier l’état de votre déploiement dans le **journal d’activité** , lequel est accessible à partir de l’icône en forme de cloche dans la barre de navigation supérieure. 
 
   > [!NOTE]
   > Votre **intégrité de synchronisation** sur la page **Haute disponibilité** du portail Azure apparaîtra comme **Non saine** jusqu’à ce que vous ajoutiez des bases de données à votre groupe de disponibilité. 
@@ -138,8 +138,8 @@ Pour ajouter des bases de données à votre groupe de disponibilité à l’aide
 1. Connectez-vous à l’une de vos machines virtuelles SQL Server à l’aide de la méthode de votre choix, telle que Connexion Bureau à distance (RDP). 
 1. Ouvrez SQL Server Management Studio (SSMS).
 1. Connectez-vous à votre instance SQL Server. 
-1. Développez **Haute disponibilité Always On** dans **Explorateur d’objets**.
-1. Développez **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité et choisissez **Ajouter une base de données…**
+1. Développez **Haute disponibilité Always On** dans **Explorateur d’objets** .
+1. Développez **Groupes de disponibilité** , cliquez avec le bouton droit sur votre groupe de disponibilité et choisissez **Ajouter une base de données…**
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
@@ -157,16 +157,16 @@ Pour ajouter d’autres machines virtuelles SQL Server au cluster, procédez com
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre ressource [machines virtuelles SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Sélectionnez **Haute disponibilité** sous **Paramètres**. 
-1. Sélectionnez **Configurer le cluster de basculement Windows Server** pour ouvrir la page **Configurer le cluster de basculement Windows**. 
+1. Sélectionnez **Haute disponibilité** sous **Paramètres** . 
+1. Sélectionnez **Configurer le cluster de basculement Windows Server** pour ouvrir la page **Configurer le cluster de basculement Windows** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Créer un cluster en sélectionnant l’option + Nouveau cluster dans le portail":::
 
 1. Développez **Informations d’identification du cluster de basculement Windows Server** et entrez les comptes utilisés pour le service SQL Server, l’opérateur de cluster et le démarrage de cluster. 
 1. Sélectionnez les machines virtuelles SQL Server que vous souhaitez ajouter au cluster. 
-1. Sélectionnez **Appliquer**. 
+1. Sélectionnez **Appliquer** . 
 
-Vous pouvez vérifier l’état de votre déploiement dans le **journal d’activité**, lequel est accessible à partir de l’icône en forme de cloche dans la barre de navigation supérieure. 
+Vous pouvez vérifier l’état de votre déploiement dans le **journal d’activité** , lequel est accessible à partir de l’icône en forme de cloche dans la barre de navigation supérieure. 
 
 
 ## <a name="modify-availability-group"></a>Modifier le groupe de disponibilité 
@@ -245,7 +245,7 @@ Pour afficher les journaux du déploiement et vérifier l’historique de déplo
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à votre groupe de ressources.
-1. Sélectionnez **Déploiements** sous **Paramètres**.
+1. Sélectionnez **Déploiements** sous **Paramètres** .
 1. Sélectionnez le déploiement qui vous intéresse pour en savoir plus sur celui-ci. 
 
 

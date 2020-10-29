@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 52ee08e0cce23aebbac1564a5c3ed894d0e487d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710956"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787480"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du service Stockage File d'attente Azure
 
@@ -36,7 +36,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 #### <a name="queue-storage"></a>Stockage de files d'attente
 
-Ce tableau montre des [métriques de Stockage File d’attente](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
+Ce tableau montre des [métriques de Stockage File d’attente](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrique | Description |
 | ------------------- | ----------------- |

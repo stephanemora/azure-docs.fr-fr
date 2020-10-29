@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855560"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790506"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python
 
@@ -299,7 +299,7 @@ Maintenant que vous connaissez les bases du stockage de files d’attente, consu
 
 * [Informations de référence sur l’API Python Files d’attente Azure](/python/api/azure-storage-queue)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
-* [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355)
+* [API REST des services d’Azure Storage](/rest/api/storageservices/)
 
 [Bibliothèque de client Stockage File d'attente Azure pour Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/azure/azure-sdk-for-python

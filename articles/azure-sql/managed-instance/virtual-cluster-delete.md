@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 0b8ceee1260e4209420778d7f327d771b858a899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed8f6dc90debddd17282f8f96962ffd78055030
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617721"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791662"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Supprimer un sous-réseau après la suppression d’une instance managée de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,7 +29,7 @@ Si vous ne souhaitez pas attendre 12 heures et préférez supprimer le cluster 
 
 > [!IMPORTANT]
 > - Le cluster virtuel ne doit contenir aucune instance managée pour que la suppression aboutisse. 
-> - La suppression d’un cluster virtuel est une opération longue qui dure environ 1,5 heure (consultez [Opérations de gestion des instances managées](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) pour avoir des informations à jour sur le délai de suppression d’un cluster virtuel). Le cluster virtuel reste visible sur le portail tant que le processus n’est pas terminé.
+> - La suppression d’un cluster virtuel est une opération longue qui dure environ 1,5 heure (consultez [Opérations de gestion des instances managées](./sql-managed-instance-paas-overview.md#management-operations) pour avoir des informations à jour sur le délai de suppression d’un cluster virtuel). Le cluster virtuel reste visible sur le portail tant que le processus n’est pas terminé.
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>Supprimer un cluster virtuel à partir du portail Azure
 
@@ -37,7 +37,7 @@ Pour supprimer un cluster virtuel à l’aide du portail Azure, recherchez les r
 
 ![Capture d’écran du portail Azure, avec la zone de recherche en surbrillance](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
-Une fois que vous avez localisé le cluster virtuel à supprimer, sélectionnez cette ressource et sélectionnez **Supprimer**. Vous êtes invité à confirmer la suppression du cluster virtuel.
+Une fois que vous avez localisé le cluster virtuel à supprimer, sélectionnez cette ressource et sélectionnez **Supprimer** . Vous êtes invité à confirmer la suppression du cluster virtuel.
 
 ![Capture d’écran du tableau de bord Clusters virtuels sur le portail Azure, avec l’option Supprimer en surbrillance](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
@@ -48,7 +48,7 @@ Les notifications du portail Azure vous confirment que la demande de suppression
 
 ## <a name="delete-a-virtual-cluster-by-using-the-api"></a>Supprimer un cluster virtuel à l’aide de l’API
 
-Pour supprimer un cluster virtuel via l’API, utilisez les paramètres d’URI spécifiés dans la [méthode de suppression de clusters virtuels](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Pour supprimer un cluster virtuel via l’API, utilisez les paramètres d’URI spécifiés dans la [méthode de suppression de clusters virtuels](/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443081"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792087"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,10 +36,10 @@ Les bases de données partitionnées verticalement utilisent différents ensembl
 > Contrairement au partitionnement horizontal, ces instructions DDL ne dépendent pas de la définition d’une couche de données avec un mappage de partition via la bibliothèque client de base de données élastique.
 >
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Créer la clé principale et les informations d’identification de la base de données
 
@@ -63,7 +63,7 @@ Syntaxe :
     CREDENTIAL = <credential_name> ) [;]
 
 > [!IMPORTANT]
-> Le paramètre TYPE doit être défini sur **RDBMS**.
+> Le paramètre TYPE doit être défini sur **RDBMS** .
 
 ### <a name="example"></a>Exemple
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 La requête élastique étend la syntaxe de la table externe existante pour définir des tables externes qui utilisent des sources de données externes de type SGBDR. Une définition de table externe pour le partitionnement vertical couvre les aspects suivants :
 
-* **Schéma** : le DDL de table externe définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles.
-* **Référence de base de données distante** : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie le nom du serveur et le nom de la base de données distante dans lesquels sont stockées les données réelles du tableau.
+* **Schéma**  : le DDL de table externe définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles.
+* **Référence de base de données distante**  : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie le nom du serveur et le nom de la base de données distante dans lesquels sont stockées les données réelles du tableau.
 
 La syntaxe permettant de créer des tables externes à l’aide de sources de données externes comme indiqué dans la section précédente est la suivante :
 
@@ -135,7 +135,7 @@ L’instruction DDL suivante supprime une définition de table externe existante
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Autorisations pour CREATE/DROP EXTERNAL TABLE** : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
+**Autorisations pour CREATE/DROP EXTERNAL TABLE**  : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 
@@ -163,7 +163,7 @@ La requête suivante effectue une jointure tridirectionnelle entre les deux tabl
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procédure stockée pour l’exécution de T-SQL à distance : sp\_execute_remote
 
-La requête élastique introduit également une procédure stockée qui offre un accès direct à la base de données distante. La procédure stockée est appelée [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur la base de données distante. Les paramètres suivants sont pris en compte :
+La requête élastique introduit également une procédure stockée qui offre un accès direct à la base de données distante. La procédure stockée est appelée [sp\_execute\_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur la base de données distante. Les paramètres suivants sont pris en compte :
 
 * Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR.
 * Requête (nvarchar) : requête T-SQL à exécuter sur la base de données distante.
@@ -195,7 +195,7 @@ Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecte
 * Pour le didacticiel sur le partitionnement vertical, consultez [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](elastic-query-getting-started-vertical.md).
 * Pour commencer le didacticiel sur le partitionnement horizontal (sharding), consultez [Prise en main des requêtes élastiques pour le partitionnement horizontal (sharding)](elastic-query-getting-started.md).
 * Pour la syntaxe et des exemples de requêtes pour des données partitionnées horizontalement, consultez [Requêtes sur des données partitionnées horizontalement](elastic-query-horizontal-partitioning.md)
-* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
+* Consultez [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

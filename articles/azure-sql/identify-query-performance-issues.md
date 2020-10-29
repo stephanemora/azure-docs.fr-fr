@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619761"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791747"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Types détectables de goulots d’étranglement des performances des requêtes dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Vous pouvez utiliser Azure SQL Database [Intelligent Insights](database/intellig
 
 ![États de la charge de travail](./media/identify-query-performance-issues/workload-states.png)
 
-**Problèmes liés à l’exécution** : les problèmes liés à l’exécution sont généralement associés à des problèmes de compilation, ce qui entraîne des problèmes liés à un plan de requête non optimal ou à l’exécution associés à des ressources insuffisantes ou surutilisées.
-**Problèmes liés à l’attente** : les problèmes liés à l’attente sont généralement associés aux éléments suivants :
+**Problèmes liés à l’exécution**  : les problèmes liés à l’exécution sont généralement associés à des problèmes de compilation, ce qui entraîne des problèmes liés à un plan de requête non optimal ou à l’exécution associés à des ressources insuffisantes ou surutilisées.
+**Problèmes liés à l’attente**  : les problèmes liés à l’attente sont généralement associés aux éléments suivants :
 
 - Verrous (blocage)
 - E/S
@@ -44,15 +44,15 @@ Un plan non optimal généré par l’optimiseur de requête SQL peut être à 
   - Utilisation d’[Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#missing-index).
   - [Database Advisor](database/database-advisor-implement-performance-recommendations.md) pour les bases de données uniques et mises en pool.
   - Vues de gestion dynamique (DMV). Cet exemple montre l’impact d’un index manquant, comment détecter des[index manquants](database/performance-guidance.md#identifying-and-adding-missing-indexes) à l’aide de vues DMV et l’impact de l’implémentation de la recommandation d’index manquant.
-- Essayez d’appliquer des [indicateurs de requête](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), de [mettre à jour les statistiques](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) ou de [regénérer les index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) pour obtenir le meilleur plan. Activez la [correction automatique des plans](../azure-sql/database/automatic-tuning-overview.md) dans Azure SQL Database pour atténuer automatiquement ces problèmes.
+- Essayez d’appliquer des [indicateurs de requête](/sql/t-sql/queries/hints-transact-sql-query), de [mettre à jour les statistiques](/sql/t-sql/statements/update-statistics-transact-sql) ou de [regénérer les index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) pour obtenir le meilleur plan. Activez la [correction automatique des plans](../azure-sql/database/automatic-tuning-overview.md) dans Azure SQL Database pour atténuer automatiquement ces problèmes.
 
   Cet [exemple](database/performance-guidance.md#query-tuning-and-hinting) montre l’impact d’un plan de requête non optimal en raison d’une requête paramétrée, comment détecter cette condition et comment utiliser un indicateur de requête pour résoudre le problème.
 
-- Essayez de changer le niveau de compatibilité de la base de données et d’implémenter le traitement de requêtes intelligent. L’optimiseur de requête SQL peut générer un autre plan de requête en fonction du niveau de compatibilité de votre base de données. Des niveaux de compatibilité plus élevés fournissent plus de [fonctionnalités du traitement de requêtes intelligentes](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
+- Essayez de changer le niveau de compatibilité de la base de données et d’implémenter le traitement de requêtes intelligent. L’optimiseur de requête SQL peut générer un autre plan de requête en fonction du niveau de compatibilité de votre base de données. Des niveaux de compatibilité plus élevés fournissent plus de [fonctionnalités du traitement de requêtes intelligentes](/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Pour plus d’informations sur le traitement des requêtes, consultez le [Guide d’architecture de traitement des requêtes](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Pour changer les niveaux de compatibilité de la base de données et en savoir plus sur les différences entre les niveaux de compatibilité, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Pour en savoir plus sur l’estimation de la cardinalité, consultez [Estimation de la cardinalité](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server).
+  - Pour plus d’informations sur le traitement des requêtes, consultez le [Guide d’architecture de traitement des requêtes](/sql/relational-databases/query-processing-architecture-guide).
+  - Pour changer les niveaux de compatibilité de la base de données et en savoir plus sur les différences entre les niveaux de compatibilité, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Pour en savoir plus sur l’estimation de la cardinalité, consultez [Estimation de la cardinalité](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Résolution de requêtes avec des plans d’exécution de requête non optimaux
 
@@ -66,19 +66,19 @@ Pour plus d’informations sur la détection des paramètres et le traitement de
 
 Plusieurs solutions de contournement peuvent atténuer les problèmes de plan sensible aux paramètres. Chaque solution de contournement présente des avantages et des inconvénients :
 
-- Utilisez l’indicateur de requête [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) à chaque exécution de la requête. Cette solution compense la durée de compilation et augmente l’UC pour un plan de meilleure qualité. L’option `RECOMPILE` n’est souvent pas possible pour les charges de travail exigeant un débit élevé.
-- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par une valeur de paramètre standard qui produit un plan suffisant pour la plupart des possibilités de valeurs de paramètre. Cette option nécessite une bonne compréhension des valeurs de paramètre optimal et des caractéristiques du plan associé.
-- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par la moyenne du vecteur de densité. Pour effectuer cette opération, vous pouvez également capturer les valeurs de paramètres entrantes dans des variables locales, puis utiliser ces variables locales dans des prédicats à la place des paramètres. Pour cette correction, la densité moyenne doit être *suffisante*.
-- Désactivez entièrement la détection de paramètres en spécifiant l’indicateur de requête [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
-- Utilisez l’indicateur de requête [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) pour empêcher les recompilations dans le cache. Cette solution de contournement suppose que le plan courant suffisant est celui qui se trouve déjà dans le cache. Vous pouvez également désactiver les mises à jour de statistiques automatiques afin de réduire le risque d’éviction du plan suffisant et de compilation d’un plan insuffisant.
-- Forcez le plan en spécifiant explicitement l’indicateur de requête [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) dans le texte de la requête. Ou définissez un plan spécifique en utilisant le Magasin des requêtes ou en activant le [réglage automatique](../azure-sql/database/automatic-tuning-overview.md).
+- Utilisez l’indicateur de requête [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) à chaque exécution de la requête. Cette solution compense la durée de compilation et augmente l’UC pour un plan de meilleure qualité. L’option `RECOMPILE` n’est souvent pas possible pour les charges de travail exigeant un débit élevé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR...) ](/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par une valeur de paramètre standard qui produit un plan suffisant pour la plupart des possibilités de valeurs de paramètre. Cette option nécessite une bonne compréhension des valeurs de paramètre optimal et des caractéristiques du plan associé.
+- Utilisez l’indicateur de requête [OPTION (OPTIMIZE FOR UNKNOWN)](/sql/t-sql/queries/hints-transact-sql-query) pour remplacer la valeur de paramètre réelle par la moyenne du vecteur de densité. Pour effectuer cette opération, vous pouvez également capturer les valeurs de paramètres entrantes dans des variables locales, puis utiliser ces variables locales dans des prédicats à la place des paramètres. Pour cette correction, la densité moyenne doit être *suffisante* .
+- Désactivez entièrement la détection de paramètres en spécifiant l’indicateur de requête [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query).
+- Utilisez l’indicateur de requête [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) pour empêcher les recompilations dans le cache. Cette solution de contournement suppose que le plan courant suffisant est celui qui se trouve déjà dans le cache. Vous pouvez également désactiver les mises à jour de statistiques automatiques afin de réduire le risque d’éviction du plan suffisant et de compilation d’un plan insuffisant.
+- Forcez le plan en spécifiant explicitement l’indicateur de requête [USE PLAN](/sql/t-sql/queries/hints-transact-sql-query) dans le texte de la requête. Ou définissez un plan spécifique en utilisant le Magasin des requêtes ou en activant le [réglage automatique](../azure-sql/database/automatic-tuning-overview.md).
 - Remplacez la procédure unique par un ensemble imbriqué de procédures, qui peuvent être utilisées en fonction d’une logique conditionnelle et des valeurs de paramètre associées.
 - Créez des alternatives d’exécution de chaîne dynamique sur une définition de procédure statique.
 
 Pour plus d’informations sur la résolution des problèmes de plan sensible aux paramètres, consultez ces billets de blog :
 
-- [I smell a parameter](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
-- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [I smell a parameter](/archive/blogs/queryoptteam/i-smell-a-parameter)
+- [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
 - [SQL query optimization techniques in SQL Server: Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>Compilations provoquées par un paramétrage incorrect
@@ -137,13 +137,13 @@ Si vous utilisez un indicateur RECOMPILE, le plan n’est pas mis en cache.
 
 Une recompilation (ou une nouvelle compilation après éviction du cache) peut toujours aboutir à la génération d’un plan d’exécution de requête identique au plan initial. Quand le plan change par rapport au plan précédent ou au plan initial, cela s’explique généralement par l’une des raisons suivantes :
 
-- **Modification de la conception physique** : par exemple, de nouveaux index créés couvrent plus efficacement les exigences d’une requête. Les nouveaux index peuvent être utilisés sur une nouvelle compilation si l’optimiseur de requête juge que l’utilisation des nouveaux index aboutit à un plan plus optimal que l’utilisation de la structure de données qui avait été initialement sélectionnée pour la première version de l’exécution de la requête. Toute modification physique des objets référencés peut entraîner un nouveau choix de plan au moment de la compilation.
+- **Modification de la conception physique**  : par exemple, de nouveaux index créés couvrent plus efficacement les exigences d’une requête. Les nouveaux index peuvent être utilisés sur une nouvelle compilation si l’optimiseur de requête juge que l’utilisation des nouveaux index aboutit à un plan plus optimal que l’utilisation de la structure de données qui avait été initialement sélectionnée pour la première version de l’exécution de la requête. Toute modification physique des objets référencés peut entraîner un nouveau choix de plan au moment de la compilation.
 
-- **Différences au niveau des ressources serveur** : quand un plan d’un système diffère du plan d’un autre système, la disponibilité des ressources, comme le nombre de processeurs disponibles, peut déterminer le choix du plan généré. Par exemple, si un système a davantage de processeurs, un plan parallèle peut être choisi.
+- **Différences au niveau des ressources serveur**  : quand un plan d’un système diffère du plan d’un autre système, la disponibilité des ressources, comme le nombre de processeurs disponibles, peut déterminer le choix du plan généré. Par exemple, si un système a davantage de processeurs, un plan parallèle peut être choisi.
 
-- **Statistiques différentes** : les statistiques associées aux objets référencés ont peut-être changé ou sont peut-être matériellement différentes par rapport aux statistiques du système initiales. Si les statistiques changent et qu’une recompilation a lieu, l’optimiseur de requête utilise les statistiques à partir du changement. Les fréquences et distributions de données indiquées dans les statistiques révisées peuvent différer de celles de la compilation initiale. Ces changements sont utilisés pour estimer la cardinalité. (Les *estimations de cardinalité* correspondent au nombre de lignes qui sont supposées être transmises dans l’arborescence de requêtes logique.) Les changements apportés aux estimations de cardinalité peuvent vous amener à choisir des opérateurs physiques et ordres d’opérations associés différents. Même des modifications mineures apportées aux statistiques peuvent entraîner une modification du plan d’exécution de la requête.
+- **Statistiques différentes**  : les statistiques associées aux objets référencés ont peut-être changé ou sont peut-être matériellement différentes par rapport aux statistiques du système initiales. Si les statistiques changent et qu’une recompilation a lieu, l’optimiseur de requête utilise les statistiques à partir du changement. Les fréquences et distributions de données indiquées dans les statistiques révisées peuvent différer de celles de la compilation initiale. Ces changements sont utilisés pour estimer la cardinalité. (Les *estimations de cardinalité* correspondent au nombre de lignes qui sont supposées être transmises dans l’arborescence de requêtes logique.) Les changements apportés aux estimations de cardinalité peuvent vous amener à choisir des opérateurs physiques et ordres d’opérations associés différents. Même des modifications mineures apportées aux statistiques peuvent entraîner une modification du plan d’exécution de la requête.
 
-- **Changement du niveau de compatibilité de la base de données ou de la version de l’estimateur de cardinalité** : un changement du niveau de compatibilité de la base de données peut donner lieu à de nouvelles stratégies et caractéristiques qui peuvent entraîner un plan d’exécution de requête différent. Au-delà du niveau de compatibilité de la base de données, l’activation ou la désactivation d’un indicateur de trace 4199 ou bien un changement d’état de l’indicateur QUERY_OPTIMIZER_HOTFIXES de configuration à l’échelle de la base de données peuvent également impacter les choix de plan d’exécution de requête au moment de la compilation. Les indicateurs de trace 9481 (forcer le CE hérité) et 2312 (forcer le CE par défaut) impactent également le choix du plan.
+- **Changement du niveau de compatibilité de la base de données ou de la version de l’estimateur de cardinalité**  : un changement du niveau de compatibilité de la base de données peut donner lieu à de nouvelles stratégies et caractéristiques qui peuvent entraîner un plan d’exécution de requête différent. Au-delà du niveau de compatibilité de la base de données, l’activation ou la désactivation d’un indicateur de trace 4199 ou bien un changement d’état de l’indicateur QUERY_OPTIMIZER_HOTFIXES de configuration à l’échelle de la base de données peuvent également impacter les choix de plan d’exécution de requête au moment de la compilation. Les indicateurs de trace 9481 (forcer le CE hérité) et 2312 (forcer le CE par défaut) impactent également le choix du plan.
 
 ## <a name="resource-limits-issues"></a>Problèmes de limites des ressources
 
@@ -173,11 +173,11 @@ En résumé, si le plan d’exécution de requête s’est exécuté de la même
 
 Il est souvent difficile d’identifier qu’une variation du volume de la charge de travail est à l’origine d’un problème d’utilisation du processeur. Tenez compte de ces facteurs :
 
-- **Changement dans l’utilisation des ressources** : par exemple, imaginez un scénario où l’utilisation du processeur a enregistré une hausse de 80 pour cent durant une période prolongée. Cela ne suffit pas pour conclure à une variation du volume de la charge de travail. Des régressions dans le plan d’exécution de requête et des changements dans la distribution des données peuvent également entraîner une plus grande utilisation des ressources, même si l’application exécute la même charge de travail.
+- **Changement dans l’utilisation des ressources**  : par exemple, imaginez un scénario où l’utilisation du processeur a enregistré une hausse de 80 pour cent durant une période prolongée. Cela ne suffit pas pour conclure à une variation du volume de la charge de travail. Des régressions dans le plan d’exécution de requête et des changements dans la distribution des données peuvent également entraîner une plus grande utilisation des ressources, même si l’application exécute la même charge de travail.
 
-- **Apparence d’une nouvelle requête** : une application peut exécuter un nouvel ensemble de requêtes à des moments différents.
+- **Apparence d’une nouvelle requête**  : une application peut exécuter un nouvel ensemble de requêtes à des moments différents.
 
-- **Augmentation ou diminution du nombre de requêtes** : ce scénario constitue la mesure la plus évidente de la charge de travail. Le nombre de requêtes ne correspond pas toujours à une augmentation de l’utilisation des ressources. Toutefois, cette mesure est toujours un signal important, qui suppose que d’autres facteurs restent inchangés.
+- **Augmentation ou diminution du nombre de requêtes**  : ce scénario constitue la mesure la plus évidente de la charge de travail. Le nombre de requêtes ne correspond pas toujours à une augmentation de l’utilisation des ressources. Toutefois, cette mesure est toujours un signal important, qui suppose que d’autres facteurs restent inchangés.
 
 Utilisez Intelligent Insights pour détecter les [augmentations de charge de travail](database/intelligent-insights-troubleshoot-performance.md#workload-increase) et les [régressions de plan](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Utilisez Intelligent Insights pour détecter les [augmentations de charge de tra
 
 Une fois que vous avez éliminé les problèmes liés à un plan non optimal et ceux *liés à l’attente* qui sont associés à des problèmes d’exécution, le problème de performances est généralement dû au fait que les requêtes attendent probablement des ressources. Les problèmes liés à l’attente peuvent être provoqués par :
 
-- Un **blocage** :
+- Un **blocage**  :
 
   une requête peut maintenir le verrou sur certains objets de la base de données pendant que d’autres requêtes essaient d’accéder aux mêmes objets. Vous pouvez identifier les requêtes bloquantes à l’aide de [vues de gestion dynamiques (DMV)](database/monitoring-with-dmvs.md#monitoring-blocked-queries) ou d’[Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **Problèmes d’E/S**
@@ -203,16 +203,16 @@ Une fois que vous avez éliminé les problèmes liés à un plan non optimal et
 Ces méthodes sont couramment utilisées pour afficher les principales catégories de types d’attentes :
 
 - Utilisez Intelligent Insights pour identifier les requêtes subissant une dégradation des performances en raison de l’[augmentation des attentes](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic).
-- Utilisez le [Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour avoir des statistiques sur les attentes par requête dans le temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Vous pouvez consulter une table de mappage des catégories d’attentes avec les types d’attentes dans [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Utilisez [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) pour retourner des informations sur toutes les attentes rencontrées par les threads exécutés pendant une opération de requête. Vous pouvez utiliser cette vue agrégée pour diagnostiquer les problèmes de performances avec Azure SQL Database, ainsi qu’avec des requêtes et des lots spécifiques. Les requêtes peuvent subir des attentes sur les ressources, des attentes sur la file d’attente ou des attentes externes.
-- Utilisez [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) pour retourner des informations sur la file d’attente des tâches qui sont en attente de certaines ressources.
+- Utilisez le [Magasin des requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) pour avoir des statistiques sur les attentes par requête dans le temps. Dans le magasin des requêtes, les types d’attentes sont combinés en catégories d’attentes. Vous pouvez consulter une table de mappage des catégories d’attentes avec les types d’attentes dans [sys.query_store_wait_stats](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Utilisez [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) pour retourner des informations sur toutes les attentes rencontrées par les threads exécutés pendant une opération de requête. Vous pouvez utiliser cette vue agrégée pour diagnostiquer les problèmes de performances avec Azure SQL Database, ainsi qu’avec des requêtes et des lots spécifiques. Les requêtes peuvent subir des attentes sur les ressources, des attentes sur la file d’attente ou des attentes externes.
+- Utilisez [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) pour retourner des informations sur la file d’attente des tâches qui sont en attente de certaines ressources.
 
 Dans les scénarios d’utilisation intensive du processeur, le Magasin des requêtes et les statistiques d’attente ne reflètent pas forcément l’utilisation du processeur dans les cas suivants :
 
 - Des requêtes grandes consommatrices de ressources processeur sont toujours en cours d’exécution.
 - Les requêtes consommant beaucoup de ressources processeur étaient en cours d’exécution au moment d’un basculement.
 
-Les vues de gestion dynamiques qui font le suivi des données du Magasin des requêtes et des statistiques d’attente affichent des résultats uniquement pour les requêtes terminées avec succès et les requêtes ayant expiré. Elles n’affichent pas de données ayant trait aux instructions en cours d’exécution tant que ces instructions ne sont pas terminées. Utilisez la vue de gestion dynamique [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) pour suivre les requêtes en cours d’exécution et la durée du worker associé.
+Les vues de gestion dynamiques qui font le suivi des données du Magasin des requêtes et des statistiques d’attente affichent des résultats uniquement pour les requêtes terminées avec succès et les requêtes ayant expiré. Elles n’affichent pas de données ayant trait aux instructions en cours d’exécution tant que ces instructions ne sont pas terminées. Utilisez la vue de gestion dynamique [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) pour suivre les requêtes en cours d’exécution et la durée du worker associé.
 
 > [!TIP]
 > Outils supplémentaires :

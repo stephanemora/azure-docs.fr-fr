@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91338811"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792529"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure SQL Database et SQL Managed Instance
 
@@ -79,4 +79,4 @@ Les certificats utilisés par Azure SQL Database et SQL Managed Instance sont fo
 Étant donné que cette configuration s’effectue côté client, ces informations ne sont pas disponibles côté serveur.
 
 ### <a name="what-if-i-have-further-questions"></a>Que se passe-t-il si j’ai d’autres questions ?
-Si vous avez un plan de support et que vous avez besoin d’une assistance technique, créez une demande de support Azure. Pour cela, consultez [Créer une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Si vous avez un plan de support et que vous avez besoin d’une assistance technique, créez une demande de support Azure. Pour cela, consultez [Créer une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

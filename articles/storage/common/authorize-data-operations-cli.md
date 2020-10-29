@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be5729320f27e38907c4de6844bf3126cf41747b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714584"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789656"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données d’objet blob ou de file d’attente avec Azure CLI
 
@@ -35,7 +35,7 @@ Les commandes Azure CLI pour la lecture et l’écriture de données d’objet b
 Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI version 2.0.46 ou ultérieure est installé. Exécutez `az --version` pour vérifier la version installée.
 
 > [!IMPORTANT]
-> Si vous omettez le paramètre `--auth-mode` ou si vous le définissez sur `key`, Azure CLI tente d’utiliser la clé d’accès au compte pour l’autorisation. Dans ce cas, Microsoft recommande de fournir la clé d’accès sur la commande ou dans la variable d’environnement **AZURE_STORAGE_KEY**. Pour plus d’informations sur les variables d’environnement, voir la section intitulée [Définir des variables d’environnement pour les paramètres d’autorisation](#set-environment-variables-for-authorization-parameters).
+> Si vous omettez le paramètre `--auth-mode` ou si vous le définissez sur `key`, Azure CLI tente d’utiliser la clé d’accès au compte pour l’autorisation. Dans ce cas, Microsoft recommande de fournir la clé d’accès sur la commande ou dans la variable d’environnement **AZURE_STORAGE_KEY** . Pour plus d’informations sur les variables d’environnement, voir la section intitulée [Définir des variables d’environnement pour les paramètres d’autorisation](#set-environment-variables-for-authorization-parameters).
 >
 > Si vous ne fournissez pas la clé d’accès, Azure CLI tente d’appeler le fournisseur de ressources de Stockage Azure afin de le récupérer pour chaque opération. L’exécution de nombreuses opérations de données nécessitant un appel au fournisseur de ressources peut entraîner une limitation. Pour plus d’informations sur les limites du fournisseur de ressources, voir [Objectifs de scalabilité et de performances pour le fournisseur de ressources de Stockage Azure](scalability-targets-resource-provider.md).
 
@@ -43,7 +43,7 @@ Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI version 2
 
 Quand vous vous connectez à Azure CLI avec des informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par Azure CLI pour autoriser les opérations de données suivantes sur le Stockage Blob ou File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès Azure en fonction du rôle (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](storage-auth-aad-rbac.md).
+Vous pouvez attribuer des autorisations aux données d’objet blob et de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès Azure en fonction du rôle (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Autorisations pour appeler des opérations de données
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur les autorisations requises pour chaque opération
 
 L’exemple suivant montre comment créer un conteneur à partir d’Azure CLI à l’aide de vos informations d’identification Azure AD. Pour créer le conteneur, vous devez vous connecter à Azure CLI et aurez besoin d’un groupe de ressources et d’un compte de stockage. Pour savoir comment créer ces ressources, voir [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](storage-auth-aad-rbac.md).
+1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles Azure, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](./storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles Azure peut prendre plusieurs minutes.

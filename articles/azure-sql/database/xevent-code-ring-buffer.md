@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619829"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791288"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Code cible de la mémoire tampon en anneau pour les événements étendus dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Vous pouvez utiliser un exemple de code complet pour capturer et signaler le plus simplement et rapidement possible les informations liées à un événement étendu pendant un test. La cible la plus simple pour les données d’événement étendu est la [cible de la mémoire tampon en anneau](https://msdn.microsoft.com/library/ff878182.aspx).
+Vous pouvez utiliser un exemple de code complet pour capturer et signaler le plus simplement et rapidement possible les informations liées à un événement étendu pendant un test. La cible la plus simple pour les données d’événement étendu est la [cible de la mémoire tampon en anneau](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 Cette rubrique présente un exemple de code Transact-SQL qui :
 
 1. Crée une table contenant des données pour la démonstration.
-2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql_statement_starting**.
+2. Crée une session pour un événement étendu existant, à savoir **sqlserver.sql_statement_starting** .
 
    * L’événement est limité aux instructions SQL qui contiennent une chaîne Update particulière : **statement LIKE '%UPDATE tabEmployee%'** .
-   * Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring_buffer**.
+   * Choisit d’envoyer la sortie de l’événement vers une cible de type mémoire tampon en anneau, à savoir **package0.ring_buffer** .
 3. Démarre la session d’événement.
 4. Émet un ensemble d’instructions SQL UPDATE simples.
 5. Émet une instruction SQL SELECT pour récupérer la sortie d’événement de la mémoire tampon en anneau.
@@ -50,7 +50,7 @@ Cette rubrique présente un exemple de code Transact-SQL qui :
 * SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle.
   Vous pouvez télécharger la dernière version de ssms.exe :
   
-  * À partir de la rubrique [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * À partir de la rubrique [Télécharger SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [En utilisant un lien direct vers le téléchargement.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Exemple de code
@@ -218,9 +218,9 @@ GO
 
 Nous avons utilisé `ssms.exe` pour exécuter l'exemple de code.
 
-Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**.
+Pour afficher les résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML** .
 
-Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML**. Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
+Puis, dans le volet de résultats, nous avons cliqué sur la cellule sous l’en-tête de colonne **target_data_XML** . Ce clic a créé un autre onglet Fichier dans ssms.exe pour afficher (au format XML) le contenu de la cellule de résultat.
 
 La sortie est présentée dans le bloc suivant. Elle semble longue, mais ne comprend que deux éléments **\<event>** .
 
@@ -349,6 +349,6 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

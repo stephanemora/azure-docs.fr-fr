@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792648"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Managed Instance à l’aide du portail Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Les métriques d’instance gérée suivantes sont disponibles pour la configura
 
    ![Select_action_group](./media/alerts-create/mi-select-action-group-smaller-annotated.png)
 
-   * Pour créer un groupe d’actions, sélectionnez **+ Créer un groupe d’actions**.
+   * Pour créer un groupe d’actions, sélectionnez **+ Créer un groupe d’actions** .
 
       ![Create_action_group_alerts](./media/alerts-create/mi-create-alert-action-group-smaller-annotated.png)
    
@@ -106,7 +106,7 @@ Les métriques d’instance gérée suivantes sont disponibles pour la configura
 
       ![Rule_description](./media/alerts-create/mi-rule-details-complete-smaller-annotated.png)
 
-   * Terminez la création de la règle d’alerte en cliquant sur le bouton **Créer une règle d’alerte**.
+   * Terminez la création de la règle d’alerte en cliquant sur le bouton **Créer une règle d’alerte** .
 
 La nouvelle règle d’alerte est active en quelques minutes et est déclenchée en fonction de vos paramètres.
 
@@ -145,5 +145,5 @@ Pour afficher, suspendre, activer, modifier et supprimer des alertes existantes�
 * Pour plus d’informations sur le système d’alertes Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 * Pour en savoir plus sur les alertes de métrique, consultez [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md).
 * Pour en savoir plus sur la configuration d’un webhook dans des alertes, consultez [Appeler un webhook avec une alerte de métrique classique](../../azure-monitor/platform/alerts-webhooks.md)
-* Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de PowerShell, consultez [Règles d’action](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de l’API, consultez [Informations de référence sur l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
+* Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de PowerShell, consultez [Règles d’action](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de l’API, consultez [Informations de référence sur l’API REST Azure Monitor](/rest/api/monitor/)

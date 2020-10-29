@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0454e7bcc81c71cdffcddcd859bb6d335cc8aef2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052424"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791815"
 ---
 # <a name="repairing-an-import-job"></a>Réparation d’un travail d’importation
 Le service Microsoft Azure Import/Export peut ne pas copier certains de vos fichiers ou des parties d’un fichier dans le service BLOB Windows Azure. Voici quelques exemples de raisons de ces échecs :  
@@ -100,6 +100,6 @@ Après avoir mis les fichiers nécessaires à disposition de l’outil ou après
 ## <a name="next-steps"></a>Étapes suivantes
  
 * [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Préparation des disques durs pour un travail d’importation](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Réparation d’un travail d’exportation](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Réparation d’un travail d’exportation](./storage-import-export-tool-repairing-an-export-job-v1.md)

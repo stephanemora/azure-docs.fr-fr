@@ -9,13 +9,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bd3917c42859d4240fbb3a75f951ff38a548e204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
+ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330806"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792189"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gérer des pools élastiques dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ Avec un pool élastique, on détermine la quantité de ressources qui lui sont n
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Tous les paramètres du pool se trouvent au même endroit : le panneau **Configurer le pool**. Pour y accéder, recherchez un pool élastique dans le Portail Azure, puis cliquez sur **Configurer le pool** en haut du panneau ou dans le menu des ressources situé sur la gauche.
+Tous les paramètres du pool se trouvent au même endroit : le panneau **Configurer le pool** . Pour y accéder, recherchez un pool élastique dans le Portail Azure, puis cliquez sur **Configurer le pool** en haut du panneau ou dans le menu des ressources situé sur la gauche.
 
 Vous pouvez effectuer n’importe quelle combinaison de modifications parmi les suivantes, et les enregistrer dans un même ensemble :
 
@@ -40,7 +40,7 @@ Vous pouvez effectuer n’importe quelle combinaison de modifications parmi les 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour créer et gérer les pools élastiques SQL Database et des bases de données mises en pool avec Azure PowerShell, utilisez les cmdlets PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps). Pour créer et gérer les serveurs d’un pool élastique, consultez [Créer et gérer des serveurs](logical-servers.md). Pour créer et gérer des règles de pare-feu, consultez l’article expliquant comment [créer et gérer des règles de pare-feu à l’aide de PowerShell](firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
@@ -65,7 +65,7 @@ Pour créer et gérer les pools élastiques SQL Database et des bases de donnée
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Pour créer et gérer un serveur des pools élastiques avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows.
+Pour créer et gérer un serveur des pools élastiques avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](../../cloud-shell/overview.md) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows.
 
 > [!TIP]
 > Pour obtenir des exemples de scripts Azure CLI , consultez [Utiliser l’interface CLI afin de déplacer une base de données dans SQL Database dans un pool élastique SQL](scripts/move-database-between-elastic-pools-cli.md) et [Utiliser Azure CLI pour mettre un pool élastique SQL à l’échelle dans Azure SQL Database](scripts/scale-pool-cli.md).
@@ -102,18 +102,18 @@ Pour créer et gérer des pools élastiques SQL Database et des bases de donnée
 
 | Commande | Description |
 | --- | --- |
-|[Elastic pools - Create or update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
-|[Pools élastiques - Supprimer](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Supprime le pool élastique.|
-|[Pools élastiques - Obtenir](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtenir un pool élastique.|
-|[Elastic pools - List by server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
-|[Pools élastiques - Mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Met à jour un pool élastique existant.|
-|[Elastic pool activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
-|[Elastic pool database activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Elastic pools - Create or update](/rest/api/sql/elasticpools/createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
+|[Pools élastiques - Supprimer](/rest/api/sql/elasticpools/delete)|Supprime le pool élastique.|
+|[Pools élastiques - Obtenir](/rest/api/sql/elasticpools/get)|Obtenir un pool élastique.|
+|[Elastic pools - List by server](/rest/api/sql/elasticpools/listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
+|[Pools élastiques - Mettre à jour](/rest/api/sql/elasticpools/listbyserver)|Met à jour un pool élastique existant.|
+|[Elastic pool activities](/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
+|[Elastic pool database activities](/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

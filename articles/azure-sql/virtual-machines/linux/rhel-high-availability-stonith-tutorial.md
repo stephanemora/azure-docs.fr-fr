@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358914"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790234"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ Une fois l’exécution de la commande terminée, vous devez obtenir les résult
     done
     ```
 
-La commande ci-dessus crée les machines virtuelles et crée un réseau virtuel par défaut pour celles-ci. Pour plus d’informations sur les différentes configurations, consultez l’article [az vm create](https://docs.microsoft.com/cli/azure/vm).
+La commande ci-dessus crée les machines virtuelles et crée un réseau virtuel par défaut pour celles-ci. Pour plus d’informations sur les différentes configurations, consultez l’article [az vm create](/cli/azure/vm).
 
 Une fois la commande exécutée sur chaque machine virtuelle, vous devez obtenir des résultats similaires à ce qui suit :
 
@@ -324,7 +324,7 @@ Connectez-vous à chaque nœud de machine virtuelle et suivez le guide ci-dessou
     sudo vi /etc/hosts
     ```
 
-    Dans l’éditeur **vi**, entrez `i` pour insérer du texte, puis, sur une ligne vide, ajoutez l’**adresse IP privée** de la machine virtuelle correspondante. Ajoutez ensuite le nom de la machine virtuelle après un espace, à côté de l’adresse IP. Chaque ligne doit avoir une entrée distincte.
+    Dans l’éditeur **vi** , entrez `i` pour insérer du texte, puis, sur une ligne vide, ajoutez l’ **adresse IP privée** de la machine virtuelle correspondante. Ajoutez ensuite le nom de la machine virtuelle après un espace, à côté de l’adresse IP. Chaque ligne doit avoir une entrée distincte.
 
     ```output
     <IP1> <VM1>
@@ -333,9 +333,9 @@ Connectez-vous à chaque nœud de machine virtuelle et suivez le guide ci-dessou
     ```
 
     > [!IMPORTANT]
-    > Nous vous recommandons d’utiliser votre **adresse IP privée**. L’utilisation de l’adresse IP publique dans cette configuration entraînera l’échec de l’installation. En outre, nous vous déconseillons d’exposer votre machine virtuelle à des réseaux externes.
+    > Nous vous recommandons d’utiliser votre **adresse IP privée** . L’utilisation de l’adresse IP publique dans cette configuration entraînera l’échec de l’installation. En outre, nous vous déconseillons d’exposer votre machine virtuelle à des réseaux externes.
 
-    Pour quitter l’éditeur **vi**, appuyez d’abord sur la touche **Echap**, puis entrez la commande `:wq` pour écrire le fichier et quitter.
+    Pour quitter l’éditeur **vi** , appuyez d’abord sur la touche **Echap** , puis entrez la commande `:wq` pour écrire le fichier et quitter.
 
 ## <a name="create-the-pacemaker-cluster"></a>Créez le cluster Pacemaker
 
@@ -373,7 +373,7 @@ Dans cette section, nous allons activer et démarrer le service PCSD, puis conf
 
     **RHEL8**
 
-    Pour RHEL 8, vous devez authentifier les nœuds séparément. Quand vous y êtes invité, entrez manuellement le nom d’utilisateur et le mot de passe pour **hacluster**.
+    Pour RHEL 8, vous devez authentifier les nœuds séparément. Quand vous y êtes invité, entrez manuellement le nom d’utilisateur et le mot de passe pour **hacluster** .
 
     ```bash
     sudo pcs host auth <node1> <node2> <node3>
@@ -487,13 +487,13 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  1. Accédez à https://portal.azure.com
  2. Ouvrez le [panneau Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de l’ID `tenant ID`.
  3. Cliquez sur [**Inscriptions des applications**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
- 4. Cliquez sur **Nouvelle inscription**.
- 5. Entrez un **nom** tel que `<resourceGroupName>-app`, puis sélectionnez **Comptes dans cet annuaire d’organisation uniquement**.
- 6. Sélectionnez le type d’application **Web**, entrez une URL de connexion (par exemple http://localhost) ), puis cliquez sur Ajouter. L’URL de connexion n’est pas utilisée et peut être n’importe quelle URL valide. Une fois terminé, cliquez sur **Register** (S’inscrire).
+ 4. Cliquez sur **Nouvelle inscription** .
+ 5. Entrez un **nom** tel que `<resourceGroupName>-app`, puis sélectionnez **Comptes dans cet annuaire d’organisation uniquement** .
+ 6. Sélectionnez le type d’application **Web** , entrez une URL de connexion (par exemple http://localhost) ), puis cliquez sur Ajouter. L’URL de connexion n’est pas utilisée et peut être n’importe quelle URL valide. Une fois terminé, cliquez sur **Register** (S’inscrire).
  7. Sélectionnez **Certificates and secrets** (Certificats et secrets), puis sélectionnez **New client secret** (Nouveau secret client).
- 8. Entrez une description pour la nouvelle clé (secret client), sélectionnez **N’expire jamais** et cliquez sur **Ajouter**.
+ 8. Entrez une description pour la nouvelle clé (secret client), sélectionnez **N’expire jamais** et cliquez sur **Ajouter** .
  9. Notez la valeur du secret. Cette valeur est utilisée comme mot de passe pour le principal de service.
-10. Sélectionnez **Vue d’ensemble**. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (ID de connexion dans la procédure ci-dessous) du principal de service.
+10. Sélectionnez **Vue d’ensemble** . Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (ID de connexion dans la procédure ci-dessous) du principal de service.
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Créer un rôle personnalisé pour l’agent d’isolation
 
@@ -568,10 +568,10 @@ Affectez au principal de service le rôle personnalisé `Linux Fence Agent Role-
 2. Ouvrez le panneau [Toutes les ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll).
 3. Sélectionnez la machine virtuelle du premier nœud de cluster.
 4. Cliquez sur **Contrôle d’accès (IAM)** .
-5. Cliquez sur **Ajouter une attribution de rôle**.
-6. Sélectionnez le rôle `Linux Fence Agent Role-<username>` dans la liste **Rôle**.
-7. Dans la liste **Sélectionner**, entrez le nom de l’application que vous avez créée ci-dessus (`<resourceGroupName>-app`).
-8. Cliquez sur **Enregistrer**.
+5. Cliquez sur **Ajouter une attribution de rôle** .
+6. Sélectionnez le rôle `Linux Fence Agent Role-<username>` dans la liste **Rôle** .
+7. Dans la liste **Sélectionner** , entrez le nom de l’application que vous avez créée ci-dessus (`<resourceGroupName>-app`).
+8. Cliquez sur **Enregistrer** .
 9. Répétez les étapes ci-dessus pour tous les nœuds de cluster.
 
 ### <a name="create-the-stonith-devices"></a>Créer les appareils STONITH
@@ -868,7 +868,7 @@ Sur toutes les instances SQL Server, enregistrez les informations d’identific
     <password>
     ```
 
-    Pour quitter l’éditeur **vi**, appuyez d’abord sur la touche **Echap**, puis entrez la commande `:wq` pour écrire le fichier et quitter.
+    Pour quitter l’éditeur **vi** , appuyez d’abord sur la touche **Echap** , puis entrez la commande `:wq` pour écrire le fichier et quitter.
 
 1. Rendez le fichier lisible uniquement par la racine :
 
@@ -906,7 +906,7 @@ Sur toutes les instances SQL Server, enregistrez les informations d’identific
     GO
     ```
 
-1. Une fois les réplicas secondaires joints, vous pouvez les afficher dans l’Explorateur d’objets de SSMS en développant le nœud **Haute disponibilité Always On** :
+1. Une fois les réplicas secondaires joints, vous pouvez les afficher dans l’Explorateur d’objets de SSMS en développant le nœud **Haute disponibilité Always On**  :
 
     ![La capture d’écran présente les réplicas de disponibilité principaux et secondaires.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
@@ -1001,7 +1001,7 @@ Nous allons suivre le guide permettant de [créer les ressources de groupe de di
     # The above will scan for all IP addresses that are already occupied in the 10.0.0.x space.
     ```
 
-2. Affectez la valeur false à la propriété **stonith-enabled**.
+2. Affectez la valeur false à la propriété **stonith-enabled** .
 
     ```bash
     sudo pcs property set stonith-enabled=false

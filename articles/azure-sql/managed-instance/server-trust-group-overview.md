@@ -12,18 +12,18 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
-ms.openlocfilehash: 6154625f1e943007d0ed4c3341dc1265657f3bfc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046347"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790727"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Utiliser des groupes d’approbations de serveurs pour configurer et gérer l’approbation entre des instances managées SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Le groupe d’approbations de serveurs est un concept utilisé pour la gestion de l’approbation entre des instances Azure SQL Managed Instance. En créant un groupe, une approbation basée sur un certificat est établie entre ses membres. Cette approbation peut être utilisée pour différents scénarios inter-instances. La suppression de serveurs du groupe ou la suppression du groupe supprime l’approbation entre les serveurs. Pour créer ou supprimer un groupe d’approbations de serveurs, l’utilisateur doit disposer d’autorisations en écriture sur l’instance managée.
-[Groupe d’approbations de serveurs](https://aka.ms/mi-server-trust-group-arm) est un objet Azure Resource Manager qui a été étiqueté comme **Groupe d’approbations SQL** dans le Portail Azure.
+[Groupe d’approbations de serveurs](/azure/templates/microsoft.sql/allversions) est un objet Azure Resource Manager qui a été étiqueté comme **Groupe d’approbations SQL** dans le Portail Azure.
 
 > [!NOTE]
 > Le groupe d’approbations de serveurs est introduit dans la préversion publique des transactions distribuées entre instances Azure SQL Managed Instance et présente actuellement certaines limitations qui seront décrites plus loin dans cet article.
@@ -36,19 +36,19 @@ La section suivante décrit la configuration du groupe d’approbations de serve
 
 2. Accédez à l’instance Azure SQL Managed Instance que vous prévoyez d’ajouter à un groupe d’approbations de serveurs nouvellement créé.
 
-3. Dans la page de paramètres **Sécurité**, sélectionnez l’onglet **Groupes d’approbations SQL**.
+3. Dans la page de paramètres **Sécurité** , sélectionnez l’onglet **Groupes d’approbations SQL** .
 
    :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Groupes d’approbations de serveurs":::
 
-4. Dans la page Configuration du groupe d’approbations de serveurs, sélectionnez l’icône **Nouveau groupe**.
+4. Dans la page Configuration du groupe d’approbations de serveurs, sélectionnez l’icône **Nouveau groupe** .
 
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Groupes d’approbations de serveurs":::
 
-5. Dans le panneau **Groupe d’approbations SQL**, définissez le **Nom du groupe**. Il doit être unique dans toutes les régions où résident les membres du groupe. L’**Étendue d’approbation** définit le type de scénario inter-instances qui est activé avec le groupe d’approbations de serveurs. Dans la préversion, la seule étendue d’approbation applicable est **Transactions distribuées**, elle est donc présélectionnée et ne peut pas être modifiée. Tous les **Membres du groupe** doivent appartenir au même **abonnement**, mais ils peuvent se trouver sous des groupes de ressources différents. Sélectionnez le **Groupe de ressources** et **SQL Server/instance** pour choisir l’instance Azure SQL Managed Instance qui sera membre du groupe.
+5. Dans le panneau **Groupe d’approbations SQL** , définissez le **Nom du groupe** . Il doit être unique dans toutes les régions où résident les membres du groupe. L’ **Étendue d’approbation** définit le type de scénario inter-instances qui est activé avec le groupe d’approbations de serveurs. Dans la préversion, la seule étendue d’approbation applicable est **Transactions distribuées** , elle est donc présélectionnée et ne peut pas être modifiée. Tous les **Membres du groupe** doivent appartenir au même **abonnement** , mais ils peuvent se trouver sous des groupes de ressources différents. Sélectionnez le **Groupe de ressources** et **SQL Server/instance** pour choisir l’instance Azure SQL Managed Instance qui sera membre du groupe.
 
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Groupes d’approbations de serveurs":::
 
-6. Une fois tous les champs obligatoires remplis, cliquez sur **Enregistrer**.
+6. Une fois tous les champs obligatoires remplis, cliquez sur **Enregistrer** .
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Maintenance et suppression du groupe d’approbations de serveurs
 
@@ -57,16 +57,16 @@ Impossible de modifier le groupe d’approbations de serveurs. Pour supprimer un
 La section suivante décrit le processus de suppression d’un groupe d’approbations de serveurs. 
 1. Accédez au portail Azure.
 2. Accédez à une instance managée qui appartient au groupe d’approbations.
-3. Dans les paramètres de **Sécurité**, sélectionnez l’onglet **Groupes d’approbations SQL**.
+3. Dans les paramètres de **Sécurité** , sélectionnez l’onglet **Groupes d’approbations SQL** .
 4. Sélectionnez le groupe d’approbations que vous souhaitez supprimer.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Groupes d’approbations de serveurs":::
-5. Cliquez sur **Supprimer un groupe**.
+5. Cliquez sur **Supprimer un groupe** .
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Groupes d’approbations de serveurs":::
-6. Entrez le nom du groupe d’approbations de serveurs pour confirmer la suppression, puis cliquez sur **Supprimer**.
+6. Entrez le nom du groupe d’approbations de serveurs pour confirmer la suppression, puis cliquez sur **Supprimer** .
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Groupes d’approbations de serveurs":::
 
 > [!NOTE]
-> La suppression du groupe d’approbations de serveurs risque de ne pas supprimer immédiatement l’approbation entre les deux instances managées. La suppression de l’approbation peut être appliquée en appelant un [basculement](https://docs.microsoft.com/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) d’instances managées. Consultez les [Problèmes connus](https://docs.microsoft.com/azure/azure-sql/database/doc-changes-updates-release-notes?tabs=managed-instance#known-issues) pour obtenir les dernières mises à jour à ce sujet.
+> La suppression du groupe d’approbations de serveurs risque de ne pas supprimer immédiatement l’approbation entre les deux instances managées. La suppression de l’approbation peut être appliquée en appelant un [basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) d’instances managées. Consultez les [Problèmes connus](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) pour obtenir les dernières mises à jour à ce sujet.
 
 ## <a name="limitations"></a>Limites
 
@@ -77,7 +77,7 @@ Au cours de la préversion publique, les limitations suivantes s’appliquent au
  * Les transactions distribuées sont la seule étendue applicable pour les groupes d’approbations de serveurs.
  * Le groupe d’approbations de serveurs peut uniquement être géré à partir du Portail Azure. La prise en charge de PowerShell et de l’interface CLI sera ajoutée plus tard.
  * Il est impossible de modifier le groupe d’approbations de serveurs sur le Portail Azure. Il peut uniquement être créé ou supprimé.
- * Des limitations supplémentaires sur les transactions distribuées peuvent être liées à votre scénario. La plus notable est qu’il doit exister une connectivité entre les instances managées sur des points de terminaison privés, par le biais d’un réseau virtuel ou d’un peering de réseaux virtuels. Assurez-vous que vous avez pris connaissance des [limitations actuelles des transactions distribuées pour Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
+ * Des limitations supplémentaires sur les transactions distribuées peuvent être liées à votre scénario. La plus notable est qu’il doit exister une connectivité entre les instances managées sur des points de terminaison privés, par le biais d’un réseau virtuel ou d’un peering de réseaux virtuels. Assurez-vous que vous avez pris connaissance des [limitations actuelles des transactions distribuées pour Managed Instance](../database/elastic-transactions-overview.md#limitations).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

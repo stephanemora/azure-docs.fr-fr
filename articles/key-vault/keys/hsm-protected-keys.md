@@ -10,16 +10,16 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532135"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784556"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importer des clés protégées par HSM dans un coffre de clés
 
-Pour une meilleure garantie, lorsque vous utilisez le coffre de clés Azure, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Ce scénario est souvent appelé *Apportez votre propre clé*ou désigné par l’acronyme BYOK. Azure Key Vault utilise la famille nShield de modules HSM (FIPS 140-2 niveau 2 validé) de nCipher pour protéger vos clés.
+Pour une meilleure garantie, lorsque vous utilisez le coffre de clés Azure, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Ce scénario est souvent appelé *Apportez votre propre clé* ou désigné par l’acronyme BYOK. Azure Key Vault utilise la famille nShield de modules HSM (FIPS 140-2 niveau 2 validé) de nCipher pour protéger vos clés.
 
 Cette fonctionnalité n’est pas disponible pour Azure Chine 21Vianet.
 
@@ -43,4 +43,4 @@ Le transfert de clés protégées par HSM vers un coffre de clés est pris en ch
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Appliquez les [bonnes pratiques relatives à Key Vault](../general/best-practices.md) pour assurer la sécurité, la durabilité et la supervision de vos clés.
-* Pour une description complète de la nouvelle méthode BYOK, reportez-vous à la [Spécification BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification).
+* Pour une description complète de la nouvelle méthode BYOK, reportez-vous à la [Spécification BYOK](./byok-specification.md).

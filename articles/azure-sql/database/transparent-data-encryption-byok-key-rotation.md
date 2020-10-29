@@ -5,19 +5,19 @@ description: Découvrez comment faire pivoter le protecteur Transparent Data Enc
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 699434e89872b9525ea99883bc4fcbc86757ab8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619846"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788602"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Faire pivoter le protecteur Transparent Data Encryption (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -37,11 +37,11 @@ Ce guide décrit deux options pour faire pivoter le protecteur TDE sur le serveu
 
 - Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour Azure SQL Database ou Azure Synapse Analytics. Consultez [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) (Chiffrement transparent des données avec prise en charge BYOK).
 - Azure PowerShell doit être installé et en cours d’exécution.
-- [Recommandé mais facultatif] Créez tout d’abord le matériel de clé pour le protecteur TDE dans un module de sécurité matériel (HSM) ou le magasin de clés local, puis importez le matériel de clé dans Azure Key Vault. Suivez le [instructions sur l’utilisation d’un module de sécurité matériel (HSM) et Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) pour en savoir plus.
+- [Recommandé mais facultatif] Créez tout d’abord le matériel de clé pour le protecteur TDE dans un module de sécurité matériel (HSM) ou le magasin de clés local, puis importez le matériel de clé dans Azure Key Vault. Suivez le [instructions sur l’utilisation d’un module de sécurité matériel (HSM) et Key Vault](../../key-vault/general/overview.md) pour en savoir plus.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Pour des instructions d’installation du module Az, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps). Pour des applets de commande spécifiques, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Pour des instructions d’installation du module Az, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps). Pour des applets de commande spécifiques, consultez [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).

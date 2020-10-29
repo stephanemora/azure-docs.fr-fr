@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293456"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789928"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Vous pouvez avoir une solution de haute disponibilité pour SQL Server au niveau
 
 | Technology | Exemples d’architecture |
 | --- | --- |
-| **Groupes de disponibilité** |Les réplicas de disponibilité exécutés sur les machines virtuelles Azure dans la même région offrent une haute disponibilité. Vous devez configurer une machine virtuelle de contrôleur de domaine, car le clustering de basculement Windows nécessite un domaine Active Directory.<br/><br/> Pour une redondance et une disponibilité plus élevées, les machines virtuelles Azure peuvent être déployées dans différentes [zones de disponibilité](../../../availability-zones/az-overview.md), comme indiqué dans la [vue d’ensemble des groupes de disponibilité](availability-group-overview.md). Si les machines virtuelles SQL Server d’un groupe de disponibilité sont déployées dans des zones de disponibilité, utilisez [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) pour l’écouteur, comme indiqué dans les articles [Utiliser Azure CLI pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](availability-group-az-cli-configure.md) et [Utiliser des modèles de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](availability-group-quickstart-template-configure.md).<br/> ![Groupes de disponibilité](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](availability-group-azure-marketplace-template-configure.md). |
+| **Groupes de disponibilité** |Les réplicas de disponibilité exécutés sur les machines virtuelles Azure dans la même région offrent une haute disponibilité. Vous devez configurer une machine virtuelle de contrôleur de domaine, car le clustering de basculement Windows nécessite un domaine Active Directory.<br/><br/> Pour une redondance et une disponibilité plus élevées, les machines virtuelles Azure peuvent être déployées dans différentes [zones de disponibilité](../../../availability-zones/az-overview.md), comme indiqué dans la [vue d’ensemble des groupes de disponibilité](availability-group-overview.md). Si les machines virtuelles SQL Server d’un groupe de disponibilité sont déployées dans des zones de disponibilité, utilisez [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) pour l’écouteur, comme indiqué dans les articles [Utiliser Azure CLI pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](./availability-group-az-commandline-configure.md) et [Utiliser des modèles de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](availability-group-quickstart-template-configure.md).<br/> ![Groupes de disponibilité](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](./availability-group-quickstart-template-configure.md). |
 | **Instances de cluster de basculement** |Les instances de cluster de basculement sont prises en charge sur les machines virtuelles SQL Server. Étant donné que la fonctionnalité d’instance de cluster de basculement nécessite un stockage partagé, cinq solutions fonctionnent avec SQL Server sur machines virtuelles Azure : <br/><br/> - Utilisation de [disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) pour Windows Server 2019. Les disques managés partagés sont un produit Azure qui permet d’attacher un disque managé à plusieurs machines virtuelles simultanément. Les machines virtuelles du cluster peuvent lire ou écrire sur le disque que vous avez attaché en fonction de la réservation choisie par l’application en cluster par le biais des réservations persistantes SCSI (SCSI PR). SCSI PR est une solution de stockage de norme industrielle dont tirent parti les applications qui s’exécutent sur un réseau de zone de stockage (SAN) local. L’activation des réservations persistantes SCSI sur un disque managé vous permet de migrer ces applications vers Azure en l’état. <br/><br/>- Utilisation d’[espaces de stockage direct \(S2D\)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) pour fournir un réseau SAN virtuel basé sur logiciel pour Windows Server 2016 et versions ultérieures.<br/><br/>- Utilisation d’un [partage de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md) pour Windows Server 2012 et versions ultérieures. Les partages de fichiers Premium offrent une faible latence, s’appuient sur des disques SSD, et sont entièrement pris en charge pour une utilisation avec une instance de cluster de basculement.<br/><br/>- Utilisation de stockage pris en charge par une solution de partenaire pour le clustering. Pour obtenir un exemple spécifique qui utilise SIOS DataKeeper, consultez l’entrée de blog sur le [clustering de basculement et SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>- Utilisation de stockage de bloc partagé pour une cible iSCSI distante par le biais d’Azure ExpressRoute. Par exemple, NPS (NetApp Private Storage) expose une cible iSCSI via ExpressRoute avec Equinix dans les machines virtuelles Azure.<br/><br/>Pour les solutions de stockage partagé et de réplication de données proposées par des partenaires Microsoft, contactez le fournisseur pour tout problème lié à l’accès aux données lors du basculement.<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure uniquement : Solutions de reprise d’activité après sinistre
@@ -90,7 +90,7 @@ Dans l’image suivante, la configuration utilise SQL Server s’exécutant sur 
 
 Pour plus d’informations, consultez les [conditions de licence du produit](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Sélectionnez **Configurer** sous **Paramètres**, puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
+Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Sélectionnez **Configurer** sous **Paramètres** , puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server** . Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
 
 ![Configurer un réplica de reprise d’activité dans Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,12 +101,12 @@ Les machines virtuelles Azure, le stockage et le réseau ont des caractéristiqu
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Nœuds haute disponibilité d’un groupe à haute disponibilité
 Les groupes à haute disponibilité dans Azure vous permettent de placer les nœuds haute disponibilité dans des domaines d’erreur et des domaines de mise à niveau distincts. La plateforme Azure attribue un domaine de mise à jour et un domaine d’erreur à chaque machine virtuelle de votre groupe à haute disponibilité. Cette configuration au sein d’un centre de données assure la disponibilité d’au moins une des machines virtuelles pendant un événement de maintenance planifié ou non, avec le niveau de 99,95 % stipulé dans le contrat de niveau de service (SLA) Azure. 
 
-Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour une configuration à haute disponibilité, placez toutes les machines virtuelles SQL Server correspondantes dans le même groupe à haute disponibilité afin d’éviter la perte d’applications ou de données lors d’un événement de maintenance. Seuls les nœuds du même service cloud peuvent faire partie du même groupe à haute disponibilité. Pour plus d’informations, consultez [Gestion de la disponibilité des machines virtuelles](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Nœuds haute disponibilité d’une zone de disponibilité
 Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. La séparation physique des zones de disponibilité dans une région contribue à protéger les applications et les données des défaillances dans le centre de données en veillant à ce qu’au moins une machine soit disponible et réponde au contrat de niveau de service Azure de 99,99 %. 
 
-Pour une configuration à haute disponibilité, placez les machines virtuelles SQL Server correspondantes réparties sur les zones de disponibilité dans la région. Des frais supplémentaires sont facturés pour les transferts réseau-à-réseau entre les zones de disponibilité. Pour plus d’informations, consultez [Zones de disponibilité](/azure/availability-zones/az-overview). 
+Pour une configuration à haute disponibilité, placez les machines virtuelles SQL Server correspondantes réparties sur les zones de disponibilité dans la région. Des frais supplémentaires sont facturés pour les transferts réseau-à-réseau entre les zones de disponibilité. Pour plus d’informations, consultez [Zones de disponibilité](../../../availability-zones/az-overview.md). 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Comportement d’un cluster de basculement sur le réseau Azure
@@ -123,7 +123,7 @@ Examinez le scénario où un cluster à deux nœuds est créé et mis en ligne 
 
 Vous pouvez éviter ce scénario en affectant une adresse IP statique inutilisée au nom réseau du cluster afin de mettre le nom réseau de cluster en ligne. Par exemple, vous pouvez utiliser une adresse IP Link Local comme 169.254.1.1. Pour simplifier ce processus, consultez la section [Configuration d’un cluster de basculement Windows dans Azure pour les groupes de disponibilité](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](availability-group-azure-marketplace-template-configure.md).
+Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](./availability-group-quickstart-template-configure.md).
 
 ### <a name="support-for-availability-group-listeners"></a>Prise en charge des écouteurs de groupe de disponibilité
 Les écouteurs de groupe de disponibilité sont pris en charge sur les machines virtuelles Azure exécutant Windows Server 2012 et versions ultérieures. Cette prise en charge est rendue possible par l’utilisation de points de terminaison à charge équilibrée activés sur les machines virtuelles Azure qui sont des nœuds de groupe de disponibilité. Vous devez suivre des étapes de configuration spéciales de façon à ce que les écouteurs fonctionnent avec les applications clientes exécutées dans Azure et avec celles qui s’exécutent localement.
@@ -136,7 +136,7 @@ Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (com
 Vous pouvez encore vous connecter à chaque réplica de disponibilité séparément en vous connectant directement à l’instance de service. En outre, puisque les groupes de disponibilité sont à compatibilité descendante avec les clients de mise en miroir de bases de données, vous pouvez vous connecter aux réplicas de disponibilité comme les serveurs partenaires de mise en miroir de bases de données tant que les réplicas sont configurés de façon similaire à la mise en miroir de bases de données :
 
 * Il y a un réplica principal et un réplica secondaire.
-* Le réplica secondaire est configuré comme non lisible (option **Secondaire accessible en lecture** définie sur **Non**).
+* Le réplica secondaire est configuré comme non lisible (option **Secondaire accessible en lecture** définie sur **Non** ).
 
 Voici un exemple de chaîne de connexion cliente, qui correspond à cette configuration apparentée à une mise en miroir de bases de données, à l’aide d’ADO.NET ou de SQL Server Native Client :
 
@@ -146,11 +146,11 @@ Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=Avail
 
 Pour plus d’informations sur la connectivité client, consultez :
 
-* [Utilisation de mots clés de chaîne de connexion avec SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
-* [Connecter des clients à une session de mise en miroir de bases de données (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Écouteurs de groupe de disponibilité, connectivité client et basculement d’application (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Utilisation de chaînes de connexion de mise en miroir de bases de données avec des groupes de disponibilité](https://technet.microsoft.com/library/hh213417.aspx)
+* [Utilisation de mots clés de chaîne de connexion avec SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
+* [Connecter des clients à une session de mise en miroir de bases de données (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
+* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
+* [Écouteurs de groupe de disponibilité, connectivité client et basculement d’application (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
+* [Utilisation de chaînes de connexion de mise en miroir de bases de données avec des groupes de disponibilité](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
 
 ### <a name="network-latency-in-hybrid-it"></a>Latence du réseau dans un environnement hybride
 Déployez votre solution HADR en partant du principe qu’il peut y avoir des périodes de latence réseau élevée entre votre réseau local et Azure. Quand vous déployez des réplicas sur Azure, utilisez la validation asynchrone au lieu de la validation synchrone comme mode de synchronisation. Quand vous déployez des serveurs de mise en miroir de bases de données localement et dans Azure, utilisez le mode haute performance plutôt que le mode haute sécurité.
@@ -162,8 +162,4 @@ Si vous n’avez pas l’option de désactiver la géoréplication sur le compte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Déterminez si un [groupe de disponibilité](availability-group-overview.md) ou une [instance de cluster de basculement](failover-cluster-instance-overview.md) est la meilleure solution de continuité d’activité pour votre entreprise. Passez ensuite en revue les [bonnes pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité. 
-
-
-
-
+Déterminez si un [groupe de disponibilité](availability-group-overview.md) ou une [instance de cluster de basculement](failover-cluster-instance-overview.md) est la meilleure solution de continuité d’activité pour votre entreprise. Passez ensuite en revue les [bonnes pratiques](hadr-cluster-best-practices.md) en matière de configuration de votre environnement pour la haute disponibilité et la reprise d’activité.

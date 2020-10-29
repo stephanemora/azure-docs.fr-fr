@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 204c7d756a13ed0427f06abfb56e3f1256df48bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167987"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789945"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Bien que cet article utilise les modèles de démarrage rapide Azure pour config
 Pour automatiser la configuration d’un groupe de disponibilité Always On à l’aide de modèles de démarrage rapide, vous devez avoir les prérequis suivants : 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Un groupe de ressources avec un contrôleur de domaine. 
-- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version ultérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision), qui se trouvent dans le même groupe à haute disponibilité ou la même zone de disponibilité et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md).  
+- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version ultérieure) Enterprise Edition](./create-sql-vm-portal.md), qui se trouvent dans le même groupe à haute disponibilité ou la même zone de disponibilité et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](sql-vm-resource-provider-register.md).  
 - Deux adresses IP disponibles (non utilisées par une entité) : une pour l’équilibreur de charge interne et une pour l’écouteur de groupe de disponibilité dans le même sous-réseau que le groupe de disponibilité. Si un équilibreur de charge existant est utilisé, une seule adresse IP disponible suffit.  
 
 ## <a name="permissions"></a>Autorisations
@@ -226,6 +226,3 @@ Pour plus d’informations, consultez les articles suivants :
 * [Guide des tarifs pour les machines virtuelles SQL Server](pricing-guidance.md)
 * [Notes de publication pour les machines virtuelles SQL Server](../../database/doc-changes-updates-release-notes.md)
 * [Changement de modèles de licence pour une machine virtuelle SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

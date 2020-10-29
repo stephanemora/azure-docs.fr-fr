@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668744"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784862"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Les clients qui sont sur SQL Server 2008 devront effectuer une installation aut
 Les images déployées via la Place de marché Azure sont fournies avec l’extension IaaS SQL préinstallée. L’extension IaaS SQL est obligatoire pour la gestion des licences flexibles et la mise à jour corrective automatisée. Les clients qui déploient des machines virtuelles installées automatiquement doivent installer manuellement l’extension IaaS SQL. L’extension IaaS SQL n’est pas prise en charge sur Windows Server 2008.
 
 > [!NOTE]
-> Bien que les panneaux **Créer** et **Gérer** de SQL Server fonctionnent avec l’image SQL Server 2008 R2 sur le portail Azure, les fonctionnalités suivantes ne sont _pas prises en charge_ : les sauvegardes automatiques, l’intégration d’Azure Key Vault, R Services et la configuration du stockage.
+> Bien que les panneaux **Créer** et **Gérer** de SQL Server fonctionnent avec l’image SQL Server 2008 R2 sur le portail Azure, les fonctionnalités suivantes ne sont _pas prises en charge_  : les sauvegardes automatiques, l’intégration d’Azure Key Vault, R Services et la configuration du stockage.
 
 ## <a name="licensing"></a>Licence
 Les déploiements de SQL Server 2008 R2 avec paiement à l’utilisation peuvent être convertis en [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -54,20 +54,20 @@ Vous pouvez migrer des instances SQL Server en fin de support vers une machine v
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Pour les migrations en bloc, nous recommandons le service [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Avec Azure Site Recovery, les clients peuvent répliquer la machine virtuelle entière, notamment l’instance SQL Server d’un système local vers une machine virtuelle Azure.
+Pour les migrations en bloc, nous recommandons le service [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). Avec Azure Site Recovery, les clients peuvent répliquer la machine virtuelle entière, notamment l’instance SQL Server d’un système local vers une machine virtuelle Azure.
 
 Des captures instantanées Azure Site Recovery avec cohérence des applications sont indispensables à SQL Server pour garantir la récupération. Azure Site Recovery prend en charge les captures instantanées avec cohérence des applications et un intervalle minimum d’une heure. L’objectif de point de récupération (RPO) minimum possible pour SQL Server avec les migrations Azure Site Recovery est d’une heure. L’objectif de point de récupération (RTO) est de deux heures auxquelles s’ajoute le temps de récupération de SQL Server.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Azure Database Migration Service](/azure/dms/dms-overview) représente une option pour les clients qui souhaitent migrer d’un environnement local vers une machine virtuelle Azure en mettant à niveau SQL Server vers la version 2012 ou une version ultérieure.
+[Azure Database Migration Service](../../../dms/dms-overview.md) représente une option pour les clients qui souhaitent migrer d’un environnement local vers une machine virtuelle Azure en mettant à niveau SQL Server vers la version 2012 ou une version ultérieure.
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 
 Les solutions de récupération d’urgence pour SQL Server en fin de support sur une machine virtuelle Azure sont les suivantes :
 
-- **Sauvegardes SQL Server** : Utilisez Sauvegarde Azure pour protéger votre instance SQL Server 2008 et 2008 R2 en fin de support contre les ransomwares, une suppression accidentelle et une altération des données à l’aide d’un objectif de point de récupération de 15 minutes et de la récupération jusqu`à une date et heure. Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
-- **Copie des journaux de transaction** : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
+- **Sauvegardes SQL Server**  : Utilisez Sauvegarde Azure pour protéger votre instance SQL Server 2008 et 2008 R2 en fin de support contre les ransomwares, une suppression accidentelle et une altération des données à l’aide d’un objectif de point de récupération de 15 minutes et de la récupération jusqu`à une date et heure. Pour plus d’informations, consultez [cet article](../../../backup/sql-support-matrix.md#scenario-support).
+- **Copie des journaux de transaction**  : Vous pouvez créer un réplica de la copie des journaux de transaction dans une autre zone ou région Azure, avec des restaurations continues pour réduire le RTO. Vous devez configurer manuellement la copie des journaux de transaction.
 - **Azure Site Recovery** : Vous pouvez répliquer votre machine virtuelle entre les zones et les régions par l’intermédiaire de la réplication d’Azure Site Recovery. Les captures instantanées avec cohérence des applications sont indispensables à SQL Server pour garantir une récupération en cas de sinistre. Azure Site Recovery offre un RPO d’une heure au minimum et un RTO de deux heures (plus le temps de récupération de SQL Server) pour la récupération d’urgence de SQL Server en fin de support.
 
 ## <a name="security-patching"></a>Correctifs de sécurité

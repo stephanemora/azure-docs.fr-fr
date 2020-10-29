@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331666"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790931"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analytique entre locataires à l’aide des données extraites – Application monolocataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,11 +69,11 @@ Comprendre comment chaque client utilise le service pour explorer les options de
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
-- L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md)
 - Les scripts de base de données Wingtip Tickets SaaS par client et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de l’application sont disponibles au téléchargement sur GitHub. Consultez les instructions de téléchargement. Veillez à *débloquer le fichier zip* avant d’extraire son contenu. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 - Power BI Desktop est installé. [Télécharger Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
-- Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](./saas-dbpertenant-provision-and-catalog.md).
+- Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Créer des données pour la démonstration
 
@@ -93,7 +93,7 @@ Dans les étapes suivantes, vous déployez le magasin d’analytique, qui est ap
     - Pour utiliser SQL Database avec columnstore, définissez **$DemoScenario** = **3**  
 3. Appuyez sur **F5** pour exécuter le script de démonstration (qui appelle le script *Deploy-TenantAnalytics\<XX>.ps1* ), qui crée la base de données d’analyse du locataire. 
 
-Maintenant que vous avez déployé l’application et l’avez remplie de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour connecter les serveurs **tenants1-dpt-&lt;Utilisateur&gt;** et **catalogue-dpt-&lt;Utilisateur&gt;** à l’aide de l’identifiant = *developer* et du mot de passe = *P\@ssword1* . Consultez le [didacticiel d’introduction](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
+Maintenant que vous avez déployé l’application et l’avez remplie de données client intéressantes, utilisez [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) pour connecter les serveurs **tenants1-dpt-&lt;Utilisateur&gt;** et **catalogue-dpt-&lt;Utilisateur&gt;** à l’aide de l’identifiant = *developer* et du mot de passe = *P\@ssword1* . Consultez le [didacticiel d’introduction](./saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
 ![Capture d’écran montrant les informations nécessaires pour se connecter à SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -240,6 +240,6 @@ Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Autres [didacticiels reposant sur l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Tâches élastiques](../../sql-database/elastic-jobs-overview.md).
-- [Analytique entre locataires à l’aide des données extraites – Application multilocataire](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- Autres [didacticiels reposant sur l’application SaaS Wingtip](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Tâches élastiques](./elastic-jobs-overview.md).
+- [Analytique entre locataires à l’aide des données extraites – Application multilocataire](./saas-multitenantdb-tenant-analytics.md)

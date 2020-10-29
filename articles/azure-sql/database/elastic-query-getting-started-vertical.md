@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443326"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792121"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ L’autorisation ALTER ANY EXTERNAL DATA SOURCE est requise. Cette autorisation 
 
 ## <a name="create-the-sample-databases"></a>Créer les exemples de bases de données
 
-Pour commencer, créez deux bases de données, **Customers** et **Orders**, sur le même serveur ou sur des serveurs différents.
+Pour commencer, créez deux bases de données, **Customers** et **Orders** , sur le même serveur ou sur des serveurs différents.
 
 Exécutez les requêtes suivantes sur la base de données **Orders** pour créer la table **OrderInformation** et ajouter les exemples de données.
 
@@ -129,4 +129,4 @@ Pour plus d’informations sur la tarification, voir [Tarification SQL Database]
 * Pour la syntaxe et des exemples de requêtes pour des données partitionnées verticalement, consultez [Requêtes sur des données partitionnées verticalement](elastic-query-vertical-partitioning.md)
 * Pour commencer le didacticiel sur le partitionnement horizontal (sharding), consultez [Prise en main des requêtes élastiques pour le partitionnement horizontal (sharding)](elastic-query-getting-started.md).
 * Pour la syntaxe et des exemples de requêtes pour des données partitionnées horizontalement, consultez [Requêtes sur des données partitionnées horizontalement](elastic-query-horizontal-partitioning.md)
-* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
+* Consultez [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.

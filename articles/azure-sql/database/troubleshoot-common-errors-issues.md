@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284122"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791339"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,19 +24,19 @@ En cas d’échec de la connexion à Azure SQL Database ou Azure SQL Managed Ins
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messages d’erreur pour les erreurs temporaires (40197, 40613 et autres)
 
-L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à la base de données ou à l’instance. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire*. Les événements de reconfiguration de la base de données sont liés à un événement planifié (par exemple, une mise à niveau logicielle) ou à un événement non planifié (par exemple, un arrêt de processus ou un équilibrage de charge). La plupart des événements de reconfiguration sont généralement de courte durée et se terminent en l’espace de 60 secondes maximum. Cependant, ces événements peuvent parfois prendre plus de temps, par exemple lorsqu’une transaction volumineuse entraîne une récupération de longue durée. Le tableau suivant liste les différentes erreurs temporaires que les applications peuvent recevoir lors de la connexion à SQL Database
+L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à la base de données ou à l’instance. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire* . Les événements de reconfiguration de la base de données sont liés à un événement planifié (par exemple, une mise à niveau logicielle) ou à un événement non planifié (par exemple, un arrêt de processus ou un équilibrage de charge). La plupart des événements de reconfiguration sont généralement de courte durée et se terminent en l’espace de 60 secondes maximum. Cependant, ces événements peuvent parfois prendre plus de temps, par exemple lorsqu’une transaction volumineuse entraîne une récupération de longue durée. Le tableau suivant liste les différentes erreurs temporaires que les applications peuvent recevoir lors de la connexion à SQL Database
 
 ### <a name="list-of-transient-fault-error-codes"></a>Liste de codes d’erreur pour les erreurs temporaires
 
 | Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
-| 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md).|
 | 40613 |17 |La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.<br/><br/> Cette erreur peut se produire s’il existe déjà une connexion d’administrateur dédiée à la base de données. Pour plus d’informations, consultez [Erreurs temporaires](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
-| 49919 |16 |Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
-| 49920 |16 |Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
+| 49919 |16 |Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
+| 49920 |16 |Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
 | 4221 |16 |La connexion au serveur de lecture secondaire a échoué en raison d’une longue attente sur 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. Le réplica n’est pas disponible pour la connexion, car il manque des versions de ligne pour les transactions qui étaient en cours lorsque le réplica a été recyclé. Le problème peut être résolu en restaurant ou en validant les transactions actives au niveau du réplica principal. Les occurrences de cette erreur peuvent être réduites en évitant les transactions d’écriture longues sur le serveur principal. |
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Étapes pour résoudre les problèmes de connectivité transitoire
@@ -52,12 +52,12 @@ Il est fortement recommandé que votre programme client possède une logique de 
 
 Pour obtenir des exemples de code de logique de nouvelle tentative, voir :
 
-- [Connexion résiliente à SQL avec ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
-- [Connexion résiliente à SQL avec PHP](https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Connexion résiliente à SQL avec ADO.NET](/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
+- [Connexion résiliente à SQL avec PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
 
 Pour plus d’informations sur la gestion des erreurs temporaires dans votre application, consultez [Résolution des erreurs temporaires de connexion à SQL Database](troubleshoot-common-connectivity-issues.md)
 
-Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-your-server"></a>Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à votre serveur
 
@@ -119,7 +119,7 @@ En règle générale, l’administrateur de service peut utiliser les étapes su
 4. Si le nom d’utilisateur de connexion SQL n’existe pas, créez-le en procédant comme suit :
 
    1. Dans SSMS, double-cliquez sur **Sécurité** pour le développer.
-   2. Cliquez avec le bouton droit sur **Connexions**, puis sélectionnez **Nouvelle connexion**.
+   2. Cliquez avec le bouton droit sur **Connexions** , puis sélectionnez **Nouvelle connexion** .
    3. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
 
    ```sql
@@ -128,10 +128,10 @@ En règle générale, l’administrateur de service peut utiliser les étapes su
    GO
    ```
 
-5. Double-cliquez sur **Base de données**.
+5. Double-cliquez sur **Base de données** .
 6. Sélectionnez la base de données dont vous souhaitez autoriser l’accès.
-7. Double-cliquez sur **Sécurité**.
-8. Cliquez avec le bouton droit sur **Utilisateurs**, puis sélectionnez **Nouvel utilisateur**.
+7. Double-cliquez sur **Sécurité** .
+8. Cliquez avec le bouton droit sur **Utilisateurs** , puis sélectionnez **Nouvel utilisateur** .
 9. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
 
    ```sql
@@ -148,7 +148,7 @@ En règle générale, l’administrateur de service peut utiliser les étapes su
    > [!NOTE]
    > Vous pouvez également utiliser `sp_addrolemember` pour mapper des utilisateurs spécifiques à des rôles de base de données spécifiques.
 
-Pour en savoir plus, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+Pour en savoir plus, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](./logins-create-manage.md).
 
 ## <a name="connection-timeout-expired-errors"></a>Erreurs de délai d’expiration de connexion
 
@@ -185,7 +185,7 @@ Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivan
   > [!NOTE]
   > Il s’agit d’une approche minimaliste. Elle risque de ne pas suffire pour résoudre le problème.
 
-1. Exécutez la requête SQL suivante pour vérifier la vue [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), afin de voir toutes les requêtes bloquantes :
+1. Exécutez la requête SQL suivante pour vérifier la vue [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), afin de voir toutes les requêtes bloquantes :
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -194,13 +194,13 @@ Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivan
 2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête.
 3. Paramétrez la requête du bloqueur d’en-tête.
 
-   Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+   Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 Si la base de données atteint constamment sa limite malgré la résolution des problèmes liés aux requêtes longues et bloquantes, effectuez une mise à niveau vers une édition disposant de davantage de ressources ([Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
-Pour plus d’informations sur les vues de gestion dynamique, veuillez consulter la page [Vues de gestion dynamique système](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Pour plus d’informations sur les vues de gestion dynamique, veuillez consulter la page [Vues de gestion dynamique système](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Pour plus d’informations sur les limites de base de données, consultez [Limites de ressources SQL Database des serveurs](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Pour plus d’informations sur les limites de base de données, consultez [Limites de ressources SQL Database des serveurs](./resource-limits-logical-server.md).
 
 ### <a name="error-10929-resource-id-1"></a>Erreur 10929 : ID de ressource : 1
 
@@ -212,7 +212,7 @@ Pour plus d’informations sur les limites de base de données, consultez [Limit
 
 Il s’agit d’une erreur de limitation du moteur, indiquant que les limites de ressources sont dépassées.
 
-Pour plus d’informations sur les limites de ressources, consultez [Limites de ressources du serveur SQL logique](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Pour plus d’informations sur les limites de ressources, consultez [Limites de ressources du serveur SQL logique](./resource-limits-logical-server.md).
 
 ### <a name="error-40544-the-database-has-reached-its-size-quota"></a>Erreur 40544 : La base de données a atteint son quota de taille.
 
@@ -242,7 +242,7 @@ La procédure suivante peut vous aider à contourner le problème ou vous fourni
 
    - Nettoyez normalement votre base de données. Par exemple, nettoyez les données indésirables en utilisant truncate/delete. Vous pouvez aussi déplacer les données à l’aide de SQL Server Integration Services (SSIS) ou de l’utilitaire Bulk Copy Program (BCP).
    - Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles.
-   - Pour plus d’informations sur la mise à l’échelle des bases de données, consultez [Mettre à l’échelle des ressources de base de données unique](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) et [Mettre à l’échelle des ressources de pool élastique](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
+   - Pour plus d’informations sur la mise à l’échelle des bases de données, consultez [Mettre à l’échelle des ressources de base de données unique](./single-database-scale.md) et [Mettre à l’échelle des ressources de pool élastique](./elastic-pool-scale.md).
 
 ### <a name="error-40549-session-is-terminated-because-you-have-a-long-running-transaction"></a>Erreur 40549 : La session est arrêtée, car l’une des transactions est de longue durée.
 
@@ -259,9 +259,9 @@ Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résou
 2. Déterminez la mémoire tampon d’entrée pour la longue requête.
 3. Ajustez la requête.
 
-Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
+Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erreur 40551 : La session a été arrêtée en raison d’une utilisation excessive de TEMPDB
 
@@ -292,7 +292,7 @@ Essayez de réduire le nombre de lignes qui sont sollicitées immédiatement en 
 
 Pour contourner ce problème, essayez d’optimiser la requête.
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tableau des messages d’erreur de gouvernance des ressources supplémentaires
 
@@ -303,7 +303,7 @@ Pour obtenir une procédure de dépannage détaillée, consultez [Is my query ru
 | 40544 |20 |La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles. Pour plus d’informations sur la mise à l’échelle des bases de données, consultez [Mettre à l’échelle des ressources de base de données unique](single-database-scale.md) et [Mettre à l’échelle des ressources de pool élastique](elastic-pool-scale.md).|
 | 40549 |16 |La session a pris fin, car elle contient une transaction à long terme. Essayez de diminuer la durée de la transaction. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).|
 | 40550 |16 |La session a pris fin car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes au cours d'une transaction. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).|
-| 40551 |16 |La session a été arrêtée en raison de l’utilisation excessive de `TEMPDB` . Essayez de modifier votre requête afin de réduire l'utilisation de l'espace de table temporaire.<br/><br/>Si vous utilisez des objets temporaires, conservez de l’espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu’ils ne sont plus nécessaires à la session. Pour plus d’informations sur l’utilisation de tempdb dans SQL Database, consultez [Base de données tempdb dans SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
+| 40551 |16 |La session a été arrêtée en raison de l’utilisation excessive de `TEMPDB` . Essayez de modifier votre requête afin de réduire l'utilisation de l'espace de table temporaire.<br/><br/>Si vous utilisez des objets temporaires, conservez de l’espace dans la base de données `TEMPDB` en supprimant des objets temporaires une fois qu’ils ne sont plus nécessaires à la session. Pour plus d’informations sur l’utilisation de tempdb dans SQL Database, consultez [Base de données tempdb dans SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 | 40552 |16 |La session a pris fin en raison d'une utilisation de l'espace pour le journal de transactions excessive. Essayez de modifier moins de lignes au cours d'une transaction. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).<br/><br/>Si vous effectuez des insertions en bloc à l’aide de l’utilitaire `bcp.exe` ou de la classe `System.Data.SqlClient.SqlBulkCopy`, essayez d’utiliser les options `-b batchsize` ou `BatchSize` permettant de limiter le nombre de lignes copiées sur le serveur à chaque transaction. Si vous reconstruisez un index en utilisant l’instruction `ALTER INDEX`, essayez d’utiliser l’option `REBUILD WITH ONLINE = ON`. Pour plus d’informations sur les tailles des journaux des transactions pour le modèle d’achat vCore, consultez : <br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md).|
 | 40553 |16 |La session a pris fin en raison d'une utilisation de mémoire excessive. Essayez de modifier votre requête afin que le nombre de lignes à traiter soit moins important.<br/><br/>La diminution du nombre d’opérations `ORDER BY` et `GROUP BY` dans votre code Transact-SQL réduit les besoins en mémoire de votre requête. Pour plus d’informations sur la mise à l’échelle des bases de données, consultez [Mettre à l’échelle des ressources de base de données unique](single-database-scale.md) et [Mettre à l’échelle des ressources de pool élastique](elastic-pool-scale.md).|
 
@@ -340,14 +340,14 @@ Ce problème se produit car le compte ne dispose pas de l’autorisation d’acc
 
 Pour résoudre ce problème, effectuez les étapes suivantes :
 
-1. Sur l’écran de connexion de SSMS, sélectionnez **Options**, puis **Propriétés de la connexion**.
-2. Dans le champ **Connexion à une base de données**, entrez le nom de la base de données par défaut de l’utilisateur comme base de données de connexion par défaut, puis sélectionnez **Se connecter**.
+1. Sur l’écran de connexion de SSMS, sélectionnez **Options** , puis **Propriétés de la connexion** .
+2. Dans le champ **Connexion à une base de données** , entrez le nom de la base de données par défaut de l’utilisateur comme base de données de connexion par défaut, puis sélectionnez **Se connecter** .
 
    ![Propriétés de connexion](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
 ## <a name="confirm-whether-an-error-is-caused-by-a-connectivity-issue"></a>Vérifier si une erreur est due à un problème de connectivité
 
-Pour vérifier si une erreur est due à un problème de connectivité, consultez la trace de la pile pour les frames qui montrent des appels visant à ouvrir une connexion, comme les suivants (notez la référence à la classe **SqlConnection**) :
+Pour vérifier si une erreur est due à un problème de connectivité, consultez la trace de la pile pour les frames qui montrent des appels visant à ouvrir une connexion, comme les suivants (notez la référence à la classe **SqlConnection** ) :
 
 ```
 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand** ). Dans ce cas, [affinez vos requêtes](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -367,28 +367,28 @@ Quand l’exception est déclenchée par des problèmes de requête, vous remarq
 Pour obtenir des conseils supplémentaires sur l’affinage des performances, consultez les ressources suivantes :
 
 - [Comment mettre à jour les index et les statistiques Azure SQL](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
-- [Ajustement manuel des performances de requêtes dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
-- [Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
-- [Utilisation du Magasin des requêtes dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
+- [Ajustement manuel des performances de requêtes dans Azure SQL Database](./performance-guidance.md)
+- [Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique](./monitoring-with-dmvs.md)
+- [Utilisation du Magasin des requêtes dans Azure SQL Database](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 
 ## <a name="steps-to-fix-common-connection-issues"></a>Étapes pour résoudre les problèmes de connexion courants
 
-1. Vérifiez que l’adresse TCP/IP est activée en tant que protocole client sur le serveur d’applications. Pour plus d’informations, consultez [Configurer des protocoles clients](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). Sur les serveurs d’applications où aucun outil SQL n’est installé, vérifiez que l’adresse TCP/IP est activée en exécutant **cliconfg.exe** (utilitaire réseau du client SQL Server).
+1. Vérifiez que l’adresse TCP/IP est activée en tant que protocole client sur le serveur d’applications. Pour plus d’informations, consultez [Configurer des protocoles clients](/sql/database-engine/configure-windows/configure-client-protocols). Sur les serveurs d’applications où aucun outil SQL n’est installé, vérifiez que l’adresse TCP/IP est activée en exécutant **cliconfg.exe** (utilitaire réseau du client SQL Server).
 2. Vérifiez la chaîne de connexion de l’application pour être sûr qu’elle est configurée correctement. Par exemple, vérifiez que la chaîne de connexion spécifie le port correct (1433) et le nom complet du serveur.
-Consultez [Obtenir des informations de connexion](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
+Consultez [Obtenir des informations de connexion](./connect-query-ssms.md#get-server-connection-information).
 3. Essayez d’augmenter la valeur du délai d’expiration de connexion. Nous vous recommandons d’utiliser un délai d’expiration de connexion d’au moins 30 secondes.
-4. Testez la connectivité entre le serveur d’applications et SQL Azure Database à l’aide de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), d’un fichier UDL, d’un test Ping ou de Telnet. Pour plus d’informations, consultez [Résolution des problèmes de connectivité](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) et [Diagnostics des problèmes de connectivité](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
+4. Testez la connectivité entre le serveur d’applications et SQL Azure Database à l’aide de [SQL Server Management Studio (SSMS)](./connect-query-ssms.md), d’un fichier UDL, d’un test Ping ou de Telnet. Pour plus d’informations, consultez [Résolution des problèmes de connectivité](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) et [Diagnostics des problèmes de connectivité](./troubleshoot-common-connectivity-issues.md#diagnostics).
 
    > [!NOTE]
    > En guise d’étape de résolution des problèmes, vous pouvez également tester la connectivité sur un autre ordinateur client.
 
-5. Nous vous recommandons de vérifier que la logique de nouvelle tentative est en place. Pour plus d’informations sur la logique de nouvelle tentative, consultez [Gestion des problèmes de connexion et des erreurs temporaires de Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
+5. Nous vous recommandons de vérifier que la logique de nouvelle tentative est en place. Pour plus d’informations sur la logique de nouvelle tentative, consultez [Gestion des problèmes de connexion et des erreurs temporaires de Microsoft Azure SQL Database](./troubleshoot-common-connectivity-issues.md).
 
 Si ces procédures ne permettent pas de résoudre votre problème, essayez de collecter davantage de données, puis contactez le support. Si votre application est un service cloud, activez la journalisation. Cette étape retourne l’horodatage UTC de l’échec. En outre, SQL Database retourne l’ID de suivi. Les [services de support technique Microsoft](https://azure.microsoft.com/support/options/) peuvent utiliser ces informations.
 
-Pour plus d’informations sur la façon d’activer la journalisation, consultez [Activer la journalisation des diagnostics pour les applications dans Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
+Pour plus d’informations sur la façon d’activer la journalisation, consultez [Activer la journalisation des diagnostics pour les applications dans Azure App Service](../../app-service/troubleshoot-diagnostic-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Architecture de connectivité Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Architecture de connectivité Azure SQL Database](./connectivity-architecture.md)
+- [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](./network-access-controls-overview.md)

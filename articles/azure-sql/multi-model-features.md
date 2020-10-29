@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791645"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Fonctionnalités multimodèles d'Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ La famille de produits Azure SQL offre les fonctionnalités multimodèles suivan
 - Les [paires clé-valeur](#key-value-pairs) ne sont pas explicitement prises en charge en tant que fonctionnalités spéciales dans la mesure où elles peuvent être modélisées en mode natif en tant que tables de deux colonnes.
 
   > [!Note]
-  > Vous pouvez utiliser une expression de chemin d’accès JSON, des expressions XQuery/XPath, des fonctions spatiales et des expressions d’interrogation de graphique dans la même requête Transact-SQL pour accéder à toutes les données stockées dans la base de données. De plus, tout outil ou langage de programmation capable d’exécuter des requêtes Transact-SQL peut également utiliser cette interface de requête pour accéder à des données multimodèles. Il s’agit là de la principale différence par rapport aux bases de données multimodèles telles qu’[Azure Cosmos DB](/azure/cosmos-db/) qui fournit une API spécialisée pour les différents modèles de données.
+  > Vous pouvez utiliser une expression de chemin d’accès JSON, des expressions XQuery/XPath, des fonctions spatiales et des expressions d’interrogation de graphique dans la même requête Transact-SQL pour accéder à toutes les données stockées dans la base de données. De plus, tout outil ou langage de programmation capable d’exécuter des requêtes Transact-SQL peut également utiliser cette interface de requête pour accéder à des données multimodèles. Il s’agit là de la principale différence par rapport aux bases de données multimodèles telles qu’[Azure Cosmos DB](../cosmos-db/index.yml) qui fournit une API spécialisée pour les différents modèles de données.
 
 Les sections suivantes décrivent les fonctionnalités multimodèles les plus importantes de la famille de produits Azure SQL.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Vous pouvez personnaliser cette structure clé-valeur selon vos besoins sans contrainte. Par exemple, la valeur peut être un document XML au lieu de type `nvarchar(max)`. Si la valeur est un document JSON, vous pouvez appliquer une contrainte `CHECK` qui vérifie la validité du contenu JSON. Vous pouvez placer un nombre quelconque de valeurs liées à une clé dans les colonnes supplémentaires, ajouter des colonnes et index calculés pour simplifier et optimiser l’accès aux données, définir la table en tant que table exclusivement de schéma en mémoire/optimisé pour obtenir de meilleures performances, etc.
 
-Découvrez [comment BWin utilise la technologie OLTP en mémoire pour atteindre des performances et une échelle sans précédent ](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) pour sa solution de mise en cache ASP.NET, qui a atteint 1 200 000 lots par seconde. Cet exemple montre à quel point un modèle relationnel peut être utilisé efficacement en tant que solution de paire clé-valeur dans la pratique.
+Découvrez [comment BWin utilise la technologie OLTP en mémoire pour atteindre des performances et une échelle sans précédent ](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) pour sa solution de mise en cache ASP.NET, qui a atteint 1 200 000 lots par seconde. Cet exemple montre à quel point un modèle relationnel peut être utilisé efficacement en tant que solution de paire clé-valeur dans la pratique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

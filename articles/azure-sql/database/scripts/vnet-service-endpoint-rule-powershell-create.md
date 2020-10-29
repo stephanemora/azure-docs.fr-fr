@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170866"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792665"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>PowerShell : Créer un point de terminaison de service virtuel et une règle de réseau virtuel pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité d
 Cet article présente un script PowerShell qui effectue les actions suivantes :
 
 1. Crée un *point de terminaison de service virtuel* Microsoft Azure sur votre sous-réseau.
-2. Ajoute le point de terminaison au pare-feu de votre serveur afin de créer une *règle de réseau virtuel*.
+2. Ajoute le point de terminaison au pare-feu de votre serveur afin de créer une *règle de réseau virtuel* .
 
 Pour plus d’informations, consultez [Points de terminaison de service virtuel pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -40,20 +40,20 @@ Pour plus d’informations, consultez [Points de terminaison de service virtuel 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés aux [cmdlets `Az.Sql`](/powershell/module/az.sql). Pour obtenir l’ancien module, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés aux [cmdlets `Az.Sql`](/powershell/module/az.sql). Pour obtenir l’ancien module, consultez [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 ## <a name="major-cmdlets"></a>Principales applets de commande
 
-Cet article se concentre sur la [cmdlet **New-AzSqlServerVirtualNetworkRule**](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) qui ajoute le point de terminaison de sous-réseau à la liste de contrôle d’accès (ACL, access-control list) de votre serveur, créant ainsi une règle.
+Cet article se concentre sur la [cmdlet **New-AzSqlServerVirtualNetworkRule**](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) qui ajoute le point de terminaison de sous-réseau à la liste de contrôle d’accès (ACL, access-control list) de votre serveur, créant ainsi une règle.
 
-La liste suivante montre la séquence des autres *principales* applets de commande que vous devez exécuter pour préparer votre appel à **New-AzSqlServerVirtualNetworkRule**. Dans cet article, ces appels se produisent dans le [script 3 « Règle de réseau virtuel »](#a-script-30) :
+La liste suivante montre la séquence des autres *principales* applets de commande que vous devez exécuter pour préparer votre appel à **New-AzSqlServerVirtualNetworkRule** . Dans cet article, ces appels se produisent dans le [script 3 « Règle de réseau virtuel »](#a-script-30) :
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) : crée un objet sous-réseau.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) : crée votre réseau virtuel et lui attribue le sous-réseau.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig) : assigne un point de terminaison de service virtuel à votre sous-réseau.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork) : permet de conserver les mises à jour apportées à votre réseau virtuel.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) : lorsque votre sous-réseau devient un point de terminaison, il est ajouté en tant que règle de réseau virtuel à l’ACL de votre serveur.
-   - Cette cmdlet propose le paramètre **-IgnoreMissingVNetServiceEndpoint**, à compter du module AzureRM PowerShell version 5.1.1.
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) : crée un objet sous-réseau.
+2. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) : crée votre réseau virtuel et lui attribue le sous-réseau.
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig) : assigne un point de terminaison de service virtuel à votre sous-réseau.
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) : permet de conserver les mises à jour apportées à votre réseau virtuel.
+5. [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) : lorsque votre sous-réseau devient un point de terminaison, il est ajouté en tant que règle de réseau virtuel à l’ACL de votre serveur.
+   - Cette cmdlet propose le paramètre **-IgnoreMissingVNetServiceEndpoint** , à compter du module AzureRM PowerShell version 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Prérequis pour l’exécution de PowerShell
 
@@ -378,9 +378,9 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 Vous disposez peut-être d’un sous-réseau auquel le nom de type **Microsoft.Sql** a déjà été attribué, ce qui signifie qu’il est déjà un point de terminaison de service virtuel. Vous pouvez utiliser le [Portail Azure][http-azure-portal-link-ref-477t] pour créer une règle de réseau virtuel à partir du point de terminaison.
 
-Ou, vous n’êtes peut-être pas certain que votre sous-réseau comporte un nom de type **Microsoft.Sql**. Vous pouvez exécuter le script PowerShell suivant pour effectuer ces actions :
+Ou, vous n’êtes peut-être pas certain que votre sous-réseau comporte un nom de type **Microsoft.Sql** . Vous pouvez exécuter le script PowerShell suivant pour effectuer ces actions :
 
-1. Assurez-vous que votre sous-réseau comporte le nom de type **Microsoft.Sql**.
+1. Assurez-vous que votre sous-réseau comporte le nom de type **Microsoft.Sql** .
 2. Attribuez éventuellement le nom de type s’il est absent.
     - Le script vous invite à *confirmer* que le nom de type est absent.
 
@@ -390,7 +390,7 @@ Voici les phases du script PowerShell :
 
 1. Connectez-vous à votre compte Azure, nécessaire une seule fois par session PS.  Attribuez les variables.
 2. Recherchez votre réseau virtuel, puis votre sous-réseau.
-3. Votre sous-réseau est-il étiqueté comme type de serveur de point de terminaison **Microsoft.Sql** ?
+3. Votre sous-réseau est-il étiqueté comme type de serveur de point de terminaison  **Microsoft.Sql** ?
 4. Ajoutez un point de terminaison de service virtuel avec le nom de type **Microsoft.Sql** sur votre sous-réseau.
 
 > [!IMPORTANT]

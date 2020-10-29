@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058554"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790795"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutoriel : Configurer la réplication transactionnelle entre Azure SQL Managed Instance et SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Ce tutoriel s’adresse à un public expérimenté et suppose que l’utilisateu
 
 
 > [!NOTE]
-> Cet article décrit l’utilisation de la [réplication transactionnelle](/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
+> Cet article décrit l’utilisation de la [réplication transactionnelle](/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée aux [groupes de basculement](../database/auto-failover-group-overview.md), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles. Des considérations supplémentaires sont à prendre en compte pour la configuration de la [réplication transactionnelle avec des groupes de basculement](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Créez deux instances managées dans ce nouveau groupe de ressources à l’aide du [portail Azure](https://portal.azure.com).
 
 - Le nom de l’instance managée du serveur de publication doit être `sql-mi-publisher` (avec quelques caractères en plus pour la randomisation), et le nom du réseau virtuel doit être `vnet-sql-mi-publisher`.
-- Le nom de l’instance managée du serveur de distribution doit être `sql-mi-distributor` (avec quelques caractères en plus pour la randomisation), et il doit se trouver _dans le même réseau virtuel que l’instance managée du serveur de publication_.
+- Le nom de l’instance managée du serveur de distribution doit être `sql-mi-distributor` (avec quelques caractères en plus pour la randomisation), et il doit se trouver _dans le même réseau virtuel que l’instance managée du serveur de publication_ .
 
    ![Utiliser le réseau virtuel du serveur de publication pour le serveur de distribution](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Une zone DNS privée autorise le routage DNS entre les instances managées et 
 
    ![Créer une zone DNS privée](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Sélectionnez **Revoir + créer**. Passez en revue les paramètres de votre zone DNS privée, puis sélectionnez **Créer** pour créer votre ressource.
+1. Sélectionnez **Revoir + créer** . Passez en revue les paramètres de votre zone DNS privée, puis sélectionnez **Créer** pour créer votre ressource.
 
 ### <a name="create-an-a-record"></a>Créer un enregistrement A
 
-1. Accédez à votre nouvelle **zone DNS privée**, puis sélectionnez **Vue d’ensemble**.
+1. Accédez à votre nouvelle **zone DNS privée** , puis sélectionnez **Vue d’ensemble** .
 1. Sélectionnez **+ Jeu d’enregistrements** pour créer un enregistrement A.
 1. Indiquez le nom de votre machine virtuelle SQL Server, ainsi que l’adresse IP interne privée.
 
@@ -169,11 +169,11 @@ Une zone DNS privée autorise le routage DNS entre les instances managées et 
 
 ### <a name="link-the-virtual-network"></a>Lier le réseau virtuel
 
-1. Accédez à votre nouvelle **zone DNS privée**, puis sélectionnez **Liaisons de réseau virtuel**.
-1. Sélectionnez **Ajouter**.
+1. Accédez à votre nouvelle **zone DNS privée** , puis sélectionnez **Liaisons de réseau virtuel** .
+1. Sélectionnez **Ajouter** .
 1. Fournissez un nom pour le lien, tel que `Pub-link`.
 1. Sélectionnez votre abonnement dans la liste déroulante, puis sélectionnez le réseau virtuel de votre instance managée de serveur de publication.
-1. Cochez la case en regard de l’option **Activer l’inscription automatique**.
+1. Cochez la case en regard de l’option **Activer l’inscription automatique** .
 
    ![Créer une liaison de réseau virtuel](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -182,7 +182,7 @@ Une zone DNS privée autorise le routage DNS entre les instances managées et 
 
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-[Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail, puis créez un [partage de fichiers](../../storage/files/storage-how-to-create-file-share.md) au sein du compte de stockage.
+[Créez un compte de stockage Azure](../../storage/common/storage-account-create.md#create-a-storage-account) pour le répertoire de travail, puis créez un [partage de fichiers](../../storage/files/storage-how-to-create-file-share.md) au sein du compte de stockage.
 
 Copiez le chemin d’accès au partage de fichier au format : `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -200,7 +200,7 @@ Créez une base de données sur l’instance managée de serveur de publication.
 
 1. Lancez SQL Server Management Studio sur SQL Server.
 1. Connectez-vous à l’instance managée `sql-mi-publisher`.
-1. Ouvrez une fenêtre **Nouvelle requête**, puis exécutez la requête T-SQL suivante pour créer la base de données.
+1. Ouvrez une fenêtre **Nouvelle requête** , puis exécutez la requête T-SQL suivante pour créer la base de données.
 
 ```sql
 -- Create the databases
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -248,7 +248,7 @@ Une fois que la connectivité est établie et que vous disposez d’un exemple d
 
 1. Lancez SQL Server Management Studio sur SQL Server.
 1. Connectez-vous à l’instance managée `sql-mi-distributor`.
-1. Ouvrez une fenêtre **Nouvelle requête**, puis exécutez le code Transact-SQL suivant pour configurer la distribution sur l’instance managée de serveur de distribution :
+1. Ouvrez une fenêtre **Nouvelle requête** , puis exécutez le code Transact-SQL suivant pour configurer la distribution sur l’instance managée de serveur de distribution :
 
    ```sql
    EXEC sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
@@ -270,7 +270,7 @@ Une fois que la connectivité est établie et que vous disposez d’un exemple d
    > Utilisez uniquement des barres obliques inverses (`\`) pour le paramètre @working_directory. L’utilisation d’une barre oblique (`/`) peut provoquer une erreur lors de la connexion au partage de fichiers.
 
 1. Connectez-vous à l’instance managée `sql-mi-publisher`.
-1. Ouvrez une fenêtre **Nouvelle requête**, puis exécutez le code Transact-SQL suivant pour inscrire le serveur de distribution auprès du serveur de publication :
+1. Ouvrez une fenêtre **Nouvelle requête** , puis exécutez le code Transact-SQL suivant pour inscrire le serveur de distribution auprès du serveur de publication :
 
    ```sql
    Use MASTER
@@ -283,20 +283,20 @@ Une fois la distribution configurée, vous pouvez créer la publication. Pour ce
 
 1. Lancez SQL Server Management Studio sur SQL Server.
 1. Connectez-vous à l’instance managée `sql-mi-publisher`.
-1. Dans l’**Explorateur d’objets**, développez le nœud **Réplication**, puis cliquez avec le bouton droit sur le dossier **Publications locales**. Sélectionnez **Nouvelle publication...** .
+1. Dans l’ **Explorateur d’objets** , développez le nœud **Réplication** , puis cliquez avec le bouton droit sur le dossier **Publications locales** . Sélectionnez **Nouvelle publication...** .
 1. Sélectionnez **Suivant** pour quitter la page d’accueil.
-1. Dans la page **Base de données de publication**, sélectionnez la base de données `ReplTutorial` que vous avez créée précédemment. Sélectionnez **Suivant**.
-1. Dans la page **Type de publication**, sélectionnez **Publication transactionnelle**. Sélectionnez **Suivant**.
-1. Dans la page **Articles**, cochez la case en regard de **Tables**. Sélectionnez **Suivant**.
-1. Dans la page **Filtrer les lignes de la table**, sélectionnez **Suivant** sans ajouter de filtres.
-1. Dans la page **Agent d’instantané**, cochez la case en regard de l’option **Créer une capture instantanée immédiatement et garder cette dernière disponible pour l’initialisation des abonnements**. Sélectionnez **Suivant**.
-1. Dans la page **Sécurité de l’agent**, sélectionnez **Paramètres de sécurité...** . Fournissez les informations de connexion SQL Server qui doivent être utilisées pour l’Agent d’instantané et pour vous connecter au serveur de publication. Sélectionnez **OK** pour fermer la page **Sécurité de l’Agent d’instantané**. Sélectionnez **Suivant**.
+1. Dans la page **Base de données de publication** , sélectionnez la base de données `ReplTutorial` que vous avez créée précédemment. Sélectionnez **Suivant** .
+1. Dans la page **Type de publication** , sélectionnez **Publication transactionnelle** . Sélectionnez **Suivant** .
+1. Dans la page **Articles** , cochez la case en regard de **Tables** . Sélectionnez **Suivant** .
+1. Dans la page **Filtrer les lignes de la table** , sélectionnez **Suivant** sans ajouter de filtres.
+1. Dans la page **Agent d’instantané** , cochez la case en regard de l’option **Créer une capture instantanée immédiatement et garder cette dernière disponible pour l’initialisation des abonnements** . Sélectionnez **Suivant** .
+1. Dans la page **Sécurité de l’agent** , sélectionnez **Paramètres de sécurité...** . Fournissez les informations de connexion SQL Server qui doivent être utilisées pour l’Agent d’instantané et pour vous connecter au serveur de publication. Sélectionnez **OK** pour fermer la page **Sécurité de l’Agent d’instantané** . Sélectionnez **Suivant** .
 
    ![Configurer la sécurité de l’Agent d’instantané](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
-1. Dans la page **Actions de l’Assistant**, choisissez **Créer la publication** et si vous le souhaitez, vous pouvez choisir **Générer un fichier de script comportant les étapes de création de la publication** pour enregistrer ce script ultérieurement.
-1. Dans la page **Terminer l’Assistant**, nommez votre publication `ReplTest`, puis sélectionnez **Suivant** pour créer votre publication.
-1. Une fois votre publication créée, actualisez le nœud **Réplication** dans l’**Explorateur d’objets**, puis développez **Publications locales** pour voir votre nouvelle publication.
+1. Dans la page **Actions de l’Assistant** , choisissez **Créer la publication** et si vous le souhaitez, vous pouvez choisir **Générer un fichier de script comportant les étapes de création de la publication** pour enregistrer ce script ultérieurement.
+1. Dans la page **Terminer l’Assistant** , nommez votre publication `ReplTest`, puis sélectionnez **Suivant** pour créer votre publication.
+1. Une fois votre publication créée, actualisez le nœud **Réplication** dans l’ **Explorateur d’objets** , puis développez **Publications locales** pour voir votre nouvelle publication.
 
 ## <a name="create-the-subscription"></a>Créer l’abonnement
 
@@ -304,7 +304,7 @@ Une fois la publication créée, vous pouvez créer l’abonnement. Pour ce fair
 
 1. Lancez SQL Server Management Studio sur SQL Server.
 1. Connectez-vous à l’instance managée `sql-mi-publisher`.
-1. Ouvrez une fenêtre **Nouvelle requête**, puis exécutez le code Transact-SQL suivant pour ajouter l’agent d’abonnement et l’agent de distribution. Utilisez le DNS dans le nom de l’abonné.
+1. Ouvrez une fenêtre **Nouvelle requête** , puis exécutez le code Transact-SQL suivant pour ajouter l’agent d’abonnement et l’agent de distribution. Utilisez le DNS dans le nom de l’abonné.
 
 ```sql
 use [ReplTutorial]
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
-1. Sélectionnez la ou les instances gérées, puis choisissez **Supprimer**. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer**. Ce processus peut prendre un certain temps en arrière-plan et tant qu’il n’est pas terminé, vous ne pourrez pas supprimer le *cluster virtuel* ou d’autres ressources dépendantes. Supervisez la suppression dans l’onglet **Activité** pour confirmer que votre instance managée a été supprimée.
-1. Une fois l’instance managée supprimée, supprimez le *cluster virtuel* en le sélectionnant dans votre groupe de ressources, puis en choisissant **Supprimer**. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer**.
-1. Supprimez toutes les ressources restantes. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer**.
-1. Supprimez le groupe de ressources en sélectionnant **Supprimer le groupe de ressources**, saisissez le nom du groupe de ressources, `myResourceGroup`, puis sélectionnez **Supprimer**.
+1. Sélectionnez la ou les instances gérées, puis choisissez **Supprimer** . Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer** . Ce processus peut prendre un certain temps en arrière-plan et tant qu’il n’est pas terminé, vous ne pourrez pas supprimer le *cluster virtuel* ou d’autres ressources dépendantes. Supervisez la suppression dans l’onglet **Activité** pour confirmer que votre instance managée a été supprimée.
+1. Une fois l’instance managée supprimée, supprimez le *cluster virtuel* en le sélectionnant dans votre groupe de ressources, puis en choisissant **Supprimer** . Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer** .
+1. Supprimez toutes les ressources restantes. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer** .
+1. Supprimez le groupe de ressources en sélectionnant **Supprimer le groupe de ressources** , saisissez le nom du groupe de ressources, `myResourceGroup`, puis sélectionnez **Supprimer** .
 
 ## <a name="known-errors"></a>Erreurs connues
 
@@ -397,7 +397,7 @@ Solutions possibles :
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Il n’existe aucune publication à laquelle vous pouvez vous abonner
 
-Quand vous ajoutez un nouvel abonnement à l’aide de l’Assistant **Nouvel abonnement**, la page **Publication** peut ne contenir aucune base de données ou publication, et le message d’erreur suivant peut s’afficher :
+Quand vous ajoutez un nouvel abonnement à l’aide de l’Assistant **Nouvel abonnement** , la page **Publication** peut ne contenir aucune base de données ou publication, et le message d’erreur suivant peut s’afficher :
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
 
@@ -414,7 +414,7 @@ Consultez l’article [Qu’est-ce qu’Azure SQL Managed Instance ?](sql-manag
 - [Détection de menaces](threat-detection-configure.md)
 - [Masquage des données dynamiques](/sql/relational-databases/security/dynamic-data-masking)
 - [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security)
-- [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Chiffrement transparent des données (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Fonctionnalités de SQL Managed Instance
 

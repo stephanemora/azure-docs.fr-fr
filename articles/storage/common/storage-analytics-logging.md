@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280026"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787667"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
 Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
- La journalisation Storage Analytics n’est pas activée par défaut pour votre compte de stockage. Vous pouvez l’activer dans le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez l’article [Surveillance d’un compte de stockage dans le portail Azure](/azure/storage/storage-monitor-storage-account). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties) et [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) pour activer Storage Analytics pour chaque service.
+ La journalisation Storage Analytics n’est pas activée par défaut pour votre compte de stockage. Vous pouvez l’activer dans le [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez l’article [Surveillance d’un compte de stockage dans le portail Azure](./storage-monitor-storage-account.md). Vous pouvez également activer Storage Analytics par programmation via l'API REST ou la bibliothèque cliente. Utilisez les opérations [Get Blob Service Properties](/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](/rest/api/storageservices/Get-Queue-Service-Properties) et [Get Table Service Properties](/rest/api/storageservices/Get-Table-Service-Properties) pour activer Storage Analytics pour chaque service.
 
  Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison Blob, mais pas dans ses points de terminaison de Table ou de File d’attente, seuls des journaux d’activité relatifs au service BLOB seront créés.
 
@@ -57,11 +57,11 @@ Tous les journaux d’activité sont stockés dans des objets blob de blocs dans
 > [!NOTE]
 >  Le conteneur `$logs` ne s’affiche pas lorsqu’une opération d’énumération des conteneurs est en cours, comme l’opération Répertorier les conteneurs. Vous devez y accéder directement. Par exemple, vous pouvez utiliser l’opération Liste des blobs pour accéder aux objets blob dans le conteneur `$logs`.
 
-À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob. Une heure peut être nécessaire avant l’affichage des données de journaux dans les objets Blob du conteneur **$logs** en raison de la fréquence à laquelle le service de stockage vide les enregistreurs de journal. Il peut exister des enregistrements en double pour les journaux d’activité créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation**.
+À mesure que des demandes sont enregistrées, Storage Analytics télécharge les résultats intermédiaires en tant que blocs. Périodiquement, Storage Analytics valide ces blocs et les rend accessibles sous forme d'objets blob. Une heure peut être nécessaire avant l’affichage des données de journaux dans les objets Blob du conteneur **$logs** en raison de la fréquence à laquelle le service de stockage vide les enregistreurs de journal. Il peut exister des enregistrements en double pour les journaux d’activité créés dans la même heure. Vous pouvez déterminer si un enregistrement est un doublon en vérifiant les nombres **RequestId** et **Operation** .
 
 Si vous avez un volume élevé de données de journal avec plusieurs fichiers pour chaque heure, vous pouvez utiliser les métadonnées d’objets Blob pour déterminer les données que le journal contient en examinant les champs de métadonnées d’objet Blob. Ceci est également utile car il peut parfois y avoir un délai d’écriture des données dans les fichiers journaux : les métadonnées d’objet Blob indiquent plus précisément le contenu d’objet Blob que le nom d’objet Blob.
 
-La plupart des outils de navigation du stockage vous permettent d’afficher les métadonnées d’objets Blob. Vous pouvez également lire ces informations à l’aide de PowerShell ou par programmation. L’extrait de code PowerShell suivant est un exemple de filtrage de la liste d’objets Blob de journal par nom pour spécifier une heure et par métadonnées pour identifier uniquement les journaux qui contiennent des opérations d’**écriture**.  
+La plupart des outils de navigation du stockage vous permettent d’afficher les métadonnées d’objets Blob. Vous pouvez également lire ces informations à l’aide de PowerShell ou par programmation. L’extrait de code PowerShell suivant est un exemple de filtrage de la liste d’objets Blob de journal par nom pour spécifier une heure et par métadonnées pour identifier uniquement les journaux qui contiennent des opérations d’ **écriture** .  
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -77,7 +77,7 @@ La plupart des outils de navigation du stockage vous permettent d’afficher les
  }  
  ```  
 
-Pour plus d’informations sur la liste d’objets Blob par programmation, consultez [Énumération de ressources d’objet Blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) et [Définition et récupération de propriétés et métadonnées de ressources d’objets Blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Pour plus d’informations sur la liste d’objets Blob par programmation, consultez [Énumération de ressources d’objet Blob](/rest/api/storageservices/Enumerating-Blob-Resources) et [Définition et récupération de propriétés et métadonnées de ressources d’objets Blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
 
 ### <a name="log-naming-conventions"></a>Conventions d'appellation de journal
 
@@ -139,7 +139,7 @@ Vous pouvez spécifier les services de stockage que vous souhaitez consigner et 
 
  Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer la journalisation du stockage dans votre compte de stockage. Utilisez la cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** pour récupérer les paramètres actuels et la cmdlet **Set-AzStorageServiceLoggingProperty** pour modifier les paramètres actuels.  
 
- Les cmdlets qui contrôlent la journalisation du stockage utilisent un paramètre **LoggingOperations**, une chaîne contenant une liste de types de requêtes à consigner séparée par des virgules. Les trois types de requêtes possibles sont **lire**, **écrire** et **supprimer**. Pour désactiver la journalisation, utilisez la valeur **aucun** pour le paramètre **LoggingOperations**.  
+ Les cmdlets qui contrôlent la journalisation du stockage utilisent un paramètre **LoggingOperations** , une chaîne contenant une liste de types de requêtes à consigner séparée par des virgules. Les trois types de requêtes possibles sont **lire** , **écrire** et **supprimer** . Pour désactiver la journalisation, utilisez la valeur **aucun** pour le paramètre **LoggingOperations** .  
 
  La commande suivante active la journalisation des requêtes de lecture, d’écriture et de suppression dans le service de File d’attente de votre compte de stockage par défaut avec une rétention de cinq jours :  
 
@@ -153,7 +153,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,w
 Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Activer la journalisation du stockage par programmation  
 
@@ -179,9 +179,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ---
 
 
- Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+ Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](/previous-versions/azure/dn261237(v=azure.100)).  
 
- Pour obtenir des informations générales sur la configuration de la journalisation du stockage avec l’API REST, consultez [Activation et configuration de Storage Analytics](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+ Pour obtenir des informations générales sur la configuration de la journalisation du stockage avec l’API REST, consultez [Activation et configuration de Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ## <a name="download-storage-logging-log-data"></a>Télécharger les données du journal de journalisation du stockage
 
@@ -204,7 +204,7 @@ L’exemple suivant montre comment vous pouvez télécharger les données de jou
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Pour en savoir plus sur le téléchargement de fichiers spécifiques, consultez [Télécharger des fichiers spécifiques](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Pour en savoir plus sur le téléchargement de fichiers spécifiques, consultez [Télécharger des fichiers spécifiques](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
 
 Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux utilisent un format de texte délimité que de nombreux outils de lecture de journaux sont en mesure d’analyser (pour plus d’informations, consultez le guide [Surveiller, diagnostiquer et résoudre les problèmes liés au service Stockage Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Différents outils possèdent des fonctionnalités différentes de mise en forme, de filtrage, de tri et de recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format du fichier journal de journalisation du stockage et son contenu, consultez [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format) et [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

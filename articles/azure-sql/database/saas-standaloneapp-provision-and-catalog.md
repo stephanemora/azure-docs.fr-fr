@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332176"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793243"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Cet article comprend deux parties principales :
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modèle d’application autonome par client
 
-L’application autonome par modèle de client est l’un des modèles pour les applications SaaS mutualisées.  Dans ce modèle, une application autonome est approvisionnée pour chaque client. L'application comprend des composants de niveau application et une instance d'Azure SQL Database.  Chaque application cliente peut être déployée dans l’abonnement du fournisseur.  Azure offre également un [programme d’applications managées](https://docs.microsoft.com/azure/managed-applications/overview) dans le cadre duquel une application peut être déployée dans l’abonnement d’un client et gérée par le fournisseur pour le compte du client.
+L’application autonome par modèle de client est l’un des modèles pour les applications SaaS mutualisées.  Dans ce modèle, une application autonome est approvisionnée pour chaque client. L'application comprend des composants de niveau application et une instance d'Azure SQL Database.  Chaque application cliente peut être déployée dans l’abonnement du fournisseur.  Azure offre également un [programme d’applications managées](../../azure-resource-manager/managed-applications/overview.md) dans le cadre duquel une application peut être déployée dans l’abonnement d’un client et gérée par le fournisseur pour le compte du client.
 
    ![modèle d’application-par-client](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Un modèle Azure Resource Manager est utilisé pour déployer et configurer l’
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](../../sql-database/saas-standaloneapp-get-started-deploy.md).
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
+* Les trois exemples d’applications clientes sont déployés. Pour déployer ces applications en moins de cinq minutes, voir [Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database](./saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Approvisionner le catalogue
 
@@ -92,7 +92,7 @@ Cette tâche montre comment configurer le catalogue utilisé pour inscrire toute
 1. Exécutez le script en appuyant sur **F5** .
 1.  Quand l’exécution du script stoppe au point d’arrêt, appuyez sur **F11** pour effectuer un pas à pas détaillé du script New-Catalog.ps1.
 1.  Suivez l’exécution du script à l’aide des options du menu Débogage, F10 et F11, pour parcourir les fonctions appelées.
-    *   Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Pour plus d’informations sur le débogage des scripts PowerShell, consultez [Conseils sur l’utilisation et le débogage de scripts PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Une fois l’exécution du script terminée, le catalogue existe et tous les exemples de client sont inscrits.
 
@@ -156,4 +156,4 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-Vous pouvez explorer la manière dont le catalogue est utilisé pour prendre en charge différents scénarios inter-clients à l’aide de la version base de données par client de [l’application SaaS de Tickets Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Vous pouvez explorer la manière dont le catalogue est utilisé pour prendre en charge différents scénarios inter-clients à l’aide de la version base de données par client de [l’application SaaS de Tickets Wingtip](./saas-dbpertenant-wingtip-app-overview.md).

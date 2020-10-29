@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542706"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791985"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Indexer des objets blob chiffrés à l'aide d'indexeurs d'objets blob et d'ensembles de compétences dans le service Recherche cognitive Azure
 
@@ -56,7 +56,7 @@ Sur le plan opérationnel, la compétence DecryptBlobFile prend l'URL et le jeto
 
 1. Sélectionnez **l'abonnement auquel votre instance Azure Key Vault est associée** (ce guide ne fonctionnera pas si vous sélectionnez un autre abonnement), puis sélectionnez un groupe de ressources existant ou créez-en un (si vous en créez un, vous devrez également sélectionner la région dans laquelle le déploiement sera effectué).
 
-1. Sélectionnez **Vérifier + créer**, acceptez les conditions, puis sélectionnez **Créer** pour déployer l'instance d'Azure Function.
+1. Sélectionnez **Vérifier + créer** , acceptez les conditions, puis sélectionnez **Créer** pour déployer l'instance d'Azure Function.
 
     ![Modèle Resource Manager sur le portail](media/indexing-encrypted-blob-files/arm-template.jpg "Modèle Resource Manager sur le portail")
 
@@ -64,13 +64,13 @@ Sur le plan opérationnel, la compétence DecryptBlobFile prend l'URL et le jeto
 
 1. Sur le portail, accédez à votre instance d'Azure Key Vault. Dans Azure Key Vault, [créez une stratégie d'accès](../key-vault/general/assign-access-policy-portal.md) qui accorde un accès à la clé de la compétence personnalisée.
  
-    1. Sous **Paramètres**, sélectionnez **Stratégies d'accès**, puis **Ajouter une stratégie d'accès**.
+    1. Sous **Paramètres** , sélectionnez **Stratégies d'accès** , puis **Ajouter une stratégie d'accès** .
      
        ![Keyvault - Ajouter une stratégie d'accès](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Keyvault - Stratégies d'accès")
 
-    1. Sous **Configurer à partir du modèle**, sélectionnez **Azure Data Lake Storage ou Stockage Azure**.
+    1. Sous **Configurer à partir du modèle** , sélectionnez **Azure Data Lake Storage ou Stockage Azure** .
 
-    1. Pour le principal, sélectionnez l'instance d'Azure Function que vous avez déployée. Vous pouvez la rechercher à l'aide du préfixe de ressource utilisé pour la créer à l'étape 2. La valeur par défaut du préfixe est **psdbf-function-app**.
+    1. Pour le principal, sélectionnez l'instance d'Azure Function que vous avez déployée. Vous pouvez la rechercher à l'aide du préfixe de ressource utilisé pour la créer à l'étape 2. La valeur par défaut du préfixe est **psdbf-function-app** .
 
     1. Ne sélectionnez rien pour l'option d'application autorisée.
      
@@ -86,7 +86,7 @@ Sur le plan opérationnel, la compétence DecryptBlobFile prend l'URL et le jeto
     
         ![URL de la fonction](media/indexing-encrypted-blob-files/function-uri.jpg "Où trouver l'URL Azure Function")
 
-    1. Le code de la clé hôte, que vous pourrez vous procurer en accédant à **Clés d'application**, en cliquant pour afficher la clé **par défaut** et en copiant la valeur.
+    1. Le code de la clé hôte, que vous pourrez vous procurer en accédant à **Clés d'application** , en cliquant pour afficher la clé **par défaut** et en copiant la valeur.
      
         ![Code de la clé hôte de la fonction](media/indexing-encrypted-blob-files/function-host-key.jpg "Où trouver le code de la clé hôte Azure Function")
 
@@ -106,9 +106,9 @@ Comme pour l'instance d'Azure Function, prenez un moment pour récupérer la cl�
 
 1. [Connectez-vous au Portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez le nom de votre service de recherche. Vous pouvez confirmer le nom de votre service en passant en revue l’URL du point de terminaison. Si votre URL de point de terminaison est `https://mydemo.search.windows.net`, le nom du service doit être `mydemo`.
 
-2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+2. Dans **Paramètres** > **Clés** , obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-javascript/service-name-and-keys.png)
 
 Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -120,13 +120,13 @@ Installez et configurez Postman.
 
 1. Téléchargez le [code source de la collection Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Sélectionnez **Fichier** > **Importer** pour importer le code source dans Postman.
-1. Sélectionnez l’onglet **Collections**, puis le bouton **...** (points de suspension).
-1. Sélectionnez **Modifier**. 
+1. Sélectionnez l’onglet **Collections** , puis le bouton **...** (points de suspension).
+1. Sélectionnez **Modifier** . 
    
    ![Application Postman montrant la navigation](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Accéder au menu Edition dans Postman")
-1. Dans la boîte de dialogue **Edit**, sélectionnez l’onglet **Variables**. 
+1. Dans la boîte de dialogue **Edit** , sélectionnez l’onglet **Variables** . 
 
-Sous l’onglet **Variables**, vous pouvez ajouter les valeurs que Postman récupère chaque fois qu’il trouve une variable spécifique entre double accolades. Par exemple, Postman remplace le symbole `{{admin-key}}` par la valeur actuelle que vous avez définie pour `admin-key`. Postman effectue la substitution dans les URL, les en-têtes, le corps de la requête, etc. 
+Sous l’onglet **Variables** , vous pouvez ajouter les valeurs que Postman récupère chaque fois qu’il trouve une variable spécifique entre double accolades. Par exemple, Postman remplace le symbole `{{admin-key}}` par la valeur actuelle que vous avez définie pour `admin-key`. Postman effectue la substitution dans les URL, les en-têtes, le corps de la requête, etc. 
 
 Pour obtenir la valeur de la clé d'administration (`admin-key`), utilisez la clé API d'administration Recherche cognitive Azure notée précédemment. Définissez `search-service-name` sur le nom du service Recherche cognitive Azure que vous utilisez. Définissez `storage-connection-string` en utilisant la valeur disponible dans l'onglet **Clés d'accès** de votre compte de stockage, et définissez `storage-container-name` sur le nom du conteneur d'objets blob où les fichiers chiffrés sont stockés sur ce compte de stockage. Définissez `function-uri` sur l'URL Azure Function que vous avez notée précédemment, et définissez `function-code` sur le code de la clé hôte Azure Function que vous avez également noté précédemment. Partout ailleurs, vous pouvez conserver les valeurs par défaut.
 
@@ -137,24 +137,24 @@ Pour obtenir la valeur de la clé d'administration (`admin-key`), utilisez la cl
 |-------------|-----------------|
 | `admin-key` | Dans la page **Clés** du service Recherche cognitive Azure.  |
 | `search-service-name` | Nom du service Recherche cognitive Azure. L’URL est `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | Dans le compte de stockage, sous l’onglet **Clés d’accès**, sélectionnez **key1** > **Chaîne de connexion**. | 
+| `storage-connection-string` | Dans le compte de stockage, sous l’onglet **Clés d’accès** , sélectionnez **key1** > **Chaîne de connexion** . | 
 | `storage-container-name` | Nom du conteneur d'objets blob qui contient les fichiers chiffrés à indexer. | 
 | `function-uri` |  Dans Azure Function, sous **Essentials** sur la page principale. | 
-| `function-code` | Dans Azure Function, en accédant à **Clés d'application**, en cliquant pour afficher la clé **par défaut** et en copiant la valeur. | 
-| `api-version` | Laisser **2020-06-30**. |
-| `datasource-name` | Laisser **encrypted-blobs-ds**. | 
-| `index-name` | Laisser **encrypted-blobs-idx**. | 
-| `skillset-name` | Laisser **encrypted-blobs-ss**. | 
-| `indexer-name` | Laisser **encrypted-blobs-ixr**. | 
+| `function-code` | Dans Azure Function, en accédant à **Clés d'application** , en cliquant pour afficher la clé **par défaut** et en copiant la valeur. | 
+| `api-version` | Laisser **2020-06-30** . |
+| `datasource-name` | Laisser **encrypted-blobs-ds** . | 
+| `index-name` | Laisser **encrypted-blobs-idx** . | 
+| `skillset-name` | Laisser **encrypted-blobs-ss** . | 
+| `indexer-name` | Laisser **encrypted-blobs-ixr** . | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Passer en revue la collection de requêtes dans Postman
 
 Dans le cadre de ce guide, vous devez émettre quatre requêtes HTTP : 
 
-- **Une requête PUT pour créer l’index** : Cet index contient les données utilisées et retournées par Recherche cognitive Azure.
-- **Une requête POST pour créer la source de données** : Cette source de données relie votre service Recherche cognitive Azure à votre compte de stockage et donc aux fichiers blob chiffrés. 
-- **Une requête PUT pour créer l’ensemble de compétences** : L'ensemble de compétences spécifie la définition de compétence personnalisée relative à l'instance d'Azure Function qui déchiffrera les données des fichiers blob, et une fonction [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) pour extraire le texte de chaque document une fois celui-ci déchiffré.
-- **Une requête PUT pour créer l’indexeur** : L’exécution de l’indexeur lit les données, applique l’ensemble de compétences et stocke les résultats. Vous devez exécuter cette requête en dernier.
+- **Une requête PUT pour créer l’index**  : Cet index contient les données utilisées et retournées par Recherche cognitive Azure.
+- **Une requête POST pour créer la source de données**  : Cette source de données relie votre service Recherche cognitive Azure à votre compte de stockage et donc aux fichiers blob chiffrés. 
+- **Une requête PUT pour créer l’ensemble de compétences**  : L'ensemble de compétences spécifie la définition de compétence personnalisée relative à l'instance d'Azure Function qui déchiffrera les données des fichiers blob, et une fonction [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) pour extraire le texte de chaque document une fois celui-ci déchiffré.
+- **Une requête PUT pour créer l’indexeur**  : L’exécution de l’indexeur lit les données, applique l’ensemble de compétences et stocke les résultats. Vous devez exécuter cette requête en dernier.
 
 Le [code source](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contient une collection Postman avec ces quatre requêtes, ainsi que quelques requêtes de suivi utiles. Pour émettre les requêtes, dans Postman, sélectionnez l'onglet correspondant aux requêtes et cliquez sur **Envoyer** pour chacune d'entre elles.
 

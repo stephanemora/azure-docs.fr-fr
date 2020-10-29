@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443475"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787140"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour effectuer un scale-out
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Pour un modèle de client unique, créez une carte de partitions de **mappage de
 
 ![Mappage de liste][1]
 
-Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**.
+Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage** .
 
 ![Mappage de plage][2]
 
@@ -168,7 +168,7 @@ Pour plus d’informations sur les modèles d’architecture de données courant
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
 
-Pour toute question, referez-vous à la [page de questions Microsoft Q&A pour SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, referez-vous à la [page de questions Microsoft Q&A pour SQL Database](/answers/topics/azure-sql-database.html) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

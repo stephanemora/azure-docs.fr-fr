@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6133d838fa31919a37ddd633193e5559c50de9b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317053"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790438"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,10 @@ Les options Intelligent Insights disponibles sont les suivantes :
 
 | Option Intelligent Insights | Prise en charge d’Azure SQL Database | Prise en charge d’Azure SQL Managed Instance |
 | :----------------------------- | ----- | ----- |
-| **Configurer Intelligent Insights** : configurez l’analyse Intelligent Insights pour vos bases de données. | Oui | Oui |
-| **Diffuser en continu des insights vers Azure SQL Analytics** : diffusez en continu des insights vers Azure SQL Analytics. | Oui | Oui |
-| **Diffuser en streaming des insights vers Azure Event Hubs** : diffusez en streaming des insights vers Event Hubs pour d’autres intégrations personnalisées. | Oui | Oui |
-| **Diffuser en streaming des insights vers Stockage Azure** : diffusez en streaming des insights vers Stockage Azure pour une analyse plus poussée et un archivage à long terme. | Oui | Oui |
+| **Configurer Intelligent Insights**  : configurez l’analyse Intelligent Insights pour vos bases de données. | Oui | Oui |
+| **Diffuser en continu des insights vers Azure SQL Analytics**  : diffusez en continu des insights vers Azure SQL Analytics. | Oui | Oui |
+| **Diffuser en streaming des insights vers Azure Event Hubs**  : diffusez en streaming des insights vers Event Hubs pour d’autres intégrations personnalisées. | Oui | Oui |
+| **Diffuser en streaming des insights vers Stockage Azure**  : diffusez en streaming des insights vers Stockage Azure pour une analyse plus poussée et un archivage à long terme. | Oui | Oui |
 
 > [!NOTE]
 > Intelligent Insights est une fonctionnalité en préversion qui n’est pas disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 1 et USA Est 1.
@@ -85,7 +85,7 @@ Les options Intelligent Insights disponibles sont les suivantes :
 
 La sortie Intelligent Insights peut être diffusée en continu vers l’une des différentes destinations à des fins d’analyse :
 
-- La sortie diffusée en continu sur un espace de travail Log Analytics peut être utilisée avec [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) pour afficher les aperçus dans l’interface utilisateur du portail Azure. Il s’agit de la solution intégrée d’Azure, qui constitue la façon la plus courante d’afficher les insights.
+- La sortie diffusée en continu sur un espace de travail Log Analytics peut être utilisée avec [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) pour afficher les aperçus dans l’interface utilisateur du portail Azure. Il s’agit de la solution intégrée d’Azure, qui constitue la façon la plus courante d’afficher les insights.
 - La sortie diffusée en continu sur Azure Event Hubs peut servir au développement de scénarios personnalisés de surveillance et de création d’alertes
 - La sortie diffusée en continu sur le Stockage Azure peut servir au développement d’applications personnalisées, comme la création de rapports personnalisés, l’archivage de données à long terme, etc.
 
@@ -107,7 +107,7 @@ L’exemple suivant montre Intelligent Insights dans Azure SQL Analytics :
 
 ### <a name="set-up-with-event-hubs"></a>Configurer avec Event Hubs
 
-Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en streaming dans Event Hubs, consultez [Journalisation des métriques et diagnostics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) et [Diffuser en streaming des journaux de diagnostics Azure vers Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en streaming dans Event Hubs, consultez [Journalisation des métriques et diagnostics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) et [Diffuser en streaming des journaux de diagnostics Azure vers Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 Pour utiliser Event Hubs afin de personnaliser la supervision et les alertes, consultez [Que faire des journaux de métriques et diagnostics dans Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

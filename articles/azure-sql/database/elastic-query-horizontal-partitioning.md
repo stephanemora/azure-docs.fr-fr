@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443129"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792104"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Pour les bases de données non partitionnées, consultez [Interroger plusieurs b
 
 Ces instructions créent une représentation des métadonnées de votre couche de données partitionnées dans la base de données de requête élastique.
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Créer la clé principale et les informations d’identification de la base de données
 
@@ -163,7 +163,7 @@ La clause DISTRIBUTION spécifie la distribution des données utilisée pour cet
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l’aide d’une méthode de distribution liée à l’application.
 
-**Référence de la couche Données** : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie une carte de partitions qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
+**Référence de la couche Données**  : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie une carte de partitions qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
 
 ### <a name="security-considerations"></a>Considérations relatives à la sécurité
 
@@ -194,7 +194,7 @@ La requête suivante effectue une jonction tridirectionnelle entre les entrepôt
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procédure stockée pour l’exécution de T-SQL à distance : sp\_execute_remote
 
-La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte :
+La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée [sp\_execute\_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte :
 
 * Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR.
 * Requête (nvarchar) : requête T-SQL à exécuter sur chaque partition.
@@ -228,7 +228,7 @@ Utilisez des chaînes de connexion SQL Server standard pour connecter votre appl
 * Pour le didacticiel sur le partitionnement vertical, consultez [Prise en main des requêtes de bases de données croisées (partitionnement vertical)](elastic-query-getting-started-vertical.md).
 * Pour la syntaxe et des exemples de requêtes pour des données partitionnées verticalement, consultez [Requêtes sur des données partitionnées verticalement](elastic-query-vertical-partitioning.md)
 * Pour commencer le didacticiel sur le partitionnement horizontal (sharding), consultez [Prise en main des requêtes élastiques pour le partitionnement horizontal (sharding)](elastic-query-getting-started.md).
-* Consultez [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
+* Consultez [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) pour une procédure stockée qui exécute une instruction Transact-SQL sur une seule base de données Azure SQL distante ou un ensemble de bases de données servant de partitions dans un schéma de partitionnement horizontal.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

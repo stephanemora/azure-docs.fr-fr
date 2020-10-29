@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618112"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790761"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -120,7 +120,7 @@ SQL Managed Instance prend actuellement en charge le déploiement uniquement sur
 
 - [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Fournisseur de services cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Fournisseur de services cloud (CSP)](/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Abonnements avec crédit Azure mensuel pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -132,8 +132,8 @@ SQL Managed Instance prend actuellement en charge le déploiement uniquement sur
 
 Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. SQL Managed Instance a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](../database/quota-increase-request.md)) en fonction du type d’abonnement :
 
-- **Limite de sous-réseaux** : nombre maximal de sous-réseaux sur lesquels des instances managées SQL sont déployées dans une seule et même région.
-- **Limite d’unités de vCore** : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
+- **Limite de sous-réseaux**  : nombre maximal de sous-réseaux sur lesquels des instances managées SQL sont déployées dans une seule et même région.
+- **Limite d’unités de vCore**  : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
 
 > [!Note]
 > Ces limites sont des paramètres par défaut : il ne s’agit pas de limitations techniques. Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le portail Microsoft Azure](../database/quota-increase-request.md) si vous avez besoin de plus d’instances dans la région actuelle. Vous pouvez aussi créer des instances managées SQL dans une autre région Azure sans envoyer de demandes de support.
@@ -150,7 +150,7 @@ Le tableau suivant montre les **limites régionales par défaut** pour les types
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional et plateformes MSDN|2|32|
 
-\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple : 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où SQL Managed Instance est déployé et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
+\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple : 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où SQL Managed Instance est déployé et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore** .
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
 

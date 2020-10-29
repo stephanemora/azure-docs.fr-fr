@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855920"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787463"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
@@ -50,8 +50,8 @@ Dans Visual Studio, créez une application de console Windows. Les étapes suiva
 1. Sélectionnez **Fichier** > **Nouveau** > **Projet**
 2. Sélectionnez **Plateforme** > **Windows**
 3. Sélectionnez **Application console (.NET Framework)**
-4. Sélectionnez **Suivant**.
-5. Saisissez un nom pour votre application dans le champ **Nom du projet**.
+4. Sélectionnez **Suivant** .
+5. Saisissez un nom pour votre application dans le champ **Nom du projet** .
 6. Sélectionnez **Créer**
 
 Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à la méthode **Main()** dans le fichier **Program.cs** de votre application console.
@@ -71,8 +71,8 @@ Pour terminer ce didacticiel, vous devez référencer les quatre packages suivan
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**.
-1. Sélectionnez **Parcourir**.
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet** .
+1. Sélectionnez **Parcourir** .
 1. Recherchez « Azure.Storage.Queues » en ligne, puis sélectionnez **Installer** pour installer la bibliothèque cliente Stockage Azure et ses dépendances. Cela aura également pour effet d’installer les bibliothèques Azure.Storage.Common et Azure.Core, qui sont des dépendances de la bibliothèque de file d’attente.
 1. Recherchez « System.Configuration.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Configuration Manager.
 
@@ -86,8 +86,8 @@ Pour terminer ce didacticiel, vous devez référencer les trois packages suivant
 
 Vous pouvez utiliser NuGet pour obtenir ces packages. Procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**.
-1. Sélectionnez **Parcourir**.
+1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions** , puis sélectionnez **Gérer les packages NuGet** .
+1. Sélectionnez **Parcourir** .
 1. Recherchez « Microsoft.Azure.Storage.Queue » en ligne, puis sélectionnez **Installer** pour installer la bibliothèque de client du Stockage Azure et ses dépendances. Cela installera également la bibliothèque Microsoft.Azure.Storage.Common, qui est une dépendance de la bibliothèque de file d’attente.
 1. Recherchez « Microsoft.Azure.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Azure Configuration Manager.
 
@@ -113,8 +113,8 @@ L’exemple de code a besoin d’autoriser l’accès à votre compte de stockag
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
-4. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
+3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès** . Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+4. Recherchez la valeur de **Chaîne de connexion** sous **clé1** , puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion. Vous allez ajouter la valeur de chaîne de connexion dans une variable d’environnement à l’étape suivante.
 
     ![Capture d’écran montrant comment copier une chaîne de connexion à partir du portail Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -256,7 +256,7 @@ queue.AddMessage(message);
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Vous pouvez lire furtivement le message dans la file d’attente sans l’enlever de la file d’attente en appelant la méthode [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si vous ne transmettez pas de valeur pour le paramètre *maxMessages*, la valeur par défaut consiste à afficher un aperçu d’un message.
+Vous pouvez lire furtivement le message dans la file d’attente sans l’enlever de la file d’attente en appelant la méthode [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si vous ne transmettez pas de valeur pour le paramètre *maxMessages* , la valeur par défaut consiste à afficher un aperçu d’un message.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Utiliser le modèle Async-Await avec les API de stockage de files d’attente communes
 
-Cet exemple décrit comment utiliser le modèle Async-Await avec les API de stockage de files d’attente communes. L’exemple appelle la version asynchrone de chacune des méthodes spécifiées, comme l’indique le suffixe *Async* de chaque méthode. Quand une méthode asynchrone est utilisée, le modèle Async-Await suspend l’exécution locale jusqu’à la fin de l’appel. Ce comportement permet au thread actuel d’effectuer d’autres tâches afin d’éviter les goulots d’étranglement au niveau des performances et d’améliorer la réactivité globale de votre application. Pour plus d’informations sur l’utilisation du modèle Async-Await dans .NET, consultez l’article [Programmation asynchrone avec Async et Await (C# et Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Cet exemple décrit comment utiliser le modèle Async-Await avec les API de stockage de files d’attente communes. L’exemple appelle la version asynchrone de chacune des méthodes spécifiées, comme l’indique le suffixe *Async* de chaque méthode. Quand une méthode asynchrone est utilisée, le modèle Async-Await suspend l’exécution locale jusqu’à la fin de l’appel. Ce comportement permet au thread actuel d’effectuer d’autres tâches afin d’éviter les goulots d’étranglement au niveau des performances et d’améliorer la réactivité globale de votre application. Pour plus d’informations sur l’utilisation du modèle Async-Await dans .NET, consultez l’article [Programmation asynchrone avec Async et Await (C# et Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
 - Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente :
-  - [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Référence de la bibliothèque cliente de stockage pour .NET](/dotnet/api/overview/azure/storage)
+  - [Référence d’API REST](/rest/api/storageservices/)
 - Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
-  - [Prise en main du stockage de tables Azure à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) pour le stockage de données structurées.
-  - [Prise en main d’Azure Blob Storage à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
+  - [Prise en main du stockage de tables Azure à l’aide de .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) pour le stockage de données structurées.
+  - [Prise en main d’Azure Blob Storage à l’aide de .NET](../blobs/storage-quickstart-blobs-dotnet.md) pour le stockage de données non structurées.
   - [Connexion à SQL Database à l’aide de .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) pour stocker des données relationnelles.
 - Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
