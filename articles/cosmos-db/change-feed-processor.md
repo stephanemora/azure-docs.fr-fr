@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277027"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475802"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB
 
@@ -125,10 +125,10 @@ Le processeur de flux de modification est initialisé et commence à lire les mo
 
 Le processeur de flux de modification peut être hébergé sur n’importe quelle plateforme prenant en charge des processus ou des tâches de longue durée :
 
-* Un [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/) exécuté en continu.
-* Un processus sur une [machine virtuelle Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* Un travail en arrière-plan dans [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* Un [service hébergé ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* Un [Azure WebJob](/learn/modules/run-web-app-background-task-with-webjobs/) exécuté en continu.
+* Un processus sur une [machine virtuelle Azure](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Un travail en arrière-plan dans [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* Un [service hébergé ASP.NET](/aspnet/core/fundamentals/host/hosted-services).
 
 Si le processeur de flux de modification peut s’exécuter dans des environnements à courte durée de vie, étant donné que le conteneur de baux conserve l’état, le cycle de démarrage de ces environnements ajoutera du retard à la réception des notifications (en raison de la surcharge liée au démarrage du processeur chaque fois que l’environnement est démarré).
 
@@ -147,4 +147,4 @@ Pour plus d’informations sur le processeur de flux de modification, consultez 
 * [Modèle de tirage (pull) du flux de modification](change-feed-pull-model.md)
 * [Guide pratique pour effectuer une migration à partir de la bibliothèque du processeur de flux de modification](how-to-migrate-from-change-feed-library.md)
 * [Utilisation de l’estimateur de flux de modification](how-to-use-change-feed-estimator.md)
-* [Heure de début du processeur de flux de modification](how-to-configure-change-feed-start-time.md)
+* [Heure de début du processeur de flux de modification](#starting-time)

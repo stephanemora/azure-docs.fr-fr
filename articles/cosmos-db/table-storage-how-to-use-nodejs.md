@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318770"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477281"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js
 
@@ -132,12 +132,12 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Ajout d'une entité à une table
 
-Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l’entité.
+Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey** , qui sont des identificateurs uniques de l’entité.
 
-* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée.
-* **RowKey** : identifie de façon unique l’entité dans la partition.
+* **PartitionKey**  : détermine la partition dans laquelle l’entité est stockée.
+* **RowKey**  : identifie de façon unique l’entité dans la partition.
 
-**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Voici un exemple de définition d'une entité. La **dueDate** est définie en tant que type de `Edm.DateTime`. L'indication du type est facultative et s'ils ne sont pas spécifiés, les types sont inférés.
 
@@ -220,7 +220,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
 Avec `replaceEntity` et `mergeEntity`, si l’entité à mettre à jour n’existe pas, l’opération de mise à jour échoue. Par conséquent, si vous souhaitez stocker une entité indépendamment de son existence ou non, utilisez `insertOrReplaceEntity` ou `insertOrMergeEntity`.
 
-Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
+Le `result` des opérations de mise à jour réussies contient l’ **Etag** de l’entité mise à jour.
 
 ## <a name="work-with-groups-of-entities"></a>Utilisation des groupes d'entités
 
@@ -260,15 +260,15 @@ Pour les opérations de traitement par lot réussies, `result` contient les info
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations :
 
-* **clear** : permet de supprimer toutes les opérations d’un lot.
-* **getOperations** : permet d’obtenir une opération du lot.
-* **hasOperations** : permet de renvoyer true si le lot contient des opérations.
-* **removeOperations** : permet de supprimer une opération.
-* **size** : permet de renvoyer le nombre d’opérations du lot.
+* **clear**  : permet de supprimer toutes les opérations d’un lot.
+* **getOperations**  : permet d’obtenir une opération du lot.
+* **hasOperations**  : permet de renvoyer true si le lot contient des opérations.
+* **removeOperations**  : permet de supprimer une opération.
+* **size**  : permet de renvoyer le nombre d’opérations du lot.
 
 ## <a name="retrieve-an-entity-by-key"></a>Récupération d'une entité par clé
 
-Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
+Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey** , utilisez la méthode **retrieveEntity** .
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -284,12 +284,12 @@ Après cette opération, `result` contient l’entité.
 
 Pour interroger une table, utilisez l’objet **TableQuery** pour générer une expression de requête en utilisant les clauses suivantes :
 
-* **select** : les champs à renvoyer par la requête.
-* **where** : la clause where.
+* **select**  : les champs à renvoyer par la requête.
+* **where**  : la clause where.
 
-  * **and** : une condition where `and`.
-  * **or** : une condition where `or`.
-* **top** : le nombre d’éléments à extraire.
+  * **and**  : une condition where `and`.
+  * **or**  : une condition where `or`.
+* **top**  : le nombre d’éléments à extraire.
 
 L’exemple suivant crée une requête qui renvoie les cinq premiers éléments avec une PartitionKey « hometasks ».
 
@@ -299,7 +299,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécuter la requête dans une table, utilisez **queryEntities**. L'exemple suivant utilise cette requête pour renvoyer des entités de « mytable ».
+Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécuter la requête dans une table, utilisez **queryEntities** . L'exemple suivant utilise cette requête pour renvoyer des entités de « mytable ».
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -314,7 +314,7 @@ En cas de réussite, `result.entries` contient un tableau d’entités qui corre
 ### <a name="query-a-subset-of-entity-properties"></a>Interrogation d'un sous-ensemble de propriétés d'entité
 
 Vous pouvez utiliser une requête de table pour extraire uniquement quelques champs d'une entité.
-Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate**.
+Ceci permet de réduire la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez la clause **select** et transmettez les noms des champs à renvoyer. Par exemple, la requête suivante renvoie uniquement les champs **description** et **dueDate** .
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +357,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists**.
+Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists** .
 
 ## <a name="use-continuation-tokens"></a>Utiliser des jetons de liaison
 
@@ -392,7 +392,7 @@ Vous pouvez également utiliser `top` avec `continuationToken` pour définir la 
 
 Les signatures d’accès partagé (SAP) sont un moyen sécurisé de fournir un accès précis aux tables sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à interroger des enregistrements.
 
-Une application approuvée, comme un service cloud, génère une SAP à l’aide de l’élément **generateSharedAccessSignature** du **TableService**, et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
+Une application approuvée, comme un service cloud, génère une SAP à l’aide de l’élément **generateSharedAccessSignature** du **TableService** , et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
 
 L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à interroger (« r ») la table et expire 100 minutes après son heure de création.
 
@@ -455,7 +455,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks**, puis ajoute les nouvelles stratégies à l’aide de **setTableAcl**. Cette approche permet :
+L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks** , puis ajoute les nouvelles stratégies à l’aide de **setTableAcl** . Cette approche permet :
 
 ```javascript
 var extend = require('extend');
@@ -483,6 +483,6 @@ Pour plus d'informations, consultez les ressources ci-dessous.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * Référentiel du [Kit de développement logiciel (SDK) Azure Storage pour Node.js](https://github.com/Azure/azure-storage-node) sur GitHub.
-* [Azure pour développeurs Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Azure pour développeurs Node.js](/azure/developer/javascript/)
 * [Créer une application web Node.js dans Azure](../app-service/quickstart-nodejs.md)
 * [Création et déploiement d’une application Node.js dans un service cloud Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (avec Windows PowerShell)

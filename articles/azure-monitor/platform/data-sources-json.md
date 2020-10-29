@@ -1,17 +1,17 @@
 ---
-title: Collecte des données JSON personnalisées dans Azure Monitor | Microsoft Docs
+title: Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor
 description: Les sources de données JSON personnalisées peuvent être collectées dans Azure Monitor à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être de simples scripts qui renvoient JSON en tant que cURL ou l’un des 300 plug-ins de FluentD. Cet article décrit la configuration requise pour cette collecte de données.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 407257dbe9fbfa560153d5044263fc4c947cb05c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce83efea9337992209f9ade1f10ebad08edd57e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86111930"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461173"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

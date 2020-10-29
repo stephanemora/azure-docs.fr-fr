@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802928"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476975"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprim
 
 La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Même après l’expiration de la durée de vie, si le conteneur est surchargé avec les demandes et si le nombre d’unités réservées est insuffisant, la suppression des données est retardée. Les données sont supprimées une fois que le nombre d’unités de requête disponibles est suffisant pour effectuer l’opération de suppression. Bien que la suppression des données soit différée, les données ne sont renvoyées par aucune requête (quelle que soit l’API) après l’expiration de la durée de vie.
 
-> Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), cliquez [ici](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](./synapse-link.md), cliquez [ici](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments
 
@@ -32,7 +32,7 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu�
 
    - Si ce paramètre est présent et que sa valeur est définie sur « -1 », il est égal à l’infini et, par défaut, les éléments n’expirent pas.
 
-   - Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque *« n »*, les éléments expirent *« n »* secondes après leur dernière modification.
+   - Si ce paramètre est présent et que sa valeur est définie sur un nombre quelconque *« n »* , les éléments expirent *« n »* secondes après leur dernière modification.
 
 2. **Durée de vie sur un élément** (définie via `ttl`) :
 

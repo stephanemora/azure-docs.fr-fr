@@ -2,17 +2,18 @@
 title: Configurer LVM et RAID sur des appareils chiffrés – Azure Disk Encryption
 description: Cet article fournit des instructions sur la configuration de LVM et RAID sur des appareils chiffrés pour des machines virtuelles Linux.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ccb74fe58742974798732605b4a017a06777bcc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328171"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476159"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurer LVM et RAID sur des appareils chiffrés
 
@@ -45,7 +46,7 @@ De la même façon, l’appareil RAID est créé par-dessus la couche chiffrée 
 
 Nous vous recommandons d’utiliser LVM-on-crypt. RAID est un choix possible lorsque LVM ne peut pas être utilisé en raison de limitations spécifiques de l’application ou de l’environnement.
 
-Vous utiliserez l’option **EncryptFormatAll**. Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Vous utiliserez l’option **EncryptFormatAll** . Pour plus d’informations sur cette option, consultez [Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur des machines virtuelles Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Bien que vous puissiez utiliser cette méthode lorsque vous chiffrez également le système d’exploitation, nous chiffrons uniquement les lecteurs de données ici.
 
@@ -286,7 +287,7 @@ Au lieu d’utiliser le nom de l’appareil, utilisez les chemins d’accès /de
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Configurer LVM par-dessus les couches chiffrées
 #### <a name="create-the-physical-volumes"></a>Créer les volumes physiques
-Un avertissement s’affiche pour vous demander si vous souhaitez effacer la signature du système de fichiers. Continuez en entrant **y** ou utilisez l’écho **y**, comme indiqué ci-dessous :
+Un avertissement s’affiche pour vous demander si vous souhaitez effacer la signature du système de fichiers. Continuez en entrant **y** ou utilisez l’écho **y** , comme indiqué ci-dessous :
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -297,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Vérification de la création d’un volume physique](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk**.
+>Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk** .
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Vérifier les informations des volumes physiques
 ```bash
@@ -369,11 +370,11 @@ df -h
 ```
 ![Informations des systèmes de fichiers montés](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-Sur cette variation de **lsblk**, nous répertorions les appareils qui affichent les dépendances dans l’ordre inverse. Cette option permet d’identifier les appareils regroupés par le volume logique à la place des noms d’appareil /dev/sd[disk] d’origine.
+Sur cette variation de **lsblk** , nous répertorions les appareils qui affichent les dépendances dans l’ordre inverse. Cette option permet d’identifier les appareils regroupés par le volume logique à la place des noms d’appareil /dev/sd[disk] d’origine.
 
 Il est important de s’assurer que l’option **nofail** est ajoutée aux options de point de montage des volumes LVM créés par-dessus un appareil chiffré par Azure Disk Encryption. Elle empêche que le système d’exploitation se bloque pendant le processus de démarrage (ou en mode de maintenance).
 
-Si vous n’utilisez pas l’option **nofail** :
+Si vous n’utilisez pas l’option **nofail**  :
 
 - Le système d’exploitation n’arrive jamais à l’étape où Azure Disk Encryption est lancé et les disques de données sont déverrouillés et montés. 
 - Les disques chiffrés seront déverrouillés à la fin du processus de démarrage. Les volumes LVM et les systèmes de fichiers sont automatiquement montés jusqu’à ce qu’Azure Disk Encryption les déverrouille. 
@@ -405,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informations du RAID configuré via la commande mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk**.
+>Les noms /dev/mapper/device doivent ici être remplacés par vos valeurs réelles en fonction de la sortie de **lsblk** .
 
 ### <a name="checkmonitor-raid-creation"></a>Vérifier/surveiller la création de RAID
 ```bash
@@ -440,7 +441,7 @@ df -h
 
 Il est important de s’assurer que l’option **nofail** est ajoutée aux options de point de montage des volumes RAIS créés par-dessus un appareil chiffré par Azure Disk Encryption. Elle empêche que le système d’exploitation se bloque pendant le processus de démarrage (ou en mode de maintenance).
 
-Si vous n’utilisez pas l’option **nofail** :
+Si vous n’utilisez pas l’option **nofail**  :
 
 - Le système d’exploitation n’arrive jamais à l’étape où Azure Disk Encryption est lancé et les disques de données sont déverrouillés et montés.
 - Les disques chiffrés seront déverrouillés à la fin du processus de démarrage. Les volumes RAID et les systèmes de fichiers sont automatiquement montés jusqu’à ce qu’Azure Disk Encryption les déverrouille.

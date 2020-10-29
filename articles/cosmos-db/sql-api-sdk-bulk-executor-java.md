@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 72a224d4ad1807d095baa8db819878bf2e22e133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b487ca5301aebf642c27b78489309d5def9128b7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802716"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477621"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc Java : Télécharger des informations
 
@@ -33,7 +33,7 @@ ms.locfileid: "91802716"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,7 +42,7 @@ ms.locfileid: "91802716"
 |**Description**|La bibliothèque de l’exécuteur en bloc permet aux applications clientes d’effectuer des opérations en bloc dans des comptes Azure Cosmos DB. la bibliothèque de l’exécuteur en bloc fournit les espaces de noms BulkImport et BulkUpdate. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos sous forme de correctifs.|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Bibliothèque d’exécuteurs en bloc dans GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **Documentation de l’API**| [Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **Documentation de l’API**| [Documentation de référence sur l’API Java](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Prise en main**|[Bien démarrer avec le kit de développement logiciel (SDK) Java de la bibliothèque de l’exécuteur en bloc](bulk-executor-java.md)|
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
@@ -67,5 +67,3 @@ ms.locfileid: "91802716"
 ### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * Mise à jour du degré de concurrence de départ sur 1, et ajout de journaux de débogage pour mini-lot.
-
-

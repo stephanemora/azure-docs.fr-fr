@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 321b80e8aa86703cad16e70af46d016b9dc6555f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e5c88f94544fa25e4f91fefedc0352ff2ef1132d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047996"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477638"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>SDK .NET v3 Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "92047996"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -52,4 +52,4 @@ ms.locfileid: "92047996"
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

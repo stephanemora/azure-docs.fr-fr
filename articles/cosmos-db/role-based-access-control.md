@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9a29a34b25b6834c2c343bd568f3dd3548ceff3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474935"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle (RBAC) dans Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Ce paramètre empêche toute modification de ressources Cosmos provenant d’un 
 
 - Modification des procédures stockées, des déclencheurs ou des fonctions définies par l’utilisateur.
 
-Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Définition au moyen d’un modèle ARM
 

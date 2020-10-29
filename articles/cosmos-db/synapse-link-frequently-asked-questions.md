@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480069"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Dans la préversion, lorsqu’Azure Synapse Link est activé pour un compte à p
 
 Pour les conteneurs avec le magasin analytique activé, la sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour l’instant. 
 
-Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé. 
+Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](./online-backup-and-restore.md) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Puis-je désactiver la fonctionnalité Azure Synapse Link de mon compte Azure Cosmos DB ?
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320895"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482228"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utiliser Azure Policy pour implémenter la gouvernance et les contrôles sur les ressources Azure Cosmos DB
 
@@ -134,4 +134,4 @@ Pour comment corriger les ressources non conformes, consultez [Corriger les ress
 
 - [Examinez les exemples de définitions de stratégie personnalisée pour Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), notamment pour les stratégies d’emplacements d’écriture multiples et de filtrage de réseau virtuel présentées ci-dessus.
 - [Création d’une affectation de stratégie dans le Portail Azure](../governance/policy/assign-policy-portal.md)
-- [Vérification des définitions de stratégie intégrées d’Azure Policy pour Azure Cosmos DB](./policy-samples.md)
+- [Vérification des définitions de stratégie intégrées d’Azure Policy pour Azure Cosmos DB](./policy-reference.md)

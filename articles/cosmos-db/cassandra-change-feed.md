@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281597"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482670"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Flux de modification dans l’API Azure Cosmos DB pour Cassandra
 
 La prise en charge du [flux de modification](change-feed.md) dans l’API Azure Cosmos DB pour Cassandra est disponible par le biais des prédicats de requête en CQL (Cassandra Query Language). À l’aide de ces conditions de prédicat, vous pouvez interroger l’API de flux de modification. Les applications peuvent obtenir les modifications apportées à une table à l’aide de la clé primaire (également appelée clé de partition) comme le nécessite le langage CQL. Vous pouvez ensuite effectuer d’autres actions en fonction des résultats. Les modifications apportées aux lignes du tableau sont capturées dans l'ordre de leur modification et dans l'ordre de tri par clé de partition.
 
-L’exemple suivant montre comment obtenir un flux de modification sur toutes les lignes d’une table d’espace de clés d’API Cassandra à l’aide de .NET. Le prédicat COSMOS_CHANGEFEED_START_TIME() est utilisé directement dans le langage CQL pour interroger les éléments du flux de modification à partir d’une heure de début spécifiée (dans ce cas, la date et l’heure actuelles). Vous pouvez télécharger l’exemple complet, pour C# [ici](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) et pour Java [ici](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
+L’exemple suivant montre comment obtenir un flux de modification sur toutes les lignes d’une table d’espace de clés d’API Cassandra à l’aide de .NET. Le prédicat COSMOS_CHANGEFEED_START_TIME() est utilisé directement dans le langage CQL pour interroger les éléments du flux de modification à partir d’une heure de début spécifiée (dans ce cas, la date et l’heure actuelles). Vous pouvez télécharger l’exemple complet, pour C# [ici](/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) et pour Java [ici](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 Dans chaque itération, la requête reprend au dernier point auquel les modifications ont été lues, à l’aide de l’état de pagination. Nous pouvons voir un flux continu de nouvelles modifications apportées à la table dans l’espace de clés. Nous allons voir les modifications apportées aux lignes insérées ou mises à jour. La surveillance des opérations de suppression à l’aide d’un flux de modification dans l’API Cassandra n’est pas prise en charge actuellement.
 
@@ -146,4 +146,4 @@ Les codes d’erreur et messages suivants sont pris en charge quand un flux de m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer les ressources de l’API Cassandra Azure Cosmos DB à l’aide de modèles Azure Resource Manager](manage-cassandra-with-resource-manager.md)
+* [Gérer les ressources de l’API Cassandra Azure Cosmos DB à l’aide de modèles Azure Resource Manager](./templates-samples-cassandra.md)

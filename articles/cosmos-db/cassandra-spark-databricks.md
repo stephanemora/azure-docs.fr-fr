@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 30bd3187973de204f27a3be3862351550d6a56f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 861e3994ad9aa0d7c6fd4dee68631f78418c8a64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260472"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482568"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Accéder aux données de l’API Cassandra Azure Cosmos DB à partir d’Azure Databricks
 
-Cet article explique comment utiliser l’API Cassandra Azure Cosmos DB à partir de Spark sur [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks).
+Cet article explique comment utiliser l’API Cassandra Azure Cosmos DB à partir de Spark sur [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -25,7 +25,7 @@ Cet article explique comment utiliser l’API Cassandra Azure Cosmos DB à parti
 
 * [Passer en revue les principes fondamentaux de la connexion à l’API Cassandra Azure Cosmos DB](cassandra-spark-generic.md)
 
-* [Provisionner un cluster Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md)
+* [Provisionner un cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)
 
 * [Consulter les exemples de code illustrant l’utilisation de l’API Cassandra](cassandra-spark-generic.md#next-steps)
 

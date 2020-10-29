@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569496"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476992"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 
 * **Vous payez à l’heure :** les charges de travail à grande échelle, qui doivent se mettre à l’échelle à n’importe quel point dans le temps, sont uniquement facturées à l’heure. Les charges de travail sur une application varient généralement en fonction du moment et des données interrogées. Avec Azure Cosmos DB, vous pouvez mettre à l’échelle vers le haut ou vers le bas en fonction de vos besoins et vous payez uniquement ce dont vous avez besoin. Avec les systèmes locaux ou hébergés sur une infrastructure IaaS, vous ne pouvez pas vous aligner sur ce modèle, car il n’existe aucun moyen de désactiver le matériel toutes les heures. Dans de tels cas, vous pouvez éventuellement réaliser des économies allant de 10 à 14 heures en moyenne avec Azure Cosmos DB.
 
-* **Vous obtenez gratuitement de nombreuses fonctionnalités :** dans Azure Cosmos DB, les charges de travail d’écriture sont considérablement moins chères comparées aux autres services de base de données. En outre, Azure Cosmos DB offre des fonctionnalités telles que [l’indexation automatique](indexing-policies.md), [la durée de vie (TTL)](time-to-live.md), [le flux de modification](change-feed.md) et d’autres fonctionnalités sans frais supplémentaires, alors que celles-ci sont généralement facturées par les autres services de bases de données.
+* **Vous obtenez gratuitement de nombreuses fonctionnalités :** dans Azure Cosmos DB, les charges de travail d’écriture sont considérablement moins chères comparées aux autres services de base de données. En outre, Azure Cosmos DB offre des fonctionnalités telles que [l’indexation automatique](index-policy.md), [la durée de vie (TTL)](time-to-live.md), [le flux de modification](change-feed.md) et d’autres fonctionnalités sans frais supplémentaires, alors que celles-ci sont généralement facturées par les autres services de bases de données.
 
 * **Utilise une devise unifiée pour diverses charges de travail :** contrairement à d’autres offres, dans Azure Cosmos DB, vous n’avez pas besoin de segmenter les charges de travail, par exemple, en lectures et écritures. Ni de provisionner le débit en fonction du type de charge de travail (débit en lecture ou débit en écriture). Dans Azure Cosmos DB, le débit provisionné est réservé à l’aide d’une devise unifiée et normalisée en termes d’unités de requête ou d’unités de requête par seconde. Azure Cosmos DB ne vous force pas à affecter une priorité à vos charges de travail, à planifier la capacité ni à payer chaque type de capacité séparément. Cette approche vous permet de facilement échanger les mêmes unités de requête par seconde entre les différentes opérations et les différents types de charge de travail.
 
@@ -63,6 +63,6 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 * En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
-* En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)
+* En savoir plus sur l’[optimisation du coût des requêtes](./optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des comptes Cosmos sur plusieurs régions](optimize-cost-regions.md)
 * En savoir plus sur le [coût total de (non)-possession d’un service cloud de base de données NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

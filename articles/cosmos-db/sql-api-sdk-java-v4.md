@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 686c1e37e093a358bb5122fbfeccdfd98eb301ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2632d5c4fe637222cb6248d35671057430d935e7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804229"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477315"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "91804229"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -43,7 +43,7 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 >
 > Voici trois étapes pour aller plus vite.
 > 1. Installez le [Runtime Java minimal pris en charge, JDK 8,](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) pour pouvoir utiliser le Kit de développement logiciel (SDK).
-> 2. Utilisez le [guide de démarrage rapide pour le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java), qui vous permet d’accéder à l’artefact Maven et de passer en revue les requêtes Azure Cosmos DB de base.
+> 2. Utilisez le [guide de démarrage rapide pour le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4](./create-sql-api-java.md), qui vous permet d’accéder à l’artefact Maven et de passer en revue les requêtes Azure Cosmos DB de base.
 > 3. Pour optimiser le Kit de développement logiciel (SDK) pour votre application, lisez les [conseils sur les performances](performance-tips-java-sdk-v4-sql.md) et [sur le dépannage](troubleshoot-java-sdk-v4-sql.md) relatifs au Kit de développement logiciel (SDK) Java Azure Cosmos DB v4.
 >
 > Les [ateliers et laboratoires Azure Cosmos DB](https://aka.ms/cosmosworkshop) sont une autre formidable ressource pour apprendre à utiliser le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4.
@@ -54,9 +54,9 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 | Contenu | Lien |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**Documentation de l’API** | [Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable&preserve-view=true) |
+|**Documentation de l’API** | [Documentation de référence sur l’API Java](/java/api/overview/azure/cosmosdb/client?preserve-view=true&view=azure-java-stable) |
 |**Contribution au Kit de développement logiciel (SDK)** | [Référentiel centralisé relatif au Kit de développement logiciel (SDK) Azure pour Java sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
-|**Prise en main** | [Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [Référentiel GitHub avec code de démarrage rapide](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**Prise en main** | [Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB](./create-sql-api-java.md) <br> [Référentiel GitHub avec code de démarrage rapide](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Exemples de code de base** | [Azure Cosmos DB : exemples Java pour l’API SQL](sql-api-java-sdk-samples.md) <br> [Référentiel GitHub avec exemple de code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**Application console avec flux de modification**| [Flux de modification – Exemple de Kit de développement logiciel (SDK) Java v4](create-sql-api-java-changefeed.md) <br> [Référentiel GitHub avec exemple de code](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
 |**Exemple d’application web**| [Créer une application web avec le Kit de développement logiciel (SDK) Java v4](sql-api-java-application.md) <br> [Référentiel GitHub avec exemple de code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|

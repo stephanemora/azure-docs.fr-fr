@@ -8,16 +8,16 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd76a6848c9ff6a5c7a29e328814fe0054655691
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135995"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476431"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
-L’[API SQL](documentdb-introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
+L’[API SQL](./introduction.md) Azure Cosmos DB prend en charge l’interrogation de documents à l’aide de SQL. Cet article fournit un exemple de document et deux exemples de requêtes SQL et de résultats.
 
 Cet article décrit les tâches suivantes : 
 
@@ -149,4 +149,3 @@ Vous pouvez maintenant poursuivre avec le didacticiel suivant montrant comment d
 
 > [!div class="nextstepaction"]
 > [Distribuer vos données globalement](tutorial-global-distribution-sql-api.md)
-

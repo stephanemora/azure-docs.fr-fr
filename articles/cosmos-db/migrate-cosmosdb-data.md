@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263542"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480919"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrer des centaines de téraoctets de données dans Azure Cosmos DB 
 
@@ -28,17 +28,17 @@ Les stratégies de migration Azure Cosmos DB varient en fonction du choix de l'A
 
 Les outils existants pour procéder à la migration des données vers Azure Cosmos DB présentent certaines limites qui deviennent particulièrement évidentes à grande échelle :
 
- * **Fonctionnalités de scale-out limitées** : pour migrer des téraoctets de données vers Azure Cosmos DB le plus rapidement possible, et utiliser efficacement l'intégralité du débit alloué, les clients de migration doivent avoir la possibilité d’effectuer un scale-out indéfiniment.  
+ * **Fonctionnalités de scale-out limitées**  : pour migrer des téraoctets de données vers Azure Cosmos DB le plus rapidement possible, et utiliser efficacement l'intégralité du débit alloué, les clients de migration doivent avoir la possibilité d’effectuer un scale-out indéfiniment.  
 
-* **Absence de suivi de l'avancement et de pointage de contrôle** : lors de la migration de jeux de données volumineux, il est important de suivre l'avancement de la migration et d'avoir recours au pointage de contrôle. À défaut, toute erreur survenant pendant la migration mettra fin à celle-ci, et vous devrez recommencer le processus à zéro. Il serait improductif de relancer l'intégralité du processus de migration alors que 99 % de celui-ci a déjà été effectué.  
+* **Absence de suivi de l'avancement et de pointage de contrôle**  : lors de la migration de jeux de données volumineux, il est important de suivre l'avancement de la migration et d'avoir recours au pointage de contrôle. À défaut, toute erreur survenant pendant la migration mettra fin à celle-ci, et vous devrez recommencer le processus à zéro. Il serait improductif de relancer l'intégralité du processus de migration alors que 99 % de celui-ci a déjà été effectué.  
 
-* **Absence de file d'attente de lettres mortes** : dans les jeux de données volumineux, certaines parties des données sources posent parfois des problèmes. En outre, des problèmes temporaires de client ou de réseau peuvent être rencontrés. Aucun de ces cas ne doit entraîner l'échec complet de la migration. Même si la plupart des outils de migration disposent de fonctionnalités robustes permettant d'effectuer de nouvelles tentatives et de prévenir les problèmes intermittents, celles-ci ne sont pas toujours suffisantes. Par exemple, si moins de 0,01 % des documents de données sources font plus de 2 Mo, leur écriture dans Azure Cosmos DB échouera. Idéalement, il est préférable que l'outil de migration conserve ces documents « en échec » dans une autre file d'attente de lettres mortes, qui pourra être traitée après la migration. 
+* **Absence de file d'attente de lettres mortes**  : dans les jeux de données volumineux, certaines parties des données sources posent parfois des problèmes. En outre, des problèmes temporaires de client ou de réseau peuvent être rencontrés. Aucun de ces cas ne doit entraîner l'échec complet de la migration. Même si la plupart des outils de migration disposent de fonctionnalités robustes permettant d'effectuer de nouvelles tentatives et de prévenir les problèmes intermittents, celles-ci ne sont pas toujours suffisantes. Par exemple, si moins de 0,01 % des documents de données sources font plus de 2 Mo, leur écriture dans Azure Cosmos DB échouera. Idéalement, il est préférable que l'outil de migration conserve ces documents « en échec » dans une autre file d'attente de lettres mortes, qui pourra être traitée après la migration. 
 
 La plupart de ces limites sont en cours de correction pour les outils tels qu'Azure Data Factory et les services Azure Data Migration. 
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Outil personnalisé avec bibliothèque d'Exécuteurs en bloc 
 
-Les défis décrits à la section précédente peuvent être résolus à l'aide d'un outil personnalisé qui peut facilement faire l'objet d'une montée en charge sur plusieurs instances et qui résiste aux défaillances temporaires. En outre, l'outil personnalisé peut suspendre et reprendre la migration à différents points de contrôle. Azure Cosmos DB fournit déjà la [bibliothèque d'Exécuteurs en bloc](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) qui intègre certaines de ces fonctionnalités. Par exemple, la bibliothèque d'Exécuteurs en bloc dispose déjà de la fonctionnalité permettant de gérer les erreurs temporaires et peut effectuer un scale-out des threads d'un nœud individuel pour utiliser environ 500 K de RU par nœud. La bibliothèque d'Exécuteurs en bloc partitionne également le jeu de données source en micro-lots qui sont exploités indépendamment comme forme de pointage de contrôle.  
+Les défis décrits à la section précédente peuvent être résolus à l'aide d'un outil personnalisé qui peut facilement faire l'objet d'une montée en charge sur plusieurs instances et qui résiste aux défaillances temporaires. En outre, l'outil personnalisé peut suspendre et reprendre la migration à différents points de contrôle. Azure Cosmos DB fournit déjà la [bibliothèque d'Exécuteurs en bloc](./bulk-executor-overview.md) qui intègre certaines de ces fonctionnalités. Par exemple, la bibliothèque d'Exécuteurs en bloc dispose déjà de la fonctionnalité permettant de gérer les erreurs temporaires et peut effectuer un scale-out des threads d'un nœud individuel pour utiliser environ 500 K de RU par nœud. La bibliothèque d'Exécuteurs en bloc partitionne également le jeu de données source en micro-lots qui sont exploités indépendamment comme forme de pointage de contrôle.  
 
 L'outil personnalisé utilise la bibliothèque d'Exécuteurs en bloc. En outre, il assure la montée en charge sur plusieurs clients et le suivi des erreurs pendant le processus d'ingestion. Pour utiliser cet outil, les données sources doivent être partitionnées en fichiers distincts dans Azure Data Lake Storage (ADLS) afin que différents agents de migration puissent récupérer chaque fichier et les ingérer dans Azure Cosmos DB. L'outil personnalisé utilise une collection distincte, qui stocke les métadonnées relatives à l'avancement de la migration de chaque fichier source dans ADLS et assure le suivi des erreurs associées.  
 
@@ -152,4 +152,4 @@ Même si vous pouvez suivre les instructions de ce guide pour migrer correctemen
 
 * Pour en savoir plus, essayez les exemples d'applications utilisant la bibliothèque d'Exécuteurs en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md). 
 * La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
-* Pour contacter l’équipe Azure Cosmos DB en ouvrant un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations » pour obtenir une aide supplémentaire lors des migrations à grande échelle. 
+* Pour contacter l’équipe Azure Cosmos DB en ouvrant un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations » pour obtenir une aide supplémentaire lors des migrations à grande échelle.

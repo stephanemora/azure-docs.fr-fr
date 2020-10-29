@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289036"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474765"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -79,7 +79,9 @@ En comparaison avec d’autres options de réglage, comme la mise à l’échell
 
 **Besoin d’une stratégie de distribution de données différente pour des performances de requête plus rapides**
 
-Azure Data Warehouse est un système de traitement massivement parallèle distribué.   Les données d’une table d’entrepôt de données sont réparties sur 60 nœuds à l’aide de l’une des trois [stratégies de distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hachage, tourniquet ou réplication).  
+Azure Data Warehouse est un système de traitement massivement parallèle distribué.  
+
+SQL Synapse est un système de requêtes distribuées qui permet aux entreprises d’implémenter des scénarios d’entreposage et de virtualisation de données à l’aide d’expériences T-SQL standard bien connues des ingénieurs de données. Il étend également les capacités de SQL pour prendre en charge les scénarios de streaming et de Machine Learning. Les données d’une table d’entrepôt de données sont réparties sur 60 nœuds à l’aide de l’une des trois [stratégies de distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hachage, tourniquet ou réplication).  
 
 La distribution des données est spécifiée au moment de la création de la table et reste inchangée jusqu’à ce que la table soit supprimée. Une vue matérialisée étant une table virtuelle sur un disque prend en charge les distributions de données en hachage et tourniquet.  Les utilisateurs peuvent choisir une distribution de données différente des tables de base, mais optimale pour les performances des requêtes qui utilisent fréquemment les vues.  
 

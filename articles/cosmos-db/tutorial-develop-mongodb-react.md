@@ -10,12 +10,12 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 83c4d7c0037a3f8bc1162993c8667df62e5d9123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316169"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476584"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Créer une application MongoDB avec React et Azure Cosmos DB  
 
@@ -90,8 +90,8 @@ Cette vidéo montre comment compléter l’application et terminer le raccordeme
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure. 
 
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources** , puis sur le nom de la ressource que vous avez créée. 
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer** , tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -107,5 +107,4 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 Vous pouvez passer au didacticiel suivant et découvrir comment importer des données MongoDB dans Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
- 
+> [Importer des données MongoDB dans Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

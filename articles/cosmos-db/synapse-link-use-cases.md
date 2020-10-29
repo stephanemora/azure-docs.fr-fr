@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480052"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link pour Azure Cosmos DB : Scénarios d‘utilisation courants d’analyse en quasi temps réel
 
@@ -118,7 +118,7 @@ Prenons l’exemple d’une entreprise de commerce électronique CompanyXYZ pré
 
   * Ingestion à débit des flux de données par lot et en flux avec [indexation en temps réel](index-policy.md) dans le magasin transactionnel.
 
-  * Le magasin transactionnel Azure Cosmos DB offre trois options supplémentaires par rapport aux deux extrêmes de niveaux de cohérence forte et finale, pour arriver à un compromis [performances et disponibilité](consistency-levels-tradeoffs.md) le plus proche possible des besoins de l’entreprise.
+  * Le magasin transactionnel Azure Cosmos DB offre trois options supplémentaires par rapport aux deux extrêmes de niveaux de cohérence forte et finale, pour arriver à un compromis [performances et disponibilité](./consistency-levels.md) le plus proche possible des besoins de l’entreprise.
 
 * Les partenaires de la chaîne logistique de CompanyXYZ ont des modèles de trafic très fluctuants, qui vont de quelques centaines à plusieurs millions de demandes par seconde, et la plateforme de gestion des stocks doit donc pouvoir faire face à ces pics de trafic.  Avantages de l’utilisation d’Azure Cosmos DB :
 

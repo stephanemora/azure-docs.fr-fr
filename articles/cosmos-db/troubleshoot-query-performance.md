@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277171"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476703"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -191,7 +191,7 @@ Stratégie d’indexation mise à jour :
 
 **Frais en RU :** 2.98 RU
 
-Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout moment, sans impact sur la disponibilité en lecture ou en écriture. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout moment, sans impact sur la disponibilité en lecture ou en écriture. Vous pouvez [suivre la progression de la transformation d’index](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Comprendre quelles fonctions système utilisent l’index
 
@@ -491,5 +491,5 @@ Les requêtes sont conçues pour pré-extraire les résultats pendant que le lot
 Reportez-vous aux articles suivants pour des informations sur la mesure des unités de requête par requête et pour obtenir des statistiques d’exécution afin d’optimiser vos requêtes, entre autres :
 
 * [Obtenir des métriques sur l’exécution des requêtes SQL à l’aide du SDK .NET](profile-sql-api-query.md)
-* [Réglage des performances de requête avec Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Réglage des performances de requête avec Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET](performance-tips.md)

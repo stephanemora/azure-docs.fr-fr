@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279911"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480222"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -63,7 +63,7 @@ Les transactions sont intégrées de façon native dans le modèle de programmat
 
 ### <a name="data-consistency"></a>Cohérence des données
 
-Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal d’un conteneur Azure Cosmos. Cette fonctionnalité permet de s'assurer que les lectures à partir des procédures stockées offrent une [cohérence forte](consistency-levels-tradeoffs.md). Les requêtes utilisant des fonctions définies par l’utilisateur peuvent être exécutées sur le réplica principal ou un réplica secondaire. Les procédures stockées et les déclencheurs sont destinés à soutenir les écritures transactionnelles. Pendant ce temps, la logique en lecture seule est mieux implémentée en tant que logique côté application et les requêtes utilisant les [kits SDK d’API SQL Azure Cosmos DB](sql-api-dotnet-samples.md) vous aideront à saturer le débit de base de données. 
+Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal d’un conteneur Azure Cosmos. Cette fonctionnalité permet de s'assurer que les lectures à partir des procédures stockées offrent une [cohérence forte](./consistency-levels.md). Les requêtes utilisant des fonctions définies par l’utilisateur peuvent être exécutées sur le réplica principal ou un réplica secondaire. Les procédures stockées et les déclencheurs sont destinés à soutenir les écritures transactionnelles. Pendant ce temps, la logique en lecture seule est mieux implémentée en tant que logique côté application et les requêtes utilisant les [kits SDK d’API SQL Azure Cosmos DB](sql-api-dotnet-samples.md) vous aideront à saturer le débit de base de données. 
 
 > [!TIP]
 > Les requêtes exécutées au sein d’une procédure stockée ou d’un déclencheur peuvent ne pas voir les modifications apportées aux éléments par la même transaction de script. Cette instruction s’applique à la fois aux requêtes SQL, telles que `getContent().getCollection.queryDocuments()`, et aux requêtes intégrées au langage, telles que `getContext().getCollection().filter()`.

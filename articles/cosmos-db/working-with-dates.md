@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a524d34fcf8e629914d4fbc4669caada210866b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019186"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476244"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Utilisation des dates dans Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Ce document est stocké dans Azure Cosmos DB comme suit :
     }
 ```  
 
-Vous pouvez également stocker les valeurs DateTime comme horodateurs Unix, autrement dit, comme un nombre représentant le nombre de secondes écoulées depuis le 1er janvier 1970. La propriété Timestamp interne d’Azure Cosmos DB (`_ts`) suit cette approche. Vous pouvez utiliser la classe [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) pour sérialiser les valeurs DateTime en tant que nombres.
+Vous pouvez également stocker les valeurs DateTime comme horodateurs Unix, autrement dit, comme un nombre représentant le nombre de secondes écoulées depuis le 1er janvier 1970. La propriété Timestamp interne d’Azure Cosmos DB (`_ts`) suit cette approche. Vous pouvez utiliser la classe [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) pour sérialiser les valeurs DateTime en tant que nombres.
 
 ## <a name="querying-datetimes-in-linq"></a>Interrogation des valeurs DateTime dans LINQ
 

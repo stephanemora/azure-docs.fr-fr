@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021933"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476924"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnostiquer et résoudre les exceptions de dépassement de délai de demande avec le SDK .NET
 L'erreur HTTP 408 se produit si le SDK n'a pas pu terminer la demande avant l'expiration du délai d'attente.
@@ -28,7 +28,7 @@ La configuration `CosmosClientOptions.RequestTimeout` (ou `ConnectionPolicy.Requ
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Toutes les opérations asynchrones dans le Kit de développement logiciel (SDK) ont un paramètre CancellationToken facultatif. Ce paramètre [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) est utilisé tout au long de l'opération, sur toutes les requêtes réseau. Entre les requêtes réseau, le paramètre CancellationToken peut être vérifié et une opération annulée si le jeton associé a expiré. Le paramètre CancellationToken doit être utilisé pour définir un délai d'expiration approximatif sur l'étendue de l'opération.
+Toutes les opérations asynchrones dans le Kit de développement logiciel (SDK) ont un paramètre CancellationToken facultatif. Ce paramètre [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) est utilisé tout au long de l'opération, sur toutes les requêtes réseau. Entre les requêtes réseau, le paramètre CancellationToken peut être vérifié et une opération annulée si le jeton associé a expiré. Le paramètre CancellationToken doit être utilisé pour définir un délai d'expiration approximatif sur l'étendue de l'opération.
 
 > [!NOTE]
 > Le paramètre `CancellationToken` est un mécanisme par lequel la bibliothèque vérifie l'annulation lorsqu'elle [ne provoque pas d'état non valide](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). L'annulation de l'opération peut ne pas intervenir au moment même où le délai défini est écoulé. Une fois le délai écoulé, l'annulation peut en effet n'intervenir que lorsque les conditions de sécurité sont réunies.

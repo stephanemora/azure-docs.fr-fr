@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2939b3b3beac55b537c1dcf844f702a0ad73f06e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895259"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478607"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir une base de données multilocataire avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -269,11 +269,11 @@ SELECT id
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton *Supprimer* dans la page *Vue d’ensemble* de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton *Supprimer*.
+Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton *Supprimer* dans la page *Vue d’ensemble* de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton *Supprimer* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données. Vous avez appris à exécuter des requêtes de données au sein et entre les locataires, ainsi qu’à personnaliser le schéma par locataire.
 
-- En savoir plus sur les [types de nœuds](https://aka.ms/hyperscale-concepts) des groupes de serveurs
+- En savoir plus sur les [types de nœuds](./concepts-hyperscale-nodes.md) des groupes de serveurs
 - Déterminer la [taille initiale](howto-hyperscale-scaling.md#picking-initial-size) optimale pour votre groupe de serveurs

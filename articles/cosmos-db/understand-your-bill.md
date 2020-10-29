@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567857"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476397"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
 Azure Cosmos DB est un service de base de données natif Cloud entièrement géré qui simplifie la facturation en facturant uniquement vos opérations de base de données et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
-- **Opérations de base de données** : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
+- **Opérations de base de données**  : la façon dont vous êtes facturé pour vos opérations de base de données dépend du type de compte Azure Cosmos que vous utilisez.
 
-  - **Débit approvisionné** : vous êtes facturé à l’heure pour le débit maximal approvisionné pour une heure donnée, par incréments de 100 RU/s.
-  - **Serverless** : vous êtes facturé à l’heure pour la quantité totale d’unités de requête consommées par vos opérations de base de données.
+  - **Débit approvisionné**  : vous êtes facturé à l’heure pour le débit maximal approvisionné pour une heure donnée, par incréments de 100 RU/s.
+  - **Serverless**  : vous êtes facturé à l’heure pour la quantité totale d’unités de requête consommées par vos opérations de base de données.
 
 - **Stockage** : un tarif fixe vous est facturé pour la quantité totale de stockage (exprimée en Go) que vos données et index ont utilisée pendant une heure donnée.
 
@@ -313,5 +313,5 @@ Pour approfondir vos connaissances sur l’optimisation des coûts dans Azure Co
 * En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
-* En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)
+* En savoir plus sur l’[optimisation du coût des requêtes](./optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des comptes Azure Cosmos sur plusieurs régions](optimize-cost-regions.md)

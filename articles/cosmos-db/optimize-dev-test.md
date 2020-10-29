@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606259"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475530"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimiser les coûts de développement et de test dans Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Le niveau gratuit d’Azure Cosmos DB facilite le démarrage, le développement 
 > [!NOTE]
 > Le niveau gratuit est disponible uniquement en mode débit approvisionné.
 
-Le niveau gratuit est valable pendant toute la durée de vie du compte et comprend tous les [avantages et fonctionnalités](introduction.md#key-benefits) d’un compte Azure Cosmos DB standard, y compris un stockage et un débit (RU/s) illimités, des contrats SLA, une haute disponibilité, une distribution mondiale clé en main dans toutes les régions Azure et plus encore. Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez le choisir à la création du compte. Pour commencer, [créez un nouveau compte dans le portail Azure avec l’option tarifaire gratuite activée](create-cosmosdb-resources-portal.md) ou utilisez un modèle [ARM](manage-sql-with-resource-manager.md#free-tier). Pour plus d’informations, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
+Le niveau gratuit est valable pendant toute la durée de vie du compte et comprend tous les [avantages et fonctionnalités](introduction.md#key-benefits) d’un compte Azure Cosmos DB standard, y compris un stockage et un débit (RU/s) illimités, des contrats SLA, une haute disponibilité, une distribution mondiale clé en main dans toutes les régions Azure et plus encore. Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez le choisir à la création du compte. Pour commencer, [créez un nouveau compte dans le portail Azure avec l’option tarifaire gratuite activée](create-cosmosdb-resources-portal.md) ou utilisez un modèle [ARM](./manage-with-templates.md#free-tier). Pour plus d’informations, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB
 
@@ -57,5 +57,5 @@ Vous pouvez commencer à utiliser l’émulateur ou les comptes Azure Cosmos DB 
 * En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
-* En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)
+* En savoir plus sur l’[optimisation du coût des requêtes](./optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des comptes Azure Cosmos sur plusieurs régions](optimize-cost-regions.md)

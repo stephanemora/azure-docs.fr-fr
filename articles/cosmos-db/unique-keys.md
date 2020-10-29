@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280987"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476363"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Les clés uniques ne peuvent être définies qu'au moment de la création d'un c
 
 * Il n’est pas possible de mettre à jour un conteneur existant pour qu'il utilise une autre clé unique. Autrement dit, une fois qu'un conteneur a été créé avec une stratégie de clé unique, celle-ci n'est pas modifiable.
 
-* Pour définir la clé unique d’un conteneur existant, créez un nouveau conteneur avec la contrainte de clé unique. Utilisez un outil de migration des données adapté pour déplacer les données du conteneur existant vers le nouveau. Avec les conteneurs SQL, utilisez [l'Outil de migration de données ](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) pour déplacer des données.
+* Pour définir la clé unique d’un conteneur existant, créez un nouveau conteneur avec la contrainte de clé unique. Utilisez un outil de migration des données adapté pour déplacer les données du conteneur existant vers le nouveau. Avec les conteneurs SQL, utilisez [l'Outil de migration de données ](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) pour déplacer des données.
 
 * Une stratégie de clé unique peut comporter au maximum 16 valeurs de chemin d’accès, Par exemple, les valeurs peuvent être `/firstName`, `/lastName`, et `/address/zipCode`. Chaque stratégie de clé unique peut contenir un maximum de 10 combinaisons ou contraintes de clé unique. Les chemins d’accès combinés de chaque contrainte d’index unique ne doivent pas dépasser 60 octets. Dans l’exemple précédent, la combinaison du prénom, du nom et de l’adresse e-mail représente une seule contrainte, qui utilise 3 des 16 chemins possibles.
 

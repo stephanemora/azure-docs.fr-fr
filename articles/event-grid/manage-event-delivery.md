@@ -3,12 +3,12 @@ title: Stratégies de lettres mortes et de nouvelles tentatives - Azure Event Gr
 description: Explique comment personnaliser les options de remise des événements pour Event Grid. Définissez une destination de lettres mortes, et spécifiez la durée des nouvelles tentatives de remise.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261802"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460935"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Définir un emplacement de lettres mortes et une stratégie de nouvelles tentatives
 
@@ -17,7 +17,7 @@ Quand vous créez un abonnement aux événements, vous pouvez personnaliser les 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Pour en savoir plus sur la transmission des messages, les nouvelles tentatives et les lettres mortes, consultez l’article conceptuel : [Distribution et nouvelle tentative de distribution de messages avec Azure Event Grid]().
+> Pour en savoir plus sur la transmission des messages, les nouvelles tentatives et les lettres mortes, consultez l’article conceptuel : [Distribution et nouvelle tentative de distribution de messages avec Azure Event Grid](delivery-and-retry.md).
 
 ## <a name="set-dead-letter-location"></a>Définir l’emplacement des lettres mortes
 

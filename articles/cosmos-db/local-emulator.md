@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173784"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482619"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installer et utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -80,7 +80,7 @@ Après l’installation, si vous avez utilisé les paramètres par défaut, les 
 
 ## <a name="use-the-emulator-on-windows"></a><a id="run-on-windows"></a>Utiliser l’émulateur sur Windows
 
-L’émulateur Azure Cosmos est installé à l’emplacement `C:\Program Files\Azure Cosmos DB Emulator` par défaut. Pour démarrer l’émulateur Azure Cosmos sur Windows, sélectionnez le bouton **Démarrer** ou appuyez sur la touche Windows. Commencez à taper **Émulateur Azure Cosmos**, puis sélectionnez l’émulateur dans la liste des applications.
+L’émulateur Azure Cosmos est installé à l’emplacement `C:\Program Files\Azure Cosmos DB Emulator` par défaut. Pour démarrer l’émulateur Azure Cosmos sur Windows, sélectionnez le bouton **Démarrer** ou appuyez sur la touche Windows. Commencez à taper **Émulateur Azure Cosmos** , puis sélectionnez l’émulateur dans la liste des applications.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Sélectionnez le bouton Démarrer ou appuyez sur la touche Windows, commencez à taper Émulateur Azure Cosmos, puis sélectionnez l’émulateur dans la liste des applications":::
 
@@ -293,7 +293,7 @@ Suivez les étapes ci-dessous si vous travaillez sur Mac :
 
 1. Ouvrez la liste des certificats et identifiez celui qui a le nom `localhost`.
 
-1. Ouvrez le menu contextuel pour cet élément particulier, sélectionnez *Obtenir l’élément* et, sous *Approuver* > *Lors de l’utilisation de ce certificat*, sélectionnez *Toujours approuver*. 
+1. Ouvrez le menu contextuel pour cet élément particulier, sélectionnez *Obtenir l’élément* et, sous *Approuver* > *Lors de l’utilisation de ce certificat* , sélectionnez *Toujours approuver* . 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Sélectionnez le bouton Démarrer ou appuyez sur la touche Windows, commencez à taper Émulateur Azure Cosmos, puis sélectionnez l’émulateur dans la liste des applications":::
   
@@ -328,7 +328,7 @@ Supposons que vous avez plusieurs ordinateurs utilisant un même réseau, et que
 
 Vous pouvez exécuter l’émulateur sur un réseau local. Pour activer l’accès réseau, spécifiez l’option `/AllowNetworkAccess` sur la [ligne de commande](emulator-command-line-parameters.md), avec `/Key=key_string` ou `/KeyFile=file_name`. Vous pouvez initialement utiliser `/GenKeyFile=file_name` pour générer un fichier avec une clé aléatoire. Passez ensuite cette clé à `/KeyFile=file_name` ou `/Key=contents_of_file`.
 
-Avant d’activer l’accès réseau pour la première fois, l’utilisateur doit arrêter l’émulateur et supprimer le répertoire de données de l’émulateur *%LOCALAPPDATA%\CosmosDBEmulator*.
+Avant d’activer l’accès réseau pour la première fois, l’utilisateur doit arrêter l’émulateur et supprimer le répertoire de données de l’émulateur *%LOCALAPPDATA%\CosmosDBEmulator* .
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Authentifier les connexions lors de l’utilisation de l’émulateur
 
@@ -369,7 +369,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>API de table
 
-Une fois que l’émulateur Azure Cosmos est démarré sur votre bureau, vous pouvez utiliser le [SDK API Table d’Azure Cosmos DB](table-storage-how-to-use-dotnet.md) pour interagir avec lui. Démarrez l’émulateur à partir d’une [invite de commandes](emulator-command-line-parameters.md) administrateur avec « /EnableTableEndpoint ». Ensuite, exécutez le code suivant pour vous connecter au compte d’API Table :
+Une fois que l’émulateur Azure Cosmos est démarré sur votre bureau, vous pouvez utiliser le [SDK API Table d’Azure Cosmos DB](./tutorial-develop-table-dotnet.md) pour interagir avec lui. Démarrez l’émulateur à partir d’une [invite de commandes](emulator-command-line-parameters.md) administrateur avec « /EnableTableEndpoint ». Ensuite, exécutez le code suivant pour vous connecter au compte d’API Table :
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -458,11 +458,11 @@ Démarrez l’émulateur à partir d’une [invite de commandes](emulator-comman
 
 Utilisez les étapes suivantes pour désinstaller l’émulateur :
 
-1. Quittez toutes les instances ouvertes de l’émulateur local en cliquant avec le bouton droit sur l’icône de **l’émulateur Azure Cosmos** dans la barre d’état système, puis en sélectionnant **Quitter**. Quitter l’ensemble des instances peut prendre une minute.
+1. Quittez toutes les instances ouvertes de l’émulateur local en cliquant avec le bouton droit sur l’icône de **l’émulateur Azure Cosmos** dans la barre d’état système, puis en sélectionnant **Quitter** . Quitter l’ensemble des instances peut prendre une minute.
 
-1. Dans la zone de recherche Windows, tapez **Applications et fonctionnalités**, puis sélectionnez **Applications et fonctionnalités (paramètres système)** .
+1. Dans la zone de recherche Windows, tapez **Applications et fonctionnalités** , puis sélectionnez **Applications et fonctionnalités (paramètres système)** .
 
-1. Dans la liste des applications, faites défiler la page jusqu’à trouver **Émulateur Azure Cosmos DB**, sélectionnez-le, cliquez sur **Désinstaller**, puis confirmez en sélectionnant de nouveau **Désinstaller**.
+1. Dans la liste des applications, faites défiler la page jusqu’à trouver **Émulateur Azure Cosmos DB** , sélectionnez-le, cliquez sur **Désinstaller** , puis confirmez en sélectionnant de nouveau **Désinstaller** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

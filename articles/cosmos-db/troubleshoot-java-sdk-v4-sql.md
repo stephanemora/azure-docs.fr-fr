@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: f90160ba58983414b5421542c6292f4570f1e10a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476788"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Résoudre les problèmes liés à l’utilisation du kit SDK Java v4 Azure Cosmos DB avec des comptes d’API SQL
 
@@ -34,9 +34,9 @@ Le kit SDK Java v4 Azure Cosmos DB fournit la représentation logique côté cl
 Commencez par cette liste :
 
 * Jetez un coup d’œil à la section [Problèmes courants et solutions de contournement] dans cet article.
-* Consultez le kit SDK Java dans le dépôt centralisé Azure Cosmos DB, disponible en [open source sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Il contient une [section Problèmes](https://github.com/Azure/azure-sdk-for-java/issues) qui est activement tenue à jour. Vérifiez si un problème similaire au vôtre dispose déjà d’une solution de contournement. Une astuce intéressante consiste à filtrer les problèmes par l’étiquette *cosmos:v4-item*.
+* Consultez le kit SDK Java dans le dépôt centralisé Azure Cosmos DB, disponible en [open source sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Il contient une [section Problèmes](https://github.com/Azure/azure-sdk-for-java/issues) qui est activement tenue à jour. Vérifiez si un problème similaire au vôtre dispose déjà d’une solution de contournement. Une astuce intéressante consiste à filtrer les problèmes par l’étiquette *cosmos:v4-item* .
 * Consultez les [conseils sur les performances](performance-tips-java-sdk-v4-sql.md) pour le kit SDK Java v4 Azure Cosmos DB et suivez les pratiques suggérées.
-* Lisez le reste de cet article, si vous n’avez pas trouvé de solution. Ensuite, consignez un [problème GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si vous avez la possibilité d’ajouter des étiquettes à votre problème GitHub, ajoutez l’étiquette *cosmos:v4-item*.
+* Lisez le reste de cet article, si vous n’avez pas trouvé de solution. Ensuite, consignez un [problème GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si vous avez la possibilité d’ajouter des étiquettes à votre problème GitHub, ajoutez l’étiquette *cosmos:v4-item* .
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problèmes courants et solutions de contournement
 
@@ -46,7 +46,7 @@ Commencez par cette liste :
 Pour un résultat optimal :
 * Vérifiez que l’application s’exécute dans la même région que votre compte Azure Cosmos DB. 
 * Vérifiez l’utilisation du processeur sur l’ordinateur hôte où l’application est en cours d’exécution. Si l’utilisation du processeur est supérieure ou égale à 50 %, exécutez votre application sur un hôte disposant d’une configuration plus élevée. Vous pouvez aussi distribuer la charge sur plusieurs ordinateurs.
-    * Si vous exécutez votre application sur Azure Kubernetes Service, vous pouvez [vous servir d’Azure Monitor pour superviser l’utilisation du processeur](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+    * Si vous exécutez votre application sur Azure Kubernetes Service, vous pouvez [vous servir d’Azure Monitor pour superviser l’utilisation du processeur](../azure-monitor/insights/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitation de la connexion
 La limitation de la connexion peut se produire en raison d’une [Limite de connexion sur un ordinateur hôte] ou d’une [insuffisance de ports Azure SNAT (PAT)].
@@ -62,13 +62,13 @@ La quantité maximale de fichiers ouverts autorisée, qui sont identifiés comme
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Insuffisance de ports Azure SNAT (PAT)
 
-Si votre application est déployée sur Machine virtuelle Azure sans adresse IP publique, par défaut les [ports Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) établissent des connexions avec n’importe quel point de terminaison en dehors de votre machine virtuelle. Le nombre de connexions autorisées de la machine virtuelle au point de terminaison Azure Cosmos DB est limité par la [configuration Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Si votre application est déployée sur Machine virtuelle Azure sans adresse IP publique, par défaut les [ports Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) établissent des connexions avec n’importe quel point de terminaison en dehors de votre machine virtuelle. Le nombre de connexions autorisées de la machine virtuelle au point de terminaison Azure Cosmos DB est limité par la [configuration Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Les ports Azure SNAT sont utilisés uniquement quand votre machine virtuelle a une adresse IP privée et qu’un processus à partir de la machine virtuelle tente de se connecter avec une adresse IP publique. Il existe deux solutions de contournement pour éviter la limitation Azure SNAT :
 
-* Ajoutez votre point de terminaison de service Azure Cosmos DB au sous-réseau de votre réseau virtuel Machines virtuelles Azure. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Ajoutez votre point de terminaison de service Azure Cosmos DB au sous-réseau de votre réseau virtuel Machines virtuelles Azure. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quand le point de terminaison de service est activé, les requêtes ne sont plus envoyées d’une adresse IP publique à Azure Cosmos DB. Au lieu de cela, les identités du réseau virtuel et du sous-réseau sont envoyées. Cette modification peut entraîner des problèmes de pare-feu si seules les adresses IP publiques sont autorisées. Si vous utilisez un pare-feu, quand vous activez le point de terminaison de service, ajoutez un sous-réseau au pare-feu à l’aide de [Listes de contrôle d’accès de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Quand le point de terminaison de service est activé, les requêtes ne sont plus envoyées d’une adresse IP publique à Azure Cosmos DB. Au lieu de cela, les identités du réseau virtuel et du sous-réseau sont envoyées. Cette modification peut entraîner des problèmes de pare-feu si seules les adresses IP publiques sont autorisées. Si vous utilisez un pare-feu, quand vous activez le point de terminaison de service, ajoutez un sous-réseau au pare-feu à l’aide de [Listes de contrôle d’accès de réseau virtuel](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assignez une adresse IP publique à votre machine virtuelle Azure.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Impossible d’atteindre le service - pare-feu
@@ -217,5 +217,3 @@ De nombreuses connexions au point de terminaison Azure Cosmos DB peuvent se trou
 [Enable client SDK logging]: #enable-client-sice-logging
 [Limite de connexion sur un ordinateur hôte]: #connection-limit-on-host
 [Insuffisance de ports Azure SNAT (PAT)]: #snat
-
-

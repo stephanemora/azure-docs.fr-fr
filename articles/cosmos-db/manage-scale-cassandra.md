@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277680"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482517"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Mettre à l’échelle de manière élastique un compte d’API Cassandra Azure Cosmos DB
 
 Il existe diverses options pour explorer la nature élastique de l’API d’Azure Cosmos DB pour Cassandra. Pour comprendre comment mettre à l’échelle efficacement dans Azure Cosmos DB, il est important de comprendre comment approvisionner la quantité appropriée d’unités de requête (RU/s) pour tenir compte des exigences de performances de votre système. Pour en savoir plus sur les unités de requête, consultez l’article relatif aux [unités de requête](request-units.md). 
 
-Pour l'API Cassandra, vous pouvez récupérer les frais de l'unité de requête pour les requêtes individuelles en utilisant les [SDK .NET et Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Cette méthode est utile pour déterminer la quantité d’unités de requête que vous devrez provisionner dans le service.
+Pour l'API Cassandra, vous pouvez récupérer les frais de l'unité de requête pour les requêtes individuelles en utilisant les [SDK .NET et Java](./find-request-unit-charge-cassandra.md). Cette méthode est utile pour déterminer la quantité d’unités de requête que vous devrez provisionner dans le service.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Les opérations de base de données consomment des unités de requête" border="false":::
 
@@ -46,7 +46,7 @@ L’avantage de cette méthode est qu’il s’agit d’une méthode clé en mai
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Utiliser le plan de contrôle
 
-L’API d’Azure Cosmos DB pour Cassandra offre la possibilité d’ajuster le débit par programmation à l’aide de nos diverses fonctionnalités de plan de contrôle. Pour obtenir des conseils et des exemples, consultez les articles relatifs à [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md) et [Azure CLI](cli-samples.md).
+L’API d’Azure Cosmos DB pour Cassandra offre la possibilité d’ajuster le débit par programmation à l’aide de nos diverses fonctionnalités de plan de contrôle. Pour obtenir des conseils et des exemples, consultez les articles relatifs à [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md) et [Azure CLI](cli-samples.md).
 
 L’avantage de cette méthode est que vous pouvez automatiser l’augmentation ou la diminution des ressources en fonction d’une minuterie pour tenir compte des pics d’activité ou des périodes de faible activité. Jetez un coup d’œil à notre exemple [ici](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) pour savoir comment y parvenir à l’aide d’Azure Functions et de PowerShell.
 

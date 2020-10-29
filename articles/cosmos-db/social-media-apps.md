@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850694"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478148"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 
-Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous vous joignez à un **réseau social**. Vous utilisez les réseaux sociaux pour rester en contact avec vos amis, vos collègues, votre famille, ou parfois pour partager votre passion avec des personnes ayant des intérêts communs.
+Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous vous joignez à un **réseau social** . Vous utilisez les réseaux sociaux pour rester en contact avec vos amis, vos collègues, votre famille, ou parfois pour partager votre passion avec des personnes ayant des intérêts communs.
 
 En tant qu’ingénieurs ou développeurs, vous vous demandez peut-être comment ces réseaux stockent et interconnectent vos données. Ou peut-être vous a-t-on déjà chargé de créer ou de concevoir un nouveau réseau social pour un marché spécifique. C’est à ce moment qu’une question importante se pose : comment sont stockées toutes ces données ?
 
@@ -216,9 +216,9 @@ Comme vous utilisez Azure Cosmos DB, vous pouvez implémenter un moteur de reche
 
 Pourquoi ce processus est-il si simple ?
 
-Le service Recherche cognitive Azure implémente des [indexeurs](https://msdn.microsoft.com/library/azure/dn946891.aspx). Ce sont des processus d’arrière-plan intégrés aux référentiels de données qui ajoutent, mettent à jour ou suppriment automatiquement les objets dans les index. Ils prennent en charge les [indexeurs Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), les [indexeurs d’objets blob Azure](../search/search-howto-indexing-azure-blob-storage.md) et les [indexeurs Azure Cosmos DB](../search/search-howto-index-documentdb.md). Le passage des informations de Cosmos DB à la Recherche cognitive Azure est simple. Ces deux technologies stockent les informations au format JSON. Il vous suffit donc de [créer votre index](../search/search-create-index-portal.md) et de mapper les attributs de vos documents à indexer. Et voilà ! En fonction de la taille des données, tout votre contenu est disponible pour la recherche en quelques minutes, grâce à la meilleure solution Search-as-a-Service de l’infrastructure cloud.
+Le service Recherche cognitive Azure implémente des [indexeurs](/rest/api/searchservice/Indexer-operations). Ce sont des processus d’arrière-plan intégrés aux référentiels de données qui ajoutent, mettent à jour ou suppriment automatiquement les objets dans les index. Ils prennent en charge les [indexeurs Azure SQL Database](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), les [indexeurs d’objets blob Azure](../search/search-howto-indexing-azure-blob-storage.md) et les [indexeurs Azure Cosmos DB](../search/search-howto-index-cosmosdb.md). Le passage des informations de Cosmos DB à la Recherche cognitive Azure est simple. Ces deux technologies stockent les informations au format JSON. Il vous suffit donc de [créer votre index](../search/search-what-is-an-index.md) et de mapper les attributs de vos documents à indexer. Et voilà ! En fonction de la taille des données, tout votre contenu est disponible pour la recherche en quelques minutes, grâce à la meilleure solution Search-as-a-Service de l’infrastructure cloud.
 
-Pour plus d’informations sur la Recherche cognitive Azure, consultez le document [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Pour plus d’informations sur la Recherche cognitive Azure, consultez le document [Hitchhiker’s Guide to Search](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>Les connaissances sous-jacentes
 
@@ -238,7 +238,7 @@ Une autre possibilité consiste à utiliser [Azure Cognitive Services](https://w
 
 ## <a name="a-planet-scale-social-experience"></a>Une expérience sociale à l’échelle de la planète
 
-Il existe un dernier sujet tout aussi important à traiter : **la scalabilité**. Quand vous concevez une architecture, chaque composant doit pouvoir être mis à l’échelle de façon autonome. Vous devrez un jour ou l’autre traiter davantage de données, ou vous souhaiterez avoir une couverture géographique plus étendue. Heureusement, Cosmos DB offre une **solution clé en main** pour gérer ces deux tâches.
+Il existe un dernier sujet tout aussi important à traiter : **la scalabilité** . Quand vous concevez une architecture, chaque composant doit pouvoir être mis à l’échelle de façon autonome. Vous devrez un jour ou l’autre traiter davantage de données, ou vous souhaiterez avoir une couverture géographique plus étendue. Heureusement, Cosmos DB offre une **solution clé en main** pour gérer ces deux tâches.
 
 Cosmos DB prend en charge nativement le partitionnement dynamique. Il crée automatiquement des partitions basées sur une **clé de partition** donnée, qui est définie comme attribut dans vos documents. La définition de la clé de partition appropriée doit être effectuée au moment de la conception. Pour plus d'informations, consultez [Partitionnement dans Azure Cosmos DB](partitioning-overview.md).
 

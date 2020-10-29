@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477825"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
-Azure Cosmos DB fournit une [API SQL pour interroger des données](how-to-sql-query.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
+Azure Cosmos DB fournit une [API SQL pour interroger des données](./sql-query-getting-started.md), sans nécessiter de schéma ou d’index secondaires. Cet article fournit les informations suivantes à l’attention des développeurs :
 
 * Détails techniques sur le fonctionnement de l’exécution de requêtes SQL dans Azure Cosmos DB
 * Développements sur les en-têtes de demande et réponse des requêtes, et sur les options du kit SDK client
@@ -275,6 +275,4 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](sql-query-getting-started.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
-* Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](index-policy.md) 
-
-
+* Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](index-policy.md)

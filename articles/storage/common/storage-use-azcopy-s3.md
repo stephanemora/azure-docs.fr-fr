@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037114"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479355"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy
 
@@ -48,7 +48,7 @@ Récupérez votre clé d’accès AWS et votre clé d’accès secrète, puis d�
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copier des objets, des répertoires et des compartiments
 
-AzCopy utilise l’API [Placer un bloc à partir d’une URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) pour copier les données directement d’un serveur AWS S3 à un serveur de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
+AzCopy utilise l’API [Placer un bloc à partir d’une URL](/rest/api/storageservices/put-block-from-url) pour copier les données directement d’un serveur AWS S3 à un serveur de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
 
 > [!TIP]
 > Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (' '). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles (" ") au lieu de guillemets simples (' ').
@@ -135,7 +135,7 @@ En outre, comme AzCopy copie les fichiers, il vérifie les collisions de noms et
 
 ## <a name="handle-differences-in-object-metadata"></a>Gérer les différences dans les métadonnées d’objets
 
-AWS S3 et Azure autorisent différents jeux de caractères dans les noms des clés d’objet. Vous pouvez en apprendre plus sur les caractères qu’utilise AWS S3 [ici](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). Du côté d’Azure, les clés d’objets blob respectent les règles d’attribution de noms pour les [identificateurs C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+AWS S3 et Azure autorisent différents jeux de caractères dans les noms des clés d’objet. Vous pouvez en apprendre plus sur les caractères qu’utilise AWS S3 [ici](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). Du côté d’Azure, les clés d’objets blob respectent les règles d’attribution de noms pour les [identificateurs C#](/dotnet/csharp/language-reference/).
 
 Dans le cadre d’une commande `copy` AzCopy, vous pouvez fournir une valeur pour l’indicateur `s2s-handle-invalid-metadata` facultatif qui spécifie comment vous voulez gérer les métadonnées du fichier qui contient les noms de clés incompatibles. La table suivante décrit chaque valeur d’indicateur.
 

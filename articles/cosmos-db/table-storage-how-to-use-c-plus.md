@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282848"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477332"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Procédure d’utilisation du Stockage Table Azure et de l’API de Table Azure Cosmos DB avec C++
 
@@ -78,7 +78,7 @@ Cet exemple montre comment déclarer un champ statique pour qu’il contienne la
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Utilisez le nom de votre compte de stockage pour `<your_storage_account>`. Pour <your_storage_account_key>, utilisez la clé d’accès associée au compte de stockage listé dans le [portail Azure](https://portal.azure.com). Pour plus d’informations sur les comptes de stockage et les clés d’accès, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md).
+Utilisez le nom de votre compte de stockage pour `<your_storage_account>`. Pour <your_storage_account_key>, utilisez la clé d’accès associée au compte de stockage listé dans le [portail Azure](https://portal.azure.com). Pour plus d’informations sur les comptes de stockage et les clés d’accès, consultez [Créer un compte de stockage](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configurer une chaîne de connexion Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Pour tester votre application sur votre ordinateur Windows local, vous pouvez ut
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Pour démarrer l’émulateur de stockage Azure, à partir de votre Bureau Windows, sélectionnez le bouton **Démarrer** ou la touche Windows. Entrez et exécutez *Émulateur de stockage Microsoft Azure*. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../storage/common/storage-use-emulator.md).
+Pour démarrer l’émulateur de stockage Azure, à partir de votre Bureau Windows, sélectionnez le bouton **Démarrer** ou la touche Windows. Entrez et exécutez *Émulateur de stockage Microsoft Azure* . Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Récupération de votre chaîne de connexion
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Ajout d'une entité à une table
 
-Pour ajouter une entité à une table, créez un objet `table_entity` et transmettez-le à `table_operation::insert_entity`. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes. L’utilisation de différentes clés de partition permet une plus grande scalabilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../storage/common/storage-performance-checklist.md).
+Pour ajouter une entité à une table, créez un objet `table_entity` et transmettez-le à `table_operation::insert_entity`. Le code suivant utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d’une entité identifient l’entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes. L’utilisation de différentes clés de partition permet une plus grande scalabilité des opérations parallèles. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../storage/blobs/storage-performance-checklist.md).
 
 Le code suivant crée une instance de la classe `table_entity` avec des données clientes à stocker. Le code appelle ensuite `table_operation::insert_entity` pour créer un objet `table_operation` afin d’insérer une entité dans une table et d’y associer la nouvelle entité de table. Enfin, le code appelle la méthode `execute` sur l’objet `cloud_table`. Le nouvel objet `table_operation` envoie une demande au service de Table pour insérer la nouvelle entité de client dans la table `people`.  
 
@@ -499,11 +499,11 @@ else
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Pour Visual Studio Community Edition, si votre projet obtient des erreurs de build en raison des fichiers include *storage_account.h* et *table.h*, supprimez le commutateur du compilateur **/permissive-**  :
+Pour Visual Studio Community Edition, si votre projet obtient des erreurs de build en raison des fichiers include *storage_account.h* et *table.h* , supprimez le commutateur du compilateur **/permissive-**  :
 
-1. Dans **Explorateur de solutions**, cliquez avec le bouton de droite sur votre projet et sélectionnez **Propriétés**.
-1. Dans la boîte de dialogue **Pages de propriétés**, développez **Propriétés de configuration**, développez **C/C++** , puis sélectionnez **Langage**.
-1. Définissez **Mode de conformité** sur **Non**.
+1. Dans **Explorateur de solutions** , cliquez avec le bouton de droite sur votre projet et sélectionnez **Propriétés** .
+1. Dans la boîte de dialogue **Pages de propriétés** , développez **Propriétés de configuration** , développez **C/C++** , puis sélectionnez **Langage** .
+1. Définissez **Mode de conformité** sur **Non** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
