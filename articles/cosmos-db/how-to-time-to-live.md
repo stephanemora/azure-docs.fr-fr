@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951925"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486002"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
 Dans Azure Cosmos DB, vous pouvez choisir de configurer la durée de vie (TTL) au niveau du conteneur, mais vous pouvez aussi la définir au niveau de l’élément après avoir configuré le conteneur. Vous pouvez configurer la TTL d’un conteneur en utilisant le portail Azure ou les kits SDK propres à chaque langage. Les remplacements de la TTL au niveau de l’élément peuvent être configurés avec les kits SDK.
 
-> Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), cliquez [ici](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Ce contenu concerne la TTL des magasins transactionnels d’Azure Cosmos DB. Si vous recherchez la TTL des magasins analytiques, qui permet des scénarios de HTAP NoETL via [Azure Synapse Link](./synapse-link.md), cliquez [ici](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Activer la durée de vie sur un conteneur avec le portail Azure
 
@@ -28,12 +28,12 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un conteneur sa
 
 2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
-3. Ouvrez le volet **Explorateur de données**.
+3. Ouvrez le volet **Explorateur de données** .
 
 4. Sélectionnez un conteneur existant, développez-le et modifiez les valeurs suivantes :
 
-   * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
-   * Sous **Paramètres**, recherchez **Durée de vie**.
+   * Ouvrez la fenêtre **Mise à l’échelle et paramètres** .
+   * Sous **Paramètres** , recherchez **Durée de vie** .
    * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL.
    * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
@@ -212,16 +212,16 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un élément :
 
 2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
-3. Ouvrez le volet **Explorateur de données**.
+3. Ouvrez le volet **Explorateur de données** .
 
 4. Sélectionnez un conteneur existant, développez-le et modifiez les valeurs suivantes :
 
-   * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
-   * Sous **Paramètres**, recherchez **Durée de vie**.
+   * Ouvrez la fenêtre **Mise à l’échelle et paramètres** .
+   * Sous **Paramètres** , recherchez **Durée de vie** .
    * Sélectionnez **Activée (pas par défaut)** ou sélectionnez **Activée** et définissez une valeur de TTL. 
    * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-5. Accédez ensuite à l’élément pour lequel vous souhaitez définir une durée de vie, ajoutez la propriété `ttl`, puis sélectionnez **Mettre à jour**. 
+5. Accédez ensuite à l’élément pour lequel vous souhaitez définir une durée de vie, ajoutez la propriété `ttl`, puis sélectionnez **Mettre à jour** . 
 
    ```json
    {

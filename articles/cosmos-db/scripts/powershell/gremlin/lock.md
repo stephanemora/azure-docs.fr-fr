@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: 6e119fe2cc54ce38dcb8ac2d0c711056dc7d77ce
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 02729b1a73cb66d9b72e9cbca7ed866725e07b83
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280645"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489147"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-gremlin-api-database-and-graph-using-azure-powershell"></a>Créer un verrou de ressource pour une base de données et un graphe d’API Gremlin Azure Cosmos à l’aide d’Azure PowerShell
 
@@ -42,11 +42,11 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Ressource Azure**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | Crée un verrou de ressource. |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | Obtient un verrou de ressource ou liste les verrous de ressources. |
-| [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | Supprime un verrou de ressource. |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | Crée un verrou de ressource. |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | Obtient un verrou de ressource ou liste les verrous de ressources. |
+| [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | Supprime un verrou de ressource. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).

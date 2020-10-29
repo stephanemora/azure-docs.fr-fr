@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: f006f249fce56171f8bbf471de013e015b5c4f92
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207773"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491034"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -347,7 +347,7 @@ Dans Azure Cosmos DB, vous pouvez mettre à jour la stratégie d’indexation à
 Une [mise à jour de la stratégie d’indexation](index-policy.md#modifying-the-indexing-policy) déclenche une transformation d’index. La progression de cette transformation peut également être suivie à partir des SDK.
 
 > [!NOTE]
-> Lors de la mise à jour de la stratégie d’indexation, les écritures dans Azure Cosmos DB sont ininterrompues. En savoir plus sur [l’indexation des transformations](indexing-policy.md#modifying-the-indexing-policy)
+> Lors de la mise à jour de la stratégie d’indexation, les écritures dans Azure Cosmos DB sont ininterrompues. En savoir plus sur [l’indexation des transformations](index-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 

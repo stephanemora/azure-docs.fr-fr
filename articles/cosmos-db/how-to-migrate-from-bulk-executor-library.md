@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022477"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491017"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrer de la bibliothèque d’exécuteur en bloc vers la prise en charge de l’exécution en bloc dans le SDK Azure Cosmos DB .NET v3
 
@@ -20,13 +20,13 @@ Cet article décrit les étapes nécessaires pour migrer le code d’une applica
 
 ## <a name="enable-bulk-support"></a>Activer la prise en charge de l’exécution en bloc
 
-Activez la prise en charge de l’exécution en bloc sur l’instance de `CosmosClient` par le biais de la configuration [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
+Activez la prise en charge de l’exécution en bloc sur l’instance de `CosmosClient` par le biais de la configuration [AllowBulkExecution](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
 ## <a name="create-tasks-for-each-operation"></a>Créer des tâches pour chaque opération
 
-La prise en charge de l’exécution en bloc dans le SDK .NET fonctionne en tirant parti de la [bibliothèque parallèle de tâches](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) et des opérations de regroupement qui se produisent simultanément. 
+La prise en charge de l’exécution en bloc dans le SDK .NET fonctionne en tirant parti de la [bibliothèque parallèle de tâches](/dotnet/standard/parallel-programming/task-parallel-library-tpl) et des opérations de regroupement qui se produisent simultanément. 
 
 Il n’existe pas de méthode unique dans le Kit de développement logiciel (SDK) qui prend votre liste de documents ou d’opérations comme paramètre d’entrée. Au lieu de cela, vous devez créer une tâche pour chaque opération que vous souhaitez exécuter en bloc, puis attendre qu’elles se terminent.
 
@@ -38,17 +38,17 @@ Si vous souhaitez effectuer une importation en bloc (comme lors de l’utilisati
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Si vous souhaitez effectuer une *mise à jour* en bloc (comme lors de l’utilisation de [BulkExecutor.BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), vous devez effectuer des appels simultanés à la méthode `ReplaceItemAsync` après la mise à jour de la valeur de l’élément. Par exemple :
+Si vous souhaitez effectuer une *mise à jour* en bloc (comme lors de l’utilisation de [BulkExecutor.BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), vous devez effectuer des appels simultanés à la méthode `ReplaceItemAsync` après la mise à jour de la valeur de l’élément. Par exemple :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Et si vous souhaitez effectuer une *suppression* en bloc (comme lors de l’utilisation de [BulkExecutor.BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), vous devez effectuer des appels simultanés à `DeleteItemAsync`, avec l’`id` et la clé de partition de chaque élément. Par exemple :
+Et si vous souhaitez effectuer une *suppression* en bloc (comme lors de l’utilisation de [BulkExecutor.BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), vous devez effectuer des appels simultanés à `DeleteItemAsync`, avec l’`id` et la clé de partition de chaque élément. Par exemple :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
 ## <a name="capture-task-result-state"></a>Capturer l’état du résultat de la tâche
 
-Dans les exemples de code précédents, nous avons créé une liste de tâches simultanées et appelé la méthode `CaptureOperationResponse` sur chacune de ces tâches. Cette méthode est une extension qui nous permet de conserver un *schéma de réponse similaire* à BulkExecutor, en capturant les erreurs et en effectuant le suivi de l’[utilisation des unités de requête](request-units.md).
+Dans les exemples de code précédents, nous avons créé une liste de tâches simultanées et appelé la méthode `CaptureOperationResponse` sur chacune de ces tâches. Cette méthode est une extension qui nous permet de conserver un *schéma de réponse similaire* à BulkExecutor, en capturant les erreurs et en effectuant le suivi de l’ [utilisation des unités de requête](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -68,7 +68,7 @@ La méthode `ExecuteAsync` attendra que toutes les opérations soient terminées
 
 ## <a name="capture-statistics"></a>Capturer les statistiques
 
-Le code précédent attend que toutes les opérations soient terminées et calcule les statistiques requises. Ces statistiques sont similaires à celles de la classe [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse) de la bibliothèque d’exécuteur en bloc.
+Le code précédent attend que toutes les opérations soient terminées et calcule les statistiques requises. Ces statistiques sont similaires à celles de la classe [BulkImportResponse](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse) de la bibliothèque d’exécuteur en bloc.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
@@ -81,9 +81,9 @@ Le code précédent attend que toutes les opérations soient terminées et calcu
 
 ## <a name="retry-configuration"></a>Configuration de nouvelle tentative
 
-La bibliothèque d’exécuteur en bloc contenait des [recommandations](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) indiquant qu’il fallait affecter la valeur `0` aux paramètres `MaxRetryWaitTimeInSeconds` et `MaxRetryAttemptsOnThrottledRequests` de [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) pour déléguer le contrôle à la bibliothèque.
+La bibliothèque d’exécuteur en bloc contenait des [recommandations](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) indiquant qu’il fallait affecter la valeur `0` aux paramètres `MaxRetryWaitTimeInSeconds` et `MaxRetryAttemptsOnThrottledRequests` de [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) pour déléguer le contrôle à la bibliothèque.
 
-Pour la prise en charge de l’exécution en bloc dans le SDK .NET, il n’existe aucun comportement masqué. Vous pouvez configurer les options de nouvelle tentative directement par le biais de [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) et [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+Pour la prise en charge de l’exécution en bloc dans le SDK .NET, il n’existe aucun comportement masqué. Vous pouvez configurer les options de nouvelle tentative directement par le biais de [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) et [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > Dans les cas où les unités de requête provisionnées sont beaucoup plus faibles que celles attendues d’après la quantité de données, vous pouvez les définir sur des valeurs élevées. L’opération en bloc prendra plus de temps, mais elle aura plus de chances de se terminer correctement en raison du nombre plus élevé de nouvelles tentatives.

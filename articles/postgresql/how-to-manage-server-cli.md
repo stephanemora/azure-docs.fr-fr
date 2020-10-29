@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 6b76b5bc6158786c7f60e762590d41b7cb243c40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929789"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490116"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gérer un serveur unique Azure Database pour PostgreSQL à l’aide d’Azure CLI
 
@@ -21,13 +21,13 @@ Cet article vous explique comment gérer vos serveurs uniques déployés sur Azu
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer. Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** , qui fait référence à l’ **ID d’abonnement** pour votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>

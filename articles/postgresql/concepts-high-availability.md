@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485441"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Haute disponibilité dans Azure Database pour PostgreSQL – Serveur unique
 Le service Azure Database pour PostgreSQL – Serveur unique offre un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/postgresql) de temps d’activité, financièrement garanti par un contrat de niveau de service (SLA). Il offre une haute disponibilité pendant des événements planifiés tels qu’une opération de calcul de mise à l’échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés tels que des défaillances de matériel, de logiciels ou de réseau sous-jacents. Le service Azure Database pour PostgreSQL peut rapidement récupérer de la plupart des circonstances critiques, ce qui garantit pratiquement une absence totale de temps d’arrêt.
@@ -40,8 +40,8 @@ Voici quelques scénarios de maintenance planifiée :
 | ------------ | ----------- |
 | <b>Mise à l’échelle du calcul | Quand l’utilisateur effectue une opération de mise à l’échelle du calcul, un nouveau serveur de base de données est approvisionné à l’aide de la configuration de calcul mise à l’échelle. Sur l’ancien serveur de base de données, les points de contrôle actifs sont autorisés à cesser d’opérer, les connexions clientes sont vidées, toutes les transactions non validées sont annulées, puis le serveur est arrêté. Le stockage est ensuite détaché de l’ancien serveur de base de données et attaché au nouveau. Quand l’application cliente retente la connexion ou tente d’établir une nouvelle connexion, la passerelle dirige la demande de connexion vers le nouveau serveur de base de données.|
 | <b>Augmentation du stockage | L’augmentation du stockage est une opération en ligne qui n’interrompt pas le serveur de base de données.|
-| <b>Déploiement de nouveaux logiciels (Azure) | Le déploiement de nouvelles fonctionnalités ou la corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification) et visitez votre [portail](https://aka.ms/servicehealthpm).|
-| <b>Mises à niveau de version mineure | Le service Azure Database pour PostgreSQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification) et visitez votre [portail](https://aka.ms/servicehealthpm).|
+| <b>Déploiement de nouveaux logiciels (Azure) | Le déploiement de nouvelles fonctionnalités ou la corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service. Pour plus d’informations, consultez la [documentation](./concepts-monitoring.md#planned-maintenance-notification) et visitez votre [portail](https://aka.ms/servicehealthpm).|
+| <b>Mises à niveau de version mineure | Le service Azure Database pour PostgreSQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](./concepts-monitoring.md#planned-maintenance-notification) et visitez votre [portail](https://aka.ms/servicehealthpm).|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Réduction des temps d’arrêt non planifiés
@@ -68,8 +68,8 @@ Voici quelques scénarios d’échec qui nécessitent une action de l’utilisat
 
 | **Scénario** | **Plan de récupération** |
 | ---------- | ---------- |
-| <b> Défaillance de région | Une défaillance de région est un événement rare. Toutefois, si vous avez besoin d’une protection contre une défaillance de région, vous pouvez configurer un ou plusieurs réplicas en lecture dans d’autres régions à des fins de récupération d’urgence (pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) sur la création et la gestion des réplicas en lecture). En cas de défaillance au niveau d’une région, vous pouvez promouvoir manuellement le réplica en lecture configuré sur l’autre région comme serveur de base de données de production. |
-| <b> Erreurs logiques/de l’utilisateur | La récupération d’erreurs de l’utilisateur, telles qu’une suppression accidentelle de tables ou une mise à jour incorrecte de données, implique l’exécution d’une [récupération jusqu’à une date et heure](https://docs.microsoft.com/azure/postgresql/concepts-backup) (PITR), en restaurant et récupérant les données jusqu’au moment où l’erreur s’est produite.<br> <br>  Si vous ne souhaitez restaurer qu’un sous-ensemble de bases de données ou de tables spécifiques plutôt que toutes les bases de données du serveur de base de données, vous pouvez restaurer celui-ci dans une nouvelle instance, exporter les tables via l’utilitaire [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), puis vous servir de l’utilitaire [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) pour restaurer ces tables dans votre base de données. |
+| <b> Défaillance de région | Une défaillance de région est un événement rare. Toutefois, si vous avez besoin d’une protection contre une défaillance de région, vous pouvez configurer un ou plusieurs réplicas en lecture dans d’autres régions à des fins de récupération d’urgence (pour plus d’informations, consultez [cet article](./howto-read-replicas-portal.md) sur la création et la gestion des réplicas en lecture). En cas de défaillance au niveau d’une région, vous pouvez promouvoir manuellement le réplica en lecture configuré sur l’autre région comme serveur de base de données de production. |
+| <b> Erreurs logiques/de l’utilisateur | La récupération d’erreurs de l’utilisateur, telles qu’une suppression accidentelle de tables ou une mise à jour incorrecte de données, implique l’exécution d’une [récupération jusqu’à une date et heure](./concepts-backup.md) (PITR), en restaurant et récupérant les données jusqu’au moment où l’erreur s’est produite.<br> <br>  Si vous ne souhaitez restaurer qu’un sous-ensemble de bases de données ou de tables spécifiques plutôt que toutes les bases de données du serveur de base de données, vous pouvez restaurer celui-ci dans une nouvelle instance, exporter les tables via l’utilitaire [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), puis vous servir de l’utilitaire [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) pour restaurer ces tables dans votre base de données. |
 
 
 

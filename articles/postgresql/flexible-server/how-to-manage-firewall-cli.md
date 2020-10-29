@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1019c31b10801a12c960dd5dadd8836fd9b7cd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36249694c5a4de8a738853892f827c6d9e1e4aff
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930214"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489470"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour PostgreSQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -33,17 +33,17 @@ Cet article est axé sur la création d’un serveur PostgreSQL avec **accès pu
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également ouvrir Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell et sélectionnez **Entrée** pour les exécuter.
 
-Si vous préférez installer et utiliser l’interface de ligne de commande localement, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si vous préférez installer et utiliser l’interface de ligne de commande localement, ce guide de démarrage rapide nécessite au minimum la version 2.0 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devrez vous connecter à votre compte avec la commande [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Notez la propriété **ID**, qui fait référence à l’**ID d’abonnement** de votre compte Azure.
+Vous devrez vous connecter à votre compte avec la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **ID** , qui fait référence à l’ **ID d’abonnement** de votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Notez la valeur **ID** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set). Notez la valeur **ID** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -87,11 +87,11 @@ Consultez la documentation de référence sur Azure CLI <!--FIXME --> pour obten
 La commande Azure CLI **az postgres flexible-server firewall-rule** permet de créer, supprimer, lister, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create** : créer une règle de pare-feu de serveur flexible.
-- **list** : lister les règles de pare-feu de serveur flexible.
-- **update** : mettre à jour une règle de pare-feu de serveur flexible.
-- **show** : afficher les détails d’une règle de pare-feu de serveur flexible.
-- **delete** : supprimer une règle de pare-feu de serveur flexible.
+- **create**  : créer une règle de pare-feu de serveur flexible.
+- **list**  : lister les règles de pare-feu de serveur flexible.
+- **update**  : mettre à jour une règle de pare-feu de serveur flexible.
+- **show**  : afficher les détails d’une règle de pare-feu de serveur flexible.
+- **delete**  : supprimer une règle de pare-feu de serveur flexible.
 
 Consultez la documentation de référence sur Azure CLI <!--FIXME --> pour obtenir la liste complète des paramètres d’interface de ligne de commande configurables. Par exemple, dans les commandes ci-dessous, vous pouvez spécifier le groupe de ressources.
 
@@ -118,7 +118,7 @@ az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-
 En cas de réussite, la sortie de chaque commande de création affiche les détails de la règle de pare-feu que vous avez créée au format JSON (par défaut). En cas d’échec, la sortie affiche un texte de message d’erreur.
 
 ### <a name="list-firewall-rules"></a>Répertorier les règles de pare-feu 
-Utilisez la commande `az postgres flexible-server firewall-rule list` pour lister les règles de pare-feu de serveur existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **---name**. 
+Utilisez la commande `az postgres flexible-server firewall-rule list` pour lister les règles de pare-feu de serveur existantes sur le serveur. Notez que l’attribut de nom de serveur est spécifié dans le commutateur **---name** . 
 ```azurecli-interactive
 az postgres flexible-server firewall-rule list --name mydemoserver
 ```

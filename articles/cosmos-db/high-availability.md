@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 85f358d205a4a14874e520efdace5345de837588
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276269"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490541"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 
@@ -58,7 +58,7 @@ En tant que base de données mondialement distribuée, Azure Cosmos DB fournit d
 
 Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre base de données est toujours hautement disponible. Les détails suivants permettent de capturer le comportement d’Azure Cosmos DB pendant une panne, en fonction de la configuration de votre compte Azure Cosmos :
 
-* Avant la reconnaissance d’une opération d’écriture auprès du client alors qu’Azure Cosmos DB est utilisé, les données sont validées durablement par un quorum de réplicas se trouvant la région qui accepte les opérations d’écriture. Pour en savoir plus, consultez [Niveaux de cohérence et débit](consistency-levels-tradeoffs.md#consistency-levels-and-throughput).
+* Avant la reconnaissance d’une opération d’écriture auprès du client alors qu’Azure Cosmos DB est utilisé, les données sont validées durablement par un quorum de réplicas se trouvant la région qui accepte les opérations d’écriture. Pour en savoir plus, consultez [Niveaux de cohérence et débit](./consistency-levels.md#consistency-levels-and-throughput).
 
 * Les comptes multirégion configurés avec plusieurs régions d’écriture sont hautement disponibles pour les écritures et les lectures. Les basculements régionaux sont détectés et traités dans le client Azure Cosmos DB. Ils sont également instantanés et ne nécessitent aucune modification à partir de l’application.
 
@@ -89,7 +89,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 
 * Les lectures suivantes sont redirigées vers la région récupérée sans modification nécessaire de votre code d’application. Pendant le basculement et la réintégration d’une région ayant précédemment échoué, les garanties de cohérence de lecture continuent à être respectées par Azure Cosmos DB.
 
-* Même dans un cas rare et malheureux où la région Azure est définitivement irrécupérable, il n’y a aucune perte de données si votre compte Azure Cosmos multirégion est configuré avec une cohérence *forte* . Si une région d’écriture est définitivement irrécupérable et en présence d’un compte Azure Cosmos multirégion configuré avec une cohérence de l’obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence ( *K* ou *T* ) où K = 100 000 mises à jour et T = 5 minutes. Pour les niveaux de cohérence session, garantie de préfixe et éventuelle, la fenêtre de perte de données potentielle est limitée à un maximum de 15 minutes. Pour plus d'informations sur les cibles RPO et RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](consistency-levels-tradeoffs.md#rto)
+* Même dans un cas rare et malheureux où la région Azure est définitivement irrécupérable, il n’y a aucune perte de données si votre compte Azure Cosmos multirégion est configuré avec une cohérence *forte* . Si une région d’écriture est définitivement irrécupérable et en présence d’un compte Azure Cosmos multirégion configuré avec une cohérence de l’obsolescence limitée, la fenêtre de perte de données potentielle est limitée à la fenêtre d’obsolescence ( *K* ou *T* ) où K = 100 000 mises à jour et T = 5 minutes. Pour les niveaux de cohérence session, garantie de préfixe et éventuelle, la fenêtre de perte de données potentielle est limitée à un maximum de 15 minutes. Pour plus d'informations sur les cibles RPO et RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Prise en charge des zones de disponibilité
 
@@ -131,7 +131,7 @@ La fonctionnalité Zones de disponibilité peut être activée via :
 
 * [Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
-* [Modèles Microsoft Azure Resource Manager](manage-sql-with-resource-manager.md)
+* [Modèles Microsoft Azure Resource Manager](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Génération d’applications hautement disponibles
 
@@ -143,15 +143,15 @@ La fonctionnalité Zones de disponibilité peut être activée via :
 
 * Même si votre compte Azure Cosmos est hautement disponible, votre application peut ne pas être pas correctement conçue pour rester hautement disponible. Pour tester la haute disponibilité de bout en bout de votre application, dans le cadre de procédures de récupération d’urgence ou de test de votre application, désactivez temporairement le basculement automatique du compte, appelez régulièrement le [basculement manuel à l’aide de PowerShell, d’Azure CLI ou du portail Azure](how-to-manage-database-account.md#manual-failover), puis surveillez le basculement de votre application. Une fois l’opération terminée, vous pouvez basculer vers la région primaire et restaurer le basculement automatique pour le compte.
 
-* Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](consistency-levels-tradeoffs.md#rto)
+* Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective). Pour obtenir le RPO et le RTO pour Azure Cosmos DB, consultez [Niveaux de cohérence et durabilité des données](./consistency-levels.md#rto)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez ensuite lire les articles suivants :
 
-* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
+* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](./consistency-levels.md)
 
-* [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
+* [Mise à l’échelle du débit provisionné au niveau global](./request-units.md)
 
 * [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
 

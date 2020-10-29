@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082101"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487065"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -101,30 +101,30 @@ Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifie
 1. Accédez à **Toutes les ressources** et recherchez le **réseau virtuel classique** dans la liste.
 2. Cliquez sur **Passerelle** dans la section **Paramètres** du menu, puis sur la bannière pour créer une passerelle.
   ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurer une passerelle VPN")
-3. Dans la page **Nouvelle connexion VPN**, pour **Type de connexion**, sélectionnez **De site à site**.
-4. Sous **Site local**, cliquez sur **Configurer les paramètres requis**. La page **Site local** s’ouvre.
-5. Dans la page **Site local**, créez un nom pour faire référence au réseau virtuel Resource Manager. Par exemple, « RMVNetLocal ».
-6. Si la passerelle VPN pour le réseau virtuel Resource Manager a déjà une adresse IP publique, utilisez cette valeur pour le champ **Adresse IP de passerelle VPN**. Si vous effectuez ces étapes en guise d’exercice, ou si ne disposez pas encore dune passerelle de réseau virtuel pour votre réseau virtuel Resource Manager, vous pouvez créer une adresse IP d’espace réservé. Assurez-vous que l’adresse IP avec espace réservé utilise un format valide. Remplacez ensuite l’adresse IP avec espace réservé par l’adresse IP publique de la passerelle de réseau virtuel Resource Manager.
-7. Pour **Espace d’adressage du client**, utilisez les [valeurs](#connectoverview) des espaces d’adressage IP de réseau virtuel pour le réseau virtuel Resource Manager. Ce paramètre sert à spécifier les espaces d’adressage à router vers le réseau virtuel Resource Manager. Dans l’exemple, nous utilisons 192.168.0.0/16, la plage d’adresses pour le RMVNet.
-8. Cliquez sur **OK** pour enregistrer les valeurs et revenez à la page **Nouvelle connexion VPN**.
+3. Dans la page **Nouvelle connexion VPN** , pour **Type de connexion** , sélectionnez **De site à site** .
+4. Sous **Site local** , cliquez sur **Configurer les paramètres requis** . La page **Site local** s’ouvre.
+5. Dans la page **Site local** , créez un nom pour faire référence au réseau virtuel Resource Manager. Par exemple, « RMVNetLocal ».
+6. Si la passerelle VPN pour le réseau virtuel Resource Manager a déjà une adresse IP publique, utilisez cette valeur pour le champ **Adresse IP de passerelle VPN** . Si vous effectuez ces étapes en guise d’exercice, ou si ne disposez pas encore dune passerelle de réseau virtuel pour votre réseau virtuel Resource Manager, vous pouvez créer une adresse IP d’espace réservé. Assurez-vous que l’adresse IP avec espace réservé utilise un format valide. Remplacez ensuite l’adresse IP avec espace réservé par l’adresse IP publique de la passerelle de réseau virtuel Resource Manager.
+7. Pour **Espace d’adressage du client** , utilisez les [valeurs](#connectoverview) des espaces d’adressage IP de réseau virtuel pour le réseau virtuel Resource Manager. Ce paramètre sert à spécifier les espaces d’adressage à router vers le réseau virtuel Resource Manager. Dans l’exemple, nous utilisons 192.168.0.0/16, la plage d’adresses pour le RMVNet.
+8. Cliquez sur **OK** pour enregistrer les valeurs et revenez à la page **Nouvelle connexion VPN** .
 
 ### <a name="3-create-the-virtual-network-gateway"></a><a name="classicgw"></a>3. Créer la passerelle de réseau virtuel
 
-1. Dans la page **Nouvelle connexion VPN**, cochez la case **Créer une passerelle immédiatement**.
-2. Cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle**.
+1. Dans la page **Nouvelle connexion VPN** , cochez la case **Créer une passerelle immédiatement** .
+2. Cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle** .
 
    ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
-3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet**.
+3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau** . Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet** .
 4. La **Plage d’adresses** fait référence à la plage pour le sous-réseau de passerelle. Bien que vous puissiez créer un sous-réseau de passerelle avec une plage d’adresses /29 (3 adresses), nous vous recommandons de créer un sous-réseau de passerelle qui contient plus d’adresses IP. Cela afin d’accueillir des configurations futures nécessitant la disponibilité d’un plus grand nombre d’adresses IP. Si possible, utilisez /27 ou /28. Si vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous référer aux [exemples de valeurs](#values). Pour cet exemple, nous utilisons « 10.0.0.32/28 ». Cliquez sur **OK** pour créer le sous réseau de passerelle.
-5. Dans la page **Configuration de la passerelle**, le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
-6. Vérifiez que **Type de routage** est défini sur **Dynamique**, puis cliquez sur **OK** pour revenir à la page **Nouvelle connexion VPN**.
-7. Dans la page **Nouvelle connexion VPN**, cliquez sur **OK** pour commencer à créer votre passerelle VPN. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes.
+5. Dans la page **Configuration de la passerelle** , le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
+6. Vérifiez que **Type de routage** est défini sur **Dynamique** , puis cliquez sur **OK** pour revenir à la page **Nouvelle connexion VPN** .
+7. Dans la page **Nouvelle connexion VPN** , cliquez sur **OK** pour commencer à créer votre passerelle VPN. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes.
 
 ### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. Copier l’adresse IP publique de passerelle de réseau virtuel
 
 Une fois la passerelle de réseau virtuel créée, vous pouvez afficher l’adresse IP de la passerelle. 
 
-1. Accédez à votre réseau virtuel classique, puis cliquez sur **Vue d’ensemble**.
+1. Accédez à votre réseau virtuel classique, puis cliquez sur **Vue d’ensemble** .
 2. Cliquez sur **Connexions VPN** afin d’ouvrir la page Connexions VPN. Dans la page Connexions VPN, vous pouvez afficher l’adresse IP publique. Il s’agit de l’adresse IP publique affectée à votre passerelle de réseau virtuel. Prenez note de l’adresse IP. Vous en aurez besoin aux étapes suivantes pour vos paramètres de configuration de passerelle de réseau local Resource Manager. 
 3. Vous pouvez afficher l’état de vos connexions à la passerelle. Le site de réseau local que vous avez créé est répertorié comme « Connexion ». Le statut sera modifié une fois les connexions créées. Vous pouvez fermer cette page quand vous avez terminé de consulter l’état.
 
@@ -162,7 +162,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 * Sous-réseau de passerelle = 192.168.0.0/26 <br>
 * Première configuration IP = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -177,24 +177,24 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 La passerelle de réseau local spécifie la plage d’adresses et l’adresse IP publique associées à votre réseau virtuel classique et à la passerelle de réseau virtuel. Si vous effectuez ces étapes en guise d’exercice, consultez les exemples de valeurs.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>Section 3 - Modifier les paramètres de site local du réseau virtuel classique
 
 Dans cette section, vous remplacez l’adresse IP avec espace réservé que vous avez utilisée lorsque vous avez spécifié les paramètres du site local avec l’adresse IP de passerelle de réseau virtuel Resource Manager. Cette section utilise les applets de commande PowerShell (SM) classiques.
 
 1. Dans le portail Azure, accédez au réseau virtuel classique.
-2. Dans la page de votre réseau virtuel, cliquez sur **Vue d’ensemble**.
-3. Dans la section **Connexions VPN**, cliquez sur le nom de votre site local dans le graphique.
+2. Dans la page de votre réseau virtuel, cliquez sur **Vue d’ensemble** .
+3. Dans la section **Connexions VPN** , cliquez sur le nom de votre site local dans le graphique.
 
    ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connexions VPN")
-4. Dans la page **Connexions VPN de site à site**, cliquez sur le nom du site.
+4. Dans la page **Connexions VPN de site à site** , cliquez sur le nom du site.
 
    ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nom du site local")
-5. Dans la page de connexion de votre site local, cliquez sur le nom du site local pour ouvrir la page **Site local**.
+5. Dans la page de connexion de votre site local, cliquez sur le nom du site local pour ouvrir la page **Site local** .
 
    ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Ouvrir le site local")
-6. Dans la page **Site local**, remplacez l’**adresse IP de passerelle VPN** par l’adresse IP de la passerelle Resource Manager.
+6. Dans la page **Site local** , remplacez l’ **adresse IP de passerelle VPN** par l’adresse IP de la passerelle Resource Manager.
 
    ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Adresse IP de la passerelle")
 7. Cliquez sur **OK** pour mettre à jour l’adresse IP.
@@ -203,15 +203,15 @@ Dans cette section, vous remplacez l’adresse IP avec espace réservé que vous
 
 Dans cette procédure, vous configurez la connexion entre le réseau virtuel Resource Manager et le réseau virtuel classique à l’aide du portail Azure.
 
-1. Dans **Toutes les ressources**, recherchez la passerelle de réseau local. Dans notre exemple, la passerelle de réseau local est **ClassicVNetLocal**.
-2. Cliquez sur **Configuration** et vérifiez que la valeur d’adresse IP est la passerelle VPN pour le réseau virtuel classique. Mettez à jour si nécessaire, puis cliquez sur **Enregistrer**. Fermez la page.
-3. Dans **Toutes les ressources**, cliquez sur la passerelle de réseau local.
+1. Dans **Toutes les ressources** , recherchez la passerelle de réseau local. Dans notre exemple, la passerelle de réseau local est **ClassicVNetLocal** .
+2. Cliquez sur **Configuration** et vérifiez que la valeur d’adresse IP est la passerelle VPN pour le réseau virtuel classique. Mettez à jour si nécessaire, puis cliquez sur **Enregistrer** . Fermez la page.
+3. Dans **Toutes les ressources** , cliquez sur la passerelle de réseau local.
 4. Cliquez sur **Connexions** afin d’ouvrir la page Connexions.
-5. Dans la page **Connexions**, cliquez sur **+** pour ajouter une connexion.
-6. Dans la page **Ajouter une connexion**, donnez un nom à la connexion. Par exemple, « RMtoClassic ».
+5. Dans la page **Connexions** , cliquez sur **+** pour ajouter une connexion.
+6. Dans la page **Ajouter une connexion** , donnez un nom à la connexion. Par exemple, « RMtoClassic ».
 7. L’option **Site à site** est déjà sélectionnée dans cette page.
 8. Sélectionnez la passerelle de réseau virtuel que vous souhaitez associer à ce site.
-9. Créer une **clé partagée**. Cette clé est également utilisée dans la connexion que vous créez entre le réseau virtuel classique et le réseau virtuel Resource Manager. Vous pouvez générer la clé ou en créer une. Dans l’exemple, nous avons utilisé « abc123 », mais vous pouvez (et devriez) utiliser une valeur plus complexe.
+9. Créer une **clé partagée** . Cette clé est également utilisée dans la connexion que vous créez entre le réseau virtuel classique et le réseau virtuel Resource Manager. Vous pouvez générer la clé ou en créer une. Dans l’exemple, nous avons utilisé « abc123 », mais vous pouvez (et devriez) utiliser une valeur plus complexe.
 10. Cliquez sur **OK** pour créer la connexion.
 
 ## <a name="section-5---create-classic-to-resource-manager-connection"></a><a name="classictoRM"></a>Section 5 - Créer une connexion entre le réseau virtuel classique et Resource Manager
@@ -273,11 +273,11 @@ Dans un éditeur de texte, ouvrez le fichier, puis affichez le nom de votre rés
 
 ### <a name="3-create-the-connection"></a>3. Créer la connexion
 
-Configurez la clé partagée et créez la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Vous ne pouvez pas définir la clé partagée à l’aide du portail. Veillez à exécuter les étapes suivantes lorsque vous êtes connecté à l’aide de la version classique des applets de commande PowerShell. Pour ce faire, utilisez **Add-AzureAccount**. Sinon, vous ne pourrez pas définir « -AzureVNetGatewayKey ».
+Configurez la clé partagée et créez la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Vous ne pouvez pas définir la clé partagée à l’aide du portail. Veillez à exécuter les étapes suivantes lorsque vous êtes connecté à l’aide de la version classique des applets de commande PowerShell. Pour ce faire, utilisez **Add-AzureAccount** . Sinon, vous ne pourrez pas définir « -AzureVNetGatewayKey ».
 
 - Dans cet exemple, **-VNetName** est le nom du réseau virtuel classique, comme indiqué dans votre fichier de configuration réseau. 
 - **-LocalNetworkSiteName** est le nom que vous avez spécifié pour le site local, comme indiqué dans votre fichier de configuration réseau.
-- **-SharedKey** est une valeur que vous pouvez générer et spécifier. Dans l’exemple, nous avons utilisé *abc123*, mais vous pouvez générer quelque chose de plus complexe. L’important, c’est que la valeur que vous spécifiez ici doit être identique à celle spécifiée lors de la création de la connexion entre Resource Manager et classique.
+- **-SharedKey** est une valeur que vous pouvez générer et spécifier. Dans l’exemple, nous avons utilisé *abc123* , mais vous pouvez générer quelque chose de plus complexe. L’important, c’est que la valeur que vous spécifiez ici doit être identique à celle spécifiée lors de la création de la connexion entre Resource Manager et classique.
 
 ```powershell
 Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `

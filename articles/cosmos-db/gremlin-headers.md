@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409525"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490575"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>En-têtes de réponse du serveur Gremlin d’Azure Cosmos DB
 Cet article traite des en-têtes que le serveur Gremlin de Cosmos DB retourne à l’appelant lors de l’exécution d’une requête. Ces en-têtes sont utiles pour la résolution des problèmes de performance des requêtes et la création d’applications s’intégrant de manière native au service Cosmos DB. Ils contribuent également à simplifier les opérations du service clientèle.
@@ -29,7 +29,7 @@ Gardez à l’esprit que la dépendance à ces en-têtes limite la portabilité 
 | **x-ms-total-server-time-ms** | double | 130.512 | Success and Failure (« Succès et échec ») | Cet en-tête indique, en millisecondes, le temps total passé par le serveur Gremlin de Cosmos DB pour exécuter le parcours complet. Il est inclus dans chaque réponse partielle. Il représente le temps d’exécution cumulé depuis le début de la requête. La dernière réponse indique le temps d’exécution total. Cet en-tête est utile pour déterminer si la latence provient du client ou du serveur. Vous pouvez comparer le temps d’exécution du parcours sur le client avec la valeur de cet en-tête. |
 | **x-ms-status-code** | long | 200 | Success and Failure (« Succès et échec ») | Cet en-tête indique le motif interne d’exécution ou d’achèvement d’une requête. L’application est invitée à examiner la valeur de cet en-tête et à appliquer une action corrective. |
 | **x-ms-substatus-code** | long | 1003 | Échec uniquement | Cosmos DB est une base de données multimodèle basée sur une couche de stockage unifiée. Cet en-tête contient des insights supplémentaires concernant le motif de l’échec quand l’échec se produit dans les couches inférieures de la pile de haute disponibilité. L’application est invitée à stocker cet en-tête et à l’utiliser lors d’une communication avec le service clientèle Cosmos DB. La valeur de cet en-tête permet aux ingénieurs Cosmos DB de résoudre les problèmes plus rapidement. |
-| **x-ms-retry-after-ms** | Chaîne (TimeSpan) | "00:00:03.9500000" | Échec uniquement | Cet en-tête est une représentation d’un type .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) sous forme de chaîne. Cette valeur est incluse uniquement dans les requêtes ayant échoué en raison de la saturation du débit provisionné. L’application doit soumettre de nouveau le parcours après le délai indiqué. |
+| **x-ms-retry-after-ms** | Chaîne (TimeSpan) | "00:00:03.9500000" | Échec uniquement | Cet en-tête est une représentation d’un type .NET [TimeSpan](/dotnet/api/system.timespan) sous forme de chaîne. Cette valeur est incluse uniquement dans les requêtes ayant échoué en raison de la saturation du débit provisionné. L’application doit soumettre de nouveau le parcours après le délai indiqué. |
 | **x-ms-activity-id** | Chaîne (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success and Failure (« Succès et échec ») | Cet en-tête contient l’identificateur côté serveur unique d’une requête. Le serveur attribue un identificateur unique à chaque requête à des fins de suivi. Les applications doivent consigner les identificateurs d’activité retournés par le serveur en vue des situations où les clients souhaitent contacter le service clientèle au sujet d’une requête spécifique. Le personnel du service clientèle de Cosmos DB peut rechercher des requêtes spécifiques à l’aide de ces identificateurs dans les données de télémétrie du service Cosmos DB. |
 
 ## <a name="status-codes"></a>Codes d’état
@@ -43,7 +43,7 @@ Les codes d’état les plus courants retournés par le serveur sont listés ci-
 | **408** | `"Server timeout"` indique que le parcours a pris plus de **30 secondes** et qu’il a été annulé par le serveur. Optimisez vos parcours pour qu’ils s’exécutent rapidement en filtrant les arêtes ou les sommets sur chaque tronçon afin d’affiner l’étendue de recherche.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Cela se produit généralement lorsque le sommet ou une arête avec identificateur existe déjà dans le graphique.| 
 | **412** | Le code d’état s’accompagne du message d’erreur `"PreconditionFailedException": One of the specified pre-condition is not met`. Il indique une violation du contrôle d’accès concurrentiel optimiste entre la lecture d’une arête ou d’un sommet et sa réécriture dans le magasin après modification. Dans la plupart des cas, cette erreur se produit lors d’une modification de propriété, par exemple `g.V('identifier').property('name','value')`. Le moteur Gremlin lit le sommet, le modifie, puis procède à sa réécriture. Si un autre parcours exécuté en parallèle tente d’écrire le même sommet ou une arête, l’un d’eux recevra cette erreur. L’application doit soumettre de nouveau le parcours au serveur.| 
-| **429** | La demande a été limitée et doit être retentée après la valeur définie dans **x-ms-retry-after-ms**.| 
+| **429** | La demande a été limitée et doit être retentée après la valeur définie dans **x-ms-retry-after-ms** .| 
 | **500** | Le message d'erreur qui contient `"NotFoundException: Entity with the specified id does not exist in the system."` indique qu'une base de données et/ou une collection ont été recréées avec le même nom. Cette erreur disparaîtra dans les 5 minutes à mesure que la modification se propagera et invalidera les caches de différents composants Cosmos DB. Pour éviter ce problème, utilisez des noms de base de données et de collection uniques à chaque fois.| 
 | **1 000** | Ce code d’état est retourné quand le serveur a correctement analysé un message, mais que l’exécution a échoué. Il indique généralement un problème avec la requête.| 
 | **1001** | Ce code est retourné quand le serveur termine l’exécution du parcours, mais ne parvient pas à sérialiser la réponse en retour pour le client. Cette erreur peut se produire quand le parcours génère un résultat complexe, trop grand ou non conforme à la spécification du protocole TinkerPop. Quand elle rencontre cette erreur, l’application doit simplifier le parcours. | 

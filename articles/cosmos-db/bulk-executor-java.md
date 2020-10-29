@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489334"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.  
 
-* Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements. Vous pouvez également utiliser l'[émulateur Azure Cosmos DB](/azure/cosmos-db/local-emulator) avec le point de terminaison `https://localhost:8081`. La clé primaire est fournie dans des [requêtes d’authentification](local-emulator.md#authenticate-requests).  
+* Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements. Vous pouvez également utiliser l'[émulateur Azure Cosmos DB](./local-emulator.md) avec le point de terminaison `https://localhost:8081`. La clé primaire est fournie dans des [requêtes d’authentification](local-emulator.md#authenticate-requests).  
 
 * [Java Development Kit (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.  
@@ -215,5 +215,3 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
     
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur les packages maven et les notes de publication de la bibliothèque Java de l’exécuteur en bloc, consultez les [détails sur le SDK BulkExecutor](sql-api-sdk-bulk-executor-java.md).
-
-

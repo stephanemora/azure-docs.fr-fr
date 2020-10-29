@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281852"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490660"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API SQL d’Azure Cosmos DB
 
@@ -175,8 +175,8 @@ Pour en savoir plus sur l’optimisation de votre consommation d’unités de re
 
 * [Unités de requête et débit dans Azure Cosmos DB](request-units.md)
 * [Optimiser le coût du débit approvisionné dans Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimiser le coût de requête dans Azure Cosmos DB](optimize-cost-queries.md)
-* [Mettre à l’échelle le débit provisionné au niveau global](scaling-throughput.md)
+* [Optimiser le coût de requête dans Azure Cosmos DB](./optimize-cost-reads-writes.md)
+* [Mettre à l’échelle le débit provisionné au niveau global](./request-units.md)
 * [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md)
 * [Approvisionner le débit pour un conteneur](how-to-provision-container-throughput.md)
 * [Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB](use-metrics.md)

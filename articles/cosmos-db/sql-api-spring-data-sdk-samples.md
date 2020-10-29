@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: aaa9a78342cf64461d85d7542c7ed8a69186906b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f49b7a2b4acc42724616121186093b112867d2b5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487719"
 ---
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>API SQL Azure Cosmos DB : Exemples Spring Data Azure Cosmos DB v3
 
@@ -34,9 +34,9 @@ ms.locfileid: "92275105"
 > Spring Data Azure Cosmos DB prend uniquement en charge l’API SQL.
 >
 > Pour plus d’informations concernant Spring Data sur d’autres API d’Azure Cosmos DB, consultez les articles suivants :
-> * [Spring Data pour Apache Cassandra avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring Data MongoDB avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin avec Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Spring Data pour Apache Cassandra avec Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB avec Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin avec Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 > [!IMPORTANT]  
@@ -80,7 +80,7 @@ $ cd azure-spring-data-cosmos-java-sql-api-samples
 
 Vous pouvez exécuter les exemples à l’aide d’un environnement de développement intégré (Eclipse, IntelliJ ou VSCODE), ou depuis la ligne de commande en utilisant Maven.
 
-Dans **application.properties**, ces variables d’environnement doivent être définies
+Dans **application.properties** , ces variables d’environnement doivent être définies
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}
@@ -115,7 +115,7 @@ Le fichier [exemples](https://github.com/Azure-Samples/azure-spring-data-cosmos-
 | [Rechercher des documents](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java#L73-L77) | CosmosRepository.derivedQueryMethod |
 
 ## <a name="custom-query-examples"></a>Exemples de requêtes personnalisées
-Le fichier [exemples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) indique comment effectuer les tâches suivantes à l’aide de la syntaxe de requête SQL. Pour en savoir plus sur les informations de référence sur les requêtes SQL dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez [Exemples de requêtes SQL pour Azure Cosmos DB](how-to-sql-query.md). 
+Le fichier [exemples](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) indique comment effectuer les tâches suivantes à l’aide de la syntaxe de requête SQL. Pour en savoir plus sur les informations de référence sur les requêtes SQL dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez [Exemples de requêtes SQL pour Azure Cosmos DB](./sql-query-getting-started.md). 
 
 
 | Tâche | Informations de référence sur l'API |

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118948"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489351"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modèles de conception des flux de modification dans Azure Cosmos DB
 
@@ -52,7 +52,7 @@ En plus de lire à partir du flux de modification d’un conteneur Cosmos, vous 
 
 ### <a name="high-availability"></a>Haute disponibilité
 
-Azure Cosmos DB offre jusqu’à 99,999 % de disponibilité en lecture et en écriture. Contrairement à de nombreuses files d’attente de messages, il est facile de configurer et de distribuer les données Azure Cosmos DB mondialement avec un [objectif de temps de récupération (RTO)](consistency-levels-tradeoffs.md#rto) de zéro.
+Azure Cosmos DB offre jusqu’à 99,999 % de disponibilité en lecture et en écriture. Contrairement à de nombreuses files d’attente de messages, il est facile de configurer et de distribuer les données Azure Cosmos DB mondialement avec un [objectif de temps de récupération (RTO)](./consistency-levels.md#rto) de zéro.
 
 Après avoir traité des éléments dans le flux de modification, vous pouvez créer une vue matérialisée et conserver les valeurs agrégées dans Azure Cosmos DB. Si vous utilisez Azure Cosmos DB pour créer un jeu, vous pouvez, par exemple, utiliser le flux de modification pour implémenter des classements en temps réel basés sur des scores de jeux terminés.
 
@@ -73,7 +73,7 @@ Quand vous devez [dénormaliser des données dans des partitions et des conteneu
 
 ## <a name="event-sourcing"></a>Provisionnement en événements
 
-Le [modèle de provisionnement en événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) implique l’utilisation d’un magasin avec ajout uniquement pour enregistrer la série complète d’actions sur ces données. Le flux de modification d’Azure Cosmos DB est un bon choix de magasin de données central dans les architectures de provisionnement en événements où toute l’ingestion des données est modélisée en tant qu’écritures (aucune mise à jour ou suppression). Dans ce cas, chaque écriture dans Azure Cosmos DB est un « événement », et vous aurez un enregistrement complet des événements passés dans le flux de modification. Les utilisations les plus courantes des événements publiés par le magasin d’événements central concernent la gestion des vues matérialisées ou l’intégration à des systèmes externes. Étant donné qu’il n’existe pas de limite de temps pour la conservation dans le flux de modification, vous pouvez relire tous les événements passés en lisant à partir du début du flux de modification de votre conteneur Cosmos.
+Le [modèle de provisionnement en événements](/azure/architecture/patterns/event-sourcing) implique l’utilisation d’un magasin avec ajout uniquement pour enregistrer la série complète d’actions sur ces données. Le flux de modification d’Azure Cosmos DB est un bon choix de magasin de données central dans les architectures de provisionnement en événements où toute l’ingestion des données est modélisée en tant qu’écritures (aucune mise à jour ou suppression). Dans ce cas, chaque écriture dans Azure Cosmos DB est un « événement », et vous aurez un enregistrement complet des événements passés dans le flux de modification. Les utilisations les plus courantes des événements publiés par le magasin d’événements central concernent la gestion des vues matérialisées ou l’intégration à des systèmes externes. Étant donné qu’il n’existe pas de limite de temps pour la conservation dans le flux de modification, vous pouvez relire tous les événements passés en lisant à partir du début du flux de modification de votre conteneur Cosmos.
 
 Vous pouvez faire en sorte que [plusieurs consommateurs de flux de modification s’abonnent au flux de modification du même conteneur](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Hormis le débit provisionné du [conteneur de baux](change-feed-processor.md#components-of-the-change-feed-processor), il n’y a aucun coût d’utilisation associé au flux de modification. Le flux de modification est disponible dans chaque conteneur, qu’il soit utilisé ou non.
 

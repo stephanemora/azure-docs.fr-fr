@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff828024610ce498d40a4039d8116e28366aebb9
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975718"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494424"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 mise à jour
 
@@ -37,7 +37,7 @@ Il est essentiel que NDv2 soit conçu pour répondre à la fois à des charges d
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
 Infiniband Prise en charge<br>
 <br>
 

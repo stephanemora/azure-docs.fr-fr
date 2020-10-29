@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2e988067add1513036e2f314e84a7ba6908cdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907560"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488059"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL - Serveur unique avec une capacité de réserve
 
@@ -20,15 +20,15 @@ Faites des économies avec Azure Database pour PostgreSQL en utilisant le prépa
 Vous n’avez pas besoin d’attribuer la réservation à des serveurs Azure Database pour PostgreSQL spécifiques. Un serveur Azure Database pour PostgreSQL déjà en cours d’exécution (ou plusieurs récemment déployés) bénéficient automatiquement du tarif réservé. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les charges de calcul Azure Database pour PostgreSQL qui correspondent aux attributs de la réservation ne sont plus facturées au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL. À l’issue de la période de réservation, la remise sur facturation expire et les serveurs Azure Database pour PostgreSQL sont facturés au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve Azure Database pour PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> La tarification de la capacité de réserve est disponible pour Azure Database pour PostgreSQL dans les options de déploiement [Serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) et [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus). Pour plus d’informations sur la tarification d’instance réservée sur Hyperscale (Citus), consultez [cette page](concepts-hyperscale-reserved-pricing.md).
+> La tarification de la capacité de réserve est disponible pour Azure Database pour PostgreSQL dans les options de déploiement [Serveur unique](./overview.md#azure-database-for-postgresql---single-server) et [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus). Pour plus d’informations sur la tarification d’instance réservée sur Hyperscale (Citus), consultez [cette page](concepts-hyperscale-reserved-pricing.md).
 
-Vous pouvez acheter une capacité de réserve Azure Database pour PostgreSQL sur le [Portail Azure](https://portal.azure.com/). Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/monthly-payments-reservations.md). Pour acheter une capacité réservée :
+Vous pouvez acheter une capacité de réserve Azure Database pour PostgreSQL sur le [Portail Azure](https://portal.azure.com/). Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md). Pour acheter une capacité réservée :
 
 * Vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.
 * Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com/). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 * Pour ce qui est du programme des fournisseurs de solutions cloud (CSP), seuls les agents d’administration ou les agents commerciaux peuvent acheter une capacité de réserve Azure Database pour PostgreSQL. </br>
 
-Plus en savoir plus sur la facturation des achats de réservation pour les clients professionnels et les clients bénéficiant du paiement à l’utilisation, consultez les articles [Comprendre l’utilisation d’une réservation Azure pour votre inscription Entreprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) et [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Plus en savoir plus sur la facturation des achats de réservation pour les clients professionnels et les clients bénéficiant du paiement à l’utilisation, consultez les articles [Comprendre l’utilisation d’une réservation Azure pour votre inscription Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) et [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Déterminer la bonne taille de serveur avant l’achat
@@ -41,8 +41,8 @@ Par exemple, supposons que vous exécutez une base de données Gen5 – 32 vCore
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acheter une capacité de réserve Azure Database pour PostgreSQL
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Tous les services** > **Réservations**.
-3. Sélectionnez **Ajouter**, puis dans le volet Acheter des réservations, sélectionnez **Azure Database pour PostgreSQL** pour acheter une nouvelle réservation pour vos bases de données PostgreSQL.
+2. Sélectionnez **Tous les services** > **Réservations** .
+3. Sélectionnez **Ajouter** , puis dans le volet Acheter des réservations, sélectionnez **Azure Database pour PostgreSQL** pour acheter une nouvelle réservation pour vos bases de données PostgreSQL.
 4. Renseignez les champs obligatoires. Les bases de données existantes ou nouvelles, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre réel de vos serveurs Azure Database pour PostgreSQL qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 
 
@@ -63,7 +63,7 @@ Le tableau suivant décrit les champs requis.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilité de la taille vCore
 
@@ -79,9 +79,9 @@ La remise de réservation vCore est appliquée automatiquement au nombre de serv
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-* [Qu’est-ce que des réservations Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) ?
-* [Gérer les réservations Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Comprendre la remise sur réservation Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Qu’est-ce que des réservations Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md) ?
+* [Gérer les réservations Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Comprendre la remise sur réservation Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](/partner-center/azure-reservations)

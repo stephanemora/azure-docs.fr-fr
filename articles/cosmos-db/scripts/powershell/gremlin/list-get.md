@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 09def7b2cbe111318abb2334f8f073c4576823b5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d790164b21419794f47f6fd99ac55824dc8af1a9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280614"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489181"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Répertorier et obtenir des bases de données et des graphiques Azure Cosmos DB - API Gremlin
 
@@ -39,13 +39,13 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Liste les comptes Cosmos DB ou obtient un compte Cosmos DB spécifié. |
-| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Liste les bases de données d’API Gremlin d’un compte ou obtient une base de données d’API Gremlin spécifiée d’un compte. |
-| [Set-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Liste les API Graph Gremlin d’une base de données ou obtient une table d’API Gremlin spécifiée d’une base de données. |
+| [Get-AzCosmosDBAccount](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Liste les comptes Cosmos DB ou obtient un compte Cosmos DB spécifié. |
+| [Get-AzCosmosDBGremlinDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Liste les bases de données d’API Gremlin d’un compte ou obtient une base de données d’API Gremlin spécifiée d’un compte. |
+| [Set-AzCosmosDBGremlinDatabase](/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Liste les API Graph Gremlin d’une base de données ou obtient une table d’API Gremlin spécifiée d’une base de données. |
 |**Groupes de ressources Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).

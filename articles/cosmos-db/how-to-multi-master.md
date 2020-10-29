@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570663"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486138"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multirégions dans les applications qui utilisent Azure Cosmos DB
 
@@ -129,8 +129,8 @@ Consultez les articles suivants :
 * [Types de conflit et stratégies de résolution dans Azure Cosmos DB](conflict-resolution-policies.md)
 * [Haute disponibilité dans Azure Cosmos DB](high-availability.md)
 * [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
-* [Choisir le niveau de cohérence approprié dans Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compromis entre cohérence, disponibilité et niveau de performance dans Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
-* [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
+* [Choisir le niveau de cohérence approprié dans Azure Cosmos DB](./consistency-levels.md)
+* [Compromis entre cohérence, disponibilité et niveau de performance dans Azure Cosmos DB](./consistency-levels.md)
+* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](./consistency-levels.md)
+* [Mise à l’échelle du débit provisionné au niveau global](./request-units.md)
 * [Distribution mondiale : Sous le capot](global-dist-under-the-hood.md)

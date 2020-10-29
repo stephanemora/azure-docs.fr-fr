@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
-ms.openlocfilehash: 097323b4566daeda737428121bee4d64e9f7248b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69e7551fbf5b2f38dbc080a468baf81849e4372e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74951562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490949"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight : exemples .NET
 
@@ -33,7 +33,7 @@ Vous pouvez [activer les avantages de votre abonnement Visual Studio](https://az
 
 ## <a name="prerequisite"></a>Configuration requise
 
-[SDK Azure HDInsight pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
+[SDK Azure HDInsight pour .NET](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Gestion des clusters - création
 
@@ -46,4 +46,4 @@ Vous pouvez obtenir ces exemples pour .NET en clonant le dépôt GitHub [hdinsig
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Des extraits de code pour les fonctionnalités supplémentaires de ce SDK sont disponibles dans la [documentation de référence du SDK HDInsight pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Des extraits de code pour les fonctionnalités supplémentaires de ce SDK sont disponibles dans la [documentation de référence du SDK HDInsight pour .NET](/dotnet/api/overview/azure/hdinsight&preserve-view=true).

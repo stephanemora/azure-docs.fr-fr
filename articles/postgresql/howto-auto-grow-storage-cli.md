@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 8/7/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4d4d9c6ac3eb4e9b0642f1ecb714b19a5029a314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fdfab88109e77a75b4092e19e7f3bcd3ec893c3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87493769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490082"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Activer la croissance automatique d’un stockage Azure Database pour PostgreSQL - Serveur unique avec Azure CLI
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour PostgreSQL sans affecter la charge de travail.
 
-Le serveur [qui atteint la limite de stockage](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit) est placé en lecture seule. Si la croissance automatique du stockage est activée pour les serveurs avec moins de 100 Go de stockage provisionnés, la taille du stockage provisionné augmente de 5 Go dès que l’espace de stockage disponible est inférieur à 1 Go ou à 10 % du stockage provisionné (selon la valeur la plus élevée). Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Les limites de stockage maximales spécifiées [ici](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) s’appliquent.
+Le serveur [qui atteint la limite de stockage](./concepts-pricing-tiers.md#reaching-the-storage-limit) est placé en lecture seule. Si la croissance automatique du stockage est activée pour les serveurs avec moins de 100 Go de stockage provisionnés, la taille du stockage provisionné augmente de 5 Go dès que l’espace de stockage disponible est inférieur à 1 Go ou à 10 % du stockage provisionné (selon la valeur la plus élevée). Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionné augmente de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Les limites de stockage maximales spécifiées [ici](./concepts-pricing-tiers.md#storage) s’appliquent.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide pratique, il vous faut :

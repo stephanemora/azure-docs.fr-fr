@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: e322449913ca1f8848f0d8c60ac6f11a28bdfb91
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ab8ffb41d45f60394c27eb492b19eaf280c2e64e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282019"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488297"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-powershell"></a>Créer un verrou de ressource pour un espace de clés et une table d’API Cassandra Azure Cosmos avec Azure PowerShell
 
@@ -42,11 +42,11 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Ressource Azure**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | Crée un verrou de ressource. |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | Obtient un verrou de ressource ou liste les verrous de ressources. |
-| [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | Supprime un verrou de ressource. |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | Crée un verrou de ressource. |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | Obtient un verrou de ressource ou liste les verrous de ressources. |
+| [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | Supprime un verrou de ressource. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).

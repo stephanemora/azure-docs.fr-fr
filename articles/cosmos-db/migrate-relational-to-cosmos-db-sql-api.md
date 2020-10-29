@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: aaff5adf358c31d99df7a51305c4e3554c3259c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166248"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487430"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrer des données relationnelles de type un-à-plusieurs vers un compte API SQL Azure Cosmos DB
 
@@ -340,5 +340,5 @@ Dans l’une ou l’autre approche, nous devrions correctement enregistrer à la
 :::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Capture d’écran montrant les tables Orders et OrderDetails dans la base de données SQL.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la [modélisation des données dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)
-* Lire le [Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example)
+* En savoir plus sur la [modélisation des données dans Azure Cosmos DB](./modeling-data.md)
+* Lire le [Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB](./how-to-model-partition-example.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487498"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utiliser des données à l’aide d’Azure Cosmos Explorer 
 
@@ -27,19 +27,19 @@ L’explorateur Azure Cosmos DB est une interface web autonome qui vous permet d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
 
-2. À partir de **Toutes les ressources**, recherchez et accédez à votre compte Azure Cosmos DB, sélectionnez Clés et copiez la **Chaîne de connexion principale**.  
+2. À partir de **Toutes les ressources** , recherchez et accédez à votre compte Azure Cosmos DB, sélectionnez Clés et copiez la **Chaîne de connexion principale** .  
 
-3. Accédez à https://cosmos.azure.com/, collez la chaîne de connexion, puis sélectionnez **Connexion**. À l’aide de la chaîne de connexion, vous pouvez accéder à l’explorateur Azure Cosmos DB sans aucune limitation de durée.  
+3. Accédez à https://cosmos.azure.com/, collez la chaîne de connexion, puis sélectionnez **Connexion** . À l’aide de la chaîne de connexion, vous pouvez accéder à l’explorateur Azure Cosmos DB sans aucune limitation de durée.  
 
    Si vous souhaitez fournir à d’autres utilisateurs un accès temporaire à votre compte Azure Cosmos DB, vous pouvez le faire par le biais d’URL d’accès en lecture-écriture et en lecture. 
 
-4. Ouvrez le panneau **Explorateur de données** et sélectionnez **Ouvrir en mode plein écran**. Dans la boîte de dialogue contextuelle, vous pouvez voir deux URL d’accès : **Lecture-écriture** et **Lecture**. Ces URL vous permettent de partager temporairement votre compte Azure Cosmos DB avec d’autres utilisateurs. L’accès au compte expire au bout de 24 heures, après quoi vous pouvez vous reconnecter au moyen d’une nouvelle URL d’accès, ou de la chaîne de connexion. 
+4. Ouvrez le panneau **Explorateur de données** et sélectionnez **Ouvrir en mode plein écran** . Dans la boîte de dialogue contextuelle, vous pouvez voir deux URL d’accès : **Lecture-écriture** et **Lecture** . Ces URL vous permettent de partager temporairement votre compte Azure Cosmos DB avec d’autres utilisateurs. L’accès au compte expire au bout de 24 heures, après quoi vous pouvez vous reconnecter au moyen d’une nouvelle URL d’accès, ou de la chaîne de connexion. 
 
    **Lecture-écriture** : lorsque vous partagez l’URL en lecture-écriture avec d’autres utilisateurs, ceux-ci peuvent voir et modifier les bases de données, collections, requêtes et d’autres ressources associées à ce compte particulier.
 
    **Lecture** : lorsque vous partagez l’URL en lecture seule avec d’autres utilisateurs, ceux-ci peuvent afficher les bases de données, collections, requêtes et d’autres ressources associées à ce compte particulier. Par exemple, si vous souhaitez partager les résultats d’une requête avec vos collègues qui n’ont pas accès au portail Azure ou à votre compte Azure Cosmos DB, vous pouvez leur fournir cette URL.
 
-   Choisissez le type d’accès avec lequel vous souhaitez ouvrir le compte et cliquez sur **Ouvrir**. Une fois l’Explorateur ouvert, l’expérience est identique à celle que vous aviez avec l’onglet Explorateur de données dans le portail Azure.
+   Choisissez le type d’accès avec lequel vous souhaitez ouvrir le compte et cliquez sur **Ouvrir** . Une fois l’Explorateur ouvert, l’expérience est identique à celle que vous aviez avec l’onglet Explorateur de données dans le portail Azure.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Ouvrir l’explorateur Azure Cosmos DB":::
 
@@ -55,4 +55,4 @@ Si les clients reçoivent des erreurs HTTP-401, cela peut être dû à des auto
 
 Maintenant que vous avez découvert comment démarrer avec l’explorateur Azure Cosmos DB pour gérer vos données, vous pouvez :
 
-* Commencer à définir des [requêtes](sql-api-query-reference.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](stored-procedures-triggers-udfs.md) en vous servant de procédures stockées, d’UDF et de déclencheurs. 
+* Commencer à définir des [requêtes](./sql-query-getting-started.md) à l’aide de la syntaxe SQL, et faire de la [programmation côté serveur](stored-procedures-triggers-udfs.md) en vous servant de procédures stockées, d’UDF et de déclencheurs.

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498852"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485101"
 ---
 # <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
 
-Le fournisseur de requêtes d’Azure Cosmos DB effectue le meilleur mappage possible entre une requête LINQ et une requête SQL Cosmos DB. Si vous souhaitez obtenir la requête SQL traduite à partir de LINQ, utilisez la méthode `ToString()` sur l’objet `IQueryable` généré. La description suivante suppose une connaissance de base de [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+Le fournisseur de requêtes d’Azure Cosmos DB effectue le meilleur mappage possible entre une requête LINQ et une requête SQL Cosmos DB. Si vous souhaitez obtenir la requête SQL traduite à partir de LINQ, utilisez la méthode `ToString()` sur l’objet `IQueryable` généré. La description suivante suppose une connaissance de base de [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 Le système de type du fournisseur de requêtes prend en charge uniquement les types primitifs JSON : numérique, booléen, chaîne et null.
 
@@ -82,15 +82,15 @@ Le fournisseur LINQ inclus avec le kit SDK .NET SQL prend en charge les opérate
 - **Select** : les projections sont traduites en [SELECT](sql-query-select.md), y compris la construction d’objets.
 - **Where** : les filtres sont traduits en [WHERE](sql-query-where.md) et prennent en charge la traduction de `&&`, `||` et `!` en opérateurs SQL
 - **SelectMany** : autorise le déroulement de tableaux vers la clause [JOIN](sql-query-join.md). Permet d’associer/imbriquer des expressions afin de filtrer les éléments de tableau.
-- **OrderBy** et **OrderByDescending** : sont traduits en [ORDER BY](sql-query-order-by.md) avec ASC ou DESC.
-- Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’[agrégation](sql-query-aggregates.md), et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
+- **OrderBy** et **OrderByDescending**  : sont traduits en [ORDER BY](sql-query-order-by.md) avec ASC ou DESC.
+- Les opérateurs **Count** , **Sum** , **Min** , **Max** et **Average** pour l’ [agrégation](sql-query-aggregates.md), et leurs équivalents asynchrones **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** et **AverageAsync** .
 - **CompareTo** : se traduit par des comparaisons de plages. Généralement utilisé pour les chaînes, car elles ne sont pas comparables en .NET.
 - **Skip** et **Take** : traduit en [OFFSET et LIMIT](sql-query-offset-limit.md) afin de limiter les résultats d’une requête et d’effectuer la pagination.
-- **Fonctions mathématiques** : prennent en charge la traduction des fonctions .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les [fonctions mathématiques intégrées](sql-query-mathematical-functions.md) équivalentes.
-- **Fonctions de chaîne** : prennent en charge la traduction des fonctions .NET `Concat`, `Contains`, `Count`, `EndsWith`, `IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` et `TrimStart` vers les [fonctions de chaîne intégrées](sql-query-string-functions.md) équivalentes.
-- **Fonctions de tableau** : prennent en charge la traduction des fonctions .NET `Concat`, `Contains` et `Count` vers les [fonctions de tableau intégrées](sql-query-array-functions.md) équivalentes.
-- **Fonctions d’extension géospatiale** : prennent en charge la traduction des méthodes stub `Distance`, `IsValid`, `IsValidDetailed` et `Within` vers les [fonctions géospatiales intégrées](sql-query-geospatial-query.md) équivalentes.
-- **Fonction d’extension de fonction définie par l’utilisateur** : prend en charge la traduction de la méthode stub `UserDefinedFunctionProvider.Invoke` vers la [fonction définie par l’utilisateur](sql-query-udfs.md) correspondante.
+- **Fonctions mathématiques**  : prennent en charge la traduction des fonctions .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les [fonctions mathématiques intégrées](sql-query-mathematical-functions.md) équivalentes.
+- **Fonctions de chaîne**  : prennent en charge la traduction des fonctions .NET `Concat`, `Contains`, `Count`, `EndsWith`, `IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` et `TrimStart` vers les [fonctions de chaîne intégrées](sql-query-string-functions.md) équivalentes.
+- **Fonctions de tableau**  : prennent en charge la traduction des fonctions .NET `Concat`, `Contains` et `Count` vers les [fonctions de tableau intégrées](sql-query-array-functions.md) équivalentes.
+- **Fonctions d’extension géospatiale**  : prennent en charge la traduction des méthodes stub `Distance`, `IsValid`, `IsValidDetailed` et `Within` vers les [fonctions géospatiales intégrées](sql-query-geospatial-query.md) équivalentes.
+- **Fonction d’extension de fonction définie par l’utilisateur**  : prend en charge la traduction de la méthode stub `UserDefinedFunctionProvider.Invoke` vers la [fonction définie par l’utilisateur](sql-query-udfs.md) correspondante.
 - **Miscellaneous** : prend en charge la traduction de `Coalesce` et des [opérateurs](sql-query-operators.md) conditionnels. Peut traduire `Contains` en chaîne CONTAINS, ARRAY_CONTAINS ou IN, selon le contexte.
 
 ## <a name="examples"></a>Exemples

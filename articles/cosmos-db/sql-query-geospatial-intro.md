@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482823"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Données de localisation géospatiales et GeoJSON dans Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Les données géospatiales impliquent souvent des requêtes de proximité, comme
 
 Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre et aux données géospatiales. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac.
 
-L’API SQL Azure Cosmos DB prend en charge deux types de données spatiales : les données de type **géométrique** et les données de type **géographique**.
+L’API SQL Azure Cosmos DB prend en charge deux types de données spatiales : les données de type **géométrique** et les données de type **géographique** .
 
 - Le type **géométrique** représente des données dans un système de coordonnées euclidien (plat)
 - Le type **geography** représente des données dans un système de coordonnées de monde sphérique.
@@ -86,11 +86,11 @@ Les types de données spatiales peuvent être incorporés dans un document Azure
 
 ### <a name="points-in-a-geometry-coordinate-system"></a>Points dans un système de coordonnées géométriques
 
-Pour le type de données **géométrique**, la spécification GeoJSON définit d’abord l’axe horizontal puis l’axe vertical.
+Pour le type de données **géométrique** , la spécification GeoJSON définit d’abord l’axe horizontal puis l’axe vertical.
 
 ### <a name="points-in-a-geography-coordinate-system"></a>Points dans un système de coordonnées géographiques
 
-Pour le type de données **geography**, la spécification GeoJSON spécifie d’abord la longitude, puis la latitude. Comme dans d'autres applications de mappage, la longitude et la latitude sont des angles et sont exprimées en degrés. Les valeurs de longitude sont mesurées à partir du premier méridien et sont comprises entre -180 degrés et 180 degrés. Les valeurs de latitude sont mesurées à partir de l’Équateur et sont comprises entre -90 degrés et 90 degrés.
+Pour le type de données **geography** , la spécification GeoJSON spécifie d’abord la longitude, puis la latitude. Comme dans d'autres applications de mappage, la longitude et la latitude sont des angles et sont exprimées en degrés. Les valeurs de longitude sont mesurées à partir du premier méridien et sont comprises entre -180 degrés et 180 degrés. Les valeurs de latitude sont mesurées à partir de l’Équateur et sont comprises entre -90 degrés et 90 degrés.
 
 Azure Cosmos DB interprète les coordonnées représentées par le système de référence WGS-84. Voir ci-dessous pour plus d’informations sur les systèmes de coordonnées de référence.
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-Si vous n'avez pas les informations de latitude et de longitude, mais disposez des adresses physiques ou du nom d'emplacement comme la ville ou le pays/la région, vous pouvez rechercher les coordonnées réelles à l'aide d'un service de géocodage comme Bing Maps REST Services. En savoir plus sur le géocodage de Bing Maps [ici](https://msdn.microsoft.com/library/ff701713.aspx).
+Si vous n'avez pas les informations de latitude et de longitude, mais disposez des adresses physiques ou du nom d'emplacement comme la ville ou le pays/la région, vous pouvez rechercher les coordonnées réelles à l'aide d'un service de géocodage comme Bing Maps REST Services. En savoir plus sur le géocodage de Bing Maps [ici](/bingmaps/rest-services/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

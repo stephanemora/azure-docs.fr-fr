@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5583e8423f0909936d9e55c6d87593835eded8f7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708218"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489895"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -32,7 +32,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.
-   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces** , dans la zone de texte **Envoyer les alertes à** , fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurer la détection des menaces":::
 
@@ -62,5 +62,5 @@ Cliquez sur **Alertes de sécurité** sous **PROTECTION CONTRE LES MENACES** pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database pour PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/).  
+* En savoir plus sur [Azure Security Center](../security-center/security-center-introduction.md)
+* Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database pour PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/).

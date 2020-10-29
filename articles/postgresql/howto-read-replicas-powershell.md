@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bacb7a434cfa04dbdfdaf39d9fd3a0baab5f11a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704784"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489810"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à l’aide de PowerShell
 
@@ -26,14 +26,14 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide de PowerShell.
 
 Pour utiliser ce guide pratique, il vous faut :
 
-- Le [module Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installé localement ou [Azure Cloud Shell](https://shell.azure.com/) dans le navigateur
+- Le [module Az PowerShell](/powershell/azure/install-az-ps) installé localement ou [Azure Cloud Shell](https://shell.azure.com/) dans le navigateur
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Tant que le module Az.PostgreSql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.PostgreSql -AllowPrerelease`
 > Une fois que le module Az.PostgreSql PowerShell est en disponibilité générale, il devient partie intégrante des versions ultérieures du module Az PowerShell et est disponible en mode natif dans Azure Cloud Shell.
 
-Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,12 +51,12 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 La commande `New-AzPostgreSqlServerReplica` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myResourceGroup |  Groupe de ressources où le serveur réplica est créé.  |
+| ResourceGroupName |  myResourceGroup |  Groupe de ressources où le serveur réplica est créé.  |
 | Nom | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
 
-Pour créer un réplica en lecture entre régions, utilisez le paramètre **Location**. L’exemple suivant crée un réplica dans la région **USA Ouest**.
+Pour créer un réplica en lecture entre régions, utilisez le paramètre **Location** . L’exemple suivant crée un réplica dans la région **USA Ouest** .
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
@@ -80,9 +80,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 La commande `Get-AzMariaDReplica` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| ResourceGroupName |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | ServerName | mydemoserver | Nom ou ID du serveur principal. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica

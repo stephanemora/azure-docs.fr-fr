@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 56e8212d60494d469e225c25edbbd331c601ea6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 847ae3688fb713ddbd2dbf196ad1b89a6bb472a1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804158"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486631"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Pièces jointes Azure Cosmos DB
 
@@ -160,7 +160,7 @@ namespace attachments
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Prise en main du [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) .NET v2 d’Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet&preserve-view=true)
-- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) Java v2 d’Azure Cosmos DB](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable&preserve-view=true)
-- Obtenir des références pour l’utilisation de pièces jointes via l’[API REST d’Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/attachments)
+- Prise en main du [stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) .NET v2 d’Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
+- Obtenir des références pour l’utilisation de pièces jointes via le [kit de développement logiciel (SDK) Java v2 d’Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Obtenir des références pour l’utilisation de pièces jointes via l’[API REST d’Azure Cosmos DB](/rest/api/cosmos-db/attachments)

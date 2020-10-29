@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 5832214b5b0a98249f951915e867db8542c28a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23e70d8ed17846100d82a5545e9215bce4eee30f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803957"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491340"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit de développement logiciel (SDK) d’API de table Azure Cosmos DB pour Python : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91803957"
 |   |   |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python&preserve-view=true)|
+|**Documentation de l’API**|[Documentation de référence sur l’API Python](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6](https://www.python.org/downloads/)|
@@ -61,5 +61,4 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

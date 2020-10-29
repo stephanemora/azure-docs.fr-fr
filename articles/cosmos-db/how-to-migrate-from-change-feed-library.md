@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490983"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrer de la bibliothèque du processeur de flux de modification vers le kit de développement logiciel (SDK) Azure Cosmos DB .NET V3
 
@@ -23,7 +23,7 @@ Cet article décrit la procédure de migration d'un code d'application existante
 Le kit de développement logiciel (SDK) .NET V3 présente plusieurs changements cassants et vous trouverez ci-dessous les principales étapes pour migrer votre application :
 
 1. Convertissez les instances `DocumentCollectionInfo` en références `Container` pour les conteneurs surveillés et de baux.
-1. Les personnalisations utilisant `WithProcessorOptions` doivent être mises à jour pour utiliser `WithLeaseConfiguration` et `WithPollInterval` pour les intervalles, `WithStartTime` [pour l'heure de début](how-to-configure-change-feed-start-time.md) et `WithMaxItems` pour définir le nombre maximal d’éléments.
+1. Les personnalisations utilisant `WithProcessorOptions` doivent être mises à jour pour utiliser `WithLeaseConfiguration` et `WithPollInterval` pour les intervalles, `WithStartTime` [pour l'heure de début](./change-feed-processor.md#starting-time) et `WithMaxItems` pour définir le nombre maximal d’éléments.
 1. Définissez `processorName` sur `GetChangeFeedProcessorBuilder` à des fins de correspondance avec la valeur configurée sur `ChangeFeedProcessorOptions.LeasePrefix` ou utilisez `string.Empty`.
 1. Les modifications ne sont plus fournies sous forme de `IReadOnlyList<Document>`, mais de `IReadOnlyCollection<T>` où `T` correspond à un type que vous devez définir. Il n'existe plus de classe d'élément de base.
 1. Pour gérer les modifications, vous n’êtes plus tenu d'utiliser une implémentation, mais vous devez [définir un délégué](change-feed-processor.md#implementing-the-change-feed-processor). Le délégué peut être une fonction statique ou, s'il vous faut maintenir l'état entre les exécutions vous pouvez créer votre propre classe et transmettre une méthode d’instance en tant que délégué.
@@ -60,4 +60,4 @@ Pour plus d’informations sur le processeur de flux de modification, consultez 
 
 * [Vue d’ensemble du processeur de flux de modification](change-feed-processor.md)
 * [Utilisation de l’estimateur de flux de modification](how-to-use-change-feed-estimator.md)
-* [Heure de début du processeur de flux de modification](how-to-configure-change-feed-start-time.md)
+* [Heure de début du processeur de flux de modification](./change-feed-processor.md#starting-time)

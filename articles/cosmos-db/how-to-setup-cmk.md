@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836507"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486206"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 
-Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiquement et de façon fluide avec des clés gérées par Microsoft (**clés gérées par le service**). Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec des clés gérées par vos soins (**clés gérées par le client**).
+Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiquement et de façon fluide avec des clés gérées par Microsoft ( **clés gérées par le service** ). Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec des clés gérées par vos soins ( **clés gérées par le client** ).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Couches de chiffrement autour des données du client":::
 
@@ -26,17 +26,17 @@ Vous devez stocker les clés gérées par le client dans [Azure Key Vault](../ke
 
 ## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a> Inscrire le fournisseur de ressources Azure Cosmos DB dans l’abonnement Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/), accédez à votre abonnement Azure et sélectionnez **Fournisseurs de ressources** sous l’onglet **Paramètres** :
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/), accédez à votre abonnement Azure et sélectionnez **Fournisseurs de ressources** sous l’onglet **Paramètres**  :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Couches de chiffrement autour des données du client":::
 
-1. Recherchez le fournisseur de ressources **Microsoft.DocumentDB**. Vérifiez si le fournisseur de ressources est déjà marqué comme inscrit. Si ce n’est pas le cas, choisissez le fournisseur de ressources et sélectionnez **Inscrire** :
+1. Recherchez le fournisseur de ressources **Microsoft.DocumentDB** . Vérifiez si le fournisseur de ressources est déjà marqué comme inscrit. Si ce n’est pas le cas, choisissez le fournisseur de ressources et sélectionnez **Inscrire**  :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Couches de chiffrement autour des données du client":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurer votre instance Azure Key Vault
 
-L’utilisation de clés gérées par le client avec Azure Cosmos DB vous oblige à définir deux propriétés sur l’instance Azure Key Vault que vous prévoyez d’utiliser pour héberger vos clés de chiffrement : **Suppression réversible** et **Protection de purge**.
+L’utilisation de clés gérées par le client avec Azure Cosmos DB vous oblige à définir deux propriétés sur l’instance Azure Key Vault que vous prévoyez d’utiliser pour héberger vos clés de chiffrement : **Suppression réversible** et **Protection de purge** .
 
 Si vous créez une instance Azure Key Vault, activez ces propriétés lors de la création :
 
@@ -53,13 +53,13 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Couches de chiffrement autour des données du client":::
 
-1. Sélectionnez **+ Ajouter une stratégie d’accès**.
+1. Sélectionnez **+ Ajouter une stratégie d’accès** .
 
-1. Dans le menu déroulant **Autorisations de clé**, sélectionnez les autorisations **Get**, **Unwrap Key** et **Wrap Key** :
+1. Dans le menu déroulant **Autorisations de clé** , sélectionnez les autorisations **Get** , **Unwrap Key** et **Wrap Key**  :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Couches de chiffrement autour des données du client":::
 
-1. Sous **Sélectionner le principal**, sélectionnez **Aucune sélection**. Ensuite, recherchez le principal **Azure Cosmos DB** et sélectionnez-le. Pour faciliter la recherche, vous pouvez également effectuer une recherche par ID de principal : `a232010e-820c-4083-83bb-3ace5fc29d0b` pour toute région Azure, à l’exception des régions Azure Government où l’ID principal est `57506a73-e302-42a9-b869-6f12d9ec29e9`. Enfin, choisissez **Sélectionner** en bas. Si le principal **Azure Cosmos DB** ne figure pas dans la liste, vous devrez peut-être réinscrire le fournisseur de ressources **Microsoft.DocumentDB** comme cela est décrit dans la section [Inscrire le fournisseur de ressources](#register-resource-provider) de cet article.
+1. Sous **Sélectionner le principal** , sélectionnez **Aucune sélection** . Ensuite, recherchez le principal **Azure Cosmos DB** et sélectionnez-le. Pour faciliter la recherche, vous pouvez également effectuer une recherche par ID de principal : `a232010e-820c-4083-83bb-3ace5fc29d0b` pour toute région Azure, à l’exception des régions Azure Government où l’ID principal est `57506a73-e302-42a9-b869-6f12d9ec29e9`. Enfin, choisissez **Sélectionner** en bas. Si le principal **Azure Cosmos DB** ne figure pas dans la liste, vous devrez peut-être réinscrire le fournisseur de ressources **Microsoft.DocumentDB** comme cela est décrit dans la section [Inscrire le fournisseur de ressources](#register-resource-provider) de cet article.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Couches de chiffrement autour des données du client":::
 
@@ -73,13 +73,13 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Couches de chiffrement autour des données du client":::
 
-1. Sélectionnez **Générer/importer**, attribuez un nom à la nouvelle clé, puis sélectionnez une taille de clé RSA. Un minimum de 3072 est recommandé pour une sécurité optimale. Sélectionnez ensuite **Créer** :
+1. Sélectionnez **Générer/importer** , attribuez un nom à la nouvelle clé, puis sélectionnez une taille de clé RSA. Un minimum de 3072 est recommandé pour une sécurité optimale. Sélectionnez ensuite **Créer**  :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Couches de chiffrement autour des données du client":::
 
 1. Une fois la clé créée, sélectionnez la clé que vous venez de créer puis sa version actuelle.
 
-1. Copiez l’**identificateur de clé** de la clé à l’exception de la partie qui suit la dernière barre oblique :
+1. Copiez l’ **identificateur de clé** de la clé à l’exception de la partie qui suit la dernière barre oblique :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Couches de chiffrement autour des données du client":::
 
@@ -87,7 +87,7 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Lorsque vous créez un compte Azure Cosmos DB à partir du Portail Azure, choisissez **Clé gérée par le client** à l’étape **Chiffrement**. Dans le champ **URI de clé**, collez l’identificateur URI/clé de la clé Azure Key Vault que vous avez copiée à partir de l’étape précédente :
+Lorsque vous créez un compte Azure Cosmos DB à partir du Portail Azure, choisissez **Clé gérée par le client** à l’étape **Chiffrement** . Dans le champ **URI de clé** , collez l’identificateur URI/clé de la clé Azure Key Vault que vous avez copiée à partir de l’étape précédente :
 
 :::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Couches de chiffrement autour des données du client":::
 
@@ -95,7 +95,7 @@ Lorsque vous créez un compte Azure Cosmos DB à partir du Portail Azure, choisi
 
 Lorsque vous créez un compte Azure Cosmos DB avec PowerShell :
 
-- Transmettez l’URI de la clé Azure Key Vault copiée précédemment sous la propriété **keyVaultKeyUri** dans **PropertyObject**.
+- Transmettez l’URI de la clé Azure Key Vault copiée précédemment sous la propriété **keyVaultKeyUri** dans **PropertyObject** .
 
 - Utilisez **2019-12-12** ou une version ultérieure comme version de l’API.
 
@@ -135,7 +135,7 @@ Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
 
 Lorsque vous créez un compte Azure Cosmos via un modèle Azure Resource Manager :
 
-- Transmettez l’URI de la clé Azure Key Vault copiée précédemment sous la propriété **keyVaultKeyUri** dans l’objet **properties**.
+- Transmettez l’URI de la clé Azure Key Vault copiée précédemment sous la propriété **keyVaultKeyUri** dans l’objet **properties** .
 
 - Utilisez **2019-12-12** ou une version ultérieure comme version de l’API.
 
@@ -234,7 +234,7 @@ La rotation de la clé gérée par le client utilisée par votre compte Azure Co
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Couches de chiffrement autour des données du client":::
 
-    Remplacez ensuite l’**URI de la clé** par la nouvelle clé que vous souhaitez utiliser, puis sélectionnez **Enregistrer** :
+    Remplacez ensuite l’ **URI de la clé** par la nouvelle clé que vous souhaitez utiliser, puis sélectionnez **Enregistrer**  :
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Couches de chiffrement autour des données du client":::
 
@@ -279,7 +279,7 @@ Lorsque vous utilisez des clés gérées par le client, les [unités de requête
 
 Toutes les données stockées dans votre compte Azure Cosmos sont chiffrées avec les clés gérées par le client, à l’exception des métadonnées suivantes :
 
-- Les noms de vos [comptes, bases de données et conteneurs](./account-overview.md#elements-in-an-azure-cosmos-account) Azure Cosmos DB
+- Les noms de vos [comptes, bases de données et conteneurs](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account) Azure Cosmos DB
 
 - Les noms de vos [procédures stockées](./stored-procedures-triggers-udfs.md)
 

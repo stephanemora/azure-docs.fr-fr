@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 427facaffa277ec44ee99d70681928f49fe31df8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2aa4e7d063141f74dc94e5f23cd227fcc16ba84f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278473"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487413"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Tutoriel : Créer des applications mobiles avec Xamarin et Azure Cosmos DB
 
@@ -21,7 +21,7 @@ ms.locfileid: "92278473"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.JS](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -34,12 +34,12 @@ Azure Cosmos DB fournit les fonctionnalités clés suivantes aux développeurs d
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="Fonctionnalités d’Azure Cosmos DB pour les applications mobiles":::
 
-* Requêtes riches sur des données sans schéma. Azure Cosmos DB stocke les données sous la forme de documents JSON sans schéma dans des collections hétérogènes. Il propose des [requêtes riches et rapides](how-to-sql-query.md), qui ne nécessitent aucun schéma ou index.
+* Requêtes riches sur des données sans schéma. Azure Cosmos DB stocke les données sous la forme de documents JSON sans schéma dans des collections hétérogènes. Il propose des [requêtes riches et rapides](./sql-query-getting-started.md), qui ne nécessitent aucun schéma ou index.
 * Débit rapide. Seules quelques millisecondes sont nécessaires pour lire et écrire des documents avec Azure Cosmos DB. Les développeurs peuvent spécifier le débit dont ils ont besoin, et Azure Cosmos DB l’honore avec une disponibilité à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
 * Mise à l’échelle illimitée. Vos conteneurs Azure Cosmos [augmentent à mesure que votre application grandit](partitioning-overview.md). Vous pouvez commencer par des données de petite taille et un débit réduit, soit quelques centaines de requêtes par seconde. Vos collections ou bases de données peuvent inclure jusqu’à plusieurs pétaoctets de données et un débit arbitrairement élevé, soit des centaines de millions de requêtes par seconde.
 * Distribution globale. Les utilisateurs d’applications mobiles sont en déplacement, souvent aux quatre coins du monde. Azure Cosmos DB est une [base de données mondialement distribuée](distribute-data-globally.md). Cliquez sur la carte pour rendre les données accessibles à vos utilisateurs.
 * Autorisation riche intégrée. Avec Azure Cosmos DB, vous implémentez facilement des modèles très répandus, comme les [données par utilisateur](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) ou les données partagées par plusieurs utilisateurs, sans recourir à un code d’autorisation complexe personnalisé.
-* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](geospatial.md), Azure Cosmos DB rend la création de ces expériences facile à accomplir.
+* Requêtes géospatiales. Beaucoup d’applications mobiles proposent aujourd’hui des expériences géocontextuelles. Grâce à la prise en charge de première classe des [types géospatiaux](./sql-query-geospatial-intro.md), Azure Cosmos DB rend la création de ces expériences facile à accomplir.
 * Pièces jointes binaires. Vos données d’application comprennent souvent des blobs binaires. La prise en charge native des pièces jointes simplifie l’utilisation d’Azure Cosmos DB comme guichet unique pour les données de votre application.
 
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Didacticiel Azure Cosmos DB et Xamarin
@@ -106,8 +106,5 @@ Félicitations ! Vous avez terminé la solution et vous disposez d’une applic
 * Affichez le code source de [Xamarin et Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Téléchargez le [SDK .NET Core Azure Cosmos DB](sql-api-sdk-dotnet-core.md).
 * Consultez davantage d’exemples de code pour les [applications .NET](sql-api-dotnet-samples.md).
-* Découvrez plus en détail les [riches fonctionnalités d’interrogation d’Azure Cosmos DB](how-to-sql-query.md).
-* Découvrez plus en détail la [prise en charge géospatiale dans Azure Cosmos DB](geospatial.md).
-
-
-
+* Découvrez plus en détail les [riches fonctionnalités d’interrogation d’Azure Cosmos DB](./sql-query-getting-started.md).
+* Découvrez plus en détail la [prise en charge géospatiale dans Azure Cosmos DB](./sql-query-geospatial-intro.md).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 20437844ffc07e2ccdedaf712c7d194a711dcd31
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 04ed417d05a9770162dfe4bfbbf85a32e85e0761
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282386"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488195"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-db-account-using-powershell"></a>Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos DB en utilisant PowerShell
 
@@ -41,12 +41,12 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Obtient la chaîne de connexion ou la clé (en lecture-écriture ou en lecture seule) pour un compte Cosmos DB. |
-| [New-AzCosmosDBAccountKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regénère la clé spécifiée pour un compte Cosmos DB. |
+| [Get-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) | Obtient la chaîne de connexion ou la clé (en lecture-écriture ou en lecture seule) pour un compte Cosmos DB. |
+| [New-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/new-azcosmosdbaccountkey) | Regénère la clé spécifiée pour un compte Cosmos DB. |
 |**Groupes de ressources Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).

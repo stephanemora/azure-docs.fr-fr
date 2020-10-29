@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: beca38e46dd2223211fb403d1e1734a5d406075b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7d860ad28ff54a9f300f5c90314b9a7c9f6943dd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283102"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490677"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-table-api"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API Table d’Azure Cosmos DB
 
@@ -44,4 +44,4 @@ Pour en savoir plus sur l’optimisation de votre consommation d’unités de re
 
 * [Unités de requête et débit dans Azure Cosmos DB](request-units.md)
 * [Optimiser le coût du débit approvisionné dans Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimiser le coût de requête dans Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimiser le coût de requête dans Azure Cosmos DB](./optimize-cost-reads-writes.md)

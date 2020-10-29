@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59781f9b86764d0982e1612f9671e8f0919ed490
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009506"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488433"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Créer des conteneurs avec une grande clé de partition
 
@@ -22,7 +22,7 @@ Les grandes clés de partition sont prises en charge moyennant une version amél
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>Créer une grande clé de partition (portail Azure)
 
-Pour créer une grande clé de partition, quand vous créez un conteneur à l’aide du portail Azure, activez l’option **Ma clé de partition est supérieure à 100 octets**. Désactivez la case à cocher si vous n’avez pas besoin de grandes clés de partition ou si vos applications s’exécutent sur des kits de développement logiciel (SDK) antérieurs à la version 1.18.
+Pour créer une grande clé de partition, quand vous créez un conteneur à l’aide du portail Azure, activez l’option **Ma clé de partition est supérieure à 100 octets** . Désactivez la case à cocher si vous n’avez pas besoin de grandes clés de partition ou si vos applications s’exécutent sur des kits de développement logiciel (SDK) antérieurs à la version 1.18.
 
 :::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Créer de grandes clés de partition à l’aide du portail Azure":::
 
@@ -83,4 +83,4 @@ Actuellement, vous ne pouvez pas utiliser de conteneurs avec de grandes clés de
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionnement dans Azure Cosmos DB)
 * [Unités de requête dans Azure Cosmos DB](request-units.md)
 * [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md)
-* [Utiliser un compte Azure Cosmos](account-overview.md)
+* [Utiliser un compte Azure Cosmos](./account-databases-containers-items.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 143b79a0e65d842daae84fb7565c0caa64e3b68a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 726242b9a4a6585d440322540dc5353bcbe20d29
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276170"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488229"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Créer un compte Azure Cosmos DB avec un pare-feu IP
 
@@ -41,11 +41,11 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | Commande | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crée un compte Cosmos DB. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crée un compte Cosmos DB. |
 |**Groupes de ressources Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).

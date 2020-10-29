@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 516989e37e8c9eb0c4ab35ea6add4f5b6526ee6d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.custom: contperfq2
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893456"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486920"
 ---
 # <a name="manage-app-consent-policies"></a>Gérer les stratégies de consentement des applications
 
@@ -56,14 +57,14 @@ Il est judicieux de commencer par vous familiariser avec les stratégies de cons
 1. Affichez les ensembles de conditions « includes » d’une stratégie :
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. Affichez les ensembles de conditions « excludes » d’une stratégie :
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
@@ -132,7 +133,7 @@ Le tableau suivant fournit la liste des conditions prises en charge pour les str
 | Condition | Description|
 |:---------------|:----------|
 | PermissionClassification | La [classification des autorisations](configure-permission-classifications.md) pour l’autorisation accordée, ou « All » pour correspondre à toute classification d’autorisation (y compris les autorisations qui ne sont pas classées). La valeur par défaut est « All ». |
-| PermissionType | Type d’autorisation de l’autorisation accordée. Utilisez « application » pour les autorisations de l’application (par exemple, les rôles d’application) ou « delegated » pour les autorisations déléguées. <br><br>**Remarque** : La valeur « delegatedUserConsentable » indique des autorisations déléguées qui n’ont pas été configurées par le serveur de publication de l’API pour exiger le consentement de l’administrateur. Cette valeur peut être utilisée dans les stratégies d’autorisations intégrées, mais ne peut pas être utilisée dans les stratégies d’autorisation personnalisées. Obligatoire. |
+| PermissionType | Type d’autorisation de l’autorisation accordée. Utilisez « application » pour les autorisations de l’application (par exemple, les rôles d’application) ou « delegated » pour les autorisations déléguées. <br><br>**Remarque**  : La valeur « delegatedUserConsentable » indique des autorisations déléguées qui n’ont pas été configurées par le serveur de publication de l’API pour exiger le consentement de l’administrateur. Cette valeur peut être utilisée dans les stratégies d’autorisations intégrées, mais ne peut pas être utilisée dans les stratégies d’autorisation personnalisées. Obligatoire. |
 | ResourceApplication | **AppId** de l’application de ressource (par exemple, l’API) pour laquelle une autorisation est accordée, ou « any » pour correspondre à n’importe quelle application ou API de ressources. La valeur par défaut est « any ». |
 | Autorisations | Liste des ID d’autorisation pour les autorisations spécifiques de correspondance ou une liste avec la valeur unique « all » pour toutes les autorisations. La valeur par défaut est la seule valeur « tout ». <ul><li>Les ID d’autorisations déléguées se trouvent dans la propriété **OAuth2Permissions** de l’objet ServicePrincipal de l’API.</li><li>Les ID d’autorisations d’application se trouvent dans la propriété **AppRoles** de l’objet ServicePrincipal de l’API.</li></ol> |
 | ClientApplicationIds | Liste de valeurs **AppId** auxquelles les applications clientes doivent correspondre ou liste avec la valeur unique « all » pour correspondre à n’importe quelle application cliente. La valeur par défaut est la seule valeur « tout ». |

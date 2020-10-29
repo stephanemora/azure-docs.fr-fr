@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279761"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490507"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Pour sécuriser les données stockées dans votre compte, Azure Cosmos DB pren
 
 Par défaut, votre compte Azure Cosmos est accessible depuis Internet, tant que la demande est accompagnée d’un jeton d’autorisation valide. Pour configurer le contrôle d’accès basé sur la stratégie IP, l’utilisateur doit fournir le jeu d’adresses IP ou des plages d’adresses IP au format CIDR (Classless Inter-Domain Routing) pour être ajouté à la liste d’adresses IP clientes autorisées pour un accès à un compte Azure Cosmos donné. Une fois cette configuration appliquée, toutes les demandes provenant d'ordinateurs qui ne figurent pas sur cette liste autorisée reçoivent une réponse 403 (Interdit). Lorsque vous utilisez un pare-feu IP, il est recommandé d’autoriser le portail Azure à accéder à votre compte. L’accès est requis pour autoriser l’utilisation de l’Explorateur de données ainsi que pour récupérer des métriques pour votre compte qui s’affichent sur le portail Azure. Lorsque vous utilisez l’explorateur de données, en plus de permettre au portail Azure d'accéder à votre compte, vous devez mettre à jour vos paramètres de pare-feu pour ajouter votre adresse IP actuelle aux règles de pare-feu. Notez que la propagation des modifications apportées au pare-feu peut prendre jusqu'à 15 minutes.
 
-Vous pouvez combiner des pare-feu IP avec le contrôle d’accès de réseau virtuel et de sous-réseau. En les combinant, vous pouvez limiter l’accès à n’importe quelle source qui a une adresse IP publique et/ou à partir d’un sous-réseau spécifique au sein du réseau virtuel. Pour en savoir plus sur l’utilisation du contrôle d’accès basé sur le sous-réseau et le réseau virtuel, consultez [Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels](vnet-service-endpoint.md).
+Vous pouvez combiner des pare-feu IP avec le contrôle d’accès de réseau virtuel et de sous-réseau. En les combinant, vous pouvez limiter l’accès à n’importe quelle source qui a une adresse IP publique et/ou à partir d’un sous-réseau spécifique au sein du réseau virtuel. Pour en savoir plus sur l’utilisation du contrôle d’accès basé sur le sous-réseau et le réseau virtuel, consultez [Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels](./how-to-configure-vnet-service-endpoint.md).
 
 Pour résumer, le jeton d’autorisation est toujours requis pour accéder à un compte Azure Cosmos. Si le pare-feu IP et la liste de contrôle d’accès (ACL) de réseau virtuel ne sont pas configurés, le compte Azure Cosmos est accessible avec le jeton d’autorisation. Une fois que le pare-feu IP ou la liste de contrôle d’accès (ACL) de réseau virtuel ou les deux sont configurés sur le compte Azure Cosmos, seules les demandes provenant des sources que vous avez spécifiées (et avec le jeton d’autorisation) obtiennent des réponses valides. 
 
@@ -91,7 +91,7 @@ Quand vous effectuez un scale-out de votre service cloud en ajoutant des instanc
 
 ### <a name="requests-from-virtual-machines"></a>Demandes à partir de machines virtuelles
 
-Vous pouvez également utiliser des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour héberger les services de couche intermédiaire à l’aide d’Azure Cosmos DB. Pour configurer votre compte Cosmos DB de telle manière qu’il autorise l’accès à partir de machines virtuelles, vous devez configurer l’adresse IP publique de la machine virtuelle et/ou le groupe de machines virtuelles identiques comme étant l’une des adresses IP autorisées pour votre compte Azure Cosmos DB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy).
+Vous pouvez également utiliser des [machines virtuelles](https://azure.microsoft.com/services/virtual-machines/) ou des [jeux de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/overview.md) pour héberger les services de couche intermédiaire à l’aide d’Azure Cosmos DB. Pour configurer votre compte Cosmos DB de telle manière qu’il autorise l’accès à partir de machines virtuelles, vous devez configurer l’adresse IP publique de la machine virtuelle et/ou le groupe de machines virtuelles identiques comme étant l’une des adresses IP autorisées pour votre compte Azure Cosmos DB en [configurant la stratégie de contrôle d’accès IP](#configure-ip-policy).
 
 Vous pouvez récupérer des adresses IP pour les machines virtuelles dans le portail Azure, comme illustré dans la capture d’écran suivante :
 
@@ -105,7 +105,7 @@ Quand vous accédez à votre compte Azure Cosmos DB à partir d’un ordinateur
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurer un pare-feu IP à l’aide d’un modèle Resource Manager
 
-Pour configurer le contrôle d'accès à votre compte Azure Cosmos DB, vérifiez que le modèle Resource Manager spécifie la propriété **ipRules** avec un tableau de plages d'adresses IP autorisées. Si vous configurez le pare-feu IP sur un compte Cosmos déjà déployé, vérifiez que le tableau `locations` correspond à ce qui est actuellement déployé. Vous ne pouvez pas modifier simultanément le tableau `locations` et d’autres propriétés. Pour plus d’informations et pour obtenir des exemples de modèles Azure Resource Manager pour Azure Cosmos DB, consultez [Modèles Azure Resource Manager pour Azure Cosmos DB](resource-manager-samples.md).
+Pour configurer le contrôle d'accès à votre compte Azure Cosmos DB, vérifiez que le modèle Resource Manager spécifie la propriété **ipRules** avec un tableau de plages d'adresses IP autorisées. Si vous configurez le pare-feu IP sur un compte Cosmos déjà déployé, vérifiez que le tableau `locations` correspond à ce qui est actuellement déployé. Vous ne pouvez pas modifier simultanément le tableau `locations` et d’autres propriétés. Pour plus d’informations et pour obtenir des exemples de modèles Azure Resource Manager pour Azure Cosmos DB, consultez [Modèles Azure Resource Manager pour Azure Cosmos DB](./templates-samples-sql.md).
 
 > [!IMPORTANT]
 > La propriété **ipRules** a été introduite avec la version 2020-04-01 de l'API. Les versions précédentes exposaient plutôt une propriété **ipRangeFilter** , qui correspond à une liste d'adresses IP séparées par des virgules.
@@ -221,7 +221,7 @@ Lorsque vous accédez à des ressources Azure Cosmos DB à l’aide de kits SDK 
 
 ### <a name="source-ips-in-blocked-requests"></a>Adresses IP sources dans les demandes bloquées
 
-Activez la journalisation des diagnostics sur votre compte Azure Cosmos DB. Ces journaux d’activité affichent chaque demande et réponse. Les messages associés au pare-feu sont journalisés avec le code de retour 403. En filtrant ces messages, vous pouvez voir les adresses IP sources des demandes bloquées. Consultez [Journalisation des diagnostics Azure Cosmos DB](logging.md).
+Activez la journalisation des diagnostics sur votre compte Azure Cosmos DB. Ces journaux d’activité affichent chaque demande et réponse. Les messages associés au pare-feu sont journalisés avec le code de retour 403. En filtrant ces messages, vous pouvez voir les adresses IP sources des demandes bloquées. Consultez [Journalisation des diagnostics Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Demandes à partir d’un sous-réseau avec un point de terminaison de service activé pour Azure Cosmos DB
 

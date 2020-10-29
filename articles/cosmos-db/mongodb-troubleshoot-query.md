@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488382"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Résoudre les problèmes de requête lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
 
@@ -116,7 +116,7 @@ Le résultat de la commande `$explain` est long et contient des informations dé
 | `timeInclusiveMS` | Latence des requêtes du backend |
 | `pathsIndexed` | Affiche les index utilisés par la requête | 
 | `pathsNotIndexed` | Affiche les index que la requête aurait pu utiliser, le cas échéant | 
-| `shardInformation` | Résumé des performances des requêtes pour une [partition physique](partition-data.md#physical-partitions)particulière | 
+| `shardInformation` | Résumé des performances des requêtes pour une [partition physique](./partitioning-overview.md#physical-partitions)particulière | 
 | `retrievedDocumentCount` | Nombre de documents chargés par le moteur de requête | 
 | `outputDocumentCount` | Nombre de documents renvoyés dans les résultats de la requête | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Latence de requête supplémentaire estimée due à la limitation du débit | 
@@ -256,7 +256,7 @@ L’indexation des meilleures pratiques dans l’API d’Azure Cosmos DB pour Mo
 
 [Les index génériques](mongodb-indexing.md#wildcard-indexes) peuvent simplifier l’indexation. Contrairement à MongoDB, les index génériques peuvent prendre en charge plusieurs champs dans les prédicats de requête. Il n’y aura pas de différence dans les performances de requête si vous utilisez un seul index générique au lieu de créer un index distinct pour chaque propriété. L’ajout d’un index générique pour toutes les propriétés est le moyen le plus simple d’optimiser toutes vos requêtes.
 
-Vous pouvez ajouter de nouveaux index à tout moment, sans effet sur la disponibilité en écriture ou en lecture. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Vous pouvez ajouter de nouveaux index à tout moment, sans effet sur la disponibilité en écriture ou en lecture. Vous pouvez [suivre la progression de la transformation d’index](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Comprendre les opérations d’agrégation qui utilisent l’index
 

@@ -7,23 +7,23 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: bc7bc677fb44600721b580ac9efc42feea4d98da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d33308932ecd7c523c6fbe287648d4afc21ef0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252950"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485798"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
-Azure Cosmos DB fournit une exécution transactionnelle avec langage intégré de JavaScript qui vous permet d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur**. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez définir les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) et des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](sql-api-dotnet-samples.md). 
+Azure Cosmos DB fournit une exécution transactionnelle avec langage intégré de JavaScript qui vous permet d’écrire des **procédures stockées** , des **déclencheurs** et des **fonctions définies par l’utilisateur** . Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez définir les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) et des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](sql-api-dotnet-samples.md). 
 
 Pour appeler une procédure stockée, un déclencheur, une fonction définie par l’utilisateur, vous devez les inscrire. Pour plus d’informations, consultez [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB).
 
 > [!NOTE]
 > Pour les conteneurs partitionnés, lorsque vous exécutez une procédure stockée, vous devez fournir une valeur de clé de partition dans les options de requête. Les procédures stockées se limitent toujours à une clé de partition. Les éléments qui ont une valeur de clé de partition différente ne seront pas visibles dans la procédure stockée. Cela s’applique également aux déclencheurs.
 > [!Tip]
-> Cosmos prend en charge le déploiement de conteneurs avec des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur. Pour plus d’informations, consultez [Créer un conteneur Azure Cosmos DB avec des fonctionnalités côté serveur.](manage-sql-with-resource-manager.md#create-sproc)
+> Cosmos prend en charge le déploiement de conteneurs avec des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur. Pour plus d’informations, consultez [Créer un conteneur Azure Cosmos DB avec des fonctionnalités côté serveur.](./manage-with-templates.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Comment écrire des procédures stockées
 

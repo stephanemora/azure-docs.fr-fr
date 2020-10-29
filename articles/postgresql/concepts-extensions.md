@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707946"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485458"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Guide pratique pour utiliser les extensions PostgreSQL
-Les extensions PostgreSQL doivent être installées dans votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande  [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)  dans l’outil psql pour charger les objets empaquetés dans votre base de données.
+Les extensions PostgreSQL doivent être installées dans votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) dans l’outil psql pour charger les objets empaquetés dans votre base de données.
 
 Azure Database pour PostgreSQL prend en charge un sous-ensemble d’extensions clés, comme indiqué ci-dessous. Ces informations sont également disponibles en exécutant `SELECT * FROM pg_available_extensions;`. Les extensions qui ne figurent pas dans la liste ne sont pas prises en charge. Vous ne pouvez pas créer votre propre extension dans Azure Database pour PostgreSQL.
 
@@ -205,7 +205,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 L’[extension pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) est préchargée sur chaque serveur Azure Database pour PostgreSQL afin de vous fournir un moyen de suivre les statistiques d’exécution des instructions SQL.
-Le paramètre `pg_stat_statements.track`, qui contrôle quelles instructions sont comptées par l’extension, a la valeur par défaut `top`, ce qui signifie que toutes les instructions exécutées directement par les clients sont suivies. Les deux autres niveaux de suivi sont `none` et `all`. Ce paramètre peut être configuré comme paramètre de serveur via le [portail Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Le paramètre `pg_stat_statements.track`, qui contrôle quelles instructions sont comptées par l’extension, a la valeur par défaut `top`, ce qui signifie que toutes les instructions exécutées directement par les clients sont suivies. Les deux autres niveaux de suivi sont `none` et `all`. Ce paramètre peut être configuré comme paramètre de serveur via le [portail Azure](./howto-configure-server-parameters-using-portal.md) ou [Azure CLI](./howto-configure-server-parameters-using-cli.md).
 
 Un compromis existe entre les informations d’exécution des requêtes fournies par pg_stat_statements et l’impact sur les performances du serveur en raison de la journalisation de chaque instruction SQL. Si vous n’utilisez pas l’extension pg_stat_statements de façon active, nous vous recommandons de définir `pg_stat_statements.track` sur `none`. Notez que certains services de surveillance tiers peuvent s’appuyer sur pg_stat_statements pour fournir des insights sur les performances des requêtes : vérifiez donc si c’est ou non le cas pour vous.
 
@@ -237,11 +237,11 @@ Pour installer TimescaleDB, vous devez l’inclure dans les bibliothèques de pr
 
 1. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
-2. Dans la barre latérale, sélectionnez **Paramètres du serveur**.
+2. Dans la barre latérale, sélectionnez **Paramètres du serveur** .
 
 3. Recherchez le paramètre `shared_preload_libraries`.
 
-4. Sélectionnez **TimescaleDB**.
+4. Sélectionnez **TimescaleDB** .
 
 5. Sélectionnez **Enregistrer** pour conserver vos modifications. Vous recevez une notification une fois que la modification est enregistrée. 
 

@@ -8,24 +8,24 @@ ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: dd0d7a3a05c108f0d7e95719356079633a0e2276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367b47e8dbe0e1ee56fea620d97109631ba87a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016085"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484880"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](/dotnet/api/overview/azure/hdinsight)
 
 **Prérequis**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Un abonnement Azure** . Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Se connecter à Azure HDInsight
 
@@ -268,7 +268,7 @@ Consultez [Charger les données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](/dotnet/api/overview/azure/hdinsight)
 * [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrer HDInsight à l’aide d’une interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]

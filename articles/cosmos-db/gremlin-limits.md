@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
 ms.author: sngun
-ms.openlocfilehash: 4ac5222e735e0699e507ca1392dc5dd42fc77105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a265f1ae6e925440e2804056348cb705b09da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400466"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490558"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limites d’Azure Cosmos DB Gremlin
 Cet article aborde les limites du moteur Azure Cosmos DB Gremlin et explique comment elles peuvent avoir un impact sur les traversées des clients.
 
-Cosmos DB Gremlin est basé sur l’infrastructure Cosmos DB. Pour cette raison, toutes les limites expliquées dans [Limites du service Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) continuent à s’appliquer.
+Cosmos DB Gremlin est basé sur l’infrastructure Cosmos DB. Pour cette raison, toutes les limites expliquées dans [Limites du service Azure Cosmos DB](./concepts-limits.md) continuent à s’appliquer.
 
 ## <a name="limits"></a>limites
 

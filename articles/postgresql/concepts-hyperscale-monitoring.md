@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314808"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487991"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -22,7 +22,7 @@ La surveillance des données relatives à vos serveurs vous aide à résoudre le
 
 Hyperscale (Citus) fournit des mesures pour chaque nœud dans un groupe de serveurs. Les mesures permettent de mieux comprendre le comportement des ressources de prise en charge. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à 30 jours dans l’historique.
 
-Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 

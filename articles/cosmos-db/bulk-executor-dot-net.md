@@ -10,12 +10,12 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb3e2031d5656668b9971fdf357f66824179fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31baad997733c46cf3e9aa8dc92ac0613468f72f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975881"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489385"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque d’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-* Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements. Vous pouvez également utiliser l’[émulateur Azure Cosmos DB](/azure/cosmos-db/local-emulator) avec le point de terminaison `https://localhost:8081`. La clé primaire est fournie dans des [requêtes d’authentification](local-emulator.md#authenticate-requests).
+* Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements. Vous pouvez également utiliser l’[émulateur Azure Cosmos DB](./local-emulator.md) avec le point de terminaison `https://localhost:8081`. La clé primaire est fournie dans des [requêtes d’authentification](local-emulator.md#authenticate-requests).
 
 * Créez un compte d’API SQL Azure Cosmos DB en suivant les étapes décrites dans la section [Créer un compte de base de données](create-sql-api-dotnet.md#create-account) de l’article de démarrage rapide .NET.
 

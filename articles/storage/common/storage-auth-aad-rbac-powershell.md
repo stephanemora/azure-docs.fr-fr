@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715800"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488756"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utiliser PowerShell pour attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources
 
 Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Cet article décrit comment utiliser Azure PowerShell pour lister les rôles intégrés Azure et les attribuer aux utilisateurs. Pour plus d’informations sur l’utilisation Azure PowerShell, consultez la [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Cet article décrit comment utiliser Azure PowerShell pour lister les rôles intégrés Azure et les attribuer aux utilisateurs. Pour plus d’informations sur l’utilisation Azure PowerShell, consultez la [Vue d’ensemble d’Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -68,7 +68,7 @@ Pour affecter un rôle limité à un conteneur, spécifiez une chaîne contenant
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité à un conteneur nommé *sample-container*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité à un conteneur nommé *sample-container* . Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -84,7 +84,7 @@ Pour affecter un rôle limité à une file d’attente, spécifiez une chaîne c
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données en file d’attente du stockage** à un utilisateur, limité à une file d’attente nommée *sample-queue*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données en file d’attente du stockage** à un utilisateur, limité à une file d’attente nommée *sample-queue* . Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

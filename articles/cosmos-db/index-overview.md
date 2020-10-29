@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 35d81d0076c4b29a8b1399331aa0254178720931
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fcb6e004c86289e2efa89a988b362e76145a9538
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277819"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490422"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Les index **spatiaux** permettent d’exécuter des requêtes efficaces sur des 
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Les index spatiaux sont utilisables sur des objets [GeoJSON](geospatial.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge.
+Les index spatiaux sont utilisables sur des objets [GeoJSON](./sql-query-geospatial-intro.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge.
 
 ### <a name="composite-indexes"></a>Index composites
 

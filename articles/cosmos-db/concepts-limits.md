@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489283"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -144,7 +144,7 @@ Aucune restriction ne pèse sur les charges utiles d’élément comme le nombre
 
 ## <a name="per-request-limits"></a>Limites par demande
 
-Azure Cosmos DB prend en charge les [opérations CRUD et de requête](/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données. Il prend également en charge les [requêtes de lots transactionnels](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) sur plusieurs éléments ayant la même clé de partition dans un conteneur.
+Azure Cosmos DB prend en charge les [opérations CRUD et de requête](/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données. Il prend également en charge les [requêtes de lots transactionnels](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) sur plusieurs éléments ayant la même clé de partition dans un conteneur.
 
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -191,7 +191,7 @@ Pour plus de détails sur le débit et les limites de stockage avec mise à l’
 
 ## <a name="sql-query-limits"></a>Limites de requête SQL
 
-Cosmos DB prend en charge l’interrogation d’éléments à l’aide de [SQL](how-to-sql-query.md). Le tableau suivant décrit les restrictions dans les instructions de requête, par exemple en termes de nombre de clauses ou de longueur de requête.
+Cosmos DB prend en charge l’interrogation d’éléments à l’aide de [SQL](./sql-query-getting-started.md). Le tableau suivant décrit les restrictions dans les instructions de requête, par exemple en termes de nombre de clauses ou de longueur de requête.
 
 | Ressource | Limite par défaut |
 | --- | --- |

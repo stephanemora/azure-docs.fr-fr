@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d784e8bfb0841570f63d8433fa74059eb9e22758
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569819"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487736"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 
@@ -33,14 +33,14 @@ ms.locfileid: "91569819"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [API REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
+|**Documentation de l’API**|[Documentation de référence sur l’API Python](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Prise en main**|[Bien démarrer avec le Kit de développement logiciel (SDK) Python](create-sql-api-python.md)|
 |**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -359,4 +359,4 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331581"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488977"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Questions fréquentes (FAQ) sur Azure Front Door
 
@@ -92,7 +92,6 @@ Pour verrouiller votre application afin de n’accepter que le trafic provenant 
 - Configurez les ACL IP pour vos back-ends de manière à accepter le trafic en provenance uniquement de l’espace d’adressage IP back-end d’Azure Front Door et des services d’infrastructure d’Azure. Reportez-vous aux détails d’adresses IP ci-dessous afin de configurer les listes ACL pour votre back-end :
  
     - Reportez-vous à la section *AzureFrontDoor.Backend* dans [Plages d’adresses IP Azure et étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519) pour la plage d’adresses IP back-end IPv4 de Front Door. Vous pouvez également utiliser l’étiquette de service *AzureFrontDoor.Backend* dans vos [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules).
-    - L’espace d’adresses IP back-end **IPv6** de Front Door, tout en étant couvert dans l’étiquette de service, n’est pas listé dans le fichier JSON des plages d’adresses IP Azure. Si vous recherchez une plage d’adresses IPv6 explicite, elle est limitée à `2a01:111:2050::/44`
     - [Services d’infrastructure de base](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) d’Azure par le biais des adresses IP hôte virtualisées : `168.63.129.16` et `169.254.169.254`
 
     > [!WARNING]

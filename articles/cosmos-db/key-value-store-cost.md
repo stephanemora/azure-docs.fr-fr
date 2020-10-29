@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262818"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488450"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
-Azure Cosmos DB est un service de base de données multimodèle, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](how-to-sql-query.md) (et [JavaScript](stored-procedures-triggers-udfs.md)) rapides et cohérentes sur les données. 
+Azure Cosmos DB est un service de base de données multimodèle, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](./sql-query-getting-started.md) (et [JavaScript](stored-procedures-triggers-udfs.md)) rapides et cohérentes sur les données. 
 
 Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts d’éléments de données. En plus d’un contrat SLA de disponibilité de 99,999 % pour tous les comptes multirégions, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les opérations de lecture et d’écriture (indexées), au 99e centile. 
 
 ## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
 
-Les performances d’Azure Cosmos DB sont basées sur le volume de débit provisionné exprimé en [unités de requête](request-units.md) (RU/s). Le provisionnement se fait avec une précision d’une seconde et s’achète en unité de requête par seconde ([à ne pas confondre avec la facturation horaire](https://azure.microsoft.com/pricing/details/cosmos-db/)). Les unités de requête doivent être considérées comme une abstraction logique (une devise) qui simplifie le provisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier le débit de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité provisionnée permet au service de fournir un **débit prévisible et constant, une faible latence garantie et une haute disponibilité**. Enfin, alors que le modèle des unités de requête permet de décrire le débit, chaque unité de requête provisionnée a également une quantité définie de ressources (mémoire, cœurs/processeur et E/S par seconde).
+Les performances d’Azure Cosmos DB sont basées sur le volume de débit provisionné exprimé en [unités de requête](request-units.md) (RU/s). Le provisionnement se fait avec une précision d’une seconde et s’achète en unité de requête par seconde ([à ne pas confondre avec la facturation horaire](https://azure.microsoft.com/pricing/details/cosmos-db/)). Les unités de requête doivent être considérées comme une abstraction logique (une devise) qui simplifie le provisionnement du débit dont a besoin l’application. Les utilisateurs n’ont donc plus à différencier le débit de lecture et d’écriture. Le modèle de devise unique des unités de requête permet de partager efficacement la capacité approvisionnée entre les opérations de lecture et d’écriture. Ce modèle de capacité provisionnée permet au service de fournir un **débit prévisible et constant, une faible latence garantie et une haute disponibilité** . Enfin, alors que le modèle des unités de requête permet de décrire le débit, chaque unité de requête provisionnée a également une quantité définie de ressources (mémoire, cœurs/processeur et E/S par seconde).
 
 En tant que système de base de données distribué dans le monde entier, Cosmos DB est le seul service Azure à fournir des contrats SLA complets sur la latence, le débit, la cohérence et la haute disponibilité. Le débit que vous provisionnez est appliqué à chacune des régions associées à votre compte Cosmos. Pour les opérations de lecture, Azure Cosmos DB propose plusieurs [niveaux de cohérence](consistency-levels.md) bien définis. 
 
@@ -48,4 +48,3 @@ La plupart des magasins d’objets et d’objets Blob de base facturent 0,40 $ l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Utilisez la [calculatrice d’unités de requête](https://cosmos.azure.com/capacitycalculator/) pour estimer le débit de vos charges de travail.
-

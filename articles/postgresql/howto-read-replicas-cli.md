@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707538"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489708"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Créer et gérer des réplicas en lecture à partir d’Azure CLI ou de l’API REST
 
@@ -23,9 +23,9 @@ Les [réplicas en lecture](concepts-read-replicas.md) et le [décodage logique](
 
 Pour configurer le niveau de journalisation approprié, utilisez le paramètre de prise en charge de la réplication Azure. La prise en charge de la réplication Azure propose trois options de paramétrage :
 
-* **Désactivé** : place le moins d’informations dans le journal WAL. Ce paramètre n’est pas disponible sur la plupart des serveurs Azure Database pour PostgreSQL.  
-* **Réplica** : plus de détails que l’option **Désactivé**. Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
-* **Logique** : plus de détails que l’option **Réplica**. Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
+* **Désactivé**  : place le moins d’informations dans le journal WAL. Ce paramètre n’est pas disponible sur la plupart des serveurs Azure Database pour PostgreSQL.  
+* **Réplica**  : plus de détails que l’option **Désactivé** . Il s’agit du niveau minimal de journalisation nécessaire pour que les [réplicas en lecture](concepts-read-replicas.md) fonctionnent. Il s’agit du paramètre par défaut sur la plupart des serveurs.
+* **Logique**  : plus de détails que l’option **Réplica** . Il s’agit du niveau minimal de journalisation pour que le décodage logique fonctionne. Les réplicas en lecture fonctionnent également avec ce paramètre.
 
 Le serveur doit être redémarré après une modification de ce paramètre. En interne, ce paramètre définit les paramètres Postgres `wal_level`, `max_replication_slots` et `max_wal_senders`.
 
@@ -34,7 +34,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
 ### <a name="prerequisites"></a>Prérequis
 
-- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli)
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-up-azure-cli.md) qui représente le serveur principal.
 
 
@@ -60,7 +60,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
-La commande [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) exige les paramètres suivants :
+La commande [az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) exige les paramètres suivants :
 
 | Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Si vous n’avez pas affecté au paramètre `azure.replication_support` la valeu
 > Avant de modifier un paramètre du serveur principal, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale. Vous garantissez ainsi l’alignement du réplica sur les changements apportés au serveur maître.
 
 ### <a name="list-replicas"></a>Lister les réplicas
-Vous pouvez afficher la liste des réplicas d’un serveur principal en utilisant la commande [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list).
+Vous pouvez afficher la liste des réplicas d’un serveur principal en utilisant la commande [az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list).
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
-Vous pouvez arrêter la réplication entre un serveur principal et un réplica en lecture à l’aide de la commande [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop).
+Vous pouvez arrêter la réplication entre un serveur principal et un réplica en lecture à l’aide de la commande [az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop).
 
 Une fois que vous avez arrêté la réplication entre un serveur principal et un réplica en lecture, vous ne pouvez plus l’annuler. Le réplica en lecture devient un serveur autonome qui prend en charge les lectures et les écritures. Le serveur autonome ne peut pas être retransformé en réplica.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Supprimer un serveur principal ou réplica
-Pour supprimer un serveur principal ou réplica, vous utilisez la commande [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete).
+Pour supprimer un serveur principal ou réplica, vous utilisez la commande [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete).
 
 Quand vous supprimez un serveur principal, la réplication est arrêtée sur tous les réplicas en lecture. Les réplicas en lecture deviennent des serveurs autonomes qui prennent désormais en charge les lectures et les écritures.
 

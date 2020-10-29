@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569731"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486529"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 
@@ -22,7 +22,7 @@ L’authentification par certificat permet d’authentifier votre application cl
 
 * Installez la [version la plus récente](/powershell/azure/install-az-ps) d’Azure PowerShell.
 
-* Si vous n’avez pas [d’abonnement Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+* Si vous n’avez pas [d’abonnement Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
 ## <a name="register-an-app-in-azure-ad"></a>Inscrire une application dans Azure AD
 
@@ -30,21 +30,21 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**. 
+1. Ouvrez le volet Azure **Active Directory** , accédez au volet **Inscriptions d’applications** , puis sélectionnez **Nouvelle inscription** . 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
-1. Remplissez le formulaire **Inscrire une application**, notamment les détails suivants :  
+1. Remplissez le formulaire **Inscrire une application** , notamment les détails suivants :  
 
-   * **Nom** : entrez un nom pour votre application. Cela peut être n’importe quel nom, tel que « sampleApp ».
-   * **Types de comptes pris en charge** : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
-   * **URL de redirection** : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
+   * **Nom**  : entrez un nom pour votre application. Cela peut être n’importe quel nom, tel que « sampleApp ».
+   * **Types de comptes pris en charge**  : choisissez **Comptes dans cet annuaire organisationnel uniquement (répertoire par défaut)** afin de permettre aux ressources de votre répertoire actuel d’accéder à cette application. 
+   * **URL de redirection**  : choisissez l’application de type **Web** et fournissez une URL pointant vers l’emplacement où votre application est hébergée. Il peut s’agir de n’importe quelle URL. Pour cet exemple, vous pouvez fournir une URL de test de type `https://sampleApp.com`, même si l’application n’existe pas.
 
    :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
-1. Une fois le formulaire rempli, sélectionnez **Inscrire**.
+1. Une fois le formulaire rempli, sélectionnez **Inscrire** .
 
-1. Une fois l’application inscrite, notez l’**ID (du client) d’application** et l’ **ID d’objet**. Ces informations vous seront utiles plus tard. 
+1. Une fois l’application inscrite, notez l’ **ID (du client) d’application** et l’ **ID d’objet** . Ces informations vous seront utiles plus tard. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
@@ -107,7 +107,7 @@ La commande ci-dessus donne une sortie similaire à la capture d’écran ci-des
 
 1. Accédez à votre compte Azure Cosmos, ouvrez le panneau **Contrôle d’accès (IAM)** .
 
-1. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**. Ajoutez le sampleApp que vous avez créé à l’étape précédente avec le rôle **Contributeur**, comme indiqué dans la capture d’écran suivante :
+1. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle** . Ajoutez le sampleApp que vous avez créé à l’étape précédente avec le rôle **Contributeur** , comme indiqué dans la capture d’écran suivante :
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Nouvelle inscription d’application dans Active Directory":::
 
@@ -121,11 +121,11 @@ Dans l’inscription d’application Azure pour l’application cliente :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez le volet Azure **Active Directory**, accédez au volet **Inscriptions d’applications**, puis ouvre l’exemple d’application que vous avez créé à l’étape précédente. 
+1. Ouvrez le volet Azure **Active Directory** , accédez au volet **Inscriptions d’applications** , puis ouvre l’exemple d’application que vous avez créé à l’étape précédente. 
 
-1. Sélectionnez **Certificats et secrets**, puis **Télécharger un certificat**. Parcourez jusqu’au fichier de certificat que vous avez créé à l’étape précédente pour le télécharger.
+1. Sélectionnez **Certificats et secrets** , puis **Télécharger un certificat** . Parcourez jusqu’au fichier de certificat que vous avez créé à l’étape précédente pour le télécharger.
 
-1. Sélectionnez **Ajouter**. Une fois le certificat téléchargé, les valeurs d’empreinte, de date de début et d’expiration s’affichent.
+1. Sélectionnez **Ajouter** . Une fois le certificat téléchargé, les valeurs d’empreinte, de date de début et d’expiration s’affichent.
 
 ## <a name="access-the-keys-from-powershell"></a>Accéder aux clés à partir de PowerShell
 
