@@ -277,7 +277,7 @@
     - name: Utilisateur Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Backup
+    - name: Sauvegarde
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -498,7 +498,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Stratégie
+        - name: Policy
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph
@@ -655,6 +655,9 @@
         - name: Firewall Manager
           tocHref: /azure/firewall-manager/
           topicHref: /azure/firewall-manager/
+        - name: DDoS Protection Standard
+          tocHref: /azure/ddos-protection/
+          topicHref: /azure/ddos-protection/
         - name: Front Door Service
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/

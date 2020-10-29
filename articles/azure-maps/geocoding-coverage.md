@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037437"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897209"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
-Le [service de recherche](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps prend en charge le géocodage, ce qui signifie que votre demande d’API peut comporter des termes recherchés, tels qu’une adresse ou le nom d’un emplacement, et retourne le résultat sous la forme de coordonnées de latitude et de longitude. Par exemple, l’[API Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) d’Azure Maps reçoit des requêtes contenant des informations d’emplacement, et retourne les résultats sous la forme de coordonnées de latitude et de longitude.
+Le [service de recherche](/rest/api/maps/search) de Azure Maps prend en charge le géocodage, ce qui signifie que votre demande d’API peut comporter des termes recherchés, tels qu’une adresse ou le nom d’un emplacement, et retourne le résultat sous la forme de coordonnées de latitude et de longitude. Par exemple, l’[API Get Search Address](/rest/api/maps/search/getsearchaddress) d’Azure Maps reçoit des requêtes contenant des informations d’emplacement, et retourne les résultats sous la forme de coordonnées de latitude et de longitude.
 
-Toutefois, le [service Search](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région.
+Toutefois, le [service Search](/rest/api/maps/search) d’Azure Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région.
 
 La possibilité de géocoder dans un pays/une région dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays/région.
 
-* **Points d’adresse** : les données d’adresses peuvent être résolues en coordonnées de latitude/longitude à l’intérieur de la parcelle de l’adresse (limite de propriété). Les points d’adresse sont souvent qualifiés de « Rooftop », ce qui correspond au niveau de précision le plus élevé disponible pour les adresses.
-* **Numéros de résidence** : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
-* **Niveau de rue** : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
-* **Niveau de ville** : Les noms de ville sont pris en charge.
+* **Points d’adresse**  : les données d’adresses peuvent être résolues en coordonnées de latitude/longitude à l’intérieur de la parcelle de l’adresse (limite de propriété). Les points d’adresse sont souvent qualifiés de « Rooftop », ce qui correspond au niveau de précision le plus élevé disponible pour les adresses.
+* **Numéros de résidence**  : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
+* **Niveau de rue**  : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
+* **Niveau de ville**  : Les noms de ville sont pris en charge.
 
 ## <a name="americas"></a>Amérique
 
@@ -301,4 +301,4 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 
 Apprenez-en davantage sur le géocodage d’Azure Maps :
 > [!div class="nextstepaction"]
-> [Service de recherche d’Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Service de recherche d’Azure Maps](/rest/api/maps/search)

@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641957"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900165"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -128,7 +128,7 @@ Vous pouvez déployer une image conteneur Linux qui contient votre application d
 
 >__Comment l’utiliser ?__ Créez une application de fonction Linux dans le plan Premium ou Dédié et spécifiez l’image conteneur à partir de laquelle exécuter l’application. Il existe deux méthodes pour le faire :
 >
->* Créer une application de fonction Linux dans un plan Azure App Service dans le portail Azure. Pour **Publier**, sélectionnez **Image Docker**, puis configurez le conteneur. Entrez l’emplacement d’hébergement de l’image.
+>* Créer une application de fonction Linux dans un plan Azure App Service dans le portail Azure. Pour **Publier** , sélectionnez **Image Docker** , puis configurez le conteneur. Entrez l’emplacement d’hébergement de l’image.
 >* Créer une application de fonction Linux dans un plan App Service par le biais d’Azure CLI. Pour savoir comment procéder, consultez [Créer une fonction sur Linux en utilisant une image personnalisée](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Pour effectuer le déploiement sur une application existante à l’aide d’un conteneur personnalisé, utilisez la commande [`func deploy`](functions-run-local.md#publish) dans [Azure Functions Core Tools](functions-run-local.md).
@@ -212,7 +212,7 @@ Si vous avez besoin de davantage de contrôle sur cette transition, vous devez u
 
 ## <a name="deployment-slots"></a>Emplacements de déploiement
 
-Quand vous déployez votre application de fonction sur Azure, vous pouvez choisir un autre emplacement de déploiement que directement l’emplacement de production. Pour plus d’informations sur les emplacements de déploiement, consultez la documentation sur les [emplacements de déploiement Azure Functions](../app-service/deploy-staging-slots.md).
+Quand vous déployez votre application de fonction sur Azure, vous pouvez choisir un autre emplacement de déploiement que directement l’emplacement de production. Pour plus d’informations sur les emplacements de déploiement, consultez la documentation sur les [emplacements de déploiement Azure Functions](functions-deployment-slots.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

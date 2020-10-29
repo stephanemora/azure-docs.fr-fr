@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311306"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897124"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une forme à une carte à l’aide d'Android SDK Azure Maps
 
@@ -21,12 +21,12 @@ Cet article vous explique comment afficher des formes sur une carte à l'aide d'
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
+Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](./how-to-use-android-map-control-library.md) afin de charger une carte.
 
 
 ## <a name="add-a-line-to-the-map"></a>Ajouter une ligne à la carte
 
-Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**. Pour ce faire, suivez la procédure ci-dessous.
+Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes** . Pour ce faire, suivez la procédure ci-dessous.
 
 1. Modifiez l'élément **res > layout > activity_main.xml** de sorte qu'il se présente comme suit :
 
@@ -76,7 +76,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
 
     ```
     
-    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource**, puis l’ajoute à la carte. Ensuite, il crée une liste d'objets **Point**. Une **chaîne de lignes** est créée à partir de la liste des points et ajoutée à la source de données. Une **couche de lignes** restitue les objets ligne encapsulés dans une source de données sur la carte. Une couche de lignes est ensuite créée et la source de données lui est ajoutée.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource** , puis l’ajoute à la carte. Ensuite, il crée une liste d'objets **Point** . Une **chaîne de lignes** est créée à partir de la liste des points et ajoutée à la source de données. Une **couche de lignes** restitue les objets ligne encapsulés dans une source de données sur la carte. Une couche de lignes est ensuite créée et la source de données lui est ajoutée.
 
     Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
     
@@ -238,7 +238,7 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
     });
     ```
 
-    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource**, puis l’ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource** , puis l’ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
 
     Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
 

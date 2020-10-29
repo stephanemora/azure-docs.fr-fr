@@ -4,12 +4,12 @@ description: Découvrez les procédure d’activation et de configuration de dis
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420861"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900044"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
 
@@ -48,7 +48,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour créer un cluster AKS ou un pool de nœuds pouvant utiliser les disques Ultra, vous avez besoin de la dernière extension CLI *aks-preview*. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+Pour créer un cluster AKS ou un pool de nœuds pouvant utiliser les disques Ultra, vous avez besoin de la dernière extension CLI *aks-preview* . Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -117,7 +117,7 @@ parameters:
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
 
-Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-sc.yaml* :
+Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-sc.yaml*  :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-sc.yaml
@@ -130,7 +130,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 Une revendication de volume persistant (PVC) est utilisée pour configurer automatiquement le stockage basé sur une classe de stockage. Dans ce cas, un PVC peut utiliser la classe de stockage créée précédemment pour créer un disque ultra.
 
-Créez un fichier nommé `azure-ultra-disk-pvc.yaml` et copiez-y le manifeste suivant. La revendication demande un disque nommé `ultra-disk`, d’une taille de *1 000 Go* avec un accès *ReadWriteOnce*. La classe de stockage *ultra-disk-sc* est spécifiée en tant que classe de stockage.
+Créez un fichier nommé `azure-ultra-disk-pvc.yaml` et copiez-y le manifeste suivant. La revendication demande un disque nommé `ultra-disk`, d’une taille de *1 000 Go* avec un accès *ReadWriteOnce* . La classe de stockage *ultra-disk-sc* est spécifiée en tant que classe de stockage.
 
 ```yaml
 apiVersion: v1
@@ -146,7 +146,7 @@ spec:
       storage: 1000Gi
 ```
 
-Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-pvc.yaml* :
+Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-ultra-disk-pvc.yaml*  :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-pvc.yaml
@@ -168,7 +168,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

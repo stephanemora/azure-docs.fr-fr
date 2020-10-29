@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986786"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900354"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à la gestion des ressources dans Azure Kubernetes Services (AKS) pour le développeur d’applications
 
@@ -27,7 +27,7 @@ Cet article traite des bonnes pratiques relatives à l’exécution d’un clust
 
 ## <a name="define-pod-resource-requests-and-limits"></a>À définir les demandes et limites de ressources de pod
 
-**Guide sur les bonnes pratiques** : définissez des demandes et limites de pod sur tous les pods dans vos manifestes YAML. Si le cluster AKS utilise des *quotas de ressources*, votre déploiement peut être rejeté si vous ne définissez pas ces valeurs.
+**Guide sur les bonnes pratiques**  : définissez des demandes et limites de pod sur tous les pods dans vos manifestes YAML. Si le cluster AKS utilise des *quotas de ressources* , votre déploiement peut être rejeté si vous ne définissez pas ces valeurs.
 
 L’un des principaux moyens de gérer les ressources de calcul au sein d’un cluster AKS consiste à utiliser des demandes et des limites de pod. Ces demandes et limites indiquent au planificateur Kubernetes les ressources de calcul à affecter à un pod.
 
@@ -46,9 +46,9 @@ Dans les spécifications de votre pod, il est **recommandé et essentiel** de d�
 Si le planificateur place un pod sur un nœud dont les ressources sont insuffisantes, cela entraîne la dégradation des performances de l’application. Pour les administrateurs de cluster, il est vivement recommandé de définir des *quotas de ressources* sur un espace de noms qui vous oblige à définir des demandes et des limites de ressources. Pour plus d’informations, consultez [Quotas de ressources sur des clusters AKS][resource-quotas].
 
 Quand vous définissez une demande ou une limite d’UC, la valeur est mesurée en unités d’UC. 
-* Une UC de *1.0* équivaut à un cœur de processeur virtuel sous-jacent sur le nœud. 
+* Une UC de  *1.0* équivaut à un cœur de processeur virtuel sous-jacent sur le nœud. 
 * La même mesure est utilisée pour les GPU.
-* Vous pouvez définir des fractions mesurées en millicœurs. Par exemple, *100 m* correspond à *0,1* pour un cœur de processeur virtuel sous-jacent.
+* Vous pouvez définir des fractions mesurées en millicœurs. Par exemple, *100 m* correspond à  *0,1* pour un cœur de processeur virtuel sous-jacent.
 
 Dans l’exemple de base suivant pour un pod NGINX, le pod demande *100m* de temps UC et *128Mi* de mémoire. Les limites de ressources pour le pod sont définies avec *250m* comme UC et *256Mi* comme mémoire :
 
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -74,7 +74,7 @@ Pour plus d’informations sur les mesures et affectations de ressources, consul
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Développer et déboguer des applications sur un cluster AKS
 
-**Guide de bonne pratique** : les équipes de développement doivent déployer et déboguer leurs applications sur un cluster AKS à l’aide de Bridge to Kubernetes.
+**Guide de bonne pratique**  : les équipes de développement doivent déployer et déboguer leurs applications sur un cluster AKS à l’aide de Bridge to Kubernetes.
 
 Avec Bridge to Kubernetes, vous pouvez développer, déboguer et tester les applications directement sur un cluster AKS. Les développeurs d’une équipe travaillent ensemble pour générer et tester l’application tout au long de son cycle de vie. Vous pouvez continuer à utiliser des outils existants tels que Visual Studio ou Visual Studio Code. Une extension est installée pour Bridge to Kubernetes et vous permet de développer directement dans un cluster AKS.
 
@@ -84,7 +84,7 @@ Bridge to Kubernetes est destiné à être utilisé avec les applications qui s�
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Utiliser l’extension Visual Studio Code pour Kubernetes
 
-**Guide sur les bonnes pratiques** : installez et utilisez l’extension VS Code pour Kubernetes quand vous écrivez des manifestes YAML. Vous pouvez également utiliser l’extension en tant que solution de déploiement intégrée, ce qui peut être utile pour les propriétaires d’applications qui interagissent rarement avec le cluster AKS.
+**Guide sur les bonnes pratiques**  : installez et utilisez l’extension VS Code pour Kubernetes quand vous écrivez des manifestes YAML. Vous pouvez également utiliser l’extension en tant que solution de déploiement intégrée, ce qui peut être utile pour les propriétaires d’applications qui interagissent rarement avec le cluster AKS.
 
 L’[extension Visual Studio Code pour Kubernetes][vscode-kubernetes] vous permet de développer et déployer des applications sur AKS. L’extension fournit les informations IntelliSense pour les ressources Kubernetes ainsi que les graphiques et modèles Helm. Vous pouvez également parcourir, déployer et modifier des ressources Kubernetes à partir de VS Code. L’extension fournit une vérification IntelliSense pour les demandes ou limites de ressources définies dans les spécifications de pod :
 

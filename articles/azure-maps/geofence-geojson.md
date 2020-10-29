@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037403"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897192"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
@@ -40,7 +40,7 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 
 * Toutes les valeurs des coordonnées sont représentées sous forme [longitude, latitude] définies dans `WGS84`.
 * Pour chaque fonctionnalité, qui contient `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, les propriétés sont appliquées à tous les éléments. Par exemple : Tous les points dans `MultiPoint` utiliseront le même rayon pour former une limite géographique à plusieurs cercles.
-* Dans un scénario de cercle à points, une géométrie cercle peut être représentée à l’aide un objet geometry `Point` avec des propriétés développés dans [Extension des géométries GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* Dans un scénario de cercle à points, une géométrie cercle peut être représentée à l’aide un objet geometry `Point` avec des propriétés développés dans [Extension des géométries GeoJSON](./extend-geojson.md).      
 
 Voici un exemple de corps de demande pour une limite géographique représentée sous la forme d’une géométrie de limite géographique cercle dans `GeoJSON` à l’aide d’un point central et d’un rayon. La période de validité des données de limite géographique démarre le 22/10/2018, de 9 h 00 à 17 h 00, répétée tous les jours à l’exception du week-end. `expiredTime` indique que ces données de limite géographique seront considérées comme expirées, si `userTime` dans la demande est postérieur à `2019-01-01`.  
 

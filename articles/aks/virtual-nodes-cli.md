@@ -5,13 +5,13 @@ description: Découvrez comment utiliser l’interface de ligne de commande Azur
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543076"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899884"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
@@ -21,7 +21,7 @@ Cet article explique comment créer et configurer les ressources de réseau virt
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans Azure Container Instances (ACI) et le cluster AKS. Pour que cette communication ait lieu, un sous-réseau de réseau virtuel est créé et des permissions déléguées sont assignées. Les nœuds virtuels ne fonctionnent qu’avec des clusters AKS créés à l’aide d’un réseau *avancé*. Par défaut, les clusters AKS sont créés avec un réseau *de base*. Cet article vous montre comment créer un réseau virtuel et des sous-réseaux, puis déployer un cluster AKS qui utilise un réseau avancé.
+Les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans Azure Container Instances (ACI) et le cluster AKS. Pour que cette communication ait lieu, un sous-réseau de réseau virtuel est créé et des permissions déléguées sont assignées. Les nœuds virtuels ne fonctionnent qu’avec des clusters AKS créés à l’aide d’un réseau *avancé* . Par défaut, les clusters AKS sont créés avec un réseau *de base* . Cet article vous montre comment créer un réseau virtuel et des sous-réseaux, puis déployer un cluster AKS qui utilise un réseau avancé.
 
 Si vous n’avez pas encore utilisé ACI, inscrivez le fournisseur de services avec votre abonnement. Vous pouvez vérifier l’état d’inscription du fournisseur d’ACI à l’aide de la commande [az provider list][az-provider-list], comme dans l’exemple suivant :
 
@@ -81,7 +81,7 @@ Si vous préférez installer et utiliser l’interface de ligne de commande en l
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Créez un groupe de ressources avec la commande [az group create][az-group-create]. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westus*.
+Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Créez un groupe de ressources avec la commande [az group create][az-group-create]. L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Utilisez la commande [az network vnet create][az-network-vnet-create] pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un préfixe d’adresse de *10.0.0.0/8* et un sous-réseau nommé *myAKSSubnet*. Par défaut, le préfixe d’adresse de ce sous-réseau est *10.240.0.0/16* :
+Utilisez la commande [az network vnet create][az-network-vnet-create] pour créer un réseau virtuel. L’exemple suivant crée un réseau virtuel nommé *myVnet* avec un préfixe d’adresse de *10.0.0.0/8* et un sous-réseau nommé *myAKSSubnet* . Par défaut, le préfixe d’adresse de ce sous-réseau est *10.240.0.0/16*  :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Maintenant, créez un sous-réseau supplémentaire pour les nœuds virtuels à l’aide de la commande [az network vnet subnet create][az-network-vnet-subnet-create]. L’exemple suivant crée un sous-réseau nommé *myVirtualNodeSubnet* avec le préfixe d’adresse *10.241.0.0/16*.
+Maintenant, créez un sous-réseau supplémentaire pour les nœuds virtuels à l’aide de la commande [az network vnet subnet create][az-network-vnet-subnet-create]. L’exemple suivant crée un sous-réseau nommé *myVirtualNodeSubnet* avec le préfixe d’adresse *10.241.0.0/16* .
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ Le résultat ressemble à l’exemple suivant :
 }
 ```
 
-Prenez note des valeurs de *appId* et de *password*. Ces valeurs sont utilisées dans les étapes suivantes.
+Prenez note des valeurs de *appId* et de *password* . Ces valeurs sont utilisées dans les étapes suivantes.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Affecter des autorisations au réseau virtuel
 
@@ -158,7 +158,7 @@ Vous déployez un cluster AKS sur un sous-réseau AKS créé à l’étape préc
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Remplacez `<subnetId>` par l’ID obtenu à l’étape précédente, puis `<appId>` et `<password>` par les valeurs collectées dans la section précédente.
+Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster* . Remplacez `<subnetId>` par l’ID obtenu à l’étape précédente, puis `<appId>` et `<password>` par les valeurs collectées dans la section précédente.
 
 ```azurecli-interactive
 az aks create \
@@ -202,7 +202,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
+L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux*  :
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -231,7 +231,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:

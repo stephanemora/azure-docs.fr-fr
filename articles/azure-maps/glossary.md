@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 05071be4fc1705787a649d331613e8d9399f983f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089466"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897175"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -347,7 +347,7 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="spatial-reference"></a> **Référence spatiale**  : Système de coordonnées local, régional ou mondial utilisé pour localiser précisément des entités géographiques. Elle définit le système de coordonnées utilisé pour transmettre les coordonnées de la carte indiquant un lieu dans le monde réel. Les références spatiales garantissent l’intégration des données spatiales de différentes couches, ou sources, en vue d’une analyse et d’un affichage précis. Azure Maps utilise le système de référence de coordonnées [EPSG:3857](https://epsg.io/3857) et WGS 84 pour entrer des données géométriques.
 
-<a name="sql-spatial"></a> **SQL spatial**  : Fait référence à la fonctionnalité spatiale intégrée à SQL Azure et SQL Server 2008 et versions ultérieures. Cette fonctionnalité spatiale est également disponible en tant que bibliothèque .NET qui peut être utilisée indépendamment de SQL Server. Pour plus d’informations, consultez la [Documentation sur les données spatiales (SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server).
+<a name="sql-spatial"></a> **SQL spatial**  : Fait référence à la fonctionnalité spatiale intégrée à SQL Azure et SQL Server 2008 et versions ultérieures. Cette fonctionnalité spatiale est également disponible en tant que bibliothèque .NET qui peut être utilisée indépendamment de SQL Server. Pour plus d’informations, consultez la [Documentation sur les données spatiales (SQL Server)](/sql/relational-databases/spatial/spatial-data-sql-server).
 
 <a name="subscription-key"></a> **Clé d’abonnement**  : Consultez [Authentification par clé partagée](#shared-key-authentication).
 
@@ -409,4 +409,3 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 <a name="zip-code"></a> **Code ZIP**  : Voir [Code postal](#postal-code).
 
 <a name="Zoom level"></a> **Niveau de zoom**  : Spécifie le niveau de détail et la partie visible de la carte. Avec un zoom jusqu’au niveau 0, la carte du monde est souvent complètement visible. Toutefois, elle n’affiche que des informations limitées comme le nom des pays/régions et les frontières ainsi que les noms des océans. Avec un zoom plus proche du niveau 17, la carte affiche une zone de quelques rues d’une ville avec des informations routières détaillées. Dans Azure Maps, le niveau de zoom le plus élevé est 22. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
-

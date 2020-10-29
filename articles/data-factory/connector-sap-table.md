@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279826"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900262"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
@@ -51,9 +51,10 @@ Plus précisément, ce connecteur de table SAP prend en charge les opérations s
 - Récupération de données par le biais d’une RFC par défaut ou personnalisée.
 
 La version 7.01 ou ultérieure fait référence à la version SAP NetWeaver au lieu de la version SAP ECC. Par exemple, SAP ECC 6.0 EHP 7 dispose en général de la version NetWeaver >=7.4. Si vous n’êtes pas sûr de votre environnement, voici les étapes à suivre pour confirmer la version de votre système SAP :
-1.  Utilisez l’interface graphique utilisateur SAP pour vous connecter au système SAP. 
-2.  Accédez à **Système** -> **État**. 
-3.  Vérifiez la version de SAP_BASIS et assurez-vous qu’elle est supérieure ou égale à 701.  
+
+1. Utilisez l’interface graphique utilisateur SAP pour vous connecter au système SAP. 
+2. Accédez à **Système** -> **État** . 
+3. Vérifiez la version de SAP_BASIS et assurez-vous qu’elle est supérieure ou égale à 701.  
       ![Vérifier SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -62,7 +63,7 @@ Pour utiliser ce connecteur de table SAP, vous devez effectuer les opérations s
 
 - Configurez un runtime d’intégration auto-hébergé (version 3.17 ou ultérieure). Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
 
-- Téléchargez la version 64 bits de [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) à partir du site web de SAP et installez-la sur la machine dotée du runtime d’intégration auto-hébergé. Lors de l'installation, veillez à sélectionner l’option **Installer les assemblys dans le GAC** dans la fenêtre des **étapes de configuration facultatives**.
+- Téléchargez la version 64 bits de [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) à partir du site web de SAP et installez-la sur la machine dotée du runtime d’intégration auto-hébergé. Lors de l'installation, veillez à sélectionner l’option **Installer les assemblys dans le GAC** dans la fenêtre des **étapes de configuration facultatives** .
 
   ![Installer SAP Connector pour .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 

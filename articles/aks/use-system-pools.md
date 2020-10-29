@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 9c9479fca538c36f4f5eb430c4befb76e39370e6
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888949"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900012"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 
-Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Les pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Les pools de nœuds système et les pools de nœuds utilisateur sont deux modes de pool de nœuds différents pour vos clusters AKS. Les pools de nœuds système sont principalement utilisés pour héberger des pods système critiques, tels que `CoreDNS` et `metrics-server`. Les pools de nœuds utilisateur sont principalement utilisés pour héberger vos pods d'application. Cela étant, les pods d’application peuvent être planifiés sur des pools de nœuds système si vous souhaitez n'avoir qu’un pool dans votre cluster AKS. Chaque cluster AKS doit contenir au moins un pool de nœuds système avec au moins un nœud.
+Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont regroupés dans des *pools de nœuds* . Les pools de nœuds contiennent les machines virtuelles sous-jacentes qui exécutent vos applications. Les pools de nœuds système et les pools de nœuds utilisateur sont deux modes de pool de nœuds différents pour vos clusters AKS. Les pools de nœuds système sont principalement utilisés pour héberger des pods système critiques, tels que `CoreDNS` et `metrics-server`. Les pools de nœuds utilisateur sont principalement utilisés pour héberger vos pods d'application. Cela étant, les pods d’application peuvent être planifiés sur des pools de nœuds système si vous souhaitez n'avoir qu’un pool dans votre cluster AKS. Chaque cluster AKS doit contenir au moins un pool de nœuds système avec au moins un nœud.
 
 > [!Important]
 > Si vous exécutez un pool de nœuds système unique pour votre cluster AKS dans un environnement de production, nous vous recommandons d’utiliser au moins trois nœuds pour le pool de nœuds.
@@ -29,7 +29,7 @@ Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge les pools de nœuds système.
 
 * Voir [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Le cluster AKS doit être élaboré avec des groupes de machines virtuelles identiques en tant que type de machine virtuelle et l’équilibreur de charge de niveau tarifaire *Standard*.
+* Le cluster AKS doit être élaboré avec des groupes de machines virtuelles identiques en tant que type de machine virtuelle et l’équilibreur de charge de niveau tarifaire *Standard* .
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, la longueur doit être comprise entre 1 et 6 caractères.
 * Pour définir un mode de pool de nœuds, vous devez utiliser l’API version 2020-03-01 ou ultérieure. Les clusters créés sur des versions d’API antérieures à 2020-03-01 contiennent uniquement des pools de nœuds utilisateur, mais ils peuvent être migrés pour contenir des pools de nœuds système en suivant les [étapes de mise à jour du mode de pool](#update-existing-cluster-system-and-user-node-pools).
 * Le mode d’un pool de nœuds est une propriété obligatoire qui doit être définie explicitement si vous utilisez des modèles ARM ou des appels d’API directs.
@@ -62,7 +62,7 @@ Vous pouvez effectuer les opérations suivantes avec des pools de nœuds :
 
 Lorsque vous créez un cluster AKS, vous créez automatiquement un pool de nœuds système avec un nœud unique. Par défaut, le pool de nœuds initial est en mode de type système. Lorsque vous créez des pools de nœuds avec `az aks nodepool add`, ces pools de nœuds sont des pools de nœuds utilisateur, sauf si vous spécifiez explicitement le paramètre mode.
 
-L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans la région *USA Est*.
+L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans la région *USA Est* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -193,7 +193,7 @@ Dans cet article, vous avez appris comment créer et gérer des pools de nœuds 
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create

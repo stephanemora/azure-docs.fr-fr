@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022273"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900822"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -29,13 +29,13 @@ Vous pouvez également consulter les bonnes pratiques pour la [sécurité des cl
 
 **Meilleures pratiques** : pour changer d’utilisateur ou de groupe et limiter l’accès aux services et processus de nœud sous-jacents, définissez les paramètres du contexte de sécurité des pods. Affectez le nombre minimal de privilèges requis.
 
-Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine*. Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Le *runAsUser*, élévation des privilèges, et d’autres paramètres de fonctionnalités Linux sont uniquement disponibles sur les pods et nœuds Linux.
+Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine* . Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Le *runAsUser* , élévation des privilèges, et d’autres paramètres de fonctionnalités Linux sont uniquement disponibles sur les pods et nœuds Linux.
 
 Lorsque vous vous connectez en tant qu’utilisateur non root, les conteneurs ne peuvent pas établir de liaison avec les ports privilégiés inférieurs à 1024. Dans ce scénario, Kubernetes Services peut être utilisé pour masquer le fait qu’une application s’exécute sur un port particulier.
 
 Un contexte de sécurité de pod peut également permettre de définir des fonctionnalités ou autorisations supplémentaires pour accéder à des processus et services. Vous pouvez utiliser les définitions de contexte de sécurité courantes ci-dessous :
 
-* **allowPrivilegeEscalation** définit si le pod peut assumer les privilèges *racine*. Concevez vos applications afin que ce paramètre soit toujours défini sur *false*.
+* **allowPrivilegeEscalation** définit si le pod peut assumer les privilèges *racine* . Concevez vos applications afin que ce paramètre soit toujours défini sur *false* .
 * **Les fonctionnalités Linux** permettent au pod d’accéder aux processus de nœud sous-jacents. Soyez vigilant lorsque vous affectez ces fonctionnalités. Affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Fonctionnalités de Linux][linux-capabilities].
 * **SELinux Labels** est un module de sécurité du noyau Linux qui vous permet de définir des stratégies d’accès pour l’accès aux services, aux processus et au système de fichiers. Là encore, affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Options de SELinux dans Kubernetes][selinux-labels]
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false

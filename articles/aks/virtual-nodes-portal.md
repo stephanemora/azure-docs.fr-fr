@@ -4,13 +4,13 @@ description: Découvrez comment utiliser le Portail Azure pour créer un cluster
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297567"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899900"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -20,7 +20,7 @@ Cet article explique comment créer et configurer les ressources de réseau virt
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans Azure Container Instances (ACI) et le cluster AKS. Pour que cette communication ait lieu, un sous-réseau de réseau virtuel est créé et des permissions déléguées sont assignées. Les nœuds virtuels ne fonctionnent qu’avec des clusters AKS créés à l’aide d’un réseau *avancé*. Par défaut, les clusters AKS sont créés avec un réseau *de base*. Cet article vous montre comment créer un réseau virtuel et des sous-réseaux, puis déployer un cluster AKS qui utilise un réseau avancé.
+Les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans Azure Container Instances (ACI) et le cluster AKS. Pour que cette communication ait lieu, un sous-réseau de réseau virtuel est créé et des permissions déléguées sont assignées. Les nœuds virtuels ne fonctionnent qu’avec des clusters AKS créés à l’aide d’un réseau *avancé* . Par défaut, les clusters AKS sont créés avec un réseau *de base* . Cet article vous montre comment créer un réseau virtuel et des sous-réseaux, puis déployer un cluster AKS qui utilise un réseau avancé.
 
 Si vous n’avez pas encore utilisé ACI, inscrivez le fournisseur de services avec votre abonnement. Vous pouvez vérifier l’état d’inscription du fournisseur d’ACI à l’aide de la commande [az provider list][az-provider-list], comme dans l’exemple suivant :
 
@@ -78,16 +78,16 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Sélectionnez **Créer une ressource** > **Kubernetes Service** dans le coin supérieur gauche du portail Azure.
 
-Sur la page **Bases**, configurez les options suivantes :
+Sur la page **Bases** , configurez les options suivantes :
 
-- *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
+- *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup* . Entrez un **nom du cluster Kubernetes** , tel que *myAKSCluster* .
 - *DÉTAILS DU CLUSTER* : Sélectionnez une région, une version de Kubernetes et le préfixe du nom DNS du cluster AKS.
 - *POOL DE NŒUDS PRINCIPAL* : Sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
-     - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Dans le cadre de cet article, définissez **Nombre de nœuds** sur *1*. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
+     - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Dans le cadre de cet article, définissez **Nombre de nœuds** sur *1* . Le nombre de nœuds est **modifiable** après le déploiement du cluster.
 
-Cliquez sur **Suivant : Mise à l'échelle**.
+Cliquez sur **Suivant : Mise à l'échelle** .
 
-Sur la page **Mise à l’échelle**, sélectionnez *Activé* sous **Nœuds virtuels**.
+Sur la page **Mise à l’échelle** , sélectionnez *Activé* sous **Nœuds virtuels** .
 
 ![Créer un cluster AKS et activer les nœuds virtuels](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +95,7 @@ Par défaut, un principal de service Azure Active Directory est créé. Il a pou
 
 Le cluster est également configuré pour offrir une mise en réseau avancée. Les nœuds virtuels sont paramétrés de façon à utiliser leur propre sous-réseau de réseau virtuel Azure. Ce sous-réseau possède des permissions déléguées pour se connecter à des ressources Azure entre le cluster AKS. Si vous ne disposez pas de sous-réseau délégué, le Portail Azure crée et configure le réseau virtuel Azure et le sous-réseau d’une manière compatible avec les nœuds virtuels.
 
-Sélectionnez **Revoir + créer**. Une fois la validation terminée, sélectionnez **Créer**.
+Sélectionnez **Revoir + créer** . Une fois la validation terminée, sélectionnez **Créer** .
 
 Il ne faut que quelques minutes pour créer le cluster AKS et que celui-ci soit prêt à être utilisé.
 
@@ -117,7 +117,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux* :
+L’exemple de sortie suivant illustre l’unique nœud de machine virtuelle créé, puis le nœud virtuel Linux, *virtual-node-aci-linux*  :
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION
@@ -146,7 +146,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:

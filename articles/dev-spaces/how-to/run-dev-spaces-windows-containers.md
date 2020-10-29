@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Découvrez comment exécuter Azure Dev Spaces sur un cluster existant avec des conteneurs Windows
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, conteneurs Windows
-ms.openlocfilehash: 51a91c9ff74c4d0d1c5bccff2f1033eb14cd9198
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e6c4279717ef0a7bed0a66a9b0dba1d78e418835
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972932"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900155"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagir avec des conteneurs Windows à l’aide d’Azure Dev Spaces
 
@@ -34,7 +34,7 @@ Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get]
 kubectl get nodes
 ```
 
-L’exemple de sortie suivant montre un cluster avec un nœud Windows et un nœud Linux. Avant de poursuivre, assurez-vous que l’État de chaque nœud est *Prêt*.
+L’exemple de sortie suivant montre un cluster avec un nœud Windows et un nœud Linux. Avant de poursuivre, assurez-vous que l’État de chaque nœud est *Prêt* .
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
@@ -54,7 +54,7 @@ kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 
 ## <a name="run-your-windows-service"></a>Exécuter votre service Windows
 
-Exécutez votre service Windows sur votre cluster AKS, et vérifiez que son état est *En cours d’exécution*. Cet article utilise un [exemple d’application][sample-application] pour montrer un service Windows et un service Linux s’exécutant sur votre cluster.
+Exécutez votre service Windows sur votre cluster AKS, et vérifiez que son état est *En cours d’exécution* . Cet article utilise un [exemple d’application][sample-application] pour montrer un service Windows et un service Linux s’exécutant sur votre cluster.
 
 Clonez l’exemple d’application à partir de GitHub, puis accédez au répertoire `dev-spaces/samples/existingWindowsBackend/mywebapi-windows` :
 
@@ -71,7 +71,7 @@ kubectl create ns dev
 helm install windows-service . --namespace dev
 ```
 
-La commande ci-dessus utilise Helm pour exécuter votre service Windows dans l’espace de noms *dev*. Si vous n’avez pas d’espace de noms *dev*, celui-ci est créé.
+La commande ci-dessus utilise Helm pour exécuter votre service Windows dans l’espace de noms *dev* . Si vous n’avez pas d’espace de noms *dev* , celui-ci est créé.
 
 Utilisez la commande `kubectl get pods` pour vérifier que votre service Windows est en cours d’exécution dans votre cluster. 
 
@@ -85,7 +85,7 @@ myapi-4b9667d123-1a2b3   1/1     Running             0          98s
 
 ## <a name="enable-azure-dev-spaces"></a>Activer Azure Dev Spaces
 
-Activez Azure Dev Spaces dans l’espace de noms que vous avez utilisé pour exécuter votre service Windows. La commande suivante active Azure Dev Spaces dans l’espace de noms *dev* :
+Activez Azure Dev Spaces dans l’espace de noms que vous avez utilisé pour exécuter votre service Windows. La commande suivante active Azure Dev Spaces dans l’espace de noms *dev*  :
 
 ```console
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster --space dev --yes
@@ -122,7 +122,7 @@ NAME              REVISION  UPDATED                     STATUS      CHART       
 windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-Dans l’exemple ci-dessus, le nom de votre déploiement est *windows-service*. Mettez à jour votre service Windows avec la nouvelle configuration en utilisant `helm upgrade` :
+Dans l’exemple ci-dessus, le nom de votre déploiement est *windows-service* . Mettez à jour votre service Windows avec la nouvelle configuration en utilisant `helm upgrade` :
 
 ```cmd
 helm upgrade windows-service . --namespace dev
@@ -180,5 +180,5 @@ Apprenez-en davantage plus sur le fonctionnement d’Azure Dev Spaces.
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[using-taints]: ../../aks/use-multiple-node-pools.md#setting-nodepool-taints
 [windows-container-cli]: ../../aks/windows-container-cli.md

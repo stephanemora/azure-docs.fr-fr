@@ -5,12 +5,12 @@ description: Découvrir comment créer un volume persistant de manière dynamiqu
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299265"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900452"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -22,25 +22,25 @@ Pour plus d’informations sur les volumes Kubernetes, consultez [Options de sto
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Créer une classe de stockage
 
-Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages de fichiers Azure. Faites votre choix parmi les [redondances de stockage Azure][storage-skus] suivantes pour *skuName* :
+Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages de fichiers Azure. Faites votre choix parmi les [redondances de stockage Azure][storage-skus] suivantes pour *skuName*  :
 
-* *Standard_LRS* : stockage localement redondant (LRS) standard
-* *Standard_GRS* : stockage géoredondant (GRS) standard
-* *Standard_ZRS* : stockage redondant interzone (ZRS) standard
-* *Standard_RAGRS* : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
+* *Standard_LRS*  : stockage localement redondant (LRS) standard
+* *Standard_GRS*  : stockage géoredondant (GRS) standard
+* *Standard_ZRS*  : stockage redondant interzone (ZRS) standard
+* *Standard_RAGRS*  : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
 * *Premium_LRS* - Stockage Premium localement redondant (LRS)
-* *Premium_ZRS* : stockage redondant interzone (ZRS) premium
+* *Premium_ZRS*  : stockage redondant interzone (ZRS) premium
 
 > [!NOTE]
 > Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou version ultérieure. Le partage de fichiers premium minimum est de 100 Go.
 
 Pour plus d’informations sur les classes de stockage Kubernetes pour Azure Files, consultez [Classes de stockage Kubernetes][kubernetes-storage-classes].
 
-Créez un fichier nommé `azure-file-sc.yaml` et copiez-le dans l’exemple de manifeste suivant. Pour plus d’informations sur *mountOptions*, consultez la section [Options de montage][mount-options].
+Créez un fichier nommé `azure-file-sc.yaml` et copiez-le dans l’exemple de manifeste suivant. Pour plus d’informations sur *mountOptions* , consultez la section [Options de montage][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -67,7 +67,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
-Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5 Go* avec un accès *ReadWriteMany*. Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
+Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5 Go* avec un accès *ReadWriteMany* . Pour plus d’informations sur les modes d’accès, consultez la documentation [Kubernetes sur les volumes persistants][access-modes].
 
 Maintenant, créez un fichier nommé `azure-file-pvc.yaml`, et copiez-y le code YAML suivant. Vérifiez que *storageClassName* correspond à la classe de stockage créée à la dernière étape :
 
@@ -86,7 +86,7 @@ spec:
 ```
 
 > [!NOTE]
-> Si vous utilisez la référence SKU *Premium_LRS* pour votre classe de stockage, la valeur minimale de *stockage* doit être *100 Gi*.
+> Si vous utilisez la référence SKU *Premium_LRS* pour votre classe de stockage, la valeur minimale de *stockage* doit être *100 Gi* .
 
 Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] :
 
@@ -105,7 +105,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Utiliser le volume persistant
 
-Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant *my-azurefile* pour monter le partage de fichiers Azure dans le chemin */mnt/azure*. Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
+Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant *my-azurefile* pour monter le partage de fichiers Azure dans le chemin */mnt/azure* . Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
 
 Créez un fichier nommé `azure-pvc-files.yaml` et copiez-y le code YAML suivant. Vérifiez que *claimName* correspond à la revendication de volume persistant créée à la dernière étape.
 
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -140,7 +140,7 @@ Créez le pod avec la commande [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Vous disposez maintenant d’un pod en cours d’exécution avec le partage Azure Files monté dans le répertoire */mnt/azure*. Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`. La sortie de l’exemple condensé suivant montre le volume monté dans le conteneur :
+Vous disposez maintenant d’un pod en cours d’exécution avec le partage Azure Files monté dans le répertoire */mnt/azure* . Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`. La sortie de l’exemple condensé suivant montre le volume monté dans le conteneur :
 
 ```
 Containers:

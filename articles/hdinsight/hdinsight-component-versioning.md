@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394327"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900801"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Composants et versions d’Apache disponibles pour Azure HDInsight
 
@@ -65,7 +65,7 @@ Pour d’autres notes de publication sur les dernières versions de HDInsight, c
 
 ### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Expiration du support et mise hors service des versions de HDInsight
 
-L’**expiration du support** signifie que Microsoft ne prend plus en charge la version spécifique de HDInsight. Celle-ci ne sera plus disponible par le biais du portail Azure pour la création de cluster. Ces versions peuvent toujours être créées à l’aide d’Azure CLI ou des différents Kits de développement logiciel (SDK).
+L’ **expiration du support** signifie que Microsoft ne prend plus en charge la version spécifique de HDInsight. Celle-ci ne sera plus disponible par le biais du portail Azure pour la création de cluster. Ces versions peuvent toujours être créées à l’aide d’Azure CLI ou des différents Kits de développement logiciel (SDK).
 
 La **mise hors service** signifie que les clusters existants d’une version de HDInsight continuent à s’exécuter tels quels. Il n’est pas possible de créer des clusters de cette version par quelque moyen que ce soit (CLI et SDK notamment). D’autres fonctionnalités du plan de contrôle, comme la mise à l’échelle manuelle ou automatique, peuvent également ne plus fonctionner après la mise hors service d’une version. Aucun support n’est disponible pour les versions mises hors service.
 
@@ -96,7 +96,7 @@ Ce tableau répertorie les versions de HDInsight qui sont disponibles dans le po
 | HDInsight 3.6  ML Services      | 9.3               | 31 décembre 2020                      | 31 décembre 2020                |
 
 > [!NOTE]
-> Une fois que la prise en charge d’une version de cluster a expiré, il arrive que celle-ci ne soit plus disponible via le portail Azure. Dans certains cas, les versions de clusters restent disponibles à l’aide du paramètre **Version** de la commande Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) et du kit SDK .NET jusqu’à leur date de mise hors service.
+> Une fois que la prise en charge d’une version de cluster a expiré, il arrive que celle-ci ne soit plus disponible via le portail Azure. Dans certains cas, les versions de clusters restent disponibles à l’aide du paramètre **Version** de la commande Windows PowerShell [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) et du kit SDK .NET jusqu’à leur date de mise hors service.
 
 ### <a name="retired-versions"></a>Versions supprimées
 
@@ -119,7 +119,7 @@ Ce tableau répertorie les versions de HDInsight qui ne sont pas disponibles dan
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrat de niveau de service pour les versions de cluster HDInsight
 
-Le contrat de niveau de service est défini en termes de _fenêtre de support_. Une fenêtre de support désigne la durée pendant laquelle une version de HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Si la version est associée à une _date d’expiration du support_ dépassée, cela signifie que le cluster HDInsight n’est plus inclus dans la fenêtre de support. L’expiration du support d’une version X de HDInsight (lorsqu’une version X+1 plus récente est disponible) est calculée comme suit :
+Le contrat de niveau de service est défini en termes de _fenêtre de support_ . Une fenêtre de support désigne la durée pendant laquelle une version de HDInsight est prise en charge par le support technique et le service clientèle Microsoft. Si la version est associée à une _date d’expiration du support_ dépassée, cela signifie que le cluster HDInsight n’est plus inclus dans la fenêtre de support. L’expiration du support d’une version X de HDInsight (lorsqu’une version X+1 plus récente est disponible) est calculée comme suit :
 
 - **Première formule :** ajoutez 180 jours à la date de lancement du cluster HDInsight version X.
 - **Deuxième formule :** ajoutez 90 jours à la date de lancement du cluster HDInsight version X+1 dans le portail Azure.
@@ -133,6 +133,6 @@ Pour plus d’informations sur les références SKU de machine virtuelle à sél
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Création de clusters pour Apache Hadoop, Spark, etc. dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Travailler à partir d’un PC Windows dans Apache Hadoop sur HDInsight](hdinsight-hadoop-windows-tools.md)
-- [Notes de publication Hortonworks associées aux versions d’Azure HDInsight](./hortonworks-release-notes.md)
 - [Pack Sécurité Entreprise](./enterprise-security-package.md)
+- [Notes de publication Hortonworks associées aux versions d’Azure HDInsight](./hortonworks-release-notes.md)
+- [Travailler à partir d’un PC Windows dans Apache Hadoop sur HDInsight](hdinsight-hadoop-windows-tools.md)
