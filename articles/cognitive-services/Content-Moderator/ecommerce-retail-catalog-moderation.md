@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504154"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913685"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutoriel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Une clé d’abonnement Content Moderator. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Content Moderator et obtenir votre clé.
+- Une clé d’abonnement Content Moderator. Suivez les instructions dans [Créer un compte Cognitive Services](../cognitive-services-apis-create-account.md) pour vous abonner au service Content Moderator et obtenir votre clé.
 - Une clé d’abonnement Vision par ordinateur (mêmes instructions que ci-dessus).
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - Un ensemble d’images pour chaque étiquette que le classifieur Vision personnalisée utilisera (en l’occurrence, jouets, stylos et drapeaux américains).
@@ -48,7 +48,7 @@ Reportez-vous au guide de démarrage rapide [Essayer Content Moderator sur le we
 
 ## <a name="create-custom-moderation-tags"></a>Créer des étiquettes de modération personnalisées
 
-Créez ensuite des étiquettes personnalisées dans l’outil de révision (consultez l’article [Étiquettes](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) si vous avez besoin d’aide pour ce processus). En l’occurrence, nous allons ajouter les étiquettes suivantes : **célébrité** , **USA** , **drapeau** , **jouet** et **stylo** . Toutes les étiquettes ne doivent pas nécessairement être des catégories détectables dans Vision par ordinateur (par exemple **célébrité** ). Vous pouvez ajouter vos propres étiquettes personnalisées à condition d’entraîner le classifieur Custom Vision à les détecter par la suite.
+Créez ensuite des étiquettes personnalisées dans l’outil de révision (consultez l’article [Étiquettes](./review-tool-user-guide/configure.md#tags) si vous avez besoin d’aide pour ce processus). En l’occurrence, nous allons ajouter les étiquettes suivantes : **célébrité** , **USA** , **drapeau** , **jouet** et **stylo** . Toutes les étiquettes ne doivent pas nécessairement être des catégories détectables dans Vision par ordinateur (par exemple **célébrité** ). Vous pouvez ajouter vos propres étiquettes personnalisées à condition d’entraîner le classifieur Custom Vision à les détecter par la suite.
 
 ![Configurer les balises personnalisées](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ La méthode suivante prend une URL d’image et vos informations d’abonnement 
 
 ## <a name="evaluatecustomvisiontags-method"></a>Méthode EvaluateCustomVisionTags
 
-Ensuite, observez la méthode **EvaluateCustomVisionTags** , qui classifie les produits proprement dits&mdash;en l’occurrence, les drapeaux, jouets et stylos. Suivez les instructions du [Guide pratique pour créer un classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) et créez votre propre classifieur d’images personnalisé afin de détecter la présence de drapeaux, jouets et stylos (ou de ce que vous avez choisi comme étiquettes personnalisées) dans les images. Vous pouvez utiliser les images du dossier **sample-images** sur le [dépôt GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) pour entraîner rapidement certaines catégories de cet exemple.
+Ensuite, observez la méthode **EvaluateCustomVisionTags** , qui classifie les produits proprement dits&mdash;en l’occurrence, les drapeaux, jouets et stylos. Suivez les instructions du [Guide pratique pour créer un classifieur](../custom-vision-service/getting-started-build-a-classifier.md) et créez votre propre classifieur d’images personnalisé afin de détecter la présence de drapeaux, jouets et stylos (ou de ce que vous avez choisi comme étiquettes personnalisées) dans les images. Vous pouvez utiliser les images du dossier **sample-images** sur le [dépôt GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) pour entraîner rapidement certaines catégories de cet exemple.
 
 ![Page web Vision personnalisée avec images d’entraînement de stylos, jouets et drapeaux](images/tutorial-ecommerce-custom-vision.PNG)
 
-Une fois que vous avez entraîné votre classifieur, obtenez la clé de prédiction et l’URL de point de terminaison de prédiction (consultez [Obtenir l’URL et la clé de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key), si vous avez besoin d’aide pour les récupérer), puis affectez ces valeurs à vos champs `CustomVisionKey` et `CustomVisionUri`, respectivement. La méthode utilise ces valeurs pour interroger le classifieur. Si le classifieur détecte une ou plusieurs étiquettes personnalisées dans l’image, cette méthode définit la ou les valeurs correspondantes dans le tableau **ReviewTags** sur **True** .
+Une fois que vous avez entraîné votre classifieur, obtenez la clé de prédiction et l’URL de point de terminaison de prédiction (consultez [Obtenir l’URL et la clé de prédiction](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key), si vous avez besoin d’aide pour les récupérer), puis affectez ces valeurs à vos champs `CustomVisionKey` et `CustomVisionUri`, respectivement. La méthode utilise ces valeurs pour interroger le classifieur. Si le classifieur détecte une ou plusieurs étiquettes personnalisées dans l’image, cette méthode définit la ou les valeurs correspondantes dans le tableau **ReviewTags** sur **True** .
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

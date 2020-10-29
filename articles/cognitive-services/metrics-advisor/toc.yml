@@ -7,8 +7,6 @@
       href: overview.md
 - name: Démarrages rapides
   items:
-    - name: Explorer le site de démonstration
-      href: quickstarts/explore-demo.md
     - name: Utiliser le portail web
       href: quickstarts/web-portal.md
     - name: Utiliser l’API REST
@@ -40,9 +38,9 @@
     - name: API Metrics Advisor
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Informations de référence sur Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Référence sur PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
 - name: Ressources
   items:
     - name: Options d’aide et de support
