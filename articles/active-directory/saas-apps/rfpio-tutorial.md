@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ef8a93ebdc5eb389608ef3340b9707bfd040a295
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c4e838afa867a7fb1e7fa8f582bc8879c24056a9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105717"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92506052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
 
@@ -27,7 +27,7 @@ L’intégration de RFPIO dans Azure AD vous offre les avantages suivants :
 * Vous pouvez permettre aux utilisateurs de se connecter automatiquement à RFPIO (par le biais de l’authentification unique) avec leur compte Azure Active Directory.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
@@ -254,13 +254,12 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette RFPIO dans le volet d’accès doit vous connecter automatiquement à l’application RFPIO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Le fait de cliquer sur la vignette RFPIO dans le volet d’accès doit vous connecter automatiquement à l’application RFPIO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

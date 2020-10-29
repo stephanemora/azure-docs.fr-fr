@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d7aa43a94c7b49eef5b3273617ad9038fd1202e4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108539"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505695"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à PureCloud by Genesys
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer PureCloud by Genesys à Azur
 * Autoriser les utilisateurs à se connecter automatiquement à PureCloud by Genesys avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -215,14 +215,14 @@ Pour permettre aux utilisateurs Azure AD de se connecter à PureCloud by Genesys
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous sélectionnez la vignette **PureCloud by Genesys** dans le volet d’accès, vous devez être connecté automatiquement au compte PureCloud by Genesys pour lequel vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous sélectionnez la vignette **PureCloud by Genesys** dans le volet d’accès, vous devez être connecté automatiquement au compte PureCloud by Genesys pour lequel vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste des tutoriels sur l’intégration d’applications SaaS avec Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste des tutoriels sur l’intégration d’applications SaaS avec Azure AD](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure AD ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure AD ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure AD ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure AD ?](../conditional-access/overview.md)
 
 - [Essayer PureCloud by Genesys avec Azure AD](https://aad.portal.azure.com/)
