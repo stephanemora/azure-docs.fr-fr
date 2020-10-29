@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299695"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455935"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ Azure Active Directory utilise un concept appelé « affectations » pour dét
 
 Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs et/ou groupes Azure AD ont besoin d’accéder à votre application GoToMeeting. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs à votre application GoToMeeting en suivant les instructions fournies ici :
 
-[Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Conseils importants pour l’attribution d’utilisateurs à GoToMeeting
 
@@ -52,31 +52,31 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
 ### <a name="to-configure-automatic-user-account-provisioning"></a>Pour configurer l’approvisionnement automatique des comptes d’utilisateur :
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications** .
 
-1. Si vous avez déjà configuré GoToMeeting pour l’authentification unique, recherchez votre instance de GoToMeeting à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter**, puis recherchez **GoToMeeting** dans la galerie d’applications. Sélectionnez GoToMeeting dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
+1. Si vous avez déjà configuré GoToMeeting pour l’authentification unique, recherchez votre instance de GoToMeeting à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** , puis recherchez **GoToMeeting** dans la galerie d’applications. Sélectionnez GoToMeeting dans les résultats de la recherche, puis ajoutez-le à votre liste d’applications.
 
-1. Sélectionnez votre instance de GoToMeeting, puis sélectionnez l’onglet **Approvisionnement**.
+1. Sélectionnez votre instance de GoToMeeting, puis sélectionnez l’onglet **Approvisionnement** .
 
-1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
+1. Définissez le **Mode d’approvisionnement** sur **Automatique** . 
 
     ![Capture d’écran de l’onglet Approvisionnement pour GoToMeeting dans le portail Azure. Le mode d’approvisionnement est défini sur Automatique et les champs Nom d’utilisateur d’administrateur, Mot de passe et Tester la connexion sont en surbrillance.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Dans la section Informations d’identification de l’administrateur, effectuez les étapes suivantes :
    
-    a. Dans la zone de texte **Nom d’utilisateur admin GoToMeeting**, tapez le nom d’utilisateur d’un administrateur.
+    a. Dans la zone de texte **Nom d’utilisateur admin GoToMeeting** , tapez le nom d’utilisateur d’un administrateur.
 
-    b. Dans la zone de texte **Mot de passe de l’admin GoToMeeting**, tapez le mot de passe de l’administrateur.
+    b. Dans la zone de texte **Mot de passe de l’admin GoToMeeting** , tapez le mot de passe de l’administrateur.
 
-1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
+1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur** .
 
-1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
+1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification** , puis cochez la case.
 
 1. Cliquez sur **Enregistrer.**
 
-1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec GoToMeeting**.
+1. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec GoToMeeting** .
 
-1. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et GoToMeeting. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur GoToMeeting en vue de mises à jour ultérieures. Cliquez sur le bouton Enregistrer pour valider les modifications.
+1. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et GoToMeeting. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur GoToMeeting en vue de mises à jour ultérieures. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 1. Pour activer le service de provisionnement Azure AD pour GoToMeeting, définissez **État de l’approvisionnement** sur **Activé** dans la section Paramètres.
 
@@ -90,6 +90,4 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [Configurer l’authentification unique](./citrix-gotomeeting-tutorial.md)
