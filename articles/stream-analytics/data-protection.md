@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812860"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746411"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protection des données dans Azure Stream Analytics 
 
@@ -67,16 +67,12 @@ Utilisez les étapes suivantes pour configurer votre compte de stockage pour des
 
 1. Renseignez la page de la tâche Stream Analytics avec les détails nécessaires, tels que le nom, la région et l’échelle. 
 
-1. Activez la case à cocher *Sécuriser tous les actifs de données privés nécessaires à ce travail dans mon compte de stockage*.
+1. Activez la case à cocher *Sécuriser tous les actifs de données privés nécessaires à ce travail dans mon compte de stockage* .
 
 1. Sélectionnez un compte de stockage dans votre abonnement. Notez qu’il n’est pas possible de modifier ce paramètre pendant le cycle de vie de la tâche. 
 
    ![Paramètres du compte de stockage de données privées](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Problèmes connus
-Actuellement, il existe une limitation connue où une tâche qui utilise une clé gérée par le client connaît des échecs lors de l’utilisation d’une identité managée pour s’authentifier auprès de toutes les entrées ou sorties.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

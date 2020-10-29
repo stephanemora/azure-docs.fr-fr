@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450294"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782958"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance avec Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance détectés par le biais du journal de ressources [Intelligent Insights](intelligent-insights-overview.md). Les métriques et journaux de ressources peuvent être transmis en streaming aux [journaux Azure Monitor](../../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) ou à une solution tierce afin de bénéficier de fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Azure SQL Managed Instance détectés par le biais du journal de ressources [Intelligent Insights](intelligent-insights-overview.md). Les métriques et journaux de ressources peuvent être transmis en streaming aux [journaux Azure Monitor](../../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), au [Stockage Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) ou à une solution tierce afin de bénéficier de fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 > [!NOTE]
 > Pour appréhender rapidement la résolution des problèmes de performances à l’aide d’Intelligent Insights, consultez l’organigramme [Flux de résolution des problèmes recommandé](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) dans le présent document.
@@ -74,7 +74,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre abonnement de base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d'informations sur les limites au niveau du serveur et de l'abonnement, consultez [Vue d'ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins). Pour plus d'informations sur les limites au niveau du serveur et de l'abonnement, consultez [Vue d'ensemble des limites de ressources sur un serveur](resource-limits-logical-server.md).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 
@@ -118,7 +118,7 @@ Pour des suggestions de dépannage supplémentaires, consultez le billet de blog
 
 Ce modèle de performances indique une détérioration des performances de la base de données actuelle, où un verrouillage excessif de la base de données est détecté par rapport à la base de référence des performances des sept jours précédents.
 
-Dans un SGBDR (Système de Gestion de Base de Données Relationnelle) moderne, le verrouillage est essentiel pour implémenter les systèmes multithreads dans lesquels les performances sont maximisées par l’exécution simultanée de plusieurs threads de travail et plusieurs transactions de bases de données parallèles, quand cela est possible. Dans ce contexte, le verrouillage fait référence au mécanisme d’accès intégré dans lequel une seule transaction peut accéder exclusivement aux lignes, pages, tables et fichiers nécessaires sans entrer en concurrence avec une autre transaction concernant des ressources. Quand la transaction qui a verrouillé les ressources à utiliser n’en a plus besoin, le verrou posé sur ces ressources est libéré, ce qui permet à d’autres transactions d’accéder aux ressources nécessaires. Pour plus d’informations sur le verrouillage, consultez [Verrouillage dans le moteur de base de données](https://msdn.microsoft.com/library/ms190615.aspx).
+Dans un SGBDR (Système de Gestion de Base de Données Relationnelle) moderne, le verrouillage est essentiel pour implémenter les systèmes multithreads dans lesquels les performances sont maximisées par l’exécution simultanée de plusieurs threads de travail et plusieurs transactions de bases de données parallèles, quand cela est possible. Dans ce contexte, le verrouillage fait référence au mécanisme d’accès intégré dans lequel une seule transaction peut accéder exclusivement aux lignes, pages, tables et fichiers nécessaires sans entrer en concurrence avec une autre transaction concernant des ressources. Quand la transaction qui a verrouillé les ressources à utiliser n’en a plus besoin, le verrou posé sur ces ressources est libéré, ce qui permet à d’autres transactions d’accéder aux ressources nécessaires. Pour plus d’informations sur le verrouillage, consultez [Verrouillage dans le moteur de base de données](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105)).
 
 Si les transactions exécutées par le moteur SQL attendent très longtemps pour accéder à des ressources verrouillées pour cause d’utilisation, ce temps d’attente entraîne un ralentissement des performances d’exécution de la charge de travail.
 
@@ -144,7 +144,7 @@ L’option de configuration de serveur MAXDOP est utilisée pour contrôler le n
 
 Le journal de diagnostic génère les codes de hachage des requêtes dont la durée d’exécution a augmenté en raison d’une parallélisation trop importante. Le journal génère également des temps d’attente CXP. Ce temps représente la durée pendant laquelle un thread organisateur/coordinateur unique (thread 0) attend que tous les autres threads aient terminé avant de fusionner les résultats et de continuer. De plus, le journal de diagnostic génère les temps d’attente d’exécution globale des requêtes peu performantes. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
-Commencez par optimiser ou simplifier les requêtes complexes. Une bonne pratique consiste à diviser les longs programmes de traitement par lots en plus petits programmes. De plus, vérifiez que vous avez créé des index pour prendre en charge vos requêtes. Vous pouvez également appliquer manuellement l’option MAXDOP (degré maximal de parallélisme) à une requête identifiée comme étant peu performante. Pour configurer cette opération à l’aide de T-SQL, consultez [Configurer l’option de configuration de serveur MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Commencez par optimiser ou simplifier les requêtes complexes. Une bonne pratique consiste à diviser les longs programmes de traitement par lots en plus petits programmes. De plus, vérifiez que vous avez créé des index pour prendre en charge vos requêtes. Vous pouvez également appliquer manuellement l’option MAXDOP (degré maximal de parallélisme) à une requête identifiée comme étant peu performante. Pour configurer cette opération à l’aide de T-SQL, consultez [Configurer l’option de configuration de serveur MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Si la valeur zéro (0) est affectée à l’option de configuration de serveur MAXDOP en tant que valeur par défaut, cela indique que la base de données peut utiliser tous les cœurs d’UC disponibles pour paralléliser les threads afin d’exécuter une seule requête. Si la valeur un (1) est affectée à MAXDOP, cela indique qu’un seul cœur peut être utilisé pour l’exécution d’une seule requête. En pratique, cela signifie que le parallélisme est désactivé. En fonction de votre situation, du nombre de cœurs disponibles pour la base de données et des informations du journal de diagnostic, vous pouvez paramétrer l’option MAXDOP sur le nombre de cœurs à utiliser pour une exécution parallèle optimale des requêtes.
 
@@ -196,7 +196,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui affecte
 
 Ce modèle de performances indique qu’une nouvelle requête est détectée, qu’elle n’est pas très efficace et qu’elle affecte les performances de la charge de travail par rapport à la base de référence des performances des sept jours précédents.
 
-Parfois, l’écriture d’une requête efficace est une tâche difficile. Pour plus d’informations sur l’écriture des requêtes, consultez [Écriture des requêtes SQL](https://msdn.microsoft.com/library/bb264565.aspx). Pour optimiser les performances des requêtes existantes, consultez [Paramétrage des requêtes](https://msdn.microsoft.com/library/ms176005.aspx).
+Parfois, l’écriture d’une requête efficace est une tâche difficile. Pour plus d’informations sur l’écriture des requêtes, consultez [Écriture des requêtes SQL](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)). Pour optimiser les performances des requêtes existantes, consultez [Paramétrage des requêtes](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ### <a name="troubleshooting"></a>Dépannage
 
@@ -210,7 +210,7 @@ Dans Azure SQL Database, utilisez éventuellement [Query Performance Insight](qu
 
 Ce modèle de performances détectables indique une détérioration des performances de la charge de travail où les requêtes peu performantes sont identifiées par rapport à la base de référence de la charge de travail des sept jours précédents.
 
-Dans ce cas, le système ne peut pas classer les requêtes peu performantes dans une autre catégorie de performances détectables standard. Toutefois, il a détecté les statistiques d’attente responsables de la régression. Il les considère donc comme des requêtes qui connaissent une *augmentation des statistiques d’attente*. De plus, les statistiques d’attente responsables de la régression sont également exposées.
+Dans ce cas, le système ne peut pas classer les requêtes peu performantes dans une autre catégorie de performances détectables standard. Toutefois, il a détecté les statistiques d’attente responsables de la régression. Il les considère donc comme des requêtes qui connaissent une *augmentation des statistiques d’attente* . De plus, les statistiques d’attente responsables de la régression sont également exposées.
 
 ### <a name="troubleshooting"></a>Dépannage
 
@@ -218,7 +218,7 @@ Le journal de diagnostic génère des informations détaillées sur l’augmenta
 
 Dans la mesure où le système n’a pas pu identifier correctement la cause racine des requêtes peu performantes, les informations de diagnostic représentent un bon point de départ pour une résolution manuelle des problèmes. Vous pouvez optimiser les performances de ces requêtes. Respectez les bonnes pratiques suivantes : extrayez uniquement les données dont vous avez besoin, simplifiez et décomposez les requêtes complexes en requêtes plus petites.
 
-Pour plus d’informations sur l’optimisation des performances des requêtes, consultez [Paramétrage des requêtes](https://msdn.microsoft.com/library/ms176005.aspx).
+Pour plus d’informations sur l’optimisation des performances des requêtes, consultez [Paramétrage des requêtes](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ## <a name="tempdb-contention"></a>Contention de TempDB
 
@@ -230,7 +230,7 @@ Ce modèle de performances détectables indique un problème au niveau des perfo
 
 Le journal de diagnostic génère des détails sur la contention de tempDB. Vous pouvez utiliser ces informations comme point de départ pour la résolution des problèmes. Il existe deux choses que vous pouvez faire pour limiter ce genre de contention et augmenter le débit de la charge de travail globale : Tout d’abord, vous pouvez arrêter d’utiliser les tables temporaires. Ensuite, vous pouvez utiliser des tables à mémoire optimisée.
 
-Pour plus d’informations, consultez [Introduction aux tables à mémoire optimisée](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
+Pour plus d’informations, consultez [Introduction aux tables à mémoire optimisée](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>Pénurie de DTU du pool élastique
 
@@ -260,7 +260,7 @@ Ce modèle de performances détectables combine trois cas différents de régres
 
 La régression de nouveau plan fait référence à un état dans lequel le moteur de base de données commence à exécuter un nouveau plan d’exécution de requêtes qui n’est pas aussi efficace que le plan antérieur. La régression de plan antérieur fait référence à l’état où le moteur de base de données passe de l’utilisation d’un nouveau plan, plus efficace, à celle du plan antérieur, qui est moins efficace que le nouveau plan. La régression de la charge de travail liée à des changements de plans existants fait référence à l’état dans lequel deux plans, un plan antérieur et un nouveau plan, ne cessent d’alterner, avec une tendance pour le plan le moins performant.
 
-Pour plus d’informations sur les régressions de plans, consultez [Qu’est-ce que la régression de plan dans SQL Server ?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/).
+Pour plus d’informations sur les régressions de plans, consultez [Qu’est-ce que la régression de plan dans SQL Server ?](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server).
 
 ### <a name="troubleshooting"></a>Dépannage
 
@@ -268,7 +268,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes, l’ID du 
 
 Vous pouvez déterminer quel est le plan le plus performant pour vos requêtes spécifiques en les identifiant à l’aide des codes de hachage des requêtes fournis. Une fois que vous avez défini le plan qui fonctionne le mieux pour vos requêtes, vous pouvez le forcer manuellement.
 
-Pour plus d’informations sur les régressions de plans, consultez [Découvrir comment SQL Server empêche les régressions de plans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Pour plus d’informations sur les régressions de plans, consultez [Découvrir comment SQL Server empêche les régressions de plans](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions).
 
 > [!TIP]
 > Saviez-vous que la fonctionnalité de l'intelligence intégrée est capable de gérer automatiquement les plans d’exécution des requêtes les plus performants de vos bases de données ?
@@ -287,7 +287,7 @@ Vous pouvez apporter un changement de configuration à l’échelle de la base d
 
 Le journal de diagnostic génère les changements de configuration à l’échelle de la base de données qui ont été apportés récemment et qui ont provoqué la détérioration des performances par rapport au comportement de la charge de travail pendant les sept jours précédents. Vous pouvez restaurer les changements de configuration aux valeurs antérieures. Vous pouvez paramétrer chaque valeur jusqu’à ce que le niveau de performance souhaité soit atteint. Vous pouvez copier les valeurs de configuration à l’échelle de la base de données à partir d’une base de données similaire dont les performances sont satisfaisantes. Si vous n’arrivez pas à résoudre les problèmes de performances, restaurez les valeurs par défaut, puis essayez de les paramétrer de manière plus précise à partir de cette base de référence.
 
-Pour plus d’informations sur l’optimisation de la configuration à l’échelle de la base de données et sur la syntaxe T-SQL utilisée pour changer la configuration, consultez [Changer la configuration à l’échelle de la base de données (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+Pour plus d’informations sur l’optimisation de la configuration à l’échelle de la base de données et sur la syntaxe T-SQL utilisée pour changer la configuration, consultez [Changer la configuration à l’échelle de la base de données (Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## <a name="slow-client"></a>Client lent
 
@@ -326,11 +326,11 @@ Accédez à Intelligent Insights via le portail Azure et Azure SQL Analytics. Es
 > [!TIP]
 > Sélectionnez l’organigramme pour télécharger sa version PDF.
 
-Intelligent Insights a généralement besoin d’une heure pour effectuer l’analyse de la cause racine du problème de performances. Si vous ne parvenez pas à localiser votre problème dans Intelligent Insights et s’il s’agit d’un problème critique, utilisez le Magasin des requêtes pour identifier manuellement la cause racine du problème de performances. (En règle générale, ces problèmes ont moins d’une heure.) Pour plus d’informations, consultez [Analyser les performances à l’aide du Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights a généralement besoin d’une heure pour effectuer l’analyse de la cause racine du problème de performances. Si vous ne parvenez pas à localiser votre problème dans Intelligent Insights et s’il s’agit d’un problème critique, utilisez le Magasin des requêtes pour identifier manuellement la cause racine du problème de performances. (En règle générale, ces problèmes ont moins d’une heure.) Pour plus d’informations, consultez [Analyser les performances à l’aide du Magasin des requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les concepts [Intelligent Insights](intelligent-insights-overview.md).
 - Utilisez le [journal de diagnostic des performances Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
-- Supervisez l'utilisation d'[Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Supervisez l'utilisation d'[Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/platform/platform-logs-overview.md).

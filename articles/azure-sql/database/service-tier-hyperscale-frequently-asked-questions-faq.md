@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488862"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780187"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -136,7 +136,7 @@ Non.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Combien de réplicas avec échelle horizontale en lecture sont pris en charge ?
 
-Les bases de données Hyperscale sont créées par défaut avec un réplica avec échelle horizontale en lecture (deux réplicas y compris le principal). Vous pouvez mettre à l’échelle le nombre de réplicas en lecture seule entre 0 et 4 à l’aide du [Portail Azure](https://portal.azure.com) ou de l’[API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Les bases de données Hyperscale sont créées par défaut avec un réplica avec échelle horizontale en lecture (deux réplicas y compris le principal). Vous pouvez mettre à l’échelle le nombre de réplicas en lecture seule entre 0 et 4 à l’aide du [Portail Azure](https://portal.azure.com) ou de l’[API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Pour la haute disponibilité, dois-je approvisionner des nœuds de calcul supplémentaires ?
 
@@ -198,7 +198,7 @@ Oui, y compris la compression de ligne, de page et columnstore.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Si j’ai une table très grande, les données de ma table sont-elles réparties dans plusieurs fichiers de données ?
 
-Oui. Les pages de données associées à une table donnée peuvent être stockées dans plusieurs fichiers de données, qui font tous partie du même groupe de fichiers. SQL Server utilise une [stratégie de remplissage proportionnel](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) pour distribuer les données entre des fichiers de données.
+Oui. Les pages de données associées à une table donnée peuvent être stockées dans plusieurs fichiers de données, qui font tous partie du même groupe de fichiers. SQL Server utilise une [stratégie de remplissage proportionnel](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) pour distribuer les données entre des fichiers de données.
 
 ## <a name="data-migration-questions"></a>Questions relatives à la migration des données
 
@@ -231,9 +231,9 @@ Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées, mais le
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Est-ce que je peux lire les données d’un stockage d’objets blob (comme PolyBase dans Azure Synapse Analytics) et faire un chargement rapide ?
 
-Vous pouvez faire en sorte qu’une application cliente lise des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (tout comme vous pouvez le faire avec n’importe quelle autre base de données dans Azure SQL Database). Actuellement, PolyBase n’est pas pris en charge dans Azure SQL Database. Comme alternative pour fournir une charge rapide, vous pouvez utiliser [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou utiliser un travail Spark dans [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) avec le [connecteur Spark pour SQL](spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
+Vous pouvez faire en sorte qu’une application cliente lise des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (tout comme vous pouvez le faire avec n’importe quelle autre base de données dans Azure SQL Database). Actuellement, PolyBase n’est pas pris en charge dans Azure SQL Database. Comme alternative pour fournir une charge rapide, vous pouvez utiliser [Azure Data Factory](../../data-factory/index.yml) ou utiliser un travail Spark dans [Azure Databricks](/azure/azure-databricks/) avec le [connecteur Spark pour SQL](spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
 
-Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Le modèle de récupération simple ou de journalisation en bloc n’est pas pris en charge dans Hyperscale. Le modèle de récupération complète est nécessaire pour fournir une haute disponibilité et la récupération jusqu`à une date et heure. Cependant, l’architecture de journalisation Hyperscale fournit un meilleur débit d’ingestion en comparaison avec d’autres niveaux de services Azure SQL Database.
 
@@ -277,7 +277,7 @@ Non. Les sauvegardes sont gérées par le sous-système de stockage et tirent pa
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Puis-je effectuer une géorestauration avec une base de données Hyperscale ?
 
-Oui. La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration nécessite une opération à l’échelle des données. Les fichiers de données étant copiés en parallèle, la durée de cette opération dépend principalement de la taille du fichier le plus volumineux dans la base de données, plutôt que de la taille totale de celle-ci. La durée de la géorestauration est beaucoup plus courte si la base de données est restaurée dans la région Azure [associée](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) à la région de la base de données source.
+Oui. La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration nécessite une opération à l’échelle des données. Les fichiers de données étant copiés en parallèle, la durée de cette opération dépend principalement de la taille du fichier le plus volumineux dans la base de données, plutôt que de la taille totale de celle-ci. La durée de la géorestauration est beaucoup plus courte si la base de données est restaurée dans la région Azure [associée](../../best-practices-availability-paired-regions.md) à la région de la base de données source.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Puis-je configurer la géoréplication avec une base de données Hyperscale ?
 
@@ -357,7 +357,7 @@ Non. Seul le réplica de calcul principal accepte les demandes de lecture/écrit
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Combien de réplicas de calcul secondaires puis-je approvisionner ?
 
-Nous créons par défaut un réplica secondaire pour les bases de données Hyperscale. Si vous souhaitez ajuster le nombre de réplicas, vous pouvez le faire au moyen du [Portail Microsoft Azure](https://portal.azure.com) ou de l’[API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Nous créons par défaut un réplica secondaire pour les bases de données Hyperscale. Si vous souhaitez ajuster le nombre de réplicas, vous pouvez le faire au moyen du [Portail Microsoft Azure](https://portal.azure.com) ou de l’[API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Comment se connecter à ces réplicas de calcul secondaires ?
 

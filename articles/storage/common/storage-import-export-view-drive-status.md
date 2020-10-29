@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8c944e1eb665f3f0bc83e28e1e5469d2da501a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88520460"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781989"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
 Cet article fournit des informations sur la vérification de l’état des lecteurs et des tâches Azure Import/Export. Le service Azure Import/Export est utilisé pour transférer de manière sécurisée de grandes quantités de données dans des objets blob Azure et Azure Files. Le service est également utilisé pour exporter des données du Stockage Blob Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Voir l’état de la tâche et des lecteurs
-Vous pouvez suivre l’état de vos travaux d’importation ou d’exportation à partir du portail Azure en sélectionnant l’onglet **Importer/Exporter**. La liste de vos tâches s’affiche sur la page.
+Vous pouvez suivre l’état de vos travaux d’importation ou d’exportation à partir du portail Azure en sélectionnant l’onglet **Importer/Exporter** . La liste de vos tâches s’affiche sur la page.
 
 ![Afficher l’état des tâches](./media/storage-import-export-service/jobstate.png)
 
@@ -30,13 +30,13 @@ Selon la phase de traitement de votre lecteur, vous obtiendrez l’un des statut
 
 | Statut de tâche | Description |
 |:--- |:--- |
-| Creating | Dès qu’une tâche est créée, son état est défini sur **Création**. Quand le travail est en état **Création**, le service Import/Export suppose que les disques n’ont pas été expédiés au centre de données. Un travail peut rester dans cet état pendant deux semaines maximum. Passé ce délai, le service le supprime automatiquement. |
-| Expédition | Après avoir expédié votre colis, vous devez mettre à jour les informations de suivi dans le portail Azure.  Cela a pour effet de modifier l’état du travail en **Expédition**. La tâche reste dans l’état **Expédition** pendant deux semaines maximum. 
-| Reçu | Quand tous les lecteurs ont été reçus au centre de données, l’état de la tâche est défini sur **Reçu**. |
-| Transferring | Une fois que le traitement a commencé pour au moins un lecteur, l’état de la tâche est défini sur **Transfert**. Pour plus d’informations, accédez à [États de lecteur](#view-drive-status). |
+| Creating | Dès qu’une tâche est créée, son état est défini sur **Création** . Quand le travail est en état **Création** , le service Import/Export suppose que les disques n’ont pas été expédiés au centre de données. Un travail peut rester dans cet état pendant deux semaines maximum. Passé ce délai, le service le supprime automatiquement. |
+| Expédition | Après avoir expédié votre colis, vous devez mettre à jour les informations de suivi dans le portail Azure.  Cela a pour effet de modifier l’état du travail en **Expédition** . La tâche reste dans l’état **Expédition** pendant deux semaines maximum. 
+| Reçu | Quand tous les lecteurs ont été reçus au centre de données, l’état de la tâche est défini sur **Reçu** . |
+| Transferring | Une fois que le traitement a commencé pour au moins un lecteur, l’état de la tâche est défini sur **Transfert** . Pour plus d’informations, accédez à [États de lecteur](#view-drive-status). |
 | Packaging | Une fois que tous les lecteurs ont été traités, la tâche est définie sur l’état **Emballage** jusqu’à ce que les lecteurs vous soient réexpédiés. |
-| Completed | Une fois que tous les lecteurs vous ont été réexpédiés, si la tâche s’est effectuée sans erreur, son état est défini sur **Effectué**. La tâche est automatiquement supprimée au bout de 90 jours dans l’état **Effectué**. |
-| Fermés | Une fois que tous les lecteurs vous sont réexpédiés, si des erreurs se sont produites pendant le traitement du travail, celui-ci est défini sur **Fermé**. La tâche est automatiquement supprimée au bout de 90 jours dans l’état **Fermé**. |
+| Completed | Une fois que tous les lecteurs vous ont été réexpédiés, si la tâche s’est effectuée sans erreur, son état est défini sur **Effectué** . La tâche est automatiquement supprimée au bout de 90 jours dans l’état **Effectué** . |
+| Fermés | Une fois que tous les lecteurs vous sont réexpédiés, si des erreurs se sont produites pendant le traitement du travail, celui-ci est défini sur **Fermé** . La tâche est automatiquement supprimée au bout de 90 jours dans l’état **Fermé** . |
 
 ## <a name="view-drive-status"></a>Afficher l’état des disques
 
@@ -46,8 +46,8 @@ Le tableau suivant décrit chacun des états par lesquels le disque d’une tâc
 
 | État du disque | Description |
 |:--- |:--- |
-| Spécifié | Pour une tâche d’importation, quand elle est créée dans le portail Azure, l’état initial d’un lecteur est **Spécifié**. Pour une tâche d’exportation, comme aucun lecteur n’est spécifié à la création de la tâche, l’état initial du lecteur est **Reçu**. |
-| Reçu | Le lecteur passe à l’état **Reçu** une fois que le service Import/Export a traité les lecteurs reçus de l’entreprise de transport pour une tâche d’importation. Pour une tâche d’exportation, l’état initial du lecteur est l’état **Reçu**. |
+| Spécifié | Pour une tâche d’importation, quand elle est créée dans le portail Azure, l’état initial d’un lecteur est **Spécifié** . Pour une tâche d’exportation, comme aucun lecteur n’est spécifié à la création de la tâche, l’état initial du lecteur est **Reçu** . |
+| Reçu | Le lecteur passe à l’état **Reçu** une fois que le service Import/Export a traité les lecteurs reçus de l’entreprise de transport pour une tâche d’importation. Pour une tâche d’exportation, l’état initial du lecteur est l’état **Reçu** . |
 | NeverReceived (Jamais reçu) | Le lecteur passe à l’état **NeverReceived** quand le colis associé à une tâche est arrivé, mais ne contient pas le lecteur. Un lecteur passe également à cet état si le centre de données n’a pas encore reçu le package, et si le service a reçu les informations d’expédition au moins deux semaines auparavant. |
 | Transferring | Un lecteur passe à l’état **Transfert** quand le service commence à transférer les données du lecteur dans le Stockage Azure. |
 | Completed | Un lecteur passe à l’état **Effectué** quand le service a transféré toutes les données sans erreurs.
@@ -62,7 +62,7 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 
 | État du disque | Événement | Résolution / Étape suivante |
 |:--- |:--- |:--- |
-| NeverReceived (Jamais reçu) | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition du travail) arrive dans une autre expédition. | L’équipe des opérations passe le lecteur à l’état **Reçu**. |
+| NeverReceived (Jamais reçu) | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition du travail) arrive dans une autre expédition. | L’équipe des opérations passe le lecteur à l’état **Reçu** . |
 | N/A | Un lecteur qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’un autre travail. | Le lecteur est marqué comme lecteur supplémentaire. Il vous est renvoyé quand le travail associé au package d’origine est terminé. |
 
 ## <a name="time-to-process-job"></a>Temps de traitement du travail
@@ -78,5 +78,5 @@ Le service Import/Export n’a pas de contrat de niveau de service mais s’effo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Transférer des données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+* [Transférer des données avec l’utilitaire de ligne de commande AzCopy](./storage-use-azcopy-v10.md)
 * [Exemple d’API REST Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

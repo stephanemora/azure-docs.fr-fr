@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441712"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782890"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Qu’est-ce qu’un serveur SQL logique dans Azure SQL Database et Azure Synapse ?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Un serveur dans SQL Database et Azure Synapse :
 - Est la ressource parente pour les bases de données, les pools élastiques et les entrepôts de données
 - Fournit un espace de noms pour les bases de données, les pools élastiques et la base de données de l’entrepôt de données
 - Est un conteneur logique qui possède une forte sémantique de durée de vie : si vous supprimez un serveur, il supprime ses bases de données, ses pools élastiques et ses pools SQK
-- Fait partie d’un [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](/azure/role-based-access-control/overview) : les bases de données, les pools élastiques et la base de données de l’entrepôt de données d’un serveur héritent des droits d’accès du serveur
+- Fait partie d’un [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md) : les bases de données, les pools élastiques et la base de données de l’entrepôt de données d’un serveur héritent des droits d’accès du serveur
 - Est un élément de poids dans l’identité des bases de données, des pools élastiques et de la base de données de l’entrepôt de données à des fins de gestion des ressources Azure (voir le schéma d’URL pour les bases de données et les pools)
 - Colocalise les ressources d’une région
 - Fournit un point de terminaison de connexion pour l’accès aux bases de données (`<serverName>`. database.windows.net)
@@ -68,7 +68,7 @@ Pour créer une instance gérée, consultez [Créer une instance gérée](../man
 
 ### <a name="manage-an-existing-server"></a>Gérer un serveur existant
 
-Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources**.
+Pour gérer un serveur existant, accédez au serveur en utilisant plusieurs méthodes : à partir de la page d’une base de données spécifique, de la page **serveurs SQL** ou de la page **Toutes les ressources** .
 
 Pour gérer une base de données existante, accédez à la page **Bases de données SQL** page, puis cliquez sur la base de données que vous souhaitez gérer. La capture d’écran suivante montre comment commencer à définir un pare-feu au niveau du serveur pour une base de données, à partir de la page **Vue d’ensemble** d’une base de données.
 
@@ -83,7 +83,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour créer et gérer des serveurs, des bases de données et des pare-feux avec Azure PowerShell, utilisez les cmdlets PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps). Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Crée un groupe de ressources|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Crée un serveur|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Renvoie des informations concernant les serveurs|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifie les propriétés d’un serveur|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifie les propriétés d’un serveur|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Supprime un serveur|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Crée une règle de pare-feu au niveau du serveur |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtient les règles de pare-feu d’un serveur|
@@ -110,7 +110,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Gérer des serveurs, des bases de données et des pare-feux à l’aide d’Azure CLI
 
-Pour créer et gérer des serveurs, des bases de données et des pare-feux avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
+Pour créer et gérer des serveurs, des bases de données et des pare-feux avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](../../cloud-shell/overview.md) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](elastic-pool-overview.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -150,7 +150,7 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux avec 
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crée une nouvelle base de données Azure SQL Database. Vous devez être connecté à la base de données master pour créer une base de données.|
 |[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Crée une nouvelle base de données de l’entrepôt de données dans Azure Synapse. Vous devez être connecté à la base de données master pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifie la base de données ou le pool élastique. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Crée une base de données de l’entrepôt de données dans Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Crée une base de données de l’entrepôt de données dans Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique d’une base de données. Si vous êtes connecté à la base de données MASTER d’un serveur, retourne les informations sur toutes les bases de données. Pour Azure Synapse, vous devez être connecté à la base de données MASTER.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données dans Azure SQL Database. Il existe une ligne pour chaque période de 15 secondes, même s'il n'y a aucune activité dans la base de données.|
@@ -173,22 +173,22 @@ Pour créer et gérer des serveurs, des bases de données et des pare-feux, util
 
 | Commande | Description |
 | --- | --- |
-|[Servers - Create or update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
-|[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Supprime un serveur.|
-|[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtient un serveur.|
-|[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourne une liste de serveurs.|
-|[Servers - List by resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
-|[Serveurs - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Met à jour un serveur existant.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Supprimer](https://docs.microsoft.com/rest/api/sql/databases/delete)|Supprime une base de données.|
-|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
-|[Firewall rules - Create or update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
-|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
-|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
-|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
+|[Servers - Create or update](/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Serveurs - Delete](/rest/api/sql/servers/delete)|Supprime un serveur.|
+|[Serveurs - Get](/rest/api/sql/servers/get)|Obtient un serveur.|
+|[Serveurs - List](/rest/api/sql/servers/list)|Retourne une liste de serveurs.|
+|[Servers - List by resource Group](/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
+|[Serveurs - Update](/rest/api/sql/servers/update)|Met à jour un serveur existant.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Supprimer](/rest/api/sql/databases/delete)|Supprime une base de données.|
+|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Firewall rules - Create or update](/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
+|[Firewall rules - Delete](/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
+|[Firewall rules - Get](/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
+|[Firewall rules - List by server](/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

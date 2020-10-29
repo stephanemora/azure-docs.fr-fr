@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042964"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748472"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certifier des appareils IoT Plug-and-Play
 
@@ -182,12 +182,12 @@ Les informations du profil d’entreprise sont utilisées dans la description de
 
 Pour certifier un appareil, vous devez d’abord créer un projet.
 
-Accédez au [portail de certification](https://aka.ms/acdp). Sur la page **Projets**, sélectionnez *+ Créer un projet*. Entrez ensuite le nom du projet, le nom de l’appareil, puis sélectionnez une classe d’appareil.
+Accédez au [portail de certification](https://aka.ms/acdp). Sur la page **Projets** , sélectionnez *+ Créer un projet* . Entrez ensuite le nom du projet, le nom de l’appareil, puis sélectionnez une classe d’appareil.
 
 Les informations produit que vous fournissez lors du processus de certification se répartissent en quatre catégories :
 
 - Informations sur l'appareil. Collecte des informations sur l’appareil, telles que son nom, sa description, ses certifications et son système d’exploitation.
-- Guide de **prise en main**. Vous devez soumettre ce guide sous forme de document PDF pour qu’il soit approuvé par l’administrateur système avant de publier l’appareil.
+- Guide de **prise en main** . Vous devez soumettre ce guide sous forme de document PDF pour qu’il soit approuvé par l’administrateur système avant de publier l’appareil.
 - Détails marketing Fournissez des informations marketing adaptées aux clients pour votre appareil. Les informations marketing comprennent une description, une photo et les distributeurs.
 - Autres certifications de l’industrie. Cette section facultative vous permet de fournir des informations supplémentaires sur les autres certifications dont dispose l’appareil.
 

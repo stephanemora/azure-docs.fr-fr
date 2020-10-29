@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3cdb7796f3f8c877f130f47b971dc66c113c4d36
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070110"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748850"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutoriel : Utiliser des références Key Vault dans une application Java Spring
 
@@ -52,15 +52,15 @@ Dans ce tutoriel, vous allez apprendre à :
 1. Sélectionnez l’option **Créer une ressource** dans le coin supérieur gauche du Portail Azure :
 
     ![La sortie après la création du coffre de clés](./media/quickstarts/search-services.png)
-1. Dans la zone de recherche, entrez **Key Vault**.
+1. Dans la zone de recherche, entrez **Key Vault** .
 1. Dans la liste des résultats, sélectionnez **Coffres de clés** sur la gauche.
-1. Dans **Coffres de clés**, sélectionnez **Ajouter**.
-1. Sur la droite, dans **Créer un coffre de clés**, renseignez les informations suivantes :
+1. Dans **Coffres de clés** , sélectionnez **Ajouter** .
+1. Sur la droite, dans **Créer un coffre de clés** , renseignez les informations suivantes :
     * Sélectionnez **Abonnement** pour choisir un abonnement.
-    * Dans **Groupe de ressources**, sélectionnez **Créer un nouveau** et entrez un nom de groupe de ressources.
-    * Dans **Nom du coffre de clés**, un nom unique est requis. Pour ce tutoriel, entrez **Contoso-vault2**.
-    * Dans la liste déroulante **Région**, choisissez un emplacement.
-1. Conservez les valeurs par défaut des autres options **Création d’un coffre de clés**.
+    * Dans **Groupe de ressources** , sélectionnez **Créer un nouveau** et entrez un nom de groupe de ressources.
+    * Dans **Nom du coffre de clés** , un nom unique est requis. Pour ce tutoriel, entrez **Contoso-vault2** .
+    * Dans la liste déroulante **Région** , choisissez un emplacement.
+1. Conservez les valeurs par défaut des autres options **Création d’un coffre de clés** .
 1. Sélectionnez **Create** (Créer).
 
 À ce stade, votre compte Azure est le seul autorisé à accéder à ce nouveau coffre.
@@ -71,26 +71,26 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres étapes. Dans ce cas, ajoutez un message que vous pouvez utiliser pour tester la récupération de Key Vault. Le message est appelé **Message** et vous stockez la valeur « Hello from Key Vault » dedans.
 
-1. Depuis les pages des propriétés Key Vault, sélectionnez **Secrets**.
-1. Sélectionnez **Générer/Importer**.
-1. Dans le volet **Créer un secret**, saisissez les valeurs suivantes :
-    * **Options de chargement** : Entrez **Manuel**.
-    * **Name** : Entrez **Message**.
-    * **Valeur** : Entrez **Hello from Key Vault**.
-1. Conservez les valeurs par défaut des autres propriétés **Créer un secret**.
+1. Depuis les pages des propriétés Key Vault, sélectionnez **Secrets** .
+1. Sélectionnez **Générer/Importer** .
+1. Dans le volet **Créer un secret** , saisissez les valeurs suivantes :
+    * **Options de chargement**  : Entrez **Manuel** .
+    * **Name**  : Entrez **Message** .
+    * **Valeur** : Entrez **Hello from Key Vault** .
+1. Conservez les valeurs par défaut des autres propriétés **Créer un secret** .
 1. Sélectionnez **Create** (Créer).
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Ajouter une référence Key Vault à App Configuration
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources** , puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
-1. Sélectionnez **Explorateur de configuration**.
+1. Sélectionnez **Explorateur de configuration** .
 
-1. Sélectionnez **+ Créer** > **Référence Key Vault**, puis choisissez les valeurs suivantes :
-    * **Clé** : Sélectionnez **/application/config.keyvaultmessage**
-    * **Étiquette** : Laissez cette valeur vide.
-    * **Abonnement**, **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant aux valeurs du coffre de clés que vous avez créé à la section précédente.
-    * **Secret** : Sélectionnez le secret nommé **Message** que vous avez créé dans la section précédente.
+1. Sélectionnez **+ Créer** > **Référence Key Vault** , puis choisissez les valeurs suivantes :
+    * **Clé**  : Sélectionnez **/application/config.keyvaultmessage**
+    * **Étiquette**  : Laissez cette valeur vide.
+    * **Abonnement** , **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant aux valeurs du coffre de clés que vous avez créé à la section précédente.
+    * **Secret**  : Sélectionnez le secret nommé **Message** que vous avez créé dans la section précédente.
 
 ## <a name="connect-to-key-vault"></a>Se connecter à Key Vault
 
@@ -129,7 +129,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Créez les variables d’environnement **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** et **AZURE_TENANT_ID**. Utilisant les valeurs du principal de service affichées à l’étape précédente. Sur la ligne de commande, exécutez la commandes suivantes et redémarrez l’invite de commandes pour que la modification soit prise en compte :
+1. Créez les variables d’environnement **AZURE_CLIENT_ID** , **AZURE_CLIENT_SECRET** et **AZURE_TENANT_ID** . Utilisant les valeurs du principal de service affichées à l’étape précédente. Sur la ligne de commande, exécutez la commandes suivantes et redémarrez l’invite de commandes pour que la modification soit prise en compte :
 
     ```cmd
     setx AZURE_CLIENT_ID "clientId"
@@ -159,16 +159,16 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Mettre à jour votre code pour utiliser une référence Key Vault
 
-1. Créez une variable d’environnement appelée **APP_CONFIGURATION_ENDPOINT**. Définissez sa valeur sur le point de terminaison de votre magasin App Configuration. Vous trouverez le point de terminaison dans le panneau **Clés d’accès** dans le portail Azure. Redémarrez l’invite de commandes pour que la modification soit prise en compte. 
+1. Créez une variable d’environnement appelée **APP_CONFIGURATION_ENDPOINT** . Définissez sa valeur sur le point de terminaison de votre magasin App Configuration. Vous trouverez le point de terminaison dans le panneau **Clés d’accès** dans le portail Azure. Redémarrez l’invite de commandes pour que la modification soit prise en compte. 
 
 
-1. Ouvrez *bootstrap.properties* dans le dossier *resources*. Mettez à jour ce fichier pour utiliser la valeur **APP_CONFIGURATION_ENDPOINT**. Supprimez toutes les références à une chaîne de connexion dans ce fichier. 
+1. Ouvrez *bootstrap.properties* dans le dossier *resources* . Mettez à jour ce fichier pour utiliser la valeur **APP_CONFIGURATION_ENDPOINT** . Supprimez toutes les références à une chaîne de connexion dans ce fichier. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Ouvrez *MessageProperties.java*. Ajoutez une nouvelle variable appelée *keyVaultMessage* :
+1. Ouvrez *MessageProperties.java* . Ajoutez une nouvelle variable appelée *keyVaultMessage*  :
 
     ```java
     private String keyVaultMessage;
@@ -182,7 +182,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     }
     ```
 
-1. Ouvrez *HelloController.java*. Mettez à jour la méthode *getMessage* pour inclure le message récupéré à partir de Key Vault.
+1. Ouvrez *HelloController.java* . Mettez à jour la méthode *getMessage* pour inclure le message récupéré à partir de Key Vault.
 
     ```java
     @GetMapping
@@ -220,7 +220,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     }
     ```
 
-1. Créez un fichier nommé *AppConfiguration.java*. Puis, ajoutez le code ci-dessous.
+1. Créez un fichier nommé *AppConfiguration.java* . Puis, ajoutez le code ci-dessous.
 
     ```java
     package com.example.demo;

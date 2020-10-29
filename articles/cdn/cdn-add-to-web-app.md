@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079907"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779542"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
 
@@ -43,55 +43,55 @@ Ce que vous allez apprendre :
 Pour suivre ce tutoriel :
 
 - [Installez Git](https://git-scm.com/)
-- [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Créer l’application web
 
-Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure](../app-service/quickstart-html.md) jusqu’à la fin de l’étape **Accéder à l’application**.
+Pour créer l’application web que vous allez utiliser, suivez les instructions de l’article [Créer une application web HTML statique dans Azure](../app-service/quickstart-html.md) jusqu’à la fin de l’étape **Accéder à l’application** .
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Ouvrez un navigateur et accédez au [portail Azure](https://portal.azure.com).
 
 ### <a name="dynamic-site-acceleration-optimization"></a>Optimisation de l’accélération de site dynamique
-Si vous souhaitez optimiser votre point de terminaison CDN pour l’accélération de site dynamique (DSA), utilisez le [portail CDN](cdn-create-new-endpoint.md) pour créer votre profil et le point de terminaison. Grâce à [l’optimisation DSA](cdn-dynamic-site-acceleration.md), le niveau de performance des pages web comprenant du contenu dynamique est sensiblement amélioré. Pour obtenir des instructions sur l’optimisation d’un point de terminaison CDN pour DSA à partir du portail CDN, consultez [Configuration d’un point de terminaison CDN pour accélérer la distribution de fichiers dynamiques](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Sinon, si vous ne souhaitez pas optimiser votre nouveau point de terminaison, vous pouvez utiliser le portail d’applications web pour le créer en suivant les étapes décrites dans la section suivante. Remarque : pour les profils **CDN Azure fournis par Verizon**, il n’est pas possible de modifier l’optimisation d’un point de terminaison CDN après sa création.
+Si vous souhaitez optimiser votre point de terminaison CDN pour l’accélération de site dynamique (DSA), utilisez le [portail CDN](cdn-create-new-endpoint.md) pour créer votre profil et le point de terminaison. Grâce à [l’optimisation DSA](cdn-dynamic-site-acceleration.md), le niveau de performance des pages web comprenant du contenu dynamique est sensiblement amélioré. Pour obtenir des instructions sur l’optimisation d’un point de terminaison CDN pour DSA à partir du portail CDN, consultez [Configuration d’un point de terminaison CDN pour accélérer la distribution de fichiers dynamiques](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Sinon, si vous ne souhaitez pas optimiser votre nouveau point de terminaison, vous pouvez utiliser le portail d’applications web pour le créer en suivant les étapes décrites dans la section suivante. Remarque : pour les profils **CDN Azure fournis par Verizon** , il n’est pas possible de modifier l’optimisation d’un point de terminaison CDN après sa création.
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Création d’un profil CDN et d’un point de terminaison
 
-Dans le volet de navigation gauche, sélectionnez **App Services**, puis sélectionnez l’application que vous avez créée à la rubrique [Créer une application web HTML statique dans Azure en 5 minutes](../app-service/quickstart-html.md).
+Dans le volet de navigation gauche, sélectionnez **App Services** , puis sélectionnez l’application que vous avez créée à la rubrique [Créer une application web HTML statique dans Azure en 5 minutes](../app-service/quickstart-html.md).
 
 ![Sélection de l’application App Service dans le portail](media/cdn-add-to-web-app/portal-select-app-services.png)
 
-Dans la page **App Service**, dans la section **Paramètres**, sélectionnez **Mise en réseau > Configurer Azure CDN pour votre application**.
+Dans la page **App Service** , dans la section **Paramètres** , sélectionnez **Mise en réseau > Configurer Azure CDN pour votre application** .
 
 ![Sélection de CDN dans le portail](media/cdn-add-to-web-app/portal-select-cdn.png)
 
-Dans la page **Azure Content Delivery Network**, fournissez les paramètres du **Nouveau point de terminaison**, comme spécifié dans le tableau.
+Dans la page **Azure Content Delivery Network** , fournissez les paramètres du **Nouveau point de terminaison** , comme spécifié dans le tableau.
 
 ![Création d’un profil et d’un point de terminaison dans le portail](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
 | Paramètre | Valeur suggérée | Description |
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Un profil CDN est une collection de points de terminaison CDN possédant le même niveau tarifaire. |
-| **Niveau tarifaire** | Standard Akamai | Le [niveau tarifaire](cdn-features.md) spécifie le fournisseur et les fonctionnalités disponibles. Ce didacticiel utilise *Akamai standard*. |
+| **Niveau tarifaire** | Standard Akamai | Le [niveau tarifaire](cdn-features.md) spécifie le fournisseur et les fonctionnalités disponibles. Ce didacticiel utilise *Akamai standard* . |
 | **Nom du point de terminaison CDN** | N’importe quel nom qui est unique dans le domaine azureedge.net | Vous accédez à vos ressources mises en cache au niveau du *&lt;Nom_Point_Terminaison&gt;* .azureedge.net. du domaine.
 
 Sélectionnez **Créer** pour créer un profil CDN.
 
-Azure crée le profil et le point de terminaison. Le nouveau point de terminaison s’affiche dans la liste **Points de terminaison**, et lorsqu’il est configuré, son état est **Exécution en cours**.
+Azure crée le profil et le point de terminaison. Le nouveau point de terminaison s’affiche dans la liste **Points de terminaison** , et lorsqu’il est configuré, son état est **Exécution en cours** .
 
 ![Nouveau point de terminaison dans la liste](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
 ### <a name="test-the-cdn-endpoint"></a>Test du point de terminaison CDN
 
  Le point de terminaison n’est pas disponible immédiatement, car la propagation de l’enregistrement peut prendre du temps : 
-   - Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
-   - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
-   - Dans le cas des profils du **CDN Azure Standard fourni par Verizon** et du **CDN Azure Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes. 
+   - Pour les profils du **CDN Azure Standard fourni par Microsoft** , la propagation s’effectue généralement dans un délai de 10 minutes. 
+   - Pour les profils du **CDN Azure Standard fourni par Akamai** , la propagation s’effectue généralement dans un délai d’une minute. 
+   - Dans le cas des profils du **CDN Azure Standard fourni par Verizon** et du **CDN Azure Premium fourni par Verizon** , la propagation s’effectue généralement dans un délai de 90 minutes. 
 
-L’application fournie à titre d’exemple comprend un fichier *index.html* et des dossiers *css*, *img* et *js* contenant d’autres ressources statiques. Les chemins d’accès de contenu pour tous ces fichiers sont identiques au point de terminaison CDN. Par exemple, les deux URL suivantes accèdent au fichier *bootstrap.css* dans le dossier *css* :
+L’application fournie à titre d’exemple comprend un fichier *index.html* et des dossiers *css* , *img* et *js* contenant d’autres ressources statiques. Les chemins d’accès de contenu pour tous ces fichiers sont identiques au point de terminaison CDN. Par exemple, les deux URL suivantes accèdent au fichier *bootstrap.css* dans le dossier *css*  :
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -158,7 +158,7 @@ http://<endpointname>.azureedge.net/index.html
 
 Pour forcer le CDN à mettre à jour sa version mise en cache, videz le CDN.
 
-Dans le portail de navigation gauche, sélectionnez **Groupes de ressources**, puis sélectionnez le groupe de ressources que vous avez créé pour votre application web (myResourceGroup).
+Dans le portail de navigation gauche, sélectionnez **Groupes de ressources** , puis sélectionnez le groupe de ressources que vous avez créé pour votre application web (myResourceGroup).
 
 ![Sélection du groupe de ressources](media/cdn-add-to-web-app/portal-select-group.png)
 
@@ -166,13 +166,13 @@ Dans la liste des ressources, sélectionnez votre point de terminaison CDN.
 
 ![Sélection du point de terminaison](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
-En haut de la page **Point de terminaison**, sélectionnez **Vider**.
+En haut de la page **Point de terminaison** , sélectionnez **Vider** .
 
 ![Sélection de l’option Vider](media/cdn-add-to-web-app/portal-select-purge.png)
 
-Entrez les chemins d’accès au contenu que vous souhaitez vider. Vous pouvez transmettre un chemin d’accès complet pour vider un fichier individuel ou un segment de chemin d’accès pour vider et actualiser tout le contenu d’un dossier. Étant donné que vous avez modifié *index.html*, assurez-vous que ce fichier se trouve dans l’un des chemins d’accès.
+Entrez les chemins d’accès au contenu que vous souhaitez vider. Vous pouvez transmettre un chemin d’accès complet pour vider un fichier individuel ou un segment de chemin d’accès pour vider et actualiser tout le contenu d’un dossier. Étant donné que vous avez modifié *index.html* , assurez-vous que ce fichier se trouve dans l’un des chemins d’accès.
 
-En bas de la page, sélectionnez **Vider**.
+En bas de la page, sélectionnez **Vider** .
 
 ![Vidage de la page](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
@@ -206,11 +206,11 @@ Dans cette section du didacticiel, vous modifiez le comportement de mise en cach
 
 ### <a name="change-the-cache-behavior"></a>Modification du comportement de mise en cache
 
-Dans la page **Point de terminaison CDN** du portail Azure, sélectionnez **Cache**.
+Dans la page **Point de terminaison CDN** du portail Azure, sélectionnez **Cache** .
 
-Sélectionnez **Mettre en cache chaque URL unique** dans la liste déroulante **Comportement de mise en cache des chaînes de requête**.
+Sélectionnez **Mettre en cache chaque URL unique** dans la liste déroulante **Comportement de mise en cache des chaînes de requête** .
 
-Sélectionnez **Enregistrer**.
+Sélectionnez **Enregistrer** .
 
 ![Sélection du comportement de mise en cache de chaîne de requête](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
@@ -226,14 +226,14 @@ Azure CDN renvoie le contenu de l’application web actuelle, qui inclut *V2* da
 
 Pour vous assurer que cette page est mise en cache dans le CDN, actualisez la page. 
 
-Ouvrez *index.html*, changez *V2* en *V3*, puis déployez la modification. 
+Ouvrez *index.html* , changez *V2* en *V3* , puis déployez la modification. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-Dans un navigateur, accédez à l’URL du point de terminaison CDN avec une nouvelle chaîne de requête, par exemple `q=2`. Azure CDN obtient le fichier *index.html* actuel et affiche *V3*. Toutefois, si vous naviguez vers le point de terminaison CDN avec la chaîne de requête `q=1`, c’est la valeur *V2* qui s’affiche.
+Dans un navigateur, accédez à l’URL du point de terminaison CDN avec une nouvelle chaîne de requête, par exemple `q=2`. Azure CDN obtient le fichier *index.html* actuel et affiche *V3* . Toutefois, si vous naviguez vers le point de terminaison CDN avec la chaîne de requête `q=1`, c’est la valeur *V2* qui s’affiche.
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -269,5 +269,3 @@ Découvrez comment optimiser les performances du réseau CDN dans les articles s
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
-
-

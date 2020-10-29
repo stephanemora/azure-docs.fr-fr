@@ -7,13 +7,13 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 2b1d9b7f9ff07a3e0c7745191decc3e82181553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708017"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746954"
 ---
 ## <a name="create-azure-container-registry"></a>Créer un registre de conteneurs Azure
 
@@ -31,7 +31,7 @@ Une fois que vous avez créé le groupe de ressources, créez un registre de con
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Voici une sortie partielle pour un nouveau registre de conteneurs Azure nommé *mycontainerregistry082* :
+Voici une sortie partielle pour un nouveau registre de conteneurs Azure nommé *mycontainerregistry082*  :
 
 ```output
 {

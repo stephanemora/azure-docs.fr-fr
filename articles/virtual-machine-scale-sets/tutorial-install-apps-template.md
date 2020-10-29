@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059248"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746020"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -40,9 +40,9 @@ Pour voir l’extension de script personnalisé en action, créez un groupe iden
 
 
 ## <a name="create-custom-script-extension-definition"></a>Créer une définition d’extension de script personnalisé
-Lorsque vous définissez un groupe identique de machines virtuelles avec un modèle Azure, le fournisseur de ressources *Microsoft.Compute/virtualMachineScaleSets* peut inclure une section sur les extensions. Le *extensionsProfile* détaille ce qui est appliqué aux instances de machine virtuelle dans un groupe identique. Pour utiliser l’extension de script personnalisé, vous spécifiez un éditeur de *Microsoft.Azure.Extensions* et un type de *CustomScript*.
+Lorsque vous définissez un groupe identique de machines virtuelles avec un modèle Azure, le fournisseur de ressources *Microsoft.Compute/virtualMachineScaleSets* peut inclure une section sur les extensions. Le *extensionsProfile* détaille ce qui est appliqué aux instances de machine virtuelle dans un groupe identique. Pour utiliser l’extension de script personnalisé, vous spécifiez un éditeur de *Microsoft.Azure.Extensions* et un type de *CustomScript* .
 
-La propriété *fileUris* est utilisée pour définir les packages ou les scripts d’installation sources. Pour démarrer le processus d’installation, les scripts nécessaires sont définis dans *commandToExecute*. L’exemple suivant définit un exemple de script à partir de GitHub qui installe et configure le serveur web NGINX :
+La propriété *fileUris* est utilisée pour définir les packages ou les scripts d’installation sources. Pour démarrer le processus d’installation, les scripts nécessaires sont définis dans *commandToExecute* . L’exemple suivant définit un exemple de script à partir de GitHub qui installe et configure le serveur web NGINX :
 
 ```json
 "extensionProfile": {
@@ -108,7 +108,7 @@ Laissez le navigateur web ouvert afin que vous puissiez voir une version mise à
 
 
 ## <a name="update-app-deployment"></a>Déployer une mise à jour d’application
-Tout au long du cycle de vie d’un groupe identique, vous devrez peut-être déployer une version mise à jour de votre application. Avec l’extension de script personnalisé, vous pouvez faire référence à un script de déploiement de mises à jour puis réappliquer l’extension à votre groupe identique. À l’issue de la création du groupe identique à l’étape précédente, *upgradePolicy* a été défini sur *Automatique*. Ce paramètre permet aux instances de machine virtuelle dans le groupe identique de mettre automatiquement à jour et d’appliquer la dernière version de votre application.
+Tout au long du cycle de vie d’un groupe identique, vous devrez peut-être déployer une version mise à jour de votre application. Avec l’extension de script personnalisé, vous pouvez faire référence à un script de déploiement de mises à jour puis réappliquer l’extension à votre groupe identique. À l’issue de la création du groupe identique à l’étape précédente, *upgradePolicy* a été défini sur *Automatique* . Ce paramètre permet aux instances de machine virtuelle dans le groupe identique de mettre automatiquement à jour et d’appliquer la dernière version de votre application.
 
 Pour mettre à jour la définition de l’extension de script personnalisé, modifiez votre modèle pour faire référence à un nouveau script d’installation. Un nouveau nom de fichier doit être utilisé pour que l’extension de script personnalisé puisse reconnaître la modification. L’extension de script personnalisé n’examine pas le contenu du script pour déterminer les modifications. La définition suivante utilise un script d’installation mis à jour avec la mention *_v2* ajoutée à son nom :
 

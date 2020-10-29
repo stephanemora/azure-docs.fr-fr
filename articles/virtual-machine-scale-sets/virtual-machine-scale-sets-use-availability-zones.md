@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611911"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745840"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -22,21 +22,21 @@ Pour protéger vos groupes de machines virtuelles identiques contre les défaill
 
 ## <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
-Lorsque vous déployez un groupe identique régional (non zonal) dans une ou plusieurs zones en tant que version d’API *2017-12-01*, vos options de disponibilité sont les suivantes :
+Lorsque vous déployez un groupe identique régional (non zonal) dans une ou plusieurs zones en tant que version d’API *2017-12-01* , vos options de disponibilité sont les suivantes :
 - Diffusion maximale (platformFaultDomainCount = 1)
 - Diffusion fixe statique (platformFaultDomainCount = 5)
 - Diffusion alignée sur les domaines d’erreur de disque de stockage (platforFaultDomainCount = 2 ou 3)
 
 Avec « max spreading » (répartition max), le groupe identique répartit vos machines virtuelles sur autant de domaines d’erreur possibles au sein de chaque zone. Cette répartition peut s’effectuer sur plus ou moins de cinq domaines d’erreur par zone. Avec une diffusion fixe statique, le groupe identique répartit vos machines virtuelles dans exactement cinq domaines d’erreur par zone. Si le groupe identique ne parvient pas à trouver cinq domaines d’erreur distincts par zone pour satisfaire la requête de répartition, la requête échoue.
 
-**Nous vous recommandons de déployer avec « max spreading » (répartition max.) pour la plupart des charges de travail**, car cette approche fournit la meilleure répartition dans la plupart des cas. Si vous avez besoin que les réplica soient répartis sur des unités matérielles d’isolation distinctes, nous vous recommandons de les répartir sur plusieurs zones de disponibilité et d’utiliser « max spreading » (répartition max.) au sein de chaque zone.
+**Nous vous recommandons de déployer avec « max spreading » (répartition max.) pour la plupart des charges de travail** , car cette approche fournit la meilleure répartition dans la plupart des cas. Si vous avez besoin que les réplica soient répartis sur des unités matérielles d’isolation distinctes, nous vous recommandons de les répartir sur plusieurs zones de disponibilité et d’utiliser « max spreading » (répartition max.) au sein de chaque zone.
 
 > [!NOTE]
 > Avec « max spreading » (répartition max.), un seul domaine d’erreur s’affiche dans la vue d’instance de machine virtuelle ainsi que dans les métadonnées de l’instance, quel que soit le nombre de domaines d’erreur sur lesquels les machines virtuelles sont réparties. La répartition dans chaque zone est implicite.
 
 ### <a name="placement-groups"></a>Groupes de placement
 
-Lorsque vous déployez un groupe identique, vous avez également la possibilité de déployer avec un seul [groupe de placement](./virtual-machine-scale-sets-placement-groups.md) par zone de disponibilité, ou plusieurs groupes par zone. Pour les groupes identiques régionaux (non-zonaux), le choix consiste à avoir un groupe de placement unique dans la région ou plusieurs groupes dans la région. Pour la plupart des charges de travail, nous recommandons d’utiliser plusieurs groupes de placement, qui permettent une plus grande mise à l’échelle. Dans la version d’API *2017-12-01*, pour les groupes identiques de zone unique et inter-zones l’option par défaut est plusieurs groupes de placement, mais pour les groupes identiques régionaux (non-zonaux) l’option par défaut est un seul groupe de placement.
+Lorsque vous déployez un groupe identique, vous avez également la possibilité de déployer avec un seul [groupe de placement](./virtual-machine-scale-sets-placement-groups.md) par zone de disponibilité, ou plusieurs groupes par zone. Pour les groupes identiques régionaux (non-zonaux), le choix consiste à avoir un groupe de placement unique dans la région ou plusieurs groupes dans la région. Pour la plupart des charges de travail, nous recommandons d’utiliser plusieurs groupes de placement, qui permettent une plus grande mise à l’échelle. Dans la version d’API *2017-12-01* , pour les groupes identiques de zone unique et inter-zones l’option par défaut est plusieurs groupes de placement, mais pour les groupes identiques régionaux (non-zonaux) l’option par défaut est un seul groupe de placement.
 
 > [!NOTE]
 > Si vous utilisez « max spreading » (répartition max), vous devez utiliser plusieurs groupes de placement.
@@ -52,7 +52,7 @@ Il est possible que les machines virtuelles du groupe identique soient correctem
 
 Avec « best effort zone balance » (meilleur équilibre des zones), le groupe identique tente de diminuer et d’augmenter la taille des instances tout en maintenant l’équilibre. Toutefois, si pour une raison quelconque cela n’est pas possible (par exemple, si une zone tombe en panne, le groupe identique ne peut pas créer de nouvelle machine virtuelle dans cette zone), le groupe identique autorise un déséquilibre temporaire pour effectuer correctement un scale-in ou un scale-out. Lors des tentatives suivantes d’augmentation de la taille des instances, le groupe identique ajoute des machines virtuelles aux zones qui ont besoin de davantage de machines virtuelles pour équilibrer le groupe identique. De même, lors des tentatives suivantes de diminution de la taille des instances, le groupe identique retire des machines virtuelles aux zones qui ont besoin de moins de machines virtuelles pour équilibrer le groupe identique. Avec « strict zone balance » (équilibre des zones strict), toute tentative du groupe identique pour diminuer et augmenter la taille des instances échoue si cela crée un déséquilibre.
 
-Pour utiliser « best effort zone balance » (meilleur équilibre des zones), définissez *zoneBalance* sur *false*. Il s’agit du paramètre par défaut dans la version d’API *2017-12-01*. Pour utiliser « strict zone balance » (équilibre des zones strict), définissez la valeur *zoneBalance* sur *true*.
+Pour utiliser « best effort zone balance » (meilleur équilibre des zones), définissez *zoneBalance* sur *false* . Il s’agit du paramètre par défaut dans la version d’API *2017-12-01* . Pour utiliser « strict zone balance » (équilibre des zones strict), définissez la valeur *zoneBalance* sur *true* .
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Groupes identiques dans une zone unique et redondants interzone
 
@@ -79,7 +79,7 @@ Le groupe identique et les ressources prises en charge, notamment l’équilibre
 
 Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-cli.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge.
 
-Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
+Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss), puis spécifiez la zone à utiliser (par exemple, zone *1* , *2* ou *3* ). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
 
 ```azurecli
 az vmss create \
@@ -96,9 +96,9 @@ Pour obtenir un exemple complet de groupe identique dans une zone unique et de r
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant interzone
 
-Pour créer un groupe identique redondant interzone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard*. Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes interzone. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
+Pour créer un groupe identique redondant interzone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard* . Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes interzone. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `--zones`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet*, est créé dans les zones *1,2,3* :
+Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `--zones`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet* , est créé dans les zones *1,2,3* :
 
 ```azurecli
 az vmss create \
@@ -115,9 +115,9 @@ Quelques minutes sont nécessaires pour créer et configurer l’ensemble des re
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 
-Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez le paramètre `-Zone` à la commande [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
+Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez le paramètre `-Zone` à la commande [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1* , *2* ou *3* ).
 
-L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2*, zone *1*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
+L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2* , zone *1* . Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
 New-AzVmss `
@@ -134,7 +134,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant interzone
 
-Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `-Zone`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet*, est créé dans la région *USA Est 2*, zones *1, 2, 3*. Les ressources réseau Azure redondantes interzone pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créés. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
+Pour créer un groupe identique redondant interzone, spécifiez des zones multiples à l’aide du paramètre `-Zone`. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet* , est créé dans la région *USA Est 2* , zones *1, 2, 3* . Les ressources réseau Azure redondantes interzone pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créés. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
 New-AzVmss `
@@ -151,9 +151,9 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Utiliser les modèles Azure Resource Manager
 
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans l’article de prise en main pour [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez la propriété `zones` au type de ressource *Microsoft.Compute/virtualMachineScaleSets* dans votre modèle, puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans l’article de prise en main pour [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez la propriété `zones` au type de ressource *Microsoft.Compute/virtualMachineScaleSets* dans votre modèle, puis spécifiez la zone à utiliser (par exemple, zone *1* , *2* ou *3* ).
 
-L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2*, zone *1* :
+L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2* , zone *1* :
 
 ```json
 {
@@ -197,7 +197,7 @@ Pour obtenir un exemple complet de groupe identique dans une zone unique et de r
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant interzone
 
-Pour créer un groupe identique redondant interzone, spécifiez plusieurs valeurs pour la propriété `zones` du type de ressource *Microsoft.Compute/virtualMachineScaleSets*. Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet*, est créé dans la région *USA Est 2*, zones *1,2,3* :
+Pour créer un groupe identique redondant interzone, spécifiez plusieurs valeurs pour la propriété `zones` du type de ressource *Microsoft.Compute/virtualMachineScaleSets* . Dans l’exemple suivant, un groupe identique redondant interzone, nommé *myScaleSet* , est créé dans la région *USA Est 2* , zones *1,2,3* :
 
 ```json
 {

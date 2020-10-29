@@ -5,14 +5,14 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150216"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743533"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutoriel : Générer une application PHP et MySQL dans Azure App Service
 
@@ -107,7 +107,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configuration de la connexion MySQL
 
-À la racine du référentiel, créez un fichier nommé *.env*. Copiez les variables suivantes dans le fichier *.env*. Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
+À la racine du référentiel, créez un fichier nommé *.env* . Copiez les variables suivantes dans le fichier *.env* . Remplacez l’espace réservé _&lt;root_password>_ par le mot de passe de l’utilisateur racine de MySQL.
 
 ```txt
 APP_ENV=local
@@ -121,7 +121,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_, consultez [Configuration de l’environnement Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Pour en savoir plus sur la manière dont Laravel utilise ce fichier _.env_ , consultez [Configuration de l’environnement Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Télécharger l’exemple localement
 
@@ -242,7 +242,7 @@ Dans cette étape, vous allez connecter l’application PHP à la base de donné
 
 ### <a name="configure-the-database-connection"></a>Configurer la connexion à la base de données
 
-À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql-server-name>_ dans *DB_HOST* et *DB_USERNAME*.
+À la racine du référentiel, créez un fichier _.env.production_ et copiez-y les variables suivantes. Remplacez l’espace réservé _&lt;mysql-server-name>_ dans *DB_HOST* et *DB_USERNAME* .
 
 ```
 APP_ENV=production
@@ -402,7 +402,7 @@ Vous pouvez utiliser la méthode PHP [getenv](https://www.php.net/manual/en/func
 
 Laravel a besoin d’une clé d’application dans App Service. Vous pouvez la configurer avec les paramètres d’application.
 
-Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_.
+Dans la fenêtre de terminal local, utilisez `php artisan` pour générer une nouvelle clé d’application sans l’enregistrer dans _.env_ .
 
 ```bash
 php artisan key:generate --show
@@ -428,13 +428,13 @@ Dans Cloud Shell, définissez le chemin d’accès à l’application virtuelle 
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Par défaut, Azure App Service pointe le chemin d’accès à l’application virtuelle ( _/_ ) vers le répertoire racine des fichiers d’application déployés (_sites\wwwroot_).
+Par défaut, Azure App Service pointe le chemin d’accès à l’application virtuelle ( _/_ ) vers le répertoire racine des fichiers d’application déployés ( _sites\wwwroot_ ).
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Le [cycle de vie de l’application Laravel](https://laravel.com/docs/5.4/lifecycle) commence dans le répertoire _public_, et non pas dans le répertoire racine de l’application. L’image par défaut Docker PHP pour App Service utilise Apache, et ne vous permet pas de personnaliser `DocumentRoot` pour Laravel. Toutefois, vous pouvez utiliser `.htaccess` pour réécrire toutes les requêtes pour pointer vers _/public_ au lieu du répertoire racine. Dans le répertoire racine, l’élément `.htaccess` a déjà été ajouté à cet effet. Ainsi, votre application Laravel est prête à être déployée.
+Le [cycle de vie de l’application Laravel](https://laravel.com/docs/5.4/lifecycle) commence dans le répertoire _public_ , et non pas dans le répertoire racine de l’application. L’image par défaut Docker PHP pour App Service utilise Apache, et ne vous permet pas de personnaliser `DocumentRoot` pour Laravel. Toutefois, vous pouvez utiliser `.htaccess` pour réécrire toutes les requêtes pour pointer vers _/public_ au lieu du répertoire racine. Dans le répertoire racine, l’élément `.htaccess` a déjà été ajouté à cet effet. Ainsi, votre application Laravel est prête à être déployée.
 
 Pour plus d’informations, consultez [Modifier la racine du site](configure-language-php.md#change-site-root).
 
@@ -550,11 +550,11 @@ Dans la fenêtre de terminal local, exécutez les migrations de base de données
 php artisan migrate
 ```
 
-Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_) est mappé à la table `tasks` par défaut.
+Selon la [convention d’affectation de noms Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), le modèle `Task` (voir _app/Task.php_ ) est mappé à la table `tasks` par défaut.
 
 ### <a name="update-application-logic"></a>Mise à jour de la logique d’application
 
-Ouvrez le fichier *routes/web.php*. L’application définit ici ses itinéraires et sa logique métier.
+Ouvrez le fichier *routes/web.php* . L’application définit ici ses itinéraires et sa logique métier.
 
 À la fin du fichier, ajoutez un itinéraire avec le code suivant :
 
@@ -577,7 +577,7 @@ Le code ci-dessus effectue une simple mise à jour du modèle de données en bas
 
 ### <a name="update-the-view"></a>Mise à jour de la vue
 
-Ouvrez le fichier *resources/views/tasks.blade.php*. Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
+Ouvrez le fichier *resources/views/tasks.blade.php* . Recherchez la balise d’ouverture `<tr>` et remplacez-la par :
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -669,7 +669,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 ::: zone-end
 
 > [!TIP]
-> Une application PHP peut utiliser la commande [error_log()](https://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_.
+> Une application PHP peut utiliser la commande [error_log()](https://php.net/manual/function.error-log.php) pour envoyer le résultat vers la console. L’exemple d’application utilise cette approche dans _app/Http/routes.php_ .
 >
 > [Laravel utilise Monolog](https://laravel.com/docs/5.4/errors) comme fournisseur de journalisation, de la même manière qu’une infrastructure web. Pour voir comment faire pour que Monolog génère des messages de sortie sur la console, consultez [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) (PHP : Utilisation de monolog pour se connecter à la console (php://out)).
 >
@@ -679,7 +679,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl`+`C`.
 
 Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+Dans le menu de gauche, cliquez sur **App Services** , puis sur le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985188"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779949"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Les technologies en mémoire peuvent améliorer les performances de ces charges 
 
 Azure SQL Database et Azure SQL Managed Instance disposent des technologies en mémoire suivantes :
 
-- *[OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* augmente le nombre de transactions par seconde et réduit la latence du traitement transactionnel. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
+- *[OLTP en mémoire](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* augmente le nombre de transactions par seconde et réduit la latence du traitement transactionnel. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
 - Les *index columnstore en cluster* réduisent l’encombrement de stockage (jusqu'à 10 fois) et améliorent les performances des requêtes d’analyse et de création de rapports. Vous pouvez les utiliser avec des tables de faits dans vos mini-Data Warehouses pour faire tenir plus de données dans votre base de données et optimiser les performances. Vous pouvez également les utiliser avec des données historiques dans votre base de données opérationnelles pour archiver et être en mesure d’interroger jusqu’à 10 fois plus de données.
 - Les *index columnstore sans cluster* pour HTAP vous aident à obtenir un aperçu en temps réel de votre activité en interrogeant la base de données opérationnelle directement, sans avoir à exécuter de processus d’extraction, de transformation et de chargement (ETL) coûteux et à attendre que l’entrepôt de données se remplisse. Les index columnstore sans cluster permettent une exécution rapide des requêtes d’analyse sur la base de données OLTP, tout en réduisant l’impact sur la charge de travail opérationnelle.
 - Les *index columnstore en cluster à mémoire optimisée* pour HTAP vous permettent d’effectuer un traitement transactionnel rapide et d’exécuter *simultanément* et très rapidement des requêtes analytiques sur les mêmes données.
@@ -93,7 +93,7 @@ Notions fondamentales sur OLTP en mémoire : [Démarrage rapide 1 : Technolog
 Vidéos détaillées sur les technologies :
 
 - [OLTP en mémoire](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (avec une démonstration des avantages en termes de performances et les étapes à suivre pour reproduire ces résultats vous-même)
-- [Vidéos sur OLTP en mémoire : Qu’est-ce-que c’est, et quand/comment l’utiliser](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Vidéos sur OLTP en mémoire : Qu’est-ce-que c’est, et quand/comment l’utiliser](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
 
 Vous pouvez comprendre par programmation si une base de données spécifique prend en charge l’OLTP en mémoire. Vous pouvez exécuter la requête Transact-SQL suivante :
 
@@ -101,7 +101,7 @@ Vous pouvez comprendre par programmation si une base de données spécifique pre
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Si la requête renvoie **1**, l’OLTP en mémoire est pris en charge dans cette base de données. Les requêtes suivantes identifient tous les objets à supprimer avant qu'une base de données puisse être rétrogradée au niveau Usage général, Standard ou De base :
+Si la requête renvoie **1** , l’OLTP en mémoire est pris en charge dans cette base de données. Les requêtes suivantes identifient tous les objets à supprimer avant qu'une base de données puisse être rétrogradée au niveau Usage général, Standard ou De base :
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Seuil de la taille des données et du stockage pour l’OLTP en mémoire
 
-l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
+l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire* .
 
 Chaque niveau tarifaire de base de données unique pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire.
 
@@ -149,7 +149,7 @@ Toutefois, le passage à un niveau inférieur peut impacter négativement votre 
 
 Avant de rétrograder la base de données vers le niveau Usage général, Standard ou De base, supprimez toutes les tables à mémoire optimisée et tous les types de table, ainsi que tous les modules T-SQL compilés en mode natif.
 
-*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise* : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau de la base de données ou de l’instance gérée, ou qui est disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
+*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise*  : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau de la base de données ou de l’instance gérée, ou qui est disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
 
 ## <a name="in-memory-columnstore"></a>Columnstore en mémoire
 
@@ -164,13 +164,13 @@ Il existe deux types de modèles columnstore pour organiser vos données :
 
 Vidéo détaillée sur la technologie :
 
-- [Index columnstore : Vidéos sur l’analytique en mémoire d’Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Index columnstore : Vidéos sur l’analytique en mémoire d’Ignite 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Taille des données et stockage pour les index columnstore
 
 Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans les articles [Modèle d’achat DTU](database/service-tiers-dtu.md) et [Modèle d’achat vCore](database/service-tiers-vcore.md).
 
-Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cette compression peut réduire considérablement l’encombrement de stockage des données utilisateur, ce qui signifie que vous pouvez entrer davantage de données dans la base de données. De plus, la compression peut être accrue d’avantage avec [la compression d’archivage en colonnes](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
+Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cette compression peut réduire considérablement l’encombrement de stockage des données utilisateur, ce qui signifie que vous pouvez entrer davantage de données dans la base de données. De plus, la compression peut être accrue d’avantage avec [la compression d’archivage en colonnes](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
 
 Par exemple, si vous disposez d’une base de données avec une taille maximale de 1 téraoctet (To), et que vous atteignez une compression de 10 fois à l’aide d’index columntore, vous pouvez afficher un total de 10 To de données utilisateur dans la base de données.
 
@@ -180,7 +180,7 @@ Lors de l’utilisation d’index columnstore sans cluster, la table de base est
 
 Le *passage d’une base de données unique au niveau De base ou Standard* n’est peut-être pas possible si le niveau de votre cible est inférieur à S3. Les index columnstore sont pris en charge uniquement sur le niveau tarifaire Critique pour l’entreprise/Premium et sur le niveau Standard, S3 et supérieur, et non sur le niveau De base. Lors de la rétrogradation de votre base de données vers un niveau non pris en charge, votre index columnstore devient indisponible. Le système maintient l’index columnstore, mais il ne tire jamais profit de l’index. Si vous mettez à niveau ultérieurement vers un niveau pris en charge, l’index columnstore est immédiatement prêt à être exploité à nouveau.
 
-Si vous disposez d’un index columnstore **en cluster**, la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
+Si vous disposez d’un index columnstore **en cluster** , la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
 
 > [!Note]
 > SQL Managed Instance prend en charge les index columnstore dans tous les niveaux.
@@ -189,7 +189,7 @@ Si vous disposez d’un index columnstore **en cluster**, la totalité de la tab
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide 1 : Technologies OLTP en mémoire pour des performances T-SQL plus rapides](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Démarrage rapide 1 : Technologies OLTP en mémoire pour des performances T-SQL plus rapides](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Utiliser OLTP en mémoire dans une application SQL Azure existante](in-memory-oltp-configure.md)
 - [Surveiller le stockage OLTP en mémoire](in-memory-oltp-monitor-space.md) pour l’OLTP en mémoire
 - [Essayer les fonctionnalités en mémoire](in-memory-sample.md)
@@ -200,18 +200,18 @@ Si vous disposez d’un index columnstore **en cluster**, la totalité de la tab
 
 - [Découvrez comment le Quorum double la charge de travail de la base de données clé tout en réduisant les DTU de 70 %, grâce à l’OLTP en mémoire dans la SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [Billet de blog sur l'OLTP en mémoire](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [En savoir plus sur In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [En savoir plus sur les index columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
-- [En savoir plus sur l’analytique opérationnelle en temps réel](https://msdn.microsoft.com/library/dn817827.aspx)
-- Consultez [Modèles de charge de travail courants et considérations relatives à la migration](https://msdn.microsoft.com/library/dn673538.aspx) (qui décrit des modèles de charge de travail où l’OLTP en mémoire apporte généralement des gains de performances significatifs)
+- [En savoir plus sur In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [En savoir plus sur les index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [En savoir plus sur l’analytique opérationnelle en temps réel](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- Consultez [Modèles de charge de travail courants et considérations relatives à la migration](/previous-versions/dn673538(v=msdn.10)) (qui décrit des modèles de charge de travail où l’OLTP en mémoire apporte généralement des gains de performances significatifs)
 
 ### <a name="application-design"></a>Conception des applications
 
-- [OLTP en mémoire (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP en mémoire (optimisation en mémoire)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Utiliser OLTP en mémoire dans une application SQL Azure existante](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Outils
 
 - [Azure portal](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Outils SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [Outils SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051862"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783825"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guide du contrôle de version des blobs d’Explorateur Stockage Azure
 
-Explorateur Stockage Microsoft Azure permet d’accéder aux versions des blobs et de les gérer facilement. Ce guide vous aidera à comprendre le fonctionnement du contrôle de version des blobs dans Explorateur Stockage. Avant de continuer, il est recommandé d’en savoir plus sur [le contrôle de version des blobs](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+Explorateur Stockage Microsoft Azure permet d’accéder aux versions des blobs et de les gérer facilement. Ce guide vous aidera à comprendre le fonctionnement du contrôle de version des blobs dans Explorateur Stockage. Avant de continuer, il est recommandé d’en savoir plus sur [le contrôle de version des blobs](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminologie
 
 Cette section fournit quelques définitions pour aider à comprendre l’utilisation de ces termes dans cet article.
 
-- Suppression réversible : autre fonctionnalité de protection automatique des données. Vous pouvez en savoir plus sur la suppression réversible [ici](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Suppression réversible : autre fonctionnalité de protection automatique des données. Vous pouvez en savoir plus sur la suppression réversible [ici](../blobs/soft-delete-blob-overview.md).
 - Blob actif : blob ou version de blob créés dans un état actif. Vous pouvez uniquement utiliser des blobs ou des versions de blob dans un état actif.
 - Blob supprimé de manière réversible : blob ou version de blob marqués comme supprimés de manière réversible. Les blobs supprimés de manière réversible sont conservés uniquement pendant la période de rétention.
 - Version de blob : blob créé avec le contrôle de version des blobs activé. Chaque version de blob est associée à un ID de version.
@@ -117,5 +117,5 @@ Chaque version de blob a son propre niveau d’accès. Pour modifier le niveau d
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Contrôle de version des blobs](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Suppression réversible pour les objets blob](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Contrôle de version des blobs](../blobs/versioning-overview.md)
+* [Suppression réversible pour les objets blob](../blobs/soft-delete-blob-overview.md)

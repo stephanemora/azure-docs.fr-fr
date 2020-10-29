@@ -9,13 +9,13 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
-ms.custom: seodec18
-ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8ce32ab1e7dac6fd1a154fc6e730113428a8291b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744491"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 
@@ -34,7 +34,7 @@ L’interface CLI ne remplace en rien le kit de développement logiciel (SDK) Az
 
 * Pour utiliser l'interface de ligne de commande, vous devez disposer d'un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Pour utiliser les commandes CLI dans ce document à partir de votre **environnement local**, vous avez besoin [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Pour utiliser les commandes CLI dans ce document à partir de votre **environnement local** , vous avez besoin [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Si vous utilisez [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l’interface CLI est accessible via le navigateur et réside dans le cloud.
 
@@ -411,7 +411,7 @@ Le tableau suivant détaille chaque champ de niveau supérieur dans le fichier J
 
 | Champ JSON | Type | Description |
 |---|---|---|
-| `name` | `string` | Nom de l’environnement. Ne commencez pas le nom avec **Microsoft** ou **AzureML**. |
+| `name` | `string` | Nom de l’environnement. Ne commencez pas le nom avec **Microsoft** ou **AzureML** . |
 | `version` | `string` | Version de l’environnement. |
 | `environmentVariables` | `{string: string}` | Table de hachage des noms et valeurs de variables d’environnement. |
 | `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)qui définit l’environnement et l’interpréteur Python à utiliser sur la ressource de calcul cible. |

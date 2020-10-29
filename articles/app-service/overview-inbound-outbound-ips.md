@@ -3,13 +3,13 @@ title: Adresses IP entrantes/sortantes
 description: Découvrez comment les adresses IP entrantes et sortantes sont utilisées dans Azure App Service, à quel moment elles changent et comment trouver les adresses pour votre application.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050690"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746150"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -51,13 +51,13 @@ L’ensemble des adresses IP sortantes de votre application change lorsque vous
 
 - Supprimer une application, puis la recréer dans un autre groupe de ressources (l’unité de déploiement peut changer).
 - Supprimer la dernière application dans une combinaison de groupe de ressources _et_ de région, puis la recréer (l’unité de déploiement peut changer).
-- Mettez à l’échelle votre application entre les niveaux inférieurs (**De base**, **Standard** et **Premium**) et le niveau **Premium v2** (les adresses IP peuvent être ajoutées ou soustraites de l’ensemble).
+- Mettez à l’échelle votre application entre les niveaux inférieurs ( **De base** , **Standard** et **Premium** ) et le niveau **Premium v2** (les adresses IP peuvent être ajoutées ou soustraites de l’ensemble).
 
 Vous pouvez trouver toutes les adresses IP sortantes que votre application est susceptible d’utiliser, indépendamment des niveaux de tarification, en recherchant la propriété `possibleOutboundIpAddresses`, ou à l’aide du champ **Adresses IP sortantes supplémentaires** du panneau **Propriétés** du portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trouver des adresses IP sortantes
 
-Pour trouver les adresses IP sortantes actuellement utilisées par votre application dans le portail Azure, cliquez sur **Propriétés** dans le volet de navigation gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes**.
+Pour trouver les adresses IP sortantes actuellement utilisées par votre application dans le portail Azure, cliquez sur **Propriétés** dans le volet de navigation gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes** .
 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -69,7 +69,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Pour rechercher _toutes_ les adresses IP sortantes possibles pour votre application, indépendamment des niveaux de tarification, cliquez sur **Propriétés** dans la navigation à gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes supplémentaires**.
+Pour rechercher _toutes_ les adresses IP sortantes possibles pour votre application, indépendamment des niveaux de tarification, cliquez sur **Propriétés** dans la navigation à gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes supplémentaires** .
 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans [Cloud Shell](../cloud-shell/quickstart.md).
 

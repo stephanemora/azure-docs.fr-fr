@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714387"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783757"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guide de sécurité Explorateur Stockage Azure
 
@@ -44,13 +44,13 @@ Cette section décrit les deux technologies basées sur Azure AD qui peuvent êt
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) vous offre un contrôle d’accès affiné sur vos ressources Azure. Les autorisations et rôles RBAC Azure peuvent être gérés à partir du portail Azure.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous offre un contrôle d’accès affiné sur vos ressources Azure. Les autorisations et rôles RBAC Azure peuvent être gérés à partir du portail Azure.
 
 L’Explorateur Stockage prend en charge l’accès RBAC Azure aux comptes de stockage, aux objets blobs et aux files d’attente. Si vous avez besoin d’accéder à des partages de fichiers ou à des tables, vous devez attribuer des rôles RBAC Azure qui accordent l’autorisation de lister les clés de compte de stockage.
 
 #### <a name="access-control-lists-acls"></a>Listes ACL
 
-Les [listes de contrôle d’accès (ACL, access-control list)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) vous permettent de contrôler l’accès au niveau des fichiers et des dossiers dans les conteneurs de blobs ADLS Gen2. Vous pouvez gérer vos ACL à l’aide d’Explorateur Stockage.
+Les [listes de contrôle d’accès (ACL, access-control list)](../blobs/data-lake-storage-access-control.md) vous permettent de contrôler l’accès au niveau des fichiers et des dossiers dans les conteneurs de blobs ADLS Gen2. Vous pouvez gérer vos ACL à l’aide d’Explorateur Stockage.
 
 ### <a name="shared-access-signatures-sas"></a>Signatures d’accès partagé (SAP)
 
@@ -81,7 +81,7 @@ Les clés de compte de stockage accordent un accès illimité aux services et au
 
 Certains rôles Azure accordent des autorisations pour récupérer des clés de compte de stockage. Les personnes disposant de ces rôles peuvent contourner efficacement les autorisations accordées ou refusées par le contrôle RBAC Azure. Nous vous recommandons de ne pas accorder cette autorisation, sauf si elle est nécessaire.
 
-Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres (**Services > Comptes de stockage > Désactiver l’utilisation des clés**). Certaines fonctionnalités ne prennent pas en charge le contrôle RBAC Azure, comme l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
+Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres ( **Services > Comptes de stockage > Désactiver l’utilisation des clés** ). Certaines fonctionnalités ne prennent pas en charge le contrôle RBAC Azure, comme l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
 
 Si vous devez utiliser des clés pour accéder à vos ressources de stockage, nous vous recommandons de suivre les instructions suivantes :
 
@@ -102,4 +102,4 @@ Lorsque vous autorisez l’accès public à un conteneur de blobs, nous vous rec
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Recommandations de sécurité](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Recommandations de sécurité](../blobs/security-recommendations.md)

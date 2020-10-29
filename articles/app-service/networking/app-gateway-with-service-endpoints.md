@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958931"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746201"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Intégration d’Application Gateway par des points de terminaison de service
 Il existe trois variantes d’App Service qui nécessitent une configuration légèrement différente de l’intégration avec Azure Application Gateway. Les variantes incluent la version normale d’App Service, également appelée multilocataire, App Service Environment (ASE) Load Balancer interne (ILB) et ASE externe. Cet article explique comment le configurer avec App Service (multilocataire) et aborde les considérations relatives aux ASE ILB et externe.

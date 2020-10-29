@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 145f0c04cc06f09bd9a0eb47cb8b49306ee0700a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88496a39b0186cefb7c64e227530b5d73e693094
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780476"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,8 +37,8 @@ Dans ce didacticiel, vous allez découvrir deux modèles de récupération des d
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell est installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* L’application SaaS Wingtip est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell est installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Présentation des modèles SaaS de restauration d’un locataire
 
@@ -64,7 +64,7 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Ouvrir l’application Events pour passer en revue les événements en cours
 
-1. Ouvrez le hub d’événements (http://events.wtp.&lt;user&gt;.trafficmanager.net) et sélectionnez **Contoso Concert Hall**.
+1. Ouvrez le hub d’événements (http://events.wtp.&lt;user&gt;.trafficmanager.net) et sélectionnez **Contoso Concert Hall** .
 
    ![Concentrateur d’événements](./media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
@@ -74,9 +74,9 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
 ### <a name="accidentally-delete-the-last-event"></a>Supprimer « accidentellement » le dernier événement
 
-1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*, puis définissez la valeur suivante :
+1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1* , puis définissez la valeur suivante :
 
-   * **$DemoScenario** = **1**, *Supprimer le dernier événement (sans ventes de tickets)* .
+   * **$DemoScenario** = **1** , *Supprimer le dernier événement (sans ventes de tickets)* .
 2. Appuyez sur F5 pour exécuter le script et supprimer le dernier événement. Le message de confirmation suivant s’affiche :
 
    ```Console
@@ -91,14 +91,14 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
 Cet exercice restaure la base de données Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Ce scénario suppose que vous souhaitez consulter les données supprimées dans une base de données parallèle.
 
- Le script *Restore-TenantInParallel.ps1* crée une base de données de locataire parallèle nommée *ContosoConcertHall\_old*, avec une entrée de catalogue parallèle. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure. Vous pouvez également utiliser ce modèle si vous devez vérifier des données à des fins de conformité et d’audit. Il est également recommandé lorsque vous utilisez la [géoréplication active](active-geo-replication-overview.md).
+ Le script *Restore-TenantInParallel.ps1* crée une base de données de locataire parallèle nommée *ContosoConcertHall\_old* , avec une entrée de catalogue parallèle. Ce modèle de restauration convient davantage dans le cas d’une récupération après une perte de données mineure. Vous pouvez également utiliser ce modèle si vous devez vérifier des données à des fins de conformité et d’audit. Il est également recommandé lorsque vous utilisez la [géoréplication active](active-geo-replication-overview.md).
 
 1. Terminez la section [Simuler la suppression accidentelle des données par le client](#simulate-a-tenant-accidentally-deleting-data).
-2. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
-3. Définissez **$DemoScenario** = **2**, *Restore tenant in parallel* (Restaurer le locataire en parallèle).
+2. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ .
+3. Définissez **$DemoScenario** = **2** , *Restore tenant in parallel* (Restaurer le locataire en parallèle).
 4. Pour exécuter le script, appuyez sur la touche F5.
 
-Le script restaure la base de données de locataire sur un point dans le temps situé avant la suppression de l’événement. La base de données est restaurée vers une nouvelle base de données nommée _ContosoConcertHall\_old_. Les métadonnées de catalogue qui existent dans cette base de données restaurée sont supprimées, puis la base de données est ajoutée au catalogue à l’aide d’une clé créée à partir du nom *ContosoConcertHall\_old*.
+Le script restaure la base de données de locataire sur un point dans le temps situé avant la suppression de l’événement. La base de données est restaurée vers une nouvelle base de données nommée _ContosoConcertHall\_old_ . Les métadonnées de catalogue qui existent dans cette base de données restaurée sont supprimées, puis la base de données est ajoutée au catalogue à l’aide d’une clé créée à partir du nom *ContosoConcertHall\_old* .
 
 Le script de démonstration ouvre la page des événements pour cette nouvelle base de donnés de locataire dans votre navigateur. À noter dans l’URL : ```http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall_old``` les données sont affichées d’après la base de données restaurée et *_old* est ajouté au nom.
 
@@ -106,7 +106,7 @@ Faites défiler les événements répertoriés dans le navigateur pour confirmer
 
 Le fait d’exposer le locataire restauré en tant que locataire supplémentaire (avec sa propre application Events) n’est probablement pas ce que vous feriez pour fournir un accès au locataire aux données restaurées. Cela nous permet d’illustrer le modèle de restauration. Vous donnez généralement accès en lecture seule aux anciennes données et conservez cette base de données restaurée pendant une période définie. Dans l’exemple, vous pouvez supprimer l’entrée de locataire restauré lorsque vous avez terminé en exécutant le scénario _Remove restored tenant_ (Supprimer le locataire restauré).
 
-1. Définissez **$DemoScenario** = **4**, *Remove restored tenant* (Supprimer le locataire restauré).
+1. Définissez **$DemoScenario** = **4** , *Remove restored tenant* (Supprimer le locataire restauré).
 2. Pour exécuter le script, appuyez sur la touche F5.
 3. L’entrée *ContosoConcertHall\_old* est maintenant supprimée du catalogue. Fermez la page des événements pour ce locataire dans votre navigateur.
 
@@ -114,8 +114,8 @@ Le fait d’exposer le locataire restauré en tant que locataire supplémentaire
 
 Cet exercice restaure le locataire Contoso Concert Hall à un point dans le temps, avant la suppression de l’événement. Le script *Restore-TenantInPlace* restaure une base de données de locataire sur une nouvelle base de données et supprime l’original. Ce modèle de restauration convient davantage dans le cas d’une récupération après une grave corruption des données, et le locataire peut faire face à une perte importante de données.
 
-1. Dans PowerShell ISE, ouvrez le fichier **Demo-RestoreTenant.ps1**.
-2. Définissez **$DemoScenario** = **5**, *Restore tenant in place* (Restaurer le locataire en place).
+1. Dans PowerShell ISE, ouvrez le fichier **Demo-RestoreTenant.ps1** .
+2. Définissez **$DemoScenario** = **5** , *Restore tenant in place* (Restaurer le locataire en place).
 3. Pour exécuter le script, appuyez sur la touche F5.
 
 Le script restaure la base de données de locataire sur un point dans le temps avant la suppression de l’événement. Il déconnecte tout d’abord le locataire Contoso Concert Hall afin d’empêcher d’autres mises à jour. Ensuite, une base de données parallèle est créée en restaurant à partir du point de restauration. La base de données restaurée est nommée avec un horodatage pour garantir que le nom de la base de données n’entre pas en conflit avec le nom de base de données de locataire existante. Ensuite, l’ancienne base de données client est supprimée, et la base de données restaurée est renommée d’après le nom de la base de données d’origine. Enfin, la connexion de Contoso Concert Hall est rétablie pour permettre l’accès de l’application à la base de données restaurée.

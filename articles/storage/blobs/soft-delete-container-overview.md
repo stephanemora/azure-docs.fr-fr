@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
-ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460796"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746589"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -32,7 +32,7 @@ Pour la protection de bout en bout de vos données de blobs, Microsoft recommand
 
 ## <a name="how-container-soft-delete-works"></a>Fonctionnement de la suppression réversible de conteneur
 
-Lorsque vous activez la suppression réversible de conteneur, vous pouvez spécifier une période de rétention pour les conteneurs supprimés qui est comprise entre 1 et 365 jours. La période de conservation par défaut est 7 jours. Pendant la période de rétention, vous pouvez récupérer un conteneur supprimé en appelant l’opération **Undelete Container**.
+Lorsque vous activez la suppression réversible de conteneur, vous pouvez spécifier une période de rétention pour les conteneurs supprimés qui est comprise entre 1 et 365 jours. La période de conservation par défaut est 7 jours. Pendant la période de rétention, vous pouvez récupérer un conteneur supprimé en appelant l’opération **Undelete Container** .
 
 Lorsque vous restaurez un conteneur, vous pouvez le restaurer avec son nom d’origine si celui-ci n’a pas été réutilisé. Si le nom du conteneur d’origine a été utilisé, vous pouvez restaurer le conteneur avec un nouveau nom.
 
@@ -57,7 +57,7 @@ La suppression réversible de conteneur est disponible pour les types de comptes
 - Comptes de stockage d’objets blob de blocs
 - Comptes de stockage d’objets blob
 
-Si votre compte de stockage est un compte v1 à usage général, utilisez le Portail Azure pour effectuer une mise à niveau vers un compte v2 à usage général. Pour plus d’informations sur les comptes de stockage, consultez  [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+Si votre compte de stockage est un compte v1 à usage général, utilisez le Portail Azure pour effectuer une mise à niveau vers un compte v2 à usage général. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 Les comptes de stockage avec espace de noms hiérarchique activé pour une utilisation avec Azure Data Lake Storage Gen2 sont également pris en charge.
 

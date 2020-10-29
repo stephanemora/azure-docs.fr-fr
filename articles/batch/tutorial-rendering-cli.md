@@ -3,13 +3,13 @@ title: Créer le rendu d’une scène dans le cloud
 description: 'Didacticiel : comment créer le rendu d’une scène Autodesk 3ds Max avec Arnold à l’aide du service Azure Batch Rendering et de l’interface de ligne de commande Azure'
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117129"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747049"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutoriel : Créer le rendu d’une scène avec Azure Batch 
 
@@ -38,7 +38,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 Si vous ne l’avez pas encore fait, créez un groupe de ressources, un compte Batch et un compte de stockage lié dans votre abonnement. 
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus2*.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus2* .
 
 ```azurecli-interactive 
 az group create \
@@ -195,7 +195,7 @@ az batch job create \
 
 Utilisez la commande [az batch task create](/cli/azure/batch/task#az-batch-task-create) pour créer une tâche à exécuter dans le travail. Dans cet exemple, vous spécifiez les paramètres de tâche pool dans un fichier JSON. Dans l’interpréteur de commandes actuel, créez un fichier nommé *myrendertask.json* et copiez-collez le contenu suivant. Vérifiez que tout le texte est correctement copié. Vous pouvez télécharger le fichier à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).
 
-La tâche spécifie une commande 3ds Max pour créer le rendu d’une seule image de la scène *MotionBlur-DragonFlying.max*.
+La tâche spécifie une commande 3ds Max pour créer le rendu d’une seule image de la scène *MotionBlur-DragonFlying.max* .
 
 Modifiez les éléments `blobSource` et `containerURL` du JSON fichier afin qu’ils contiennent le nom de votre compte de stockage et de votre jeton SAP. 
 
@@ -286,9 +286,9 @@ Le redimensionnement du pool prend quelques minutes. Pendant ce processus, défi
 
 ## <a name="render-a-multiframe-scene"></a>Créer le rendu d’une scène à plusieurs images
 
-Comme dans l’exemple à image unique, utilisez la commande [az batch task create](/cli/azure/batch/task#az-batch-task-create) pour créer des tâches de rendu dans le travail nommé *myrenderjob*. Dans ce cas, spécifiez les paramètres de tâche dans un fichier JSON appelé *myrendertask_multi.json*. Vous pouvez télécharger le fichier à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json). Chacune des six tâches spécifie une ligne de commande Arnold pour créer le rendu d’une image de la scène 3ds Max *MotionBlur-DragonFlying.max*.
+Comme dans l’exemple à image unique, utilisez la commande [az batch task create](/cli/azure/batch/task#az-batch-task-create) pour créer des tâches de rendu dans le travail nommé *myrenderjob* . Dans ce cas, spécifiez les paramètres de tâche dans un fichier JSON appelé *myrendertask_multi.json* . Vous pouvez télécharger le fichier à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json). Chacune des six tâches spécifie une ligne de commande Arnold pour créer le rendu d’une image de la scène 3ds Max *MotionBlur-DragonFlying.max* .
 
-Créez un fichier dans votre interpréteur de commandes actuel nommé *myrendertask_multi.json*, puis copiez et collez le contenu à partir du fichier téléchargé. Modifiez les éléments `blobSource` et `containerURL` du JSON fichier afin qu’ils contiennent le nom de votre compte de stockage et de votre jeton SAP. Veillez à modifier les paramètres pour chacune des six tâches. Enregistrez le fichier et exécutez la commande suivante pour mettre en file d’attente les tâches :
+Créez un fichier dans votre interpréteur de commandes actuel nommé *myrendertask_multi.json* , puis copiez et collez le contenu à partir du fichier téléchargé. Modifiez les éléments `blobSource` et `containerURL` du JSON fichier afin qu’ils contiennent le nom de votre compte de stockage et de votre jeton SAP. Veillez à modifier les paramètres pour chacune des six tâches. Enregistrez le fichier et exécutez la commande suivante pour mettre en file d’attente les tâches :
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json

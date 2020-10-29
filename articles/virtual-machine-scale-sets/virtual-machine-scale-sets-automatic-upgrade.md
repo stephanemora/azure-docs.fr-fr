@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744744"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -68,7 +68,7 @@ Les références SKU de plateforme suivantes sont prises en charge (et d’autre
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Conditions requises pour la configuration de la mise à niveau automatique d’image de système d’exploitation
 
-- La propriété *version* de l’image doit être définie sur *latest*.
+- La propriété *version* de l’image doit être définie sur *latest* .
 - Utilisez des sondes d’intégrité d’application ou l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md) pour des groupes identiques autres que Service Fabric.
 - Utilisez l’API de calcul de la version 2018-10-01 ou ultérieure.
 - Assurez-vous que les ressources externes spécifiées dans le modèle de groupe identique sont disponibles et à jour. Les ressources concernées sont l’URI SAS pour l’amorçage de la charge utile dans les propriétés d’extension de machine virtuelle et dans le compte de stockage, les références à des secrets dans le modèle, etc.
@@ -121,14 +121,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez la cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez la cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez la cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez la cmdlet [az vmss update](/cli/azure/vmss#az-vmss-update) pour configurer les mises à niveau automatiques d’image de système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant configure les mises à niveau automatiques pour le groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -184,7 +184,7 @@ Il existe plusieurs façons de déployer l’extension Intégrité de l’applic
 Vous pouvez vérifier l’historique de la dernière mise à niveau du système d’exploitation effectuée dans un groupe identique à l’aide d’Azure PowerShell, d’Azure CLI 2.0 ou des API REST. Vous pouvez obtenir l’historique des cinq dernières tentatives de mise à niveau du système d’exploitation au cours des deux derniers mois.
 
 ### <a name="rest-api"></a>API REST
-L’exemple suivant utilise l’[API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) pour vérifier l’état du groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+L’exemple suivant utilise l’ [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) pour vérifier l’état du groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +228,14 @@ L’appel de Get retourne des propriétés similaires à l’exemple de sortie s
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez l’applet de commande [Get-AzVmss](/powershell/module/az.compute/get-azvmss) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. L’exemple suivant montre comment vérifier l’état de la mise à niveau du système d’exploitation pour un groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez l’applet de commande [Get-AzVmss](/powershell/module/az.compute/get-azvmss) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. L’exemple suivant montre comment vérifier l’état de la mise à niveau du système d’exploitation pour un groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant montre comment vérifier l’état de la mise à niveau du système d’exploitation pour un groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup* :
+Utilisez [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant montre comment vérifier l’état de la mise à niveau du système d’exploitation pour un groupe identique nommé *myScaleSet* dans le groupe de ressources appelé *myResourceGroup*  :
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -269,21 +269,21 @@ Pour des cas spécifiques où vous ne souhaitez pas attendre que l’orchestrate
 > Le déclencheur manuel des mises à niveau d’images du système d’exploitation ne fournit pas de fonctionnalités de restauration automatique. Si une instance ne récupère pas son intégrité après une opération de mise à niveau, son disque de système d’exploitation précédent ne peut pas être restauré.
 
 ### <a name="rest-api"></a>API REST
-Utilisez l’appel démarrer l’API de [mise à niveau du système d’exploitation](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) pour démarrer une mise à niveau propagée afin de déplacer toutes les instances du groupe de machines virtuelles identiques vers la dernière version disponible du système d’exploitation. Les instances qui exécutent déjà la dernière version du système d’exploitation disponible ne sont pas affectées. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
+Utilisez l’appel démarrer l’API de [mise à niveau du système d’exploitation](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) pour démarrer une mise à niveau propagée afin de déplacer toutes les instances du groupe de machines virtuelles identiques vers la dernière version disponible du système d’exploitation. Les instances qui exécutent déjà la dernière version du système d’exploitation disponible ne sont pas affectées. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*  :
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilisez le cmdlet de [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
+Utilisez le cmdlet de [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*  :
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* :
+Utilisez [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) afin de vérifier l’historique de mise à niveau du système d’exploitation pour votre groupe identique. Utilisez Azure CLI 2.0.47 ou une version ultérieure. L’exemple suivant explique en détail comment vous pouvez démarrer une mise à niveau propagée du système d’exploitation sur un groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*  :
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

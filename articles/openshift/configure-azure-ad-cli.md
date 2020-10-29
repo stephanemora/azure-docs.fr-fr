@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469420"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748044"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurer l’authentification Azure Active Directory pour un cluster Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,7 +21,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 Récupérez vos URL spécifiques au cluster qui seront utilisées pour configurer l’application Azure Active Directory.
 
-Construisez l’URL de rappel OAuth du cluster et stockez-la dans une variable **oauthCallbackURL**. Veillez à remplacer **aro-rg** par le nom de votre groupe de ressources et **aro-cluster** par le nom de votre cluster.
+Construisez l’URL de rappel OAuth du cluster et stockez-la dans une variable **oauthCallbackURL** . Veillez à remplacer **aro-rg** par le nom de votre groupe de ressources et **aro-cluster** par le nom de votre cluster.
 
 > [!NOTE]
 > La section `AAD` de l’URL de rappel OAuth doit correspondre au nom du fournisseur d’identité OAuth que vous allez configurer ultérieurement.
@@ -111,7 +111,7 @@ Pour pouvoir lire les informations utilisateur d’Azure Active Directory, nous 
 
 Remplacez **\<AppID>** par l’ID que vous avez obtenu plus tôt.
 
-Pour activer la connexion et lire le profil utilisateur, ajoutez l’autorisation pour l’étendue **Azure Active Directory Graph.User.Read**.
+Pour activer la connexion et lire le profil utilisateur, ajoutez l’autorisation pour l’étendue **Azure Active Directory Graph.User.Read** .
 
 ```azurecli-interactive
 az ad app permission add \
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Vérifier la connexion via Azure Active Directory
 
-Si vous vous déconnectez maintenant de la console web OpenShift et que vous tentez de vous reconnecter, une nouvelle option s’affiche pour vous permettre de vous connecter avec **AAD**. Vous devrez peut-être patienter quelques minutes.
+Si vous vous déconnectez maintenant de la console web OpenShift et que vous tentez de vous reconnecter, une nouvelle option s’affiche pour vous permettre de vous connecter avec **AAD** . Vous devrez peut-être patienter quelques minutes.
 
 ![Écran de connexion avec l’option Azure Active Directory](media/aro4-login-2.png)

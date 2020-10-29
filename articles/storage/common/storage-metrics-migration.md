@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802835"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781921"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transition vers les métriques dans Azure Monitor
 
-Au **31 août 2023**, les métriques Storage Analytics, également appelées *métriques classiques* seront retirées. Pour plus d’informations, consultez l’[annonce officielle](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si vous utilisez des métriques classiques, veillez à passer aux métriques dans Azure Monitor avant cette date. Cet article vous aide à effectuer la transition. 
+Au **31 août 2023** , les métriques Storage Analytics, également appelées *métriques classiques* seront retirées. Pour plus d’informations, consultez l’[annonce officielle](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si vous utilisez des métriques classiques, veillez à passer aux métriques dans Azure Monitor avant cette date. Cet article vous aide à effectuer la transition. 
 
 ## <a name="steps-to-complete-the-transition"></a>Étapes pour effectuer la transition
 
@@ -30,12 +30,12 @@ Pour effectuer la transition vers les métriques dans Azure Monitor, nous vous r
 
 3. Identifiez [les métriques dans Azure Monitor](#metrics-mapping-between-old-metrics-and-new-metrics) qui fournissent les mêmes données que les métriques que vous utilisez actuellement. 
    
-4. Créer des [graphiques](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou des [tableaux de bord](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) pour voir les données des métriques.
+4. Créer des [graphiques](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou des [tableaux de bord](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) pour voir les données des métriques.
 
    > [!NOTE]
    > Les métriques dans Azure Monitor sont activées par défaut. Vous n’avez donc rien à faire pour commencer à capturer des métriques. Vous devez cependant créer des graphiques ou des tableaux de bord pour voir ces métriques. 
  
-5. Si vous avez créé des règles d’alerte basées sur des métriques de stockage classiques, [créez des règles d’alerte](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) basées sur les métriques dans Azure Monitor. 
+5. Si vous avez créé des règles d’alerte basées sur des métriques de stockage classiques, [créez des règles d’alerte](../../azure-monitor/platform/alerts-overview.md) basées sur les métriques dans Azure Monitor. 
 
 6. Une fois que vous pouvez voir toutes vos métriques dans Azure Monitor, vous pouvez désactiver la journalisation classique. 
 
@@ -53,7 +53,7 @@ En ce qui concerne la prise en charge des métriques, les métriques classiques 
 
 Si l’activité de votre compte ne déclenche pas de métrique, les métriques classiques affichent la valeur zéro (0) pour cette métrique. Dans Azure Monitor, les métriques ignorent totalement les données, ce qui génère des rapports plus propres. Par exemple, avec les métriques classiques, si aucune erreur de délai d’attente du serveur n’est signalée, la valeur `ServerTimeoutError` dans la table de métriques est définie sur 0. Azure Monitor ne retourne aucune donnée lorsque vous interrogez la valeur de la métrique `Transactions` avec la dimension `ResponseType` égale à `ServerTimeoutError`. 
 
-Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -70,7 +70,7 @@ Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> Il existe également plusieurs nouvelles métriques de capacité qui n’étaient pas disponibles en tant que métriques classiques. Pour voir la liste complète, consultez [Métriques](../common/monitor-storage-reference.md#metrics).
+> Il existe également plusieurs nouvelles métriques de capacité qui n’étaient pas disponibles en tant que métriques classiques. Pour voir la liste complète, consultez [Métriques](../blobs/monitor-blob-storage-reference.md#metrics).
 
 **Métriques de transaction**
 
@@ -117,5 +117,4 @@ Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Azure Monitor](../../azure-monitor/overview.md)

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450221"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782618"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Conservation à long terme – Azure SQL Database et Azure SQL Managed Instance
 
@@ -26,7 +26,7 @@ De nombreuses applications sont dédiées à la réglementation, à la conformit
 La conservation à long terme peut être activée pour Azure SQL Database et est en préversion publique limitée pour Azure SQL Managed Instance. Cet article fournit une vue d’ensemble conceptuelle de la conservation à long terme. Pour configurer la conservation à long terme, consultez [Configurer la conservation à long terme dans Azure SQL Database](long-term-backup-retention-configure.md) et [Configurer la conservation à long terme dans Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la conservation à long terme au-delà de 35 jours.
+> Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la conservation à long terme au-delà de 35 jours.
 
 
 ## <a name="how-long-term-retention-works"></a>Fonctionnement de la conservation à long terme
@@ -36,7 +36,7 @@ La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes
 Pour activer LTR, vous pouvez définir une stratégie utilisant une combinaison de quatre paramètres : rétention hebdomadaire des sauvegardes (W), rétention mensuelle des sauvegardes (M), rétention annuelle des sauvegardes (Y) et semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, la première sauvegarde de chaque mois est copiée sur le stockage à long terme. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. Chaque sauvegarde est conservée dans le stockage à long terme en fonction des paramètres de stratégie qui sont configurés lors de la création de la sauvegarde LTR.
 
 > [!NOTE]
-> Toute modification apportée à la stratégie LTR s’applique uniquement aux sauvegardes ultérieures. Par exemple, si la rétention hebdomadaire des sauvegardes (W), la rétention mensuelle des sauvegardes (M) ou la rétention annuelle des sauvegardes (Y) est modifiée, le nouveau paramètre de rétention s’applique uniquement aux nouvelles sauvegardes. La rétention des sauvegardes existantes ne sera pas modifiée. Si vous souhaitez supprimer les anciennes sauvegardes LTR avant l’expiration de leur période de rétention, vous devez [supprimer manuellement les sauvegardes](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Toute modification apportée à la stratégie LTR s’applique uniquement aux sauvegardes ultérieures. Par exemple, si la rétention hebdomadaire des sauvegardes (W), la rétention mensuelle des sauvegardes (M) ou la rétention annuelle des sauvegardes (Y) est modifiée, le nouveau paramètre de rétention s’applique uniquement aux nouvelles sauvegardes. La rétention des sauvegardes existantes ne sera pas modifiée. Si vous souhaitez supprimer les anciennes sauvegardes LTR avant l’expiration de leur période de rétention, vous devez [supprimer manuellement les sauvegardes](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Exemples de stratégie LTR :
@@ -81,10 +81,10 @@ Si vous utilisez une géoréplication active ou des groupes de basculement en ta
 
 L’utilisation de la conservation des sauvegardes à long terme avec Azure SQL Managed Instance présente les limites suivantes :
 
-- **Préversion publique limitée** : cette préversion n'est disponible que pour les abonnements EA et CSP et est soumise à une disponibilité limitée.  
+- **Préversion publique limitée**  : cette préversion n'est disponible que pour les abonnements EA et CSP et est soumise à une disponibilité limitée.  
 - [**PowerShell uniquement**](../managed-instance/long-term-backup-retention-configure.md) : aucune prise en charge du portail Azure n’est actuellement disponible. La rétention à long terme doit être activée à l’aide de PowerShell. 
 
-Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Managed Instance » et, pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité / Conservation des sauvegardes à long terme**. Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour SQL Managed Instance.
+Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Managed Instance » et, pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité / Conservation des sauvegardes à long terme** . Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour SQL Managed Instance.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 
@@ -99,4 +99,3 @@ Pour restaurer une base de données à partir du stockage LTR, vous pouvez séle
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans la mesure où les sauvegardes de base de données protègent les données des corruptions et des suppressions accidentelles, elles sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence. Pour en savoir plus sur les autres solutions de continuité des activités SQL Database, consultez [Vue d’ensemble de la continuité des activités](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

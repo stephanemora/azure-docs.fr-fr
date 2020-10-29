@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398610"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781445"
 ---
 # <a name="dynamic-data-masking"></a>Masquage dynamique des données 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Pour définir une stratégie de masquage de données dynamiques sur le portail A
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorisations du masquage des données dynamiques
 
-Le masquage des données dynamiques peut être configuré par les rôles d’administrateur, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) Azure SQL Database.
+Le masquage des données dynamiques peut être configuré par les rôles d’administrateur, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) Azure SQL Database.
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
 
@@ -60,15 +60,15 @@ Le moteur de recommandations DDM signale certains champs de votre base de donné
 
 ### <a name="data-masking-policies"></a>Stratégies de masquage des données
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Règles de masquage de données
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Configurer le masquage dynamique des données pour votre base de données à l’aide de l’API REST
 
@@ -76,10 +76,10 @@ Vous pouvez utiliser l’API REST pour gérer par programme les règles et strat
 
 ### <a name="data-masking-policies"></a>Stratégies de masquage des données
 
-- [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate) : Crée ou met à jour une stratégie de masquage des données de la base de données.
-- [Obtenir](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get) : Fourni une stratégie de masquage des données de la base de données. 
+- [Créer ou mettre à jour](/rest/api/sql/datamaskingpolicies/createorupdate) : Crée ou met à jour une stratégie de masquage des données de la base de données.
+- [Obtenir](/rest/api/sql/datamaskingpolicies/get) : Fourni une stratégie de masquage des données de la base de données. 
 
 ### <a name="data-masking-rules"></a>Règles de masquage de données
 
-- [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate) : Crée ou met à jour une règle de masquage des données de la base de données.
-- [Liste par base de données](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase) : Fournit une liste des règles de masquage des données de la base de données.
+- [Créer ou mettre à jour](/rest/api/sql/datamaskingrules/createorupdate) : Crée ou met à jour une règle de masquage des données de la base de données.
+- [Liste par base de données](/rest/api/sql/datamaskingrules/listbydatabase) : Fournit une liste des règles de masquage des données de la base de données.

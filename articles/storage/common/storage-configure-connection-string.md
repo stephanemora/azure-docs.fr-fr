@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091608"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783876"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
@@ -35,7 +35,7 @@ Votre application doit accéder à la chaîne de connexion pendant l’exécutio
 
 * Vous pouvez stocker votre chaîne de connexion dans une variable d’environnement.
 * Une application s’exécutant sur le bureau ou sur un appareil peut stocker la chaîne de connexion dans un fichier **app.config** ou **web.config** . Ajoutez la chaîne de connexion dans la section **AppSettings** de ces fichiers.
-* Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
+* Une application s’exécutant dans un service cloud Azure peut stocker la chaîne de connexion dans le [schéma de configuration du service Azure (fichier .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Ajoutez la chaîne de connexion à la section **ConfigurationSettings** du fichier de configuration du service.
 
 Le stockage de votre chaîne de connexion dans un fichier config facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l’[émulateur de stockage Azure](../common/storage-use-azurite.md) et un compte de stockage Azure dans le cloud. Il vous suffit de modifier la chaîne de connexion pour la faire pointer vers votre environnement cible.
 

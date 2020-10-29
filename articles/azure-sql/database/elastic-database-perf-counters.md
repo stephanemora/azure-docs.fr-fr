@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
-ms.openlocfilehash: 6038ec1d83957f20ca6e2759eeb5a88e66c2f77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443405"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781258"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Créer des compteurs de performances pour suivre les performances du gestionnaire de cartes de partitions
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,23 +31,23 @@ Vous pouvez recueillir les performances d’un [gestionnaire de cartes de partit
 ## <a name="prerequisites"></a>Prérequis
 
 * Pour créer la catégorie et les compteurs de performances, l’utilisateur doit être membre du groupe **Administrateurs** local groupe sur l’ordinateur qui héberge l’application.  
-* Pour créer une instance de compteur de performances et mettre à jour les compteurs, l’utilisateur doit être membre du groupe **Administrateurs** ou du groupe **Utilisateurs de l’Analyseur de performances**.
+* Pour créer une instance de compteur de performances et mettre à jour les compteurs, l’utilisateur doit être membre du groupe **Administrateurs** ou du groupe **Utilisateurs de l’Analyseur de performances** .
 
 ## <a name="create-performance-category-and-counters"></a>Création de catégories et de compteurs de performances
 
-Pour créer les compteurs, appelez la méthode CreatePerformanceCategoryAndCounters de la [classe ShardMapManagementFactory](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Seul un administrateur peut exécuter la méthode :
+Pour créer les compteurs, appelez la méthode CreatePerformanceCategoryAndCounters de la [classe ShardMapManagementFactory](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Seul un administrateur peut exécuter la méthode :
 
 `ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()`
 
 Vous pouvez également utiliser [ce](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script PowerShell pour exécuter la méthode.
 La méthode crée les compteurs de performances suivants :  
 
-* **Mappages mise en cache** : nombre de mappages mis en cache pour la carte de partitions.
-* **Opérations DDR/s** : taux d’opérations de routage dépendant des données pour la carte de partitions. Ce compteur est mis à jour lorsqu’un appel à [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) permet d’établir la connexion à la partition de destination.
-* **Nb de correspondances dans le cache lors de la recherche de mappages** : taux de réussite des opérations de recherche de mappages dans le cache pour la carte de partitions.
-* **Nb d’échecs de correspondance dans le cache lors de la recherche de mappages** : taux d’échec des opérations de recherche de mappages dans le cache pour la carte de partitions.
-* **Mappages ajoutés ou mis à jour dans le cache/s** : taux d’ajout ou de mise à jour de mappages dans le cache pour la carte de partitions.
-* **Mappages supprimés du cache/s** : taux de suppression de mappages dans le cache pour la carte de partitions.
+* **Mappages mise en cache**  : nombre de mappages mis en cache pour la carte de partitions.
+* **Opérations DDR/s**  : taux d’opérations de routage dépendant des données pour la carte de partitions. Ce compteur est mis à jour lorsqu’un appel à [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) permet d’établir la connexion à la partition de destination.
+* **Nb de correspondances dans le cache lors de la recherche de mappages**  : taux de réussite des opérations de recherche de mappages dans le cache pour la carte de partitions.
+* **Nb d’échecs de correspondance dans le cache lors de la recherche de mappages**  : taux d’échec des opérations de recherche de mappages dans le cache pour la carte de partitions.
+* **Mappages ajoutés ou mis à jour dans le cache/s**  : taux d’ajout ou de mise à jour de mappages dans le cache pour la carte de partitions.
+* **Mappages supprimés du cache/s**  : taux de suppression de mappages dans le cache pour la carte de partitions.
 
 Les compteurs de performances sont créés pour chaque carte de partitions mises en cache par processus.  
 
@@ -55,8 +55,8 @@ Les compteurs de performances sont créés pour chaque carte de partitions mises
 
 Les événements suivants déclenchent la création des compteurs de performances :  
 
-* Initialisation de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) avec [chargement hâtif](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), si l’objet ShardMapManager contient des cartes de partitions, avec les méthodes [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) et [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager).
-* Recherche réussie d’une carte de partitions (à l’aide de [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) ou [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
+* Initialisation de [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) avec [chargement hâtif](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), si l’objet ShardMapManager contient des cartes de partitions, avec les méthodes [GetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) et [TryGetSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager).
+* Recherche réussie d’une carte de partitions (à l’aide de [GetShardMap()](/previous-versions/azure/dn824215(v=azure.100)), [GetListShardMap()](/previous-versions/azure/dn824212(v=azure.100)) ou [GetRangeShardMap()](/previous-versions/azure/dn824173(v=azure.100))).
 * Création réussie de la carte de partitions à l’aide de CreateShardMap().
 
 Les compteurs de performance seront mis à jour par toutes les opérations du cache sur la carte de partitions et sur les mappages. Suppression réussie de la carte de partitions à l'aide de DeleteShardMap(), entraînant la suppression de l'instance des compteurs de performances.  

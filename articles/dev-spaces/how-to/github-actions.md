@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Passez en revue et testez les modifications à partir d’une demande de tirage (pull request) directement dans Azure Kubernetes Service avec des actions GitHub et Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.custom: devx-track-js
-ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973102"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748142"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
@@ -61,13 +61,13 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Enregistrez la sortie JSON, car elle est utilisée à une étape ultérieure.
 
-Utilisez [az aks show][az-aks-show] pour afficher l’*ID* de votre cluster AKS :
+Utilisez [az aks show][az-aks-show] pour afficher l’ *ID* de votre cluster AKS :
 
 ```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Utilisez [az cr show][az-acr-show] pour afficher l’*ID* de votre ACR :
+Utilisez [az cr show][az-acr-show] pour afficher l’ *ID* de votre ACR :
 
 ```azurecli
 az acr show --name <acrName> --query id
@@ -88,31 +88,31 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > Les actions GitHub doivent être activées pour votre référentiel. Pour activer les actions GitHub pour votre référentiel, accédez à votre référentiel sur GitHub, cliquez sur l’onglet Actions, puis choisissez d’activer des actions pour ce dépôt.
 
-Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres*. Cliquez sur *Secrets* dans la barre latérale gauche. Cliquez sur *Ajouter un nouveau secret* pour ajouter chaque nouveau secret ci-dessous :
+Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres* . Cliquez sur *Secrets* dans la barre latérale gauche. Cliquez sur *Ajouter un nouveau secret* pour ajouter chaque nouveau secret ci-dessous :
 
-1. *AZURE_CREDENTIALS* : la totalité de la sortie de la création du principal de service.
-1. *RESOURCE_GROUP* : le groupe de ressources de votre cluster AKS, dans cet exemple *MyResourceGroup*.
-1. *CLUSTER_NAME* : le nom de votre cluster AKS, dans cet exemple *MyAKS*.
-1. *CONTAINER_REGISTRY*: le *loginServer* pour l’ACR.
-1. *HOST* : l’hôte pour votre espace de développement, avec la forme *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *IMAGE_PULL_SECRET* : nom de la clé secrète que vous souhaitez utiliser, par exemple *demo-secret*.
-1. *MASTER_SPACE* : le nom de votre espace de développement parent, dans cet exemple *dev*.
-1. *REGISTRY_USERNAME* : le *clientId* à partir de la sortie JSON de la création du principal de service.
-1. *REGISTRY_PASSWORD* : le *clientSecret* à partir de la sortie JSON de la création du principal de service.
+1. *AZURE_CREDENTIALS*  : la totalité de la sortie de la création du principal de service.
+1. *RESOURCE_GROUP*  : le groupe de ressources de votre cluster AKS, dans cet exemple *MyResourceGroup* .
+1. *CLUSTER_NAME*  : le nom de votre cluster AKS, dans cet exemple *MyAKS* .
+1. *CONTAINER_REGISTRY* : le *loginServer* pour l’ACR.
+1. *HOST*  : l’hôte pour votre espace de développement, avec la forme *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io* .
+1. *IMAGE_PULL_SECRET*  : nom de la clé secrète que vous souhaitez utiliser, par exemple *demo-secret* .
+1. *MASTER_SPACE*  : le nom de votre espace de développement parent, dans cet exemple *dev* .
+1. *REGISTRY_USERNAME*  : le *clientId* à partir de la sortie JSON de la création du principal de service.
+1. *REGISTRY_PASSWORD*  : le *clientSecret* à partir de la sortie JSON de la création du principal de service.
 
 > [!NOTE]
 > Tous ces secrets sont utilisés par l’action GitHub et sont configurés dans [.gitHub/workflows/bikes.yml][github-action-yaml].
 
-Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io*. Une fois que vous avez fusionné vos modifications dans la branche maître de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io* . Une fois que vous avez fusionné vos modifications dans la branche maître de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev* . Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
-En outre, si vous souhaitez que les modifications apportées à votre demande de tirage s’exécutent dans un espace petit-enfant, mettez à jour les secrets *MASTER_SPACE* et *HOST*. Par exemple, si votre application s’exécute dans *dev* avec un espace enfant *dev/azureuser1*, pour que la demande de tirage s’exécute dans un espace enfant de *dev/azureuser1* :
+En outre, si vous souhaitez que les modifications apportées à votre demande de tirage s’exécutent dans un espace petit-enfant, mettez à jour les secrets *MASTER_SPACE* et *HOST* . Par exemple, si votre application s’exécute dans *dev* avec un espace enfant *dev/azureuser1* , pour que la demande de tirage s’exécute dans un espace enfant de *dev/azureuser1*  :
 
-* Mettez à jour *MASTER_SPACE* sur l’espace enfant souhaité en tant qu’espace parent, dans cet exemple *azureuser1*.
-* Mettez à jour *HOST* sur *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+* Mettez à jour *MASTER_SPACE* sur l’espace enfant souhaité en tant qu’espace parent, dans cet exemple *azureuser1* .
+* Mettez à jour *HOST* sur *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io* .
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Créer une branche pour les modifications de code
 
-Accédez à `BikeSharingApp/` et créez une nouvelle branche appelée *bike-images*.
+Accédez à `BikeSharingApp/` et créez une nouvelle branche appelée *bike-images* .
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
@@ -149,9 +149,9 @@ Utilisez `git push` pour pousser votre nouvelle branche vers votre référentiel
 git push origin bike-images
 ```
 
-Une fois l’opération Push terminée, accédez à votre référentiel dupliqué sur GitHub afin de créer une demande de tirage (pull request) avec la branche *master* dans votre référentiel dupliqué comme branche de base, par rapport à la branche *bike-images*.
+Une fois l’opération Push terminée, accédez à votre référentiel dupliqué sur GitHub afin de créer une demande de tirage (pull request) avec la branche *master* dans votre référentiel dupliqué comme branche de base, par rapport à la branche *bike-images* .
 
-Une fois la requête de tirage ouverte, accédez à l’onglet *Actions*. Vérifiez qu’une nouvelle action a démarré et qu’elle est en train de créer le service *Bikes*.
+Une fois la requête de tirage ouverte, accédez à l’onglet *Actions* . Vérifiez qu’une nouvelle action a démarré et qu’elle est en train de créer le service *Bikes* .
 
 ## <a name="view-the-child-space-with-your-changes"></a>Afficher l’espace enfant à l’aide de vos modifications
 
@@ -162,7 +162,7 @@ Une fois l’action terminée, vous verrez un commentaire avec une URL vers votr
 
 Accédez au service *bikesharingweb* en ouvrant l’URL à partir du commentaire. Sélectionnez *Aurelia Briggs (client)* en tant qu’utilisateur, puis sélectionnez un vélo à louer. Vérifiez que l’image d’espace réservé du vélo n’est plus visible.
 
-Si vous fusionnez vos modifications dans la branche *master* de votre fourche, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si vous fusionnez vos modifications dans la branche *master* de votre fourche, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev* . Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 

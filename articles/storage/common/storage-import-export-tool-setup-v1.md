@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054073"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782074"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Configuration de l’outil Azure Import/Export v1
 L’outil Microsoft Azure Import/Export est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le service Microsoft Azure Import/Export. Vous pouvez utiliser l’outil pour les fonctions suivantes :  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Consultation de l’état du travail avec les fichiers journaux de copie](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Réparation d’un travail d’importation](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Réparation d’un travail d’exportation](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Préparation des disques durs pour un travail d’importation](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Consultation de l’état du travail avec les fichiers journaux de copie](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Réparation d’un travail d’importation](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Réparation d’un travail d’exportation](./storage-import-export-tool-repairing-an-export-job-v1.md)

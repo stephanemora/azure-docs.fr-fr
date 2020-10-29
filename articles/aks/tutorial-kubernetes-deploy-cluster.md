@@ -4,13 +4,13 @@ description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous créez un 
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: e78dcb3b7ba503011ec83058d9ad765815ef66a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 55af44f498492136b2ae03c7e23fce3676aa8e22
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576351"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747087"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Ce didacticiel nécessite l’exécution de l’interface de ligne de commande A
 
 Les clusters AKS peuvent utiliser le contrôle d’accès en fonction des rôles (RBAC) de Kubernetes. Ces contrôles vous permettent de définir l’accès aux ressources en fonction des rôles attribués aux utilisateurs. Des autorisations sont combinées si plusieurs rôles sont attribués à un utilisateur, et les autorisations peuvent être limitées à un seul espace de noms ou accordées à l’ensemble du cluster. Par défaut, l’interface de ligne de commande Azure active automatiquement RBAC lorsque vous créez un cluster AKS.
 
-Créez un cluster AKS à l’aide de [az aks create][]. L’exemple suivant crée un cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Vous avez créé ce groupe de ressources dans le [tutoriel précédent][aks-tutorial-prepare-acr] dans la région *eastus*. L’exemple suivant ne spécifie pas de région ; le cluster AKS est donc également créé dans la région *eastus*. Pour plus d’informations sur les limites de ressources et la disponibilité des régions pour AKS, consultez [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
+Créez un cluster AKS à l’aide de [az aks create][]. L’exemple suivant crée un cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* . Vous avez créé ce groupe de ressources dans le [tutoriel précédent][aks-tutorial-prepare-acr] dans la région *eastus* . L’exemple suivant ne spécifie pas de région ; le cluster AKS est donc également créé dans la région *eastus* . Pour plus d’informations sur les limites de ressources et la disponibilité des régions pour AKS, consultez [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
 
 Pour permettre à un cluster AKS d’interagir avec d’autres ressources Azure, un principal de service Azure Active Directory est automatiquement créé, dans la mesure où vous n’en avez pas spécifié. Ici, ce principal de service [se voit accorder le droit d’extraire des images][container-registry-integration] à partir de l’instance Azure Container Registry (ACR) que vous avez créée dans le tutoriel précédent. Notez que vous pouvez utiliser une [identité managée](use-managed-identity.md) au lieu d’un principal de service pour une gestion simplifiée.
 
@@ -65,7 +65,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Se connecter au cluster à l’aide de kubectl
 
-Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][]. L’exemple suivant obtient les informations d’identification du cluster AKS nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup* :
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][]. L’exemple suivant obtient les informations d’identification du cluster AKS nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*  :
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

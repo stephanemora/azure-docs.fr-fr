@@ -4,13 +4,13 @@ description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vou
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576281"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747077"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
@@ -74,7 +74,7 @@ tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863 
 
 Pour utiliser l’image conteneur *azure-vote-front* avec ACR, vous devez baliser cette image avec l’adresse du serveur de connexion de votre registre. Cette balise est utilisée pour l’acheminement lors de l’envoi des images de conteneur dans un registre d’images.
 
-Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr list][az-acr-list] et exécutez une requête portant sur l’élément *loginServer*, comme suit :
+Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr list][az-acr-list] et exécutez une requête portant sur l’élément *loginServer* , comme suit :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 2f1eddf33dc02b1afaffdc200ed8b79b18f77aa4
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999199"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744430"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 
@@ -56,7 +56,7 @@ Pour plus d’informations sur les fonctionnalités fournies par Azure App Servi
 
 Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter le modèle en tant que service web. La liste suivante décrit les éléments principaux nécessaires pour un déploiement :
 
-* __Script d’entrée__. Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
+* __Script d’entrée__ . Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
 
     > [!IMPORTANT]
     > Le script d’entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
@@ -70,9 +70,9 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
 
     Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
+* **Dépendances** , comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
-Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
+Ces entités sont encapsulées dans une __configuration d'inférence__ . La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
 > Lors de la création d’une configuration d’inférence à utiliser avec Azure App Service, vous devez utiliser un objet [Environnement](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
@@ -97,7 +97,7 @@ Pour plus d’informations sur les environnements , consultez [Créer et gérer 
 Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Lors du déploiement vers Azure App Service, il n’est pas nécessaire de créer une __configuration de déploiement__.
+> Lors du déploiement vers Azure App Service, il n’est pas nécessaire de créer une __configuration de déploiement__ .
 
 ## <a name="create-the-image"></a>Création de l’image
 
@@ -146,7 +146,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     }
     ```
 
-    Enregistrez le nom d’utilisateur (__username__), ainsi que l’un des mots de passe (__passwords__).
+    Enregistrez le nom d’utilisateur ( __username__ ), ainsi que l’un des mots de passe ( __passwords__ ).
 
 1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, les commandes suivantes montrent comment créer ces deux éléments :
 
@@ -243,7 +243,7 @@ Une fois l’image déployée, vous pouvez trouver le nom d’hôte à l’aide 
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-Cette commande retourne des informations semblables au nom d’hôte suivant : `<app-name>.azurewebsites.net`. Utilisez cette valeur dans le cadre de l’__URL de base__ du service.
+Cette commande retourne des informations semblables au nom d’hôte suivant : `<app-name>.azurewebsites.net`. Utilisez cette valeur dans le cadre de l’ __URL de base__ du service.
 
 ## <a name="use-the-web-app"></a>Utiliser l’application web
 

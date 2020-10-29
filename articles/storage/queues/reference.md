@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 5544a6985ca357688b2585fa29c6dc63546c3e8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de504cc4209aea19925c4c3e2385c7feabceedeb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781615"
 ---
 # <a name="azure-queue-storage-reference"></a>Informations de référence sur le stockage File d’attente Azure
 
@@ -25,8 +25,8 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Espace de noms Azure.Storage.Queues](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour .NET](/azure/storage/queues/storage-quickstart-queues-dotnet) |
-| 11.x | [Espace de noms Microsoft.Azure.Storage.Queue](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Démarrage rapide : Utiliser le SDK Stockage Azure v11 pour .NET afin de gérer une file d’attente](/azure/storage/queues/storage-quickstart-queues-dotnet-legacy) |
+| 12.x | [Espace de noms Azure.Storage.Queues](/dotnet/api/azure.storage.queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour .NET](./storage-quickstart-queues-dotnet.md) |
+| 11.x | [Espace de noms Microsoft.Azure.Storage.Queue](/dotnet/api/microsoft.azure.storage.queue) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Démarrage rapide : Utiliser le SDK Stockage Azure v11 pour .NET afin de gérer une file d’attente](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gestion du stockage
 
@@ -50,8 +50,8 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliothèque cliente Stockage File d’attente Azure pour Java](/java/api/overview/azure/storage-queue-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Java](/azure/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Démarrage rapide : Gérer des objets blob avec le SDK Java v8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [Bibliothèque cliente Stockage File d’attente Azure pour Java](/java/api/overview/azure/storage-queue-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Java](./storage-quickstart-queues-java.md) |
+| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Démarrage rapide : Gérer des objets blob avec le SDK Java v8](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>Gestion du stockage
 
@@ -67,8 +67,8 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliothèque cliente Stockage Azure v12 pour Python](/azure/developer/python/sdk/storage/overview) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [Bibliothèque cliente Stockage Azure v2 pour Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Comment utiliser le Stockage File d’attente Azure v2.1 à partir de Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Bibliothèque cliente Stockage Azure v12 pour Python](/azure/developer/python/sdk/storage/overview) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Python](./storage-quickstart-queues-python.md) |
+| 2.x | [Bibliothèque cliente Stockage Azure v2 pour Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Comment utiliser le Stockage File d’attente Azure v2.1 à partir de Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Bibliothèques clientes JavaScript
 
@@ -76,8 +76,8 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliothèque cliente Stockage File d’attente Azure pour JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Utiliser le service File d’attente Azure pour créer et supprimer des files d’attente de Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 12.x | [Bibliothèque cliente Stockage File d’attente Azure pour JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Utiliser le service File d’attente Azure pour créer et supprimer des files d’attente de Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>API REST
 

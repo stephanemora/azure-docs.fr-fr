@@ -3,13 +3,13 @@ title: Déployer des modèles Resource Manager à l’aide de GitHub Actions
 description: Décrit comment déployer des modèles Azure Resource Manager à l’aide de GitHub Actions.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282852"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746096"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Déployer des modèles Azure Resource Manager à l’aide de GitHub Actions
 

@@ -4,13 +4,13 @@ description: Apprenez à configurer les paramètres d’application Azure Functi
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83122293"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746172"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -29,7 +29,7 @@ Cet article explique comment configurer et gérer vos applications de fonction.
 
 1. Commencez par accéder au [Azure portal] et connectez-vous à votre compte Azure. Dans la barre de recherche en haut du portail, tapez le nom de votre application de fonction et sélectionnez-la dans la liste. 
 
-2. Sous **Paramètres** dans le volet gauche, sélectionnez **Configuration**.
+2. Sous **Paramètres** dans le volet gauche, sélectionnez **Configuration** .
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Vue d’ensemble de l’application de fonction dans le Portail Azure":::
 

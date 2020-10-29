@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 17a29621d3d70d56745d2e51e0ce80974876a9ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399038"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782159"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Service Azure Import/Export : Questions fréquentes (FAQ)
 
@@ -55,13 +55,13 @@ Non. Tout disque utilisé pour importer des données doit être préparé à l�
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Dois-je effectuer une préparation du disque durant la création d’une tâche d’exportation ?
 
-Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
+Non. Certaines vérifications préalables sont recommandées. Pour vérifier le nombre de disques nécessaires, utilisez la commande PreviewExport de l’outil WAImportExport. Pour plus d’informations, consultez [Aperçu de l’utilisation des lecteurs pour un travail d’exportation](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). La commande vous permet d’afficher un aperçu de l’utilisation des disques pour les objets blob sélectionnés, en fonction de la taille des disques à utiliser. Vérifiez également que vous pouvez accéder en lecture/écriture au disque dur expédié pour la tâche d’exportation.
 
 ## <a name="importexport-jobs"></a>Tâches d’importation/exportation
 
 ### <a name="can-i-cancel-my-job"></a>Puis-je annuler ma tâche ?
 
-Oui. Vous pouvez annuler une tâche dont l’état est **Création** ou **Expédition**. Au-delà de ces étapes, la tâche ne peut être annulée. Elle se poursuit jusqu’à l’étape finale.
+Oui. Vous pouvez annuler une tâche dont l’état est **Création** ou **Expédition** . Au-delà de ces étapes, la tâche ne peut être annulée. Elle se poursuit jusqu’à l’étape finale.
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Pendant combien de temps puis-je voir l’état des tâches effectuées dans le Portail Azure ?
 
@@ -132,7 +132,7 @@ Non. Tous les disques sont chiffrés avec BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Comment accéder aux données importées par ce service ?
 
-Utilisez le Portail Azure ou [Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) pour accéder aux données de votre compte de stockage Azure.  
+Utilisez le Portail Azure ou [Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) pour accéder aux données de votre compte de stockage Azure.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>Une fois l’importation effectuée, à quoi ressemblent mes données dans le compte de stockage ? La hiérarchie de mon répertoire est-elle conservée ?
 
@@ -144,7 +144,7 @@ Cela dépend. Lors de la préparation du disque, vous pouvez indiquer si les fic
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>L’outil WAImportExport est-il compatible avec les systèmes d’exploitation 32 bits ?
 
-Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’exploitation Windows 64 bits. Pour obtenir une liste complète des systèmes d’exploitation pris en charge, accédez à [Systèmes d’exploitation pris en charge](./storage-import-export-requirements.md).
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Azure Import/Export ?
 

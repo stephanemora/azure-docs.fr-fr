@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356883"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744759"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Développer des modèles ARM pour la cohérence du cloud
 
@@ -205,7 +205,7 @@ Pour construire l’URI absolu d’un artefact, la méthode recommandée est d�
 }
 ```
 
-Grâce à cette approche, tous les artefacts de déploiement, y compris les scripts de configuration, peuvent être stockés au même emplacement avec le modèle lui-même. Pour modifier l’emplacement de tous les liens, vous n’avez qu’à spécifier une URL de base différente pour les _paramètres artifactsLocation_.
+Grâce à cette approche, tous les artefacts de déploiement, y compris les scripts de configuration, peuvent être stockés au même emplacement avec le modèle lui-même. Pour modifier l’emplacement de tous les liens, vous n’avez qu’à spécifier une URL de base différente pour les _paramètres artifactsLocation_ .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Tenir compte des différentes fonctionnalités régionales
 
@@ -444,7 +444,7 @@ Les espaces de noms du point de terminaison peuvent également être utilisés d
 De manière générale, évitez les points de terminaison codés en dur dans un modèle. La meilleure pratique consiste à utiliser la fonction de modèle de référence pour récupérer les points de terminaison de manière dynamique. Par exemple, le point de terminaison généralement codé en dur est l’espace de noms du point de terminaison des comptes de stockage. Chaque compte de stockage possède un nom de domaine complet (FQDN) unique, construit en concaténant le nom du compte de stockage avec l’espace de noms du point de terminaison. Un compte de stockage d’objets blob nommé mystorageaccount1 donne lieu à différents noms de domaine complets (FQDN) en fonction du cloud :
 
 * **mystorageaccount1.blob.core.windows.net** s’il est créé dans le cloud Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn**s’il est créé dans le cloud Azure Chine 21Vianet.
+* **mystorageaccount1.blob.core.chinacloudapi.cn** s’il est créé dans le cloud Azure Chine 21Vianet.
 
 La fonction de modèle de référence suivante récupère l’espace de noms du point de terminaison du fournisseur de ressources de stockage :
 
@@ -611,7 +611,7 @@ Comme les extensions de machine virtuelle sont des ressources Resource Manager i
 
 La version d’API de la ressource d’extension de machine virtuelle doit être présente dans tous les emplacements que vous envisagez de cibler avec votre modèle. La dépendance de l’emplacement fonctionne comme la disponibilité de la version d’API du fournisseur de ressources évoquée précédemment dans la section « Vérifier la version de tous les types de ressources ».
 
-Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) avec le fournisseur de ressources **Microsoft.Compute**, comme suit :
+Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) avec le fournisseur de ressources **Microsoft.Compute** , comme suit :
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}

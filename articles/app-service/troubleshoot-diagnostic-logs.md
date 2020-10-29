@@ -4,13 +4,13 @@ description: Découvrez comment activer la journalisation de diagnostic et ajout
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 7b27aae712843ece27fd61927c4bfecff00399fa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264369"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747015"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -25,7 +25,7 @@ Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI po
 
 |Type|Plateforme|Emplacement|Description|
 |-|-|-|-|
-| Journalisation des applications | Windows, Linux | Système de fichiers App Service et/ou objets blob de stockage Azure | Consigne les messages générés par votre code d’application. Les messages peuvent être générés par l’infrastructure web de votre choix ou directement à partir de votre code d’application à l’aide du modèle de journalisation standard de votre langage. Chaque message se voit attribuer l’une des catégories suivantes : **Critique**, **Erreur**, **Avertissement**, **Info**, **Débogage** ou **Trace**. Vous pouvez sélectionner le degré de détail de la journalisation en définissant le niveau de gravité lorsque vous activez la journalisation des applications.|
+| Journalisation des applications | Windows, Linux | Système de fichiers App Service et/ou objets blob de stockage Azure | Consigne les messages générés par votre code d’application. Les messages peuvent être générés par l’infrastructure web de votre choix ou directement à partir de votre code d’application à l’aide du modèle de journalisation standard de votre langage. Chaque message se voit attribuer l’une des catégories suivantes : **Critique** , **Erreur** , **Avertissement** , **Info** , **Débogage** ou **Trace** . Vous pouvez sélectionner le degré de détail de la journalisation en définissant le niveau de gravité lorsque vous activez la journalisation des applications.|
 | Journalisation du serveur web| Windows | Système de fichiers App Service ou objets blob de stockage Azure| Données de requête HTTP brutes au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Chaque message de journalisation comprend des données telles que la méthode HTTP, l’URI de ressource, l’adresse IP du client, le port client, l’agent utilisateur, le code de réponse, etc. |
 | Messages d’erreur détaillés| Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
 | Suivi des demandes ayant échoué | Windows | Système de fichiers App Service | Informations de suivi détaillées des demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque demande ayant échoué, qui contient le fichier journal XML et la feuille de style XSL permettant d’afficher le fichier journal. |
@@ -42,18 +42,18 @@ Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI po
 > [!NOTE]
 > La journalisation des applications pour le stockage de blobs peut uniquement utiliser des comptes de stockage dans la même région que l’App Service.
 
-Pour activer la journalisation des applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
+Pour activer la journalisation des applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service** .
 
 Sélectionnez **Activé** pour **Journal des applications (Système de fichiers)** , **Journal des applications (Blob)** ou les deux. 
 
-L’option **Système de fichiers** est utilisée à des fins de débogage temporaire et se désactive elle-même après 12 heures. L’option **Blob** est destinée à la journalisation à long terme et a besoin d’un conteneur de stockage d’objets blob dans lequel écrire les journaux.  L’option **Blob** inclut également des informations supplémentaires dans les messages de journalisation, telles que l’ID de l’instance de machine virtuelle d’origine du message de journalisation (`InstanceId`), l’ID de thread (`Tid`) et un horodateur plus précis ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
+L’option **Système de fichiers** est utilisée à des fins de débogage temporaire et se désactive elle-même après 12 heures. L’option **Blob** est destinée à la journalisation à long terme et a besoin d’un conteneur de stockage d’objets blob dans lequel écrire les journaux.  L’option **Blob** inclut également des informations supplémentaires dans les messages de journalisation, telles que l’ID de l’instance de machine virtuelle d’origine du message de journalisation (`InstanceId`), l’ID de thread (`Tid`) et un horodateur plus précis ( [`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Actuellement, seuls les journaux des applications .NET peuvent être écrits dans le Stockage Blob. Les journaux des applications Java, PHP, Node.js et Python peuvent être stockés uniquement dans le système de fichiers App Service (sans modifications du code pour écrire les journaux dans un stockage externe).
 >
 > De plus, si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-account-create.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés d’accès mises à jour. Pour ce faire :
 >
-> 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
+> 1. Sous l’onglet **Configurer** , définissez la fonctionnalité de journalisation correspondante sur **Désactivé** . Enregistrez votre paramètre.
 > 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
 >
 >
@@ -68,41 +68,41 @@ Sélectionnez le **niveau** ou le niveau de détails à consigner. Le tableau su
 |**Informations** | Info, Avertissement, Erreur, Critique|
 |**Verbose** | Trace, Débogage, Info, Avertissement, Erreur, Critique (toutes les catégories) |
 
-Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+Lorsque vous avez terminé, sélectionnez **Enregistrer** .
 
 ## <a name="enable-application-logging-linuxcontainer"></a>Activer la journalisation des applications (Linux/Conteneur)
 
-Pour activer la journalisation des applications Linux et des applications de conteneur personnalisées dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
+Pour activer la journalisation des applications Linux et des applications de conteneur personnalisées dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service** .
 
-Dans **Journal des applications**, sélectionnez **Système de fichiers**.
+Dans **Journal des applications** , sélectionnez **Système de fichiers** .
 
 Dans **Quota (Mo)** , spécifiez le quota de disque pour les journaux des applications. Dans **Période de conservation (jours)** , définissez le nombre de jours pendant lesquels les journaux doivent être conservés.
 
-Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+Lorsque vous avez terminé, sélectionnez **Enregistrer** .
 
 ## <a name="enable-web-server-logging"></a>Activer la journalisation de serveur Web
 
-Pour activer la journalisation du serveur web pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
+Pour activer la journalisation du serveur web pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service** .
 
-Pour **Journalisation du serveur web**, sélectionnez **Stockage** pour stocker les journaux dans le stockage d’objets blob, ou **Système de fichiers** pour stocker les journaux sur le système de fichiers App service. 
+Pour **Journalisation du serveur web** , sélectionnez **Stockage** pour stocker les journaux dans le stockage d’objets blob, ou **Système de fichiers** pour stocker les journaux sur le système de fichiers App service. 
 
 Dans **Période de conservation (jours)** , définissez le nombre de jours pendant lesquels les journaux doivent être conservés.
 
 > [!NOTE]
 > Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-account-create.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
 >
-> 1. Sous l’onglet **Configurer**, définissez la fonctionnalité de journalisation correspondante sur **Désactivé**. Enregistrez votre paramètre.
+> 1. Sous l’onglet **Configurer** , définissez la fonctionnalité de journalisation correspondante sur **Désactivé** . Enregistrez votre paramètre.
 > 2. Réactivez la journalisation de l’objet blob du compte de stockage. Enregistrez votre paramètre.
 >
 >
 
-Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+Lorsque vous avez terminé, sélectionnez **Enregistrer** .
 
 ## <a name="log-detailed-errors"></a>Consigner les erreurs détaillées
 
-Pour enregistrer la page d’erreur ou le suivi des demandes ayant échoué pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
+Pour enregistrer la page d’erreur ou le suivi des demandes ayant échoué pour les applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service** .
 
-Sous **Messages d’erreurs détaillés** ou **Suivi des demandes ayant échoué**, sélectionnez **Activé**, puis sélectionnez **Enregistrer**.
+Sous **Messages d’erreurs détaillés** ou **Suivi des demandes ayant échoué** , sélectionnez **Activé** , puis sélectionnez **Enregistrer** .
 
 Les deux types de journaux sont stockés dans le système de fichiers App Service. Jusqu’à 50 erreurs (fichiers/dossiers) sont conservées. Lorsque le nombre de fichiers HTML dépasse 50, les 26 erreurs les plus anciennes sont automatiquement supprimées.
 
@@ -128,7 +128,7 @@ Avant de diffuser des journaux en temps réel, activez le type de journal souhai
 
 ### <a name="in-azure-portal"></a>Dans le portail Azure
 
-Pour diffuser les journaux dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Flux de journaux**. 
+Pour diffuser les journaux dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Flux de journaux** . 
 
 ### <a name="in-cloud-shell"></a>Dans Cloud Shell
 
@@ -162,7 +162,7 @@ Pour les journaux stockés dans le système de fichiers App Service, le moyen le
 - Applications Linux/de conteneur : `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Applications Windows : `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-Pour les applications Linux/de conteneur, le fichier ZIP contient les journaux de sortie de la console pour l’hôte Docker et le conteneur Docker. Pour une application avec scale-out, le fichier ZIP contient un ensemble de journaux pour chaque instance. Dans le système de fichiers App Service, ces fichiers journaux sont le contenu du répertoire */home/LogFiles*.
+Pour les applications Linux/de conteneur, le fichier ZIP contient les journaux de sortie de la console pour l’hôte Docker et le conteneur Docker. Pour une application avec scale-out, le fichier ZIP contient un ensemble de journaux pour chaque instance. Dans le système de fichiers App Service, ces fichiers journaux sont le contenu du répertoire */home/LogFiles* .
 
 Pour les applications Windows, le fichier ZIP contient le contenu du répertoire *D:\Home\LogFiles* dans le système de fichiers App Service. Sa structure est la suivante :
 
@@ -170,7 +170,7 @@ Pour les applications Windows, le fichier ZIP contient le contenu du répertoire
 |-|-|-|
 | **Journaux d’application** |*/LogFiles/Application/* | Contient un ou plusieurs fichiers texte. Le format des messages de journalisation dépend du fournisseur de journalisation que vous utilisez. |
 | **Suivi des demandes ayant échoué** | */LogFiles/W3SVC#########/* | Contient des fichiers XML et un fichier XSL. Vous pouvez afficher les fichiers XML mis en forme dans le navigateur. |
-| **Journaux d’erreurs détaillés** | */LogFiles/DetailedErrors/* | Contient les fichiers d’erreur HTM. Vous pouvez afficher les fichiers HTM dans le navigateur.<br/>Un autre moyen d’afficher le suivi des demandes ayant échoué consiste à accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes**, puis recherchez **Journaux de traçage des requêtes ayant échoué**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez. |
+| **Journaux d’erreurs détaillés** | */LogFiles/DetailedErrors/* | Contient les fichiers d’erreur HTM. Vous pouvez afficher les fichiers HTM dans le navigateur.<br/>Un autre moyen d’afficher le suivi des demandes ayant échoué consiste à accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes** , puis recherchez **Journaux de traçage des requêtes ayant échoué** , puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez. |
 | **Journaux de serveur web** | */LogFiles/http/RawLogs/* | Contient les fichiers texte au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l’aide d’un éditeur de texte ou d’un utilitaire tel que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service ne prend pas en charge les champs `s-computername`, `s-ip` ni `cs-version`. |
 | **Journaux de déploiement** | */LogFiles/Git/* et */deployments/* | Contient les journaux générés par les processus de déploiement internes, ainsi que les journaux des déploiements Git. |
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330119"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781020"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Ce didacticiel explore les flux de travail de basculement et de restauration aut
 
 Avant de démarrer ce didacticiel, vérifiez que les conditions préalables sont remplies :
 * L’application de base de données SaaS Wingtip Tickets par locataire est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)  
-* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Présentation du modèle de récupération par géoréplication
 
@@ -66,11 +66,11 @@ Toutes les parties doivent être examinées avec précaution, surtout en cas de 
 
 Dans ce tutoriel, ces tâches sont effectuées à l’aide des fonctionnalités Azure SQL Database et de la plateforme Azure :
 
-* [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour approvisionner une image miroir des serveurs de production et des pools élastiques dans la région de récupération.
+* [Modèles Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour approvisionner une image miroir des serveurs de production et des pools élastiques dans la région de récupération.
 * [Géoréplication](active-geo-replication-overview.md) pour créer des copies secondaires en lecture seule et répliquées de façon asynchrone pour toutes les bases de données. Pendant la panne, vous basculez vers les réplicas dans la région de récupération.  Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région d’origine sans aucune perte de données.
-* Opérations de basculement [asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) transmises dans l’ordre de priorité des locataires, pour minimiser le temps de basculement d’un grand nombre de bases de données.
+* Opérations de basculement [asynchrones](../../azure-resource-manager/management/async-operations.md) transmises dans l’ordre de priorité des locataires, pour minimiser le temps de basculement d’un grand nombre de bases de données.
 * [Fonctionnalités de récupération de gestion de partition](elastic-database-recovery-manager.md) pour modifier les entrées de base de données dans le catalogue pendant la récupération et le rapatriement. Ces fonctionnalités permettent à l’application de se connecter aux bases de données de locataire, quel que soit l’emplacement, sans reconfigurer l’application.
-* [Alias DNS de serveur SQL](../../sql-database/dns-alias-overview.md), pour activer l’approvisionnement transparent des nouveaux locataires, quelle que soit la région dans laquelle l’application fonctionne. Les alias DNS permettent également au processus de synchronisation des catalogues de se connecter au catalogue actif, quel que soit son emplacement.
+* [Alias DNS de serveur SQL](./dns-alias-overview.md), pour activer l’approvisionnement transparent des nouveaux locataires, quelle que soit la région dans laquelle l’application fonctionne. Les alias DNS permettent également au processus de synchronisation des catalogues de se connecter au catalogue actif, quel que soit son emplacement.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtenir des scripts de récupération d’urgence 
 
@@ -85,7 +85,7 @@ Dans ce didacticiel, vous utilisez d’abord la géoréplication pour créer des
 Ensuite, lors d’une étape distincte de rapatriement, vous basculez les bases de données de catalogue et de locataire dans la région de récupération vers la région d’origine. L’application et les bases de données restent disponibles tout au long du rapatriement. Lorsque vous avez terminé, l’application est totalement fonctionnelle dans la région d’origine.
 
 > [!Note]
-> L’application est récupérée dans la _région jumelée_ à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> L’application est récupérée dans la _région jumelée_ à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 
@@ -106,7 +106,7 @@ Avant de lancer le processus de récupération, examinez l’état d’intégrit
 Cette tâche vous permet de démarrer un processus de synchronisation de la configuration des serveurs, des pools élastiques et des bases de données dans le catalogue du locataire. Le processus maintient ces informations à jour dans le catalogue.  Le processus fonctionne avec le catalogue actif, que ce soit dans la région d’origine ou dans la région de récupération. Les informations de configuration sont utilisées dans le cadre du processus de récupération pour vérifier que l’environnement de récupération est cohérent avec l’environnement d’origine, puis lors du rapatriement pour vérifier que la région d’origine est cohérente avec les modifications apportées dans l’environnement de récupération. Le catalogue permet également d’assurer le suivi de l’état de récupération des ressources de locataire.
 
 > [!IMPORTANT]
-> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux PowerShell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Par souci de simplicité, le processus de synchronisation et les autres processus longs de récupération et de rapatriement sont implémentés dans ces didacticiels sous la forme de sessions ou de travaux PowerShell locaux qui s’exécutent sous votre ID d’utilisateur client. Les jetons d’authentification émis lors de la connexion expireront après quelques heures, puis les travaux échoueront. Dans un scénario de production, les processus longs doivent être implémentés comme des services Azure fiables et exécutés sous un principal de service. Consultez [Utiliser Azure PowerShell pour créer un principal du service avec un certificat](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. Dans l’ _ISE PowerShell_ , ouvrez le fichier ...\Learning Modules\UserConfig.psm1. Remplacez `<resourcegroup>` et `<user>` sur les lignes 10 et 11 par la valeur utilisée lors du déploiement de l’application.  Enregistrez le fichier.
 
@@ -186,7 +186,7 @@ Le script de récupération effectue les tâches suivantes :
 
 2. Appuyez sur **F5** pour exécuter le script.  
     * Le script s’ouvre dans une nouvelle fenêtre PowerShell, puis démarre une série de travaux PowerShell qui s’exécutent en parallèle. Ces travaux basculent les bases de données de locataire vers la région de récupération.
-    * La région de récupération correspond à la _région jumelée_ à la région Azure où vous avez déployé l’application. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * La région de récupération correspond à la _région jumelée_ à la région Azure où vous avez déployé l’application. Pour plus d’informations, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Surveillez l’état du processus de récupération dans la fenêtre PowerShell.
     ![Processus de basculement](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

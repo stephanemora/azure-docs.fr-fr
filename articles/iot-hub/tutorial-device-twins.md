@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842765"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748542"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "91842765"
 
 Outre la réception de données de télémétrie à partir de vos appareils, vous devrez peut-être configurer vos appareils à partir de votre service back-end. Lorsque vous envoyez une configuration souhaitée à vos appareils, vous pouvez choisir de recevoir des mises à jour d’état et de conformité de ces appareils. Par exemple, vous pouvez définir une plage de température de fonctionnement cible pour un appareil ou collecter des informations sur la version du microprogramme auprès de vos appareils.
 
-Pour synchroniser les informations d’état entre un appareil et un hub IoT, vous pouvez utiliser des _jumeaux d’appareil_. Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON associé à un appareil spécifique et stocké par IoT Hub dans le cloud à partir duquel vous pouvez [interroger](iot-hub-devguide-query-language.md) le document. Un jumeau d’appareil contient des _propriétés souhaitées_, des _propriétés rapportées_ et des _balises_. Une propriété souhaitée est définie par une application back-end et lue par un appareil. Une propriété rapportée est définie par un appareil et lue par une application back-end. Une balise est définie par une application back-end et n’est jamais envoyée à un appareil. Les balises permettent d’organiser vos appareils. Ce didacticiel vous explique comment utiliser les propriétés souhaitées et rapportées pour synchroniser les informations d’état :
+Pour synchroniser les informations d’état entre un appareil et un hub IoT, vous pouvez utiliser des _jumeaux d’appareil_ . Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON associé à un appareil spécifique et stocké par IoT Hub dans le cloud à partir duquel vous pouvez [interroger](iot-hub-devguide-query-language.md) le document. Un jumeau d’appareil contient des _propriétés souhaitées_ , des _propriétés rapportées_ et des _balises_ . Une propriété souhaitée est définie par une application back-end et lue par un appareil. Une propriété rapportée est définie par un appareil et lue par une application back-end. Une balise est définie par une application back-end et n’est jamais envoyée à un appareil. Les balises permettent d’organiser vos appareils. Ce didacticiel vous explique comment utiliser les propriétés souhaitées et rapportées pour synchroniser les informations d’état :
 
 ![Résumé sur les jumeaux d’appareil](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -82,7 +83,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Ce didacticiel utilise un appareil simulé appelé **MyTwinDevice**. Le script suivant ajoute cet appareil dans le registre des identités et récupère sa chaîne de connexion :
+Ce didacticiel utilise un appareil simulé appelé **MyTwinDevice** . Le script suivant ajoute cet appareil dans le registre des identités et récupère sa chaîne de connexion :
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -135,9 +136,9 @@ Le gestionnaire suivant réagit uniquement aux modifications apportées à la pr
 
 ### <a name="handlers-for-multiple-properties"></a>Gestionnaires pour propriétés multiples
 
-Dans l’exemple de propriétés JSON souhaitées mentionnées précédemment, le nœud **climat** sous **composants** contient deux propriétés, **minTemperature** et  **maxTemperature**.
+Dans l’exemple de propriétés JSON souhaitées mentionnées précédemment, le nœud **climat** sous **composants** contient deux propriétés, **minTemperature** et  **maxTemperature** .
 
-Un objet **jumeau** local de l’appareil enregistre un ensemble complet de propriétés souhaitées et rapportées. La valeur **delta** envoyée par l’application back-end peut mettre à jour un seul sous-ensemble de propriétés souhaitées. Dans l’extrait de code suivant, si l’appareil simulé reçoit une mise à jour pour une seule des propriétés **minTemperature** et **maxTemperature**, il utilise la valeur contenue dans le jumeau local pour l’autre valeur afin de configurer l’appareil :
+Un objet **jumeau** local de l’appareil enregistre un ensemble complet de propriétés souhaitées et rapportées. La valeur **delta** envoyée par l’application back-end peut mettre à jour un seul sous-ensemble de propriétés souhaitées. Dans l’extrait de code suivant, si l’appareil simulé reçoit une mise à jour pour une seule des propriétés **minTemperature** et **maxTemperature** , il utilise la valeur contenue dans le jumeau local pour l’autre valeur afin de configurer l’appareil :
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -189,7 +190,7 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-La capture d’écran suivante montre le résultat de l’application d’appareil simulé et comment celle-ci gère une mise à jour de la propriété souhaitée **maxTemperature**. Vous pouvez voir de quelle manière le gestionnaire de niveau supérieur et les gestionnaires du composant climat s’exécutent :
+La capture d’écran suivante montre le résultat de l’application d’appareil simulé et comment celle-ci gère une mise à jour de la propriété souhaitée **maxTemperature** . Vous pouvez voir de quelle manière le gestionnaire de niveau supérieur et les gestionnaires du composant climat s’exécutent :
 
 ![Capture d’écran qui montre comment s’exécutent le gestionnaire de niveau supérieur et les gestionnaires du composant climat.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
@@ -251,7 +252,7 @@ La capture d’écran suivante montre le résultat de l’application back-end e
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 
-Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorial-iot-hub-rg** qui contient votre hub IoT, puis cliquez sur **Supprimer**.
+Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorial-iot-hub-rg** qui contient votre hub IoT, puis cliquez sur **Supprimer** .
 
 Vous pouvez également utiliser l’interface de ligne de commande :
 

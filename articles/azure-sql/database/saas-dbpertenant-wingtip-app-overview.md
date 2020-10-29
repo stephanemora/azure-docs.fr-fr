@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441015"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780459"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,11 +43,11 @@ Après avoir déployé l’application, explorez les didacticiels suivants qui s
 | Didacticiel | Description |
 |:--|:--|
 | [Conseils généraux pour utiliser des exemples d’applications Wingtip Tickets SaaS](saas-tenancy-wingtip-app-guidance-tips.md) | Téléchargez et exécutez les scripts PowerShell permettant de préparer des parties de l’application. |
-|[Déployer et explorer l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md)|  Déployez et explorez l’application SaaS Wingtip avec votre abonnement Azure. |
-|[Approvisionner des clients et les inscrire dans le catalogue](../../sql-database/saas-dbpertenant-provision-and-catalog.md)| Découvrez comment l’application se connecte aux locataires à l’aide d’une base de données catalogue, et comment le catalogue mappe les locataires à leurs données. |
-|[Surveiller et gérer les performances](../../sql-database/saas-dbpertenant-performance-monitoring.md)| Découvrez comment utiliser les fonctionnalités de surveillance de SQL Database, et définir des alertes qui se déclenchent en cas de dépassement des seuils de performances. |
-|[Superviser avec les journaux d’activité Azure Monitor](../../sql-database/saas-dbpertenant-log-analytics.md) | Apprenez à utiliser les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) pour surveiller de grandes quantités de ressources dans plusieurs pools. |
-|[Restaurer un client unique](../../sql-database/saas-dbpertenant-restore-single-tenant.md)| Découvrez comment restaurer une base de données client à un point antérieur dans le temps. Apprenez également à restaurer une base de données parallèle, qui laisse la base de données de locataire existante en ligne. |
+|[Déployer et explorer l’application SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md)|  Déployez et explorez l’application SaaS Wingtip avec votre abonnement Azure. |
+|[Approvisionner des clients et les inscrire dans le catalogue](./saas-dbpertenant-provision-and-catalog.md)| Découvrez comment l’application se connecte aux locataires à l’aide d’une base de données catalogue, et comment le catalogue mappe les locataires à leurs données. |
+|[Surveiller et gérer les performances](./saas-dbpertenant-performance-monitoring.md)| Découvrez comment utiliser les fonctionnalités de surveillance de SQL Database, et définir des alertes qui se déclenchent en cas de dépassement des seuils de performances. |
+|[Superviser avec les journaux d’activité Azure Monitor](./saas-dbpertenant-log-analytics.md) | Apprenez à utiliser les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) pour surveiller de grandes quantités de ressources dans plusieurs pools. |
+|[Restaurer un client unique](./saas-dbpertenant-restore-single-tenant.md)| Découvrez comment restaurer une base de données client à un point antérieur dans le temps. Apprenez également à restaurer une base de données parallèle, qui laisse la base de données de locataire existante en ligne. |
 |[Gérer le schéma de base de données client](saas-tenancy-schema-management.md)| Découvrez comment mettre à jour un schéma et des données de référence sur toutes les bases de données de locataire. |
 |[Exécuter des requêtes distribuées entre locataires](saas-tenancy-cross-tenant-reporting.md) | Créez une base de données d’analyse ad hoc, puis exécutez des requêtes distribuées en temps réel sur tous les locataires.  |
 |[Exécuter l’analytique sur les données client extraites](saas-tenancy-tenant-analytics.md) | Extrayez les données client dans une base de données analytique ou un entrepôt de données pour les requêtes analytiques en mode hors connexion. |
@@ -56,4 +56,4 @@ Après avoir déployé l’application, explorez les didacticiels suivants qui s
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Conseils généraux pour utiliser des exemples d’applications Wingtip Tickets SaaS](saas-tenancy-wingtip-app-guidance-tips.md)
-- [Déployer l’application SaaS Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- [Déployer l’application SaaS Wingtip](./saas-dbpertenant-get-started-deploy.md)

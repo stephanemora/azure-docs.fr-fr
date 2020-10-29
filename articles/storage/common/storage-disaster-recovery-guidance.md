@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276922"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783978"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -54,9 +54,9 @@ Il est important de concevoir votre application à des fins de haute disponibili
 Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute disponibilité pour vos données de Stockage Azure :
 
 - **Disques :** utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisés par vos machines virtuelles Azure. Vous pouvez aussi utiliser [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) pour protéger vos machines virtuelles en cas de sinistre régional.
-- **Objets blob de blocs :** activez la [suppression réversible](../blobs/storage-blob-soft-delete.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’[AzCopy](storage-use-azcopy.md), d’[Azure PowerShell](/powershell/module/az.storage/) ou de la [bibliothèque de déplacement de données Azure](storage-use-data-movement-library.md).
-- **Fichiers :** utilisez [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers vers un autre compte de stockage dans une région différente.
-- [Tables :](storage-use-azcopy.md) utilisez **AzCopy** pour exporter les données de table vers un autre compte de stockage dans une région différente.
+- **Objets blob de blocs :** activez la [suppression réversible](../blobs/soft-delete-blob-overview.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’ [AzCopy](./storage-use-azcopy-v10.md), d’ [Azure PowerShell](/powershell/module/az.storage/) ou de la [bibliothèque de déplacement de données Azure](storage-use-data-movement-library.md).
+- **Fichiers :** utilisez [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers vers un autre compte de stockage dans une région différente.
+- [Tables :](./storage-use-azcopy-v10.md) utilisez **AzCopy** pour exporter les données de table vers un autre compte de stockage dans une région différente.
 
 ## <a name="track-outages"></a>Effectuer le suivi des pannes
 
@@ -102,7 +102,7 @@ La propriété **Dernière heure de synchronisation** indique l’heure la plus 
 
 En guise de bonne pratique, concevez votre application afin de pouvoir utiliser la dernière heure de synchronisation pour évaluer la perte de données attendue. Par exemple, si vous enregistrez dans le journal toutes les opérations d’écriture, vous pouvez comparer l’heure de vos dernières opérations d’écriture à la dernière heure de synchronisation pour identifier les écritures qui n’ont pas été synchronisées dans la région secondaire.
 
-Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation** , consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Faire attention lors de la restauration automatique vers la région primaire
 
@@ -132,7 +132,7 @@ Une fois le basculement terminé, les clients peuvent à nouveau lire et écrire
 
 ### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
-Les machines virtuelles Azure ne basculent pas dans le cadre d’un basculement de compte. Si la région primaire devient indisponible et que vous basculez vers la région secondaire, vous devez recréer toutes les machines virtuelles après le basculement. En outre, il existe un risque de perte de données lié au basculement de compte. Microsoft vous recommande de suivre les recommandations suivantes en matière de [haute disponibilité](../../virtual-machines/windows/manage-availability.md) et de [reprise d’activité après sinistre](../../virtual-machines/windows/backup-recovery.md) propres aux machines virtuelles dans Azure.
+Les machines virtuelles Azure ne basculent pas dans le cadre d’un basculement de compte. Si la région primaire devient indisponible et que vous basculez vers la région secondaire, vous devez recréer toutes les machines virtuelles après le basculement. En outre, il existe un risque de perte de données lié au basculement de compte. Microsoft vous recommande de suivre les recommandations suivantes en matière de [haute disponibilité](../../virtual-machines/manage-availability.md) et de [reprise d’activité après sinistre](../../virtual-machines/backup-recovery.md) propres aux machines virtuelles dans Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Disques non managés Azure
 
@@ -162,7 +162,7 @@ Les fonctionnalités et services suivants ne sont pas pris en charge pour le bas
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 
-Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir votre application pour la lecture à partir du point de terminaison secondaire. Si vous préférez ne pas effectuer de basculement en cas de panne dans la région primaire, vous pouvez utiliser des outils tels que [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/) ou la [bibliothèque de déplacement de données Azure](../common/storage-use-data-movement-library.md) pour copier des données de votre compte de stockage dans la région secondaire vers un autre compte de stockage dans une région non affectée. Vous pouvez ensuite faire en sorte que vos applications pointent vers ce compte de stockage pour la disponibilité en lecture et en écriture.
+Si votre compte de stockage est configuré pour l’accès en lecture à la région secondaire, vous pouvez concevoir votre application pour la lecture à partir du point de terminaison secondaire. Si vous préférez ne pas effectuer de basculement en cas de panne dans la région primaire, vous pouvez utiliser des outils tels que [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/) ou la [bibliothèque de déplacement de données Azure](../common/storage-use-data-movement-library.md) pour copier des données de votre compte de stockage dans la région secondaire vers un autre compte de stockage dans une région non affectée. Vous pouvez ensuite faire en sorte que vos applications pointent vers ce compte de stockage pour la disponibilité en lecture et en écriture.
 
 > [!CAUTION]
 > Un basculement de compte ne doit pas être utilisé dans le cadre de votre stratégie de migration des données.

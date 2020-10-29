@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620356"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780017"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Bien démarrer avec l’audit Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,10 +39,10 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
       > [!IMPORTANT]
       > - Utilisez un compte de stockage dans la même région que l’instance gérée afin d’éviter des lectures/écritures entre régions. 
-      > - Si votre compte de stockage se trouve derrière un réseau virtuel ou un pare-feu, consultez [Accorder l’accès à partir d’un réseau virtuel](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Si votre compte de stockage se trouve derrière un réseau virtuel ou un pare-feu, consultez [Accorder l’accès à partir d’un réseau virtuel](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Si vous remplacez la valeur 0 de la période de rétention (rétention illimitée) par une autre valeur, notez que la rétention s’appliquera uniquement aux journaux écrits après la modification de la valeur de rétention (les journaux écrits au cours de la période pendant laquelle la rétention était définie sur illimité sont conservés, même après activation de la rétention).
 
-   1. Dans le compte de stockage, accédez à **Vue d’ensemble**, puis cliquez sur **Objets blob**.
+   1. Dans le compte de stockage, accédez à **Vue d’ensemble** , puis cliquez sur **Objets blob** .
 
       ![Widget Objets blob Azure](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,18 +50,18 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
       ![Icône de création d’un conteneur d’objets blob](./media/auditing-configure/2_create_container_button.png)
 
-   1. Indiquez un **Nom** pour le conteneur, définissez le **niveau d’accès Public** sur **Privé**, puis cliquez sur **OK**.
+   1. Indiquez un **Nom** pour le conteneur, définissez le **niveau d’accès Public** sur **Privé** , puis cliquez sur **OK** .
 
       ![Créer une configuration de conteneur d’objets blob](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Les clients souhaitant configurer un magasin de journaux immuable pour leurs événements d’audit au niveau du serveur ou de la base de données doivent suivre les [instructions fournies par Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). (Vérifiez que vous avez sélectionné **Autoriser les ajouts supplémentaires** quand vous configurez le stockage d’objets blob immuables.)
+    > Les clients souhaitant configurer un magasin de journaux immuable pour leurs événements d’audit au niveau du serveur ou de la base de données doivent suivre les [instructions fournies par Stockage Azure](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). (Vérifiez que vous avez sélectionné **Autoriser les ajouts supplémentaires** quand vous configurez le stockage d’objets blob immuables.)
   
 3. Après avoir créé le conteneur pour les journaux d’audit, vous pouvez le configurer comme cible pour les journaux d’activité de deux façons : [à l’aide de T-SQL](#blobtsql) ou [à l’aide de l’interface utilisateur de SSMS (SQL Server Management Studio)](#blobssms) :
 
    - <a id="blobtsql"></a>Configurer le stockage d’objets blob pour les journaux d’audit à l’aide de T-SQL :
 
-     1. Dans la liste des conteneurs, cliquez sur le conteneur que vous venez de créer, puis sur **Propriétés du conteneur**.
+     1. Dans la liste des conteneurs, cliquez sur le conteneur que vous venez de créer, puis sur **Propriétés du conteneur** .
 
         ![Bouton Propriétés d’un conteneur d’objets blob](./media/auditing-configure/4_container_properties_button.png)
 
@@ -73,22 +73,22 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
         - Accédez au compte Stockage Azure dans lequel vous avez créé le conteneur à l’étape précédente.
 
-        - Dans le menu **Paramètres de stockage**, cliquez sur **Signature d’accès partagé**.
+        - Dans le menu **Paramètres de stockage** , cliquez sur **Signature d’accès partagé** .
 
           ![Icône Signature d’accès partagé dans le menu des paramètres de stockage](./media/auditing-configure/6_storage_settings_menu.png)
 
         - Configurez la signature d’accès partagé comme suit :
 
-          - **Services autorisés** : Objet blob
+          - **Services autorisés**  : Objet blob
 
-          - **Date de début** : pour éviter tout problème lié au fuseau horaire, utilisez la date de la veille.
+          - **Date de début**  : pour éviter tout problème lié au fuseau horaire, utilisez la date de la veille.
 
-          - **Date de fin** : choisissez la date à laquelle ce jeton SAS arrive à expiration.
+          - **Date de fin**  : choisissez la date à laquelle ce jeton SAS arrive à expiration.
 
             > [!NOTE]
             > À l’expiration, renouvelez le jeton afin d’éviter les échecs d’audit.
 
-          - Cliquez sur **Générer une signature d’accès partagé**.
+          - Cliquez sur **Générer une signature d’accès partagé** .
 
             ![Configuration de SAS](./media/auditing-configure/7_sas_configure.png)
 
@@ -126,11 +126,11 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
      1. Développez le nœud racine de l’Explorateur d’objets.
 
-     1. Développez le nœud **Sécurité**, cliquez avec le bouton droit sur le nœud **Audits**, puis cliquez sur **Nouvel audit** :
+     1. Développez le nœud **Sécurité** , cliquez avec le bouton droit sur le nœud **Audits** , puis cliquez sur **Nouvel audit**  :
 
         ![Développer les nœuds Sécurité et Audit](./media/auditing-configure/10_mi_SSMS_new_audit.png)
 
-     1. Vérifiez que **URL** est sélectionné dans **Destination de l’audit**, puis cliquez sur **Parcourir** :
+     1. Vérifiez que **URL** est sélectionné dans **Destination de l’audit** , puis cliquez sur **Parcourir**  :
 
         ![Parcourir le stockage Azure](./media/auditing-configure/11_mi_SSMS_audit_browse.png)
 
@@ -138,16 +138,16 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
         ![Connexion à Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Sélectionnez un abonnement, un compte de stockage et un conteneur d’objets blob dans les menus déroulants, ou cliquez sur **Créer** pour créer votre propre conteneur. Une fois terminé, cliquez sur **OK** :
+     1. Sélectionnez un abonnement, un compte de stockage et un conteneur d’objets blob dans les menus déroulants, ou cliquez sur **Créer** pour créer votre propre conteneur. Une fois terminé, cliquez sur **OK**  :
 
         ![Sélectionner un abonnement, un compte de stockage et un conteneur d’objets blob Azure](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
-     1. Cliquez sur **OK** dans la boîte de dialogue **Créer un audit**.
+     1. Cliquez sur **OK** dans la boîte de dialogue **Créer un audit** .
 
 4. <a id="createspec"></a>Après avoir configuré le conteneur d’objets blob comme cible pour les journaux d’audit, créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
-   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 5. Activez l’audit du serveur que vous avez créé à l’étape 3 :
 
@@ -160,8 +160,8 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 Pour toute information supplémentaire :
 
 - [Différences d’audit entre Azure SQL Managed Instance et une base de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-managed-instance-and-databases-in-sql-server)
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hubs-or-azure-monitor-logs"></a>Configurer l’audit de votre serveur sur Event Hubs ou des journaux Azure Monitor
 
@@ -169,15 +169,15 @@ Les journaux d’audit d’une instance managée peuvent être envoyés à Event
 
 1. Accédez dans le [portail Azure](https://portal.azure.com/) à l’instance managée.
 
-2. Cliquez sur **Paramètres de diagnostic**.
+2. Cliquez sur **Paramètres de diagnostic** .
 
-3. Cliquez sur **Activer les diagnostics**. Si les diagnostics sont déjà activés, **+Ajouter un paramètre de diagnostic** s’affiche à la place.
+3. Cliquez sur **Activer les diagnostics** . Si les diagnostics sont déjà activés, **+Ajouter un paramètre de diagnostic** s’affiche à la place.
 
 4. Sélectionnez **SQLSecurityAuditEvents** dans la liste des journaux d’activité.
 
 5. Sélectionnez une destination pour les événements d’audit : Event Hubs, les journaux Azure Monitor ou les deux. Configurez les paramètres requis (par exemple, espace de travail Log Analytics) pour chaque cible.
 
-6. Cliquez sur **Enregistrer**.
+6. Cliquez sur **Enregistrer** .
 
     ![Configurer les paramètres de diagnostic](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -192,8 +192,8 @@ Les journaux d’audit d’une instance managée peuvent être envoyés à Event
 
 9. Créez et activez une spécification d’audit du serveur ou une spécification d’audit de la base de données comme vous le feriez pour SQL Server :
 
-   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Activez l’audit du serveur créé à l’étape 8 :
 
@@ -209,9 +209,9 @@ Les journaux d’audit d’une instance managée peuvent être envoyés à Event
 
 Plusieurs méthodes vous permettent d’afficher des journaux d’activité d’audit d’objets blob.
 
-- Utilisez la fonction système `sys.fn_get_audit_file` pour retourner les données du journal d’audit dans un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Utilisez la fonction système `sys.fn_get_audit_file` pour retourner les données du journal d’audit dans un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur défini pour stocker les journaux d’audit. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur défini pour stocker les journaux d’audit. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](../database/audit-log-format.md).
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, consultez l’article [Bien démarrer avec l’audit Azure SQL Database](../../azure-sql/database/auditing-overview.md).
 
@@ -221,9 +221,9 @@ Pour consommer les données des journaux d’audit à partir d’Event Hubs, vou
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consommer et analyser les journaux stockés dans les journaux Azure Monitor
 
-Si les journaux d’audit sont écrits dans des journaux Azure Monitor, ils sont disponibles dans l’espace de travail Log Analytics où vous pouvez exécuter des recherches avancées sur les données d’audit. Comme point de départ, accédez à l’espace de travail Log Analytics. Dans la section **Général**, cliquez sur **Journaux** et entrez une requête simple, telle que : `search "SQLSecurityAuditEvents"` pour afficher les journaux d’audit.  
+Si les journaux d’audit sont écrits dans des journaux Azure Monitor, ils sont disponibles dans l’espace de travail Log Analytics où vous pouvez exécuter des recherches avancées sur les données d’audit. Comme point de départ, accédez à l’espace de travail Log Analytics. Dans la section **Général** , cliquez sur **Journaux** et entrez une requête simple, telle que : `search "SQLSecurityAuditEvents"` pour afficher les journaux d’audit.  
 
-Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -234,15 +234,15 @@ Les principales différences entre l’audit des bases de données dans Azure SQ
 - Avec Azure SQL Managed Instance, l’audit fonctionne au niveau du serveur et stocke les fichiers journaux `.xel` dans le compte Stockage Blob Azure.
 - Dans SQL Server, l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
 
-L’audit XEvent dans les instances managées prend en charge les cibles Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont **pas pris en charge**.
+L’audit XEvent dans les instances managées prend en charge les cibles Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont **pas pris en charge** .
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
 - Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur Stockage Blob Azure où les fichiers `.xel` sont placés.
 - Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles de journaux Azure Monitor et Event Hub.
-- La syntaxe `TO FILE` n’est **pas prise en charge**, car Azure SQL Managed Instance ne peut pas accéder à des partages de fichiers Windows.
-- L’option d’arrêt n’est **pas prise en charge**.
-- La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge**.
+- La syntaxe `TO FILE` n’est **pas prise en charge** , car Azure SQL Managed Instance ne peut pas accéder à des partages de fichiers Windows.
+- L’option d’arrêt n’est **pas prise en charge** .
+- La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

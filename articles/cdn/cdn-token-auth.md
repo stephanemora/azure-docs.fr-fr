@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887433"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778006"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -64,7 +64,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
     ![Bouton Gérer du profil CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Placez le curseur sur **HTTP Large**, puis sélectionnez **Token Auth (Authentification par jeton)** dans le menu volant. Vous pouvez ensuite configurer la clé de chiffrement et les paramètres de chiffrement comme suit :
+2. Placez le curseur sur **HTTP Large** , puis sélectionnez **Token Auth (Authentification par jeton)** dans le menu volant. Vous pouvez ensuite configurer la clé de chiffrement et les paramètres de chiffrement comme suit :
 
    1. Créez une ou plusieurs clés de chiffrement. Une clé de chiffrement respecte la casse et peut contenir n’importe quelle combinaison de caractères alphanumériques. D’autres types de caractères, y compris les espaces, ne sont pas autorisés. La longueur maximale est de 250 caractères. Pour vous assurer que vos clés de chiffrement sont aléatoires, nous vous recommandons de les créer à l’aide de l’outil [OpenSSL](https://www.openssl.org/). 
 
@@ -78,11 +78,11 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
       Pour éviter les temps d’arrêt, créez une clé primaire et une clé de sauvegarde. Une clé de sauvegarde fournit un accès ininterrompu à votre contenu pendant que la mise à jour de votre clé primaire est en cours.
     
-   2. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
+   2. Entrez une clé de chiffrement unique dans la zone **Clé primaire** , puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde** .
 
    3. Sélectionnez la version minimale de chiffrement pour chaque clé dans sa liste **Minimum Encryption Version (Version minimale de chiffrement)** , puis sélectionnez **Update (Mettre à jour)** :
-      - **V2** : indique que la clé peut être utilisée pour générer des jetons de version 2.0 et version 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
-      - **V3** : (recommandé) indique que la clé peut être uniquement utilisée pour générer des jetons de version 3.0.
+      - **V2**  : indique que la clé peut être utilisée pour générer des jetons de version 2.0 et version 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
+      - **V3**  : (recommandé) indique que la clé peut être uniquement utilisée pour générer des jetons de version 3.0.
 
       ![Clé de configuration de l’authentification du jeton CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -168,12 +168,12 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
       Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)** .
 
-   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)** , puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)** . Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)** . Le code de réponse **403** (Interdit) est sélectionné par défaut. 
+   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)** , puis sélectionnez le code de réponse dans la liste **Code de réponse** . Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)** . Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)** . Le code de réponse **403** (Interdit) est sélectionné par défaut. 
 
-3. Sélectionnez **Rules Engine (Moteur de règles)** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
+3. Sélectionnez **Rules Engine (Moteur de règles)** sous **HTTP Large** . Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Sélectionnez une règle existante ou créez-en une pour définir la ressource ou le chemin d’accès pour lesquels vous souhaitez appliquer l’authentification du jeton. 
-   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
+   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** dans la liste **Fonctionnalités** , puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
         
       ![Exemple d’activation de l’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 

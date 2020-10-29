@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992740"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782499"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annulation d’opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,7 +55,7 @@ Pour annuler des opérations de gestion à l’aide du portail Azure, procédez 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 1. Accédez au panneau **Vue d’ensemble** de votre instance managée SQL. 
-1. Sélectionnez la zone **Notification** en regard de l’opération en cours pour ouvrir la page **Opération en cours**. 
+1. Sélectionnez la zone **Notification** en regard de l’opération en cours pour ouvrir la page **Opération en cours** . 
 
    :::image type="content" source="media/management-operations-cancel/open-ongoing-operation.png" alt-text="Sélectionnez la zone de l’opération en cours pour ouvrir la page Opération en cours.":::
 
@@ -75,7 +75,7 @@ Si la demande d’annulation échoue ou que le bouton Annuler n’est pas actif,
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Pour annuler une opération de gestion, vous devez spécifier son nom. Par conséquent, commencez par utiliser la commande get pour récupérer la liste des opérations, puis annulez l’opération spécifique.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Pour une explication détaillée des commandes, consultez [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) et [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Pour une explication détaillée des commandes, consultez [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) et [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Pour une explication détaillée des commandes, consultez [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Pour une explication détaillée des commandes, consultez [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Demande de déploiement annulée
 
-Avec la version d’API 2020-02-02, dès que la demande de création d’instance est acceptée, l’instance commence à exister en tant que ressource, quelle que soit la progression du processus de déploiement (l’état de l’instance managée est **Provisionnement**). Si vous annulez la demande de déploiement de l’instance (création d’une nouvelle instance), l’instance managée passe de l’état **Provisionnement** à **FailedToCreate**.
+Avec la version d’API 2020-02-02, dès que la demande de création d’instance est acceptée, l’instance commence à exister en tant que ressource, quelle que soit la progression du processus de déploiement (l’état de l’instance managée est **Provisionnement** ). Si vous annulez la demande de déploiement de l’instance (création d’une nouvelle instance), l’instance managée passe de l’état **Provisionnement** à **FailedToCreate** .
 
 Les instances dont la création a échoué sont toujours présentes en tant que ressource et : 
 

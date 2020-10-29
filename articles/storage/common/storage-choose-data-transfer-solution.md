@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400540"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784046"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 
@@ -66,20 +66,20 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le Portail Microsoft Azure
 
-Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
+Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données** . Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation de l’Explorateur Stockage Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Vue d’ensemble d’AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Vue d’ensemble d’AzCopy](./storage-use-azcopy-v10.md).
 - [Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Vous en saurez plus sur :
 
-    - [Azure Data Box, Azure Data Box Disk et Azure Data Box Heavy pour les transferts hors connexion](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway et Azure Stack Edge pour les transferts en ligne](https://docs.microsoft.com/azure/databox-online/).
-- [Qu'est-ce qu'Azure Data Factory ?](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)
+    - [Azure Data Box, Azure Data Box Disk et Azure Data Box Heavy pour les transferts hors connexion](../../databox/index.yml).
+    - [Azure Data Box Gateway et Azure Stack Edge pour les transferts en ligne](../../databox-online/index.yml).
+- [Qu'est-ce qu'Azure Data Factory ?](../../data-factory/copy-activity-overview.md)
 - Utiliser les API REST pour transférer des données
 
-    - [Dans .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Dans Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [Dans .NET](/dotnet/api/overview/azure/storage)
+    - [Dans Java](/java/api/overview/azure/storage)

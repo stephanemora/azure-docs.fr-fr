@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886052"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779320"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN
 ## <a name="overview"></a>Vue d’ensemble
@@ -33,7 +33,7 @@ Ce document présente les rapports HTTP avancés disponibles dans Microsoft Azur
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
-2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Rapports HTTP avancés**.  Cliquez sur **HTTP Large Platform**.
+2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Rapports HTTP avancés** .  Cliquez sur **HTTP Large Platform** .
    
     ![Portail de gestion CDN - Menu Rapports avancés](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -202,6 +202,5 @@ Les informations suivantes figurent sous le graphique pour les 250 ressources l
 ## <a name="see-also"></a>Voir aussi
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)
 * [Statistiques en temps dans Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](cdn-rules-engine.md)
+* [Remplacement du comportement HTTP par défaut à l’aide du moteur de règles](./cdn-verizon-premium-rules-engine.md)
 * [Analyser les performances de serveurs Edge](cdn-edge-performance.md)
-

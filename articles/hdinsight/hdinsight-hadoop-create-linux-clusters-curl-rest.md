@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083336"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748733"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -214,12 +214,12 @@ Cet exemple est utilisé dans les étapes de ce document. Remplacez les *valeurs
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Connectez-vous à votre abonnement Azure :
 
-Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) et connectez-vous à votre abonnement en utilisant la commande `az login`.
+Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](/cli/azure/get-started-with-az-cli2) et connectez-vous à votre abonnement en utilisant la commande `az login`.
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
 > [!NOTE]  
-> Ces étapes sont une version abrégée de la section *Créer un principal du service avec un mot de passe - Azure CLI* dans le document [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) . Les étapes suivantes créent un principal de service qui est utilisé pour s’authentifier sur l’API REST Azure.
+> Ces étapes sont une version abrégée de la section *Créer un principal du service avec un mot de passe - Azure CLI* dans le document [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](/cli/azure/create-an-azure-service-principal-azure-cli) . Les étapes suivantes créent un principal de service qui est utilisé pour s’authentifier sur l’API REST Azure.
 
 1. À partir d’une ligne de commande, utilisez la commande suivante pour répertorier vos abonnements Azure.
 
@@ -227,7 +227,7 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez les colonnes **Subscription_ID** et __Tenant_ID__. Enregistrez ces valeurs.
+    Dans la liste, sélectionnez l’abonnement que vous souhaitez utiliser et notez les colonnes **Subscription_ID** et __Tenant_ID__ . Enregistrez ces valeurs.
 
 2. Utilisez les commandes suivantes pour créer une application dans Azure Active Directory.
 
@@ -242,13 +242,13 @@ Suivez la procédure décrite dans [Bien démarrer avec Azure CLI](https://docs.
 
    La valeur retournée par cette commande est __l’ID de l’application__ pour la nouvelle application. Enregistrez cette valeur.
 
-3. Utilisez la commande suivante pour créer un principal du service à l’aide de **l’ID de l’application**.
+3. Utilisez la commande suivante pour créer un principal du service à l’aide de **l’ID de l’application** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     La valeur retournée par cette commande est __l’ID d’objet__. Enregistrez cette valeur.
+     La valeur retournée par cette commande est __l’ID d’objet__ . Enregistrez cette valeur.
 
 4. Affectez le rôle **Owner** (Propriétaire) au principal du service à l’aide de la valeur **Object ID** (ID d’objet). Utilisez **l’ID d’abonnement** obtenu précédemment.
 
@@ -274,7 +274,7 @@ Définissez `$TENANTID`, `$APPID` et `$PASSWORD` sur des valeurs obtenues ou uti
 
 Si cette demande aboutit, vous recevez une réponse de type 200 dont le corps contient un document JSON.
 
-Le document JSON retourné par cette demande contient un élément nommé **access_token**. La valeur de l’élément **access_token** est utilisée pour les demandes d’authentification adressées à l’API REST.
+Le document JSON retourné par cette demande contient un élément nommé **access_token** . La valeur de l’élément **access_token** est utilisée pour les demandes d’authentification adressées à l’API REST.
 
 ```json
 {

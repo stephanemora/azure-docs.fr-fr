@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078355"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745797"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser des pilotes CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur les volumes Kubernetes, consultez [Options de sto
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Créer dynamiquement des PV Azure Files à l’aide des classes de stockage intégrées
 
-Une classe de stockage permet de définir la façon dont un partage Azure Files est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages Azure Files. Faites votre choix parmi les [références SKU de redondance de stockage Azure][storage-skus] suivantes pour *skuName* :
+Une classe de stockage permet de définir la façon dont un partage Azure Files est créé. Un compte de stockage est automatiquement créé dans le [groupe de ressources de nœud][node-resource-group] pour être utilisé avec la classe de stockage afin de contenir les partages Azure Files. Faites votre choix parmi les [références SKU de redondance de stockage Azure][storage-skus] suivantes pour *skuName*  :
 
 * **Standard_LRS** : Stockage localement redondant standard
 * **Standard_GRS** : Stockage géo-redondant standard
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Vous pouvez déployer un exemple [d’ensemble avec état](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) qui enregistre les timestamps dans un fichier `data.txt` en déployant la commande suivante avec la commande [kubectl apply][kubectl-apply] :
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

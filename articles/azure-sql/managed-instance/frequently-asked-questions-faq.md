@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627616"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779864"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Pour les fonctionnalités nouvelles et d’évaluation, consultez [Notes de publ
 
 **Comment provisionner une instance managée SQL ?**
 
-Vous pouvez provisionner une instance à partir du [Portail Azure](instance-create-quickstart.md), de [PowerShell](scripts/create-configure-managed-instance-powershell.md), d’[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) et de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+Vous pouvez provisionner une instance à partir du [Portail Azure](instance-create-quickstart.md), de [PowerShell](scripts/create-configure-managed-instance-powershell.md), d’[Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) et de [modèles ARM](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Puis-je provisionner des instances managées dans un abonnement existant ?**
 
@@ -94,7 +94,7 @@ Il s’agit d’une limitation actuelle du composant sous-jacent qui vérifie le
 
 **Comment faire pour mettre à l’échelle mon instance managée ?**
 
-Vous pouvez mettre à l’échelle votre instance gérée à partir du [Portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou de [modèles ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Vous pouvez mettre à l’échelle votre instance gérée à partir du [Portail Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), de [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), d’[Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou de [modèles ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Puis-je déplacer mon instance managée d’une région vers une autre ?**
 
@@ -102,7 +102,7 @@ Oui, vous pouvez. Pour obtenir des instructions, consultez [Déplacer des ressou
 
 **Comment faire pour supprimer mon instance managée ?**
 
-Vous pouvez supprimer les instances gérées via le Portail Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou les [API REST Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Vous pouvez supprimer les instances gérées via le Portail Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou les [API REST Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Combien de temps faut-il pour créer ou mettre à jour une instance ou pour restaurer une base de données ?**
 
@@ -118,9 +118,9 @@ Il n’est pas possible de changer le nom d’une instance managée.
 
 Oui, la zone DNS par défaut de l’instance managée *.database.windows.net* peut être modifiée. 
 
-Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, *.contoso.com* : 
+Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, *.contoso.com*  : 
 - Utilisez CliConfig pour définir un alias. L’outil étant simplement un wrapper de paramètres du registre, cela peut aussi se faire à l’aide d’une stratégie de groupe ou d’un script.
-- Utilisez *CNAME* avec l’option *TrustServerCertificate=true*.
+- Utilisez *CNAME* avec l’option *TrustServerCertificate=true* .
 
 ## <a name="migration-options"></a>Options de migration
 
@@ -137,7 +137,7 @@ Une option consiste à [exporter la base de données vers un fichier BACPAC](../
 
 La [réplication transactionnelle](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) peut être utilisée si tous les tableaux dans la base de données ont des clés *primaires* et s’il n'y a pas d'objets OLTP en mémoire.
 
-Les sauvegardes natives COPY_ONLY prises à partir d’une instance managée ne peuvent pas être restaurées sur SQL Server car l’instance managée a une version de base de données supérieure à celle de SQL Server. Pour plus d’informations, consultez [Sauvegarde en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
+Les sauvegardes natives COPY_ONLY prises à partir d’une instance managée ne peuvent pas être restaurées sur SQL Server car l’instance managée a une version de base de données supérieure à celle de SQL Server. Pour plus d’informations, consultez [Sauvegarde en copie seule](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
 **Comment puis-je migrer mon instance SQL Server vers SQL Managed Instance ?**
 
@@ -180,15 +180,15 @@ Si votre charge de travail est constituée d’un grand nombre de petites transa
 
 **Quelles sont les options de surveillance et d’alerte pour mon instance managée ?**
 
-Pour connaître toutes les options possibles pour surveiller et alerter sur la consommation et les performances de SQL Managed Instance, consultez la [publication sur les options d’analyse d’Azure SQL Managed Instance de notre blog](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Pour la surveillance des performances en temps réel pour SQL MI, consultez [Surveillance des performances en temps réel pour Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+Pour connaître toutes les options possibles pour surveiller et alerter sur la consommation et les performances de SQL Managed Instance, consultez la [publication sur les options d’analyse d’Azure SQL Managed Instance de notre blog](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Pour la surveillance des performances en temps réel pour SQL MI, consultez [Surveillance des performances en temps réel pour Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 **Puis-je utiliser le générateur de profils SQL pour le suivi des performances ?**
 
-Oui, le générateur de profils SQL est pris en charge ou SQL Managed Instance. Pour plus d'informations, consultez [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
+Oui, le générateur de profils SQL est pris en charge ou SQL Managed Instance. Pour plus d'informations, consultez [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
 
 **Database Advisor et Query Performance Insight sont-ils pris en charge pour les bases de données Managed Instance ?**
 
-Ils ne sont pas prises en charge. Vous pouvez utiliser [DMV](../database/monitoring-with-dmvs.md) et le [Magasin de données des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) avec [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) et [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) pour surveiller vos bases de données.
+Ils ne sont pas prises en charge. Vous pouvez utiliser [DMV](../database/monitoring-with-dmvs.md) et le [Magasin de données des requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) avec [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) et [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) pour surveiller vos bases de données.
 
 **Puis-je créer des alertes basées sur les indicateurs de performances pour SQL Managed Instance ?**
 
@@ -228,11 +228,11 @@ Pour suivre les sauvegardes automatisées effectuées sur Managed Instance, cons
 
 **La sauvegarde à la demande est-elle prise en charge ?**
 
-Oui, vous pouvez créer une sauvegarde complète en copie seule dans le stockage Blob Azure, mais elle ne peut être restaurée que dans Managed Instance. Pour plus d’informations, consultez [Sauvegarde en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Cependant, la sauvegarde en copie seule est impossible si la base de données est chiffrée par le TDE managé par le service, car le certificat utilisé pour le chiffrement est inaccessible. Dans ce cas-là, utilisez la fonctionnalité de restauration dans le temps pour déplacer la base de données vers un autre service SQL Managed Instance ou basculer vers une clé gérée par le client.
+Oui, vous pouvez créer une sauvegarde complète en copie seule dans le stockage Blob Azure, mais elle ne peut être restaurée que dans Managed Instance. Pour plus d’informations, consultez [Sauvegarde en copie seule](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15). Cependant, la sauvegarde en copie seule est impossible si la base de données est chiffrée par le TDE managé par le service, car le certificat utilisé pour le chiffrement est inaccessible. Dans ce cas-là, utilisez la fonctionnalité de restauration dans le temps pour déplacer la base de données vers un autre service SQL Managed Instance ou basculer vers une clé gérée par le client.
 
 **La restauration native (des fichiers. bak) est-elle prise en charge par Managed Instance ?**
 
-Oui, elle est prise en charge et disponible pour les versions SQL Server 2005 et ultérieures.  Pour utiliser la restauration native, chargez votre fichier. bak dans le stockage Blob Azure et exécutez des commandes T-SQL. Pour plus d’informations, consultez [Restauration native à partir d’une URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+Oui, elle est prise en charge et disponible pour les versions SQL Server 2005 et ultérieures.  Pour utiliser la restauration native, chargez votre fichier. bak dans le stockage Blob Azure et exécutez des commandes T-SQL. Pour plus d’informations, consultez [Restauration native à partir d’une URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuité de l’activité
 
@@ -254,7 +254,7 @@ Elle assure un flux ininterrompu de trafic de gestion pour satisfaire un contrat
 
 **Puis-je obtenir les plages d’adresses IP sources utilisées pour le trafic de gestion entrant ?**
 
-Oui. Vous pouvez analyser le trafic en provenance de votre groupe de sécurité réseau en [configurant des journaux de flux Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Oui. Vous pouvez analyser le trafic en provenance de votre groupe de sécurité réseau en [configurant des journaux de flux Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Puis-je définir le groupe de sécurité réseau (NSG) de façon à contrôler l’accès au point de terminaison de données (port 1433) ?**
 
@@ -273,7 +273,7 @@ Oui. Le moyen le plus simple de procéder est d’ajouter la règle 0/0 à un it
  
 **De combien d’adresses IP ai-je besoin pour une instance managée ?**
 
-Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](connectivity-architecture-overview.md#network-requirements) disponibles. Pour déterminer la taille de sous-réseau d’un réseau virtuel pour SQL Managed Instance, consultez [Déterminer la taille et la plage de sous-réseau requises pour Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](connectivity-architecture-overview.md#network-requirements) disponibles. Pour déterminer la taille de sous-réseau d’un réseau virtuel pour SQL Managed Instance, consultez [Déterminer la taille et la plage de sous-réseau requises pour Managed Instance](./vnet-subnet-determine-size.md). 
 
 **Que se passe-t-il s’il n’y a pas suffisamment d’adresses IP pour effectuer une opération de mise à jour d’instance ?**
 
@@ -285,7 +285,7 @@ Non. Vous pouvez utiliser un sous-réseau vide ou un sous-réseau qui contient d
 
 **Puis-je modifier la plage d’adresses de sous-réseau ?**
 
-Non si des instances managées s’y trouvent. Il s’agit d’une limitation de l’infrastructure réseau Azure. Vous êtes seulement autorisé à [ajouter un espace d’adressage supplémentaire à un sous-réseau vide](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+Non si des instances managées s’y trouvent. Il s’agit d’une limitation de l’infrastructure réseau Azure. Vous êtes seulement autorisé à [ajouter un espace d’adressage supplémentaire à un sous-réseau vide](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings). 
 
 **Puis-je déplacer mon instance managée vers un autre sous-réseau ?**
 
@@ -293,7 +293,7 @@ Non. Il s’agit d’une limitation de conception actuelle de Managed Instance. 
 
 **Ai-je besoin d’un réseau virtuel vide pour créer une instance managée ?**
 
-Ce n’est pas obligatoire. Vous pouvez [créer un réseau virtuel pour Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) ou [configurer un réseau virtuel existant pour Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+Ce n’est pas obligatoire. Vous pouvez [créer un réseau virtuel pour Azure SQL Managed Instance](./virtual-network-subnet-create-arm-template.md) ou [configurer un réseau virtuel existant pour Azure SQL Managed Instance](./vnet-existing-add-subnet.md).
 
 **Puis-je placer une instance managée dans un sous-réseau où figurent d’autres services ?**
 
@@ -316,13 +316,13 @@ Pour cette raison, nous déconseillons fortement de se fier à l’immuabilité 
 
 **Managed Instance a-t-il un point de terminaison public ?**
 
-Oui. Managed Instance dispose d’un point de terminaison public qui est utilisé par défaut uniquement pour le management des services, mais un client peut également l’activer pour l’accès aux données. Pour plus d’informations, consultez [Utiliser SQL Managed Instance avec des points de terminaison publics](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Pour configurer un point de terminaison public, accédez à [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md).
+Oui. Managed Instance dispose d’un point de terminaison public qui est utilisé par défaut uniquement pour le management des services, mais un client peut également l’activer pour l’accès aux données. Pour plus d’informations, consultez [Utiliser SQL Managed Instance avec des points de terminaison publics](./public-endpoint-overview.md). Pour configurer un point de terminaison public, accédez à [Configurer un point de terminaison public dans SQL Managed Instance](public-endpoint-configure.md).
 
 **Comment Managed Instance contrôle l’accès au point de terminaison public ?**
 
 Managed Instance contrôle l’accès au point de terminaison public au niveau du réseau et de l’application.
 
-Les services de gestion et de déploiement se connectent à une instance gérée en utilisant un [point de terminaison de gestion](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) qui est mappé à un équilibreur de charge externe. Le trafic est routé vers les nœuds seulement s’il est reçu sur un ensemble de ports prédéfinis utilisés exclusivement par les composants de gestion de l’instance gérée. Un pare-feu intégré sur les nœuds est configuré de manière à autoriser le trafic provenant uniquement des plages d’adresses IP de Microsoft. Tous les certificats authentifient mutuellement les communications entre les composants de gestion et le plan de gestion. Pour en savoir plus, consultez [Architecture de connectivité pour SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+Les services de gestion et de déploiement se connectent à une instance gérée en utilisant un [point de terminaison de gestion](./connectivity-architecture-overview.md#management-endpoint) qui est mappé à un équilibreur de charge externe. Le trafic est routé vers les nœuds seulement s’il est reçu sur un ensemble de ports prédéfinis utilisés exclusivement par les composants de gestion de l’instance gérée. Un pare-feu intégré sur les nœuds est configuré de manière à autoriser le trafic provenant uniquement des plages d’adresses IP de Microsoft. Tous les certificats authentifient mutuellement les communications entre les composants de gestion et le plan de gestion. Pour en savoir plus, consultez [Architecture de connectivité pour SQL Managed Instance](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **Puis-je utiliser le point de terminaison public pour accéder aux données dans les bases de données Managed Instance ?**
 
@@ -337,9 +337,9 @@ Non, cette option n'est pas disponible.  Pour le point de terminaison de donnée
 Le peering des circuits de d’Express Route est le meilleur moyen pour y parvenir. L’appairage de réseaux virtuels mondiaux est pris en charge avec la limitation décrite dans la remarque ci-dessous.  
 
 > [!IMPORTANT]
-> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
-Si le Peering de circuits Express Route et l’appairage de réseaux virtuels mondiaux ne sont pas possibles, la seule autre option consiste à créer une connexion VPN site à site ([Portail Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+Si le Peering de circuits Express Route et l’appairage de réseaux virtuels mondiaux ne sont pas possibles, la seule autre option consiste à créer une connexion VPN site à site ([Portail Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Atténuer les risques liés à l’exfiltration de données  
 
@@ -347,19 +347,19 @@ Si le Peering de circuits Express Route et l’appairage de réseaux virtuels mo
 
 Afin d’atténuer les risques liés à l’exfiltration de données, il est recommandé aux clients d’appliquer un ensemble de paramètres et de contrôles de sécurité :
 
-- Activez [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) sur toutes les bases de données.
+- Activez [Transparent Data Encryption (TDE)](../database/transparent-data-encryption-tde-overview.md) sur toutes les bases de données.
 - Désactivez Common Language Runtime (CLR). Cela est recommandé localement également.
 - Utilisez l’authentification Azure Active Directory (Azure AD) uniquement.
 - Accédez à l’instance avec un compte DBA à faibles privilèges.
 - Configurez l’accès au serveur de rebond (jumpbox) JIT pour le compte sysadmin.
-- Activez l’[audit SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) et intégrez-le à des mécanismes d’alerte.
-- Activez [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) à partir de la suite [Azure Defender pour SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql).
+- Activez l’[audit SQL](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) et intégrez-le à des mécanismes d’alerte.
+- Activez [Threat Detection](../database/threat-detection-configure.md) à partir de la suite [Azure Defender pour SQL](../database/azure-defender-for-sql.md).
 
 ## <a name="dns"></a>DNS
 
 **Puis-je configurer un DNS personnalisé pour SQL Managed Instance ?**
 
-Oui. Consultez le [guide pratique pour configurer un DNS personnalisé pour Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Oui. Consultez le [guide pratique pour configurer un DNS personnalisé pour Azure SQL Managed Instance](./custom-dns-configure.md).
 
 **Puis-je actualiser DNS ?**
 
@@ -378,22 +378,22 @@ En guise de solution de contournement, rétrogradez SQL Managed Instance à quat
 
 La configuration de fuseau horaire peut être définie lorsqu’une instance gérée est configurée pour la première fois. Le fuseau horaire d’une instance managée existante ne peut pas être modifié. Pour plus d’informations, consultez [Limites liées aux fuseaux horaires](timezones-overview.md#limitations).
 
-En guise de solutions de contournement, vous pouvez créer une nouvelle instance managée avec le fuseau horaire approprié, puis soit effectuer une sauvegarde et une restauration manuelles, soit (ce que nous recommandons) effectuer une [restauration à un moment donné entre les instances](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+En guise de solutions de contournement, vous pouvez créer une nouvelle instance managée avec le fuseau horaire approprié, puis soit effectuer une sauvegarde et une restauration manuelles, soit (ce que nous recommandons) effectuer une [restauration à un moment donné entre les instances](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
 
 
 ## <a name="security-and-database-encryption"></a>Sécurité et chiffrement de base de données
 
 **Le rôle de serveur sysadmin est-il disponible pour SQL Managed Instance ?**
 
-Oui, les clients peuvent créer des connexions membres du rôle sysadmin.  Les clients qui assument le privilège sysadmin peuvent aussi assumer la responsabilité d’exploiter l’instance, ce qui peut avoir un impact négatif sur l’engagement du contrat SLA. Pour ajouter une connexion au rôle de serveur sysadmin, consultez [Authentification Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
+Oui, les clients peuvent créer des connexions membres du rôle sysadmin.  Les clients qui assument le privilège sysadmin peuvent aussi assumer la responsabilité d’exploiter l’instance, ce qui peut avoir un impact négatif sur l’engagement du contrat SLA. Pour ajouter une connexion au rôle de serveur sysadmin, consultez [Authentification Azure AD](./aad-security-configure-tutorial.md#azure-ad-authentication).
 
 **La technologie Transparent Data Encryption est-elle prise en charge pour SQL Managed Instance ?**
 
-Oui, Transparent Data Encryption est pris en charge pour SQL Managed Instance. Pour plus d’informations, consultez [Chiffrement transparent des données pour SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
+Oui, Transparent Data Encryption est pris en charge pour SQL Managed Instance. Pour plus d’informations, consultez [Chiffrement transparent des données pour SQL Managed Instance](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
 **Puis-je tirer parti du modèle BYOK (Bring Your Own Key) pour TDE ?**
 
-Oui, le scénario Azure Key Vault pour BYOK est disponible pour Azure SQL Managed Instance. Pour plus d’informations, consultez [Chiffrement transparent des données avec une clé gérée par le client](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
+Oui, le scénario Azure Key Vault pour BYOK est disponible pour Azure SQL Managed Instance. Pour plus d’informations, consultez [Chiffrement transparent des données avec une clé gérée par le client](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **Puis-je migrer une base de données SQL Server chiffrée ?**
 
@@ -409,8 +409,8 @@ Vous pouvez faire tourner le protecteur TDE pour Managed Instance en utilisant A
 
 Oui, vous n’avez pas besoin de déchiffrer votre base de données pour pouvoir la restaurer sur SQL Managed Instance. Vous devez toutefois fournir à SQL Managed Instance un certificat/une clé servant de protecteur de clé de chiffrement sur le système source pour pouvoir lire les données du fichier de sauvegarde chiffré. Il existe deux façons d'effectuer cette opération :
 
-- *Chargez le protecteur de certificat dans SQL Managed Instance*. Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) décrit l’ensemble du processus.
-- *Chargez le protecteur de clé asymétrique dans Azure Key Vault et faites pointer SQL Managed Instance vers celui-ci.* . Cette approche ressemble au cas d’usage TDE BYOK (Bring Your Own Key) qui utilise également l’intégration Key Vault pour stocker la clé de chiffrement. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de SQL Managed Instance pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption) et ne cochez pas la case **Définir la clé sélectionnée comme protecteur TDE par défaut**.
+- *Chargez le protecteur de certificat dans SQL Managed Instance* . Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](./tde-certificate-migrate.md) décrit l’ensemble du processus.
+- *Chargez le protecteur de clé asymétrique dans Azure Key Vault et faites pointer SQL Managed Instance vers celui-ci.* . Cette approche ressemble au cas d’usage TDE BYOK (Bring Your Own Key) qui utilise également l’intégration Key Vault pour stocker la clé de chiffrement. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de SQL Managed Instance pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) et ne cochez pas la case **Définir la clé sélectionnée comme protecteur TDE par défaut** .
 
 Une fois que vous mettez le protecteur de chiffrement à disposition de SQL Managed Instance, vous pouvez appliquer la procédure standard de restauration de la base de données.
 
@@ -423,17 +423,17 @@ SQL Managed Instance propose le [modèle d’achat vCore](sql-managed-instance-p
 **Quels sont les avantages proposés par SQL Managed Instance en matière de coûts ?**
 
 Voici comment vous pouvez réduire les coûts grâce aux avantages Azure SQL :
--   Optimisez les investissements existants en licences locales et économisez jusqu’à 55 % avec [Azure Hybrid Benefit](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
--   Engagez-vous sur une réservation de ressources de calcul et économisez jusqu’à 33 % grâce à l’[avantage d’instance réservée](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combinez-le à Azure Hybrid Benefit pour bénéficier d’économies pouvant atteindre jusqu’à 82 %. 
+-   Optimisez les investissements existants en licences locales et économisez jusqu’à 55 % avec [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-   Engagez-vous sur une réservation de ressources de calcul et économisez jusqu’à 33 % grâce à l’[avantage d’instance réservée](../database/reserved-capacity-overview.md). Combinez-le à Azure Hybrid Benefit pour bénéficier d’économies pouvant atteindre jusqu’à 82 %. 
 -   Économisez jusqu’à 55 % par rapport aux prix catalogue grâce à l’[avantage Tarification Azure Dev/Test](https://azure.microsoft.com/pricing/dev-test/) qui offre des tarifs réduits pour vos charges de travail de développement et de test en cours.
 
 **Qui est éligible à l’avantage d’instance réservée ?**
 
-Pour bénéficier de l’avantage d’instance réservée, votre type d’abonnement doit être un contrat entreprise (numéros d’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour plus d’informations sur les réservations, consultez [Avantage d’instance réservée](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+Pour bénéficier de l’avantage d’instance réservée, votre type d’abonnement doit être un contrat entreprise (numéros d’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour plus d’informations sur les réservations, consultez [Avantage d’instance réservée](../database/reserved-capacity-overview.md). 
 
 **Est-il possible d’annuler, d’échanger ou de rembourser des réservations ?**
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Facturation pour Managed Instance et le stockage de sauvegarde
 
@@ -443,9 +443,9 @@ Pour explorer les options tarifaires de Managed Instance, consultez la [page Tar
 
 **Comment faire pour suivre la facturation de mon instance managée ?**
 
-Vous pouvez le faire à l’aide de la [solution Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/). Accédez à **Abonnements** dans le [portail Azure](https://portal.azure.com) et sélectionnez **Analyse des coûts**. 
+Vous pouvez le faire à l’aide de la [solution Azure Cost Management](../../cost-management-billing/index.yml). Accédez à **Abonnements** dans le [portail Azure](https://portal.azure.com) et sélectionnez **Analyse des coûts** . 
 
-Utilisez l’option **Coûts cumulés**, puis filtrez en fonction du **type de ressource** comme `microsoft.sql/managedinstances`.
+Utilisez l’option **Coûts cumulés** , puis filtrez en fonction du **type de ressource** comme `microsoft.sql/managedinstances`.
 
 **Combien coûtent les sauvegardes automatisées ?**
 
@@ -453,7 +453,7 @@ Vous bénéficiez de la même quantité d’espace de stockage de sauvegarde gra
 
 **Comment surveiller la facturation de ma consommation de stockage de sauvegarde ?**
 
-Vous pouvez surveiller le coût du stockage de sauvegarde via le Portail Azure. Pour obtenir des instructions, consultez [Superviser le coût des sauvegardes automatisées](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+Vous pouvez surveiller le coût du stockage de sauvegarde via le Portail Azure. Pour obtenir des instructions, consultez [Superviser le coût des sauvegardes automatisées](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs). 
 
 **Comment optimiser les coûts de stockage des sauvegardes sur une instance managée ?**
 
@@ -515,11 +515,11 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 **Que représente le changement d’autorité de certification racine pour Azure SQL Database et SQL Managed Instance ?**
 
-Voir [Rotation des certificats pour Azure SQL Database et SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
+Voir [Rotation des certificats pour Azure SQL Database et SQL Managed Instance](../updates/ssl-root-certificate-expiring.md). 
 
 **Qu’est-ce qu’un événement de maintenance planifiée pour SQL Managed Instance ?**
 
-Consultez [Planifier les événements de maintenance Azure dans SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+Consultez [Planifier les événements de maintenance Azure dans SQL Managed Instance](../database/planned-maintenance.md). 
 
 
 ## <a name="azure-feedback-and-support"></a>Commentaires et support Azure
@@ -530,5 +530,4 @@ Vous pouvez voter pour une nouvelle fonctionnalité Managed Instance ou soumettr
 
 **Comment créer une demande de support Azure ?**
 
-Pour savoir comment créer une demande de support Azure, consultez le [guide pratique pour créer une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
-
+Pour savoir comment créer une demande de support Azure, consultez le [guide pratique pour créer une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

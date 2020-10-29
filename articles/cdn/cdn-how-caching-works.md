@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201795"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778624"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -65,7 +65,7 @@ Deux en-têtes peuvent être utilisés pour définir l’actualisation du cache�
 ## <a name="cache-directive-headers"></a>En-têtes de la directive du cache
 
 > [!IMPORTANT]
-> Par défaut, un point de terminaison Azure CDN optimisé pour DSA ignore les en-têtes de la directive du cache et la mise en cache. En ce qui concerne les profils **Azure CDN Standard de Verizon** et **Azure CDN Standard d’Akamai**, vous pouvez ajuster la manière dont un point de terminaison Azure CDN traite ces en-têtes en utilisant des [règles de mise en cache CDN](cdn-caching-rules.md) pour activer la mise en cache. Dans le cas des profils **Azure CDN Premium de Verizon**, vous utiliserez pour cela le [moteur de règles](cdn-rules-engine.md).
+> Par défaut, un point de terminaison Azure CDN optimisé pour DSA ignore les en-têtes de la directive du cache et la mise en cache. En ce qui concerne les profils **Azure CDN Standard de Verizon** et **Azure CDN Standard d’Akamai** , vous pouvez ajuster la manière dont un point de terminaison Azure CDN traite ces en-têtes en utilisant des [règles de mise en cache CDN](cdn-caching-rules.md) pour activer la mise en cache. Dans le cas des profils **Azure CDN Premium de Verizon** , vous utiliserez pour cela le [moteur de règles](./cdn-verizon-premium-rules-engine.md).
 
 Azure CDN prend en charge les en-têtes de la directive de cache HTTP suivants, qui définissent la durée et le partage du cache.
 
@@ -94,10 +94,10 @@ Azure CDN prend en charge les en-têtes de la directive de cache HTTP suivants, 
 
 ## <a name="validators"></a>Validateurs
 
-Lorsque le cache est périmé, les validateurs de cache HTTP sont utilisés pour comparer la version mise en cache d’un fichier avec la version sur le serveur d’origine. **Azure CDN Standard/Premium de Verizon** prend en charge les validateurs `ETag` et `Last-Modified` par défaut, tandis qu’**Azure CDN Standard de Microsoft** et **Azure CDN Standard d’Akamai** prennent en charge uniquement `Last-Modified` par défaut.
+Lorsque le cache est périmé, les validateurs de cache HTTP sont utilisés pour comparer la version mise en cache d’un fichier avec la version sur le serveur d’origine. **Azure CDN Standard/Premium de Verizon** prend en charge les validateurs `ETag` et `Last-Modified` par défaut, tandis qu’ **Azure CDN Standard de Microsoft** et **Azure CDN Standard d’Akamai** prennent en charge uniquement `Last-Modified` par défaut.
 
 **ETag :**
-- **Azure CDN Standard/Premium de Verizon** prend en charge `ETag` par défaut, ce qui n’est pas le cas d’**Azure CDN Standard de Microsoft** et de **Azure CDN Standard d’Akamai**.
+- **Azure CDN Standard/Premium de Verizon** prend en charge `ETag` par défaut, ce qui n’est pas le cas d’ **Azure CDN Standard de Microsoft** et de **Azure CDN Standard d’Akamai** .
 - `ETag` définit une chaîne unique pour chaque fichier et chaque version d’un fichier. Par exemple : `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduit dans HTTP 1.1 et plus actuel que `Last-Modified`. Utile lorsque la date de dernière modification est difficile à déterminer.
 - Prend en charge à la fois la validation forte et la validation faible ; toutefois, Azure CDN prend en charge uniquement la validation forte. Pour la validation forte, les deux représentations de la ressource doivent être identiques à l’octet près. 
@@ -118,7 +118,7 @@ Toutes les ressources ne peuvent pas être mises en cache. Le tableau suivant mo
 | **Méthodes HTTP**      | GET, HEAD                         | GET                    | GET                          |
 | **Limites de taille de fichiers**  | 300 Go                            | 300 Go                 | - Optimisation de la livraison web générale : 1,8 Go<br />- Optimisation de la diffusion multimédia en continu : 1,8 Go<br />- Optimisation des fichiers volumineux : 150 Go |
 
-Pour permettre l’activation de la mise en cache d’**Azure CDN Standard de Microsoft** sur une ressource, le serveur d’origine doit prendre en charge les requêtes HTTP HEAD et GET et les valeurs content-length doivent être identiques pour l’ensemble des réponses HTTP HEAD et GET associées à la ressource. Dans le cas d’une requête HEAD, le serveur d’origine doit prendre en charge la requête et répondre avec les en-têtes qu’il aurait utilisé s’il avait reçu une requête GET.
+Pour permettre l’activation de la mise en cache d’ **Azure CDN Standard de Microsoft** sur une ressource, le serveur d’origine doit prendre en charge les requêtes HTTP HEAD et GET et les valeurs content-length doivent être identiques pour l’ensemble des réponses HTTP HEAD et GET associées à la ressource. Dans le cas d’une requête HEAD, le serveur d’origine doit prendre en charge la requête et répondre avec les en-têtes qu’il aurait utilisé s’il avait reçu une requête GET.
 
 ## <a name="default-caching-behavior"></a>Comportement de mise en cache par défaut
 
@@ -129,14 +129,11 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 | **Honorer l’origine**       | Oui    | Oui   | Non   | Oui    | Non   | Oui   | Oui    |
 | **Durée de cache CDN** | 2 jours |7 jours | None | 7 jours | None | 1 jour | 1 an |
 
-**Honorer l’origine** : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.
+**Honorer l’origine**  : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.
 
-**Durée de cache du CDN** : indique le temps pendant lequel une ressource est mise en cache sur Azure CDN. Toutefois, si **Honorer l’origine** est Oui et que la réponse HTTP du serveur d’origine inclut l’en-tête de la directive de cache `Expires` ou `Cache-Control: max-age`, Azure CDN utilise la valeur de la durée spécifiée par l’en-tête à la place. 
+**Durée de cache du CDN**  : indique le temps pendant lequel une ressource est mise en cache sur Azure CDN. Toutefois, si **Honorer l’origine** est Oui et que la réponse HTTP du serveur d’origine inclut l’en-tête de la directive de cache `Expires` ou `Cache-Control: max-age`, Azure CDN utilise la valeur de la durée spécifiée par l’en-tête à la place. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment personnaliser et remplacer le comportement de mise en cache par défaut sur CDN par le biais de règles de mise en cache, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md). 
 - Pour savoir comment utiliser des chaînes de requête pour contrôler le comportement de mise en cache, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des chaînes de requête](cdn-query-string.md).
-
-
-

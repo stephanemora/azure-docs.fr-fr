@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984155"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746569"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données
 
@@ -93,9 +94,9 @@ Le chiffrement d’infrastructure ne peut pas être activé ou désactivé une f
 
 Pour utiliser PowerShell afin de créer un compte de stockage avec le chiffrement d’infrastructure activé, procédez comme suit :
 
-1. Dans le portail Azure, accédez à la page **Comptes de stockage**.
+1. Dans le portail Azure, accédez à la page **Comptes de stockage** .
 1. Choisissez le bouton **ajouter un** pour ajouter un compte de stockage v2 à usage général.
-1. Sous l’onglet **avancé**, localisez le chiffrement d’**Infrastructure**, puis sélectionnez **Activé**.
+1. Sous l’onglet **avancé** , localisez le chiffrement d’ **Infrastructure** , puis sélectionnez **Activé** .
 1. Sélectionnez **Vérifier + créer** pour achever la création du compte de stockage.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Capture d’écran montrant comment activer le chiffrement de l’infrastructure lors de la création d’un compte":::
@@ -178,7 +179,7 @@ L’exemple JSON suivant crée un compte de stockage à usage général v2 confi
 Pour vérifier que le chiffrement d’infrastructure est activé pour un compte de stockage avec le portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage dans le portail Azure.
-1. Sous **Paramètres**, choisissez **Chiffrement**.
+1. Sous **Paramètres** , choisissez **Chiffrement** .
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Capture d’écran montrant comment activer le chiffrement de l’infrastructure lors de la création d’un compte":::
 

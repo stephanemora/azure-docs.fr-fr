@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659865"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746417"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
@@ -26,7 +26,7 @@ L’accélération des requêtes est une nouvelle capacité d’Azure Data Lake 
 
 - Pour accéder à Stockage Azure, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Un compte de stockage **universel v2**. Voir [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
+- Un compte de stockage **universel v2** . Voir [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
 
 - Choisissez un onglet pour afficher la configuration requise spécifique au Kit de développement logiciel (SDK).
 

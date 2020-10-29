@@ -4,13 +4,13 @@ description: Découvrez l’offre de Contrat SLA de durée de fonctionnement fac
 services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: references_regions
-ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749120"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748868"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Cette opération prend plusieurs minutes :
+Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster* . Cette opération prend plusieurs minutes :
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA

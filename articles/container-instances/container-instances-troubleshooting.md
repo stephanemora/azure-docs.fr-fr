@@ -3,19 +3,19 @@ title: Résolution des problèmes courants
 description: Découvrez comment résoudre les problèmes courants quand vous déployez, exécutez ou gérez Azure Container Instances
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148614"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746914"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
 Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md).
 
-Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si vous avez besoin d’une assistance supplémentaire, consultez les options d’ **Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="issues-during-container-group-deployment"></a>Problèmes lors du déploiement d’un groupe de conteneurs
 ### <a name="naming-conventions"></a>Conventions d’affectation de noms
@@ -99,7 +99,7 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 ## <a name="issues-during-container-group-runtime"></a>Problèmes lors de l’exécution du runtime de groupe de conteneurs
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Le conteneur s’arrête et redémarre en permanence (pas de processus au long cours)
 
-Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md)**Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
+Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md)**Toujours** , de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
 Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, ajoutez une commande de démarrage (voir exemple ci-dessous) au déploiement de votre groupe de conteneurs pour que le conteneur continue à s'exécuter.
 
@@ -155,7 +155,7 @@ L’API Container Instances et le portail Azure incluent une propriété `restar
 ```
 
 > [!NOTE]
-> La plupart des images conteneur pour les distributions Linux définissent un interpréteur de commandes, tel que bash, comme commande par défaut. Un interpréteur de commandes n’étant pas en soi un service de longue durée, ces conteneurs quittent la procédure immédiatement et entrent dans une boucle de redémarrage lorsqu’ils sont configurés avec la stratégie de redémarrage par défaut (**Always**).
+> La plupart des images conteneur pour les distributions Linux définissent un interpréteur de commandes, tel que bash, comme commande par défaut. Un interpréteur de commandes n’étant pas en soi un service de longue durée, ces conteneurs quittent la procédure immédiatement et entrent dans une boucle de redémarrage lorsqu’ils sont configurés avec la stratégie de redémarrage par défaut ( **Always** ).
 
 ### <a name="container-takes-a-long-time-to-start"></a>Le démarrage du conteneur prend beaucoup de temps
 
@@ -213,7 +213,7 @@ Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Recherchez l’adresse IP du groupe de conteneurs dans la sortie de commande de `az container create`. Recherchez la valeur de **ip**. 
+1. Recherchez l’adresse IP du groupe de conteneurs dans la sortie de commande de `az container create`. Recherchez la valeur de **ip** . 
 1. Une fois le conteneur correctement approvisionné, accédez à l’adresse IP et au port de l’application conteneur dans votre navigateur, par exemple : `192.0.2.0:9000`. 
 
     Vous devriez voir le message « Bienvenue dans Azure Container Instances ! » s’afficher dans l’application web.

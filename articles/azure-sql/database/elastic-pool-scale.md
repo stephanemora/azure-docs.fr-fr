@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330704"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781207"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Modifier les ressources de calcul (vCores ou DTU)
 
-Après la sélection initiale du nombre de vCores ou eDTU, vous pouvez effectuer un scale-up ou un scale-down d’un pool élastique de façon dynamique selon l’expérience réelle à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), d’[Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de l’[API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Après la sélection initiale du nombre de vCores ou eDTU, vous pouvez effectuer un scale-up ou un scale-down d’un pool élastique de façon dynamique selon l’expérience réelle à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), d’[Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de l’[API REST](/rest/api/sql/elasticpools/update).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impact du changement de niveau de service ou de la remise à l’échelle de la taille de calcul
 
@@ -57,7 +57,7 @@ La latence estimée pour modifier le niveau de service, mettre à l’échelle l
 >
 > - En cas de modification du niveau de service ou de remise à l’échelle de la taille de calcul pour un pool élastique, la somme de l’espace utilisé sur toutes les bases de données du pool doit être utilisée pour calculer l’estimation.
 > - En cas de déplacement d’une base de données vers/à partir d’un pool élastique, seul l’espace utilisé par la base de données a un impact sur la latence, pas l’espace utilisé par le pool élastique.
-> - Pour des pools élastiques standard et à usage général, la latence de déplacement d’une base de données à l’intérieur ou à l’extérieur d’un pool élastique, ou entre des pools élastiques, sera proportionnelle à la taille de la base de données si le pool élastique utilise un stockage de partage de fichiers Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Pour déterminer si un pool utilise un stockage PFS, exécutez la requête suivante dans le contexte d’une base de données quelconque du pool. Si la valeur de la colonne AccountType est `PremiumFileStorage` ou `PremiumFileStorage-ZRS`, le pool utilise un stockage PFS.
+> - Pour des pools élastiques standard et à usage général, la latence de déplacement d’une base de données à l’intérieur ou à l’extérieur d’un pool élastique, ou entre des pools élastiques, sera proportionnelle à la taille de la base de données si le pool élastique utilise un stockage de partage de fichiers Premium ([PFS](../../storage/files/storage-files-introduction.md)). Pour déterminer si un pool utilise un stockage PFS, exécutez la requête suivante dans le contexte d’une base de données quelconque du pool. Si la valeur de la colonne AccountType est `PremiumFileStorage` ou `PremiumFileStorage-ZRS`, le pool utilise un stockage PFS.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Autres considérations liées à la modification du niveau de service ou à la remise à l’échelle de la taille de calcul
 
@@ -100,7 +100,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 ### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
 - Le prix des eDTU pour un pool élastique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Pool élastique : tailles de stockage et tailles de calcul](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](elastic-pool-manage.md#azure-portal), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](/rest/api/sql/elasticpools/update).
 - Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

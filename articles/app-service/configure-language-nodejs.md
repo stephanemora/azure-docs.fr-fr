@@ -1,17 +1,17 @@
 ---
 title: Configurer des applications Node.js
 description: Découvrez comment configurer une application Node.js dans les instances Windows natives ou dans un conteneur Linux prédéfini, dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311833"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744060"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js pour Azure App Service
 
@@ -93,8 +93,8 @@ Si vous déployez votre application à l’aide de packages Git ou zip quand l�
 
 1. Exécution du script personnalisé s’il est spécifié par `PRE_BUILD_SCRIPT_PATH`.
 1. Exécution de `npm install` sans aucun indicateur, qui comprend les scripts npm `preinstall` et `postinstall`, et installe également `devDependencies`.
-1. Exécution de `npm run build` si un script de génération est défini dans votre *package.json*.
-1. Exécution de `npm run build:azure` si un script build:azure est défini dans votre *package.json*.
+1. Exécution de `npm run build` si un script de génération est défini dans votre *package.json* .
+1. Exécution de `npm run build:azure` si un script build:azure est défini dans votre *package.json* .
 1. Exécution du script personnalisé s’il est spécifié par `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Les conteneurs Node.js sont fournis avec [PM2](https://pm2.keymetrics.io/), un g
 
 ### <a name="run-custom-command"></a>Exécuter une commande personnalisée
 
-App Service peut démarrer votre application à l’aide d’une commande personnalisée, comme un fichier exécutable tel que *run.sh*. Par exemple, pour exécuter `npm run start:prod`, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
+App Service peut démarrer votre application à l’aide d’une commande personnalisée, comme un fichier exécutable tel que *run.sh* . Par exemple, pour exécuter `npm run start:prod`, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -131,7 +131,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Exécuter npm start
 
-Pour démarrer votre application en utilisant `npm start`, assurez-vous qu’un script `start` se trouve dans le fichier *package.json*. Par exemple :
+Pour démarrer votre application en utilisant `npm start`, assurez-vous qu’un script `start` se trouve dans le fichier *package.json* . Par exemple :
 
 ```json
 {
@@ -164,7 +164,7 @@ Le conteneur démarre automatiquement votre application avec PM2 lorsqu’un des
 Vous pouvez également configurer un fichier de démarrage personnalisé avec les extensions suivantes :
 
 - Fichier *.js*
-- [Fichier PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json*, *.config.js*, *.yaml* ou *.yml*
+- [Fichier PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json* , *.config.js* , *.yaml* ou *.yml*
 
 Pour ajouter un fichier de démarrage personnalisé, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
 
@@ -177,7 +177,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Le débogage à distance est actuellement en préversion.
 
-Vous pouvez déboguer votre application Node.js à distance dans [Visual Studio Code](https://code.visualstudio.com/) si vous la configurez de manière à [s’exécuter avec PM2](#run-with-pm2), sauf lorsque vous l’exécutez à l’aide d’un fichier *.config.js, *yml, ou *.yaml*.
+Vous pouvez déboguer votre application Node.js à distance dans [Visual Studio Code](https://code.visualstudio.com/) si vous la configurez de manière à [s’exécuter avec PM2](#run-with-pm2), sauf lorsque vous l’exécutez à l’aide d’un fichier *.config.js, *yml, ou *.yaml* .
 
 Dans la plupart des cas, aucune configuration supplémentaire n’est nécessaire pour votre application. Si votre application est exécutée avec un fichier *process.json* (par défaut ou personnalisé), elle doit avoir une propriété `script` dans la racine JSON. Par exemple :
 
@@ -191,9 +191,9 @@ Dans la plupart des cas, aucune configuration supplémentaire n’est nécessair
 
 Pour configurer Visual Studio Code pour le débogage à distance, installez l’[extension App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Suivez les instructions sur la page d’extension et connectez-vous à Azure dans Visual Studio Code.
 
-Dans l’Explorateur Azure, recherchez l’application que vous souhaitez déboguer, cliquez dessus avec le bouton droit et sélectionnez **Start Remote Debugging (Démarrer le débogage à distance)**. Cliquez sur **Oui** afin de l’activer pour votre application. App Service démarre un proxy de tunnel pour vous et joint le débogueur. Vous pouvez ensuite effectuer des requêtes auprès de l’application et voir les interruptions du débogueur au niveau des points d’arrêt.
+Dans l’Explorateur Azure, recherchez l’application que vous souhaitez déboguer, cliquez dessus avec le bouton droit et sélectionnez **Start Remote Debugging (Démarrer le débogage à distance)** . Cliquez sur **Oui** afin de l’activer pour votre application. App Service démarre un proxy de tunnel pour vous et joint le débogueur. Vous pouvez ensuite effectuer des requêtes auprès de l’application et voir les interruptions du débogueur au niveau des points d’arrêt.
 
-Une fois que vous avez fini le débogage, arrêtez le débogueur en sélectionnant **Déconnexion**. Lorsque vous y êtes invité, vous devez cliquer sur **Oui** pour désactiver le débogage à distance. Pour le désactiver ultérieurement, cliquez une nouvelle fois sur votre application dans l’Explorateur Azure, puis sélectionnez **Désactiver le débogage à distance**.
+Une fois que vous avez fini le débogage, arrêtez le débogueur en sélectionnant **Déconnexion** . Lorsque vous y êtes invité, vous devez cliquer sur **Oui** pour désactiver le débogage à distance. Pour le désactiver ultérieurement, cliquez une nouvelle fois sur votre application dans l’Explorateur Azure, puis sélectionnez **Désactiver le débogage à distance** .
 
 ::: zone-end
 
@@ -209,7 +209,7 @@ process.env.NODE_ENV
 
 Par défaut, l’automatisation de la génération App Service exécute `npm install --production` lorsqu’elle reconnaît qu’une application Node.js est déployée via Git ou un déploiement Zip avec l’automatisation de la génération activée. Si votre application requiert des outils d’automatisation populaires, tels que Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) pour l’exécution.
 
-Pour permettre à votre référentiel d’exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json*. Par exemple :
+Pour permettre à votre référentiel d’exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json* . Par exemple :
 
 ```json
 "dependencies": {
@@ -227,7 +227,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-La racine du référentiel comporte désormais deux fichiers supplémentaires : *.deployment* et *deploy.sh*.
+La racine du référentiel comporte désormais deux fichiers supplémentaires : *.deployment* et *deploy.sh* .
 
 Ouvrez *deploy.sh* et recherchez la section `Deployment`, qui ressemble à ce qui suit :
 
@@ -318,7 +318,7 @@ Quand une application Node.js en fonctionnement se comporte différemment dans A
 
 - [Accéder au flux de journaux](#access-diagnostic-logs).
 - Testez l’application localement en mode de production. App Service exécute vos applications Node.js en mode de production et dès lors, vous devez vous assurer que votre projet fonctionne comme prévu en mode de production localement. Par exemple :
-    - En fonction de votre *package.json*, différents packages peuvent être installés pour le mode de production (`dependencies` et `devDependencies`).
+    - En fonction de votre *package.json* , différents packages peuvent être installés pour le mode de production (`dependencies` et `devDependencies`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différemment en mode de production.
     - Certaines infrastructures web peuvent utiliser des scripts de démarrage personnalisés lorsqu'elles s'exécutent en mode de production.
 - Exécutez votre application dans App Service en mode de développement. Par exemple, dans [MEAN.js](https://meanjs.org/), vous pouvez configurer votre application en mode de développement dans le runtime en [configurant le paramètre d’application `NODE_ENV`](configure-common.md).

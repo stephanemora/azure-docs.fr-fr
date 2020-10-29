@@ -4,19 +4,19 @@ description: Cet article décrit le nouveau niveau de calcul serverless et le co
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321405"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743163"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,9 +67,9 @@ Le tableau suivant résume les différences entre le niveau de calcul serverless
 | | **Calcul serverless** | **Calcul provisionné** |
 |:---|:---|:---|
 |**Modèle d’utilisation des bases de données**| Utilisation intermittente et imprévisible avec une utilisation moyenne du calcul moins élevée dans le temps. | Modèles d’utilisation plus régulière avec une utilisation moyenne du calcul plus élevée dans le temps, ou plusieurs bases de données regroupées dans des pools élastiques.|
-| **Effort pour gérer les performances** : |Moins grand|Plus grand|
+| **Effort pour gérer les performances**  : |Moins grand|Plus grand|
 |**Mise à l’échelle du calcul**|Automatique|Manuel|
-|**Réactivité du calcul**.|Moins rapide après les périodes d’inactivité|Immédiat|
+|**Réactivité du calcul** .|Moins rapide après les périodes d’inactivité|Immédiat|
 |**Mode de facturation**|À la seconde|À l’heure|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modèle d’achat et niveau de service
@@ -314,17 +314,17 @@ Pour connaître les limites de ressources, consultez [Niveau de calcul serverles
 
 Le volume de calcul facturé correspond à la quantité maximale de processeur et de mémoire utilisée par seconde. Si la quantité de processeur et de mémoire utilisée est inférieure à la quantité minimale provisionnée pour chaque, la quantité provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.
 
-- **Ressource facturée** : Processeur et mémoire
+- **Ressource facturée**  : Processeur et mémoire
 - **Montant facturé**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
-- **Fréquence de facturation** : À la seconde
+- **Fréquence de facturation**  : À la seconde
 
 Prix unitaire d’un vCore est le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
 
 Le volume de calcul facturé est exposé par les métriques suivantes :
 
-- **Métrique** : app_cpu_billed (secondes de vCore)
-- **Définition** : max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3)
-- **Fréquence de reporting** : Par minute
+- **Métrique**  : app_cpu_billed (secondes de vCore)
+- **Définition**  : max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3)
+- **Fréquence de reporting**  : Par minute
 
 Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
 

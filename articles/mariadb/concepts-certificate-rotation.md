@@ -6,16 +6,16 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d1122d723058af7b11004589a9ebd14958cc4ef
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4744b974cd20c15d8abf22f52b64b8d3dc5a7f55
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173104"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743002"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MariaDB
 
-Azure Database for MariaDB va modifier le certificat racine d’application cliente/de pilote activé avec SSL et que vous utilisez pour [vous connecter au serveur de base de données](concepts-connectivity-architecture.md). Le certificat racine actuellement disponible est configuré pour expirer le 15 février 2021 (02/15/2021) dans le cadre de la maintenance standard et des meilleures pratiques pour la sécurité. Cet article vous donne plus de détails sur les modifications à venir, les ressources qui seront affectées et les étapes nécessaires pour garantir que votre application maintient sa connectivité à votre serveur de base de données.
+Azure Database for MariaDB va modifier le certificat racine d’application cliente/de pilote activé avec SSL et que vous utilisez pour [vous connecter au serveur de base de données](concepts-connectivity-architecture.md). Le certificat racine actuellement disponible est configuré pour expirer le 15 février 2021 (15/02/2021) dans le cadre de la maintenance standard et des meilleures pratiques pour la sécurité. Cet article vous donne plus de détails sur les modifications à venir, les ressources qui seront affectées et les étapes nécessaires pour garantir que votre application maintient sa connectivité à votre serveur de base de données.
 
 >[!NOTE]
 > En fonction des commentaires des clients 2020, nous avons étendu la désapprobation du certificat racine pour notre autorité de certification racine Baltimore existante du 26 octobre au 15 février 2021. Nous espérons que cette extension fournira suffisamment de temps pour permettre à nos utilisateurs d’implémenter les modifications du client si elles sont affectées.
@@ -52,11 +52,11 @@ Pour éviter toute interruption de la disponibilité de votre application en rai
 *   Générez un magasin de certificats d’autorité de certification combiné où les certificats **BaltimoreCyberTrustRoot** et **DigiCertGlobalRootG2** sont inclus.
     *   Pour les utilisateurs Java (MariaDB Connector/J), exécutez :
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -116,11 +116,11 @@ Pour le connecteur utilisant le runtime d’intégration auto-hébergé où vous
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Dois-je prévoir un temps d’arrêt lié à la maintenance du serveur de base de données pour effectuer cette modification ?
 Non. Étant donné que la modification est uniquement côté client pour la connexion au serveur de base de données, aucun temps d’arrêt lié à la maintenance n’est nécessaire pour le serveur de base de données lors de cette modification.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.  Que se passe-t-il si je ne peux pas obtenir un temps d’arrêt planifié pour cette modification avant le 15 février 2021 (02/15/2021) ?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.  Que se passe-t-il si je ne peux pas obtenir un temps d’arrêt planifié pour cette modification avant le 15 février 2021 (15/02/2021) ?
 Étant donné que les clients utilisés pour la connexion au serveur doivent mettre à jour les informations de certificat comme décrit dans la section de correction disponible [ici](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), aucun temps d’arrêt n’est requis pour le serveur dans ce cas.
 
-### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Si je crée un serveur après le 15 février 2021 (02/15/2021), est-il affecté ?
-Pour les serveurs créés après le 15 février 2021 (02/15/2021), vous pouvez utiliser le certificat récemment émis pour que vos applications se connectent à l’aide de SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Si je crée un serveur après le 15 février 2021 (15/02/2021), serai-je concerné ?
+Pour les serveurs créés après le 15 février 2021 (15/02/2021), vous pouvez utiliser le certificat nouvellement émis pour que vos applications se connectent à l’aide de SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Quelle est la fréquence à laquelle Microsoft met à jour ses certificats ou quelle est la stratégie d’expiration ?
 Les certificats utilisés par Azure Database for MariaDB sont fournis par des autorités de certification approuvées. Par conséquent, la prise en charge de ces certificats sur Azure Database for MariaDB est liée à la prise en charge de ces certificats par l’autorité de certification. Toutefois, comme dans le cas présent, il peut y avoir des bogues imprévus dans ces certificats prédéfinis et ceux-ci doivent être corrigés au plus tôt.

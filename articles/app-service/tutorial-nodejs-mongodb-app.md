@@ -5,14 +5,14 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-js
+ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4fc79f8508f46f5003b99289d725b303feef78aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312003"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743648"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutoriel : Créer une application Node.js et MongoDB dans Azure
 
@@ -186,7 +186,7 @@ Copiez la valeur de `primaryMasterKey`. Vous aurez besoin de ces informations da
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurer la chaîne de connexion dans votre application Node.js
 
-Dans votre référentiel MEAN.js local, dans le dossier _config/env/_ , créez un fichier nommé _local-production.js_. _.gitignore_ est déjà configuré pour conserver ce fichier en dehors du référentiel. 
+Dans votre référentiel MEAN.js local, dans le dossier _config/env/_ , créez un fichier nommé _local-production.js_ . _.gitignore_ est déjà configuré pour conserver ce fichier en dehors du référentiel. 
 
 Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<cosmosdb-name>* par le nom de votre base de données Cosmos DB, et l’espace réservé *\<primary-master-key>* par la clé que vous avez copiée à l’étape précédente.
 
@@ -210,7 +210,7 @@ Dans une fenêtre de terminal local, exécutez la commande suivante pour réduir
 gulp prod
 ```
 
-Dans une fenêtre de terminal local, exécutez la commande suivante pour utiliser la chaîne de connexion que vous avez configurée dans _config/env/local-production.js_. Ignorez l’erreur de certificat et l’avertissement config.domain.
+Dans une fenêtre de terminal local, exécutez la commande suivante pour utiliser la chaîne de connexion que vous avez configurée dans _config/env/local-production.js_ . Ignorez l’erreur de certificat et l’avertissement config.domain.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Dans le code Node.js, vous [accédez à ce paramètre d’application](configure-language-nodejs.md#access-environment-variables) avec `process.env.MONGODB_URI`, comme vous accéderiez à n’importe quelle variable d’environnement. 
 
-Dans votre référentiel MEAN.js local, ouvrez _config/env/production.js_ (et non pas _config/env/local-production.js_), qui a une configuration propre à l’environnement de production. L’application MEAN.js par défaut est déjà configurée pour utiliser la variable d’environnement `MONGODB_URI` que vous avez créée.
+Dans votre référentiel MEAN.js local, ouvrez _config/env/production.js_ (et non pas _config/env/local-production.js_ ), qui a une configuration propre à l’environnement de production. L’application MEAN.js par défaut est déjà configurée pour utiliser la variable d’environnement `MONGODB_URI` que vous avez créée.
 
 ```javascript
 db: {
@@ -317,13 +317,13 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 </pre>
 
 Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](https://gulpjs.com/) après `npm install`. App Service n’exécute pas les tâches Gulp ou Grunt pendant le déploiement ; cet exemple de référentiel possède donc deux fichiers supplémentaires dans son répertoire racine pour l’activer : 
 
-- _.deployment_ : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
-- _deploy.sh_ : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`. 
+- _.deployment_  : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
+- _deploy.sh_  : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`. 
 
 Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Si vous redémarrez votre application Azure à un moment donné, App Service ne réexécute pas ces tâches d’automatisation. Pour plus d’informations, consultez [Exécuter Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
@@ -351,7 +351,7 @@ Dans cette étape, vous allez changer le modèle de données `article` et publie
 
 ### <a name="update-the-data-model"></a>Mettre à jour le modèle de données
 
-Dans votre référentiel MEAN.js local, ouvrez _modules/articles/server/models/article.server.model.js_.
+Dans votre référentiel MEAN.js local, ouvrez _modules/articles/server/models/article.server.model.js_ .
 
 Dans `ArticleSchema`, ajoutez un type `String` appelé `comment`. Lorsque vous aurez terminé, votre code de schéma doit ressembler à ceci :
 
@@ -376,7 +376,7 @@ Mettez à jour le reste de votre code `articles` afin d’utiliser `comment`.
 
 Vous avez cinq fichiers à modifier : le contrôleur de serveur et les quatre vues clientes. 
 
-Ouvrez _modules/articles/server/controllers/articles.server.controller.js_.
+Ouvrez _modules/articles/server/controllers/articles.server.controller.js_ .
 
 Dans la fonction `update`, ajoutez une affectation de `article.comment`. Le code suivant illustre la fonction `update` achevée :
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Ouvrez _modules/articles/client/views/view-article.client.view.html_.
+Ouvrez _modules/articles/client/views/view-article.client.view.html_ .
 
 Juste au-dessus de la balise de fermeture `</section>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -400,7 +400,7 @@ Juste au-dessus de la balise de fermeture `</section>`, ajoutez la ligne suivant
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Ouvrez _modules/articles/client/views/list-articles.client.view.html_.
+Ouvrez _modules/articles/client/views/list-articles.client.view.html_ .
 
 Juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -408,7 +408,7 @@ Juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Ouvrez _modules/articles/client/views/admin/list-articles.client.view.html_.
+Ouvrez _modules/articles/client/views/admin/list-articles.client.view.html_ .
 
 À l’intérieur de l’élément `<div class="list-group">`, juste au-dessus de la balise de fermeture `</a>`, ajoutez la ligne suivante pour afficher `comment` avec le reste des données de l’article :
 
@@ -416,7 +416,7 @@ Ouvrez _modules/articles/client/views/admin/list-articles.client.view.html_.
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Ouvrez _modules/articles/client/views/admin/form-article.client.view.html_.
+Ouvrez _modules/articles/client/views/admin/form-article.client.view.html_ .
 
 Recherchez l’élément `<div class="form-group">` qui contient le bouton Envoyer, qui ressemble à ceci :
 
@@ -505,7 +505,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl+C`.
 
 Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+Dans le menu de gauche, cliquez sur **App Services** , puis sur le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
