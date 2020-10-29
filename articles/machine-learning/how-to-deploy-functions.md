@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567449"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736557"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 
@@ -47,7 +47,7 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
 
 Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter le modèle en tant que service web. La liste suivante décrit les éléments principaux nécessaires pour un déploiement :
 
-* __Script d’entrée__. Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
+* __Script d’entrée__ . Ce script accepte les requêtes, évalue la requête à l’aide du modèle et renvoie les résultats.
 
     > [!IMPORTANT]
     > Le script d’entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
@@ -58,9 +58,9 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
 
 Pour plus d’informations sur le script d’entrée, consultez [Définir le code de scoring](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
 
-* **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
+* **Dépendances** , comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
-Ces entités sont encapsulées dans une __configuration d'inférence__. La configuration d’inférence référence le script d’entrée et d’autres dépendances.
+Ces entités sont encapsulées dans une __configuration d'inférence__ . La configuration d’inférence référence le script d’entrée et d’autres dépendances.
 
 > [!IMPORTANT]
 > Lors de la création d’une configuration d’inférence à utiliser avec Azure Functions, vous devez utiliser un objet [Environnement](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Notez que, si vous définissez un environnement personnalisé, vous devez ajouter azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. L’exemple suivant illustre la création d’un objet d’environnement et son utilisation avec une configuration d’inférence :
@@ -84,7 +84,7 @@ Pour plus d’informations sur les environnements , consultez [Créer et gérer 
 Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Lors du déploiement sur Azure Functions, il n’est pas nécessaire de créer une __configuration de déploiement__.
+> Lors du déploiement sur Azure Functions, il n’est pas nécessaire de créer une __configuration de déploiement__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installer le package de la préversion du SDK pour la prise en charge des fonctions
 
@@ -144,7 +144,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     }
     ```
 
-    Enregistrez le nom d’utilisateur (__username__), ainsi que l’un des mots de passe (__passwords__).
+    Enregistrez le nom d’utilisateur ( __username__ ), ainsi que l’un des mots de passe ( __passwords__ ).
 
 1. Si vous ne disposez pas déjà d’un groupe de ressources ou d’un plan App Service pour déployer le service, les commandes suivantes montrent comment créer ces deux éléments :
 

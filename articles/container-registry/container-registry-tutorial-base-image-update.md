@@ -3,13 +3,13 @@ title: Tutoriel – Déclencher la génération d’images lors de la mise à j
 description: Dans ce tutoriel, vous allez découvrir comment configurer une tâche Azure Container Registry pour déclencher automatiquement la génération d’images conteneur dans le cloud lorsqu’une image de base est mise à jour dans le même registre.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc, devx-track-js
-ms.openlocfilehash: 0b87f4ca138e0da76efd184e87f12bec32e3960e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: f6dfc5b6cfe3312f2b3b4663ab5211cc60309eb6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262244"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741117"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutoriel : Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure 
 
@@ -113,7 +113,7 @@ Utilisez la commande [az acr task run][az-acr-task-run] pour déclencher manuell
 az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-Une fois la tâche terminée, prenez note de l’**ID d’exécution** (par exemple, « da6 ») si vous souhaitez terminer l’étape facultative suivante.
+Une fois la tâche terminée, prenez note de l’ **ID d’exécution** (par exemple, « da6 ») si vous souhaitez terminer l’étape facultative suivante.
 
 ### <a name="optional-run-application-container-locally"></a>Facultatif : Exécuter localement un conteneur d’application
 
@@ -170,7 +170,7 @@ Ici, vous allez simuler un correctif d’infrastructure dans l’image de base. 
 ENV NODE_VERSION 9.11.2a
 ```
 
-Exécutez une tâche rapide dans ACR Tasks pour générer l’image de base modifiée. Prenez note de l’**ID d’exécution** dans la sortie.
+Exécutez une tâche rapide dans ACR Tasks pour générer l’image de base modifiée. Prenez note de l’ **ID d’exécution** dans la sortie.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .

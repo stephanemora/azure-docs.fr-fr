@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253692"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676028"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protéger le back-end d’une application monopage avec OAuth 2.0 à l’aide d’Azure Active Directory B2C et de Gestion des API Azure
 
@@ -61,7 +61,7 @@ Voici un petit aperçu des étapes :
 
 ## <a name="configure-azure-ad-b2c"></a>Configurer Azure AD B2C 
 Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-dessous.
-1. Sélectionnez l’onglet **Applications**. 
+1. Sélectionnez l’onglet **Applications** . 
 1. Cliquez sur le bouton « Ajouter » et créez trois applications pour les besoins suivants :
    * Le client front-end
    * L’API de fonction back-end
@@ -76,7 +76,7 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 1. Créez et nommez une étendue pour votre API de fonction, et prenez note des valeurs Portée et Valeur de portée complète renseignée, puis cliquez sur « Enregistrer ».
    > [!NOTE]
    > Les étendues Azure AD B2C sont en fait des autorisations au sein de votre API auxquelles d’autres applications peuvent demander l’accès par le biais du panneau d’accès d’API à partir de leurs applications. Concrètement, vous venez de créer des autorisations d’application pour votre API appelée.
-1. Ouvrez les deux autres applications, puis regardez sous l’onglet *Accès d’API*.
+1. Ouvrez les deux autres applications, puis regardez sous l’onglet *Accès d’API* .
 1. Accordez-leur l’accès à l’étendue de l’API back-end et à celle par défaut déjà présente (« Accéder au profil de l’utilisateur »).
 1. Générez-leur une clé en sélectionnant l’onglet *Clés* sous « Général » pour générer une clé d’authentification, et enregistrez ces clés à un emplacement sécurisé pour une utilisation ultérieure.
 
@@ -180,7 +180,7 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
    > Désormais, votre API de fonction ne devrait plus pouvoir être appelée à partir d’un emplacement autre que par le biais de Gestion des API, ou votre adresse.
    
 ## <a name="import-the-function-app-definition"></a>Importer la définition de la fonction d’application
-1. Ouvrez le *panneau Gestion des API*, puis ouvrez *votre instance*.
+1. Ouvrez le *panneau Gestion des API* , puis ouvrez *votre instance* .
 1. Sélectionnez le panneau des API dans la section Gestion des API de votre instance.
 1. Dans le volet « Ajouter une nouvelle API », choisissez « Function App », puis « Complète » dans la partie supérieure de la fenêtre contextuelle.
 1. Cliquez sur Parcourir, choisissez l’application de fonction dans laquelle vous hébergez l’API, puis cliquez sur Sélectionner.
@@ -193,7 +193,7 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
 1. Spécifiez des valeurs pour *Nom d’affichage* et *Description* pour le point de terminaison OAuth ajouté (ces valeurs s’affichent à l’étape suivante en tant que point de terminaison Oauth2).
 1. Vous pouvez entrer n’importe quelle valeur dans l’URL de la page d’inscription du client, car cette valeur ne sera pas utilisée.
 1. Activez le type d’octroi *Authentification implicite* et laissez le type d’octroi Code d’autorisation activé.
-1. Accédez aux champs de point de terminaison *Autorisation* et *Jeton*, puis entrez les valeurs que vous avez capturées précédemment à partir du document XML de configuration connue.
+1. Accédez aux champs de point de terminaison *Autorisation* et *Jeton* , puis entrez les valeurs que vous avez capturées précédemment à partir du document XML de configuration connue.
 1. Faites défiler vers le bas et renseignez un *paramètre de corps supplémentaire* appelé « ressource » avec l’ID client de l’API de fonction principale obtenu à partir de l’inscription de l’application Azure AD B2C.
 1. Sélectionnez « Informations d’identification du client » et affectez l’ID de l’application de la console de développeur comme ID client. Ignorez cette étape si vous utilisez le modèle de consommation Gestion des API.
 1. Affectez la clé dont vous avez pris note précédemment comme clé secrète client. Ignorez cette étape si vous utilisez le modèle de consommation Gestion des API.
@@ -249,7 +249,7 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
    > Désormais, Gestion des API est capable de répondre aux requêtes cross-origin pour les applications monopages JS, et elle effectuera une limitation, une limitation du débit et une prévalidation du jeton d’authentification JWT qui est passé AVANT de transférer la requête à l’API de fonction.
 
    > [!NOTE]
-   > La section qui suit est facultative et ne s’applique pas au niveau **Consommation**, qui ne prend pas en charge le portail des développeurs.
+   > La section qui suit est facultative et ne s’applique pas au niveau **Consommation** , qui ne prend pas en charge le portail des développeurs.
    > Si vous n’envisagez pas d’utiliser le portail des développeurs, ou si vous ne pouvez pas l’utiliser car vous utilisez le niveau Consommation, ignorez cette étape et accédez directement à [« Générer l’application monopage JavaScript pour consommer l’API »](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>[Facultatif] Configurer le portail des développeurs
@@ -263,7 +263,7 @@ Vous devez ajouter des blocs d’adresses au format CIDR au panneau de restricti
 1. Observez le nouvel élément dans la section **Autorisation** correspondant au serveur d’autorisation que vous venez d’ajouter.
 1. Sélectionnez **Code d’autorisation** dans la liste déroulante d’autorisations. Vous êtes alors invité à vous connecter au locataire Azure AD. Si vous êtes déjà connecté avec ce compte, il est possible qu’aucune invite ne s’affiche.
 1. Une fois la connexion établie, un en-tête `Authorization: Bearer` est ajouté à la requête, avec un jeton d’accès Azure AD B2C encodé en Base64. 
-1. Sélectionnez **Send**, et vous pouvez appeler l’API avec succès.
+1. Sélectionnez **Send** , et vous pouvez appeler l’API avec succès.
 
    > [!NOTE]
    > Maintenant, Gestion des API est capable d’acquérir des jetons pour le portail des développeurs afin de tester votre API, et est capable de comprendre sa définition et d’afficher la page de test appropriée dans le portail des développeurs.

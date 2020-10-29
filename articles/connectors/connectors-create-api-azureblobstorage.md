@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284079"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677721"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -29,13 +29,13 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="limits"></a>limites
 
-* Par défaut, les actions de Stockage Blob Azure peuvent lire ou écrire des fichiers dont la taille est *inférieure ou égale à 50 Mo*. Pour gérer les fichiers d’une taille supérieure à 50 Mo, mais n’excédant pas 1 024 Mo, les actions de Stockage Blob Azure prennent en charge la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md). L’action **Obtenir le contenu de l’objet blob** utilise implicitement la segmentation.
+* Par défaut, les actions de Stockage Blob Azure peuvent lire ou écrire des fichiers dont la taille est *inférieure ou égale à 50 Mo* . Pour gérer les fichiers d’une taille supérieure à 50 Mo, mais n’excédant pas 1 024 Mo, les actions de Stockage Blob Azure prennent en charge la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md). L’action **Obtenir le contenu de l’objet blob** utilise implicitement la segmentation.
 
 * Les déclencheurs de Stockage Blob Azure ne prennent pas en charge la segmentation. Quand ils demandent du contenu de fichiers, les déclencheurs sélectionnent uniquement des fichiers dont la taille est inférieure ou égale à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
 
   * Utilisez un déclencheur Stockage Blob Azure qui retourne des propriétés de fichier, comme **Quand un blob est ajouté ou modifié (propriétés uniquement)** .
 
-  * Suivez le déclencheur avec l’action Stockage Blob Azure **Obtenir le contenu de l’objet blob**, qui lit le fichier complet et utilise implicitement la segmentation.
+  * Suivez le déclencheur avec l’action Stockage Blob Azure **Obtenir le contenu de l’objet blob** , qui lit le fichier complet et utilise implicitement la segmentation.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,7 +65,7 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
    Dans cet exemple, sélectionnez le conteneur et le dossier que vous souhaitez analyser.
 
-   1. Dans la zone **Conteneur**, sélectionnez l’icône de dossier.
+   1. Dans la zone **Conteneur** , sélectionnez l’icône de dossier.
 
    2. Dans la liste des dossiers, cliquez sur le chevron droit ( **>** ), puis naviguez jusqu’au dossier et sélectionnez-le.
 
@@ -73,7 +73,7 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
    3. Sélectionnez l’intervalle et la fréquence à laquelle vous souhaitez que le déclencheur recherche des modifications dans le dossier.
 
-4. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+4. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer** .
 
 5. Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur.
 
@@ -85,11 +85,11 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique. Cet exemple utilise le portail Azure.
 
-2. Dans le Concepteur d’application logique, sous le déclencheur ou l’action, sélectionnez **Nouvelle étape**.
+2. Dans le Concepteur d’application logique, sous le déclencheur ou l’action, sélectionnez **Nouvelle étape** .
 
    ![Ajouter une nouvelle étape au workflow de l’application logique](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Choisissez le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Choisissez le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action** .
 
 3. Dans la zone de recherche, saisissez le filtre « blob azure ». Dans la liste des actions, sélectionnez l’action souhaitée.
 
@@ -102,13 +102,13 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
    Dans cet exemple, sélectionnez le fichier souhaité.
 
-   1. Dans la zone **Blob**, sélectionnez l’icône de dossier.
+   1. Dans la zone **Blob** , sélectionnez l’icône de dossier.
   
       ![Sélectionner le dossier de stockage à utiliser avec l’action](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Recherchez et sélectionnez le fichier souhaité en fonction de l’**ID** d’objet Blob. Vous pouvez retrouver cet **ID** dans les métadonnées de l’objet blob qui sont retournées par le déclencheur de stockage d’objets blob décrit précédemment.
+   2. Recherchez et sélectionnez le fichier souhaité en fonction de l’ **ID** d’objet Blob. Vous pouvez retrouver cet **ID** dans les métadonnées de l’objet blob qui sont retournées par le déclencheur de stockage d’objets blob décrit précédemment.
 
-5. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+5. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer** .
 Pour tester votre application logique, assurez-vous que le dossier sélectionné contient un objet Blob.
 
 Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le contenu, ajoutez une autre action qui crée un fichier avec l’objet Blob à l’aide d’un autre connecteur. Par exemple, ajoutez une action OneDrive qui crée un fichier basé sur le contenu de l’objet Blob.
@@ -183,9 +183,9 @@ Pour accorder aux services approuvés Microsoft un accès à un compte de stocka
 
 Pour configurer l’exception et la prise en charge des identités gérées, suivez ces étapes générales :
 
-1. Sur votre compte de stockage, sous **Paramètres**, sélectionnez **Pare-feu et réseaux virtuels**. Sous **Autoriser l’accès à partir de**, sélectionnez l’option **Réseaux sélectionnés** afin que les paramètres associés s’affichent.
+1. Sur votre compte de stockage, sous **Paramètres** , sélectionnez **Pare-feu et réseaux virtuels** . Sous **Autoriser l’accès à partir de** , sélectionnez l’option **Réseaux sélectionnés** afin que les paramètres associés s’affichent.
 
-1. Sous **Exceptions**, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**, puis sélectionnez **Enregistrer**.
+1. Sous **Exceptions** , sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** , puis sélectionnez **Enregistrer** .
 
    ![Sélectionner une exception qui autorise les services de confiance Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Pour configurer l’exception et la prise en charge des identités gérées, sui
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Accéder aux comptes de stockage par le biais de la gestion des API Azure
 
-Si vous utilisez un niveau dédié pour la [Gestion des API](../api-management/api-management-key-concepts.md), vous pouvez avoir recours à l’API de stockage en utilisant le service Gestion des API et en autorisant les adresses IP de ce dernier via le pare-feu. En gros, ajoutez le réseau virtuel Azure utilisé par le service Gestion des API au paramètre de pare-feu du compte de stockage. Vous pouvez ensuite utiliser l’action Gestion des API ou l’action HTTP pour appeler les API Stockage Azure. Cela dit, si vous choisissez cette option, vous devez gérer vous-même le processus d’authentification. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](https://aka.ms/aisarch).
+Si vous utilisez un niveau dédié pour la [Gestion des API](../api-management/api-management-key-concepts.md), vous pouvez avoir recours à l’API de stockage en utilisant le service Gestion des API et en autorisant les adresses IP de ce dernier via le pare-feu. En gros, ajoutez le réseau virtuel Azure utilisé par le service Gestion des API au paramètre de pare-feu du compte de stockage. Vous pouvez ensuite utiliser l’action Gestion des API ou l’action HTTP pour appeler les API Stockage Azure. Cela dit, si vous choisissez cette option, vous devez gérer vous-même le processus d’authentification. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
-

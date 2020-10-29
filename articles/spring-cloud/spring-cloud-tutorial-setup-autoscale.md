@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091064"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742670"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutoriel : Configurer la mise à l’échelle automatique pour les applications de microservice
 
@@ -34,7 +34,7 @@ Pour suivre ces procédures, vous avez besoin des éléments suivants :
 2. Accédez à la page **Vue d’ensemble** d’Azure Spring Cloud.
 3. Sélectionnez le groupe de ressources qui contient votre service.
 4. Sélectionnez l’onglet **Applications** sous **Paramètres** dans le menu du volet de navigation de gauche.
-5. Sélectionnez l’application pour laquelle vous souhaitez configurer la mise à l’échelle automatique. Dans cet exemple, sélectionnez l’application **demo**. La page **Vue d’ensemble** de l’application doit alors s’afficher.
+5. Sélectionnez l’application pour laquelle vous souhaitez configurer la mise à l’échelle automatique. Dans cet exemple, sélectionnez l’application **demo** . La page **Vue d’ensemble** de l’application doit alors s’afficher.
 6. Accédez à l’onglet **Monter en charge** sous **Paramètres** dans le menu du volet de navigation de gauche.
 7. Sélectionnez le déploiement pour lequel vous souhaitez configurer la mise à l’échelle automatique. Vous devez voir les options de mise à l’échelle automatique présentées dans la section suivante.
 
@@ -66,7 +66,7 @@ Vous pouvez également définir les modes de mise à l’échelle automatique à
 
 ## <a name="upgrade-to-the-standard-tier"></a>Passer au niveau Standard
 
-Si vous êtes au niveau De base et limité par une ou plusieurs de ces restrictions, vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu **Niveau tarifaire** en sélectionnant d’abord la colonne du niveau *Standard* et en cliquant sur le bouton **Mettre à niveau**.
+Si vous êtes au niveau De base et limité par une ou plusieurs de ces restrictions, vous pouvez passer au niveau Standard. Pour ce faire, accédez au menu **Niveau tarifaire** en sélectionnant d’abord la colonne du niveau *Standard* et en cliquant sur le bouton **Mettre à niveau** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

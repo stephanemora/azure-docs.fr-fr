@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.custom: legacy
-ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735384"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Créer une copie de machine virtuelle Linux à l’aide d’Azure CLI et de la fonctionnalité Disques managés
 
@@ -31,7 +31,7 @@ Vous pouvez également [charger et créer une machine virtuelle à partir d’un
 ## <a name="stop-the-source-vm"></a>Arrêter la machine virtuelle source
 
 Libérez la machine virtuelle source à l’aide de la commande [az vm deallocate](/cli/azure/vm#az-vm-deallocate).
-L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
+L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup*  :
 
 ```azurecli
 az vm deallocate \
@@ -83,7 +83,7 @@ Si vous copiez une machine virtuelle à des fins de dépannage ou dans le cadre 
 
 Si vous souhaitez créer une infrastructure de réseau virtuel pour vos machines virtuelles copiées, exécutez les procédures suivantes. Si vous ne souhaitez pas créer de réseau virtuel, passez à [Créer une machine virtuelle](#create-a-vm).
 
-1.  Exécutez la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) pour créer le réseau virtuel. L’exemple suivant permet de créer un réseau virtuel nommé *myVnet* et un sous-réseau nommé *mySubnet* :
+1.  Exécutez la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) pour créer le réseau virtuel. L’exemple suivant permet de créer un réseau virtuel nommé *myVnet* et un sous-réseau nommé *mySubnet*  :
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -93,7 +93,7 @@ Si vous souhaitez créer une infrastructure de réseau virtuel pour vos machines
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Exécutez la commande [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) pour créer une adresse IP publique. L’exemple suivant permet de créer une adresse IP publique nommée *myPublicIP* avec le nom DNS de *mypublicdns*. (Comme le nom DNS doit être unique, fournissez un nom unique.)
+1.  Exécutez la commande [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) pour créer une adresse IP publique. L’exemple suivant permet de créer une adresse IP publique nommée *myPublicIP* avec le nom DNS de *mypublicdns* . (Comme le nom DNS doit être unique, fournissez un nom unique.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \
@@ -102,7 +102,7 @@ Si vous souhaitez créer une infrastructure de réseau virtuel pour vos machines
     ```
 
 1.  Exécutez la commande [az network nic create](/cli/azure/network/nic#az-network-nic-create) pour créer la carte réseau.
-    L’exemple suivant permet de créer une carte réseau nommée *myNic* et associée au sous-réseau *mySubnet* :
+    L’exemple suivant permet de créer une carte réseau nommée *myNic* et associée au sous-réseau *mySubnet*  :
 
     ```azurecli
     az network nic create --resource-group myResourceGroup \

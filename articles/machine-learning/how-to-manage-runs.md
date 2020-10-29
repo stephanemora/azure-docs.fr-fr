@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: bce02917acb05c06b8f506871c1f3b8500622d61
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735525"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -181,7 +181,7 @@ Vous devez disposer des éléments suivants :
     
     Pour afficher le nombre d’exécutions actives pour votre expérience dans le studio :
     
-    1. Accédez à la section **Expériences**.
+    1. Accédez à la section **Expériences** .
     
     1. Sélectionner une expérience.
     
@@ -193,7 +193,7 @@ Vous devez disposer des éléments suivants :
     
     1. Sélectionnez un numéro d’exécution spécifique.
     
-    1. Dans l’onglet **Journaux d’activité**, vous trouverez des journaux de diagnostic et d’erreurs pour votre exécution de pipeline.
+    1. Dans l’onglet **Journaux d’activité** , vous trouverez des journaux de diagnostic et d’erreurs pour votre exécution de pipeline.
     
     ---
     
@@ -236,7 +236,7 @@ Pour plus d’informations, consultez [az ml run cancel](https://docs.microsoft.
 
 Pour annuler une exécution dans le studio, procédez comme suit :
 
-1. Accédez au pipeline en cours d’exécution dans la section **Expériences** ou **Pipelines**. 
+1. Accédez au pipeline en cours d’exécution dans la section **Expériences** ou **Pipelines** . 
 
 1. Sélectionnez le numéro d’exécution du pipeline que vous souhaitez annuler.
 
@@ -412,7 +412,7 @@ Dans Azure Machine Learning, vous pouvez utiliser des balises et propriétés po
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    1. Accédez à la section **Pipelines**.
+    1. Accédez à la section **Pipelines** .
     
     1. Utilisez la barre de recherche pour filtrer les pipelines à partir de balises, de descriptions, de noms d’expériences et d’expéditeurs.
     

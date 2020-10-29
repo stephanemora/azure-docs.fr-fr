@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: b864f4204fa546fa1f06e50550376a8a899d5b8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9512287f656c6c64399cb8749b7451a5a780bba8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91337919"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677641"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsara"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Samsara
 
@@ -37,27 +37,27 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Samsara prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité**.
-* Samsara prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* Samsara prend en charge l’authentification unique lancée par le **fournisseur de services** et le **fournisseur d’identité** .
+* Samsara prend en charge le provisionnement d’utilisateurs **juste-à-temps** .
 
 ## <a name="adding-samsara-from-the-gallery"></a>Ajout de Samsara à partir de la galerie
 
 Pour configurer l’intégration de Samsara à Azure AD, vous devez ajouter Samsara à partir de la galerie à votre liste d’applications SaaS managées.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
     
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Samsara** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie** , tapez **Samsara** dans la zone de recherche.
 
      ![OneTrust Privacy Management Software dans la liste des résultats](common/search-new-app.png)
 
@@ -66,7 +66,7 @@ Pour configurer l’intégration de Samsara à Azure AD, vous devez ajouter Sam
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsara"></a>Configurer et tester l’authentification unique Azure AD pour Samsara
 
-Configurez et testez l’authentification unique Azure AD avec Samsara pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Samsara associé.
+Configurez et testez l’authentification unique Azure AD avec Samsara pour un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Samsara associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Samsara, effectuez les étapes suivantes :
 
@@ -81,34 +81,34 @@ Pour configurer et tester l’authentification unique Azure AD avec Samsara, ef
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **Samsara**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Samsara** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://cloud.samsara.com/signin/<ORGID>` pour les clients cloud aux États-Unis `https://cloud.eu.samsara.com/signin/<ORGID>` pour les clients cloud en Europe
+    a. Dans la zone de texte **URL d’authentification** , tapez une URL au format suivant : `https://cloud.samsara.com/signin/<ORGID>` pour les clients cloud aux États-Unis `https://cloud.eu.samsara.com/signin/<ORGID>` pour les clients cloud en Europe
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:auth0:samsara-dev:samlp-orgid-<ORGID>`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
+    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Contactez l’[équipe du support technique Samsara](mailto:support@samsara.com) pour obtenir ces valeurs, ou dans Samsara, accédez à **Settings** (Paramètres) > **Single-Sign-On** (Authentification unique) > **New SAML Connection** (Nouvelle connexion SAML) pour obtenir le \<ORGID\>. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Contactez l’ [équipe du support technique Samsara](mailto:support@samsara.com) pour obtenir ces valeurs, ou dans Samsara, accédez à **Settings** (Paramètres) > **Single-Sign-On** (Authentification unique) > **New SAML Connection** (Nouvelle connexion SAML) pour obtenir le \<ORGID\>. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer Samsara**, copiez l’**URL de connexion**.
+1. Dans la section **Configurer Samsara** , copiez l’ **URL de connexion** .
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
     
@@ -116,29 +116,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
+   1. Cliquez sur **Créer** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Samsara.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Samsara**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **Samsara** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
 
 ## <a name="configure-samsara-sso"></a>Configurer l’authentification unique Samsara
 
-Pour configurer l’authentification unique côté **Samsara**, vous devez envoyer le **certificat (Base64)** téléchargé et l’**URL de connexion** du portail Azure à l’[équipe du support technique Samsara](mailto:support@samsara.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Samsara** , vous devez envoyer le **certificat (Base64)** téléchargé et l’ **URL de connexion** du portail Azure à l’ [équipe du support technique Samsara](mailto:support@samsara.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-samsara-test-user"></a>Créer un utilisateur de test Samsara
 
@@ -152,11 +152,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion Samsara pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Samsara dans le volet d’accès vous redirige vers l’URL de connexion Samsara. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Samsara dans le volet d’accès vous redirige vers l’URL de connexion Samsara. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Samsara, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Samsara, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

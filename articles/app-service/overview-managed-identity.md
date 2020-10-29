@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152078"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742503"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -33,17 +33,17 @@ Pour configurer une identité managée dans le portail, vous créez une applicat
 
 1. Créez une application dans le portail, comme vous le feriez normalement. Accédez-y dans le portail.
 
-2. Si vous utilisez une application de fonction, accédez à **Fonctionnalités de la plateforme**. Pour les autres types d’application, faites défiler jusqu’au groupe **Paramètres** dans le volet de navigation de gauche.
+2. Si vous utilisez une application de fonction, accédez à **Fonctionnalités de la plateforme** . Pour les autres types d’application, faites défiler jusqu’au groupe **Paramètres** dans le volet de navigation de gauche.
 
-3. Sélectionnez **Identité**.
+3. Sélectionnez **Identité** .
 
-4. Dans l’onglet **Attribuée par le système**, définissez **État** sur **Activé**. Cliquez sur **Enregistrer**.
+4. Dans l’onglet **Attribuée par le système** , définissez **État** sur **Activé** . Cliquez sur **Enregistrer** .
 
     ![Identité managée dans App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Pour trouver l’identité managée de votre application web ou application d’emplacement dans le portail Azure, sous **Applications d’entreprise**, accédez à la section **Paramètres utilisateur**. Le nom de l’emplacement est généralement semblable à `<app name>/slots/<slot name>`.
+> Pour trouver l’identité managée de votre application web ou application d’emplacement dans le portail Azure, sous **Applications d’entreprise** , accédez à la section **Paramètres utilisateur** . Le nom de l’emplacement est généralement semblable à `<app name>/slots/<slot name>`.
 
 
 ### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
@@ -198,13 +198,13 @@ Tout d’abord, vous devrez créer une ressource d’identité attribuée par l�
 
 2. Créez une application dans le portail, comme vous le feriez normalement. Accédez-y dans le portail.
 
-3. Si vous utilisez une application de fonction, accédez à **Fonctionnalités de la plateforme**. Pour les autres types d’application, faites défiler jusqu’au groupe **Paramètres** dans le volet de navigation de gauche.
+3. Si vous utilisez une application de fonction, accédez à **Fonctionnalités de la plateforme** . Pour les autres types d’application, faites défiler jusqu’au groupe **Paramètres** dans le volet de navigation de gauche.
 
-4. Sélectionnez **Identité**.
+4. Sélectionnez **Identité** .
 
-5. Dans l’onglet **Attribuée par l’utilisateur**, cliquez sur **Ajouter**.
+5. Dans l’onglet **Attribuée par l’utilisateur** , cliquez sur **Ajouter** .
 
-6. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Cliquez sur **Add**.
+6. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Cliquez sur **Add** .
 
     ![Identité managée dans App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 

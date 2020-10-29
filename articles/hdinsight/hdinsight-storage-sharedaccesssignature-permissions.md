@@ -6,21 +6,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856562"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742050"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utiliser des signatures d’accès partagé Stockage Blob Azure pour restreindre l’accès aux données dans HDInsight
 
 HDInsight dispose d’un accès total aux données dans les comptes Stockage Blob Azure associés au cluster. Vous pouvez utiliser des signatures d’accès partagé sur le conteneur d’objets blob pour restreindre l’accès aux données. Les signatures d’accès partagé (SAS) sont une fonctionnalité des comptes Stockage Blob Azure qui vous permet de limiter l’accès aux données. Par exemple, en fournissant un accès en lecture seule aux données.
 
 > [!IMPORTANT]  
-> Pour une solution utilisant Apache Ranger, envisagez d’utiliser les clusters HDInsight joints à un domaine. Pour plus d’informations, consultez le document [Configurer des clusters HDInsight joints à un domaine (préversion)](./domain-joined/apache-domain-joined-configure.md).
+> Pour une solution utilisant Apache Ranger, envisagez d’utiliser les clusters HDInsight joints à un domaine. Pour plus d’informations, consultez le document [Configurer des clusters HDInsight joints à un domaine (préversion)](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 > [!WARNING]  
 > HDInsight doit disposer d’un accès total au stockage par défaut pour le cluster.
@@ -31,9 +31,9 @@ HDInsight dispose d’un accès total aux données dans les comptes Stockage Blo
 
 * Un [conteneur de stockage](../storage/blobs/storage-quickstart-blobs-portal.md) existant.  
 
-* Si vous utilisez PowerShell, vous aurez besoin du [module Az](https://docs.microsoft.com/powershell/azure/).
+* Si vous utilisez PowerShell, vous aurez besoin du [module Az](/powershell/azure/).
 
-* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 * Si vous utilisez [Python](https://www.python.org/downloads/), version 2.7 ou ultérieure.
 
@@ -76,7 +76,7 @@ La différence entre les deux formes est importante pour un scénario clé : la
 
 Nous vous recommandons de toujours utiliser des stratégies d’accès stockées. Lorsque vous utilisez des stratégies stockées, vous pouvez révoquer des signatures ou étendre la date d’expiration, selon vos besoins. Les étapes décrites dans ce document utilisent les stratégies d’accès stockées pour générer des SAP.
 
-Pour plus d’informations sur les SAP, voir [Présentation du modèle SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Pour plus d’informations sur les SAP, voir [Présentation du modèle SAP](../storage/common/storage-sas-overview.md)
 
 ## <a name="create-a-stored-policy-and-sas"></a>Créer une stratégie stockée et une SAP
 
@@ -207,7 +207,7 @@ Vous devrez peut-être exécuter `pip install --upgrade azure-storage` si vous r
 
 1. Ouvrez la solution dans Visual Studio.
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SASExample**, puis sélectionnez **Propriétés**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SASExample** , puis sélectionnez **Propriétés** .
 
 3. Sélectionnez **Paramètres** et ajoutez des valeurs pour les entrées suivantes :
 
@@ -353,29 +353,29 @@ Si vous disposez d’un cluster existant, vous pouvez ajouter la SAP pour la con
 
 1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’adresse de cette page est `https://YOURCLUSTERNAME.azurehdinsight.net`. À l’invite, authentifiez-vous auprès du cluster au moyen du nom et du mot de passe d’administrateur que vous avez utilisés lors de la création du cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
 
-1. Développez la section **Configuration core-site personnalisée**, faites défiler jusqu’à la fin, puis sélectionnez **Ajouter une propriété…** . Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
+1. Développez la section **Configuration core-site personnalisée** , faites défiler jusqu’à la fin, puis sélectionnez **Ajouter une propriété…** . Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur**  :
 
-    * **Clé** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Clé**  : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Valeur** : la SAS retournée par l’une des méthodes exécutées précédemment.
 
     Remplacez `CONTAINERNAME` par le nom du conteneur que vous avez utilisé avec l’application C# ou SAP. Remplacez `STORAGEACCOUNTNAME` par le nom du compte de stockage utilisé.
 
     Sélectionnez **Ajouter** pour enregistrer cette clé et cette valeur.
 
-1. Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications apportées à la configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’un accès de stockage SAP », par exemple), puis sélectionnez **Enregistrer**.
+1. Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications apportées à la configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’un accès de stockage SAP », par exemple), puis sélectionnez **Enregistrer** .
 
     Sélectionnez **OK** lorsque les modifications ont été effectuées.
 
    > [!IMPORTANT]  
    > Vous devez redémarrer plusieurs services pour que la modification prenne effet.
 
-1. Une liste déroulante **Redémarrer** s’affiche. Sélectionnez **Redémarrer tous les éléments affectés** dans la liste déroulante, puis __Confirmer le redémarrage__.
+1. Une liste déroulante **Redémarrer** s’affiche. Sélectionnez **Redémarrer tous les éléments affectés** dans la liste déroulante, puis __Confirmer le redémarrage__ .
 
-    Répétez ce processus pour les entrées **MapReduce2** et **YARN**.
+    Répétez ce processus pour les entrées **MapReduce2** et **YARN** .
 
-1. Une fois les services redémarrés, sélectionnez chacun d’entre eux et désactivez le mode maintenance à partir de la liste déroulante **Actions de service**.
+1. Une fois les services redémarrés, sélectionnez chacun d’entre eux et désactivez le mode maintenance à partir de la liste déroulante **Actions de service** .
 
 ## <a name="test-restricted-access"></a>Tester l’accès restreint
 
@@ -411,7 +411,7 @@ Procédez comme suit pour vérifier que vous pouvez uniquement lire et répertor
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Cette commande télécharge le fichier sur un fichier local nommé **testfile.txt**.
+    Cette commande télécharge le fichier sur un fichier local nommé **testfile.txt** .
 
 5. Utilisez la commande suivante pour charger le fichier local sur un nouveau fichier nommé **testupload.txt** sur le stockage SAP :
 

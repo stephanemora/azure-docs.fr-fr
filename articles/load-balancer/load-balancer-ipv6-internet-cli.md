@@ -9,17 +9,17 @@ keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735922"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 à l’aide d’Azure CLI
 
@@ -51,7 +51,7 @@ Créez et configurez les objets suivants pour déployer un équilibreur de charg
 * **Configuration d’adresses IP frontales** : contient les adresses IP publiques pour le trafic réseau entrant.
 * **Pool d’adresses principales** : contient des interfaces réseau pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
 * **Règles d’équilibrage de charge** : contient des règles qui mappent un port public situé sur l’équilibreur de charge à un port du pool d’adresses principales.
-* **Règles NAT entrantes**: contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
+* **Règles NAT entrantes** : contient des règles de traduction d’adresses réseau (NAT) qui mappent un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 * **Sondes** : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
 ## <a name="set-up-azure-cli"></a>Configuration de l’interface de ligne de commande Azure CLI
@@ -122,7 +122,7 @@ Dans cet exemple, vous exécutez les outils Azure CLI dans une fenêtre de comma
     > [!IMPORTANT]
     > L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage diffère d’un déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibrage de charge.
     >
-    > Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > Dans cet exemple, le nom de domaine complet est *contoso09152016.southcentralus.cloudapp.azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Créer ds pools frontaux et principaux
 

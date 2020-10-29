@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 5c87344c4cd179beae6502901a23b2dace6591a7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677227"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de donn�
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
   > [!NOTE]
-  > L’activation de l’audit sur un pool Synapse SQL suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool Synapse SQL. En savoir plus sur le [pool SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+  > L’activation de l’audit sur un pool Synapse SQL suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool Synapse SQL. En savoir plus sur le [pool SQL Synapse](../../synapse-analytics/sql/best-practices-sql-pool.md).
 
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet **SQL Database** ou **SQL Server** .
@@ -117,11 +117,11 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 #### <a name="remarks"></a>Notes
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
-- Les journaux d’audit sont au format .xel et peuvent être ouverts à l’aide de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-- Pour configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies dans le Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Assurez-vous que vous avez sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage d’objets blob immuables.
+- Les journaux d’audit sont au format .xel et peuvent être ouverts à l’aide de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- Pour configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies dans le Stockage Azure](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Assurez-vous que vous avez sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage d’objets blob immuables.
 - Vous pouvez écrire des journaux d’audit dans un compte Stockage Azure derrière un réseau virtuel ou un pare-feu. Pour obtenir des instructions spécifiques, consultez [Écrire un audit dans un compte de stockage situé derrière un réseau virtuel ou un pare-feu](audit-write-storage-account-behind-vnet-firewall.md).
 - Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](threat-detection-overview.md).
-- Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](./audit-log-format.md).
 - Quand vous utilisez Azure AD Authentication, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), qui affiche les détails de ces événements.
 - L’audit sur les [réplicas en lecture seule](read-scale-out.md) est activé automatiquement. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](audit-log-format.md).
 
@@ -131,7 +131,7 @@ Pour configurer l’écriture des journaux d’audit dans un espace de travail L
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).
+Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](../../azure-monitor/platform/design-logs-deployment.md).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
@@ -171,7 +171,7 @@ Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événeme
 
 Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux d’activité :
 
-- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs** . Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](https://go.microsoft.com/fwlink/?linkid=829599).
+- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs** . Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](./audit-log-format.md).
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit** .
 

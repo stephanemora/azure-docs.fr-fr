@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373570"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735121"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
@@ -70,11 +70,11 @@ Prenez note de la propriété appId renvoyée par la commande. Vous en aurez bes
 
 Dans le portail Azure :
 
-1. Sélectionnez **Azure Active Directory** > **Inscription d’application**.
+1. Sélectionnez **Azure Active Directory** > **Inscription d’application** .
 2. Recherchez votre inscription d’application (par exemple : OCPAzureAD).
 3. Dans les résultats, cliquez sur l’inscription d’application.
-4. Sous **Paramètres**, sélectionnez **Autorisations requises**.
-5. Sous **Autorisations requises**, sélectionnez **Ajouter**.
+4. Sous **Paramètres** , sélectionnez **Autorisations requises** .
+5. Sous **Autorisations requises** , sélectionnez **Ajouter** .
 
    ![Inscription d’application](media/openshift-post-deployment/app-registration.png)
 
@@ -82,11 +82,11 @@ Dans le portail Azure :
 
    ![Inscription d’application - Sélectionner une API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. Sur l’étape 2 : Sélectionner des autorisations, sélectionnez **Activer la connexion et lire le profil utilisateur** sous **Autorisations déléguées**, puis cliquez sur **Sélectionner**.
+7. Sur l’étape 2 : Sélectionner des autorisations, sélectionnez **Activer la connexion et lire le profil utilisateur** sous **Autorisations déléguées** , puis cliquez sur **Sélectionner** .
 
    ![Accès à l’inscription d’application](media/openshift-post-deployment/app-registration-access.png)
 
-8. Sélectionnez **Terminé**.
+8. Sélectionnez **Terminé** .
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurer OpenShift pour l’authentification Azure AD
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89011733"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740296"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser une machine virtuelle Linux dans Azure
 
@@ -46,7 +46,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
 
-Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus*.
+Pour voir les diagnostics et les métriques en action, vous avez besoin d’une machine virtuelle. Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroupMonitor* à l’emplacement *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
@@ -79,7 +79,7 @@ az storage account create \
   --location eastus
 ```
 
-Lors de l’activation des diagnostics de démarrage, l’URI vers le conteneur de stockage d’objets blob est nécessaire. La commande suivante interroge le compte de stockage et retourne cet URI. La valeur de l’URI est stockée dans une variable nommée *bloburi*, qui est utilisé à l’étape suivante.
+Lors de l’activation des diagnostics de démarrage, l’URI vers le conteneur de stockage d’objets blob est nécessaire. La commande suivante interroge le compte de stockage et retourne cet URI. La valeur de l’URI est stockée dans une variable nommée *bloburi* , qui est utilisé à l’étape suivante.
 
 ```azurecli-interactive
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
@@ -118,8 +118,8 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 Une machine virtuelle Linux a un hôte dédié dans Azure qui interagit avec elle. Les métriques sont automatiquement collectées pour l’hôte et peuvent être visualisées dans le portail Azure comme suit :
 
-1. Dans le portail Azure, sélectionnez **Groupes de ressources**, choisissez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
-1. Pour voir comment la machine virtuelle hôte fonctionne, sélectionnez **Métriques** dans la fenêtre de la machine virtuelle, puis sélectionnez une des métriques de l’ *[hôte]* sous **Métriques disponibles**.
+1. Dans le portail Azure, sélectionnez **Groupes de ressources** , choisissez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Pour voir comment la machine virtuelle hôte fonctionne, sélectionnez **Métriques** dans la fenêtre de la machine virtuelle, puis sélectionnez une des métriques de l’ *[hôte]* sous **Métriques disponibles** .
 
     ![Afficher les métriques de l’hôte](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -127,15 +127,15 @@ Une machine virtuelle Linux a un hôte dédié dans Azure qui interagit avec ell
 
 Pour activer la supervision de votre machine virtuelle Azure avec Azure Monitor pour machines virtuelles :
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Dans le portail Azure, cliquez sur **Groupes de ressources** , sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
 
-2. Sur la page de la machine virtuelle, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .
+2. Sur la page de la machine virtuelle, dans la section **Surveillance** , sélectionnez **Insights (préversion)** .
 
-3. Sur la page **Insights (préversion)** , sélectionnez **Essayer maintenant**.
+3. Sur la page **Insights (préversion)** , sélectionnez **Essayer maintenant** .
 
     ![Activer Azure Monitor pour machines virtuelles pour une machine virtuelle](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-4. Dans la page **Intégration des insights de Azure Monitor**, si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  
+4. Dans la page **Intégration des insights de Azure Monitor** , si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  
 
     La liste présélectionne l’espace de travail par défaut et l’emplacement où la machine virtuelle est déployée dans l’abonnement. 
 
@@ -150,11 +150,11 @@ Après avoir activé la supervision, vous devrez peut-être attendre plusieurs m
 
 Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Pour y accéder à partir de votre machine virtuelle, procédez comme suit.
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Dans le portail Azure, cliquez sur **Groupes de ressources** , sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
 
-2. Sur la page de la machine virtuelle, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .
+2. Sur la page de la machine virtuelle, dans la section **Surveillance** , sélectionnez **Insights (préversion)** .
 
-3. Sélectionnez l’onglet **Performances**.
+3. Sélectionnez l’onglet **Performances** .
 
 En plus d’inclure des graphiques d’utilisation de performances, cette page fournit un tableau affichant pour chaque disque logique détecté, sa capacité, son utilisation et la moyenne totale pour chaque mesure.
 
@@ -164,7 +164,7 @@ Vous pouvez créer des alertes en fonction de métriques de performances spécif
 
 L’exemple suivant crée une alerte pour l’utilisation moyenne de l’UC.
 
-1. Dans le portail Azure, cliquez sur **Groupes de ressources**, sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
+1. Dans le portail Azure, cliquez sur **Groupes de ressources** , sélectionnez **myResourceGroupMonitor** puis sélectionnez **myVM** dans la liste des ressources.
 
 2. Cliquez sur **Règles d’alerte** dans le panneau de la machine virtuelle puis cliquez sur **Ajouter une alerte Métrique** dans la partie supérieure du panneau des alertes.
 

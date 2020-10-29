@@ -6,15 +6,15 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260408"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738533"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -30,7 +30,7 @@ Le serveur d’historique Apache Spark est l’interface utilisateur web pour le
 
 1. Ouvrez [Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Sélectionnez **Superviser**, puis **Applications Apache Spark**.
+2. Sélectionnez **Superviser** , puis **Applications Apache Spark** .
 
     ![Sélectionnez Superviser, puis sélectionnez une application Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
@@ -38,13 +38,13 @@ Le serveur d’historique Apache Spark est l’interface utilisateur web pour le
 
     ![Ouvrez la fenêtre Requête de journal.](./media/apache-spark-history-server/open-application-window.png)
 
-4. Sélectionnez **Serveur d’historique Spark**. L’interface utilisateur web du serveur d’historique Spark s’affiche.
+4. Sélectionnez **Serveur d’historique Spark** . L’interface utilisateur web du serveur d’historique Spark s’affiche.
 
     ![Ouvrez le serveur d’historique Spark.](./media/apache-spark-history-server/open-spark-history-server.png)
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark à partir du nœud Données
 
-1. Dans votre bloc-notes Azure Synapse Studio, sélectionnez **Serveur d’historique Spark** dans la cellule de sortie de l’exécution du travail ou dans le panneau d’état au bas du document du bloc-notes. Sélectionnez **Détails de la session**.
+1. Dans votre bloc-notes Azure Synapse Studio, sélectionnez **Serveur d’historique Spark** dans la cellule de sortie de l’exécution du travail ou dans le panneau d’état au bas du document du bloc-notes. Sélectionnez **Détails de la session** .
 
    ![Lancer le serveur d’historique Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Lancer le serveur d’historique Spark")
 
@@ -56,19 +56,19 @@ Le serveur d’historique Apache Spark est l’interface utilisateur web pour le
 
 Sélectionnez l’ID du travail à afficher. Sélectionnez ensuite **Données** dans le menu des outils pour ouvrir la vue de données. Cette section montre comment effectuer diverses tâches sous l’onglet Données.
 
-* Vérifiez les entrées (**Inputs**), sorties (**Outputs**) et opérations de table (**Table Operations**) en sélectionnant les onglets correspondants.
+* Vérifiez les entrées ( **Inputs** ), sorties ( **Outputs** ) et opérations de table ( **Table Operations** ) en sélectionnant les onglets correspondants.
 
     ![Données pour l’application Spark - Onglets](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
-* Copiez toutes les lignes en sélectionnant **Copier**.
+* Copiez toutes les lignes en sélectionnant **Copier** .
 
     ![Données pour l’application Spark - Copier](./media/apache-spark-history-server/apache-spark-data-copy.png)
 
-* Enregistrez toutes les données dans un fichier CSV en sélectionnant **csv**.
+* Enregistrez toutes les données dans un fichier CSV en sélectionnant **csv** .
 
     ![Données pour l’application Spark - Enregistrer](./media/apache-spark-history-server/apache-spark-data-save.png)
 
-* Effectuez une recherche en entrant des mots clés dans le champ **Recherche**. Les résultats de recherche s’affichent immédiatement.
+* Effectuez une recherche en entrant des mots clés dans le champ **Recherche** . Les résultats de recherche s’affichent immédiatement.
 
     ![Données pour l’application Spark - Rechercher](./media/apache-spark-history-server/apache-spark-data-search.png)
 
@@ -76,7 +76,7 @@ Sélectionnez l’ID du travail à afficher. Sélectionnez ensuite **Données** 
 
     ![Données pour l’application Spark - Table](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-* Téléchargez un fichier unique en sélectionnant **Téléchargement partiel**. Le fichier sélectionné est téléchargé en local. Si le fichier n’existe plus, un nouvel onglet affiche un message d’erreur.
+* Téléchargez un fichier unique en sélectionnant **Téléchargement partiel** . Le fichier sélectionné est téléchargé en local. Si le fichier n’existe plus, un nouvel onglet affiche un message d’erreur.
 
     ![Données pour l’application Spark - Télécharger](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
@@ -92,7 +92,7 @@ Sélectionnez l’ID du travail à afficher. Sélectionnez ensuite **Données** 
 
     ![Données pour l’application Spark - Plus d’informations](./media/apache-spark-history-server/sparkui-data-more-info.png)
 
-* Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoyez-nous vos commentaires**.
+* Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoyez-nous vos commentaires** .
 
     ![Graphe Spark - Envoyez-nous vos commentaires](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
@@ -102,7 +102,7 @@ Sélectionnez l’ID du travail à afficher. Ensuite, sélectionnez **Graph** da
 
 ### <a name="overview"></a>Vue d’ensemble
 
-Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Par défaut, le graphique affiche tous les travaux. Vous pouvez filtrer cet affichage par **ID de travail**.
+Vous pouvez voir une vue d’ensemble de votre travail dans le graphique du travail ainsi généré. Par défaut, le graphique affiche tous les travaux. Vous pouvez filtrer cet affichage par **ID de travail** .
 
 ![Application Spark - ID du travail - Graphe du travail](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
@@ -184,7 +184,7 @@ Le nœud de graphique du travail affiche les informations suivantes de chaque ph
 
 ### <a name="provide-feedback"></a>Fournir des commentaires
 
-Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoyez-nous vos commentaires**.
+Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoyez-nous vos commentaires** .
 
 ![Application Spark - Graphe de travail - Commentaires](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
@@ -192,7 +192,7 @@ Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoy
 
 Pour accéder à l’onglet Diagnostic, sélectionnez un ID de travail. Sélectionnez ensuite **Diagnostic** dans le menu des outils pour ouvrir la vue Diagnostic du travail. L’onglet du diagnostic comprend **Data Skew** (Asymétrie des données), **Time Skew** (Asymétrie temporelle) et **Executor Usage Analysis** (Analyse de l’utilisation de l’exécuteur).
 
-Vérifiez l’**asymétrie des données**, l’**asymétrie temporelle** et l’**Analyse de l’utilisation de l’exécuteur** en sélectionnant l’onglet correspondant.
+Vérifiez l’ **asymétrie des données** , l’ **asymétrie temporelle** et l’ **Analyse de l’utilisation de l’exécuteur** en sélectionnant l’onglet correspondant.
 
 ![Diagnostic SparkUI - Onglet Asymétrie des données](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -200,7 +200,7 @@ Vérifiez l’**asymétrie des données**, l’**asymétrie temporelle** et l’
 
 Lorsque vous sélectionnez l’onglet **Data Skew** (Asymétrie des données), les tâches asymétriques correspondante sont affichées en fonction des paramètres spécifiés.
 
-* **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. La règle par défaut est : Les données des tâches lues sont trois fois supérieures aux données des tâches lues en moyenne, et les données des tâches lues sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos paramètres. Les sections **Skewed Stage**(Phase asymétrique) et **Skew Chart** (Graphe d’asymétrie) sont actualisées en conséquence.
+* **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. La règle par défaut est : Les données des tâches lues sont trois fois supérieures aux données des tâches lues en moyenne, et les données des tâches lues sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos paramètres. Les sections **Skewed Stage** (Phase asymétrique) et **Skew Chart** (Graphe d’asymétrie) sont actualisées en conséquence.
 
 * **Phase asymétrique** : la seconde section affiche les phases comportant des tâches asymétriques qui répondent aux critères spécifiés ci-dessus. S’il y a plusieurs tâches asymétriques dans une phase, la table des phases asymétriques affiche uniquement la tâche la plus asymétrique (par exemple, les données les plus volumineuses pour l’asymétrie des données).
 
@@ -216,7 +216,7 @@ L’onglet **Time Skew** affiche les tâches asymétriques en fonction de la dur
 
 * **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie temporelle. Par défaut, les critères de détection de l’asymétrie temporelle sont les suivants : la durée d’exécution de la tâche est plus de trois fois supérieure à la durée d’exécution moyenne et supérieure à 30 secondes. Vous pouvez changer les paramètres en fonction de vos besoins. Les sections **Skewed Stage** et **Skew Chart** affichent les informations sur les phases et les tâches correspondantes, à l’image de l’onglet **Data Skew** ci-dessus.
 
-* Sélectionnez **Asymétrie temporelle** pour afficher les résultats filtrés dans la section **Phase asymétrique**, en fonction des paramètres définis dans la section **Spécifier les paramètres**. Sélectionnez un élément dans la section **Phase asymétrique**. Le graphique correspondant est alors illustré dans la section 3 et les détails de la tâche sont affichés dans le panneau inférieur droit.
+* Sélectionnez **Asymétrie temporelle** pour afficher les résultats filtrés dans la section **Phase asymétrique** , en fonction des paramètres définis dans la section **Spécifier les paramètres** . Sélectionnez un élément dans la section **Phase asymétrique** . Le graphique correspondant est alors illustré dans la section 3 et les détails de la tâche sont affichés dans le panneau inférieur droit.
 
     ![SparkUI - Diagnostic - Section Asymétrie temporelle](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 

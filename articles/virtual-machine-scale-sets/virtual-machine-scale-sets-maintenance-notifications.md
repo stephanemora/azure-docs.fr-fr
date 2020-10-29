@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837174"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736982"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -29,7 +29,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions) :
 
 - Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/platform-logs-overview.md) Azure.  
-- La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, qui est généralement de 35 jours, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
+- La notification vous propose une *fenêtre de libre-service* . Pendant cet intervalle, qui est généralement de 35 jours, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
 L’objectif de ces deux fenêtres est de vous donner suffisamment de temps pour commencer la maintenance et redémarrer votre machine virtuelle tout en sachant à quel moment Azure démarrera automatiquement la maintenance.
@@ -44,7 +44,7 @@ Les instructions suivantes vous aideront à déterminer si vous devez démarrer 
 > La maintenance de libre-service n’est peut-être pas disponible pour toutes vos machines virtuelles. Pour déterminer si le redéploiement proactif est disponible pour votre machine virtuelle, recherchez l’option **Démarrer maintenant** dans l’état de maintenance. La maintenance en libre-service n’est pas disponible pour Azure Cloud Services (rôle de travail/web) et Azure Service Fabric.
 
 
-La maintenance en libre-service n’est pas recommandée pour les déploiements qui utilisent *les groupes à haute disponibilité*. Les groupes à haute disponibilité sont des configurations hautement disponibles dans lesquelles un seul domaine de mise à jour est affecté à la fois. Pour les groupes à haute disponibilité :
+La maintenance en libre-service n’est pas recommandée pour les déploiements qui utilisent *les groupes à haute disponibilité* . Les groupes à haute disponibilité sont des configurations hautement disponibles dans lesquelles un seul domaine de mise à jour est affecté à la fois. Pour les groupes à haute disponibilité :
 
 - Laissez Azure déclencher la maintenance. Pour une maintenance nécessitant un redémarrage, les opérations sont effectuées domaine de mise à jour par domaine de mise à jour. Les domaines de mise à jour ne reçoivent pas nécessairement la maintenance de manière séquentielle. Un délai de 30 minutes s’écoule entre chaque domaine de mise à jour.
 - Si une perte temporaire d’une partie de votre capacité (1/nombre de domaines de mise à jour) pose problème, elle peut facilement être compensée par l’allocation d’instances additionnelles au cours de la période de maintenance.
@@ -73,11 +73,11 @@ Il est conseillé d’utiliser la maintenance en libre-service dans les cas suiv
 Lorsqu’une vague d’opérations de maintenance est planifiée, vous pouvez afficher la liste des groupes de machines virtuelles identiques affectés par la maintenance à venir à l’aide du portail Azure. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Tous les services**, puis **Groupes de machines virtuelles identiques**.
-3. Sous **Groupes de machines virtuelles identiques**, sélectionnez **Modifier les colonnes** pour ouvrir la liste des colonnes disponibles.
-4. Dans la section **Colonnes disponibles**, sélectionnez l’élément **Maintenance en libre-service**, puis déplacez-le dans la liste **Colonnes sélectionnées**. Sélectionnez **Appliquer**.  
+2. Dans le menu de gauche, sélectionnez **Tous les services** , puis **Groupes de machines virtuelles identiques** .
+3. Sous **Groupes de machines virtuelles identiques** , sélectionnez **Modifier les colonnes** pour ouvrir la liste des colonnes disponibles.
+4. Dans la section **Colonnes disponibles** , sélectionnez l’élément **Maintenance en libre-service** , puis déplacez-le dans la liste **Colonnes sélectionnées** . Sélectionnez **Appliquer** .  
 
-    Pour trouver plus facilement l’élément **Maintenance en libre-service**, vous pouvez modifier l’option de liste déroulante de la section **Colonnes disponibles** de **Toutes** à **Propriétés**.
+    Pour trouver plus facilement l’élément **Maintenance en libre-service** , vous pouvez modifier l’option de liste déroulante de la section **Colonnes disponibles** de **Toutes** à **Propriétés** .
 
 La colonne **Maintenance en libre-service** s’affiche désormais dans la liste des groupes de machines virtuelles identiques. Chaque groupe de machines virtuelles identiques peut avoir une des valeurs suivantes pour la colonne de maintenance en libre-service :
 
@@ -92,21 +92,21 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Surveiller**. 
-3. Dans le volet **Surveiller - Alertes (classique)** , sélectionnez **+ Ajouter une alerte de journal d’activité**.
-4. Sur la page **Ajouter une alerte de journal d’activité**, sélectionnez ou saisissez les informations requises. Sous **Critères**, renseignez les valeurs suivantes :
-   - **Catégorie d’événement** : sélectionnez **Service Health**.
-   - **Services** : sélectionnez **Groupes de machines virtuelles identiques et Machines virtuelles**.
-   - **Type** : sélectionnez **Maintenance planifiée**. 
+2. Dans le menu de gauche, sélectionnez **Surveiller** . 
+3. Dans le volet **Surveiller - Alertes (classique)** , sélectionnez **+ Ajouter une alerte de journal d’activité** .
+4. Sur la page **Ajouter une alerte de journal d’activité** , sélectionnez ou saisissez les informations requises. Sous **Critères** , renseignez les valeurs suivantes :
+   - **Catégorie d’événement** : sélectionnez **Service Health** .
+   - **Services** : sélectionnez **Groupes de machines virtuelles identiques et Machines virtuelles** .
+   - **Type**  : sélectionnez **Maintenance planifiée** . 
     
 Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Démarrer la maintenance sur votre groupe de machines virtuelles identiques à partir du portail
 
-La présentation des groupes de machines virtuelles identiques contient davantage d’informations relatives à la maintenance. Si au moins une machine virtuelle dans le groupe de machines virtuelles identiques est incluse dans le cycle de maintenance planifiée, un nouveau ruban de notification sera ajouté au sommet de la page. Sélectionnez le ruban de notification pour accéder à la page **Maintenance**. 
+La présentation des groupes de machines virtuelles identiques contient davantage d’informations relatives à la maintenance. Si au moins une machine virtuelle dans le groupe de machines virtuelles identiques est incluse dans le cycle de maintenance planifiée, un nouveau ruban de notification sera ajouté au sommet de la page. Sélectionnez le ruban de notification pour accéder à la page **Maintenance** . 
 
-Sur la page **Maintenance**, vous pouvez voir quelle instance de machine virtuelle est affectée par la maintenance planifiée. Pour démarrer la maintenance, cochez la case correspondant à la machine virtuelle affectée. Puis, sélectionnez **Démarrer la maintenance**.
+Sur la page **Maintenance** , vous pouvez voir quelle instance de machine virtuelle est affectée par la maintenance planifiée. Pour démarrer la maintenance, cochez la case correspondant à la machine virtuelle affectée. Puis, sélectionnez **Démarrer la maintenance** .
 
 Lorsque vous démarrez la maintenance, les machines virtuelles affectées dans votre groupe de machines virtuelles identiques sont soumises à une maintenance et temporairement indisponibles. Si vous avez raté la fenêtre de libre-service, vous pourrez toujours afficher la fenêtre quand votre groupe de machines virtuelles identiques sera soumis à une maintenance par Azure.
  
@@ -135,7 +135,7 @@ Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** :
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Démarrer la maintenance sur votre instance de machine virtuelle à l’aide de PowerShell
 
-Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true**. Utilisez la cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) avec le paramètre `-PerformMaintenance`.
+Vous pouvez démarrer la maintenance sur une machine virtuelle si **IsCustomerInitiatedMaintenanceAllowed** est défini sur **true** . Utilisez la cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) avec le paramètre `-PerformMaintenance`.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -202,7 +202,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 **Q : Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
 
 **R :** Plusieurs raisons peuvent expliquer pourquoi vous ne voyez aucune information de maintenance sur vos machines virtuelles :
-   - Vous utilisez un abonnement marqué comme *interne à Microsoft*.
+   - Vous utilisez un abonnement marqué comme *interne à Microsoft* .
    - Vos machines virtuelles ne sont pas planifiées pour la maintenance. Il est possible que la vague d’opérations de maintenance soit terminée, annulée ou modifiée, de sorte que celle-ci n’impacte plus vos machines virtuelles.
    - La colonne **Maintenance** n’a pas été ajoutée à l’affichage de liste de votre machine virtuelle. Bien que nous ayons ajouté cette colonne à la vue par défaut, si vous avez configuré votre vue pour afficher des colonnes non définies par défaut, vous devez ajouter manuellement la colonne **Maintenance** à la vue liste de vos machines virtuelles.
 

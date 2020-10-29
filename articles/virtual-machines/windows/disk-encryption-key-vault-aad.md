@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: f983c0f5fc951376246fdbed9869211c8b495402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: d275a7ca97ac26257a83ad696df780669a00646e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977952"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737721"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD (version précédente)
 
@@ -61,7 +61,7 @@ Vous pouvez créer un coffre de clés avec Azure PowerShell à l’aide de l’a
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Notez les données **Nom du coffre**, **Nom du groupe de ressources**, **ID de ressource**, **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure dans le cadre du chiffrement des données. 
+4. Notez les données **Nom du coffre** , **Nom du groupe de ressources** , **ID de ressource** , **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure dans le cadre du chiffrement des données. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a>Créer un coffre de clés avec Azure CLI
@@ -80,14 +80,14 @@ Vous pouvez gérer votre coffre de clés avec Azure CLI à l’aide des commande
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Notez les données **Nom du coffre**, **Nom du groupe de ressources**, **ID de ressource**, **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure. 
+4. Notez les données **Nom du coffre** , **Nom du groupe de ressources** , **ID de ressource** , **URI du coffre** et **ID d’objet** qui sont renvoyées à des fins d’utilisation ultérieure. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a>Créer un coffre de clés avec un modèle Resource Manager
 
 Vous pouvez créer un coffre de clés à l’aide du [modèle Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure**.
-2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter**. 
+1. Dans le modèle de démarrage rapide Azure, cliquez sur **Déployer sur Azure** .
+2. Sélectionnez l’abonnement, le groupe de ressources, l’emplacement du groupe de ressources, le nom du coffre de clés, l’ID d’objet, les conditions juridiques et le contrat, puis cliquez sur **Acheter** . 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a>Configurer une application Azure AD et le principal de service 
@@ -135,10 +135,10 @@ Pour créer une application Azure AD, exécutez la procédure de l’article [Ut
 Pour écrire des secrets de chiffrement dans un coffre de clés spécifié, Azure Disk Encryption a besoin de l’ID client et de la clé secrète client de l’application Azure Active Directory qui dispose des autorisations pour écrire des secrets dans le coffre de clés. 
 
 > [!NOTE]
-> Azure Disk Encryption requiert de configurer les stratégies d’accès suivantes sur votre application cliente Azure AD : autorisations _WrapKey_ et _Set_.
+> Azure Disk Encryption requiert de configurer les stratégies d’accès suivantes sur votre application cliente Azure AD : autorisations _WrapKey_ et _Set_ .
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a>Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec Azure PowerShell
-Votre application Azure AD a besoin d’autorisations d’accès aux clés ou aux clés secrètes dans le coffre. Exécutez la cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) pour accorder des autorisations à l’application, en utilisant l’ID client (qui a été généré quand l’application a été enregistrée) comme valeur du paramètre _–ServicePrincipalName_. Pour en savoir plus, consultez le billet de blog [Azure Key Vault – Étape par étape](/archive/blogs/kv/azure-key-vault-step-by-step). 
+Votre application Azure AD a besoin d’autorisations d’accès aux clés ou aux clés secrètes dans le coffre. Exécutez la cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) pour accorder des autorisations à l’application, en utilisant l’ID client (qui a été généré quand l’application a été enregistrée) comme valeur du paramètre _–ServicePrincipalName_ . Pour en savoir plus, consultez le billet de blog [Azure Key Vault – Étape par étape](/archive/blogs/kv/azure-key-vault-step-by-step). 
 
 1. Définissez la stratégie d’accès au coffre de clés pour l’application AD avec PowerShell.
 
@@ -161,10 +161,10 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a>Définir la stratégie d’accès au coffre de clés pour l’application Azure AD avec le portail
 
 1. Ouvrez le groupe de ressources avec votre coffre de clés.
-2. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès**, puis cliquez sur **Ajouter nouveau**.
-3. Sous **Sélectionner le principal**, recherchez l’application Azure AD que vous avez créée, puis sélectionnez-la. 
-4. Pour **Autorisations de clé**, cochez la case en regard de **Inclure la clé** sous **Opérations de chiffrement**.
-5. Pour **Autorisations du secret**, cochez la case en regard de **Définir** sous **Opérations de gestion des secrets**.
+2. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès** , puis cliquez sur **Ajouter nouveau** .
+3. Sous **Sélectionner le principal** , recherchez l’application Azure AD que vous avez créée, puis sélectionnez-la. 
+4. Pour **Autorisations de clé** , cochez la case en regard de **Inclure la clé** sous **Opérations de chiffrement** .
+5. Pour **Autorisations du secret** , cochez la case en regard de **Définir** sous **Opérations de gestion des secrets** .
 6. Cliquez sur **OK** pour enregistrer la stratégie d’accès. 
 
 ![Opérations de chiffrement Azure Key Vault - Inclure la clé](../media/disk-encryption/keyvault-portal-fig3.png)
@@ -217,10 +217,10 @@ Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a>Définir des stratégies d’accès avancé au coffre de clés avec le portail Azure
 
-1. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès**, puis sélectionnez **Cliquez ici pour afficher les stratégies d’accès avancé**.
-2. Cochez la case **Activer l’accès à Azure Disk Encryption pour chiffrer des volumes**.
+1. Sélectionnez votre coffre de clés, accédez à **Stratégies d’accès** , puis sélectionnez **Cliquez ici pour afficher les stratégies d’accès avancé** .
+2. Cochez la case **Activer l’accès à Azure Disk Encryption pour chiffrer des volumes** .
 3. Sélectionnez **Activer l’accès aux machines virtuelles Azure pour le déploiement** et/ou **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** si nécessaire. 
-4. Cliquez sur **Enregistrer**.
+4. Cliquez sur **Enregistrer** .
 
 ![Stratégies d’accès avancé au coffre de clés Azure](../media/disk-encryption/keyvault-portal-fig4.png)
 

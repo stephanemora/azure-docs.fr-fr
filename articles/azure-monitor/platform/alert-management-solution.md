@@ -6,26 +6,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108403"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677577"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
 ![Icône de gestion des alertes](media/alert-management-solution/icon.png)
 
-> [!NOTE]
->  Azure Monitor prend désormais en charge des fonctionnalités améliorées pour la [gestion de vos alertes à grande échelle](./alerts-overview.md), dont celles générées par des [outils de supervision tels que System Center Operations Manager, Zabbix ou Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
->  
-
-
 La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](./alerts-overview.md) ou [importées à partir de Nagios ou Zabbix](../learn/quick-collect-linux-computer.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](./om-agents.md).
 
 ## <a name="prerequisites"></a>Prérequis
-La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
+La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte** , vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 
 - Pour les alertes Log Analytics, [créez des règles d’alerte](./alerts-overview.md) pour créer des enregistrements d’alerte directement dans le référentiel.
 - Pour les alertes Nagios et Zabbix, [configurez ces serveurs](../learn/quick-collect-linux-computer.md) pour envoyer des alertes à Log Analytics.
@@ -61,14 +56,14 @@ Quand vous ajoutez la solution Alert Management à votre espace de travail Log A
 
 ![Vignette de gestion des alertes](media/alert-management-solution/tile.png)
 
-Cliquez sur la vignette **Gestion des alertes** pour ouvrir le tableau de bord **Gestion des alertes**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant.  Chaque colonne répertorie les 10 premières alertes (classées par nombre d’alertes) correspondant aux critères de cette colonne pour l’étendue et l’intervalle de temps spécifiés.  Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, cliquez sur **Afficher tout** en bas de la colonne ou cliquez sur l’en-tête de colonne.
+Cliquez sur la vignette **Gestion des alertes** pour ouvrir le tableau de bord **Gestion des alertes** .  Le tableau de bord comprend les colonnes figurant dans le tableau suivant.  Chaque colonne répertorie les 10 premières alertes (classées par nombre d’alertes) correspondant aux critères de cette colonne pour l’étendue et l’intervalle de temps spécifiés.  Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, cliquez sur **Afficher tout** en bas de la colonne ou cliquez sur l’en-tête de colonne.
 
 | Colonne | Description |
 |:--- |:--- |
 | Alertes critiques |Toutes les alertes ayant le niveau de gravité Critique, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
 | Alertes d'avertissement |Toutes les alertes ayant le niveau de gravité Avertissement, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
 | Alertes actives de System Center Operations Manager |Toutes les alertes recueillies depuis Operations Manager n’ayant pas l’état *Fermé* , regroupées selon la source ayant généré l’alerte. |
-| Toutes les alertes actives |Toutes les alertes, quel que soit leur niveau de gravité, regroupées selon le nom de l’alerte. Seules les alertes Operations Manager n’ayant pas l’état *Fermé*. |
+| Toutes les alertes actives |Toutes les alertes, quel que soit leur niveau de gravité, regroupées selon le nom de l’alerte. Seules les alertes Operations Manager n’ayant pas l’état *Fermé* . |
 
 Si vous faites défiler l’écran vers la droite, le tableau de bord répertorie plusieurs requêtes courantes sur lesquelles vous pouvez cliquer pour effectuer une [recherche dans les journaux](../log-query/log-query-overview.md) afin d’obtenir les données des alertes.
 
@@ -76,9 +71,9 @@ Si vous faites défiler l’écran vers la droite, le tableau de bord répertori
 
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
-La solution de gestion des alertes analyse tous les enregistrements de type **Alerte**.  Les alertes créées par Log Analytics ou collectées à partir de Nagios ou Zabbix ne sont pas collectées directement par la solution.
+La solution de gestion des alertes analyse tous les enregistrements de type **Alerte** .  Les alertes créées par Log Analytics ou collectées à partir de Nagios ou Zabbix ne sont pas collectées directement par la solution.
 
-Cette solution importe également les alertes de System Center Operations Manager et crée pour chacune d’entre elles un enregistrement correspondant avec comme propriétés Type et SourceSystem les valeurs **Alert** et **OpsManager**, respectivement.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant :  
+Cette solution importe également les alertes de System Center Operations Manager et crée pour chacune d’entre elles un enregistrement correspondant avec comme propriétés Type et SourceSystem les valeurs **Alert** et **OpsManager** , respectivement.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant :  
 
 | Propriété | Description |
 |:--- |:--- |

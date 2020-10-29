@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66b14e435b777595e23fcf5a98d4820f36d21a1a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087382"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742032"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utiliser Apache Kafka sur HDInsight avec Azure IoT Hub
 
@@ -21,7 +21,7 @@ Découvrez comment utiliser le connecteur [Apache Kafka Connect Azure IoT Hub](h
 
 L’API Kafka Connect vous permet d’implémenter des connecteurs qui extraient des données vers Kafka en continu ou qui transmettent des données de Kafka vers un autre système. [Apache Kafka Connect Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) est un connecteur qui tire (pull) des données à partir d’Azure IoT Hub et les envoie vers Kafka. Il peut aussi transmettre des données de Kafka vers IoT Hub.
 
-Pour extraire des données à partir d’IoT Hub, vous devez utiliser un connecteur __source__. Pour transmettre des données vers IoT Hub, vous devez utiliser un connecteur __récepteur__. Le connecteur IoT Hub fournit à la fois un connecteur source et un connecteur récepteur.
+Pour extraire des données à partir d’IoT Hub, vous devez utiliser un connecteur __source__ . Pour transmettre des données vers IoT Hub, vous devez utiliser un connecteur __récepteur__ . Le connecteur IoT Hub fournit à la fois un connecteur source et un connecteur récepteur.
 
 Le diagramme suivant illustre le flux de données entre Azure IoT Hub et Kafka sur HDInsight avec l’utilisation du connecteur.
 
@@ -37,7 +37,7 @@ Pour plus d’informations sur l’API Connect, consultez [https://kafka.apache.
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Azure IoT Hub et un appareil. Pour cet article, consultez [Connecter le simulateur en ligne Raspberry Pi à Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* Azure IoT Hub et un appareil. Pour cet article, consultez [Connecter le simulateur en ligne Raspberry Pi à Azure IoT Hub](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Outil de génération Scala](https://www.scala-sbt.org/).
 
@@ -125,7 +125,7 @@ Votre connexion SSH doit rester active pendant toute la durée des étapes resta
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Identique à ce qui précède.|
     |N/A|`consumer.max.poll.records=10`|À ajouter à la fin du fichier. Cette modification vise à empêcher les dépassements de délai dans le connecteur récepteur en le limitant à 10 enregistrements à la fois. Pour plus d’informations, consultez [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Pour enregistrer le fichier, appuyez sur __Ctrl+X__, sur __O__, puis sur __Entrée__.
+1. Pour enregistrer le fichier, appuyez sur __Ctrl+X__ , sur __O__ , puis sur __Entrée__ .
 
 1. Pour créer les rubriques utilisées par le connecteur, utilisez les commandes suivantes :
 
@@ -151,9 +151,9 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
    * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
 
-     1. Accédez à votre IoT Hub, puis sélectionnez __Points de terminaison__.
-     2. À partir de __Points de terminaison intégrés__, sélectionnez __Événements__.
-     3. À partir de __Propriétés__, copiez la valeur des champs suivants :
+     1. Accédez à votre IoT Hub, puis sélectionnez __Points de terminaison__ .
+     2. À partir de __Points de terminaison intégrés__ , sélectionnez __Événements__ .
+     3. À partir de __Propriétés__ , copiez la valeur des champs suivants :
 
          * __Nom compatible avec les hubs d’événements__
          * __Point de terminaison compatible avec les hubs d’événements__
@@ -162,7 +162,7 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
         > [!IMPORTANT]  
         > La valeur de point de terminaison en provenance du portail peut contenir du texte superflu qui n’est pas utile dans cet exemple. Extrayez le texte qui correspond à ce modèle `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
+   * __À partir d’ [Azure CLI](/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -176,15 +176,15 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
        "Partitions": 2
        ```
 
-2. Procurez-vous la __stratégie d’accès partagé__ et la __clé__. Pour cet exemple, utilisez la clé de __service__. Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
+2. Procurez-vous la __stratégie d’accès partagé__ et la __clé__ . Pour cet exemple, utilisez la clé de __service__ . Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
 
     * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
 
-        1. Sélectionnez __Stratégies d’accès partagé__, puis __service__.
-        2. Copiez la valeur __Clé primaire__.
-        3. Copiez la valeur __Clé primaire de la chaîne de connexion__.
+        1. Sélectionnez __Stratégies d’accès partagé__ , puis __service__ .
+        2. Copiez la valeur __Clé primaire__ .
+        3. Copiez la valeur __Clé primaire de la chaîne de connexion__ .
 
-    * __À partir d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
+    * __À partir d’ [Azure CLI](/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
 
         1. Pour obtenir la valeur de la clé primaire, utilisez la commande suivante :
 
@@ -233,7 +233,7 @@ Pour configurer la source de telle sorte qu’elle fonctionne avec votre IoT Hub
 
     Pour obtenir un exemple de configuration, consultez [Kafka Connect Source Connector for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Pour enregistrer les modifications, appuyez sur __Ctrl + X__, sur __O__, puis sur __Entrée__.
+1. Pour enregistrer les modifications, appuyez sur __Ctrl + X__ , sur __O__ , puis sur __Entrée__ .
 
 Pour plus d’informations sur la configuration de la source du connecteur, consultez [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -262,7 +262,7 @@ Pour configurer la connexion du récepteur de telle sorte qu’elle fonctionne a
 
     Pour obtenir un exemple de configuration, consultez [Kafka Connect Sink Connector for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Pour enregistrer les modifications, appuyez sur __Ctrl + X__, sur __O__, puis sur __Entrée__.
+1. Pour enregistrer les modifications, appuyez sur __Ctrl + X__ , sur __O__ , puis sur __Entrée__ .
 
 Pour plus d’informations sur la configuration du récepteur du conteneur, consultez [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 

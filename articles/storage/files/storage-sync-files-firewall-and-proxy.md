@@ -4,15 +4,15 @@ description: Comprenez les paramètres de proxy et de pare-feu locaux d’Azure 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903712"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675790"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -121,6 +121,8 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 | Public | Asie Est | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Asie Sud-Est | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Public | USA Est | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Public | USA Est 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | USA Centre | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
+| Public | Allemagne Nord | https:\//germanynorth01.afs.azure.net | Allemagne Centre-Ouest | https:\//tm-germanywestcentral01.afs.azure.net |
+| Public | Allemagne Centre-Ouest | https:\//germanywestcentral01.afs.azure.net | Allemagne Nord | https:\//tm-germanynorth01.afs.azure.net |
 | Public | Japon Est | https:\//japaneast01.afs.azure.net | OuJapon Est | https:\//tm-japaneast01.afs.azure.net |
 | Public | OuJapon Est | https:\//japanwest01.afs.azure.net | Japon Est | https:\//tm-japanwest01.afs.azure.net |
 | Public | Centre de la Corée | https:\//koreacentral01.afs.azure.net/ | Corée du Sud | https:\//tm-koreacentral01.afs.azure.net/ |

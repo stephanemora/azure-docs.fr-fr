@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578034"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736805"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -23,7 +24,7 @@ Le plan Azure Functions Premium (parfois appelé plan Elastic Premium) est une o
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-Vous pouvez également créer un plan Premium à l’aide de la commande [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) dans Azure CLI. L’exemple suivant crée un plan de niveau _Élastique Premium 1_ :
+Vous pouvez également créer un plan Premium à l’aide de la commande [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) dans Azure CLI. L’exemple suivant crée un plan de niveau _Élastique Premium 1_  :
 
 ```azurecli-interactive
 az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
@@ -47,14 +48,14 @@ Dans le plan Premium, vous pouvez faire en sorte que votre application soit touj
 > [!NOTE]
 > Chaque plan Premium dispose en permanence d’au moins une instance active (facturée).
 
-Vous pouvez configurer le nombre d’instances toujours prêtes sur le portail Azure en sélectionnant votre **application de fonction**, en accédant à l’onglet **Fonctionnalités de la plateforme**, puis en sélectionnant les options **Monter en charge**. Dans la fenêtre de modification de l’application de fonction, les instances toujours prêtes sont propres à cette application.
+Vous pouvez configurer le nombre d’instances toujours prêtes sur le portail Azure en sélectionnant votre **application de fonction** , en accédant à l’onglet **Fonctionnalités de la plateforme** , puis en sélectionnant les options **Monter en charge** . Dans la fenêtre de modification de l’application de fonction, les instances toujours prêtes sont propres à cette application.
 
 ![Paramètres de mise à l’échelle élastique](./media/functions-premium-plan/scale-out.png)
 
 Vous pouvez aussi configurer des instances toujours prêtes pour une application avec Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Instances préchauffées
@@ -68,7 +69,7 @@ Dès que le premier déclencheur intervient, les cinq instances toujours prêtes
 Vous pouvez modifier le nombre d’instances préchauffées pour une application à partir d’Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Nombre maximal d’instances pour une application
@@ -99,12 +100,12 @@ Pendant la création du plan, deux paramètres de taille de plan sont proposés�
 
 Si votre application exige un nombre d’instances supérieur au nombre d’instances toujours prêtes, elle peut continuer d’effectuer un scale-out tant que le nombre d’instances n’a pas atteint la limite maximale en rafale.  Vous êtes facturé pour des instances au-delà de la taille de votre plan uniquement quand elles sont en cours d’exécution et vous sont allouées à la seconde.  Nous ferons tout notre possible pour assurer le scale-out de votre application jusqu’à sa limite maximale définie.
 
-Vous pouvez configurer la taille et les nombres maximaux d’instances du plan via le portail Azure en sélectionnant les options **Scale-out** du plan ou une Function App déployée sur celui-ci (sous **Fonctionnalités de la plateforme**).
+Vous pouvez configurer la taille et les nombres maximaux d’instances du plan via le portail Azure en sélectionnant les options **Scale-out** du plan ou une Function App déployée sur celui-ci (sous **Fonctionnalités de la plateforme** ).
 
 Vous pouvez également augmenter la limite maximale en rafale à partir d’Azure CLI :
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 La valeur minimale pour chaque plan sera d’au moins une instance.  Le nombre minimal effectif d’instances sera automatiquement configuré en fonction du nombre d’instances toujours prêtes demandées par les applications du plan.  Par exemple, si l’application A demande cinq instances toujours prêtes et que l’application B en demande deux dans le même plan, la taille minimale du plan calculée sera de cinq.  L’application A s’exécutera sur les cinq instances et l’application B s’exécutera uniquement sur deux instances.
@@ -117,12 +118,12 @@ Dans la plupart des cas, ce minimum calculé automatiquement s’avère suffisan
 Il est possible d’augmenter le minimum calculé d’un plan à partir d’Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>Références SKU d’instance disponibles
 
-Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous serez facturé en fonction du nombre total de cœurs et de mémoire approvisionnés, pour chaque seconde où chaque instance vous est allouée.  Votre application peut automatiquement effectuer un scale-out sur plusieurs instances en fonction des besoins.  
+Pendant la création ou la mise à l’échelle de votre plan, vous pouvez choisir entre trois tailles d’instance.  Vous serez facturé en fonction du nombre total de cœurs et de mémoire approvisionnés, pour chaque seconde où chaque instance vous est allouée.  Votre application peut automatiquement effectuer un scale-out sur plusieurs instances en fonction des besoins.
 
 |SKU|Cœurs|Mémoire|Stockage|
 |--|--|--|--|

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444532"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677249"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Écrire un audit sur un compte de stockage situé derrière un réseau virtuel et un pare-feu
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -41,18 +41,18 @@ Pour que l’audit écrive dans un compte de stockage situé derrière un résea
 >
 > * Un compte de stockage universel v2. Si vous disposez d’un compte de stockage universel v1 ou d’un compte de stockage blob, [mettez-les à niveau vers un compte de stockage universel v2](../../storage/common/storage-account-upgrade.md). Pour plus d’informations, consultez [Types de comptes de stockage](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Le compte de stockage doit se trouver sur le même abonnement et au même emplacement que le [serveur SQL logique](logical-servers.md).
-> * Le compte Stockage Azure requiert `Allow trusted Microsoft services to access this storage account`. Définissez ce paramètre sur le compte de stockage **Pare-feu et réseaux virtuels**.
+> * Le compte Stockage Azure requiert `Allow trusted Microsoft services to access this storage account`. Définissez ce paramètre sur le compte de stockage **Pare-feu et réseaux virtuels** .
 > * Vous devez disposer de l’autorisation `Microsoft.Authorization/roleAssignments/write` sur le compte de stockage sélectionné. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Configurer dans le portail Azure
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnement. Accédez au groupe de ressources et au serveur.
 
-1. Cliquez sur **Audit** sous le titre Sécurité. Sélectionnez **Activé**.
+1. Cliquez sur **Audit** sous le titre Sécurité. Sélectionnez **Activé** .
 
-2. Sélectionnez **Stockage**. Sélectionnez le compte de stockage dans lequel les journaux seront enregistrés. Le compte de stockage doit respecter les conditions requises indiquées dans [Conditions préalables](#prerequisites).
+2. Sélectionnez **Stockage** . Sélectionnez le compte de stockage dans lequel les journaux seront enregistrés. Le compte de stockage doit respecter les conditions requises indiquées dans [Conditions préalables](#prerequisites).
 
-3. Ouvrez **Détails du stockage**.
+3. Ouvrez **Détails du stockage** .
 
   > [!NOTE]
   > Si le compte de stockage sélectionné se trouve derrière un réseau virtuel, le message suivant s’affiche :
@@ -61,7 +61,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnemen
   >
   >Si vous ne voyez pas ce message, cela signifie que le compte de stockage ne se trouve pas derrière un réseau virtuel.
 
-4. Sélectionnez le nombre de jours pour la période de rétention. Cliquez ensuite sur **OK**. Une fois la période de conservation écoulée, les journaux sont supprimés.
+4. Sélectionnez le nombre de jours pour la période de rétention. Cliquez ensuite sur **OK** . Une fois la période de conservation écoulée, les journaux sont supprimés.
 
 5. Sélectionnez **Enregistrer** sur vos paramètres d’audit.
 
@@ -93,7 +93,7 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate) :
+   [**API REST**](/rest/api/sql/servers/createorupdate) :
 
    Exemple de requête
 
@@ -117,12 +117,12 @@ Pour configurer l’audit SQL afin d’écrire dans un compte de stockage situ�
    }
    ```
 
-2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**. Attribuez le rôle Azure **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
+2. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à votre compte de stockage. Recherchez **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle** . Attribuez le rôle Azure **Contributeur aux données blob du stockage** au serveur hébergeant la base de données que vous avez inscrite auprès d’Azure Active Directory (Azure AD) comme à l’étape précédente.
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir différents rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configurez la [stratégie d’audit des blobs du serveur](/rest/api/sql/server%20auditing%20settings/createorupdate), sans spécifier de *storageAccountAccessKey* :
+3. Configurez la [stratégie d’audit des blobs du serveur](/rest/api/sql/server%20auditing%20settings/createorupdate), sans spécifier de *storageAccountAccessKey*  :
 
    Exemple de requête
 

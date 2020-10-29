@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6629f02178b7c00ccc849e2ccfc3f0a48f419a7f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315288"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735557"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Créer un plan de migration avec Azure Migrate
 
@@ -20,7 +20,7 @@ Cet article fournit un guide pratique pour vous aider à créer votre plan de mi
 - [Questions générales](resources-faq.md) sur Azure Migrate.
 - Questions sur l’[appliance Azure Migrate](common-questions-appliance.md)
 - Questions sur la [migration de serveur](common-questions-server-migration.md)
-- Obtenez des réponses à vos questions sur le [forum Azure Migrate](https://aka.ms/AzureMigrateForum)
+- Obtenez des réponses à vos questions sur le [forum Azure Migrate](https://docs.microsoft.com/answers/topics/azure-migrate.html)
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Définir les objectifs de la migration dans le cloud
 
@@ -75,13 +75,13 @@ Après avoir découvert vos serveurs, utilisez le mappage de dépendance sans ag
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Analyse de la préparation et de la pertinence pour Azure
 Exportez le rapport d’évaluation des machines virtuelles Azure et filtrez les catégories de disponibilité suivantes pour comprendre la préparation des machines virtuelles pour Azure :
 
-- **Disponible pour Azure** : Vous pouvez migrer ces machines en l’état vers Azure sans aucune modification  
+- **Disponible pour Azure**  : Vous pouvez migrer ces machines en l’état vers Azure sans aucune modification  
 
-- **Préparé pour Azure sous condition**: Vous pouvez migrer ces machines vers Azure, mais vous aurez besoin de modifications mineures sur ces serveurs conformément aux instructions de correction fournies dans le cadre de l’évaluation
+- **Préparé pour Azure sous condition** : Vous pouvez migrer ces machines vers Azure, mais vous aurez besoin de modifications mineures sur ces serveurs conformément aux instructions de correction fournies dans le cadre de l’évaluation
 
-- **Non disponible pour Azure** : Vous ne pouvez pas migrer ces machines vers Azure en l’état et devez résoudre les problèmes en fonction des recommandations de correction avant la migration
+- **Non disponible pour Azure**  : Vous ne pouvez pas migrer ces machines vers Azure en l’état et devez résoudre les problèmes en fonction des recommandations de correction avant la migration
 
-- **État de la préparation inconnu** : Azure Migrate ne peut pas déterminer l’état de préparation d’une machine en raison de métadonnées insuffisantes
+- **État de la préparation inconnu**  : Azure Migrate ne peut pas déterminer l’état de préparation d’une machine en raison de métadonnées insuffisantes
 
 Grâce aux évaluations des bases de données, vous pouvez estimer l’état de préparation à la migration de votre patrimoine de données SQL Server vers la base de données Azure SQL ou les instances managées Azure SQL. Vous pouvez consulter le pourcentage d’état de préparation à la migration pour chacune de vos instances SQL Server. En outre, pour chacune des instances, vous pouvez voir la cible recommandée dans Azure, les bloqueurs de migration potentiels, le nombre de changements cassants, le niveau de préparation pour Azure SQL DB/Azure SQL VM et le niveau de compatibilité. Vous pouvez approfondir l’étude de l’impact des bloqueurs de migration et des recommandations pour les résoudre.
 
@@ -95,19 +95,19 @@ Une fois qu’une machine est marquée comme prête pour Azure, Server Assessmen
 
 L’option de dimensionnement correct *basée sur les performances* dans les évaluations vous permet d’optimiser les charges de travail pour Azure. Outre le dimensionnement correct, il existe peu d’autres moyens de réduire les coûts :
 
-- **Instances réservées** : Avec les instances réservées, vous pouvez réduire considérablement les coûts par rapport au tarif de paiement à l’utilisation avec un délai de 1 an ou 3 ans sur Windows et Linux (machines virtuelles)
+- **Instances réservées**  : Avec les instances réservées, vous pouvez réduire considérablement les coûts par rapport au tarif de paiement à l’utilisation avec un délai de 1 an ou 3 ans sur Windows et Linux (machines virtuelles)
 
-- **Avantages Azure Hybrid** : Vous pouvez placer les licences Windows Server sur site avec Software Assurance sur Azure et les combiner avec les options d’instances réservées
+- **Avantages Azure Hybrid**  : Vous pouvez placer les licences Windows Server sur site avec Software Assurance sur Azure et les combiner avec les options d’instances réservées
 
 - **Offres Accord Entreprise (EA)**  : L’Accord Entreprise offre des économies intégrées applicables à votre abonnement
 
-- **Offres** : Il existe plusieurs offres Azure, par exemple, Dev/Test - Paiement à l’utilisation et Enterprise Dev/Test dont les tarifs sont inférieurs pour les machines virtuelles de développement ou de test
+- **Offres**  : Il existe plusieurs offres Azure, par exemple, Dev/Test - Paiement à l’utilisation et Enterprise Dev/Test dont les tarifs sont inférieurs pour les machines virtuelles de développement ou de test
 
-- **Durée de fonctionnement des machines virtuelles** : vous pouvez mentionner la durée en jours par mois et en heures par jour pendant laquelle les machines virtuelles Azure seront exécutées pour réduire vos coûts (non applicable à RI)
+- **Durée de fonctionnement des machines virtuelles**  : vous pouvez mentionner la durée en jours par mois et en heures par jour pendant laquelle les machines virtuelles Azure seront exécutées pour réduire vos coûts (non applicable à RI)
 
-- **Région cible** : Vous pouvez créer plusieurs évaluations dans des régions différente pour déterminer si la migration vers une certaine région dans une zone géographique peut être plus rentable
+- **Région cible**  : Vous pouvez créer plusieurs évaluations dans des régions différente pour déterminer si la migration vers une certaine région dans une zone géographique peut être plus rentable
 
-- **Recommandations basées sur les performances** : Nous vous recommandons d’essayer d’utiliser des recommandations de machine virtuelle Azure basées sur les performances afin de pouvoir réaliser des économies sur les accès au cloud
+- **Recommandations basées sur les performances**  : Nous vous recommandons d’essayer d’utiliser des recommandations de machine virtuelle Azure basées sur les performances afin de pouvoir réaliser des économies sur les accès au cloud
 
 ### <a name="visualize-data"></a>Visualiser les données
 
@@ -125,7 +125,7 @@ Maintenant que vous disposez de toutes les informations essentielles pour prendr
 
 Voici quelques stratégies de migration recommandées :
 
-- **Hiérarchisez vos actions à effet rapide** : Vous pouvez utiliser les rapports d’évaluation pour identifier les ressources à portée de main, notamment les serveurs et les bases de données qui sont entièrement prêts et nécessitent un effort minimal pour migrer vers Azure :
+- **Hiérarchisez vos actions à effet rapide**  : Vous pouvez utiliser les rapports d’évaluation pour identifier les ressources à portée de main, notamment les serveurs et les bases de données qui sont entièrement prêts et nécessitent un effort minimal pour migrer vers Azure :
     - Azure Ready : Exportez votre rapport d’évaluation et filtrez tous les ordinateurs qui sont « Azure Ready » (« prêts pour Azure »). Il peut s’agir de votre premier groupe d’ordinateurs pour lequel vous pouvez effectuer une migration « lift-and-shift » avec l’outil de migration serveur d’Azure Migrate.
     - Fin du support du système d’exploitation : Exportez votre rapport d’évaluation et filtrez tous les ordinateurs qui exécutent les systèmes d’exploitation Windows Server 2008 et Windows Server 2008 R2. Le support de ces références SKU n’est plus assuré et seul Azure vous fournit des mises à jour de sécurité gratuites pendant trois ans lorsque vous les migrez vers Azure. Lorsque vous combinez Azure Hybrid Benefit aux instances réservées, les économies peuvent être bien plus élevées.
     - Migration de SQL Server : Utilisez les recommandations d’évaluation de base de données afin de migrer les bases de données prêtes pour les bases de données SQL Azure à l’aide d’Azure Migrate : Migration de base de données et bases de données prêtes pour la machine virtuelle Azure SQL à l’aide de l’outil Azure Migrate : Server Migration.
@@ -133,9 +133,9 @@ Voici quelques stratégies de migration recommandées :
     - Machines virtuelles sur-approvisionnées : Exportez votre rapport d’évaluation et filtrez les ordinateurs par utilisation faible du processeur (%) et utilisation faible de la mémoire (%).  Cette opportunité permet de migrer vers une machine virtuelle bien dimensionnée dans Azure et de réaliser des économies sur les ressources sous-utilisées.
     - Contraintes de capacité : Exportez votre rapport d’évaluation et filtrez les ordinateurs par utilisation élevée du processeur (%) et utilisation élevée de la mémoire (%).  Vous pouvez empêcher les machines virtuelles dépendantes de s’arrêter et améliorer les performances en migrant celles-ci vers Azure et en utilisant la fonctionnalité de mise à l’échelle automatique pour répondre à la demande. Vous pouvez également consulter le rapport d’évaluation pour comprendre vos contraintes de stockage en analysant les IOPS et le débit de disque et trouver le type de disque recommandé qui correspond le mieux à vos besoins.
 
-- **Commencez petit, puis voyez les choses en grand** : Commencez par déplacer des applications et des charges de travail qui présentent un risque minime et moins complexe, afin que votre stratégie de migration soit digne de confiance. Vous pouvez également croiser vos recommandations d’évaluation Azure Migrate avec le référentiel CMDB de votre organisation pour rechercher et migrer des charges de travail d’environnement Dev/Test dans vos migrations pilotes. Les apprentissages tirés de ces migrations pilotes peuvent être utilisés lors de la migration de charges de travail de production.  
+- **Commencez petit, puis voyez les choses en grand**  : Commencez par déplacer des applications et des charges de travail qui présentent un risque minime et moins complexe, afin que votre stratégie de migration soit digne de confiance. Vous pouvez également croiser vos recommandations d’évaluation Azure Migrate avec le référentiel CMDB de votre organisation pour rechercher et migrer des charges de travail d’environnement Dev/Test dans vos migrations pilotes. Les apprentissages tirés de ces migrations pilotes peuvent être utilisés lors de la migration de charges de travail de production.  
 
-- **Respectez les exigences réglementaires/de votre secteur d’activité** : Azure offre la plus grande gamme de solutions de conformité dans le secteur d’activité en termes d’offres horizontales et verticales. Utilisez cette possibilité pour hiérarchiser vos migrations vers Azure et vous conformer aux normes et lois nationales, régionales et sectorielles. Cela est particulièrement vrai pour les organisations qui gèrent des informations critiques, qui détiennent des informations sensibles ou qui se trouvent dans des secteurs très réglementés, où les normes et les réglementations sont nombreuses et, dans certains cas, changent souvent, ce qui complique le suivi.  
+- **Respectez les exigences réglementaires/de votre secteur d’activité**  : Azure offre la plus grande gamme de solutions de conformité dans le secteur d’activité en termes d’offres horizontales et verticales. Utilisez cette possibilité pour hiérarchiser vos migrations vers Azure et vous conformer aux normes et lois nationales, régionales et sectorielles. Cela est particulièrement vrai pour les organisations qui gèrent des informations critiques, qui détiennent des informations sensibles ou qui se trouvent dans des secteurs très réglementés, où les normes et les réglementations sont nombreuses et, dans certains cas, changent souvent, ce qui complique le suivi.  
 
 ## <a name="finalize-the-migration-planandprepare-formigration"></a>Finaliser le plan de migration et préparer la migration
 
@@ -157,7 +157,7 @@ Utilisez cette analyse pour créer une feuille de route de migration et déclare
 
 Nous vous recommandons de toujours tester et de continuer à utiliser la fonctionnalité *Tester la migration* d’Azure Migrate avant de lancer des migrations à grande échelle vers Azure. Ces données réelles vous aideront à estimer le temps réel nécessaire et à apporter les ajustements nécessaires à votre plan de migration. Un test de migration offre les moyens de détecter tous les problèmes éventuels du plan de migration et de les résoudre avant de procéder à la migration réelle.  
 
-Lorsque vous êtes prêt à migrer, utilisez l’*outil de migration de serveur* d’Azure Migrate et le *service de migration de données* d’Azure Migrate pour une expérience de migration transparente et intégrée avec suivi de bout en bout. L’outil de migration du serveur prend en charge la migration des machines virtuelles et des serveurs hébergés localement dans le centre de centres des clients ou dans tout autre cloud privé ou public, notamment AWS, GCP, etc., sans aucune interruption de l’activité. Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime.  
+Lorsque vous êtes prêt à migrer, utilisez l’ *outil de migration de serveur* d’Azure Migrate et le *service de migration de données* d’Azure Migrate pour une expérience de migration transparente et intégrée avec suivi de bout en bout. L’outil de migration du serveur prend en charge la migration des machines virtuelles et des serveurs hébergés localement dans le centre de centres des clients ou dans tout autre cloud privé ou public, notamment AWS, GCP, etc., sans aucune interruption de l’activité. Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime.  
 
 > [!NOTE]
 > Pour les machines virtuelles VMware, Server Assessment utilise le système d’exploitation spécifié pour la machine virtuelle dans vCenter Server pour gérer l’analyse du système d’exploitation invité. Pour les machines virtuelles Linux s’exécutant sur VMware, il n’identifie actuellement pas la version exacte du noyau du système d’exploitation invité.

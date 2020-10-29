@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078525"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737213"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Créer un cluster privé Azure Red Hat OpenShift 4
 
@@ -73,7 +73,7 @@ Si vous copiez votre secret d’extraction, ou que vous le référencez dans d�
 
 Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vides.
 
-1. **Définissez les variables suivantes**.
+1. **Définissez les variables suivantes** .
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -104,7 +104,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     }
     ```
 
-2. **Créez un réseau virtuel**.
+2. **Créez un réseau virtuel** .
 
     Les clusters Azure Red Hat OpenShift exécutant OpenShift 4 nécessitent un réseau virtuel avec deux sous-réseaux vides (pour les nœuds principaux et les nœuds worker).
 
@@ -137,7 +137,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     }
     ```
 
-3. **Ajoutez un sous-réseau vide pour les nœuds principaux**.
+3. **Ajoutez un sous-réseau vide pour les nœuds principaux** .
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -148,7 +148,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Ajoutez un sous-réseau vide pour les nœuds worker**.
+4. **Ajoutez un sous-réseau vide pour les nœuds worker** .
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -159,7 +159,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Désactivez les stratégies pour les points de terminaison privés](../private-link/disable-private-link-service-network-policy.md) dans le sous-réseau principal**. Cela est obligatoire pour pouvoir se connecter au cluster et le gérer.
+5. **[Désactivez les stratégies pour les points de terminaison privés](../private-link/disable-private-link-service-network-policy.md) dans le sous-réseau principal** . Cela est obligatoire pour pouvoir se connecter au cluster et le gérer.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -192,7 +192,7 @@ az aro create \
 Après l’exécution de la commande `az aro create`, la création d’un cluster prend normalement une trentaine de minutes.
 
 >[!IMPORTANT]
-> Si vous choisissez de spécifier un domaine personnalisé, par exemple **foo.example.com**, la console OpenShift sera disponible sur une URL telle que `https://console-openshift-console.apps.foo.example.com`, au lieu de l’URL de domaine intégrée `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Si vous choisissez de spécifier un domaine personnalisé, par exemple **foo.example.com** , la console OpenShift sera disponible sur une URL telle que `https://console-openshift-console.apps.foo.example.com`, au lieu de l’URL de domaine intégrée `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > Par défaut, OpenShift utilise des certificats auto-signés pour toutes les routes créées sur `*.apps.<random>.<location>.aroapp.io`.  Si vous choisissez DNS personnalisé après vous être connecté au cluster, vous devez suivre la documentation OpenShift afin de [configurer une autorité de certification personnalisée pour votre contrôleur d’entrée](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) et configurer une [autorité de certification personnalisée pour votre serveur d’API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 

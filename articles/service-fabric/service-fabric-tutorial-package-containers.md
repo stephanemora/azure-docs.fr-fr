@@ -3,13 +3,13 @@ title: Créer des packages de conteneurs et les déployer
 description: Dans ce tutoriel, vous découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738851"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
@@ -80,7 +80,7 @@ L’exemple suivant montre l’entrée et la sortie de l’exécution de la comm
 
 Pour ajouter un autre service conteneur à une application déjà créée à l’aide de Yeoman, effectuez les étapes suivantes :
 
-1. Changez le répertoire d’un niveau jusqu’au répertoire **TestContainer**, par exemple *./TestContainer*
+1. Changez le répertoire d’un niveau jusqu’au répertoire **TestContainer** , par exemple *./TestContainer*
 2. Exécutez `yo azuresfcontainer:AddService`
 3. Nommez le service « azurevoteback ».
 4. Indiquez le chemin de l’image conteneur pour Redis : « alpine:redis »
@@ -99,7 +99,7 @@ Les entrées pour l’ajout du service utilisé sont toutes affichées :
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Dans la suite de ce didacticiel, nous travaillons dans le répertoire **TestContainer**. Par exemple, *./TestContainer/TestContainer*. Le contenu de ce répertoire doit se présenter comme suit.
+Dans la suite de ce didacticiel, nous travaillons dans le répertoire **TestContainer** . Par exemple, *./TestContainer/TestContainer* . Le contenu de ce répertoire doit se présenter comme suit.
 
 ```bash
 $ ls
@@ -108,7 +108,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurer le manifeste d’application avec les informations d’identification pour Azure Container Registry
 
-Afin que Service Fabric puisse extraire les images conteneur à partir d’Azure Container Registry, nous devons fournir les informations d’identification dans le fichier **ApplicationManifest.xml**.
+Afin que Service Fabric puisse extraire les images conteneur à partir d’Azure Container Registry, nous devons fournir les informations d’identification dans le fichier **ApplicationManifest.xml** .
 
 Connectez-vous à votre instance ACR. Utilisez la commande **az acr login** pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
 
@@ -124,7 +124,7 @@ Exécutez ensuite la commande suivante pour obtenir le mot de passe de votre reg
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-Dans le fichier **ApplicationManifest.xml**, ajoutez l’extrait de code sous l’élément **ServiceManifestImport** pour le service frontend. Insérez votre **acrName** pour le champ **AccountName**, le mot de passe retourné à partir de la commande précédente est utilisé pour le champ **Password**. Un fichier **ApplicationManifest.xml** complet est fourni à la fin de ce document.
+Dans le fichier **ApplicationManifest.xml** , ajoutez l’extrait de code sous l’élément **ServiceManifestImport** pour le service frontend. Insérez votre **acrName** pour le champ **AccountName** , le mot de passe retourné à partir de la commande précédente est utilisé pour le champ **Password** . Un fichier **ApplicationManifest.xml** complet est fourni à la fin de ce document.
 
 ```xml
 <Policies>
@@ -138,7 +138,7 @@ Dans le fichier **ApplicationManifest.xml**, ajoutez l’extrait de code sous l�
 
 ### <a name="configure-communication-port"></a>Configurer le port de communication
 
-Configurez un point de terminaison HTTP pour que les clients puissent communiquer avec votre service. Ouvrez le fichier *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest**.  Ajoutez le protocole, le port et le nom. Dans ce tutoriel, le service écoute le port 80. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
+Configurez un point de terminaison HTTP pour que les clients puissent communiquer avec votre service. Ouvrez le fichier *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest** .  Ajoutez le protocole, le port et le nom. Dans ce tutoriel, le service écoute le port 80. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
 
 ```xml
 <Resources>
@@ -152,7 +152,7 @@ Configurez un point de terminaison HTTP pour que les clients puissent communique
 
 ```
 
-De même, modifiez le manifeste de service pour le service principal. Ouvrez *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest**. Pour ce tutoriel, la valeur par défaut de redis, 6379, est conservée. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
+De même, modifiez le manifeste de service pour le service principal. Ouvrez *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* et déclarez une ressource de point de terminaison dans l’élément **ServiceManifest** . Pour ce tutoriel, la valeur par défaut de redis, 6379, est conservée. L’extrait de code suivant est placé sous la balise *ServiceManifest* dans la ressource.
 
 ```xml
 <Resources>
@@ -169,7 +169,7 @@ Fournir **UriScheme** enregistre automatiquement le point de terminaison du cont
 
 ### <a name="map-container-ports-to-a-service"></a>Mapper les ports de conteneur à un service
 
-Afin d’exposer les conteneurs dans le cluster, nous devons également créer une liaison de port dans le fichier ApplicationManifest.xml. La stratégie **PortBinding** référence les **Endpoints** définis dans les fichiers **ServiceManifest.xml**. Les demandes entrantes vers ces points de terminaison sont mappées aux ports de conteneur qui sont ouverts et limités ici. Dans le fichier **ApplicationManifest.xml**, ajoutez le code suivant pour lier les ports 80 et 6379 aux points de terminaison. Un fichier **ApplicationManifest.xml** complet est disponible à la fin de ce document.
+Afin d’exposer les conteneurs dans le cluster, nous devons également créer une liaison de port dans le fichier ApplicationManifest.xml. La stratégie **PortBinding** référence les **Endpoints** définis dans les fichiers **ServiceManifest.xml** . Les demandes entrantes vers ces points de terminaison sont mappées aux ports de conteneur qui sont ouverts et limités ici. Dans le fichier **ApplicationManifest.xml** , ajoutez le code suivant pour lier les ports 80 et 6379 aux points de terminaison. Un fichier **ApplicationManifest.xml** complet est disponible à la fin de ce document.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -185,7 +185,7 @@ Afin d’exposer les conteneurs dans le cluster, nous devons également créer u
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Ajouter un nom DNS au service principal
 
-Pour que Service Fabric affecte ce nom DNS au service principal, le nom doit être spécifié dans le fichier **ApplicationManifest.xml**. Ajoutez l’attribut **ServiceDnsName** à l’élément **Service**, comme indiqué :
+Pour que Service Fabric affecte ce nom DNS au service principal, le nom doit être spécifié dans le fichier **ApplicationManifest.xml** . Ajoutez l’attribut **ServiceDnsName** à l’élément **Service** , comme indiqué :
 
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">

@@ -10,13 +10,13 @@ author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: e58e9271ad3b6161a1b2c72509ecc4045b75e1db
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999114"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741983"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 
@@ -41,7 +41,7 @@ Ce document est divisé en deux sections :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un groupe de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
+* Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -54,12 +54,12 @@ Les informations contenues dans cette section supposent que vous utilisez un reg
 
 * Allez-vous utiliser le registre Azure Container Registry créé pour l’espace de travail Azure Machine Learning ou un registre Azure Container Registry autonome ?
 
-    Quand vous utilisez des images stockées dans le __registre de conteneurs pour l’espace de travail__, vous n’avez pas besoin de vous authentifier auprès du registre. L’authentification est gérée par l’espace de travail.
+    Quand vous utilisez des images stockées dans le __registre de conteneurs pour l’espace de travail__ , vous n’avez pas besoin de vous authentifier auprès du registre. L’authentification est gérée par l’espace de travail.
 
     > [!WARNING]
     > Le registre Azure Container Registry pour votre espace de travail est __créé la première fois que vous entraînez ou déployez un modèle__ à l’aide de l’espace de travail. Si vous avez créé un espace de travail, mais sans entraîner ni créer un modèle, aucun registre Azure Container Registry n’existe pour l’espace de travail.
 
-    Quand vous utilisez des images stockées dans un __registre de conteneurs autonome__, vous devez configurer un principal de service qui a au moins un accès en lecture. Vous indiquez ensuite l’ID de principal de service (nom d’utilisateur) et le mot de passe à toute personne qui utilise des images du registre. Cela ne s’applique toutefois pas si vous définissez le registre de conteneurs comme étant accessible publiquement.
+    Quand vous utilisez des images stockées dans un __registre de conteneurs autonome__ , vous devez configurer un principal de service qui a au moins un accès en lecture. Vous indiquez ensuite l’ID de principal de service (nom d’utilisateur) et le mot de passe à toute personne qui utilise des images du registre. Cela ne s’applique toutefois pas si vous définissez le registre de conteneurs comme étant accessible publiquement.
 
     Pour plus d’informations sur la création d’un registre Azure Container Registry privé, consultez [Créer un registre de conteneurs privé](/azure/container-registry/container-registry-get-started-azure-cli).
 
@@ -197,14 +197,14 @@ Pour plus d’informations sur le chargement d’images existantes sur un regist
 
 Pour utiliser une image personnalisée, vous avez besoin des informations suivantes :
 
-* __Nom de l’image__. Par exemple, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` est le chemin d’accès à une image Docker simple fournie par Microsoft.
+* __Nom de l’image__ . Par exemple, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` est le chemin d’accès à une image Docker simple fournie par Microsoft.
 
     > [!IMPORTANT]
     > Pour les images personnalisées que vous avez créées, veillez à inclure toutes les étiquettes qui ont été utilisées avec l’image. Par exemple, si votre image a été créée avec une étiquette spécifique, telle que `:v1`. Si vous n’avez pas utilisé d’étiquette spécifique lors de la création de l’image, une étiquette `:latest` a été appliquée.
 
-* Si l’image se trouve dans un __dépôt privé__, vous avez besoin des informations suivantes :
+* Si l’image se trouve dans un __dépôt privé__ , vous avez besoin des informations suivantes :
 
-    * __Adresse du registre__. Par exemple : `myregistry.azureecr.io`.
+    * __Adresse du registre__ . Par exemple : `myregistry.azureecr.io`.
     * __Nom d’utilisateur__ et __mot de passe__ d’un principal de service qui a accès en lecture au registre.
 
     Si vous n’avez pas ces informations, contactez l’administrateur du registre Azure Container Registry qui contient votre image.
@@ -231,7 +231,7 @@ Pour en savoir plus, consultez le répertoire [Azure Machine Learning containers
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Utiliser une image avec le kit SDK Azure Machine Learning
 
-Pour utiliser une image stockée dans **Azure Container Registry pour votre espace de travail**, ou un **registre de conteneurs accessible publiquement**, définissez les attributs [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) suivants :
+Pour utiliser une image stockée dans **Azure Container Registry pour votre espace de travail** , ou un **registre de conteneurs accessible publiquement** , définissez les attributs [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) suivants :
 
 + `docker.enabled=True`
 + `docker.base_image`: Définissez le registre et le chemin de l’image.

@@ -3,13 +3,13 @@ title: Démarrage rapide - Envoyer des événements à Event Grid
 description: Dans ce guide de démarrage rapide, vous activez les événements Event Grid pour votre registre de conteneurs, puis vous envoyez des événements push et delete pour l’image de conteneur à un exemple d’application.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403227"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736855"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -23,11 +23,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-acco
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Les commandes CLI de cet article sont mises en forme pour le shell **Bash**. Si vous utilisez un autre shell, comme PowerShell ou l’invite de commandes, il peut être nécessaire d’ajuster en conséquence les caractères de continuation de ligne ou les lignes d’affectation des variables. Cet article utilise des variables pour réduire le nombre de modifications nécessaires des commandes.
+Les commandes CLI de cet article sont mises en forme pour le shell **Bash** . Si vous utilisez un autre shell, comme PowerShell ou l’invite de commandes, il peut être nécessaire d’ajuster en conséquence les caractères de continuation de ligne ou les lignes d’affectation des variables. Cet article utilise des variables pour réduire le nombre de modifications nécessaires des commandes.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un conteneur logique dans lequel vous déployez et vous gérez vos ressources Azure. La commande [az group create][az-group-create] suivante crée un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Si vous voulez utiliser un autre nom pour votre groupe de ressources, définissez `RESOURCE_GROUP_NAME` sur une autre valeur.
+Un groupe de ressources Azure est un conteneur logique dans lequel vous déployez et vous gérez vos ressources Azure. La commande [az group create][az-group-create] suivante crée un groupe de ressources nommé *myResourceGroup* dans la région *eastus* . Si vous voulez utiliser un autre nom pour votre groupe de ressources, définissez `RESOURCE_GROUP_NAME` sur une autre valeur.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup

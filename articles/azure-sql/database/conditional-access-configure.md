@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba0c53b9d0b9791364f532d999d86c74fa21177
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443988"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678071"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Accès conditionnel avec Azure SQL Database et Azure Synapse Analytics
 
@@ -37,26 +37,26 @@ Les étapes suivantes montrent comment configurer Azure SQL Database, Azure SQL 
 > [!NOTE]
 > L’exemple ci-dessous utilise Azure SQL Database, mais vous devez sélectionner le produit dans lequel vous souhaitez configurer l’accès conditionnel.
 
-1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory**, puis **Accès conditionnel**. Pour plus d’informations, consultez [Référence technique de l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory** , puis **Accès conditionnel** . Pour plus d’informations, consultez [Référence technique de l’accès conditionnel Azure Active Directory](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Panneau d’accès conditionnel](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. Dans le panneau des **stratégies d’accès conditionnel**, cliquez sur **Nouvelle stratégie**, fournissez un nom, puis cliquez sur **Configure rules** (Configurer les règles).  
-3. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**, cochez **Sélectionner des utilisateurs et des groupes**, puis sélectionnez l’utilisateur ou le groupe pour l’accès conditionnel. Cliquez sur **Sélectionner**, puis sur **Terminé** pour valider la sélection.  
+2. Dans le panneau des **stratégies d’accès conditionnel** , cliquez sur **Nouvelle stratégie** , fournissez un nom, puis cliquez sur **Configure rules** (Configurer les règles).  
+3. Sous **Affectations** , sélectionnez **Utilisateurs et groupes** , cochez **Sélectionner des utilisateurs et des groupes** , puis sélectionnez l’utilisateur ou le groupe pour l’accès conditionnel. Cliquez sur **Sélectionner** , puis sur **Terminé** pour valider la sélection.  
    ![sélectionner des utilisateurs et des groupes](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Sélectionnez **Applications cloud**, puis cliquez sur **Sélectionner des applications**. Vous voyez toutes les applications disponibles pour l’accès conditionnel. Sélectionnez **Azure SQL Database**, cliquez en bas sur **Sélectionner**, puis sur **Terminé**.  
+4. Sélectionnez **Applications cloud** , puis cliquez sur **Sélectionner des applications** . Vous voyez toutes les applications disponibles pour l’accès conditionnel. Sélectionnez **Azure SQL Database** , cliquez en bas sur **Sélectionner** , puis sur **Terminé** .  
    ![sélectionner SQL Database](./media/conditional-access-configure/select-sql-database.png)  
    Si vous ne trouvez pas **Azure SQL Database** répertorié dans la troisième capture d’écran ci-dessous, effectuez les étapes suivantes :
    - Connectez-vous à votre base de données dans Azure SQL Database à l’aide de SSMS et d’un compte administrateur Azure AD.  
    - Exécutez `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Connectez-vous à Azure AD et vérifiez qu’Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse sont répertoriés dans les applications de votre instance Azure AD.  
 
-5. Sélectionnez **Contrôles d’accès**, **Accorder**, puis cochez la stratégie que vous souhaitez appliquer. Pour cet exemple, nous sélectionnons **Imposer l’authentification multifacteur**.  
+5. Sélectionnez **Contrôles d’accès** , **Accorder** , puis cochez la stratégie que vous souhaitez appliquer. Pour cet exemple, nous sélectionnons **Imposer l’authentification multifacteur** .  
    ![sélectionner Accorder l’accès](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Résumé
 
-L’application sélectionnée (Azure SQL Database) à l’aide d’Azure AD Premium applique maintenant la stratégie d’accès conditionnel sélectionnée **Imposer l’authentification multifacteur**.
+L’application sélectionnée (Azure SQL Database) à l’aide d’Azure AD Premium applique maintenant la stratégie d’accès conditionnel sélectionnée **Imposer l’authentification multifacteur** .
 
 Pour toute question sur Azure SQL Database et Azure Synapse concernant l’authentification multifacteur, contactez <MFAforSQLDB@microsoft.com>.  
 

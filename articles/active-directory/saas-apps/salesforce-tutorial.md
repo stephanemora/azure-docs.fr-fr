@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 6d653594cce20439a6e1214f104d875ec76bf1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625058b131ef5cb6180873806185a3202a766118
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979859"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675572"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Salesforce
 
@@ -50,15 +50,15 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer l’intégration de Salesforce avec Azure AD, vous devez ajouter Salesforce à partir de la galerie à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Salesforce** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
+1. Dans la section **Ajouter à partir de la galerie** , tapez **Salesforce** dans la zone de recherche.
 1. Sélectionnez **Salesforce** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso-for-salesforce"></a>Configurer et tester l’authentification unique Azure AD pour Salesforce
 
-Configurez et testez l’authentification unique Azure AD avec Salesforce pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Salesforce associé.
+Configurez et testez l’authentification unique Azure AD avec Salesforce pour un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Salesforce associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Salesforce, effectuez les étapes suivantes :
 
@@ -73,27 +73,27 @@ Pour configurer et tester l’authentification unique Azure AD avec Salesforce,
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **Salesforce**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Salesforce** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
+1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant :
+    a. Dans la zone de texte **URL de connexion** , tapez la valeur au format suivant :
 
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
     Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
     
-    b. Dans la zone de texte **URL de réponse**, tapez la valeur au format suivant :
+    b. Dans la zone de texte **URL de réponse** , tapez la valeur au format suivant :
 
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
     Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    c. Dans la zone de texte **Identificateur**, entrez la valeur au format suivant :
+    c. Dans la zone de texte **Identificateur** , entrez la valeur au format suivant :
 
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
@@ -102,11 +102,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Salesforce](https://help.salesforce.com/support).
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Configurer Salesforce**, copiez la ou les URL appropriées, en fonction de vos besoins.
+1. Dans la section **Configurer Salesforce** , copiez la ou les URL appropriées, en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -114,29 +114,29 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
+   1. Cliquez sur **Créer** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Salesforce.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Salesforce**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **Salesforce** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
 
 ## <a name="configure-salesforce-sso"></a>Configurer l’authentification unique Salesforce
 
-1. Pour automatiser la configuration dans Salesforce, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+1. Pour automatiser la configuration dans Salesforce, vous devez installer l’ **extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension** .
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
@@ -150,47 +150,47 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
     ![Configurer l’authentification unique – Icône des paramètres](./media/salesforce-tutorial/configure1.png)
 
-1. Dans le volet de navigation, accédez à **SETTINGS** et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
+1. Dans le volet de navigation, accédez à **SETTINGS** et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique** .
 
     ![Configurer l’authentification unique – Paramètres](./media/salesforce-tutorial/sf-admin-sso.png)
 
-1. Sur la page **Paramètres de l’authentification unique**, cliquez sur le bouton **Modifier**.
+1. Sur la page **Paramètres de l’authentification unique** , cliquez sur le bouton **Modifier** .
 
     ![Configurer l’authentification unique – Modifier](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Si vous ne pouvez pas activer les paramètres de l’authentification unique pour votre compte Salesforce, il vous faudra peut-être contacter [l’équipe du support technique de Salesforce](https://help.salesforce.com/support).
 
-1. Sélectionnez **SAML activé**, puis cliquez sur **Enregistrer**.
+1. Sélectionnez **SAML activé** , puis cliquez sur **Enregistrer** .
 
     ![Configurer l’authentification unique – SAML activé](./media/salesforce-tutorial/sf-enable-saml.png)
 
-1. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées**.
+1. Pour configurer vos paramètres d’authentification unique SAML, cliquez sur **Nouveau à partir d’un fichier de métadonnées** .
 
     ![Configurer l’authentification unique – Nouveau à partir d’un fichier de métadonnées](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-1. Cliquez sur **Sélectionner le fichier** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du Portail Azure, puis cliquez sur **Créer**.
+1. Cliquez sur **Sélectionner le fichier** pour charger le fichier XML de métadonnées que vous avez téléchargé à partir du Portail Azure, puis cliquez sur **Créer** .
 
     ![Configurer l’authentification unique – Sélectionner le fichier](./media/salesforce-tutorial/xmlchoose.png)
 
-1. Dans la page **Paramètres d’authentification unique SAML**, les champs sont renseignés automatiquement. Sélectionnez **User Provisioning Enabled** (Attribution d’utilisateurs activée), puis cliquez sur **Enregistrer**.
+1. Dans la page **Paramètres d’authentification unique SAML** , les champs sont renseignés automatiquement. Sélectionnez **User Provisioning Enabled** (Attribution d’utilisateurs activée), puis cliquez sur **Enregistrer** .
 
     ![Configurer l’authentification unique – Provisionnement d’utilisateurs activé](./media/salesforce-tutorial/salesforcexml.png)
 
-1. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain**.
+1. Dans le volet de navigation de gauche de Salesforce, cliquez sur **Company Settings** pour développer la section associée, puis cliquez sur **My Domain** .
 
     ![Configurer l’authentification unique – My domain](./media/salesforce-tutorial/sf-my-domain.png)
 
-1. Faites défiler le contenu de la fenêtre jusqu’à la section **Configuration de l’authentification**, puis cliquez sur le bouton **Modifier**.
+1. Faites défiler le contenu de la fenêtre jusqu’à la section **Configuration de l’authentification** , puis cliquez sur le bouton **Modifier** .
 
     ![Configurer l’authentification unique – Configuration de l’authentification](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-1. Dans la section **Configuration de l’authentification**, cochez **AzureSSO** comme **Service d’authentification** de votre configuration SSO SAML, puis cliquez sur **Enregistrer**.
+1. Dans la section **Configuration de l’authentification** , cochez **AzureSSO** comme **Service d’authentification** de votre configuration SSO SAML, puis cliquez sur **Enregistrer** .
 
     ![Configurer l’authentification unique – Service d’authentification](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
-    > Si plusieurs services d’authentification sont sélectionnés, les utilisateurs sont invités à choisir le service d’authentification qu’ils préfèrent utiliser pour se connecter lors de l’initialisation d’une authentification unique sur votre environnement Salesforce. Si vous ne voulez pas que cela se produise, vous devez **décocher toutes les cases en regard des autres services d’authentification**.
+    > Si plusieurs services d’authentification sont sélectionnés, les utilisateurs sont invités à choisir le service d’authentification qu’ils préfèrent utiliser pour se connecter lors de l’initialisation d’une authentification unique sur votre environnement Salesforce. Si vous ne voulez pas que cela se produise, vous devez **décocher toutes les cases en regard des autres services d’authentification** .
 
 ### <a name="create-salesforce-test-user"></a>Créer un utilisateur de test Salesforce
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion Salesforce pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Salesforce dans le volet d’accès doit vous connecter automatiquement à l’instance de Salesforce pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Salesforce dans le volet d’accès doit vous connecter automatiquement à l’instance de Salesforce pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Tester l’authentification unique pour Salesforce (Mobile)
 
@@ -230,4 +230,4 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Salesforce, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Après avoir configuré Salesforce, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

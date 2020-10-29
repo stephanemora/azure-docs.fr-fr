@@ -3,13 +3,13 @@ title: Déployer une application Java sur un cluster Service Fabric dans Azure
 description: Dans ce didacticiel, vous allez apprendre à déployer une application Java Service Fabric sur un cluster Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738901"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutoriel : Déployer une application Java sur un cluster Service Fabric dans Azure
 
@@ -61,7 +61,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. À partir du dossier *service-fabric-java-quickstart/AzureCluster*, exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster.
+4. À partir du dossier *service-fabric-java-quickstart/AzureCluster* , exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -176,8 +176,8 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     }
     ```
 
-13. Ouvrez **sfdeploy.parameters.json**. Modifiez les paramètres suivants puis enregistrez le fichier.
-    - **clusterName**. Utilisez uniquement des lettres minuscules et des chiffres.
+13. Ouvrez **sfdeploy.parameters.json** . Modifiez les paramètres suivants puis enregistrez le fichier.
+    - **clusterName** . Utilisez uniquement des lettres minuscules et des chiffres.
     - **adminUserName** (pour une valeur autre que vide)
     - **adminPassword** (pour une valeur autre que vide)
 
@@ -189,7 +189,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Déployer votre application sur le cluster
 
-1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml*. Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure**. Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine).
+1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml* . Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure** . Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh**.
+4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh** .
 
     ```bash
     ./install.sh

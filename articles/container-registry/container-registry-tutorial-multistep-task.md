@@ -3,13 +3,13 @@ title: Tutoriel - Tâche ACR à plusieurs étapes
 description: Dans ce tutoriel, vous allez découvrir comment configurer une tâche Azure Container Registry Task pour déclencher automatiquement un workflow à plusieurs étapes afin de créer, exécuter et envoyer (push) des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402307"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739598"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutoriel : exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source
 
@@ -316,7 +316,7 @@ Cette tâche à plusieurs étapes effectue ce qui suit :
 
 ### <a name="task-command"></a>Commande de la tâche
 
-En utilisant les variables d’environnement shell définies précédemment, créez la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante. Remplacez le nom de votre registre par *mycontainerregistrydate*.
+En utilisant les variables d’environnement shell définies précédemment, créez la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante. Remplacez le nom de votre registre par *mycontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \
@@ -332,7 +332,7 @@ az acr task create \
 
 Pour envoyer (push) les images dans le registre identifié par la valeur `regDate`, utilisez la commande [az acr task credential add][az-acr-task-credential-add] afin d’ajouter les informations d’identification de ce registre à la tâche.
 
-Pour cet exemple, nous vous recommandons de créer un [principal de service](container-registry-auth-service-principal.md) avec accès au registre limité au rôle *AcrPush*. Pour créer le principal de service, consultez ce [script Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Pour cet exemple, nous vous recommandons de créer un [principal de service](container-registry-auth-service-principal.md) avec accès au registre limité au rôle *AcrPush* . Pour créer le principal de service, consultez ce [script Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
 Transmettez l’ID d’application du principal de service et le mot de passe dans la commande `az acr task credential add` suivante :
 
