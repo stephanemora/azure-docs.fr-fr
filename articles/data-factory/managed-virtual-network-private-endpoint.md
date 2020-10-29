@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635777"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -55,7 +55,7 @@ Azure Data Factory prend en charge les liaisons privées. Une liaison privée vo
 
 Quand vous utilisez une liaison privée, le trafic entre vos magasins de données et le réseau virtuel managé transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
-Le point de terminaison privé utilise une adresse IP privée sur le réseau virtuel managé pour y placer de fait le service. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
+Le point de terminaison privé utilise une adresse IP privée sur le réseau virtuel managé pour y placer de fait le service. Les points de terminaison privés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](../private-link/index.yml).
 
 > [!NOTE]
 > Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure. 
@@ -94,14 +94,16 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - USA Est
 - USA Est 2
 - Centre-USA Ouest
+- USA Ouest
 - USA Ouest 2
-- USA Centre Sud
+- États-Unis - partie centrale méridionale
 - USA Centre
 - Europe Nord
 - Europe Ouest
 - Sud du Royaume-Uni
 - Asie Sud-Est
 - Australie Est
+- Sud-Australie Est
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Communications sortantes via un point de terminaison public à partir du réseau virtuel managé ADF
 - Seul le port 443 est ouvert pour les communications sortantes.

@@ -11,18 +11,18 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dc6cd580687544226b61a29ca9ccf2d1b8dff42
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328187"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671539"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exporter vers un fichier BACPAC - Azure SQL Database et SQL Managed Instance
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Si vous avez besoin d’exporter une base de données afin de l’archiver ou de la déplacer vers une autre plateforme, vous pouvez exporter le schéma et les données de cette base de données vers un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un fichier BACPAC est un fichier ZIP avec extension BACPAC contenant les métadonnées et les données de la base de données. Il peut être stocké dans Stockage Blob Azure ou dans un stockage local, à un emplacement local, puis réimporté vers Azure SQL Database, Azure SQL Managed Instance ou une instance de SQL Server.
+Si vous avez besoin d’exporter une base de données afin de l’archiver ou de la déplacer vers une autre plateforme, vous pouvez exporter le schéma et les données de cette base de données vers un fichier [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#Anchor_4). Un fichier BACPAC est un fichier ZIP avec extension BACPAC contenant les métadonnées et les données de la base de données. Il peut être stocké dans Stockage Blob Azure ou dans un stockage local, à un emplacement local, puis réimporté vers Azure SQL Database, Azure SQL Managed Instance ou une instance de SQL Server.
 
 ## <a name="considerations"></a>Considérations
 
@@ -34,7 +34,7 @@ Si vous avez besoin d’exporter une base de données afin de l’archiver ou de
 
   - Augmentez temporairement votre taille de calcul.
   - Interrompez toutes les activités de lecture et d’écriture lors de l’exportation.
-  - Utilisez un [index cluster](https://msdn.microsoft.com/library/ms190457.aspx) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW_STATISTICS** et à vérifier que *RANGE_HI_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+  - Utilisez un [index cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) avec des valeurs non nulles sur toutes les tables de grande taille. Sans index cluster, une exportation peut échouer si elle dure plus de 6 à 12 heures. Cela est dû au fait que les services d’exportation doivent effectuer une analyse complète de la table pour tenter de l’exporter en entier. Une bonne méthode pour déterminer si vos tables sont optimisées pour l’exportation consiste à exécuter **DBCC SHOW_STATISTICS** et à vérifier que *RANGE_HI_KEY* n’est pas nul et que sa valeur a une bonne distribution. Pour plus d’informations, consultez [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql).
 
 > [!NOTE]
 > Les BACPAC ne sont pas conçus pour être utilisés pour les opérations de sauvegarde et de restauration. Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur. Pour plus d’informations, consultez [Vue d’ensemble de la continuité de l’activité avec la base de données SQL Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md) et [Découvrir les sauvegardes SQL Database](automated-backups-overview.md).
@@ -62,9 +62,9 @@ L'exportation d'un fichier BACPAC de base de données à partir d'une instance d
 
 ## <a name="sqlpackage-utility"></a>Utilitaire SQLPackage
 
-Pour exporter une base de données SQL Database à l’aide de l’utilitaire de ligne de commande [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), consultez [Paramètres et propriétés d’exportation](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). L’utilitaire SQLPackage est fourni avec les dernières versions de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) et de [SQL Server Data Tools pour Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Vous pouvez également télécharger la dernière version de [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directement à partir du Centre de téléchargement Microsoft.
+Pour exporter une base de données SQL Database à l’aide de l’utilitaire de ligne de commande [SqlPackage](/sql/tools/sqlpackage), consultez [Paramètres et propriétés d’exportation](/sql/tools/sqlpackage#export-parameters-and-properties). L’utilitaire SQLPackage est fourni avec les dernières versions de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools pour Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). Vous pouvez également télécharger la dernière version de [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directement à partir du Centre de téléchargement Microsoft.
 
-Nous recommandons l’utilisation de l’utilitaire SQLPackage afin de bénéficier de l’évolutivité et des performances dans la plupart des environnements de production. Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+Nous recommandons l’utilisation de l’utilitaire SQLPackage afin de bénéficier de l’évolutivité et des performances dans la plupart des environnements de production. Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 Cet exemple montre comment exporter une base de données à l’aide de SqlPackage.exe avec l’authentification Active Directory universelle :
 
@@ -74,7 +74,7 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Les dernières versions de SQL Server Management Studio incluent un assistant permettant d'exporter une base de données Azure SQL Database ou SQL Managed Instance vers un fichier BACPAC. Consultez [Exporter une application de la couche Données](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+Les dernières versions de SQL Server Management Studio incluent un assistant permettant d'exporter une base de données Azure SQL Database ou SQL Managed Instance vers un fichier BACPAC. Consultez [Exporter une application de la couche Données](/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,10 +106,10 @@ $exportStatus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la conservation des copies de sauvegarde à long terme des bases de données uniques et des bases de données mises en pool comme alternative à l’exportation d’une base de données à des fins d’archivage, consultez [Conservation à long terme](long-term-retention-overview.md). Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la rétention des sauvegardes à long terme.
-- Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPAC dans une base de données SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
-- Pour en savoir plus sur l’exportation d’un fichier BACPAC à partir d’une base de données SQL Server, consultez [Exporter une application de la couche Données](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+- Pour en savoir plus sur la conservation des copies de sauvegarde à long terme des bases de données uniques et des bases de données mises en pool comme alternative à l’exportation d’une base de données à des fins d’archivage, consultez [Conservation à long terme](long-term-retention-overview.md). Vous pouvez utiliser des travaux SQL Agent pour planifier des [sauvegardes de base de données en copie seule](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) comme alternative à la rétention des sauvegardes à long terme.
+- Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
+- Pour en savoir plus sur l’importation d’un fichier BACPAC dans une base de données SQL Server, consultez [Importer un fichier BACPAC dans une base de données SQL Server](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database).
+- Pour en savoir plus sur l’exportation d’un fichier BACPAC à partir d’une base de données SQL Server, consultez [Exporter une application de la couche Données](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Pour en savoir plus sur l’utilisation du service de migration de données afin de migrer une base de données, consultez [Migrer depuis SQL Server vers Azure SQL Database hors connexion à l’aide de DMS](../../dms/tutorial-sql-server-to-azure-sql.md).
 - Si vous exportez depuis SQL Server avant de procéder à la migration vers Azure SQL Database, consultez [Migrer une base de données SQL Server vers Azure SQL Database](migrate-to-database-from-sql-server.md).
-- Pour savoir comment gérer et partager de façon sécurisée les clés de stockage et les signatures d’accès partagé, consultez le [Guide de sécurité de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- Pour savoir comment gérer et partager de façon sécurisée les clés de stockage et les signatures d’accès partagé, consultez le [Guide de sécurité de Stockage Azure](../../storage/blobs/security-recommendations.md).

@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761841c1f2146a33b35cdddc4adc4d3eb1a4b139
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195710"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635284"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géoréplication et le basculement SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "84195710"
 
 Cet article explique comment configurer Azure-SSIS Integration Runtime avec la géoréplication Azure SQL Database pour la base de données SSISDB. Lorsqu’un basculement se produit, vous pouvez garantir le bon fonctionnement d’Azure-SSIS Integration Runtime avec la base de données secondaire.
 
-Pour plus d’informations sur la géoréplication et le basculement de SQL Database, consultez [Vue d’ensemble : géoréplication active et groupes de basculement automatique](../sql-database/sql-database-geo-replication-overview.md).
+Pour plus d’informations sur la géoréplication et le basculement de SQL Database, consultez [Vue d’ensemble : géoréplication active et groupes de basculement automatique](../azure-sql/database/auto-failover-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

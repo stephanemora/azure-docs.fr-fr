@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ca13ef3c6fa5bbd40ee239c50a023beee85a977
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334291"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637171"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Suivez cet article lorsque vous souhaitez **analyser les fichiers XML**. 
+Suivez cet article lorsque vous souhaitez **analyser les fichiers XML** . 
 
 Le format XML est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md). Il est pris en charge en tant que source, mais pas en tant que récepteur.
 
@@ -30,13 +30,13 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La propriété type du jeu de données doit être définie sur **Xml**. | Oui      |
-| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | Oui      |
+| type             | La propriété type du jeu de données doit être définie sur **Xml** . | Oui      |
+| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données** . | Oui      |
 | encodingName     | Le type de codage utilisé pour lire/écrire des fichiers de test. <br>Les valeurs autorisées sont les suivantes : « UTF-8 », « UTF-16 », « UTF-16BE », « UTF-32 », « UTF-32BE », « US-ASCII », « UTF-7 », « BIG5 », « EUC-JP », « EUC-KR », « GB2312 », « GB18030 », « JOHAB », « SHIFT-JIS », « CP875 », « CP866 », « IBM00858 », « IBM037 », « IBM273 », « IBM437 », « IBM500 », « IBM737 », « IBM775 », « IBM850 », « IBM852 », « IBM855 », « IBM857 », « IBM860 », « IBM861 », « IBM863 », « IBM864 », « IBM865 », « IBM869 », « IBM870 », « IBM01140 », « IBM01141 », « IBM01142 », « IBM01143 », « IBM01144 », « IBM01145 », « IBM01146 », « IBM01147 », « IBM01148 », « IBM01149 », « ISO-2022-JP », « ISO-2022-KR », « ISO-8859-1 », « ISO-8859-2 », « ISO-8859-3 », « ISO-8859-4 », « ISO-8859-5 », « ISO-8859-6 », « ISO-8859-7 », « ISO-8859-8 », « ISO-8859-9 », « ISO-8859-13 », « ISO-8859-15 », « WINDOWS-874 », « WINDOWS-1250 », « WINDOWS-1251 », « WINDOWS-1252 », « WINDOWS-1253 », » WINDOWS-1254 », « WINDOWS-1255 », « WINDOWS-1256 », « WINDOWS-1257 », « WINDOWS-1258 ».| Non       |
-| nullValue | Spécifie la représentation sous forme de chaîne de la valeur null.<br/>La valeur par défaut est une **chaîne vide**. | Non |
+| nullValue | Spécifie la représentation sous forme de chaîne de la valeur null.<br/>La valeur par défaut est une **chaîne vide** . | Non |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
-| type<br>(*sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers XML. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy** et **lz4**. La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Notez** que lors de l’utilisation de l’activité de copie pour décompresser des fichiers **ZipDeflate**/**TarGzip** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source compressed file>/`, utilisez `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` sur [source de l’activité de copie](#xml-as-source) pour déterminer si le nom du fichier compressé doit être conservé comme structure de dossier. | Non.  |
-| level<br/>(*sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
+| type<br>( *sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers XML. <br>Les valeurs autorisées sont **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** et **lz4** . La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Notez** que lors de l’utilisation de l’activité de copie pour décompresser des fichiers **ZipDeflate**/**TarGzip** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source compressed file>/`, utilisez `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` sur [source de l’activité de copie](#xml-as-source) pour déterminer si le nom du fichier compressé doit être conservé comme structure de dossier. | Non.  |
+| level<br/>( *sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest** .<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal**  : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](/dotnet/api/system.io.compression.compressionlevel) . | Non       |
 
 Voici un exemple de jeu de données XML sur Stockage Blob Azure :
 
@@ -71,26 +71,26 @@ Découvrez comment mapper des données XML et le magasin/format de données réc
 
 ### <a name="xml-as-source"></a>XML en tant que source
 
-Les propriétés prises en charge dans la section ***\*source\**** de l’activité de copie sont les suivantes. Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior).
+Les propriétés prises en charge dans la section **_\_source\*** * de l’activité de copie sont les suivantes. Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior).
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propriété type de la source de l’activité de copie doit être définie sur **XmlSource**. | Oui      |
+| type          | La propriété type de la source de l’activité de copie doit être définie sur **XmlSource** . | Oui      |
 | formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres de lecture XML** ci-dessous. | Non       |
-| storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
+| storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie** . | Non       |
 
 **Paramètres de lecture XML** pris en charge sous `formatSettings` :
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Le type de formatSettings doit être défini sur **XmlReadSettings**. | Oui      |
+| type          | Le type de formatSettings doit être défini sur **XmlReadSettings** . | Oui      |
 | validationMode | Spécifie s’il faut valider le schéma XML.<br>Les valeurs autorisées sont **none** (aucun) (valeur par défaut, pas de validation), **xsd** (validation avec XSD), **dtd** (validation avec DTD). | Non |
-| espaces de noms | Indique s’il faut activer l’espace de noms lors de l’analyse des fichiers XML. Valeurs autorisées : **true** (par défaut) et **false**. | Non |
+| espaces de noms | Indique s’il faut activer l’espace de noms lors de l’analyse des fichiers XML. Valeurs autorisées : **true** (par défaut) et **false** . | Non |
 | namespacePrefixes | Mappage URI d’espace de noms à préfixe utilisé pour nommer les champs lors de l’analyse du fichier xml.<br/>Si un fichier XML a un espace de noms et que celui-ci est activé, par défaut, le nom du champ est le même que dans le document XML.<br>Si un élément est défini pour l’URI d’espace de noms dans ce mappage, le nom du champ est `prefix:fieldName`. | Non |
-| detectDataType | Indique s’il faut détecter les types de données entier, double et booléen. Valeurs autorisées : **true** (par défaut) et **false**.| Non |
+| detectDataType | Indique s’il faut détecter les types de données entier, double et booléen. Valeurs autorisées : **true** (par défaut) et **false** .| Non |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
-| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* )  | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
-| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **TarGzip**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
+| preserveZipFileNameAsFolder<br>( *sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* )  | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate** . Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false** , Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
+| preserveCompressionFileNameAsFolder<br>( *sous `compressionProperties`->`type` en tant que `TarGZipReadSettings`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **TarGzip** . Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false** , Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
@@ -98,7 +98,7 @@ Dans les flux de données de mappage, vous pouvez lire et écrire des données a
 
 ### <a name="source-properties"></a>Propriétés de source
 
-Le tableau ci-dessous liste les propriétés prises en charge par une source XML. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**. Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior). Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties). 
+Le tableau ci-dessous liste les propriétés prises en charge par une source XML. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source** . Pour plus d’informations, consultez [Comportement du connecteur XML](#xml-connector-behavior). Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres de fichier supplémentaires qui sont les mêmes que les propriétés décrites dans la section des [propriétés du jeu de données](#dataset-properties). 
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666978"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636933"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l�
 > L’application de surveillance et gestion favorise la surveillance et la gestion de vos pipelines de données, ainsi que la résolution des problèmes. Pour en savoir plus sur l’utilisation de l’application, consultez [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory version 1 utilise maintenant la nouvelle [infrastructure d’alertes Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). L’ancienne infrastructure d’alertes est déconseillée. Par conséquent, vos alertes existantes configurées pour les fabriques de données version 1 ne fonctionnent plus. Vos alertes existantes pour les fabriques de données v1 ne sont pas migrées automatiquement. Vous devez recréer ces alertes sur la nouvelle infrastructure d’alertes. Connectez-vous au portail et sélectionnez **Surveiller** pour créer des alertes sur les métriques (par exemple les exécutions qui ont échoué ou réussi) pour vos fabriques de données version 1.
+> Azure Data Factory version 1 utilise maintenant la nouvelle [infrastructure d’alertes Azure Monitor](../../azure-monitor/platform/alerts-metric.md). L’ancienne infrastructure d’alertes est déconseillée. Par conséquent, vos alertes existantes configurées pour les fabriques de données version 1 ne fonctionnent plus. Vos alertes existantes pour les fabriques de données v1 ne sont pas migrées automatiquement. Vous devez recréer ces alertes sur la nouvelle infrastructure d’alertes. Connectez-vous au portail et sélectionnez **Surveiller** pour créer des alertes sur les métriques (par exemple les exécutions qui ont échoué ou réussi) pour vos fabriques de données version 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,10 +47,10 @@ Cette section décrit également comment une tranche de jeu de données passe d�
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >** , puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
+2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >** , puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE** .
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-3. Dans le panneau **Fabriques de données**, sélectionnez la fabrique de données qui vous intéresse.
+3. Dans le panneau **Fabriques de données** , sélectionnez la fabrique de données qui vous intéresse.
 
     ![Sélectionner une fabrique de données](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
@@ -79,7 +79,7 @@ Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom po
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Afficher l’état de chaque activité à l’intérieur d’un pipeline
 Vous pouvez afficher l’état actuel d’une activité en consultant l’état de l’un des jeux de données générés par l’activité.
 
-En double-cliquant sur **OutputBlobTable** dans le **Diagramme**, vous pouvez voir toutes les tranches produites par les différentes exécutions de l’activité à l’intérieur d’un pipeline. Vous pouvez voir que l’activité de copie a été exécutée correctement au cours des huit dernières heures et qu’elle a produit les tranches dont l’état est **Prêt**.  
+En double-cliquant sur **OutputBlobTable** dans le **Diagramme** , vous pouvez voir toutes les tranches produites par les différentes exécutions de l’activité à l’intérieur d’un pipeline. Vous pouvez voir que l’activité de copie a été exécutée correctement au cours des huit dernières heures et qu’elle a produit les tranches dont l’état est **Prêt** .  
 
 ![État du pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -144,15 +144,15 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 
 
-Vous pouvez afficher les détails relatifs à une tranche en cliquant sur une entrée de tranche dans le panneau **Tranches mises à jour récemment**.
+Vous pouvez afficher les détails relatifs à une tranche en cliquant sur une entrée de tranche dans le panneau **Tranches mises à jour récemment** .
 
 ![Détails de la tranche](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-Si la tranche a été exécutée plusieurs fois, plusieurs lignes s’affichent dans la liste **Exécutions d’activité** . Vous pouvez afficher des détails sur une exécution d’activité en cliquant sur l’entrée d’exécution dans la liste **Exécutions de l’activité**. Tous les fichiers journaux, ainsi que le message d’erreur associé, le cas échéant, s’affichent. Cette fonctionnalité est utile et pour cause. Vous visualisez et déboguez les journaux d’activité sans le souci de quitter votre fabrique de données.
+Si la tranche a été exécutée plusieurs fois, plusieurs lignes s’affichent dans la liste **Exécutions d’activité** . Vous pouvez afficher des détails sur une exécution d’activité en cliquant sur l’entrée d’exécution dans la liste **Exécutions de l’activité** . Tous les fichiers journaux, ainsi que le message d’erreur associé, le cas échéant, s’affichent. Cette fonctionnalité est utile et pour cause. Vous visualisez et déboguez les journaux d’activité sans le souci de quitter votre fabrique de données.
 
 ![Détails de l'exécution d'activité](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**. Cette fonctionnalité est utile lorsque votre tranche présente l’état **En attente** et que vous voulez connaître les dépendances en amont à l’origine de cette attente.
+Si la tranche n’a pas l’état **Prêt** , vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes** . Cette fonctionnalité est utile lorsque votre tranche présente l’état **En attente** et que vous voulez connaître les dépendances en amont à l’origine de cette attente.
 
 ![Tranches en amont qui ne sont pas prêtes](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -163,9 +163,9 @@ Quand vous avez déployé une fabrique de données et que la période d’activa
 
 Le flux de transition d’état de l’ensemble de données est le suivant dans la fabrique de données : En attente -> En cours/en cours (validation) -> Prêt/Échec.
 
-Au départ, la tranche a l’état **En attente**, en attente des conditions requises à respecter avant l’exécution. Ensuite, l’exécution de l’activité commence, et la tranche passe à l’état **En cours**. L’exécution de l’activité peut réussir ou échouer. Selon le résultat de l’exécution, l’état de la tranche est **Prête** ou **Échec**.
+Au départ, la tranche a l’état **En attente** , en attente des conditions requises à respecter avant l’exécution. Ensuite, l’exécution de l’activité commence, et la tranche passe à l’état **En cours** . L’exécution de l’activité peut réussir ou échouer. Selon le résultat de l’exécution, l’état de la tranche est **Prête** ou **Échec** .
 
-Vous pouvez réinitialiser la tranche pour revenir de l’état **Prête** ou **Échec** à l’état **En attente**. Vous pouvez également définir l’état de la tranche sur **Ignorer** pour empêcher l’exécution de l’activité et ne pas traiter la tranche.
+Vous pouvez réinitialiser la tranche pour revenir de l’état **Prête** ou **Échec** à l’état **En attente** . Vous pouvez également définir l’état de la tranche sur **Ignorer** pour empêcher l’exécution de l’activité et ne pas traiter la tranche.
 
 ## <a name="pause-and-resume-pipelines"></a>Suspension et reprise des pipelines
 Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, vous pouvez suspendre et reprendre les pipelines en exécutant les applets de commande Azure PowerShell. 
@@ -173,7 +173,7 @@ Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, 
 > [!NOTE] 
 > La vue schématique ne prend pas en charge la suspension et la reprise des pipelines. Si vous souhaitez utiliser une interface utilisateur, utilisez l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
-Vous pouvez suspendre l’exécution des pipelines à l’aide de la cmdlet PowerShell **Suspend-AzDataFactoryPipeline**. Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu. 
+Vous pouvez suspendre l’exécution des pipelines à l’aide de la cmdlet PowerShell **Suspend-AzDataFactoryPipeline** . Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -205,19 +205,19 @@ Azure Data Factory offre des fonctionnalités exceptionnelles pour déboguer e
 En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de données généré par celui-ci est alors en état d’erreur. Vous pouvez déboguer et corriger les erreurs dans Azure Data Factory à l’aide des méthodes suivantes.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Utiliser le portail Azure pour déboguer une erreur
-1. Dans le panneau **Table**, cliquez sur la tranche qui pose problème, dont **l’état** est défini sur **Échec**.
+1. Dans le panneau **Table** , cliquez sur la tranche qui pose problème, dont **l’état** est défini sur **Échec** .
 
    ![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. Dans le panneau **Tranche de données**, cliquez sur l’exécution d’activité qui a échoué.
+2. Dans le panneau **Tranche de données** , cliquez sur l’exécution d’activité qui a échoué.
 
    ![Tranche de données avec une erreur](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. Dans le panneau **Détails sur l’exécution d’activité**, vous pouvez télécharger les fichiers associés au traitement HDInsight. Cliquez sur **Télécharger** pour que Status/stderr télécharge le fichier journal d’erreur qui contient les détails sur l’erreur.
+3. Dans le panneau **Détails sur l’exécution d’activité** , vous pouvez télécharger les fichiers associés au traitement HDInsight. Cliquez sur **Télécharger** pour que Status/stderr télécharge le fichier journal d’erreur qui contient les détails sur l’erreur.
 
    ![Panneau de détails sur l’exécution d’activité](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Utiliser PowerShell pour déboguer une erreur
-1. Lancez **PowerShell**.
-2. Exécutez la commande **Get-AzDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **Échec**devrait apparaître.        
+1. Lancez **PowerShell** .
+2. Exécutez la commande **Get-AzDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **Échec** devrait apparaître.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,7 +288,7 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Vous pouvez exécuter à nouveau des problèmes à l’aide de la cmdlet **Set-AzDataFactorySliceStatus**. Consultez la rubrique [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) pour en savoir plus sur la syntaxe et la cmdlet.
+Vous pouvez exécuter à nouveau des problèmes à l’aide de la cmdlet **Set-AzDataFactorySliceStatus** . Consultez la rubrique [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) pour en savoir plus sur la syntaxe et la cmdlet.
 
 **Exemple :**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Créer une nouvelle alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Définissez la **condition de l’alerte**. (Veillez à sélectionner **Fabriques de données** dans le champ **Filtrer par type de ressource**.) Vous pouvez également spécifier les valeurs du champ **Dimensions**.
+3.  Définissez la **condition de l’alerte** . (Veillez à sélectionner **Fabriques de données** dans le champ **Filtrer par type de ressource** .) Vous pouvez également spécifier les valeurs du champ **Dimensions** .
 
     ![Définir la condition de l’alerte - Sélectionner la cible](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Définir la condition de l’alerte - Ajouter une logique d’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Définissez les **détails de l’alerte**.
+4.  Définissez les **détails de l’alerte** .
 
     ![Définir les détails de l’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Définissez le **groupe d’actions**.
+5.  Définissez le **groupe d’actions** .
 
     ![Définir le groupe d’actions - Créer un nouveau groupe d’actions](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

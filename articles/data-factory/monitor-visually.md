@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570132"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638106"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -36,7 +36,7 @@ L’affichage de la surveillance par défaut est la liste des exécutions de pip
 | Démarrage de l’exécution | Date et heure de début de l’exécution de pipeline (MM/JJ/AAAA, HH:MM:SS AM/PM) |
 | Duration | Durée d’exécution (HH:MM:SS) |
 | Déclenché par | Nom du déclencheur qui a démarré le pipeline |
-| Statut | **Échec**, **Réussite**, **En cours**, **Annulée** ou **En file d'attente** |
+| Statut | **Échec** , **Réussite** , **En cours** , **Annulée** ou **En file d'attente** |
 | Annotations | Balises filtrables associées à un pipeline  |
 | Paramètres | Paramètres d’exécution de pipeline (paires nom/valeur) |
 | Error | En cas d’échec du pipeline, l’erreur d’exécution |
@@ -50,16 +50,16 @@ Vous devez cliquer manuellement sur le bouton **Actualiser** pour actualiser la 
 
 ## <a name="monitor-activity-runs"></a>Surveiller des exécutions d’activités
 
-Pour voir les exécutions d’activités pour chaque exécution de pipeline, sélectionnez l’icône **Afficher les exécutions d’activité** sous la colonne **Actions**. La liste montre les exécutions d’activités correspondant à chaque exécution de pipeline.
+Pour voir les exécutions d’activités pour chaque exécution de pipeline, sélectionnez l’icône **Afficher les exécutions d’activité** sous la colonne **Actions** . La liste montre les exécutions d’activités correspondant à chaque exécution de pipeline.
 
 | **Nom de la colonne** | **Description** |
 | --- | --- |
 | Nom de l’activité | Nom de l’activité dans le pipeline |
-| Type d’activité | Type de l’activité, par exemple **Copy**, **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
+| Type d’activité | Type de l’activité, par exemple **Copy** , **ExecuteDataFlow** ou **AzureMLExecutePipeline** |
 | Actions | Icônes qui vous permettent de voir des informations d’entrée JSON, des informations de sortie JSON ou des expériences de surveillance détaillées sur les activités | 
 | Démarrage de l’exécution | Date et heure de début de l’exécution de l’activité (MM/JJ/AAAA, HH:MM:SS AM/PM) |
 | Duration | Durée d’exécution (HH:MM:SS) |
-| Statut | **Échec**, **Réussite**, **En cours** ou **Annulée** |
+| Statut | **Échec** , **Réussite** , **En cours** ou **Annulée** |
 | Runtime d’intégration | Runtime d’intégration sur lequel l’activité a été exécutée |
 | Propriétés de l’utilisateur | Propriétés définies par l’utilisateur de l’activité |
 | Error | En cas d’échec de l’activité, l’erreur d’exécution |
@@ -93,8 +93,8 @@ Activez/désactivez si les exécutions du pipeline seront décroissantes ou croi
 | **Nom de la colonne** | **Description** |
 | --- | --- |
 | Nom du pipeline | Filtrez en fonction du nom du pipeline. |
-| Démarrage de l’exécution |  Déterminez l’intervalle de temps des exécutions de pipeline affichées. Il existe des options de filtre rapide comme **Dernières 24 heures**, **La semaine dernière**, **Les 30 derniers jours**, et vous pouvez aussi sélectionner une heure et une date personnalisées. |
-| État de l’exécution | Filtrez les exécutions par état : **Réussite**, **Échec**, **En file d’attente**, **Annulée** ou **En cours**. |
+| Démarrage de l’exécution |  Déterminez l’intervalle de temps des exécutions de pipeline affichées. Il existe des options de filtre rapide comme **Dernières 24 heures** , **La semaine dernière** , **Les 30 derniers jours** , et vous pouvez aussi sélectionner une heure et une date personnalisées. |
+| État de l’exécution | Filtrez les exécutions par état : **Réussite** , **Échec** , **En file d’attente** , **Annulée** ou **En cours** . |
 | Annotations | Filtrer en fonction des balises appliquées à chaque pipeline |
 | Exécutions | Filtrer si vous souhaitez voir des nouvelles exécutions de pipelines |
 
@@ -110,7 +110,7 @@ Augmentez et diminuez les largeurs de colonne dans la liste en plaçant le point
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>Réexécuter des activités à l’intérieur d’un pipeline
 
-Vous pouvez réexécuter des activités à l’intérieur d’un pipeline. Sélectionnez **Afficher les exécutions d’activités**, puis sélectionnez l’activité dans votre pipeline à partir de laquelle vous souhaitez réexécuter votre pipeline.
+Vous pouvez réexécuter des activités à l’intérieur d’un pipeline. Sélectionnez **Afficher les exécutions d’activités** , puis sélectionnez l’activité dans votre pipeline à partir de laquelle vous souhaitez réexécuter votre pipeline.
 
 ![Afficher les exécutions d’activités](media/monitor-visually/rerun-activities-image1.png)
 
@@ -118,7 +118,7 @@ Vous pouvez réexécuter des activités à l’intérieur d’un pipeline. Séle
 
 ### <a name="rerun-from-failed-activity"></a>Réexécuter à partir d’une activité ayant échoué
 
-Si une activité échoue, expire ou est annulée, vous pouvez réexécuter le pipeline à partir de cette activité ayant échoué en sélectionnant **Réexécuter à partir d’une activité ayant échoué**.
+Si une activité échoue, expire ou est annulée, vous pouvez réexécuter le pipeline à partir de cette activité ayant échoué en sélectionnant **Réexécuter à partir d’une activité ayant échoué** .
 
 ![Réexécuter une activité ayant échoué](media/monitor-visually/rerun-failed-activity.png)
 
@@ -212,4 +212,4 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la supervision et la gestion des pipelines, consultez l’article [Surveiller et gérer les pipelines par programmation](https://docs.microsoft.com/azure/data-factory/monitor-programmatically).
+Pour en savoir plus sur la supervision et la gestion des pipelines, consultez l’article [Surveiller et gérer les pipelines par programmation](./monitor-programmatically.md).

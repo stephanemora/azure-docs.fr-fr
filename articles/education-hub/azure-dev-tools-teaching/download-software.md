@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: dbfb2d32b6aab7660f4fc11865122ad44e9732fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87094158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675350"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Aider les étudiants à télécharger les outils de développement logiciel à partir de Hub Education Azure
 
@@ -26,7 +26,7 @@ Demandez à vos étudiants de suivre cette procédure pour télécharger les out
 1. Connectez-vous avec les informations d’identification de votre abonnement Microsoft Azure for Students.
 1. Sélectionnez l’un des outils de développement logiciel dans Hub Education pour ouvrir le volet de téléchargement.
 1. Lisez les informations relatives au logiciel pour vous assurer qu’il est compatible avec votre système informatique.
-1. Après avoir confirmé que le logiciel est compatible avec votre système, sélectionnez **Télécharger**.
+1. Après avoir confirmé que le logiciel est compatible avec votre système, sélectionnez **Télécharger** .
 1. Suivez les instructions à l’écran pour télécharger et installer le logiciel.
 
    Azure for Students vous donne un crédit de 100 USD pendant 12 mois. Cela inclut l’accès à plus de 25 services gratuits, y compris le calcul, le réseau, le stockage et les bases de données. Les frais encourus pendant cette période sont déduits du crédit. 
@@ -36,5 +36,5 @@ Demandez à vos étudiants de suivre cette procédure pour télécharger les out
 - [Obtenir de l’aide sur les erreurs de connexion](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Microsoft Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn : plateforme gratuite d’apprentissage en ligne](https://docs.microsoft.com/learn/)
+- [Microsoft Learn : plateforme gratuite d’apprentissage en ligne](/learn/)
 - [Forum Aux Questions](program-faq.md#azure-for-students)

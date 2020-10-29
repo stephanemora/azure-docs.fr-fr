@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2d9be3ec005b2eb6c1cc8e530c44117ba8fbb401
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219443"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635029"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
 
@@ -31,7 +31,7 @@ Vous pouvez aussi créer des activités web dans des pipelines Azure Data Factor
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-Si vous n’avez pas déjà provisionné votre runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions données dans ce [tutoriel](tutorial-create-azure-ssis-runtime-portal.md). 
+Si vous n’avez pas déjà provisionné votre runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions données dans ce [tutoriel](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Créer et planifier des pipelines Azure Data Factory qui démarrent et/ou arrêtent Azure-SSIS Integration Runtime
 Cette section vous montre comment utiliser des activités web dans des pipelines Azure Data Factory pour démarrer/arrêter votre runtime d’intégration Azure-SSIS selon une planification ou à la demande. Nous vous guiderons pour créer des trois pipelines : 
@@ -97,7 +97,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
   
     2. Pour **Méthode** , sélectionnez **POST** . 
     3. Pour **Corps** , entrez `{"message":"Start my IR"}`. 
-    4. Pour **Authentification** , sélectionnez **MSI** afin d'utiliser l'identité managée de votre fabrique ADF. Pour plus d'informations, consultez l'article [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+    4. Pour **Authentification** , sélectionnez **MSI** afin d'utiliser l'identité managée de votre fabrique ADF. Pour plus d'informations, consultez l'article [Identité managée pour Data Factory](./data-factory-service-identity.md).
     5. Pour **Ressource** , entrez `https://management.azure.com/`.
     
        ![Activité web Azure Data Factory - Planifier le runtime d’intégration SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

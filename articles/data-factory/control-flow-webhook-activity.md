@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417876"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634978"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 
@@ -60,9 +60,9 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 **method** | Méthode d’API REST pour le point de terminaison cible. | Chaîne. Le type pris en charge est « POST ». | Oui |
 **url** | Point de terminaison cible et chemin d’accès. | Chaîne ou expression avec la valeur **resultType** d’une chaîne. | Oui |
 **headers** | En-têtes envoyés à la demande. Voici un exemple qui définit la langue et le type d’une demande : `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Chaîne ou expression avec la valeur **resultType** d’une chaîne. | Oui. Un en-tête `Content-Type` comme `"headers":{ "Content-Type":"application/json"}` est requis. |
-**body** | Représente la charge utile envoyée au point de terminaison. | Code JSON valide ou expression avec la valeur **resultType** du code JSON. Consultez [Schéma de charge utile de demande](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) pour obtenir le schéma de la charge utile de demande. | Oui |
-**authentification** | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « Basic » et « ClientCertificate ». Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne ou expression avec la valeur **resultType** d’une chaîne. | Non |
-**timeout** | Durée pendant laquelle l’activité attend que le rappel spécifié par **callBackUri** soit appelé. La valeur par défaut est 10 minutes (« 00:10:00 »). Les valeurs ont le format TimeSpan *j*.*hh*:*mm*:*ss*. | String | Non |
+**body** | Représente la charge utile envoyée au point de terminaison. | Code JSON valide ou expression avec la valeur **resultType** du code JSON. Consultez [Schéma de charge utile de demande](./control-flow-web-activity.md#request-payload-schema) pour obtenir le schéma de la charge utile de demande. | Oui |
+**authentification** | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « Basic » et « ClientCertificate ». Pour en savoir plus, consultez [Authentification](./control-flow-web-activity.md#authentication). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne ou expression avec la valeur **resultType** d’une chaîne. | Non |
+**timeout** | Durée pendant laquelle l’activité attend que le rappel spécifié par **callBackUri** soit appelé. La valeur par défaut est 10 minutes (« 00:10:00 »). Les valeurs ont le format TimeSpan *j* . *hh* : *mm* : *ss* . | String | Non |
 **Signaler l’état lors du rappel** | Permet à un utilisateur de signaler l’état d’échec d’une activité de webhook. | Boolean | Non |
 
 ## <a name="authentication"></a>Authentification
@@ -71,7 +71,7 @@ Une activité de webhook prend en charge les types d’authentification suivants
 
 ### <a name="none"></a>None
 
-Si l’authentification n’est pas requise, n’incluez pas la propriété **authentication**.
+Si l’authentification n’est pas requise, n’incluez pas la propriété **authentication** .
 
 ### <a name="basic"></a>De base
 
@@ -99,7 +99,7 @@ Spécifiez le contenu encodé en Base64 d’un fichier PFX et un mot de passe.
 
 ### <a name="managed-identity"></a>Identité managée
 
-Utilisez l’identité managée de la fabrique de données pour spécifier l’URI de ressource pour lequel le jeton d’accès est demandé. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [vue d’ensemble des identités managées pour les ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Utilisez l’identité managée de la fabrique de données pour spécifier l’URI de ressource pour lequel le jeton d’accès est demandé. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [vue d’ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,11 +119,11 @@ L’activité de webhook échoue quand l’appel au point de terminaison personn
 
 Pour chaque appel d’API REST, le client expire si le point de terminaison ne répond pas dans un délai d’une minute. Ce comportement est une bonne pratique standard pour le protocole HTTP. Pour résoudre ce problème, implémentez un modèle 202. Dans le cas actuel, le point de terminaison retourne 202 (accepté) et le client interroge.
 
-Le délai d’expiration d’une minute de la demande n’a rien à voir avec le délai d’expiration de l’activité. Ce dernier est utilisé pour attendre le rappel spécifié par **callbackUri**.
+Le délai d’expiration d’une minute de la demande n’a rien à voir avec le délai d’expiration de l’activité. Ce dernier est utilisé pour attendre le rappel spécifié par **callbackUri** .
 
 Le corps retransmis à l’URI de rappel doit être du code JSON valide. Attribuez à l’en-tête `Content-Type` la valeur `application/json`.
 
-Si vous utilisez la propriété **Signaler l’état lors du rappel**, vous devez ajouter le code suivant au corps quand vous effectuez le rappel :
+Si vous utilisez la propriété **Signaler l’état lors du rappel** , vous devez ajouter le code suivant au corps quand vous effectuez le rappel :
 
 ```json
 {

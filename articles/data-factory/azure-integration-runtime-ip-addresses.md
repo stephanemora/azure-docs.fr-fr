@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 55d8b5ebdfb226247f8a500f36e6df3ae02ea58a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619045"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638293"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresses IP Azure Integration Runtime
 
@@ -31,12 +31,12 @@ Les adresses IP qu’Azure Integration Runtime utilise dépendent de la région
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Adresses IP d’Azure Integration Runtime : Régions spécifiques
 
-Autorisez le trafic provenant des adresses IP listées pour le runtime d’intégration Azure dans la région Azure spécifique où vos ressources sont situées. Vous pouvez récupérer une liste de plages d’adresses IP à partir du [lien de téléchargement de plage d’adresses IP des balises de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Par exemple, si la région Azure est **AustraliaEast**, vous pouvez obtenir une liste de plages d’adresses IP à partir de **DataFactory.AustraliaEast**.
+Autorisez le trafic provenant des adresses IP listées pour le runtime d’intégration Azure dans la région Azure spécifique où vos ressources sont situées. Vous pouvez récupérer une liste de plages d’adresses IP à partir du [lien de téléchargement de plage d’adresses IP des balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Par exemple, si la région Azure est **AustraliaEast** , vous pouvez obtenir une liste de plages d’adresses IP à partir de **DataFactory.AustraliaEast** .
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problème connu avec le stockage Azure
 
-* Lors de la connexion au compte de stockage Azure, les règles de réseau IP n’ont aucun effet sur les demandes provenant du runtime d’intégration Azure dans la même région que le compte de stockage. Pour plus d’informations, [consultez cet article](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Lors de la connexion au compte de stockage Azure, les règles de réseau IP n’ont aucun effet sur les demandes provenant du runtime d’intégration Azure dans la même région que le compte de stockage. Pour plus d’informations, [consultez cet article](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range). 
 
   Au lieu de cela, nous vous suggérons d’utiliser des [services approuvés pour vous connecter au stockage Azure](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 

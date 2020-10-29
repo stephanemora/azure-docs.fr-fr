@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444897"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674794"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Cet article décrit les exigences d’authentification à respecter pour configu
 
 ## <a name="disaster-recovery-with-contained-users"></a>Récupération d’urgence avec des utilisateurs contenus
 
-Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+Contrairement aux utilisateurs classiques, qui doivent être mappés sur les connexions dans la base de données master, un utilisateur contenu est géré entièrement par la base de données elle-même. Cela a deux avantages. Dans le scénario de récupération d’urgence, les utilisateurs peuvent continuer de se connecter à la nouvelle base de données primaire ou à la base de données restaurée à l’aide de la géo-restauration sans configuration supplémentaire, car c’est la base de données qui gère les utilisateurs. Du point de vue de la connexion, cette configuration présente également des possibilités de mise à l’échelle et d’amélioration des performances. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
 L’inconvénient principal est que la gestion du processus de récupération d’urgence à grande échelle est plus difficile. Lorsque plusieurs de vos bases de données utilisent la même connexion, maintenir les informations d’identification avec des utilisateurs contenus dans plusieurs bases de données peut anéantir les avantages des utilisateurs contenus. Par exemple, la stratégie de rotation des mots de passe nécessite de faire les modifications de façon cohérente dans plusieurs bases de données plutôt que de modifier le mot de passe de l’identifiant de connexion une fois dans la base de données principale. Pour cette raison, si vous avez plusieurs bases de données qui utilisent le même nom d’utilisateur et le même mot de passe, l’utilisation d’utilisateurs contenus est déconseillée.
 
@@ -34,7 +34,7 @@ L’inconvénient principal est que la gestion du processus de récupération d�
 Si vous utilisez des identifiants de connexion et des utilisateurs (et non des utilisateurs contenus), vous devez prendre des mesures supplémentaires pour vous assurer que les mêmes identifiants de connexion existent dans la base de données primaire. Les sections suivantes décrivent les étapes impliquées et d’autres considérations relatives.
 
   >[!NOTE]
-  > Il est également possible d’utiliser des ID de connexion d’Azure Active Directory (AAD) pour gérer vos bases de données. Pour plus d’informations, voir [ID de connexions et utilisateurs Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+  > Il est également possible d’utiliser des ID de connexion d’Azure Active Directory (AAD) pour gérer vos bases de données. Pour plus d’informations, voir [ID de connexions et utilisateurs Azure SQL](./logins-create-manage.md).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurer l’accès utilisateur à une base de données secondaire ou restaurée
 
@@ -82,7 +82,7 @@ WHERE [type_desc] = 'SQL_USER'
 ```
 
 > [!NOTE]
-> Les utilisateurs de **INFORMATION_SCHEMA** et **sys** ont des SID *NULL*, et le SID **invité** est **0x00**. Le SID **dbo** peut commencer par *0x01060000000001648000000000048454*, si le créateur de la base de données est l’administrateur serveur et non un membre de **DbManager**.
+> Les utilisateurs de **INFORMATION_SCHEMA** et **sys** ont des SID *NULL* , et le SID **invité** est **0x00** . Le SID **dbo** peut commencer par *0x01060000000001648000000000048454* , si le créateur de la base de données est l’administrateur serveur et non un membre de **DbManager** .
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. Créez les connexions sur le serveur cible
 
@@ -106,7 +106,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la gestion de l’accès aux bases de données et des connexions, voir [Sécurité SQL Database : gérer la sécurité de l’accès aux bases de données et des connexions](logins-create-manage.md).
-* Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+* Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 * Pour plus d’informations sur la géoréplication active, voir la section [Géoréplication active](active-geo-replication-overview.md).
 * Pour plus d’informations sur les groupes de basculement automatique, voir [Groupes de basculement automatique](auto-failover-group-overview.md).
 * Pour plus d’informations sur l’utilisation de la géorestauration, voir [Géorestauration](recovery-using-backups.md#geo-restore).

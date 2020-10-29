@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5863dcc20fb13f1bb203c68ad168655371130601
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330476"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674563"
 ---
 # <a name="install-azure-farmbeats"></a>Installer Azure FarmBeats
 
@@ -87,7 +87,7 @@ Les deux premières autorisations sont requises pour l'étape de [création de l
 
 La personne qui exécute l’installation de FarmBeats à partir de la Place de Marché doit être propriétaire du groupe de ressources dans lequel FarmBeats est installé. Les propriétaires d’abonnement le sont automatiquement quand le groupe de ressources est créé. Pour d’autres, vous devez créer préalablement le groupe de ressources et demander au propriétaire de l’abonnement de vous ajouter comme propriétaire du groupe de ressources.
 
-Vous pouvez vérifier vos autorisations d’accès sur le Portail Azure en suivant les instructions relatives au [contrôle d'accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Vous pouvez vérifier vos autorisations d’accès sur le Portail Azure en suivant les instructions relatives au [contrôle d'accès en fonction du rôle Azure](../../role-based-access-control/check-access.md).
 
 ### <a name="decide-subscription-and-region"></a>Choisir un abonnement et une région
 

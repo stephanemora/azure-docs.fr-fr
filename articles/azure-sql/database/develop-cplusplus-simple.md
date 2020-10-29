@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443668"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674765"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](https://azure.microsoft.com/pricing/free-trial/)dès aujourd’hui.
 * [Visual Studio](https://www.visualstudio.com/downloads/). Vous devez installer les composants du langage C++ pour générer et exécuter cet exemple.
-* [Développement Visual Studio Linux](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Si vous développez sur Linux, vous devez également installer l’extension Visual Studio Linux.
+* [Développement Visual Studio Linux](/cpp/linux/?view=vs-2019). Si vous développez sur Linux, vous devez également installer l’extension Visual Studio Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database et SQL Server sur les machines virtuelles
 
@@ -39,7 +39,7 @@ Azure propose actuellement deux options d’hébergement pour les charges de tra
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Technologies d’accès aux données : ODBC et OLE DB
 
-Se connecter à Azure SQL Database n’est en rien différent et il existe actuellement deux façons de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne.
+Se connecter à Azure SQL Database n’est en rien différent et il existe actuellement deux façons de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Étape 1 :  Création de votre base de données Azure SQL
 
@@ -123,7 +123,7 @@ La dernière chose à faire avant de procéder à la compilation consiste à ajo
 
 ![Ajout d’ODBC en tant que bibliothèque d’entrée](./media/develop-cplusplus-simple/lib.png)
 
-Pour lancer votre application, affichez la Console Linux à partir du menu **Déboguer** :
+Pour lancer votre application, affichez la Console Linux à partir du menu **Déboguer**  :
 
 ![Console Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 
@@ -143,7 +143,7 @@ Vous trouverez la solution GetStarted qui contient tous les exemples de cet arti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez la [Vue d’ensemble du développement de base de données SQL](develop-overview.md)
-* Pour plus d’informations sur les API ODBC, consultez ces [informations de référence](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Pour plus d’informations sur les API ODBC, consultez ces [informations de référence](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

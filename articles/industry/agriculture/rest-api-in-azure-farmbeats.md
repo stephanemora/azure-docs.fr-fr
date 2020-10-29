@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536570"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674504"
 ---
 # <a name="azure-farmbeats-apis"></a>API Azure FarmBeats
 
@@ -143,24 +143,24 @@ Dans cet exemple, lorsqu’une exploitation agricole a été créée, le champ o
 
 Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription d’application dans Azure Active Directory. Pour créer une inscription d’application dans Azure Active Directory, procédez comme suit :
 
-1. Accédez au [Portail Azure](https://portal.azure.com) et sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**. Vous pouvez également utiliser un compte existant.
+1. Accédez au [Portail Azure](https://portal.azure.com) et sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription** . Vous pouvez également utiliser un compte existant.
 2. Pour un nouveau compte, procédez comme suit :
 
     - Entrez un nom.
     - Sélectionnez **Comptes dans ce répertoire d’organisation uniquement (Locataire unique)** .
     - Utilisez les valeurs par défaut dans les autres champs.
-    - Sélectionnez **Inscription**.
+    - Sélectionnez **Inscription** .
 
 3. Dans le volet **Vue d’ensemble** de l’inscription des applications nouvelles et existantes, procédez comme suit :
 
-    - Capturez l’**ID client** et l’**ID de locataire**.
-    - Accédez à **Certificats et secrets** pour générer une nouvelle clé secrète client et capturer la **Client-Secret**.
-    - Revenez à **Vue d’ensemble**, puis cliquez sur le lien à côté de **Gérer l’application dans le répertoire local**.
-    - Accédez à **Propriétés** pour capturer l’**ID d’objet**.
+    - Capturez l’ **ID client** et l’ **ID de locataire** .
+    - Accédez à **Certificats et secrets** pour générer une nouvelle clé secrète client et capturer la **Client-Secret** .
+    - Revenez à **Vue d’ensemble** , puis cliquez sur le lien à côté de **Gérer l’application dans le répertoire local** .
+    - Accédez à **Propriétés** pour capturer l’ **ID d’objet** .
 
 4. Accédez à votre Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) et procédez comme suit :
-    - Accédez à l’**API RoleAssignment**.
-    - Effectuez un appel POST afin de créer un objet **RoleAssignment** pour l’**ID d’objet** que vous venez de créer.
+    - Accédez à l’ **API RoleAssignment** .
+    - Effectuez un appel POST afin de créer un objet **RoleAssignment** pour l’ **ID d’objet** que vous venez de créer.
  
 ```json
 {
@@ -172,7 +172,7 @@ Les API Azure FarmBeats sont accessibles à un utilisateur ou à une inscription
 ```
 
   > [!NOTE]
-  > Pour plus d’informations sur l’ajout d’utilisateurs et l’inscription Active Directory, consultez [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Pour plus d’informations sur l’ajout d’utilisateurs et l’inscription Active Directory, consultez [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Lorsque vous avez terminé les étapes précédentes, l’inscription de votre application (client) peut appeler les API Azure FarmBeats à l’aide d’un jeton d’accès via l’authentification du porteur.
 

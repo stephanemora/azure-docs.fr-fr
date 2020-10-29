@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280798"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635097"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,7 +73,7 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité web | String | Oui
-type | Doit avoir la valeur **WebActivity**. | String | Oui
+type | Doit avoir la valeur **WebActivity** . | String | Oui
 method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. <br/><br/>Types pris en charge : « GET », « POST », « PUT » | Oui
 url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur. | Oui
 headers | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Chaîne (ou expression avec resultType de chaîne) | Oui, l’en-tête Content-type est obligatoire. `"headers":{ "Content-Type":"application/json"}`
@@ -81,7 +81,7 @@ body | Représente la charge utile envoyée au point de terminaison.  | Chaîne 
 Authentification | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « De base » ou « ClientCertificate ». Pour en savoir plus, voir la section [Authentification](#authentication). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne (ou expression avec resultType de chaîne) | Non
 jeux de données | Liste des jeux de données transmis au point de terminaison. | Tableau de références de jeu de données. Peut être un tableau vide. | Oui
 linkedServices | Liste des services liés transmise au point de terminaison. | Tableau des références de service lié. Peut être un tableau vide. | Oui
-connectVia | Le [runtime d’intégration](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Référence du runtime d’intégration. | Non 
+connectVia | Le [runtime d’intégration](./concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Référence du runtime d’intégration. | Non 
 
 > [!NOTE]
 > Les points de terminaison REST que l’activité web appelle doivent retourner une réponse de type JSON. Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur.
@@ -130,7 +130,7 @@ Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe.
 
 ### <a name="managed-identity"></a>Identité managée
 
-Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à l’aide de l’identité managée pour la fabrique de données. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [page de vue d'ensemble des identités managées pour les ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à l’aide de l’identité managée pour la fabrique de données. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [page de vue d'ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

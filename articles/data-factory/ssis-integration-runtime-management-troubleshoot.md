@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86172024"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637919"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -82,7 +82,7 @@ Ce type de message d’erreur ressemble à ceci : « Nom d’objet non valide 
 
 ## <a name="custom-setup-issues"></a>Problèmes lors de l’installation personnalisée
 
-L’installation personnalisée fournit une interface permettant d’ajouter vos propres étapes d’installation lors du provisionnement ou de la reconfiguration de votre runtime d’intégration SSIS. Pour plus d’informations, consultez [Installation personnalisée du runtime d’intégration Azure-SSIS](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+L’installation personnalisée fournit une interface permettant d’ajouter vos propres étapes d’installation lors du provisionnement ou de la reconfiguration de votre runtime d’intégration SSIS. Pour plus d’informations, consultez [Installation personnalisée du runtime d’intégration Azure-SSIS](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 Vérifiez que votre conteneur inclut uniquement les fichiers nécessaires à l’installation personnalisée, car tous les fichiers du conteneur sont téléchargés sur le nœud Worker du runtime d’intégration SSIS. Nous vous recommandons de tester le script d’installation personnalisée sur un ordinateur local pour résoudre les problèmes d’exécution du script avant d’exécuter celui-ci dans le runtime d’intégration SSIS.
 
@@ -114,7 +114,7 @@ Cette erreur signifie que la tentative de chargement des journaux d’exécution
 
 ## <a name="virtual-network-configuration"></a>Configuration du réseau virtuel
 
-Quand vous joignez le runtime d’intégration SSIS au réseau virtuel Azure, le runtime d’intégration SSIS utilise le réseau virtuel qui se trouve sous l’abonnement utilisateur. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Quand vous joignez le runtime d’intégration SSIS au réseau virtuel Azure, le runtime d’intégration SSIS utilise le réseau virtuel qui se trouve sous l’abonnement utilisateur. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](./join-azure-ssis-integration-runtime-virtual-network.md).
 Après le démarrage réussi du runtime d’intégration SSIS, si vous rencontrez des problèmes de connexion réseau, vous pouvez essayer d’utiliser [l’outil de diagnostic de connectivité](ssis-integration-runtime-diagnose-connectivity-faq.md) pour diagnostiquer le problème vous-même.
 En cas de problème lié au réseau virtuel, une des erreurs suivantes s’affiche.
 
@@ -141,7 +141,7 @@ Ces erreurs signifient que le réseau virtuel n’existe pas, que le service Azu
 
 Ce type de message d’erreur ressemble à ceci : « Échec du provisionnement du runtime d’intégration dans le réseau virtuel. Si les paramètres du serveur DNS ou du groupe de sécurité réseau sont configurés, vérifiez que le serveur DNS est accessible et que le groupe de sécurité réseau est correctement configuré ».
 
-Dans cette situation, vous avez probablement une configuration personnalisée du serveur DNS ou des paramètres de groupe de sécurité réseau qui empêche la résolution du nom du serveur Azure nécessaire au runtime d’intégration SSIS ou qui empêche son accès. Pour plus d'informations, consultez [Configuration du réseau virtuel de runtime d’intégration SSIS](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si vous rencontrez toujours des problèmes, contactez l’équipe du support technique Azure Data Factory.
+Dans cette situation, vous avez probablement une configuration personnalisée du serveur DNS ou des paramètres de groupe de sécurité réseau qui empêche la résolution du nom du serveur Azure nécessaire au runtime d’intégration SSIS ou qui empêche son accès. Pour plus d'informations, consultez [Configuration du réseau virtuel de runtime d’intégration SSIS](./join-azure-ssis-integration-runtime-virtual-network.md). Si vous rencontrez toujours des problèmes, contactez l’équipe du support technique Azure Data Factory.
 
 ### <a name="vnetresourcegrouplockedduringupgrade"></a>VNetResourceGroupLockedDuringUpgrade
 
@@ -157,11 +157,11 @@ Lorsque vous arrêtez le runtime d’intégration SSIS, toutes les ressources li
 
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
-Cette erreur se produit lorsque le runtime d’intégration est en cours d’exécution et elle signifie que celui-ci est devenu défectueux. Cette erreur est toujours due à une modification de la configuration du serveur DNS ou du groupe de sécurité réseau qui empêche le runtime d’intégration SSIS de se connecter à un service nécessaire. Étant donné que la configuration du serveur DNS et du groupe de sécurité réseau est contrôlée par le client, le client doit résoudre les problèmes bloquants de son côté. Pour plus d'informations, consultez [Configuration du réseau virtuel de runtime d’intégration SSIS](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si vous rencontrez toujours des problèmes, contactez l’équipe du support technique Azure Data Factory.
+Cette erreur se produit lorsque le runtime d’intégration est en cours d’exécution et elle signifie que celui-ci est devenu défectueux. Cette erreur est toujours due à une modification de la configuration du serveur DNS ou du groupe de sécurité réseau qui empêche le runtime d’intégration SSIS de se connecter à un service nécessaire. Étant donné que la configuration du serveur DNS et du groupe de sécurité réseau est contrôlée par le client, le client doit résoudre les problèmes bloquants de son côté. Pour plus d'informations, consultez [Configuration du réseau virtuel de runtime d’intégration SSIS](./join-azure-ssis-integration-runtime-virtual-network.md). Si vous rencontrez toujours des problèmes, contactez l’équipe du support technique Azure Data Factory.
 
 ## <a name="static-public-ip-addresses-configuration"></a>Configuration d’IP publiques statiques
 
-Quand vous joignez l’Azure-SSIS Integration Runtime (Azure-SSIS IR) au Réseau virtuel Azure, vous pouvez également apporter vos propres IP publiques statiques pour le runtime d’intégration de manière à ce que ce dernier puisse accéder aux sources de données qui limitent l’accès à des adresses IP spécifiques. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Quand vous joignez l’Azure-SSIS Integration Runtime (Azure-SSIS IR) au Réseau virtuel Azure, vous pouvez également apporter vos propres IP publiques statiques pour le runtime d’intégration de manière à ce que ce dernier puisse accéder aux sources de données qui limitent l’accès à des adresses IP spécifiques. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 Outre les problèmes de réseau virtuel mentionnés ci-dessus, vous pouvez également rencontrer un problème lié aux IP publiques statiques. Veuillez vérifier les erreurs suivantes pour obtenir de l’aide.
 
@@ -172,9 +172,9 @@ Cette erreur peut se produire pour diverses raisons quand vous démarrez l’Azu
 | Message d’erreur | Solution|
 |:--- |:--- |
 | L’IP publique statique fournie est déjà utilisée, fournissez-en deux non utilisées pour votre Azure-SSIS Integration Runtime. | Vous devez sélectionner deux IP publiques statiques inutilisées ou supprimer les références actuelles à l’IP publique spécifiée, puis redémarrer l’Azure-SSIS IR. |
-| L’IP publique statique fournie n’a pas de nom DNS, fournissez-en deux dotées d’un nom DNS pour votre Azure-SSIS Integration Runtime. | Vous pouvez configurer le nom DNS de l’IP publique dans le Portail Azure, comme le montre l’image ci-dessous. Les étapes spécifiques sont les suivantes : (1) Ouvrez le Portail Azure et accédez à la page des ressources de cette IP publique ; (2) sélectionnez la section **Configuration** et configurez le nom DNS, puis cliquez sur bouton **Enregistrer** ; (3) redémarrez votre Azure-SSIS IR. |
+| L’IP publique statique fournie n’a pas de nom DNS, fournissez-en deux dotées d’un nom DNS pour votre Azure-SSIS Integration Runtime. | Vous pouvez configurer le nom DNS de l’IP publique dans le Portail Azure, comme le montre l’image ci-dessous. Les étapes spécifiques sont les suivantes : (1) Ouvrez le Portail Azure et accédez à la page des ressources de cette IP publique ; (2) sélectionnez la section **Configuration** et configurez le nom DNS, puis cliquez sur bouton **Enregistrer**  ; (3) redémarrez votre Azure-SSIS IR. |
 | Le réseau virtuel et les IP publiques statiques fournis pour votre Azure-SSIS Integration Runtime doivent se trouver au même emplacement. | Selon les exigences du réseau Azure, l’IP publique statique et le réseau virtuel doivent se trouver dans le même emplacement et le même abonnement. Indiquez deux IP publiques statiques valides et redémarrez l’Azure-SSIS IR. |
-| L’IP publique statique fournie est une adresse de base, fournissez-en deux standard pour votre Azure-SSIS Integration Runtime. | Pour obtenir de l’aide, consultez [SKU d’IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku). |
+| L’IP publique statique fournie est une adresse de base, fournissez-en deux standard pour votre Azure-SSIS Integration Runtime. | Pour obtenir de l’aide, consultez [SKU d’IP publique](../virtual-network/public-ip-addresses.md#sku). |
 
 ![Runtime d’intégration Azure SSIS](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 

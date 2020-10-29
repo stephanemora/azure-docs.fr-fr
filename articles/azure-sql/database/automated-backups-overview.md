@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124184"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675306"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -30,7 +30,7 @@ Les sauvegardes de base de données sont une partie essentielle de toute straté
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
-SQL Database et SQL Managed Instance utilisent la technologie SQL Server pour créer des sauvegardes [complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) (chaque semaine), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) (toutes les 12 à 24 heures) et du [journal des transactions](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) (toutes les 5 à 10 minutes). La fréquence des sauvegardes du journal des transactions est basée sur la taille de calcul et le volume d’activité de la base de données.
+SQL Database et SQL Managed Instance utilisent la technologie SQL Server pour créer des sauvegardes [complètes](/sql/relational-databases/backup-restore/full-database-backups-sql-server) (chaque semaine), [différentielles](/sql/relational-databases/backup-restore/differential-backups-sql-server) (toutes les 12 à 24 heures) et du [journal des transactions](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) (toutes les 5 à 10 minutes). La fréquence des sauvegardes du journal des transactions est basée sur la taille de calcul et le volume d’activité de la base de données.
 
 Quand vous restaurez une base de données, le service identifie les sauvegardes (complète, différentielle ou du journal des transactions) nécessitant une restauration.
 
@@ -56,7 +56,7 @@ Pour une base de données SQL, la redondance du stockage de sauvegarde peut êtr
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
-- **Restaurer une base de données existante** - [ à un point dans le temps situé dans le passé](recovery-using-backups.md#point-in-time-restore) pendant la période de rétention, à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Pour SQL Database, cette opération crée une nouvelle base de données sur le même serveur que la base de données d’origine, mais sous un nom différent pour éviter de remplacer la base de données d’origine. Une fois la restauration terminée, vous pouvez supprimer la base de données d’origine. Vous pouvez aussi [renommer](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) la base de données d’origine et renommer la base de données restaurée pour obtenir le nom de la base de données d’origine. De même, pour SQL Managed Instance, cette opération peut aussi créer une copie de la base de données sur une instance managée, identique ou non, dans le même abonnement et dans la même région.
+- **Restaurer une base de données existante** - [ à un point dans le temps situé dans le passé](recovery-using-backups.md#point-in-time-restore) pendant la période de rétention, à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Pour SQL Database, cette opération crée une nouvelle base de données sur le même serveur que la base de données d’origine, mais sous un nom différent pour éviter de remplacer la base de données d’origine. Une fois la restauration terminée, vous pouvez supprimer la base de données d’origine. Vous pouvez aussi [renommer](/sql/relational-databases/databases/rename-a-database) la base de données d’origine et renommer la base de données restaurée pour obtenir le nom de la base de données d’origine. De même, pour SQL Managed Instance, cette opération peut aussi créer une copie de la base de données sur une instance managée, identique ou non, dans le même abonnement et dans la même région.
 - **Restaurer une base données à un instant dans le passé** - [Restaurer une base de données supprimée au moment de sa suppression](recovery-using-backups.md#deleted-database-restore) ou à tout point dans le temps pendant la période de rétention. La base de données supprimée ne peut être restaurée que sur le serveur ou la même instance gérée où la base de données d’origine a été créée. Lors de la suppression d’une base de données, le service effectue une sauvegarde finale du journal des transactions avant sa suppression, afin d’éviter toute perte de données.
 - **Géo-restaurer** - [Restaurer une base de données dans une autre région géographique](recovery-using-backups.md#geo-restore). La géorestauration vous permet de procéder à la récupération après un sinistre géographique lorsque vous ne pouvez pas accéder à votre base de données ou aux sauvegardes dans la région principale. Cela crée une base de données sur un serveur ou une instance gérée existant(e), dans n’importe quelle région Azure.
    > [!IMPORTANT]
@@ -72,11 +72,11 @@ Vous pouvez essayer les opérations de configuration et de restauration de sauve
 
 | Opération | Portail Azure | Azure PowerShell |
 |---|---|---|
-| **Modifier la rétention des sauvegardes** | [Base de données SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de données SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Modifier la rétention des sauvegardes** | [Base de données SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de données SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Modifier la rétention des sauvegardes à long terme** | [Base de données SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance - N/A  | [Base de données SQL](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Restaurer une base de données à partir d’un point dans le temps** | [Base de données SQL](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [Base de données SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restaurer une base de données supprimée** | [Base de données SQL](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de données SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restaurer une base de données à partir d’un stockage Blob Azure** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Restaurer une base de données à partir d’un point dans le temps** | [Base de données SQL](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [Base de données SQL](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurer une base de données supprimée** | [Base de données SQL](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de données SQL](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurer une base de données à partir d’un stockage Blob Azure** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>Planification de la sauvegarde
 
@@ -115,7 +115,7 @@ La consommation du stockage de sauvegarde jusqu’à la taille maximale des donn
 
 - Réduisez la [période de rétention de la sauvegarde](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) au minimum possible pour vos besoins.
 - Évitez d’effectuer des opérations d’écriture volumineuses telles que des reconstructions d’index plus qu’il n’est nécessaire.
-- Pour les opérations de chargement de données volumineuses, envisagez d’utiliser des [index columnstore en cluster](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) et de suivre les [bonnes pratiques](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) connexes, et/ou de réduire le nombre d’index non en cluster.
+- Pour les opérations de chargement de données volumineuses, envisagez d’utiliser des [index columnstore en cluster](/sql/relational-databases/indexes/columnstore-indexes-overview) et de suivre les [bonnes pratiques](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) connexes, et/ou de réduire le nombre d’index non en cluster.
 - Au niveau de service Usage général, le stockage de données provisionné est moins onéreux que le prix du stockage de sauvegarde. Si vos coûts de stockage de sauvegarde sont sans cesse excessifs, vous pouvez envisager d’augmenter le stockage de données afin de réaliser des économies sur le stockage de sauvegarde.
 - Utilisez TempDB au lieu de tables permanentes dans votre logique d’application pour le stockage des résultats et/ou des données temporaires.
 - Utilisez le stockage de sauvegarde redondant localement chaque fois que cela est possible (par exemple, environnements de développement/test)
@@ -190,9 +190,9 @@ Pour connaître la tarification du stockage de sauvegarde, consultez la page [Ta
 
 ### <a name="monitor-costs"></a>Superviser les coûts
 
-Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts**, puis sélectionnez **Analyse du coût**. Sélectionnez l’abonnement souhaité comme **Étendue**, puis filtrez la période et le service qui vous intéressent.
+Pour comprendre les coûts de stockage des sauvegardes, accédez à **Gestion des coûts + Facturation** dans le portail Azure, sélectionnez **Gestion des coûts** , puis sélectionnez **Analyse du coût** . Sélectionnez l’abonnement souhaité comme **Étendue** , puis filtrez la période et le service qui vous intéressent.
 
-Ajoutez un filtre pour **Nom de service**, puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique**. Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée**. Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
+Ajoutez un filtre pour **Nom de service** , puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool de bases de données élastique, sélectionnez **stockage de sauvegarde PITR pour pool élastique/unique** . Pour une instance gérée, sélectionnez **stockage de sauvegarde PITR pour instance gérée** . Les sous-catégories **Stockage** et **Calcul** peuvent vous également intéresser, mais elles ne sont pas associées à des coûts de stockage de sauvegarde.
 
 ![Analyse du coût du stockage de sauvegarde](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -249,7 +249,7 @@ Les changements de conservation des sauvegardes avec restauration dans le temps 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell AzureRM est toujours pris en charge par SQL Database et SQL Managed Instance, mais tout développement futur concerne le module Az.Sql. Pour plus d’informations, consultez la page [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont essentiellement identiques à ceux utilisés dans les modules AzureRm.
+> Le module PowerShell AzureRM est toujours pris en charge par SQL Database et SQL Managed Instance, mais tout développement futur concerne le module Az.Sql. Pour plus d’informations, consultez la page [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont essentiellement identiques à ceux utilisés dans les modules AzureRm.
 
 #### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
 
@@ -263,7 +263,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **active individuelle**, utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **active individuelle** , utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
@@ -271,7 +271,7 @@ Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Man
 Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **actives**, utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **actives** , utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention period for ALL active databases
@@ -279,7 +279,7 @@ Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données
 Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **individuelle supprimée**, utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Managed Instance **individuelle supprimée** , utilisez l'exemple PowerShell suivant.
  
 ```powershell
 # SET new PITR backup retention on an individual deleted database
@@ -287,7 +287,7 @@ Pour modifier la rétention de sauvegarde PITR pour une base de données SQL Man
 Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
 ```
 
-Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **supprimées**, utilisez l'exemple PowerShell suivant.
+Pour modifier la rétention de sauvegarde PITR pour toutes les bases de données SQL Managed Instance **supprimées** , utilisez l'exemple PowerShell suivant.
 
 ```powershell
 # SET new PITR backup retention for ALL deleted databases
@@ -333,7 +333,7 @@ Code d’état : 200
 }
 ```
 
-Pour plus d’informations, consultez [API REST de conservation des sauvegardes](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Pour plus d’informations, consultez [API REST de conservation des sauvegardes](/rest/api/sql/backupshorttermretentionpolicies).
 
 #### <a name="sample-request"></a>Exemple de requête
 
@@ -366,7 +366,7 @@ Code d’état : 200
 }
 ```
 
-Pour plus d’informations, consultez [API REST de conservation des sauvegardes](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Pour plus d’informations, consultez [API REST de conservation des sauvegardes](/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="configure-backup-storage-redundancy"></a>Configuration de la redondance du stockage de sauvegarde
 
@@ -379,15 +379,15 @@ La redondance d’un stockage de sauvegarde d'une instance gérée ne peut être
 
 #### <a name="sql-database"></a>[Base de données SQL](#tab/single-database)
 
-Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegarde dans le panneau **Créer une base de données SQL**. L’option est disponible sous la section Redondance du stockage de sauvegarde. 
+Dans Portail Azure, vous pouvez configurer la redondance du stockage de sauvegarde dans le panneau **Créer une base de données SQL** . L’option est disponible sous la section Redondance du stockage de sauvegarde. 
 ![Open Create SQL Database blade](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage**, accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
+Dans le Portail Azure, l’option de modification de la redondance du stockage de sauvegarde se trouve dans le panneau **Calcul + Stockage** , accessible à partir de l’option **Configurer Managed Instance** de l’onglet **Basique** lors de la création de votre SQL Managed Instance.
 ![Ouvrir le panneau Calcul + Stockage](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
-Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage**.
+Recherchez l’option permettant de sélectionner la redondance de stockage de sauvegarde dans le panneau **Calcul + Stockage** .
 ![Configurer la redondance du stockage de sauvegarde](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 ---
@@ -403,7 +403,7 @@ Pour configurer la redondance du stockage de sauvegarde lors de la création d�
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
 ```
 
-Pour plus d’informations, consultez la page [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
+Pour plus d’informations, consultez la page [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 Pour mettre à jour la redondance du stockage de sauvegarde d’une base de données existante, vous pouvez utiliser le paramètre -BackupStorageRedundancy. Les valeurs possibles sont Geo, Zone et Local.
 Notez qu’il peut falloir jusqu’à 48 heures pour que les modifications soient appliquées à la base de données. Le passage d’un stockage de sauvegarde géoredondant à un stockage localement redondant ou redondant interzone désactive la géorestauration. 
@@ -413,7 +413,7 @@ Notez qu’il peut falloir jusqu’à 48 heures pour que les modifications soie
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-Pour plus d’informations, consultez la page [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase).
+Pour plus d’informations, consultez la page [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase).
 
 > [!NOTE]
 > Pour utiliser le paramètre -BackupStorageRedundancy avec les opérations « database restore », « database copy » ou « create secondary », utilisez Azure PowerShell version Az.Sql 2.11.0. 
@@ -427,13 +427,13 @@ Pour configurer la redondance du stockage de sauvegarde lors de la création d�
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
 ```
 
-Pour plus d’informations, consultez la page [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+Pour plus d’informations, consultez la page [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
 
 ---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Utiliser Azure Policy pour appliquer la redondance du stockage de sauvegarde
 
-Si vous avez des exigences en matière de résidence des données qui vous obligent à conserver toutes vos données dans une seule région Azure, vous souhaiterez peut-être appliquer des sauvegardes redondantes interzones ou localement redondantes pour votre base de données SQL ou votre instance gérée à l’aide d’Azure Policy. Azure Policy est un service que vous pouvez utiliser pour créer, attribuer et gérer des stratégies qui appliquent des règles à des ressources Azure. Lorsque vous utilisez Azure Policy, ces ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
+Si vous avez des exigences en matière de résidence des données qui vous obligent à conserver toutes vos données dans une seule région Azure, vous souhaiterez peut-être appliquer des sauvegardes redondantes interzones ou localement redondantes pour votre base de données SQL ou votre instance gérée à l’aide d’Azure Policy. Azure Policy est un service que vous pouvez utiliser pour créer, attribuer et gérer des stratégies qui appliquent des règles à des ressources Azure. Lorsque vous utilisez Azure Policy, ces ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Policy](../../governance/policy/overview.md). 
 
 ### <a name="built-in-backup-storage-redundancy-policies"></a>Stratégies intégrées de redondance du stockage de sauvegarde 
 
@@ -443,14 +443,14 @@ Les nouvelles stratégies intégrées suivantes sont ajoutées et peuvent être 
 
 [Les instances managées SQL doivent éviter d’utiliser la redondance de sauvegarde GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-Vous trouverez une liste complète des définitions de stratégies intégrées pour SQL Database et Managed Instance [ici](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
+Vous trouverez une liste complète des définitions de stratégies intégrées pour SQL Database et Managed Instance [ici](./policy-reference.md).
 
 Pour appliquer les exigences en matière de résidence des données au niveau de l’organisation, ces stratégies peuvent être attribuées à un abonnement. Une fois ces dernières attribuées au niveau de l’abonnement, les utilisateurs de l’abonnement en question ne pourront pas créer de base de données ni d’instance gérée avec un stockage de sauvegarde géoredondant via Portail Azure ou Azure PowerShell. 
 
 > [!IMPORTANT]
-> Les stratégies Azure ne sont pas appliquées lors de la création d’une base de données via T-SQL. Pour appliquer la résidence des données lors de la création d’une base de données à l’aide de T-SQL, [utilisez « LOCAL » ou « ZONE » comme entrée pour le paramètre BACKUP_STORAGE_REDUNDANCY dans l’instruction CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Les stratégies Azure ne sont pas appliquées lors de la création d’une base de données via T-SQL. Pour appliquer la résidence des données lors de la création d’une base de données à l’aide de T-SQL, [utilisez « LOCAL » ou « ZONE » comme entrée pour le paramètre BACKUP_STORAGE_REDUNDANCY dans l’instruction CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
-Découvrez comment attribuer des stratégies à l’aide du [portail Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) ou d’[Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell).
+Découvrez comment attribuer des stratégies à l’aide du [portail Azure](../../governance/policy/assign-policy-portal.md) ou d’[Azure PowerShell](../../governance/policy/assign-policy-powershell.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

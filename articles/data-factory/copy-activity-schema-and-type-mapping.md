@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249650"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637256"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Vous pouvez configurer le mappage sur Interface utilisateur Data Factory -> acti
 | path     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. Appliquer à la source hiérarchique et au récepteur, par exemple, les connecteurs Cosmos DB, MongoDB ou REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par la racine `$` ; pour les champs qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau sans `$`. | Non       |
 | type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
 | culture  | Culture de la colonne source ou récepteur. À appliquer lorsque le type est `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`.<br>En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
-| format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
+| format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. En général, vous n’avez pas besoin de spécifier ni de modifier cette propriété. En savoir plus sur le [mappage des types de données](#data-type-mapping). | Non       |
 
 Les propriétés suivantes sont prises en charge sous `translator` en plus de `mappings` :
 
@@ -182,13 +182,13 @@ Vous pouvez définir un mappage de ce type sur l’interface utilisateur de cré
 
 1. Sur activité de copie -> onglet de mappage, cliquez sur le bouton **Importer le schéma** pour importer les schémas source et récepteur. Comme Data Factory échantillonne les quelques objets les plus importants lors de l’importation d’un schéma, si un champ n’apparaît pas, vous pouvez l’ajouter à la couche appropriée de la hiérarchie : pointez sur un nom de champ existant et choisissez d’ajouter un nœud, un objet ou un tableau.
 
-2. Sélectionnez le tableau à partir duquel vous souhaitez effectuer une itération et extraire des données. Il sera automatiquement renseigné en tant que **Référence de collection**. Notez qu’un seul un tableau est pris en charge pour une telle opération.
+2. Sélectionnez le tableau à partir duquel vous souhaitez effectuer une itération et extraire des données. Il sera automatiquement renseigné en tant que **Référence de collection** . Notez qu’un seul un tableau est pris en charge pour une telle opération.
 
 3. Mappez les champs nécessaires au récepteur. Data Factory détermine automatiquement les chemins JSON correspondants pour le côté hiérarchique.
 
 ![Mapper hiérarchiquement sous forme de tableau à l’aide de l’interface utilisateur](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-Vous pouvez également basculer vers **Éditeur avancé**. Dans ce cas, vous pouvez afficher et modifier directement les chemins JSON des champs. Si vous choisissez d’ajouter un nouveau mappage dans cette vue, spécifiez le chemin JSON.
+Vous pouvez également basculer vers **Éditeur avancé** . Dans ce cas, vous pouvez afficher et modifier directement les chemins JSON des champs. Si vous choisissez d’ajouter un nouveau mappage dans cette vue, spécifiez le chemin JSON.
 
 ![Mapper hiérarchiquement sous forme de tableau à l’aide de l’éditeur avancé](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -314,9 +314,9 @@ Les propriétés suivantes sont prises en charge dans l’activité de copie pou
 | *Sous : `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Autorisez la troncation des données lors de la conversion des données sources en récepteur avec un type différent pendant la copie, par exemple, de décimal à entier, de DatetimeOffset à DateTime. <br>La valeur par défaut est true. | Non       |
 | treatBooleanAsNumber             | Traitez les valeurs booléennes comme des nombres, par exemple true comme 1.<br>La valeur par défaut est false. | Non       |
-| dateTimeFormat                   | Chaîne de format lors de la conversion entre des dates sans décalage de fuseau horaire et des chaînes, par exemple, `yyyy-MM-dd HH:mm:ss.fff`.  Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) pour obtenir des informations détaillées. | Non       |
-| dateTimeOffsetFormat             | Chaîne de format lors de la conversion entre des dates avec décalage de fuseau horaire et des chaînes, par exemple, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) pour obtenir des informations détaillées. | Non       |
-| timeSpanFormat                   | Chaîne de format lors de la conversion entre des périodes de temps et des chaînes, par exemple, `dd\.hh\:mm`. Reportez-vous à [Chaînes de format TimeSpan personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) pour obtenir des informations détaillées. | Non       |
+| dateTimeFormat                   | Chaîne de format lors de la conversion entre des dates sans décalage de fuseau horaire et des chaînes, par exemple, `yyyy-MM-dd HH:mm:ss.fff`.  Reportez-vous à [Chaînes de format Date et Heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) pour obtenir des informations détaillées. | Non       |
+| dateTimeOffsetFormat             | Chaîne de format lors de la conversion entre des dates avec décalage de fuseau horaire et des chaînes, par exemple, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Reportez-vous à [Chaînes de format Date et Heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) pour obtenir des informations détaillées. | Non       |
+| timeSpanFormat                   | Chaîne de format lors de la conversion entre des périodes de temps et des chaînes, par exemple, `dd\.hh\:mm`. Reportez-vous à [Chaînes de format TimeSpan personnalisées](/dotnet/standard/base-types/custom-timespan-format-strings) pour obtenir des informations détaillées. | Non       |
 | culture                          | Informations concernant la culture à utiliser lors de la conversion de types, par exemple, `en-us` ou `fr-fr`. | Non       |
 
 **Exemple :**
@@ -356,7 +356,7 @@ Les propriétés suivantes sont prises en charge dans l’activité de copie pou
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Autre mappage de colonnes (modèle hérité)
 
-Vous pouvez spécifier l’activité de copie -> `translator` -> `columnMappings` pour le mappage entre les données mises en forme tabulaire. Dans ce cas, la section « structure » est requise pour les jeux de données d’entrée et de sortie. Le mappage de colonnes prend en charge le **mappage de la totalité ou d’un sous-ensemble des colonnes de la « structure » du jeu de données de la source à toutes les colonnes de la « structure » du jeu de données du récepteur**. Voici une liste de conditions d’erreur qui entraînent la levée d’une exception :
+Vous pouvez spécifier l’activité de copie -> `translator` -> `columnMappings` pour le mappage entre les données mises en forme tabulaire. Dans ce cas, la section « structure » est requise pour les jeux de données d’entrée et de sortie. Le mappage de colonnes prend en charge le **mappage de la totalité ou d’un sous-ensemble des colonnes de la « structure » du jeu de données de la source à toutes les colonnes de la « structure » du jeu de données du récepteur** . Voici une liste de conditions d’erreur qui entraînent la levée d’une exception :
 
 - Le résultat de la requête de banque de données source n’a pas de nom de colonne spécifié dans la section « structure » du jeu de données d’entrée.
 - La banque de données du récepteur (si un schéma est prédéfini) n’a pas de nom de colonne spécifié dans la section « structure » du jeu de données de sortie.
@@ -411,7 +411,7 @@ Dans cet exemple, le jeu de données de sortie possède une structure et pointe 
 }
 ```
 
-Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes de la source sont mappées aux colonnes dans le récepteur en utilisant la propriété **translator** -> **columnMappings**.
+Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes de la source sont mappées aux colonnes dans le récepteur en utilisant la propriété **translator** -> **columnMappings** .
 
 ```json
 {
@@ -455,7 +455,7 @@ Vous pouvez spécifier l’activité de copie -> `translator` -> `schemaMapping`
 | Propriété            | Description                                                  | Obligatoire |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | Oui      |
-| schemaMapping       | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur**.<br/>- **Clé :** représente la source. Pour une **source tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Oui      |
+| schemaMapping       | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur** .<br/>- **Clé :** représente la source. Pour une **source tabulaire** , spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique** , spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire** , spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique** , spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Oui      |
 | collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non       |
 
 **Exemple : copier à partir de MongoDB vers Oracle :**

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444905"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675143"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Database et Azure Synapse Analytics à l’aide du Portail Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 * [Le portail Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Une interface de ligne de commande (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
 
@@ -54,17 +54,17 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 
    ![Surveillance](./media/alerts-insights-configure-portal/Alerts.png)
   
-3. Sélectionnez le bouton **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
+3. Sélectionnez le bouton **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle** .
   ![Créer une règle](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. Dans la section **Condition**, cliquez sur **Ajouter**.
+4. Dans la section **Condition** , cliquez sur **Ajouter** .
   ![Définir la condition](./media/alerts-insights-configure-portal/create-rule.png)
-5. Sur la page **Configurer la logique du signal**, sélectionnez un signal.
+5. Sur la page **Configurer la logique du signal** , sélectionnez un signal.
   ![Sélectionner un signal](./media/alerts-insights-configure-portal/select-signal.png)
-6. Une fois que vous avez sélectionné un signal, par exemple **Pourcentage UC**, la page **Configurer la logique du signal** s’affiche.
+6. Une fois que vous avez sélectionné un signal, par exemple **Pourcentage UC** , la page **Configurer la logique du signal** s’affiche.
   ![Configurer la logique du signal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Sur cette page, configurez ce type de seuil, l’opérateur, le type d’agrégation, la valeur de seuil, la granularité d’agrégation et la fréquence d’évaluation. Cliquez ensuite sur **Terminé**.
-8. Sur la page **Créer une règle**, sélectionnez un **groupe d'actions** existant, ou créez un nouveau groupe. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit.
+7. Sur cette page, configurez ce type de seuil, l’opérateur, le type d’agrégation, la valeur de seuil, la granularité d’agrégation et la fréquence d’évaluation. Cliquez ensuite sur **Terminé** .
+8. Sur la page **Créer une règle** , sélectionnez un **groupe d'actions** existant, ou créez un nouveau groupe. Un groupe d’actions vous permet de définir l’action à exécuter lorsqu’une condition d’alerte se produit.
   ![Définir un groupe d’actions](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Définissez le nom de la règle, fournissez une description facultative, choisissez un niveau de gravité pour la règle, indiquez si vous souhaitez activer la règle lors de la création de la règle, puis cliquez sur **Créer une alerte de règle** pour créer l’alerte de règle de la métrique.

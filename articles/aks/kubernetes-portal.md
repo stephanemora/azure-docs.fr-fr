@@ -2,16 +2,14 @@
 title: Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
 description: Découvrez comment interagir avec les ressources Kubernetes pour gérer un cluster Azure Kubernetes service (AKS) à partir du Portail Azure.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070637"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635607"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
 
@@ -62,7 +60,7 @@ L’affichage des ressources Kubernetes comprend également un éditeur YAML. Un
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informations de pod Kubernetes affichées dans le Portail Azure.":::
 
-Après avoir modifié le YAML, les modifications sont appliquées en sélectionnant **Examiner + enregistrer**, en confirmant les modifications, puis en enregistrant à nouveau.
+Après avoir modifié le YAML, les modifications sont appliquées en sélectionnant **Examiner + enregistrer** , en confirmant les modifications, puis en enregistrant à nouveau.
 
 >[!WARNING]
 > Il n’est pas recommandé d’effectuer des modifications de production directes par le biais de l’interface utilisateur ou de l’interface CLI, vous devez donc tirer parti des [meilleures pratiques en matière d’intégration continue et de déploiement continu (CD)](kubernetes-action.md). Les fonctionnalités de gestion de Kubernetes du Portail Azure et de l’éditeur YAML sont conçues pour l’apprentissage et le déploiement en mode Fighting de nouveaux déploiements dans un paramètre de développement et de test.

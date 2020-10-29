@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a57de3d6beda5336f480f20137a9ccaa014b012d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444434"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675082"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utiliser l’authentification Azure Active Directory
 
@@ -39,7 +39,7 @@ Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée 
 - L’authentification Azure AD prend en charge :
   - Identités uniquement cloud Azure AD.
   - Identités hybrides Azure AD prenant en charge :
-    - L’authentification dans le cloud avec deux options associées à l’authentification unique (SSO) fluide : authentification **directe** et authentification avec **hachage de mot de passe**.
+    - L’authentification dans le cloud avec deux options associées à l’authentification unique (SSO) fluide : authentification **directe** et authentification avec **hachage de mot de passe** .
     - Authentification fédérée.
   - Pour plus d’informations sur les méthodes d’authentification Azure AD et laquelle choisir, consultez l’article suivant :
     - [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../../active-directory/hybrid/choose-ad-authn.md)
@@ -108,7 +108,7 @@ Pour créer un utilisateur de base de données autonome dans Azure SQL Database,
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Accordez le rôle `db_owner` directement à l’utilisateur Azure AD individuel pour atténuer le problème lié à **CREATE DATABASE SCOPED CREDENTIAL**.
+    Accordez le rôle `db_owner` directement à l’utilisateur Azure AD individuel pour atténuer le problème lié à **CREATE DATABASE SCOPED CREDENTIAL** .
 
 - Ces fonctions système retournent des valeurs NULL lors de leur exécution sous des entités Azure AD :
 
@@ -155,19 +155,19 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 - Nous vous conseillons de définir l’expiration du délai de connexion à 30 secondes.
 - SQL Server 2016 Management Studio et SQL Server Data Tools pour Visual Studio 2015 (version 14.0.60311.1 d’avril 2016 ou ultérieure) prennent en charge l’authentification Azure Active Directory. (L’authentification Azure AD est prise en charge par le **Fournisseur de données .NET Framework pour SQL Server** ; .NET Framework version 4.6 minimum). Par conséquent, les dernières versions de ces outils et applications de la couche Données (DAC et BACPAC) peuvent utiliser l’authentification Azure AD.
 - À partir de la version 15.0.1, l’[utilitaire sqlcmd](/sql/tools/sqlcmd-utility) et l’[utilitaire bcp](/sql/tools/bcp-utility) prennent en charge l’authentification interactive Active Directory avec Multi-Factor Authentication (MFA).
-- SQL Server Data Tools pour Visual Studio 2015 requiert la version d’avril 2016 (version 14.0.60311.1) ou une version ultérieure. Actuellement, les utilisateurs Azure AD ne sont pas affichés dans l’Explorateur d’objets SSDT. Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+- SQL Server Data Tools pour Visual Studio 2015 requiert la version d’avril 2016 (version 14.0.60311.1) ou une version ultérieure. Actuellement, les utilisateurs Azure AD ne sont pas affichés dans l’Explorateur d’objets SSDT. Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
 - Le [pilote Microsoft JDBC 6.0 pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) prend en charge l’authentification Azure AD. Consultez également [Définition des propriétés de connexion](/sql/connect/jdbc/setting-the-connection-properties).
 - PolyBase ne peut pas s’authentifier avec l’authentification Azure AD.
 - L’authentification Azure AD est prise en charge pour Azure SQL Database et Azure Synapse en utilisant les panneaux **Importer la base de données** et **Exporter la base de données** du portail Azure. L’importation et l’exportation à l’aide de l’authentification Azure AD sont également prises en charge depuis une invite de commandes PowerShell.
-- L’authentification Azure AD est prise en charge pour SQL Database, SQL Managed Instance et Azure Synapse par le biais de l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure AD avec SQL Database ou Azure Synapse](authentication-aad-configure.md) et [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
+- L’authentification Azure AD est prise en charge pour SQL Database, SQL Managed Instance et Azure Synapse par le biais de l’interface de ligne de commande (CLI). Pour plus d’informations, consultez [Configurer et gérer l’authentification Azure AD avec SQL Database ou Azure Synapse](authentication-aad-configure.md) et [SQL Server - az sql server](/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour apprendre à créer et à remplir une instance Azure AD, puis à la configurer avec Azure SQL Database, SQL Managed Instance ou Azure Synapse, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database, SQL Managed Instance ou Azure Synapse](authentication-aad-configure.md).
 - Pour suivre un tutoriel sur l’utilisation de principaux de serveur (connexions) Azure AD avec SQL Managed Instance, consultez [Principaux de serveur (connexions) Azure AD avec SQL Managed Instance](../managed-instance/aad-security-configure-tutorial.md)
 - Pour une vue d’ensemble des connexions, des utilisateurs, des rôles de base de données et des autorisations dans SQL Database, consultez [Connexions, utilisateurs, rôles de base de données et autorisations](logins-create-manage.md).
-- Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).
-- Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+- Pour en savoir plus sur les principaux de base de données, voir [Principaux](/sql/relational-databases/security/authentication-access/principals-database-engine).
+- Pour en savoir plus sur les rôles de base de données, voir [Rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles).
 - Pour obtenir la syntaxe permettant de créer des principaux de serveur (connexions) Azure AD pour SQL Managed Instance, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Pour en savoir plus sur les règles de pare-feu dans la base de données SQL, voir [Règles de pare-feu de la base de données SQL](firewall-configure.md).
 

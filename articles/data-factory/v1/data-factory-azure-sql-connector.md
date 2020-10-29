@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cf731b09115558fc4280fe322d7e952ccb420c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83ab9e212e71ad53007a84ad8c10979bfea4516b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637392"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -34,7 +34,7 @@ Vous pouvez copier des données **depuis Azure SQL Database** vers les magasins 
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Vous pouvez copier des données depuis les magasins de données suivants **vers Azure SQL Database** :
+Vous pouvez copier des données depuis les magasins de données suivants **vers Azure SQL Database**  :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -44,13 +44,13 @@ Le connecteur Azure SQL Database prend en charge l’authentification de base.
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données vers/depuis Azure SQL Database à l’aide de différents outils/API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie** . Voir le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio** , **Azure PowerShell** , **modèle Azure Resource Manager** , **.NET API** et **API REST** . Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
-1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines.
+1. Création d'une **fabrique de données** . Une fabrique de données peut contenir un ou plusieurs pipelines.
 2. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données. Par exemple, si vous copiez des données depuis un stockage d’objets blob Azure vers une base de données Azure SQL Database, vous créez deux services liés pour lier votre compte de stockage Azure et votre base de données Azure SQL Database à votre fabrique de données. Pour les propriétés du service lié qui sont spécifiques à Azure SQL Database, consultez la section [propriétés du service lié](#linked-service-properties).
 3. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. Dans l’exemple mentionné dans la dernière étape, vous créez un jeu de données pour spécifier le conteneur d’objets blob et le dossier qui contient les données d’entrée. Vous créez aussi un autre jeu de données pour spécifier la table SQL dans Azure SQL Database qui contient les données copiées depuis le stockage d’objets blob. Pour les propriétés du jeu de données qui sont spécifiques à Azure Data Lake Store, consultez la section [propriétés du jeu de données](#dataset-properties).
 4. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. Dans l’exemple mentionné plus haut, vous utilisez BlobSource comme source et SqlSink comme récepteur pour l’activité de copie. De même, si vous copiez depuis Azure SQL Database vers Stockage Blob Azure, vous utilisez SqlSource et BlobSink dans l’activité de copie. Pour les propriétés d’activité de copie qui sont spécifiques à Azure SQL Database, consultez la section [propriétés de l’activité de copie](#copy-activity-properties). Pour plus d’informations sur l’utilisation d’un magasin de données comme source ou comme récepteur, cliquez sur le lien de la section précédente de votre magasin de données.
@@ -68,10 +68,10 @@ Un service lié Azure SQL lie Azure SQL Database à votre fabrique de données. 
 | connectionString |Spécifier les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété connectionString. Seule l’authentification de base est prise en charge. |Oui |
 
 > [!IMPORTANT]
-> Configurez le [pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Database à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec la passerelle de la fabrique de données, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Database.
+> Configurez le [pare-feu Azure SQL Database](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) et le serveur de base de données pour [autoriser les services Azure à accéder au serveur](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). En outre, si vous copiez des données vers Azure SQL Database à partir d’un emplacement situé en dehors d’Azure, y compris à partir de sources de données locales avec la passerelle de la fabrique de données, configurez la plage d’adresses IP appropriée pour l’ordinateur qui envoie des données à Azure SQL Database.
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
-Pour spécifier un jeu de données afin de représenter les données d’entrée ou de sortie dans Azure SQL Database, vous devez définir la propriété de type du jeu de données sur : **AzureSqlTable**. Définissez la propriété **linkedServiceName** du jeu de données sur le nom du service lié Azure SQL.
+Pour spécifier un jeu de données afin de représenter les données d’entrée ou de sortie dans Azure SQL Database, vous devez définir la propriété de type du jeu de données sur : **AzureSqlTable** . Définissez la propriété **linkedServiceName** du jeu de données sur le nom du service lié Azure SQL.
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
@@ -89,10 +89,10 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 En revanche, les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité. Pour l’activité de copie, elles dépendent des types de sources et récepteurs.
 
-Si vous déplacez des données à partir d’Azure SQL Database, vous définissez le type de source dans l’activité de copie sur **SqlSource**. De même, si vous déplacez des données vers Azure SQL Database, vous définissez le type de récepteur dans l’activité de copie sur **SqlSink**. Cette section fournit une liste de propriétés prises en charge par SqlSource et SqlSink.
+Si vous déplacez des données à partir d’Azure SQL Database, vous définissez le type de source dans l’activité de copie sur **SqlSource** . De même, si vous déplacez des données vers Azure SQL Database, vous définissez le type de récepteur dans l’activité de copie sur **SqlSink** . Cette section fournit une liste de propriétés prises en charge par SqlSource et SqlSink.
 
 ### <a name="sqlsource"></a>SqlSource
-Dans le cas d’une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+Dans le cas d’une activité de copie, quand la source est de type **SqlSource** , les propriétés suivantes sont disponibles dans la section **typeProperties**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ Si **sqlReaderQuery** est spécifié pour SqlSource, l'activité de copie exécu
 Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section Structure du jeu de données JSON sont utilisées pour créer une requête (`select column1, column2 from mytable`) à exécuter sur la base de données Azure SQL. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
 
 > [!NOTE]
-> Quand vous utilisez **sqlReaderStoredProcedureName**, vous devez toujours spécifier une valeur pour la propriété **tableName** du code JSON du jeu de données. Cependant, il n’existe aucune validation effectuée pour cette table.
+> Quand vous utilisez **sqlReaderStoredProcedureName** , vous devez toujours spécifier une valeur pour la propriété **tableName** du code JSON du jeu de données. Cependant, il n’existe aucune validation effectuée pour cette table.
 >
 >
 
@@ -150,7 +150,7 @@ GO
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | sqlWriterCleanupScript |Spécifiez une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Une instruction de requête. |Non |
 | sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, qui est utilisé pour nettoyer les données d’un segment spécifique lors de la ré-exécution. Pour en savoir plus, voir [Copie renouvelée](#repeatable-copy). |Nom d’une colonne avec le type de données binary(32). |Non |
-| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non |
+| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot** . Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `sqlWriterCleanupScript`. |Nom de la procédure stockée. |Non |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non |
 
@@ -312,7 +312,7 @@ Consultez la section [Propriétés de type du jeu de données d’objets blob Az
 
 **Activité de copie dans un pipeline avec une source SQL et un récepteur blob :**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **SqlSource** et le type **sink** est défini sur **BlobSink** . La requête SQL spécifiée pour la propriété **SqlReaderQuery** sélectionne les données de la dernière heure à copier.
 
 ```JSON
 {
@@ -502,7 +502,7 @@ Consultez la section Propriétés de type du jeu de données SQL Azure pour obte
 
 **Activité de copie dans un pipeline avec une source blob et un récepteur SQL :**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink**.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink** .
 
 ```JSON
 {

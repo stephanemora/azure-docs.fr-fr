@@ -10,12 +10,12 @@ author: meiyl
 ms.reviewer: sawinark
 manager: yidetu
 ms.date: 06/07/2020
-ms.openlocfilehash: cf41da685036770144ebf7eb2befd0c3d126362d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ede36b20353f00ed9a4f80bec2d7bc5a3512a9ea
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446017"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637953"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Utiliser la fonctionnalité de diagnostic de connectivité dans le runtime d’intégration SSIS
 
@@ -39,8 +39,8 @@ Utilisez les sections suivantes pour en savoir plus sur les erreurs les plus cou
 ## <a name="error-code-invalidinput"></a>Code d’erreur : InvalidInput
 
 - **Message d’erreur** : « Vérifiez que votre entrée est correcte. »
-- **Cause potentielle** : Votre entrée est incorrecte.
-- **Recommandation** : Vérifiez votre entrée.
+- **Cause potentielle**  : Votre entrée est incorrecte.
+- **Recommandation**  : Vérifiez votre entrée.
 
 ## <a name="error-code-firewallornetworkissue"></a>Code d’erreur : FirewallOrNetworkIssue
 
@@ -87,23 +87,23 @@ Utilisez les sections suivantes pour en savoir plus sur les erreurs les plus cou
 ## <a name="error-code-genericissues"></a>Code d’erreur : GenericIssues
 
 - **Message d’erreur** : « Échec du test de connexion en raison de problèmes génériques. »
-- **Cause potentielle** : Le test de connexion a rencontré un problème temporaire général.
-- **Recommandation** : Réessayez le test de connexion ultérieurement. Si la nouvelle tentative échoue, contactez l’équipe du support Azure Data Factory.
+- **Cause potentielle**  : Le test de connexion a rencontré un problème temporaire général.
+- **Recommandation**  : Réessayez le test de connexion ultérieurement. Si la nouvelle tentative échoue, contactez l’équipe du support Azure Data Factory.
 
 ## <a name="error-code-pspingexecutiontimeout"></a>Code d’erreur : PSPingExecutionTimeout
 
 - **Message d’erreur** : « Expiration du délai d’attente du test de connexion, réessayez ultérieurement. »
-- **Cause potentielle** : Expiration du délai d’attente du test de connectivité.
-- **Recommandation** : Réessayez le test de connexion ultérieurement. Si la nouvelle tentative échoue, contactez l’équipe du support Azure Data Factory.
+- **Cause potentielle**  : Expiration du délai d’attente du test de connectivité.
+- **Recommandation**  : Réessayez le test de connexion ultérieurement. Si la nouvelle tentative échoue, contactez l’équipe du support Azure Data Factory.
 
 ## <a name="error-code-networkinstable"></a>Code d’erreur : NetworkInstable
 
 - **Message d’erreur** : « Le test de connexion a réussi de façon irrégulière en raison d’une instabilité du réseau. »
-- **Cause potentielle** : Problème réseau temporaire.
-- **Recommandation** : Vérifiez si le réseau du serveur ou du pare-feu est stable.
+- **Cause potentielle**  : Problème réseau temporaire.
+- **Recommandation**  : Vérifiez si le réseau du serveur ou du pare-feu est stable.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déployer un projet SSIS dans Azure avec SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms)
-- [Exécuter des packages SSIS dans Azure avec SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms)
-- [Planifier des packages SSIS dans Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)
+- [Déployer un projet SSIS dans Azure avec SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
+- [Exécuter des packages SSIS dans Azure avec SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
+- [Planifier des packages SSIS dans Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)

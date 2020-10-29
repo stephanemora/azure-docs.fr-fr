@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440556"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635811"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -60,8 +60,8 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 
 ### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
 
-- **Stocker les informations d’identification chiffrées dans un magasin managé Azure Data Factory**. Data Factory permet de protéger les informations d’identification de vos banques de données en les chiffrant à l’aide de certificats managés par Microsoft. Ces certificats sont remplacés tous les deux ans (avec renouvellement des certificats et migration des informations d’identification). Pour plus d’informations sur la sécurité du stockage Azure, consultez [Vue d’ensemble de la sécurité du stockage Azure](../security/fundamentals/storage-overview.md).
-- **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
+- **Stocker les informations d’identification chiffrées dans un magasin managé Azure Data Factory** . Data Factory permet de protéger les informations d’identification de vos banques de données en les chiffrant à l’aide de certificats managés par Microsoft. Ces certificats sont remplacés tous les deux ans (avec renouvellement des certificats et migration des informations d’identification). Pour plus d’informations sur la sécurité du stockage Azure, consultez [Vue d’ensemble de la sécurité du stockage Azure](../storage/blobs/security-recommendations.md).
+- **Stocker les informations d’identification dans Azure Key Vault** . Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
 Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
@@ -84,7 +84,7 @@ Certaines banques de données prennent en charge le chiffrement des données au 
 Transparent Data Encryption (TDE) dans Azure Synapse Analytics vous aide à vous protéger contre les menaces d’activités malveillantes, par le biais d’un chiffrement et d’un déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous permet de vous protéger contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec SQL Database et Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous permet de vous protéger contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec SQL Database et Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store assure également le chiffrement des données stockées dans le compte. Une fois activé, Data Lake Store chiffre automatiquement les données avant qu’elles soient rendues persistantes, il les déchiffre avant qu’elles soient récupérées, les rendant transparentes pour le client qui accède aux données. Pour plus d’informations, consultez [Sécurité dans Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -102,7 +102,7 @@ Amazon Redshift prend en charge le chiffrement du cluster pour les données au r
 Salesforce prend en charge Shield Platform Encryption qui permet de chiffrer tous les fichiers, pièces jointes et champs personnalisés. Pour plus d’informations, consultez [Understanding the Web Server OAuth Authentication Flow (Comprendre le flux d’authentification Web Server OAuth)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Scénarios hybrides
-Pour les scénarios hybrides, un runtime d’intégration auto-hébergé doit être installé au sein d’un réseau local, d’un réseau virtuel (Azure) ou d’un cloud privé virtuel (Amazon). Le runtime d’intégration auto-hébergé doit être en mesure d’accéder aux banques de données locales. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Comment créer et configurer un runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
+Pour les scénarios hybrides, un runtime d’intégration auto-hébergé doit être installé au sein d’un réseau local, d’un réseau virtuel (Azure) ou d’un cloud privé virtuel (Amazon). Le runtime d’intégration auto-hébergé doit être en mesure d’accéder aux banques de données locales. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Comment créer et configurer un runtime d’intégration auto-hébergé](./create-self-hosted-integration-runtime.md). 
 
 ![canaux de runtime d’intégration auto-hébergé](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -111,13 +111,13 @@ Le canal de commande autorise la communication entre les services de déplacemen
 ### <a name="on-premises-data-store-credentials"></a>Informations d’identification des banques de données locales
 Les informations d’identification peuvent être stockées dans une fabrique de données ou [référencées par une fabrique de données](store-credentials-in-key-vault.md) au moment de l’exécution à partir d’Azure Key Vault. Quand vous stockez des informations d’identification dans une fabrique de données, elles sont toujours chiffrées sur le runtime d’intégration auto-hébergé. 
  
-- **Stocker des informations d’identification localement**. Si vous utilisez directement l’applet de commande **Set-AzDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké sur le runtime d’intégration auto-hébergé.  Dans ce cas, les informations d’identification passent par le service principal Azure, hautement sécurisé, avant d’aboutir à la machine d’intégration auto-hébergée, où elles sont chiffrées et stockées. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification.
+- **Stocker des informations d’identification localement** . Si vous utilisez directement l’applet de commande **Set-AzDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké sur le runtime d’intégration auto-hébergé.  Dans ce cas, les informations d’identification passent par le service principal Azure, hautement sécurisé, avant d’aboutir à la machine d’intégration auto-hébergée, où elles sont chiffrées et stockées. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](/previous-versions/ms995355(v=msdn.10)) Windows pour chiffrer les données sensibles et les informations d’identification.
 
-- **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
+- **Stocker les informations d’identification dans Azure Key Vault** . Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
-- **Stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end Azure**. Si vous souhaitez chiffrer et stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end de la fabrique de données, suivez les étapes décrites dans [Chiffrer des informations d’identification pour les banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification. 
+- **Stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end Azure** . Si vous souhaitez chiffrer et stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end de la fabrique de données, suivez les étapes décrites dans [Chiffrer des informations d’identification pour les banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](/previous-versions/ms995355(v=msdn.10)) Windows pour chiffrer les données sensibles et les informations d’identification. 
 
-   Utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** pour chiffrer les informations d’identification et les informations sensibles du service lié. Vous pouvez ensuite utiliser le JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne de connexion) pour créer un service lié à l’aide de la cmdlet **Set-AzDataFactoryV2LinkedService**.  
+   Utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** pour chiffrer les informations d’identification et les informations sensibles du service lié. Vous pouvez ensuite utiliser le JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne de connexion) pour créer un service lié à l’aide de la cmdlet **Set-AzDataFactoryV2LinkedService** .  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Ports utilisés pendant le chiffrement du service lié sur le runtime d’intégration auto-hébergé
@@ -159,7 +159,7 @@ Les images suivantes décrivent l’utilisation du runtime d’intégration auto
 > Vous devrez peut-être gérer les ports ou configurer une liste d’autorisation pour les domaines au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.
 
 > [!NOTE] 
-> Pour plus d’informations sur les stratégies d’accès aux données par le biais d’Azure Data Factory, consultez [cet article](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+> Pour plus d’informations sur les stratégies d’accès aux données par le biais d’Azure Data Factory, consultez [cet article](./data-access-strategies.md#data-access-strategies-through-azure-data-factory).
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé    
 Dans une entreprise, un pare-feu d’entreprise s’exécute sur le routeur central de l’organisation. Le pare-feu Windows s’exécute en tant que démon sur la machine locale sur laquelle est installé le runtime d’intégration auto-hébergé. 
@@ -185,9 +185,9 @@ Certains magasins de données dans le cloud exigent également que autorisiez l�
 Les magasins de données cloud suivants exigent que vous autorisiez l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certains de ces magasins de données ne requièrent pas par défaut la liste d’autorisation. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
@@ -204,4 +204,3 @@ Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie Azure Data Factory, consultez [Guide des performances et d’optimisation de l'activité de copie](copy-activity-performance.md).
 
- 

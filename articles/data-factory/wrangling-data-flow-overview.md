@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082849"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636066"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Que sont les flux de données de wrangling ?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082849"
 
 Les organisations doivent procéder à la préparation et au wrangling des données pour une analyse précise des données complexes qui continuent à croître quotidiennement. La préparation des données est nécessaire pour que les organisations puissent utiliser les données dans différents processus d’entreprise et accélérer la rentabilité.
 
-Les flux de données de wrangling dans Azure Data Factory vous permettent d’effectuer une préparation de données sans code à l’échelle du cloud de manière itérative. Les flux de données de wrangling s’intègrent à [Power Query Online](https://docs.microsoft.com/power-query/) et rendent les fonctions Power Query M disponibles pour les utilisateurs de Data Factory.
+Les flux de données de wrangling dans Azure Data Factory vous permettent d’effectuer une préparation de données sans code à l’échelle du cloud de manière itérative. Les flux de données de wrangling s’intègrent à [Power Query Online](/power-query/) et rendent les fonctions Power Query M disponibles pour les utilisateurs de Data Factory.
 
 Le flux de données de wrangling convertit le M généré par l’éditeur mashup Power Query Online en code Spark pour l’exécution à l’échelle du cloud.
 
@@ -56,7 +56,7 @@ Analysez visuellement vos données sans code pour supprimer les valeurs hors nor
 
 ## <a name="the-mashup-editor"></a>Editeur de mashup
 
-Quand vous créez un flux de wrangling data, tous les jeux de données sources deviennent des requêtes de jeu de données et sont placés dans le dossier **ADFResource**. Par défaut, la requête utilisateur pointe vers la première requête de jeu de données. Toutes les transformations doivent être effectuées sur la requête utilisateur, car les modifications apportées aux requêtes de jeu de données ne sont pas prises en charge et ne sont pas rendues persistantes. Le renommage, l’ajout et la suppression de requêtes ne sont pas pris en charge.
+Quand vous créez un flux de wrangling data, tous les jeux de données sources deviennent des requêtes de jeu de données et sont placés dans le dossier **ADFResource** . Par défaut, la requête utilisateur pointe vers la première requête de jeu de données. Toutes les transformations doivent être effectuées sur la requête utilisateur, car les modifications apportées aux requêtes de jeu de données ne sont pas prises en charge et ne sont pas rendues persistantes. Le renommage, l’ajout et la suppression de requêtes ne sont pas pris en charge.
 
 ![Wrangling](media/wrangling-data-flow/editor.png)
 

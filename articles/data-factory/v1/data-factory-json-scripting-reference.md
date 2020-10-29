@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 497765768c208354f6d2b47dbdda8c30aaed8423
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6372976d85c7fdce2a729047d3ae36911412ecf1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016925"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636882"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -111,7 +111,7 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 ### <a name="typeproperties-section"></a>Section typeProperties
 La section typeProperties est différente pour chaque activité. Les activités de transformation n’ont que les propriétés du type. Consultez la section [Activités de transformation des données](#data-transformation-activities) dans cet article pour obtenir des exemples JSON qui définissent les activités de transformation dans un pipeline.
 
-L’**Activité de copie** a deux sous-sections dans la section typeProperties : **source** et **sink**. Consultez la section [Magasins de données](#data-stores) de cet article pour obtenir des exemples JSON montrant comment utiliser un magasin de données comme source et/ou récepteur.
+L’ **Activité de copie** a deux sous-sections dans la section typeProperties : **source** et **sink** . Consultez la section [Magasins de données](#data-stores) de cet article pour obtenir des exemples JSON montrant comment utiliser un magasin de données comme source et/ou récepteur.
 
 ### <a name="sample-copy-pipeline"></a>Exemple de pipeline de copie
 Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) duplique des données d’un stockage Blob Azure vers une base de données Azure SQL.
@@ -161,9 +161,9 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 
 Notez les points suivants :
 
-* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
-* L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**.
-* Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur.
+* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy** .
+* L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset** .
+* Dans la section **typeProperties** , **BlobSource** est spécifié en tant que type de source et **SqlSink** , en tant que type de récepteur.
 
 Consultez la section [Magasins de données](#data-stores) de cet article pour obtenir des exemples JSON montrant comment utiliser un magasin de données comme source et/ou récepteur.
 
@@ -219,8 +219,8 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 
 Notez les points suivants :
 
-* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
-* Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService**) et dans le dossier **script** du conteneur **adfgetstarted**.
+* Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive** .
+* Le fichier de script Hive, **partitionweblogs.hql** , est stocké dans le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé **AzureStorageLinkedService** ) et dans le dossier **script** du conteneur **adfgetstarted** .
 * La section **defines** est utilisée pour spécifier les paramètres d’exécution transmis au script Hive comme valeurs de configuration Hive (par ex. `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Consultez la section [Activités de transformation des données](#data-transformation-activities) dans cet article pour obtenir des exemples JSON qui définissent les activités de transformation dans un pipeline.
@@ -312,7 +312,7 @@ structure:
 ]
 ```
 
-Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **availability** :
+Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la section **availability**  :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
@@ -352,7 +352,7 @@ La section **policy** de la définition du jeu de données définit les critère
 }
 ```
 
-À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external**(externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline, à moins que le chaînage des activités ou pipelines ne soit utilisé.
+À moins qu’un jeu de données ne soit généré par Azure Data Factory, il doit être marqué comme **external** (externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline, à moins que le chaînage des activités ou pipelines ne soit utilisé.
 
 | Nom | Description | Obligatoire | Valeur par défaut |
 | --- | --- | --- | --- |
@@ -409,7 +409,7 @@ Cliquez sur le lien du magasin qui vous intéresse pour afficher les schémas JS
 Il existe deux types de services liés : les services liés de stockage Azure et les services liés SAP de stockage Azure.
 
 #### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
-Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte**, créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :
+Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte** , créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage** . Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -430,7 +430,7 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Service lié SAP de stockage Azure
-Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :
+Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas** . Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -453,15 +453,15 @@ Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azu
 Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données d’objet blob Azure, définissez le **type** du jeu de données sur **AzureBlob**. Ensuite, spécifiez les propriétés spécifiques d’objet blob Azure suivantes dans la section **typeProperties** :
+Pour définir un jeu de données d’objet blob Azure, définissez le **type** du jeu de données sur **AzureBlob** . Ensuite, spécifiez les propriétés spécifiques d’objet blob Azure suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\mondossierblob\ |Oui |
 | fileName |Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : `Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Niveaux pris en charge : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 #### <a name="example"></a>Exemple
 
@@ -493,7 +493,7 @@ Pour définir un jeu de données d’objet blob Azure, définissez le **type** d
 Pour plus d’informations, consultez l’article [Azure Blob connector (connecteur d’objet blob Azure)](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource dans l’activité de copie
-Si vous copiez des données à partir d’un Stockage Blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un Stockage Blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -536,7 +536,7 @@ Si vous copiez des données à partir d’un Stockage Blob Azure, définissez le
 }
 ```
 ### <a name="blobsink-in-copy-activity"></a>BlobSink dans l’activité de copie
-Si vous copiez des données dans un stockage d’objets blob Azure, définissez le **type de récepteur** de l’activité de copie sur **BlobSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans un stockage d’objets blob Azure, définissez le **type de récepteur** de l’activité de copie sur **BlobSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -586,7 +586,7 @@ Pour plus d’informations, consultez l’article [Azure Blob connector (connect
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Azure Data Lake Store, définissez le type du service lié sur **AzureDataLakeStore**et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Azure Data Lake Store, définissez le type du service lié sur **AzureDataLakeStore** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -636,15 +636,15 @@ Pour définir un service lié Azure Data Lake Store, définissez le type du serv
 Pour plus d’informations, consultez l’article [Azure Data Lake Store connector (connecteur Azure Data Lake Store)](data-factory-azure-datalake-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Azure Data Lake Store, définissez le **type** du jeu de données sur **AzureDataLakeStore** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Azure Data Lake Store, définissez le **type** du jeu de données sur **AzureDataLakeStore** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | folderPath |Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake |Oui |
 | fileName |Le nom du fichier dans le magasin Azure Data Lake. fileName est facultatif et sensible à la casse. <br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les fichiers dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : `Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Niveaux pris en charge : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 #### <a name="example"></a>Exemple
 ```json
@@ -681,9 +681,9 @@ Pour définir un jeu de données Azure Data Lake Store, définissez le **type** 
 Pour plus d’informations, consultez l’article [Azure Data Lake Store connector (connecteur Azure Data Lake Store)](data-factory-azure-datalake-connector.md#dataset-properties).
 
 ### <a name="azure-data-lake-store-source-in-copy-activity"></a>Source Azure Data Lake Store dans l’activité de copie
-Si vous copiez des données à partir d’Azure Data Lake Store, définissez le **type de source** de l’activité de copie sur **AzureDataLakeStoreSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’Azure Data Lake Store, définissez le **type de source** de l’activité de copie sur **AzureDataLakeStoreSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
-**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties** :
+**AzureDataLakeStoreSource** prend en charge les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -730,7 +730,7 @@ Si vous copiez des données à partir d’Azure Data Lake Store, définissez le 
 Pour plus d’informations, consultez l’article [Azure Data Lake Store connector (connecteur Azure Data Lake Store)](data-factory-azure-datalake-connector.md#copy-activity-properties).
 
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Récepteur Azure Data Lake Store dans l’activité de copie
-Si vous copiez des données dans un Azure Data Lake Store, définissez le **type de récepteur** de l’activité de copie sur **AzureDataLakeStoreSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans un Azure Data Lake Store, définissez le **type de récepteur** de l’activité de copie sur **AzureDataLakeStoreSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -932,7 +932,7 @@ Pour plus d’informations, consultez l’article sur le [connecteur d’objet b
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Azure SQL Database, définissez le **type** du service lié sur **AzureSqlDatabase** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Azure SQL Database, définissez le **type** du service lié sur **AzureSqlDatabase** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -954,7 +954,7 @@ Pour définir un service lié Azure SQL Database, définissez le **type** du ser
 Pour plus d’informations, consultez l’article [Azure SQL connector (connecteur Azure SQL)](data-factory-azure-sql-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Azure SQL Database, définissez le **type** du jeu de données sur **AzureSqlTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Azure SQL Database, définissez le **type** du jeu de données sur **AzureSqlTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -989,7 +989,7 @@ Pour définir un jeu de données Azure SQL Database, définissez le **type** du 
 Pour plus d’informations, consultez l’article [Azure SQL connector (connecteur Azure SQL)](data-factory-azure-sql-connector.md#dataset-properties).
 
 ### <a name="sql-source-in-copy-activity"></a>Source SQL dans l’activité de copie
-Si vous copiez des données à partir d’Azure SQL Database, définissez le **type de source** de l’activité de copie sur **SqlSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’Azure SQL Database, définissez le **type de source** de l’activité de copie sur **SqlSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -1043,7 +1043,7 @@ Si vous copiez des données à partir d’Azure SQL Database, définissez le **t
 Pour plus d’informations, consultez l’article [Azure SQL connector (connecteur Azure SQL)](data-factory-azure-sql-connector.md#copy-activity-properties).
 
 ### <a name="sql-sink-in-copy-activity"></a>Récepteur SQL dans l’activité de copie
-Si vous copiez des données dans Azure SQL Database, définissez le **type de récepteur** de l’activité de copie sur **SqlSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans Azure SQL Database, définissez le **type de récepteur** de l’activité de copie sur **SqlSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -1103,7 +1103,7 @@ Pour plus d’informations, consultez l’article [Azure SQL connector (connecte
 ## <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Azure Synapse Analytics, définissez le **type** du service lié sur **AzureSqlDW** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Azure Synapse Analytics, définissez le **type** du service lié sur **AzureSqlDW** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1128,7 +1128,7 @@ Pour définir un service lié Azure Synapse Analytics, définissez le **type** d
 Pour plus d’informations, consultez l’article [Connecteur Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Azure Synapse Analytics, définissez le **type** du jeu de données sur **AzureSqlDWTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Azure Synapse Analytics, définissez le **type** du jeu de données sur **AzureSqlDWTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1164,7 +1164,7 @@ Pour définir un jeu de données Azure Synapse Analytics, définissez le **type*
 Pour plus d’informations, consultez l’article [Connecteur Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties).
 
 ### <a name="azure-synapse-analytics-source-in-copy-activity"></a>Source Azure Synapse Analytics dans l’activité de copie
-Si vous copiez des données à partir d’Azure Synapse Analytics, définissez le **type de source** de l’activité de copie sur **SqlDWSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’Azure Synapse Analytics, définissez le **type de source** de l’activité de copie sur **SqlDWSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -1219,17 +1219,17 @@ Si vous copiez des données à partir d’Azure Synapse Analytics, définissez l
 Pour plus d’informations, consultez l’article [Connecteur Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties).
 
 ### <a name="azure-synapse-analytics-sink-in-copy-activity"></a>Récepteur Azure Synapse Analytics dans l’activité de copie
-Si vous copiez des données dans Azure Synapse Analytics, définissez le **type de récepteur** de l’activité de copie sur **SqlDWSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans Azure Synapse Analytics, définissez le **type de récepteur** de l’activité de copie sur **SqlDWSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Spécifiez une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non |
 | allowPolyBase |Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT. <br/><br/> **Utiliser PolyBase est la méthode recommandée pour charger des données dans Azure Synapse Analytics.** |True <br/>False (valeur par défaut) |Non |
-| polyBaseSettings |Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. |&nbsp; |Non |
-| rejectValue |Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête. <br/><br/>Pour en savoir plus sur les options de rejet de PolyBase dans la section **Arguments** de la rubrique [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) (Créer une table externe (Transact-SQL)). |0 (par défaut), 1, 2, … |Non |
+| polyBaseSettings |Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true** . |&nbsp; |Non |
+| rejectValue |Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête. <br/><br/>Pour en savoir plus sur les options de rejet de PolyBase dans la section **Arguments** de la rubrique [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) (Créer une table externe (Transact-SQL)). |0 (par défaut), 1, 2, … |Non |
 | rejectType |Spécifie si l’option rejectValue est spécifiée comme une valeur littérale ou un pourcentage. |Value (par défaut), Percentage |Non |
 | rejectSampleValue |Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées. |1, 2, … |Oui, si le **rejectType** est **percentage** |
-| useTypeDefault |Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimité lorsque PolyBase récupère les données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (par défaut) |Non |
+| useTypeDefault |Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimité lorsque PolyBase récupère les données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |True, False (par défaut) |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : “00:30:00” (30 minutes). |Non |
 
@@ -1282,7 +1282,7 @@ Pour plus d’informations, consultez l’article [Connecteur Azure Synapse Anal
 ## <a name="azure-cognitive-search"></a>Recherche cognitive Azure
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Recherche cognitive Azure, définissez son **type** sur **AzureSearch** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Recherche cognitive Azure, définissez son **type** sur **AzureSearch** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
@@ -1307,11 +1307,11 @@ Pour définir un service lié Recherche cognitive Azure, définissez son **type*
 Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azure](data-factory-azure-search-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Recherche cognitive Azure, définissez son **type** sur **AzureSearchIndex** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Recherche cognitive Azure, définissez son **type** sur **AzureSearchIndex** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
+| type | La propriété de type doit être définie sur **AzureSearchIndex** .| Oui |
 | indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | Oui |
 
 #### <a name="example"></a>Exemple
@@ -1336,7 +1336,7 @@ Pour définir un jeu de données Recherche cognitive Azure, définissez son **ty
 Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azure](data-factory-azure-search-connector.md#dataset-properties).
 
 ### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Récepteur de l’index Recherche cognitive Azure dans l’activité de copie
-Si vous copiez des données dans un index de recherche, définissez le **type de récepteur** de l’activité de copie sur **AzureSearchIndexSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans un index de recherche, définissez le **type de récepteur** de l’activité de copie sur **AzureSearchIndexSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | -------- | ----------- | -------------- | -------- |
@@ -1394,7 +1394,7 @@ Pour plus d’informations, voir l’article [Connecteur Recherche cognitive Azu
 Il existe deux types de services liés : les services liés de stockage Azure et les services liés SAP de stockage Azure.
 
 #### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
-Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte**, créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :
+Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la **clé de compte** , créez un service lié de stockage Azure. Pour définir un stockage Azure lié au service, définissez le **type** du service lié sur **AzureStorage** . Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -1416,7 +1416,7 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Service lié SAP de stockage Azure
-Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas**. Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties** :
+Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azure à une fabrique de données Azure à l’aide d’une signature d’accès partagé (SAP). Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources (objet blob/conteneur) dans le stockage. Pour lier votre compte de stockage Azure à une fabrique de données à l’aide de la signature d’accès partagé, créez un service lié SAP de stockage Azure. Pour définir un service lié SAP de stockage Azure, définissez le **type** du service lié sur **AzureStorageSas** . Vous pouvez ensuite spécifier les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -1440,7 +1440,7 @@ Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azu
 Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure](data-factory-azure-table-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Table Azure, définissez le **type** du jeu de données sur **AzureTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Table Azure, définissez le **type** du jeu de données sur **AzureTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1476,7 +1476,7 @@ Pour définir un jeu de données Table Azure, définissez le **type** du jeu de 
 Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure](data-factory-azure-table-connector.md#dataset-properties).
 
 ### <a name="azure-table-source-in-copy-activity"></a>Source Table Azure dans l’activité de copie
-Si vous copiez des données à partir d’un stockage de table Azure, définissez le **type de source** de l’activité de copie sur **AzureTableSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un stockage de table Azure, définissez le **type de source** de l’activité de copie sur **AzureTableSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -1529,14 +1529,14 @@ Si vous copiez des données à partir d’un stockage de table Azure, définisse
 Pour plus d’informations sur ces services liés, consultez l’article [Connecteur de stockage Table Azure](data-factory-azure-table-connector.md#copy-activity-properties).
 
 ### <a name="azure-table-sink-in-copy-activity"></a>Récepteur Table Azure dans l’activité de copie
-Si vous copiez des données dans un stockage de table Azure, définissez le **type de récepteur** de l’activité de copie sur **AzureTableSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans un stockage de table Azure, définissez le **type de récepteur** de l’activité de copie sur **AzureTableSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Valeur de chaîne. |Non |
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, AzureTableDefaultPartitionKeyValue est utilisée comme clé de partition. |Nom de colonne. |Non |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Nom de colonne. |Non |
-| azureTableInsertType |Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. |fusionner (par défaut)<br/>remplacer |Non |
+| azureTableInsertType |Le mode d’insertion des données dans une table Azure.<br/><br/>Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Consultez [Insertion ou fusion d’entité](/rest/api/storageservices/Insert-Or-Merge-Entity) et [Insertion ou remplacement d’entité](/rest/api/storageservices/Insert-Or-Replace-Entity) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. |fusionner (par défaut)<br/>remplacer |Non |
 | writeBatchSize |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte |intervalle de temps<br/><br/>Exemple : "00:20:00" (20 minutes) |Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes) |
 
@@ -1588,7 +1588,7 @@ Pour plus d’informations sur ces services liés, consultez l’article [Connec
 ## <a name="amazon-redshift"></a>Amazon Redshift
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Amazon Redshift, définissez le **type** du service lié sur **AmazonRedshift** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Amazon Redshift, définissez le **type** du service lié sur **AmazonRedshift** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1619,7 +1619,7 @@ Pour définir un service lié Amazon Redshift, définissez le **type** du servic
 Pour plus d'informations, consultez l'article Connecteur Amazon Redshift.
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Amazon Redshift, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Amazon Redshift, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1648,7 +1648,7 @@ Pour définir un jeu de données Amazon Redshift, définissez le **type** du jeu
 Pour plus d'informations, consultez l'article Connecteur Amazon Redshift.
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’Amazon Redshift, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’Amazon Redshift, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -1700,7 +1700,7 @@ Pour plus d'informations, consultez l'article Connecteur Amazon Redshift.
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié IBM DB2, définissez le **type** du service lié sur **OnPremisesDB2** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié IBM DB2, définissez le **type** du service lié sur **OnPremisesDB2** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1733,7 +1733,7 @@ Pour définir un service lié IBM DB2, définissez le **type** du service lié s
 Pour plus d'informations, consultez l'article Connecteur IBM DB2.
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données DB2, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données DB2, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1766,7 +1766,7 @@ Pour définir un jeu de données DB2, définissez le **type** du jeu de données
 Pour plus d'informations, consultez l'article Connecteur IBM DB2.
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’IBM DB2, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’IBM DB2, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -1816,7 +1816,7 @@ Pour plus d'informations, consultez l'article Connecteur IBM DB2.
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié MySQL, définissez le **type** du service lié sur **OnPremisesMySql** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié MySQL, définissez le **type** du service lié sur **OnPremisesMySql** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1851,7 +1851,7 @@ Pour définir un service lié MySQL, définissez le **type** du service lié sur
 Pour plus d’informations, consultez l’article [MySQL connector (connecteur MySQL)](data-factory-onprem-mysql-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données MySQL, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données MySQL, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1884,7 +1884,7 @@ Pour définir un jeu de données MySQL, définissez le **type** du jeu de donné
 Pour plus d’informations, consultez l’article [MySQL connector (connecteur MySQL)](data-factory-onprem-mysql-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’une base de données MySQL, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données MySQL, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -1938,7 +1938,7 @@ Pour plus d’informations, consultez l’article [MySQL connector (connecteur M
 ## <a name="oracle"></a>Oracle
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Oracle, définissez le **type** du service lié sur **OnPremisesOracle** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Oracle, définissez le **type** du service lié sur **OnPremisesOracle** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -1964,7 +1964,7 @@ Pour définir un service lié Oracle, définissez le **type** du service lié su
 Pour plus d’informations, consultez l’article [Oracle connector (connecteur Oracle)](data-factory-onprem-oracle-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Oracle, définissez le **type** du jeu de données sur **OracleTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Oracle, définissez le **type** du jeu de données sur **OracleTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2001,7 +2001,7 @@ Pour définir un jeu de données Oracle, définissez le **type** du jeu de donn�
 Pour plus d’informations, consultez l’article [Oracle connector (connecteur Oracle)](data-factory-onprem-oracle-connector.md#dataset-properties).
 
 ### <a name="oracle-source-in-copy-activity"></a>Source Oracle dans l’activité de copie
-Si vous copiez des données à partir d’une base de données Oracle, définissez le **type de source** de l’activité de copie sur **OracleSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données Oracle, définissez le **type de source** de l’activité de copie sur **OracleSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -2053,7 +2053,7 @@ Si vous copiez des données à partir d’une base de données Oracle, définiss
 Pour plus d’informations, consultez l’article [Oracle connector (connecteur Oracle)](data-factory-onprem-oracle-connector.md#copy-activity-properties).
 
 ### <a name="oracle-sink-in-copy-activity"></a>Récepteur Oracle dans l’activité de copie
-Si vous copiez des données dans une base de données Oracle, définissez le **type de récepteur** de l’activité de copie sur **OracleSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans une base de données Oracle, définissez le **type de récepteur** de l’activité de copie sur **OracleSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -2107,7 +2107,7 @@ Pour plus d’informations, consultez l’article [Oracle connector (connecteur 
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié PostgreSQL, définissez le **type** du service lié sur **OnPremisesPostgreSql** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié PostgreSQL, définissez le **type** du service lié sur **OnPremisesPostgreSql** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2141,7 +2141,7 @@ Pour définir un service lié PostgreSQL, définissez le **type** du service li�
 Pour plus d’informations, consultez l’article [PostgreSQL connector (connecteur PostgreSQL)](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données PostgreSQL, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données PostgreSQL, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2173,7 +2173,7 @@ Pour définir un jeu de données PostgreSQL, définissez le **type** du jeu de d
 Pour plus d’informations, consultez l’article [PostgreSQL connector (connecteur PostgreSQL)](data-factory-onprem-postgresql-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’une base de données PostgreSQL, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données PostgreSQL, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -2226,7 +2226,7 @@ Pour plus d’informations, consultez l’article [PostgreSQL connector (connect
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié SAP Business Warehouse (BW), définissez le **type** du service lié sur **SapBw** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié SAP Business Warehouse (BW), définissez le **type** du service lié sur **SapBw** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
@@ -2260,7 +2260,7 @@ encryptedCredential | La chaîne d’informations d’identification chiffrée. 
 Pour plus d’informations, consultez l’article [SAP Business Warehouse connector (connecteur SAP Business Warehouse)](data-factory-sap-business-warehouse-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données SAP BW, définissez le **type** du jeu de données sur **RelationalTable**. Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP BW **RelationalTable**.
+Pour définir un jeu de données SAP BW, définissez le **type** du jeu de données sur **RelationalTable** . Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP BW **RelationalTable** .
 
 #### <a name="example"></a>Exemple
 
@@ -2282,7 +2282,7 @@ Pour définir un jeu de données SAP BW, définissez le **type** du jeu de donn�
 Pour plus d’informations, consultez l’article [SAP Business Warehouse connector (connecteur SAP Business Warehouse)](data-factory-sap-business-warehouse-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir de SAP Business Warehouse, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir de SAP Business Warehouse, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -2336,7 +2336,7 @@ Pour plus d’informations, consultez l’article [SAP Business Warehouse connec
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié SAP HANA, définissez le **type** du service lié sur **SapHana** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié SAP HANA, définissez le **type** du service lié sur **SapHana** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
@@ -2368,7 +2368,7 @@ encryptedCredential | La chaîne d’informations d’identification chiffrée. 
 Pour plus d’informations, consultez l’article [SAP HANA connector (connecteur SAP HANA)](data-factory-sap-hana-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données SAP HANA, définissez le **type** du jeu de données sur **RelationalTable**. Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP HANA **RelationalTable**.
+Pour définir un jeu de données SAP HANA, définissez le **type** du jeu de données sur **RelationalTable** . Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP HANA **RelationalTable** .
 
 #### <a name="example"></a>Exemple
 
@@ -2390,7 +2390,7 @@ Pour définir un jeu de données SAP HANA, définissez le **type** du jeu de don
 Pour plus d’informations, consultez l’article [SAP HANA connector (connecteur SAP HANA)](data-factory-sap-hana-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’un magasin de données SAP HANA, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un magasin de données SAP HANA, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -2452,13 +2452,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer** . |Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server. |Oui |
-| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
+| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username** . |Non |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
-Vous pouvez chiffrer les informations d’identification à l’aide de la cmdlet **New-AzDataFactoryEncryptValue**, puis les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
+Vous pouvez chiffrer les informations d’identification à l’aide de la cmdlet **New-AzDataFactoryEncryptValue** , puis les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential** ) :
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2501,7 +2501,7 @@ Si le nom d’utilisateur et le mot de passe sont spécifiés, la passerelle les
 Pour plus d’informations, consultez l’article [SQL Server connector (connecteur SQL Server)](data-factory-sqlserver-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données SQL Server, définissez le **type** du jeu de données sur **SqlServerTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données SQL Server, définissez le **type** du jeu de données sur **SqlServerTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2536,7 +2536,7 @@ Pour définir un jeu de données SQL Server, définissez le **type** du jeu de d
 Pour plus d’informations, consultez l’article [SQL Server connector (connecteur SQL Server)](data-factory-sqlserver-connector.md#dataset-properties).
 
 ### <a name="sql-source-in-copy-activity"></a>Source SQL dans l’activité de copie
-Si vous copiez des données à partir d’une base de données SQL Server, définissez le **type de source** de l’activité de copie sur **SqlSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données SQL Server, définissez le **type de source** de l’activité de copie sur **SqlSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -2552,7 +2552,7 @@ Vous pouvez également spécifier une procédure stockée en indiquant **sqlRead
 Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les colonnes définies dans la section structure du code JSON du jeu de données sont utilisées pour créer une requête à exécuter sur Azure SQL Database. Si la définition du jeu de données ne possède pas de structure, toutes les colonnes de la table sont sélectionnées.
 
 > [!NOTE]
-> Quand vous utilisez **sqlReaderStoredProcedureName**, vous devez toujours spécifier une valeur pour la propriété **tableName** du code JSON du jeu de données. Cependant, il n’existe aucune validation effectuée pour cette table.
+> Quand vous utilisez **sqlReaderStoredProcedureName** , vous devez toujours spécifier une valeur pour la propriété **tableName** du code JSON du jeu de données. Cependant, il n’existe aucune validation effectuée pour cette table.
 
 
 #### <a name="example"></a>Exemple
@@ -2604,7 +2604,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 Pour plus d’informations, consultez l’article [SQL Server connector (connecteur SQL Server)](data-factory-sqlserver-connector.md#copy-activity-properties).
 
 ### <a name="sql-sink-in-copy-activity"></a>Récepteur SQL dans l’activité de copie
-Si vous copiez des données dans une base de données SQL Server, définissez le **type de récepteur** de l’activité de copie sur **SqlSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans une base de données SQL Server, définissez le **type de récepteur** de l’activité de copie sur **SqlSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -2617,7 +2617,7 @@ Si vous copiez des données dans une base de données SQL Server, définissez le
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non |
 
 #### <a name="example"></a>Exemple
-Le pipeline contient une activité de copie qui est configurée pour utiliser ces jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink**.
+Le pipeline contient une activité de copie qui est configurée pour utiliser ces jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink** .
 
 ```json
 {
@@ -2665,7 +2665,7 @@ Pour plus d’informations, consultez l’article [SQL Server connector (connect
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Sybase, définissez le **type** du service lié sur **OnPremisesSybase** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Sybase, définissez le **type** du service lié sur **OnPremisesSybase** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2699,7 +2699,7 @@ Pour définir un service lié Sybase, définissez le **type** du service lié su
 Pour plus d’informations, consultez l’article [Sybase connector (connecteur Sybase)](data-factory-onprem-sybase-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Sybase, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Sybase, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2733,7 +2733,7 @@ Pour définir un jeu de données Sybase, définissez le **type** du jeu de donn�
 Pour plus d’informations, consultez l’article [Sybase connector (connecteur Sybase)](data-factory-onprem-sybase-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’une base de données Sybase, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données Sybase, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -2785,7 +2785,7 @@ Pour plus d’informations, consultez l’article [Sybase connector (connecteur 
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Teradata, définissez le **type** du service lié sur **OnPremisesTeradata** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Teradata, définissez le **type** du service lié sur **OnPremisesTeradata** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2815,7 +2815,7 @@ Pour définir un service lié Teradata, définissez le **type** du service lié 
 Pour plus d’informations, consultez l’article [Teradata connector (connecteur Teradata)](data-factory-onprem-teradata-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données d’objet blob Teradata, définissez le **type** du jeu de données sur **RelationalTable**. Il n’existe actuellement aucune propriété type prise en charge pour le jeu de données Teradata.
+Pour définir un jeu de données d’objet blob Teradata, définissez le **type** du jeu de données sur **RelationalTable** . Il n’existe actuellement aucune propriété type prise en charge pour le jeu de données Teradata.
 
 #### <a name="example"></a>Exemple
 ```json
@@ -2844,7 +2844,7 @@ Pour définir un jeu de données d’objet blob Teradata, définissez le **type*
 Pour plus d’informations, consultez l’article [Teradata connector (connecteur Teradata)](data-factory-onprem-teradata-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’une base de données Teradata, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une base de données Teradata, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -2899,7 +2899,7 @@ Pour plus d’informations, consultez l’article [Teradata connector (connecteu
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Cassandra, définissez le **type** du service lié sur **OnPremisesCassandra** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Cassandra, définissez le **type** du service lié sur **OnPremisesCassandra** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2933,7 +2933,7 @@ Pour définir un service lié Cassandra, définissez le **type** du service lié
 Pour plus d’informations, consultez l’article [Cassandra connector (connecteur Cassandra)](data-factory-onprem-cassandra-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Cassandra, définissez le **type** du jeu de données sur **CassandraTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Cassandra, définissez le **type** du jeu de données sur **CassandraTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -2971,7 +2971,7 @@ Pour définir un jeu de données Cassandra, définissez le **type** du jeu de do
 Pour plus d’informations, consultez l’article [Cassandra connector (connecteur Cassandra)](data-factory-onprem-cassandra-connector.md#dataset-properties).
 
 ### <a name="cassandra-source-in-copy-activity"></a>Source Cassandra dans l’activité de copie
-Si vous copiez des données depuis un système Cassandra, définissez le **type de source** de l’activité de copie sur **CassandraSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données depuis un système Cassandra, définissez le **type de source** de l’activité de copie sur **CassandraSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3026,7 +3026,7 @@ Pour plus d’informations, consultez l’article [Cassandra connector (connecte
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié MongoDB, définissez le **type** du service lié sur **OnPremisesMongoDB** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié MongoDB, définissez le **type** du service lié sur **OnPremisesMongoDB** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -3064,7 +3064,7 @@ Pour définir un service lié MongoDB, définissez le **type** du service lié s
 Pour plus d’informations, consultez l’article [MongoDB connector (connecteur MongoDB)](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données MongoDB, définissez le **type** du jeu de données sur **MongoDbCollection** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données MongoDB, définissez le **type** du jeu de données sur **MongoDbCollection** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -3093,7 +3093,7 @@ Pour définir un jeu de données MongoDB, définissez le **type** du jeu de donn
 Pour plus d’informations, consultez l’article [MongoDB connector (connecteur MongoDB)](data-factory-on-premises-mongodb-connector.md#dataset-properties)
 
 #### <a name="mongodb-source-in-copy-activity"></a>Source MongoDB dans l’activité de copie
-Si vous copiez des données à partir de MongoDB, définissez le **type de source** de l’activité de copie sur **MongoDbSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir de MongoDB, définissez le **type de source** de l’activité de copie sur **MongoDbSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3147,7 +3147,7 @@ Pour plus d’informations, consultez l’article [MongoDB connector (connecteur
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Amazon S3, définissez le **type** du service lié sur **AwsAccessKey** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Amazon S3, définissez le **type** du service lié sur **AwsAccessKey** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3171,7 +3171,7 @@ Pour définir un service lié Amazon S3, définissez le **type** du service lié
 Pour plus d’informations, consultez l’article [Amazon S3 connector (connecteur Amazon S3)](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Amazon S3, définissez le **type** du jeu de données sur **AmazonS3** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Amazon S3, définissez le **type** du jeu de données sur **AmazonS3** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3179,8 +3179,8 @@ Pour définir un jeu de données Amazon S3, définissez le **type** du jeu de do
 | key |La clé d’objet S3. |String |Non |
 | prefix |Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la clé est vide. |String |Non |
 | version |La version de l’objet S3 si le contrôle de version S3 est activé. |String |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non | |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non | |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non | |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Les niveaux pris en charge sont : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non | |
 
 
 > [!NOTE]
@@ -3254,7 +3254,7 @@ Vous pouvez faire de même pour la propriété « prefix » d’un jeu de donné
 Pour plus d’informations, consultez l’article [Amazon S3 connector (connecteur Amazon S3)](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Source Système de fichiers dans l’activité de copie
-Si vous copiez des données à partir d’Amazon S3, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’Amazon S3, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
@@ -3311,11 +3311,11 @@ Pour plus d’informations, consultez l’article [Amazon S3 connector (connecte
 
 
 ### <a name="linked-service"></a>Service lié
-Vous pouvez lier un système de fichiers local à une fabrique de données Azure grâce au service lié **Serveur de fichiers local**. Le tableau suivant décrit les éléments JSON spécifiques au service lié Serveur de fichiers local.
+Vous pouvez lier un système de fichiers local à une fabrique de données Azure grâce au service lié **Serveur de fichiers local** . Le tableau suivant décrit les éléments JSON spécifiques au service lié Serveur de fichiers local.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
+| type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer** . |Oui |
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés. |Oui |
 | userid |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | mot de passe |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
@@ -3366,7 +3366,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 Pour plus d’informations, consultez l’article [File System connector (connecteur Système de fichiers)](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données de système de fichiers, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données de système de fichiers, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -3374,8 +3374,8 @@ Pour définir un jeu de données de système de fichiers, définissez le **type*
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers. <br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : « fileFilter » : « *.log »<br/>Exemple 2 : « fileFilter » : 2016-1-?.txt »<br/><br/>Remarque : fileFilter s’applique à un jeu de données FileShare d’entrée. |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath/fileName dynamique pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate** et les niveaux pris en charge sont : **Optimal** et **Fastest**. consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** et les niveaux pris en charge sont : **Optimal** et **Fastest** . consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser fileName et fileFilter simultanément.
@@ -3440,7 +3440,7 @@ Pour définir un jeu de données de système de fichiers, définissez le **type*
 Pour plus d’informations, consultez l’article [File System connector (connecteur Système de fichiers)](data-factory-onprem-file-system-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Source Système de fichiers dans l’activité de copie
-Si vous copiez des données à partir d’un système de fichiers, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un système de fichiers, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3490,7 +3490,7 @@ Si vous copiez des données à partir d’un système de fichiers, définissez l
 Pour plus d’informations, consultez l’article [File System connector (connecteur Système de fichiers)](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ### <a name="file-system-sink-in-copy-activity"></a>Récepteur Système de fichiers dans l’activité de copie
-Si vous copiez des données dans un système de fichiers, définissez le **type de récepteur** de l’activité de copie sur **FileSystemSink** et spécifiez les propriétés suivantes dans la section **sink** :
+Si vous copiez des données dans un système de fichiers, définissez le **type de récepteur** de l’activité de copie sur **FileSystemSink** et spécifiez les propriétés suivantes dans la section **sink**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3546,7 +3546,7 @@ Pour plus d’informations, consultez l’article [File System connector (connec
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié FTP, définissez le **type** du service lié sur **FtpServer** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié FTP, définissez le **type** du service lié sur **FtpServer** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
@@ -3632,7 +3632,7 @@ Pour définir un service lié FTP, définissez le **type** du service lié sur *
 Pour plus d’informations, consultez l’article [FTP connector (connecteur FTP)](data-factory-ftp-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données FTP, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données FTP, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -3640,8 +3640,8 @@ Pour définir un jeu de données FTP, définissez le **type** du jeu de données
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers.<br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : `"fileFilter": "*.log"`<br/>Exemple 2 : `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter s’applique à un jeu de données FileShare d’entrée. Cette propriété n’est pas prise en charge avec HDFS. |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate** et les niveaux pris en charge sont : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** et les niveaux pris en charge sont : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 | useBinaryTransfer |Spécifiez si vous voulez utiliser le mode de transfert binaire. True pour le mode binaire et false pour ASCII. Valeur par défaut : True. Cette propriété peut uniquement être utilisée quand le service lié associé est de type : FtpServer. |Non |
 
 > [!NOTE]
@@ -3672,7 +3672,7 @@ Pour définir un jeu de données FTP, définissez le **type** du jeu de données
 Pour plus d’informations, consultez l’article [FTP connector (connecteur FTP)](data-factory-ftp-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Source Système de fichiers dans l’activité de copie
-Si vous copiez des données à partir d’un serveur FTP, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un serveur FTP, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -3724,17 +3724,17 @@ Pour plus d’informations, consultez l’article [FTP connector (connecteur FTP
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié HDFS, définissez le **type** du service lié sur **Hdfs** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié HDFS, définissez le **type** du service lié sur **Hdfs** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **Hdfs** |Oui |
 | Url |URL vers le système HDFS |Oui |
-| authenticationType |Anonyme ou Windows. <br><br> Si vous souhaitez utiliser l'**authentification Kerberos** pour le connecteur HDFS, reportez-vous à cette section afin de configurer votre environnement local en conséquence. |Oui |
+| authenticationType |Anonyme ou Windows. <br><br> Si vous souhaitez utiliser l' **authentification Kerberos** pour le connecteur HDFS, reportez-vous à cette section afin de configurer votre environnement local en conséquence. |Oui |
 | userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
 | mot de passe |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) des informations d’accès. |Non |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) des informations d’accès. |Non |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemple : Utilisation de l’authentification anonyme
 
@@ -3774,15 +3774,15 @@ Pour définir un service lié HDFS, définissez le **type** du service lié sur 
 Pour plus d'informations, consultez l'article Connecteur HDFS.
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données HDFS, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données HDFS, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | folderPath |Chemin d'accès au dossier. Exemple : `myfolder`<br/><br/>Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Par exemple : pour dossier\sous-dossier, spécifiez dossier\\\\sous-dossier et pour d:\dossier d’exemple, spécifiez d:\\\\dossier d’exemple.<br/><br/>Vous pouvez également effectuer une combinaison avec la propriété **partitionBy** pour que les chemins d’accès de dossier soient basés sur les dates et heures de démarrage et d’arrêt de la tranche. |Oui |
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>`Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Exemple : folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Niveaux pris en charge : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 > [!NOTE]
 > fileName et fileFilter ne peuvent pas être utilisés simultanément.
@@ -3810,7 +3810,7 @@ Pour définir un jeu de données HDFS, définissez le **type** du jeu de donnée
 Pour plus d'informations, consultez l'article Connecteur HDFS.
 
 ### <a name="file-system-source-in-copy-activity"></a>Source Système de fichiers dans l’activité de copie
-Si vous copiez des données à partir de HDFS, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir de HDFS, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 **FileSystemSource** prend en charge les propriétés suivantes :
 
@@ -3860,13 +3860,13 @@ Pour plus d'informations, consultez l'article Connecteur HDFS.
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié SFTP, définissez le **type** du service lié sur **Sftp** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié SFTP, définissez le **type** du service lié sur **Sftp** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | host | Nom ou adresse IP du serveur SFTP. |Oui |
 | port |Port sur lequel le serveur SFTP écoute. La valeur par défaut est : 21 |Non |
-| authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic**, **SshPublicKey**. <br><br> Reportez-vous aux sections Utilisation de l'authentification de base et [Utilisation de l'authentification par clé publique SSH](#using-ssh-public-key-authentication) contenant respectivement des propriétés supplémentaires et des exemples JSON. |Oui |
+| authenticationType |Spécification du type d’authentification. Valeurs autorisées : **Basic** , **SshPublicKey** . <br><br> Reportez-vous aux sections Utilisation de l'authentification de base et [Utilisation de l'authentification par clé publique SSH](#using-ssh-public-key-authentication) contenant respectivement des propriétés supplémentaires et des exemples JSON. |Oui |
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte. | Non. valeur par défaut : false |
 | hostKeyFingerprint | Spécifiez l’empreinte de la clé hôte. | Oui, si `skipHostKeyValidation` est défini sur false.  |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur SFTP local. | Oui en cas de copie de données à partir d’un serveur SFTP local. |
@@ -3974,7 +3974,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 Pour plus d’informations, consultez l’article [SFTP connector (connecteur SFTP)](data-factory-sftp-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données SFTP, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données SFTP, définissez le **type** du jeu de données sur **FileShare** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -3982,8 +3982,8 @@ Pour définir un jeu de données SFTP, définissez le **type** du jeu de donnée
 | fileName |Spécifiez le nom du fichier dans l’élément **folderPath** si vous souhaitez que la table se réfère à un fichier spécifique du dossier. Si vous ne spécifiez aucune valeur pour cette propriété, le tableau pointe vers tous les fichiers du dossier.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré aura ce format dans l’exemple suivant : <br/><br/>`Data.<Guid>.txt` (Exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Non |
 | fileFilter |Spécifiez un filtre à utiliser pour sélectionner un sous-ensemble de fichiers dans le folderPath plutôt que tous les fichiers.<br/><br/>Les valeurs autorisées sont : `*` (plusieurs caractères) et `?` (caractère unique).<br/><br/>Exemple 1 : `"fileFilter": "*.log"`<br/>Exemple 2 : `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter s’applique à un jeu de données FileShare d’entrée. Cette propriété n’est pas prise en charge avec HDFS. |Non |
 | partitionedBy |partitionedBy peut être utilisé pour spécifier un folderPath dynamique, fileName pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. |Non |
-| format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Niveaux pris en charge : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 | useBinaryTransfer |Spécifiez si vous voulez utiliser le mode de transfert binaire. True pour le mode binaire et false pour ASCII. Valeur par défaut : True. Cette propriété peut uniquement être utilisée quand le service lié associé est de type : FtpServer. |Non |
 
 > [!NOTE]
@@ -4013,7 +4013,7 @@ Pour définir un jeu de données SFTP, définissez le **type** du jeu de donnée
 Pour plus d’informations, consultez l’article [SFTP connector (connecteur SFTP)](data-factory-sftp-connector.md#dataset-properties).
 
 ### <a name="file-system-source-in-copy-activity"></a>Source Système de fichiers dans l’activité de copie
-Si vous copiez des données à partir d’une source SFTP, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une source SFTP, définissez le **type de source** de l’activité de copie sur **FileSystemSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -4067,12 +4067,12 @@ Pour plus d’informations, consultez l’article [SFTP connector (connecteur SF
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié HTTP, définissez le **type** du service lié sur **Http** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié HTTP, définissez le **type** du service lié sur **Http** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | url | URL de base du serveur web | Oui |
-| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont les suivantes : **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
+| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont les suivantes : **Anonymous** , **Basic** , **Digest** , **Windows** , **ClientCertificate** . <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
 | enableServerCertificateValidation | Spécifiez si vous souhaitez activer la validation des certificats TLS/SSL lorsque la source est un serveur web HTTPS | Non, la valeur par défaut est True. |
 | gatewayName | Nom de la passerelle de gestion des données pour se connecter à une source HTTP locale. | Oui en cas de copie de données à partir d’une source HTTP locale. |
 | encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison. Elles sont générées automatiquement lorsque vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur HTTP local. |
@@ -4112,10 +4112,10 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 Si vous utilisez `certThumbprint` pour l’authentification et le certificat est installé dans le magasin personnel de l’ordinateur local, vous devez accorder l’autorisation de lecture au service de passerelle :
 
-1. Lancez Microsoft Management Console (MMC). Ajouter le composant logiciel enfichable **Certificats**ciblant l’**ordinateur local**.
-2. Développez **Certificats**, **Personnel**, puis cliquez sur **Certificats**.
+1. Lancez Microsoft Management Console (MMC). Ajouter le composant logiciel enfichable **Certificats** ciblant l’ **ordinateur local** .
+2. Développez **Certificats** , **Personnel** , puis cliquez sur **Certificats** .
 3. Cliquez avec le bouton droit sur le certificat du magasin personnel, puis sélectionnez **Toutes les tâches**->**Gérer les clés privées...**
-3. Dans l’onglet **Sécurité**, ajoutez le compte d’utilisateur sous lequel le service hôte de la passerelle de gestion des données s’exécute avec l’accès en lecture au certificat.
+3. Dans l’onglet **Sécurité** , ajoutez le compte d’utilisateur sous lequel le service hôte de la passerelle de gestion des données s’exécute avec l’accès en lecture au certificat.
 
 **Exemple : utilisation d’un certificat client :** Ce service lié lie votre fabrique de données à un serveur web HTTP local. Il utilise un certificat client installé sur l’ordinateur doté de la passerelle de gestion des données.
 
@@ -4155,16 +4155,16 @@ Ce service lié lie votre fabrique de données à un serveur web HTTP local. Il 
 Pour plus d’informations, consultez l’article [HTTP connector (connecteur HTTP)](data-factory-http-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données HTTP, définissez le **type** du jeu de données sur **Http** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données HTTP, définissez le **type** du jeu de données sur **Http** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser [les variables système et les fonctions de Data Factory](data-factory-functions-variables.md), par exemple : `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Non |
-| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** ou **POST**. | Non. La valeur par défaut est `GET`. |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** ou **POST** . | Non. La valeur par défaut est `GET`. |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | requestBody | Corps de la requête HTTP. | Non |
-| format | Si vous souhaitez simplement **récupérer les données du point de terminaison HTTP en l’état**, sans les analyser, ignorez ces paramètres de format. <br><br> Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
+| format | Si vous souhaitez simplement **récupérer les données du point de terminaison HTTP en l’état** , sans les analyser, ignorez ces paramètres de format. <br><br> Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** et **ParquetFormat** . Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip** , **Deflate** , **BZip2** et **ZipDeflate** . Niveaux pris en charge : **Optimal** et **Fastest** . Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 #### <a name="example-using-the-get-default-method"></a>Exemple : utilisation de la méthode GET (par défaut)
 
@@ -4211,7 +4211,7 @@ Pour définir un jeu de données HTTP, définissez le **type** du jeu de donnée
 Pour plus d’informations, consultez l’article [HTTP connector (connecteur HTTP)](data-factory-http-connector.md#dataset-properties).
 
 ### <a name="http-source-in-copy-activity"></a>Source HTTP dans l’activité de copie
-Si vous copiez des données à partir d’une source HTTP, définissez le **type de source** de l’activité de copie sur **HttpSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une source HTTP, définissez le **type de source** de l’activité de copie sur **HttpSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
@@ -4265,7 +4265,7 @@ Pour plus d’informations, consultez l’article [HTTP connector (connecteur HT
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié OData, définissez le **type** du service lié sur **OData** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié OData, définissez le **type** du service lié sur **OData** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4345,7 +4345,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
 Pour plus d’informations, consultez l’article [OData connector (connecteur OData)](data-factory-odata-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données OData, définissez le **type** du jeu de données sur **ODataResource** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données OData, définissez le **type** du jeu de données sur **ODataResource** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4380,7 +4380,7 @@ Pour définir un jeu de données OData, définissez le **type** du jeu de donné
 Pour plus d’informations, consultez l’article [OData connector (connecteur OData)](data-factory-odata-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’une source OData, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’une source OData, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Exemple | Obligatoire |
 | --- | --- | --- | --- |
@@ -4435,7 +4435,7 @@ Pour plus d’informations, consultez l’article [OData connector (connecteur O
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié ODBC, définissez le **type** du service lié sur **OnPremisesOdbc** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié ODBC, définissez le **type** du service lié sur **OnPremisesOdbc** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4464,7 +4464,7 @@ Pour définir un service lié ODBC, définissez le **type** du service lié sur 
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemple : utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d'identification via la cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue).
+Vous pouvez chiffrer les informations d'identification via la cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue).
 
 ```json
 {
@@ -4500,7 +4500,7 @@ Vous pouvez chiffrer les informations d'identification via la cmdlet [New-AzData
 Pour plus d’informations, consultez l’article [ODBC connector (connecteur ODBC)](data-factory-odbc-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données ODBC, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données ODBC, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4535,7 +4535,7 @@ Pour définir un jeu de données ODBC, définissez le **type** du jeu de donnée
 Pour plus d’informations, consultez l’article [ODBC connector (connecteur ODBC)](data-factory-odbc-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir d’un magasin de données ODBC, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un magasin de données ODBC, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -4589,7 +4589,7 @@ Pour plus d’informations, consultez l’article [ODBC connector (connecteur OD
 
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Salesforce, définissez le **type** du service lié sur **Salesforce** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Salesforce, définissez le **type** du service lié sur **Salesforce** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4617,7 +4617,7 @@ Pour définir un service lié Salesforce, définissez le **type** du service li�
 Pour plus d’informations, consultez l’article [Salesforce connector (connecteur Salesforce)](data-factory-salesforce-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Salesforce, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Salesforce, définissez le **type** du jeu de données sur **RelationalTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4653,7 +4653,7 @@ Pour définir un jeu de données Salesforce, définissez le **type** du jeu de d
 Pour plus d’informations, consultez l’article [Salesforce connector (connecteur Salesforce)](data-factory-salesforce-connector.md#dataset-properties).
 
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
-Si vous copiez des données à partir de Salesforce, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir de Salesforce, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source**  :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
@@ -4712,7 +4712,7 @@ Pour plus d’informations, consultez l’article [Salesforce connector (connect
 ## <a name="web-data"></a>Données Web
 
 ### <a name="linked-service"></a>Service lié
-Pour définir un service lié Web, définissez le **type** du service lié sur **Web** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un service lié Web, définissez le **type** du service lié sur **Web** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4739,7 +4739,7 @@ Pour définir un service lié Web, définissez le **type** du service lié sur *
 Pour plus d’informations, consultez l’article [Web Table connector (connecteur table web)](data-factory-web-table-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Dataset
-Pour définir un jeu de données Web, définissez le **type** du jeu de données sur **WebTable** et spécifiez les propriétés suivantes dans la section **typeProperties** :
+Pour définir un jeu de données Web, définissez le **type** du jeu de données sur **WebTable** et spécifiez les propriétés suivantes dans la section **typeProperties**  :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -4771,7 +4771,7 @@ Pour définir un jeu de données Web, définissez le **type** du jeu de données
 Pour plus d’informations, consultez l’article [Web Table connector (connecteur table web)](data-factory-web-table-connector.md#dataset-properties).
 
 ### <a name="web-source-in-copy-activity"></a>Source Web dans l’activité de copie
-Si vous copiez des données à partir d’une table web, définissez le **type de source** de l’activité de copie sur **WebSource**. Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
+Si vous copiez des données à partir d’une table web, définissez le **type de source** de l’activité de copie sur **WebSource** . Actuellement, lorsque la source de l’activité de copie est de type **WebSource** , aucune propriété supplémentaire n’est prise en charge.
 
 #### <a name="example"></a>Exemple
 
@@ -4836,7 +4836,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur **HDInsightOnDemand**. |Oui |
+| type |La propriété de type doit être définie sur **HDInsightOnDemand** . |Oui |
 | clusterSize |Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds de travail + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). |Oui |
 | timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété TimeToLive est correctement définie. |Oui |
 | version |Version du cluster HDInsight. Pour plus d’informations, consultez [Versions de HDInsight prises en charge dans Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Non |
@@ -4874,7 +4874,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur **HDInsight**. |Oui |
+| type |La propriété de type doit être définie sur **HDInsight** . |Oui |
 | clusterUri |L'URI du cluster HDInsight. |Oui |
 | username |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |Oui |
 | mot de passe |Spécifiez le mot de passe du compte d'utilisateur. |Oui |
@@ -4907,7 +4907,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur **AzureBatch**. |Oui |
+| type |La propriété de type doit être définie sur **AzureBatch** . |Oui |
 | accountName |Nom du compte Azure Batch. |Oui |
 | accessKey |Clé d'accès du compte Azure Batch. |Oui |
 | poolName |Nom du pool de machines virtuelles. |Oui |
@@ -4939,7 +4939,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **AzureML**. |Oui |
+| Type |La propriété de type doit être définie sur : **AzureML** . |Oui |
 | mlEndpoint |L'URL de la notation par lot. |Oui |
 | apiKey |L'API du modèle d'espace de travail publié. |Oui |
 
@@ -4967,7 +4967,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
+| Type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics** . |Oui |
 | accountName |Nom du compte du service Analytique Azure Data Lake. |Oui |
 | dataLakeAnalyticsUri |URI du service Analytique Azure Data Lake. |Non |
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |Oui |
@@ -5007,13 +5007,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer** . |Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server. |Oui |
-| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
+| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username** . |Non |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 
-Vous pouvez chiffrer les informations d’identification à l’aide de la cmdlet **New-AzDataFactoryEncryptValue**, puis les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential**) :
+Vous pouvez chiffrer les informations d’identification à l’aide de la cmdlet **New-AzDataFactoryEncryptValue** , puis les utiliser dans la chaîne de connexion comme indiqué dans l’exemple suivant (propriété **EncryptedCredential** ) :
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5072,7 +5072,7 @@ Activité | Description
 
 
 ## <a name="hdinsight-hive-activity"></a>Activité Hive HDInsight
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité Hive. La propriété de type de l’activité doit être : **HDInsightHive**. Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightHive :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité Hive. La propriété de type de l’activité doit être : **HDInsightHive** . Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightHive :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -5118,7 +5118,7 @@ Le JSON suivant définit une Activité Hive HDInsight dans un pipeline.
 Pour plus d’informations, consultez l’article [Hive Activity (activité Hive)](data-factory-hive-activity.md).
 
 ## <a name="hdinsight-pig-activity"></a>Activité Pig HDInsight
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité pig. La propriété de type de l’activité doit être : **HDInsightPig**. Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightPig :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité pig. La propriété de type de l’activité doit être : **HDInsightPig** . Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightPig :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -5170,7 +5170,7 @@ Ces propriétés de type sont spécifiques à l’activité pig. D’autres prop
 Pour plus d'informations, consultez l'article Activité Pig.
 
 ## <a name="hdinsight-mapreduce-activity"></a>Activité MapReduce HDInsight
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité MapReduce. La propriété de type de l’activité doit être : **HDInsightMapReduce**. Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightMapReduce :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité MapReduce. La propriété de type de l’activité doit être : **HDInsightMapReduce** . Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightMapReduce :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -5228,7 +5228,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 Pour plus d’informations, consultez l’article [MapReduce Activity (activité MapReduce)](data-factory-map-reduce.md).
 
 ## <a name="hdinsight-streaming-activity"></a>Activité de diffusion en continu HDInsight
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de diffusion en continu Hadoop. La propriété de type de l’activité doit être : **HDInsightStreaming**. Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightStreaming :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de diffusion en continu Hadoop. La propriété de type de l’activité doit être : **HDInsightStreaming** . Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightStreaming :
 
 | Propriété | Description |
 | --- | --- |
@@ -5242,7 +5242,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 | getDebugInfo | Un élément facultatif. Si sa valeur est Failure, les journaux d’activité ne sont téléchargés qu’en cas d’échec. Si sa valeur est All, les journaux d’activité sont toujours téléchargés, quel que soit l’état de l’exécution. |
 
 > [!NOTE]
-> Vous devez spécifier un jeu de données de sortie pour l’activité de diffusion en continu Hadoop pour la propriété **outputs** . Il peut s’agir simplement d’un jeu de données factice qui est nécessaire au fonctionnement de la planification (horaire, quotidienne, etc.) du pipeline. Si l’activité n’accepte pas d’entrée, vous pouvez ignorer la spécification d’un jeu de données d’entrée relatif à l’activité pour la propriété **inputs**.
+> Vous devez spécifier un jeu de données de sortie pour l’activité de diffusion en continu Hadoop pour la propriété **outputs** . Il peut s’agir simplement d’un jeu de données factice qui est nécessaire au fonctionnement de la planification (horaire, quotidienne, etc.) du pipeline. Si l’activité n’accepte pas d’entrée, vous pouvez ignorer la spécification d’un jeu de données d’entrée relatif à l’activité pour la propriété **inputs** .
 
 ## <a name="json-example"></a>Exemple JSON
 
@@ -5292,7 +5292,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 Pour plus d’informations, consultez l’article [Hadoop Streaming Activity (activité de diffusion en continu Hadoop)](data-factory-hadoop-streaming-activity.md).
 
 ## <a name="hdinsight-spark-activity"></a>Activité Spark HDInsight
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité Spark. La propriété de type de l’activité doit être : **HDInsightSpark**. Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightSpark :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité Spark. La propriété de type de l’activité doit être : **HDInsightSpark** . Vous devez d’abord créer un service lié HDInsight, puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur HDInsightSpark :
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
@@ -5335,10 +5335,10 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 ```
 Notez les points suivants :
 
-- La propriété **type** est définie sur **HDInsightSpark**.
-- **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Consultez Propriétés de l'activité Spark pour plus d'informations sur cette propriété et d'autres propriétés prises en charge par l'activité Spark.
-- La propriété **entryFilePath** est définie sur **test.py**, c’est-à-dire le fichier python.
-- La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
+- La propriété **type** est définie sur **HDInsightSpark** .
+- **rootPath** est définie sur **adfspark\\pyFiles** , où adfspark est le conteneur d’objets Blob Azure contenant le dossier pyFiles. Dans cet exemple, le stockage Blob Azure est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre stockage Azure. Si vous procédez ainsi, créez un service lié de stockage Azure pour lier ce compte de stockage à la fabrique de données. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService** . Consultez Propriétés de l'activité Spark pour plus d'informations sur cette propriété et d'autres propriétés prises en charge par l'activité Spark.
+- La propriété **entryFilePath** est définie sur **test.py** , c’est-à-dire le fichier python.
+- La propriété **getDebugInfo** est définie sur **Always** , ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
 
     > [!IMPORTANT]
     > Nous vous recommandons de ne pas définir cette propriété sur Always dans un environnement de production, sauf si vous dépannez un problème.
@@ -5347,7 +5347,7 @@ Notez les points suivants :
 Pour plus d’informations sur l’activité, consultez l’article [Spark Activity (activité Spark)](data-factory-spark.md).
 
 ## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Activité d’exécution par lot Azure Machine Learning Studio (classique)
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité d’exécution par lot Azure Machine Learning Studio (classique). La propriété de type de l’activité doit être : **AzureMLBatchExecution**. Vous devez d’abord créer un service lié Studio (classique), puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité d’exécution par lot Azure Machine Learning Studio (classique). La propriété de type de l’activité doit être : **AzureMLBatchExecution** . Vous devez d’abord créer un service lié Studio (classique), puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLBatchExecution :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
@@ -5357,7 +5357,7 @@ webServiceOutputs | Les jeux de données qui sont attribués en tant que sorties
 globalParameters | Spécifie les valeurs pour les paramètres de service web dans cette section. | Non |
 
 ### <a name="json-example"></a>Exemple JSON
-Dans cet exemple, l’activité a le jeu de données **MLSqlInput** en tant qu’entrée et **MLSqlOutput** en tant que sortie. Le jeu de données **MLSqlInput** est transmis en tant qu’entrée au service web à l’aide de la propriété JSON **webServiceInput**. Le jeu de données **MLSqlOutput** est transmis en tant que sortie au service web à l’aide de la propriété JSON **webServiceOutputs**.
+Dans cet exemple, l’activité a le jeu de données **MLSqlInput** en tant qu’entrée et **MLSqlOutput** en tant que sortie. Le jeu de données **MLSqlInput** est transmis en tant qu’entrée au service web à l’aide de la propriété JSON **webServiceInput** . Le jeu de données **MLSqlOutput** est transmis en tant que sortie au service web à l’aide de la propriété JSON **webServiceOutputs** .
 
 ```json
 {
@@ -5403,7 +5403,7 @@ Dans l’exemple JSON, le service Web Studio (classique) déployé utilise un mo
 > Seules les entrées et sorties de l’activité AzureMLBatchExecution peuvent être transmises en tant que paramètres au service web. Par exemple, dans l’extrait de code JSON ci-dessus, MLSqlInput est une entrée de l’activité AzureMLBatchExecution, qui est transmise comme entrée au service web via le paramètre webServiceInput.
 
 ## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Activité de ressource de mise à jour Azure Machine Learning Studio (classique)
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité des ressources de mise à jour Azure Machine Learning Studio (classique). La propriété de type de l’activité doit être : **AzureMLUpdateResource**. Vous devez d’abord créer un service lié Studio (classique), puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité des ressources de mise à jour Azure Machine Learning Studio (classique). La propriété de type de l’activité doit être : **AzureMLUpdateResource** . Vous devez d’abord créer un service lié Studio (classique), puis spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur AzureMLUpdateResource :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
@@ -5411,7 +5411,7 @@ trainedModelName | Nom du modèle reformé. | Oui |
 trainedModelDatasetName | Jeu de données pointant vers le fichier iLearner renvoyé par l’opération de reformation. | Oui |
 
 ### <a name="json-example"></a>Exemple JSON
-Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource**. L’activité d’exécution par lot Studio (classique) prend les données d’apprentissage comme entrée et génère un fichier .iLearner comme sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
+Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateResource** . L’activité d’exécution par lot Studio (classique) prend les données d’apprentissage comme entrée et génère un fichier .iLearner comme sortie. L’activité appelle le service web de formation (expérience de formation exposée comme un service web) avec les données de formation d’entrée et reçoit le fichier iLearner du service web. placeholderBlob est simplement un jeu de données de sortie factice requis par le service Azure Data Factory pour exécuter le pipeline.
 
 
 ```json
@@ -5470,7 +5470,7 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Activité U-SQL Data Lake Analytics
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité U-SQL. La propriété de type de l’activité doit être : **DataLakeAnalyticsU-SQL**. Vous devez créer un service lié Azure Data Lake Analytics et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur DataLakeAnalyticsU-SQL :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité U-SQL. La propriété de type de l’activité doit être : **DataLakeAnalyticsU-SQL** . Vous devez créer un service lié Azure Data Lake Analytics et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur DataLakeAnalyticsU-SQL :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -5537,7 +5537,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 Pour plus d’informations, consultez [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md).
 
 ## <a name="stored-procedure-activity"></a>Activité de procédure stockée
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de procédure stockée. La propriété de type de l’activité doit être : **SqlServerStoredProcedure**. Vous devez créer un des services liés suivants et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité de procédure stockée. La propriété de type de l’activité doit être : **SqlServerStoredProcedure** . Vous devez créer un des services liés suivants et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**  :
 
 - SQL Server
 - Azure SQL Database
@@ -5552,7 +5552,7 @@ Les propriétés suivantes sont prises en charge dans la section **typePropertie
 
 Si vous spécifiez un jeu de données d’entrée, il doit être disponible (à l’état Prêt) pour l’activité de procédure stockée à exécuter. Les jeux de données d’entrée ne peuvent pas être utilisés dans la procédure stockée en tant que paramètres. Cela sert uniquement à vérifier la dépendance avant de commencer l’activité de procédure stockée. Vous devez spécifier un jeu de données de sortie pour une activité de procédure stockée.
 
-Le jeu de données de sortie spécifie la **planification** pour l’activité de procédure stockée (horaire, hebdomadaire, mensuelle, etc.). Le jeu de données de sortie doit utiliser un **service lié** qui fait référence à une base de données Azure SQL Database, Azure Synapse Analytics ou SQL Server dans laquelle vous souhaitez que la procédure stockée soit exécutée. Le jeu de données de sortie peut être un moyen de passer le résultat de la procédure stockée pour traitement ultérieur par une autre activité ([chaînage des activités](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) dans le pipeline. Toutefois, Data Factory n’écrit pas automatiquement la sortie d’une procédure stockée pour ce jeu de données. C’est la procédure stockée qui écrit dans une table SQL vers laquelle le jeu de données de sortie pointe. Dans certains cas, le jeu de données de sortie peut être un **jeu de données factice**, qui est utilisé uniquement pour spécifier le calendrier d’exécution de l’activité de procédure stockée.
+Le jeu de données de sortie spécifie la **planification** pour l’activité de procédure stockée (horaire, hebdomadaire, mensuelle, etc.). Le jeu de données de sortie doit utiliser un **service lié** qui fait référence à une base de données Azure SQL Database, Azure Synapse Analytics ou SQL Server dans laquelle vous souhaitez que la procédure stockée soit exécutée. Le jeu de données de sortie peut être un moyen de passer le résultat de la procédure stockée pour traitement ultérieur par une autre activité ([chaînage des activités](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) dans le pipeline. Toutefois, Data Factory n’écrit pas automatiquement la sortie d’une procédure stockée pour ce jeu de données. C’est la procédure stockée qui écrit dans une table SQL vers laquelle le jeu de données de sortie pointe. Dans certains cas, le jeu de données de sortie peut être un **jeu de données factice** , qui est utilisé uniquement pour spécifier le calendrier d’exécution de l’activité de procédure stockée.
 
 ### <a name="json-example"></a>Exemple JSON
 
@@ -5583,14 +5583,14 @@ Le jeu de données de sortie spécifie la **planification** pour l’activité d
 Pour plus de détails, consultez l’article [Stored Procedure Activity (activité de procédure stockée)](data-factory-stored-proc-activity.md).
 
 ## <a name="net-custom-activity"></a>Activité personnalisée .NET
-Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité personnalisée .NET. La propriété de type de l’activité doit être : **DotNetActivity**. Vous devez créer un service lié Azure HDInsight ou Azure Batch et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName**. Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur DotNetActivity :
+Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’activité personnalisée .NET. La propriété de type de l’activité doit être : **DotNetActivity** . Vous devez créer un service lié Azure HDInsight ou Azure Batch et spécifier le nom de celui-ci en tant que valeur de la propriété **linkedServiceName** . Les propriétés suivantes sont prises en charge dans la section **typeProperties** lorsque vous définissez le type d’activité sur DotNetActivity :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| AssemblyName | Nom de l’assembly. Dans cet exemple, il s’agit de : **MyDotnetActivity.dll**. | Oui |
+| AssemblyName | Nom de l’assembly. Dans cet exemple, il s’agit de : **MyDotnetActivity.dll** . | Oui |
 | EntryPoint |Nom de la classe qui implémente l’interface IDotNetActivity. Dans cet exemple, il s’agit de : **MyDotNetActivityNS.MyDotNetActivity** où MyDotNetActivityNS est l’espace de noms et MyDotNetActivity est la classe.  | Oui |
-| PackageLinkedService | Nom du service lié Stockage Azure qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Dans cet exemple, il s’agit de : **AzureStorageLinkedService**.| Oui |
-| PackageFile | Nom du fichier zip. Dans l’exemple, il s’agit de : **customactivitycontainer/MyDotNetActivity.zip**. | Oui |
+| PackageLinkedService | Nom du service lié Stockage Azure qui pointe vers le stockage d’objets blob contenant le fichier .zip de l’activité personnalisée. Dans cet exemple, il s’agit de : **AzureStorageLinkedService** .| Oui |
+| PackageFile | Nom du fichier zip. Dans l’exemple, il s’agit de : **customactivitycontainer/MyDotNetActivity.zip** . | Oui |
 | extendedProperties | Propriétés étendues que vous pouvez définir et transmettre au code .NET. Dans cet exemple, la variable **SliceStart** est définie sur une valeur basée sur la variable système SliceStart. | Non |
 
 ### <a name="json-example"></a>Exemple JSON

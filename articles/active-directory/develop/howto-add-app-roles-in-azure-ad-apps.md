@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258385"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673705"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -36,10 +36,10 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils du portail.
-1. Dans la liste **Favoris** ou **Tous les répertoires**, choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application.
-1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
-1. Dans le volet **Azure Active Directory**, sélectionnez **Inscriptions d'applications** pour afficher une liste de toutes vos applications.
-1. Sélectionnez l’application pour laquelle vous souhaitez définir des rôles d’application. Sélectionnez alors **Manifeste**.
+1. Dans la liste **Favoris** ou **Tous les répertoires** , choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application.
+1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory** .
+1. Dans le volet **Azure Active Directory** , sélectionnez **Inscriptions d'applications** pour afficher une liste de toutes vos applications.
+1. Sélectionnez l’application pour laquelle vous souhaitez définir des rôles d’application. Sélectionnez alors **Manifeste** .
 1. Modifiez le manifeste d’application en recherchant le paramètre `appRoles` et en ajoutant tous vos rôles d'application.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ L’exemple suivant montre le `appRoles` que vous pouvez assigner à `users`.
 > [!NOTE]
 >Le `displayName` peut contenir des espaces.
 
-Vous pouvez définir des rôles d’application pour cibler `users`, `applications`, ou les deux. Lorsqu’ils sont disponibles pour `applications`, les rôles d’application s’affichent en tant que permissions d’application sous la section **Gérer** > **Autorisations d’API > Ajouter une autorisation > Mes API > Choisir une API > Permissions d’application**. L’exemple suivant montre un rôle d’application ciblé sur un `Application`.
+Vous pouvez définir des rôles d’application pour cibler `users`, `applications`, ou les deux. Lorsqu’ils sont disponibles pour `applications`, les rôles d’application s’affichent en tant que permissions d’application sous la section **Gérer**  > **Autorisations d’API > Ajouter une autorisation > Mes API > Choisir une API > Permissions d’application** . L’exemple suivant montre un rôle d’application ciblé sur un `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -101,21 +101,21 @@ Le nombre de rôles définis affecte les limites du manifeste d’application. I
 
 Une fois que vous avez ajouté des rôles d’application dans votre application, vous pouvez leur affecter des utilisateurs et des groupes.
 
-1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise** dans le menu de navigation de gauche d’**Azure Active Directory**.
+1. Dans le volet **Azure Active Directory** , sélectionnez **Applications d’entreprise** dans le menu de navigation de gauche d’ **Azure Active Directory** .
 1. Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications.
 
      Si vous ne voyez pas l’application que vous souhaitez afficher ici, utilisez les filtres présents en haut de la liste **Toutes les applications** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
 
 1. Sélectionnez l’application dans laquelle vous souhaitez assigner des utilisateurs ou un groupe de sécurité aux rôles.
 1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation de gauche de l'application.
-1. En haut de la liste **Utilisateurs et groupes**, sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste pour ouvrir le volet **Ajouter une attribution**.
-1. Sélectionnez le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
+1. En haut de la liste **Utilisateurs et groupes** , sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste pour ouvrir le volet **Ajouter une attribution** .
+1. Sélectionnez le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution** .
 
      Une liste des utilisateurs et des groupes de sécurité s’affiche, ainsi qu’une zone de texte pour rechercher et localiser un utilisateur ou un groupe spécifique. Cet écran vous permet de sélectionner plusieurs utilisateurs et groupes d’un coup.
 
 1. Une fois que vous avez sélectionné les utilisateurs et groupes, appuyez sur le bouton **Sélectionner** en bas pour passer à l’étape suivante.
-1. Choisissez le sélecteur **Sélectionner un rôle** à partir du volet **Ajouter une attribution**. Tous les rôles déclarés plus tôt dans le manifeste d’application s’affichent.
-1. Choisissez un rôle et appuyez sur le bouton **Sélectionner**.
+1. Choisissez le sélecteur **Sélectionner un rôle** à partir du volet **Ajouter une attribution** . Tous les rôles déclarés plus tôt dans le manifeste d’application s’affichent.
+1. Choisissez un rôle et appuyez sur le bouton **Sélectionner** .
 1. Appuyez sur le bouton **Attribuer** en bas pour terminer l’attribution des utilisateurs et des groupes à l’application.
 1. Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **Utilisateurs et groupes** mise à jour.
 
@@ -126,7 +126,7 @@ Lorsque les utilisateurs assignés aux différents rôles d’application se con
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Ajouter une autorisation à une application web ASP.NET Core à l'aide de rôles d'application et de revendications de rôles](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implémenter l’autorisation dans vos applications avec la plateforme d’identité Microsoft (vidéo)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implémenter l’autorisation dans vos applications avec la plateforme d’identité Microsoft (vidéo)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifeste d’application Azure Active Directory](./reference-app-manifest.md)
 - [Jetons d’accès Azure AD](access-tokens.md)

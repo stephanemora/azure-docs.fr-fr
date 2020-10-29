@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f95ffb662d830c432d3286eca8c935e2737f8043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649556"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637035"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 et Easv4
 
@@ -54,7 +54,7 @@ Les tailles de la série Eav4 sont basées sur le processeur AMD EPYC<sup>TM</s
 
 Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Les tailles des machines virtuelles de la série Easv4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 | 1 000 |
 | Standard_E4as_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 | 2000 |

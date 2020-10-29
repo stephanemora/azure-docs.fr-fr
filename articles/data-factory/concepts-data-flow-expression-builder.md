@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531032"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635369"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Générer des expressions dans un flux de données de mappage
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution. Le mappage des flux de données a une expérience dédiée visant à vous aider à créer ces expressions, appelée **Générateur d’expressions**. Utilisant [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) pour la mise en surbrillance, la vérification de la syntaxe et la saisie semi-automatique, le générateur d’expressions est conçu pour faciliter la création de flux de données. Cet article explique comment utiliser le générateur d’expressions pour créer efficacement votre logique métier.
+Dans un flux de données de mappage, de nombreuses propriétés de transformation sont entrées en tant qu’expressions. Ces expressions sont composées de valeurs de colonne, de paramètres, de fonctions, d’opérateurs et de littéraux qui correspondent à un type de données Spark au moment de l’exécution. Le mappage des flux de données a une expérience dédiée visant à vous aider à créer ces expressions, appelée **Générateur d’expressions** . Utilisant [IntelliSense](/visualstudio/ide/using-intellisense) pour la mise en surbrillance, la vérification de la syntaxe et la saisie semi-automatique, le générateur d’expressions est conçu pour faciliter la création de flux de données. Cet article explique comment utiliser le générateur d’expressions pour créer efficacement votre logique métier.
 
 ![Générateur d’expressions](media/data-flow/expresion-builder.png "Générateur d’expressions")
 
@@ -32,7 +32,7 @@ Dans certaines transformations comme les [filtres](data-flow-filter.md), un clic
 
 ![Zone d’expression bleue](media/data-flow/expressionbox.png "Générateur d’expressions")
 
-Lorsque vous référencez des colonnes dans une correspondance ou un groupe par condition, une expression peut extraire des valeurs des colonnes. Pour créer une expression, sélectionnez **Colonne calculée**.
+Lorsque vous référencez des colonnes dans une correspondance ou un groupe par condition, une expression peut extraire des valeurs des colonnes. Pour créer une expression, sélectionnez **Colonne calculée** .
 
 ![Option de colonne calculée](media/data-flow/computedcolumn.png "Générateur d’expressions")
 

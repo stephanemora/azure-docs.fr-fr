@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443887"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672273"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Pour afficher et appliquer des recommandations en matière de performances, vous
 Pour rechercher des suggestions en matière de performances sur le Portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Accédez à **Tous les services** > **Bases de données SQL**, puis sélectionnez votre base de données.
+2. Accédez à **Tous les services** > **Bases de données SQL** , puis sélectionnez votre base de données.
 3. Accédez à **Recommandation sur les performances** pour afficher les recommandations disponibles pour la base de données choisie.
 
 Les recommandations en matière de performances s’affichent dans un tableau similaire à celui de la figure suivante :
@@ -70,8 +70,8 @@ La base de données reste en ligne tant que la recommandation est appliquée. L�
 
 Vous pouvez consulter et accepter les recommandations une à la fois.
 
-1. Dans la page **Recommandations**, cliquez sur une recommandation.
-2. Dans la page **Détails**, cliquez sur le bouton **Appliquer**.
+1. Dans la page **Recommandations** , cliquez sur une recommandation.
+2. Dans la page **Détails** , cliquez sur le bouton **Appliquer** .
 
    ![Appliquer une recommandation](./media/database-advisor-find-recommendations-portal/apply.png)
 
@@ -82,13 +82,13 @@ La recommandation sélectionnée est appliquée à la base de données.
 Si votre liste de recommandations contient des éléments que vous souhaitez supprimer de la liste, vous pouvez ignorer la recommandation :
 
 1. Sélectionnez une recommandation dans la liste des **Recommandations** pour afficher les informations.
-2. Dans la page **Détails**, cliquez sur **Ignorer**.
+2. Dans la page **Détails** , cliquez sur **Ignorer** .
 
 Si vous le souhaitez, vous pouvez rajouter des éléments rejetés à la liste **Recommandations** :
 
-1. Dans la page **Recommandations**, cliquez sur **Affichage ignoré**.
+1. Dans la page **Recommandations** , cliquez sur **Affichage ignoré** .
 2. Sélectionnez un élément rejeté dans la liste pour afficher les détails le concernant.
-3. Si vous le souhaitez, vous pouvez cliquer sur **Annuler le rejet** pour ajouter l’index à la liste principale de **Recommandations**.
+3. Si vous le souhaitez, vous pouvez cliquer sur **Annuler le rejet** pour ajouter l’index à la liste principale de **Recommandations** .
 
 > [!NOTE]
 > Notez que, si le [paramétrage automatique](automatic-tuning-overview.md) de SQL Database est activé, et que vous avez manuellement ignoré l’une des recommandations de la liste, celle-ci ne s’appliquera jamais automatiquement. Il est pratique d’ignorer une recommandation pour activer le paramétrage automatique dans les cas où une recommandation en particulier ne doit pas s’appliquer.
@@ -98,7 +98,7 @@ Si vous le souhaitez, vous pouvez rajouter des éléments rejetés à la liste *
 
 Vous pouvez configurer votre base de données de manière à implémenter automatiquement des suggestions. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme pour toutes les recommandations gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
 
-1. Dans la page **Recommandations**, cliquez sur **Automatiser**:
+1. Dans la page **Recommandations** , cliquez sur **Automatiser** :
 
    ![Paramètres du conseiller](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Sélectionnez les actions à automatiser :
@@ -112,15 +112,15 @@ Une fois que vous avez sélectionné la configuration voulue, cliquez sur Appliq
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Appliquer manuellement des recommandations par le biais de T-SQL
 
-Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exécutez ce script sur votre base de données pour appliquer la recommandation manuellement.
+Sélectionnez une recommandation, puis cliquez sur **Afficher le script** . Exécutez ce script sur votre base de données pour appliquer la recommandation manuellement.
 
-*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). En outre, les recommandations appliquées manuellement restent actives et figurent dans la liste des recommandations pendant 24 à 48 heures avant que le système ne les retire automatiquement. Pour supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
+*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances* . Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). En outre, les recommandations appliquées manuellement restent actives et figurent dans la liste des recommandations pendant 24 à 48 heures avant que le système ne les retire automatiquement. Pour supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
 
 ### <a name="canceling-recommendations"></a>Annulation de recommandations
 
-Les recommandations ayant l’état **En attente**, **En cours de validation** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
+Les recommandations ayant l’état **En attente** , **En cours de validation** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
 
-1. Sélectionnez une recommandation dans la zone **Historique des réglages** pour ouvrir la page **Détails des recommandations**.
+1. Sélectionnez une recommandation dans la zone **Historique des réglages** pour ouvrir la page **Détails des recommandations** .
 2. Cliquez sur **Annuler** pour abandonner le processus d'application de la recommandation.
 
 ## <a name="monitoring-operations"></a>Surveillance des opérations
@@ -146,7 +146,7 @@ Cliquez sur une recommandation in-process dans la liste pour afficher plus d’i
 Si vous avez utilisé les recommandations en matière de performances pour appliquer la recommandation (ce qui signifie que vous n’avez pas exécuté manuellement le script T-SQL), celle-ci annule automatiquement la modification s’il apparaît que son impact sur les performances est négatif. Si vous souhaitez simplement annuler une recommandation, vous pouvez procéder comme suit :
 
 1. Sélectionnez une recommandation appliquée avec succès dans la zone **Historique de paramétrage** .
-2. Dans la page **Détails de la recommandation**, cliquez sur **Annuler**.
+2. Dans la page **Détails de la recommandation** , cliquez sur **Annuler** .
 
 ![Index recommandés](./media/database-advisor-find-recommendations-portal/details.png)
 
@@ -170,6 +170,6 @@ Surveillez vos recommandations et continuez à les appliquer pour affiner les pe
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Magasin de requêtes](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)

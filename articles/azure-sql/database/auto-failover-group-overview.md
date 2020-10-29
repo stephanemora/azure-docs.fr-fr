@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627225"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675291"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -243,7 +243,7 @@ Déployez les deux instances managées dans des [régions jumelées](../../best-
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Création d’un groupe de basculement entre des instances gérées d’abonnements différents
 
-Vous pouvez créer un groupe de basculement entre des instances managées SQL dans deux abonnements différents, à condition que les abonnements soient associés au même [abonné Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Lorsque vous utilisez l’API PowerShell, vous pouvez le faire en spécifiant le paramètre `PartnerSubscriptionId` pour l’instance SQL Managed Instance secondaire. Lors de l’utilisation de l’API REST, chaque ID d’instance inclus dans le paramètre `properties.managedInstancePairs` peut avoir son propre subscriptionID.
+Vous pouvez créer un groupe de basculement entre des instances managées SQL dans deux abonnements différents, à condition que les abonnements soient associés au même [abonné Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md#terminology). Lorsque vous utilisez l’API PowerShell, vous pouvez le faire en spécifiant le paramètre `PartnerSubscriptionId` pour l’instance SQL Managed Instance secondaire. Lors de l’utilisation de l’API REST, chaque ID d’instance inclus dans le paramètre `properties.managedInstancePairs` peut avoir son propre subscriptionID.
   
 > [!IMPORTANT]
 > Le Portail Azure ne prend pas en charge la création de groupes de basculement sur différents abonnements. De plus, pour les groupes de basculement existants sur différents abonnements et/ou groupes de ressources, le basculement ne peut pas être initié manuellement à l’aide du portail à partir de l’instance SQL Managed Instance principale. Initiez-le plutôt à partir de l’instance géosecondaire.
@@ -341,8 +341,8 @@ Si votre plan de continuité d’activité nécessite un basculement à l’aide
 1. [Créez une adresse IP publique](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
 2. [Créez un équilibreur de charge public](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) et affectez-lui l’adresse IP publique.
 3. [Créez un réseau virtuel et les machines virtuelles](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) pour vos composants frontend.
-4. [Créez un groupe de sécurité réseau](../../virtual-network/security-overview.md) et configurez les connexions entrantes.
-5. Vérifiez que les connexions sortantes sont ouvertes pour Azure SQL Database à l’aide de la [balise de service](../../virtual-network/security-overview.md#service-tags) « Sql ».
+4. [Créez un groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md) et configurez les connexions entrantes.
+5. Vérifiez que les connexions sortantes sont ouvertes pour Azure SQL Database à l’aide de la [balise de service](../../virtual-network/network-security-groups-overview.md#service-tags) « Sql ».
 6. Créez une [règle de pare-feu SQL Database](firewall-configure.md) pour autoriser le trafic entrant à partir de l’adresse IP publique que vous créez à l’étape 1.
 
 Pour plus d’informations sur la configuration de l’accès sortant et l’adresse IP à utiliser dans les règles de pare-feu, voir [Connexions sortantes de l’équilibreur de charge](../../load-balancer/load-balancer-outbound-connections.md).
@@ -362,7 +362,7 @@ Lorsque vous configurez un groupe de basculement entre les instances SQL Managed
 - Les réseaux virtuels utilisés par les instances SQL Managed Instance doivent être connectés via une [passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’appairage de réseaux virtuels mondiaux est pris en charge avec la limitation décrite dans la note ci-dessous.
 
    > [!IMPORTANT]
-   > [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+   > [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 - Les adresses IP des deux réseaux virtuels SQL Managed Instance ne peuvent pas se chevaucher.
 - Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et la plage 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Ceci est destiné à autoriser le trafic de réplication entre les instances.
@@ -406,7 +406,7 @@ Notez les limitations suivantes :
 
 ## <a name="programmatically-managing-failover-groups"></a>Gestion par programmation des groupes de basculement
 
-Comme indiqué plus haut, les groupes de basculement automatique et la géo-réplication active peuvent aussi être gérés par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
+Comme indiqué plus haut, les groupes de basculement automatique et la géo-réplication active peuvent aussi être gérés par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](/rest/api/sql/) et les [applets de commande Azure PowerShell](/powershell/azure/). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gérer un basculement SQL Database
 
@@ -435,13 +435,13 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | API | Description |
 | --- | --- |
-| [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crée ou met à jour un groupe de basculement |
-| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Supprime un groupe de basculement du serveur |
-| [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Déclenche le basculement du serveur primaire actuel vers le serveur secondaire avec une synchronisation complète des données.|
-| [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Déclenche le basculement du serveur primaire actuel vers le serveur secondaire sans synchroniser les données. Cette opération peut occasionner une perte de données. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) (Obtenir un groupe de basculement) | Récupère la configuration d’un groupe de basculement. |
-| [Répertorier les groupes de basculement par serveur](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Liste les groupes de basculement d’un serveur. |
-| [Mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Met à jour la configuration d’un groupe de basculement. |
+| [Créer ou mettre à jour un groupe de basculement](/rest/api/sql/failovergroups/createorupdate) | Crée ou met à jour un groupe de basculement |
+| [Supprimer un groupe de basculement](/rest/api/sql/failovergroups/delete) | Supprime un groupe de basculement du serveur |
+| [Basculement (planifié)](/rest/api/sql/failovergroups/failover) | Déclenche le basculement du serveur primaire actuel vers le serveur secondaire avec une synchronisation complète des données.|
+| [Forcer le basculement et autoriser la perte de données](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Déclenche le basculement du serveur primaire actuel vers le serveur secondaire sans synchroniser les données. Cette opération peut occasionner une perte de données. |
+| [Get Failover Group](/rest/api/sql/failovergroups/get) (Obtenir un groupe de basculement) | Récupère la configuration d’un groupe de basculement. |
+| [Répertorier les groupes de basculement par serveur](/rest/api/sql/failovergroups/listbyserver) | Liste les groupes de basculement d’un serveur. |
+| [Mettre à jour un groupe de basculement](/rest/api/sql/failovergroups/update) | Met à jour la configuration d’un groupe de basculement. |
 
 ---
 
@@ -473,12 +473,12 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | API | Description |
 | --- | --- |
-| [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crée ou met à jour la configuration d’un groupe de basculement |
-| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Supprime un groupe de basculement de l’instance |
-| [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Déclenche le basculement de l’instance principale actuelle vers cette instance avec une synchronisation complète des données. |
-| [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Déclenche le basculement de l’instance principale actuelle vers l’instance secondaire sans synchroniser les données. Cette opération peut occasionner une perte de données. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) (Obtenir un groupe de basculement) | Récupère la configuration d’un groupe de basculement. |
-| [List Failover Groups - List By Location](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) (Répertorier les groupes de basculement - Liste par emplacement) | Répertorie les groupes de basculement d’un emplacement. |
+| [Créer ou mettre à jour un groupe de basculement](/rest/api/sql/instancefailovergroups/createorupdate) | Crée ou met à jour la configuration d’un groupe de basculement |
+| [Supprimer un groupe de basculement](/rest/api/sql/instancefailovergroups/delete) | Supprime un groupe de basculement de l’instance |
+| [Basculement (planifié)](/rest/api/sql/instancefailovergroups/failover) | Déclenche le basculement de l’instance principale actuelle vers cette instance avec une synchronisation complète des données. |
+| [Forcer le basculement et autoriser la perte de données](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Déclenche le basculement de l’instance principale actuelle vers l’instance secondaire sans synchroniser les données. Cette opération peut occasionner une perte de données. |
+| [Get Failover Group](/rest/api/sql/instancefailovergroups/get) (Obtenir un groupe de basculement) | Récupère la configuration d’un groupe de basculement. |
+| [List Failover Groups - List By Location](/rest/api/sql/instancefailovergroups/listbylocation) (Répertorier les groupes de basculement - Liste par emplacement) | Répertorie les groupes de basculement d’un emplacement. |
 
 ---
 

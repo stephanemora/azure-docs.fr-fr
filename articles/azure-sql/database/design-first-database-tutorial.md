@@ -10,18 +10,18 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674883"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Tutoriel : Concevoir une base de données relationnelle dans Azure SQL Database avec SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
-Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) pour :
+Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) pour :
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!TIP]
-> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 > [!NOTE]
 > Pour les besoins de ce tutoriel, nous utilisons Azure SQL Database. Vous pouvez également utiliser une base de données mise en pool élastique ou une instance managée SQL. Pour la connexion à une instance managée SQL, consultez ces guides de démarrage rapide des instances managées SQL : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à une instance managée Azure SQL](../managed-instance/connect-vm-instance-configure.md) et [Démarrage rapide : Configurer une connexion point à site à une instance managée Azure SQL à partir d’un emplacement local](../managed-instance/point-to-site-p2s-configure.md).
 
@@ -43,7 +43,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 
 Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés :
 
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (dernière version)
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (dernière version)
 - [BCP et SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (dernière version)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -56,8 +56,8 @@ Une base de données dans Azure SQL Database est créée avec un ensemble défin
 
 Pour créer une base de données vide, procédez comme suit.
 
-1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
-2. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil** , sélectionnez **Créer une ressource** .
+2. Dans la page **Nouveau** , sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection** .
 
    ![créer une base de données vide](./media/design-first-database-tutorial/create-empty-database.png)
 
@@ -81,14 +81,14 @@ Pour créer une base de données vide, procédez comme suit.
 
     ![create database-server](./media/design-first-database-tutorial/create-database-server.png)
 
-5. Cliquez sur **Sélectionner**.
+5. Cliquez sur **Sélectionner** .
 6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage. Vous pouvez explorer les options concernant le nombre de DTU/vCore et le stockage disponible pour chaque niveau de service.
 
-    Après avoir sélectionné le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage, cliquez sur **Appliquer**.
+    Après avoir sélectionné le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage, cliquez sur **Appliquer** .
 
 7. Entrez un **Classement** pour la base de données vide (pour ce tutoriel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
-8. Maintenant que vous avez rempli le formulaire **SQL Database**, cliquez sur **Créer** pour provisionner la base de données. Cette étape peut prendre quelques minutes.
+8. Maintenant que vous avez rempli le formulaire **SQL Database** , cliquez sur **Créer** pour provisionner la base de données. Cette étape peut prendre quelques minutes.
 
 9. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
 
@@ -103,7 +103,7 @@ Azure SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu empêc
 
 1. Une fois le déploiement terminé, sélectionnez **Bases de données SQL** dans le menu Portail Azure ou recherchez et sélectionnez *Bases de données SQL* à partir de n’importe quelle page.  
 
-1. Sélectionnez *YourDatabase* dans la page **Bases de données SQL**. La page d’aperçu de votre base de données s’ouvre. Elle affiche le **Nom du serveur** complet (par exemple `contosodatabaseserver01.database.windows.net`) et fournit des options pour poursuivre la configuration.
+1. Sélectionnez *YourDatabase* dans la page **Bases de données SQL** . La page d’aperçu de votre base de données s’ouvre. Elle affiche le **Nom du serveur** complet (par exemple `contosodatabaseserver01.database.windows.net`) et fournit des options pour poursuivre la configuration.
 
    ![nom du serveur](./media/design-first-database-tutorial/server-name.png)
 
@@ -115,9 +115,9 @@ Azure SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu empêc
 
 1. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-1. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur.
+1. Cliquez sur **Enregistrer** . Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur.
 
-1. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+1. Cliquez sur **OK** , puis fermez la page **Paramètres de pare-feu** .
 
 Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenant vous connecter à votre base de données à l’aide de SQL Server Management Studio ou tout autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
 
@@ -129,25 +129,25 @@ Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenan
 Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) pour établir une connexion à votre base de données.
 
 1. Ouvrez SQL Server Management Studio.
-2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
+2. Dans la fenêtre **Se connecter au serveur** , entrez les valeurs suivantes :
 
    | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Type de serveur** | Moteur de base de données | Cette valeur est requise. |
-   | **Nom du serveur** | Nom complet du serveur | Par exemple, *yourserver.database.windows.net*. |
+   | **Nom du serveur** | Nom complet du serveur | Par exemple, *yourserver.database.windows.net* . |
    | **Authentification** | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce tutoriel. |
    | **Connexion** | Compte d’administrateur de serveur | Le compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | **Mot de passe** | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié quand vous avez créé le serveur. |
 
    ![connect to server](./media/design-first-database-tutorial/connect.png)
 
-3. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans la section **Se connecter à la base de données**, entrez *yourDatabase* pour vous connecter à cette base de données.
+3. Cliquez sur **Options** dans la boîte de dialogue **Se connecter au serveur** . Dans la section **Se connecter à la base de données** , entrez *yourDatabase* pour vous connecter à cette base de données.
 
     ![connexion à la base de données sur le serveur](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Cliquez sur **Connecter**. La fenêtre **Explorateur d’objets** s’ouvre dans SSMS.
+4. Cliquez sur **Connecter** . La fenêtre **Explorateur d’objets** s’ouvre dans SSMS.
 
-5. Dans l’**Explorateur d’objets**, développez **Bases de données**, puis *yourDatabase* pour afficher les objets dans l’exemple de base de données.
+5. Dans l’ **Explorateur d’objets** , développez **Bases de données** , puis *yourDatabase* pour afficher les objets dans l’exemple de base de données.
 
    ![objets de base de données](./media/design-first-database-tutorial/connected.png)  
 
@@ -160,14 +160,14 @@ Créez un schéma de base de données avec quatre tables qui modélisent un syst
 - Étudiant
 - Crédit
 
-Le diagramme suivant montre comment ces tables sont liées entre elles. Certaines de ces tables référencent des colonnes d’autres tables. Par exemple, la table *Student* référence la colonne *PersonId* de la table *Person*. Étudiez le diagramme pour comprendre comment les tables présentées dans ce didacticiel sont liées entre elles. Pour découvrir comment créer des tables de base de données efficaces, consultez [Créer des tables de base de données efficaces](https://msdn.microsoft.com/library/cc505842.aspx). Pour plus d’informations sur le choix des types de données, consultez [Types de données](/sql/t-sql/data-types/data-types-transact-sql).
+Le diagramme suivant montre comment ces tables sont liées entre elles. Certaines de ces tables référencent des colonnes d’autres tables. Par exemple, la table *Student* référence la colonne *PersonId* de la table *Person* . Étudiez le diagramme pour comprendre comment les tables présentées dans ce didacticiel sont liées entre elles. Pour découvrir comment créer des tables de base de données efficaces, consultez [Créer des tables de base de données efficaces](/previous-versions/tn-archive/cc505842(v=technet.10)). Pour plus d’informations sur le choix des types de données, consultez [Types de données](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
 > Vous pouvez également utiliser le [concepteur de tables dans SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) pour créer et concevoir vos tables.
 
 ![Relations entre les tables](./media/design-first-database-tutorial/tutorial-database-tables.png)
 
-1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur *yourDatabase* et sélectionnez **Nouvelle requête**. Une fenêtre de requête vide connectée à votre base de données s’ouvre.
+1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur *yourDatabase* et sélectionnez **Nouvelle requête** . Une fenêtre de requête vide connectée à votre base de données s’ouvre.
 
 2. Dans la fenêtre de requête, exécutez la requête suivante pour créer quatre tables dans votre base de données :
 
@@ -214,7 +214,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
    ![Créer des tables](./media/design-first-database-tutorial/create-tables.png)
 
-3. Développez le nœud **Tables** sous *yourDatabase* dans l’**Explorateur d’objets** pour afficher les tables que vous avez créées.
+3. Développez le nœud **Tables** sous *yourDatabase* dans l’ **Explorateur d’objets** pour afficher les tables que vous avez créées.
 
    ![tables ssms-créées](./media/design-first-database-tutorial/ssms-tables-created.png)
 
@@ -222,16 +222,16 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
 1. Créez un dossier nommé *sampleData* dans le dossier Téléchargements pour y stocker les exemples de données pour votre base de données.
 
-2. Cliquez avec le bouton droit sur les liens suivants et enregistrez-les dans le dossier *sampleData*.
+2. Cliquez avec le bouton droit sur les liens suivants et enregistrez-les dans le dossier *sampleData* .
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Ouvrez une fenêtre d’invite de commandes et accédez au dossier *sampleData*.
+3. Ouvrez une fenêtre d’invite de commandes et accédez au dossier *sampleData* .
 
-4. Exécutez les commandes suivantes pour insérer des exemples de données dans les tables, en remplaçant les valeurs de *server*, *database*, *user* et *password* par les valeurs correspondant à votre environnement.
+4. Exécutez les commandes suivantes pour insérer des exemples de données dans les tables, en remplaçant les valeurs de *server* , *database* , *user* et *password* par les valeurs correspondant à votre environnement.
 
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
@@ -244,7 +244,7 @@ Vous avez maintenant chargé des exemples de données dans les tables que vous a
 
 ## <a name="query-data"></a>Interroger des données
 
-Exécutez les requêtes suivantes pour récupérer des informations à partir des tables de base de données. Pour en savoir plus sur l’écriture des requêtes SQL, consultez [Écrire des requêtes SQL](https://technet.microsoft.com/library/bb264565.aspx). La première requête réunit les quatre tables pour rechercher tous les étudiants inscrits au cours de « Dominick Pope » ayant une note supérieure à 75 %. La deuxième requête réunit les quatre tables et recherche les cours que « Noe Coleman » a déjà suivis.
+Exécutez les requêtes suivantes pour récupérer des informations à partir des tables de base de données. Pour en savoir plus sur l’écriture des requêtes SQL, consultez [Écrire des requêtes SQL](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)). La première requête réunit les quatre tables pour rechercher tous les étudiants inscrits au cours de « Dominick Pope » ayant une note supérieure à 75 %. La deuxième requête réunit les quatre tables et recherche les cours que « Noe Coleman » a déjà suivis.
 
 1. Dans une fenêtre de requête SQL Server Management Studio, exécutez la requête suivante :
 

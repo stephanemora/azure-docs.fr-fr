@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/20/2020
-ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b70c08df25f3f5d572f88879f5073756de588d52
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220446"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636474"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 
@@ -110,7 +110,7 @@ Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de comp
 
 Vous pouvez également créer un service lié de stockage à l’aide d’une signature d’accès partagé. Ainsi, la fabrique de données dispose d’un accès restreint ou limité dans le temps à tout ou partie des ressources dans le stockage.
 
-Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez l’utiliser pour octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signature d’accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez l’utiliser pour octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous n’êtes pas obligé de partager vos clés d’accès de compte. La signature d’accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié. Pour plus d’informations sur les signatures d’accès partagé, consultez [Signatures d’accès partagé : Comprendre le modèle de signature d’accès partagé](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Azure Data Factory prend désormais en charge les **signatures d’accès partagé de service** et les **signatures d’accès partagé de compte** . Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). 
@@ -236,13 +236,13 @@ Pour copier des données de Table Azure, définissez **AzureTableSource** comme 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSource** . |Oui |
-| AzureTableSourceQuery |Utilisez la requête de Table Azure personnalisée pour lire les données.<br/>La requête source est une carte directe à partir de l’option de requête `$filter` prise en charge par le stockage de tables Azure. Pour en savoir plus sur la syntaxe, consultez [ce document](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), et consultez les exemples dans la section des exemples azureTableSourceQuery [suivante](#azuretablesourcequery-examples). |Non |
+| AzureTableSourceQuery |Utilisez la requête de Table Azure personnalisée pour lire les données.<br/>La requête source est une carte directe à partir de l’option de requête `$filter` prise en charge par le stockage de tables Azure. Pour en savoir plus sur la syntaxe, consultez [ce document](/rest/api/storageservices/querying-tables-and-entities#supported-query-options), et consultez les exemples dans la section des exemples azureTableSourceQuery [suivante](#azuretablesourcequery-examples). |Non |
 | azureTableSourceIgnoreTableNotFound |Indique s’il faut autoriser l’exception de la table qui n’existe pas.<br/>Les valeurs autorisées sont **True** et **False** (par défaut). |Non |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
 
 >[!NOTE]
->L’opération de requête Table Azure expire dans 30 secondes, [conformément au service de Table Azure](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Découvrez comment optimiser la requête dans l’article [Conception pour l’interrogation](../storage/tables/table-storage-design-for-query.md).
+>L’opération de requête Table Azure expire dans 30 secondes, [conformément au service de Table Azure](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Découvrez comment optimiser la requête dans l’article [Conception pour l’interrogation](../storage/tables/table-storage-design-for-query.md).
 
 Dans Azure Data Factory, si vous souhaitez filtrer les données par rapport à une colonne de type DateHeure, reportez-vous à l’exemple suivant :
 
@@ -268,7 +268,7 @@ Pour copier des données vers la Table Azure, définissez le type de récepteur 
 | azureTableDefaultPartitionKeyValue |La valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non |
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non |
-| azureTableInsertType |Le mode d’insertion des données dans Table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Les valeurs autorisées sont **fusionner** (par défaut), et **remplacer** . <br/><br> Ce paramètre s’applique au niveau ligne et non au niveau table. Ces options ne suppriment pas de lignes dans la table de sortie qui n’existent pas dans l’entrée. Consultez [Insert Or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Entité d’insertion ou de fusion) et [Insert Or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Entité d’insertion ou de remplacement) pour en savoir plus sur le fonctionnement des paramètres fusionner et remplacer. |Non |
+| azureTableInsertType |Le mode d’insertion des données dans Table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Les valeurs autorisées sont **fusionner** (par défaut), et **remplacer** . <br/><br> Ce paramètre s’applique au niveau ligne et non au niveau table. Ces options ne suppriment pas de lignes dans la table de sortie qui n’existent pas dans l’entrée. Consultez [Insert Or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) (Entité d’insertion ou de fusion) et [Insert Or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) (Entité d’insertion ou de remplacement) pour en savoir plus sur le fonctionnement des paramètres fusionner et remplacer. |Non |
 | writeBatchSize |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des nombre entiers (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des intervalles de temps. Par exemple : « 00:20:00 » (20 minutes). |Non (la valeur par défaut est 90 secondes, le délai d’expiration par défaut du client de stockage) |
 
@@ -331,7 +331,7 @@ Dans l’exemple suivant, la colonne source DivisionID est mappée sur la colonn
 
 Lorsque vous copiez des données depuis et vers Table Azure, les mappages suivants sont utilisés entre les types de données Table Azure et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
 
-Pendant le déplacement de données depuis et vers Table Azure, les [mappages suivants définis par Table Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
+Pendant le déplacement de données depuis et vers Table Azure, les [mappages suivants définis par Table Azure](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) sont utilisés à partir des types OData Table Azure vers le type .NET et vice versa.
 
 | Type de données de Table Azure | Type de données intermédiaires d’Azure Data Factory | Détails |
 |:--- |:--- |:--- |

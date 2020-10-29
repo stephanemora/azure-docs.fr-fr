@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83690235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638004"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planifier et gérer les coûts d’Azure Data Factory
 
@@ -56,15 +56,15 @@ Vous pouvez maintenant intégrer 30 exécutions d’activité et 380 heures DI
 
 ## <a name="use-budgets-and-cost-alerts"></a>Utiliser des budgets et des alertes de coût
 
-Vous pouvez créer des [budgets](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) pour gérer les coûts, et des alertes permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives.  Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût.  Lorsque vous créez un budget, vous pouvez le faire au niveau de l’abonnement, ou à une précision inférieure, en ajoutant des filtres supplémentaires, tels que l’ID de ressource et le nom du compteur.  Toutefois, vous ne pouvez pas créer de budget pour les pipelines individuels d’une fabrique.
+Vous pouvez créer des [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md) pour gérer les coûts, et des alertes permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives.  Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût.  Lorsque vous créez un budget, vous pouvez le faire au niveau de l’abonnement, ou à une précision inférieure, en ajoutant des filtres supplémentaires, tels que l’ID de ressource et le nom du compteur.  Toutefois, vous ne pouvez pas créer de budget pour les pipelines individuels d’une fabrique.
 
 ## <a name="monitor-costs-at-factory-level"></a>Superviser les coûts au niveau de la fabrique
 
-Lorsque vous commencez à utiliser Azure Data Factory, vous pouvez examiner les coûts engendrés dans le volet d’[analyse des coûts](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) du portail Azure.
+Lorsque vous commencez à utiliser Azure Data Factory, vous pouvez examiner les coûts engendrés dans le volet d’[analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md) du portail Azure.
 
-1. Pour voir l’[analyse des coûts](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), ouvrez la fenêtre **Cost Management + facturation**, sélectionnez **Cost Management** dans le menu, puis sélectionnez **Ouvrir l’analyse des coûts**.
+1. Pour voir l’ [analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md), ouvrez la fenêtre **Cost Management + facturation** , sélectionnez **Cost Management** dans le menu, puis sélectionnez **Ouvrir l’analyse des coûts** .
 2. La vue par défaut affiche les coûts cumulés pour le mois en cours.  Vous pouvez basculer vers une autre période et une autre précision, par exemple quotidienne ou mensuelle.
-3. Pour limiter les coûts à un seul service, comme Azure Data Factory, sélectionnez **Ajouter un filtre**, puis sélectionnez **Nom du service**.  Choisissez ensuite **Azure Data Factory v2** dans la liste.
+3. Pour limiter les coûts à un seul service, comme Azure Data Factory, sélectionnez **Ajouter un filtre** , puis sélectionnez **Nom du service** .  Choisissez ensuite **Azure Data Factory v2** dans la liste.
 4. Vous pouvez ajouter des filtres supplémentaires pour analyser les coûts d’une instance de fabrique particulière, et d’une précision de compteur Azure Data Factory spécifique.
 
    ![Analyse des coûts](media/plan-manage-costs/cost-analysis.png)
@@ -81,12 +81,12 @@ En cliquant sur le bouton **Consommation** situé en regard du nom du pipeline, 
 
 ![Détails de la consommation du pipeline](media/plan-manage-costs/pipeline-consumption-details.png)
 
-L’affichage de la consommation se rapportant à l’exécution du pipeline indique la quantité consommée sur chaque compteur Azure Data Factory de l’exécution du pipeline spécifique, mais il n’affiche pas le prix réel facturé, car le montant qui vous est facturé dépend du type de compte Azure dont vous disposez, et du type de devise utilisé.  Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+L’affichage de la consommation se rapportant à l’exécution du pipeline indique la quantité consommée sur chaque compteur Azure Data Factory de l’exécution du pipeline spécifique, mais il n’affiche pas le prix réel facturé, car le montant qui vous est facturé dépend du type de compte Azure dont vous disposez, et du type de devise utilisé.  Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Superviser la consommation au niveau de l’exécution de l’activité
 Une fois la consommation agrégée au niveau de l’exécution du pipeline comprise, il reste des scénarios dans lesquels vous devez approfondir l’exploration et identifier l’activité la plus coûteuse au sein du pipeline.
 
-Pour consulter la consommation au niveau de l’exécution de l’activité, accédez à l’IU **Créer et surveiller** de votre fabrique de données. À partir de l’onglet **Superviser**, dans lequel vous affichez la liste des exécutions de pipeline, cliquez sur le lien du **nom du pipeline** pour accéder à la liste des exécutions d’activités dans l’exécution de pipeline.  Cliquez sur le bouton **Sortie** en regard du nom de l’activité et recherchez la propriété **billableDuration** dans la sortie JSON :
+Pour consulter la consommation au niveau de l’exécution de l’activité, accédez à l’IU **Créer et surveiller** de votre fabrique de données. À partir de l’onglet **Superviser** , dans lequel vous affichez la liste des exécutions de pipeline, cliquez sur le lien du **nom du pipeline** pour accéder à la liste des exécutions d’activités dans l’exécution de pipeline.  Cliquez sur le bouton **Sortie** en regard du nom de l’activité et recherchez la propriété **billableDuration** dans la sortie JSON :
 
 Voici un exemple extrait d’une exécution de l’activité de copie :
 
@@ -101,5 +101,5 @@ Et voici un exemple extrait d’une exécution de l’activité de mappage de Da
 Consultez les articles suivants pour en savoir plus sur l’application des tarifs dans Azure Data Factory :
 
 - [Page de tarification d’Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Comprendre Azure Data Factory par des exemples](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Comprendre Azure Data Factory par des exemples](./pricing-concepts.md)
 - [Calculatrice de prix d’Azure Data Factory](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

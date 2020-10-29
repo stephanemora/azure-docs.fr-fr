@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042590"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636406"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Le système de métadonnées Common Data Model (CDM) permet de partager facilement des données et leur signification entre des applications et des processus d’entreprise. Pour plus d’informations, consultez la vue d’ensemble de [Common Data Model](https://docs.microsoft.com/common-data-model/).
+Le système de métadonnées Common Data Model (CDM) permet de partager facilement des données et leur signification entre des applications et des processus d’entreprise. Pour plus d’informations, consultez la vue d’ensemble de [Common Data Model](/common-data-model/).
 
 Dans Azure Data Factory, les utilisateurs peuvent transformer les données des entités CDM à la fois sous forme de model.json et de manifeste stocké dans [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) à l’aide de flux de données de mappage. Vous pouvez également recevoir des données au format CDM à l’aide des références d’entité CDM qui déposeront vos données au format CSV ou Parquet dans des dossiers partitionnés. 
 
@@ -33,7 +33,7 @@ Le modèle Common Data Model est disponible en tant que [jeu de données inline]
 
 ### <a name="source-properties"></a>Propriétés de sources
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par une source CDM. Vous pouvez modifier ces propriétés sous l’onglet **Options de source**.
+Le tableau ci-dessous répertorie les propriétés prises en charge par une source CDM. Vous pouvez modifier ces propriétés sous l’onglet **Options de source** .
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -71,7 +71,7 @@ Si la définition d’entité que vous souhaitez utiliser dans votre transformat
 
 #### <a name="import-schema"></a>Importer un schéma
 
-CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection**. Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM vers lequel pointer.
+CDM est uniquement disponible en tant que jeu de données inline et, par défaut, n’a pas de schéma associé. Pour récupérer les métadonnées des colonnes, cliquez sur le bouton **Importer le schéma** sous l’onglet **Projection** . Cela vous permet de référencer les noms de colonnes et les types de données spécifiés par le corpus. Pour importer le schéma, une [session de débogage de flux de données](concepts-data-flow-debug-mode.md) doit être active et vous devez disposer d’un fichier de définition d’entité CDM vers lequel pointer.
 
 Lors du mappage des colonnes de flux de données aux propriétés des entités dans la transformation du récepteur, cliquez sur l’onglet « Mappage » et sélectionnez « Importer le schéma ». ADF lira la référence d’entité vers laquelle vous avez pointé dans vos options de récepteur, ce qui vous permet de mapper le schéma CDM cible.
 
@@ -112,7 +112,7 @@ source(output(
 
 ### <a name="sink-properties"></a>Propriétés du récepteur
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur CDM. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**.
+Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur CDM. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres** .
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |

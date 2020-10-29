@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360240"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671174"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutoriel : Concevoir une base de données relationnelle dans Azure SQL Database en C&#x23; avec ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!TIP]
-> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -47,7 +47,7 @@ Une base de données dans Azure SQL Database est créée avec un ensemble défin
 Pour créer une base de données vide, procédez comme suit.
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
-2. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
+2. Dans la page **Nouveau** , sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection** .
 
    ![créer une base de données vide](./media/design-first-database-csharp-tutorial/create-empty-database.png)
 
@@ -71,14 +71,14 @@ Pour créer une base de données vide, procédez comme suit.
 
     ![create database-server](./media/design-first-database-csharp-tutorial/create-database-server.png)
 
-5. Cliquez sur **Sélectionner**.
+5. Cliquez sur **Sélectionner** .
 6. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage. Vous pouvez explorer les options concernant le nombre de DTU/vCore et le stockage disponible pour chaque niveau de service.
 
-    Après avoir sélectionné le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage, cliquez sur **Appliquer**.
+    Après avoir sélectionné le niveau de service, le nombre de DTU ou de vCore et la quantité de stockage, cliquez sur **Appliquer** .
 
 7. Entrez un **Classement** pour la base de données vide (pour ce tutoriel, utilisez la valeur par défaut). Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
-8. Maintenant que vous avez rempli le formulaire **SQL Database**, cliquez sur **Créer** pour provisionner la base de données. Cette étape peut prendre quelques minutes.
+8. Maintenant que vous avez rempli le formulaire **SQL Database** , cliquez sur **Créer** pour provisionner la base de données. Cette étape peut prendre quelques minutes.
 
 9. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
 
@@ -91,7 +91,7 @@ SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu empêche les
 > [!IMPORTANT]
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à ce service à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre base de données, sauf si votre administrateur ouvre le port 1433.
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur *yourDatabase* dans la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le **nom complet du serveur** (par exemple, *yourserver.database.windows.net*) et fournit des options pour poursuivre la configuration.
+1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur *yourDatabase* dans la page **Bases de données SQL** . La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le **nom complet du serveur** (par exemple, *yourserver.database.windows.net* ) et fournit des options pour poursuivre la configuration.
 
 2. Copiez le nom complet du serveur pour vous connecter à votre serveur et aux bases de données à partir de SQL Server Management Studio.
 
@@ -103,9 +103,9 @@ SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu empêche les
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur.
+5. Cliquez sur **Enregistrer** . Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur.
 
-6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+6. Cliquez sur **OK** , puis fermez la page **Paramètres de pare-feu** .
 
 Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenant vous connecter à votre base de données à l’aide de SQL Server Management Studio ou tout autre outil de votre choix. Veillez à utiliser le compte d’administrateur de serveur que vous avez créé précédemment.
 

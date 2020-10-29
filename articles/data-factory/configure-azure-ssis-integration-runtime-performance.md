@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276661"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635318"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -118,11 +118,11 @@ L’axe des Y est le nombre de packages dont l’exécution s’est terminée en
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** ajuste l’évolutivité du runtime d’intégration. Le débit du runtime d’intégration est proportionnel au **AzureSSISNodeNumber**. Définir le **AzureSSISNodeNumber** une petite valeur dans un premier temps, surveiller le débit du runtime d’intégration, puis modifiez la valeur pour votre scénario. Pour reconfigurer le nœud du rôle de travail, consultez [Gérer Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** ajuste l’évolutivité du runtime d’intégration. Le débit du runtime d’intégration est proportionnel au **AzureSSISNodeNumber** . Définir le **AzureSSISNodeNumber** une petite valeur dans un premier temps, surveiller le débit du runtime d’intégration, puis modifiez la valeur pour votre scénario. Pour reconfigurer le nœud du rôle de travail, consultez [Gérer Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Si vous souhaitez augmenter la valeur maximale, vous devez utiliser Azure PowerShell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode**. Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/windows/sizes-general.md).
+Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Si vous souhaitez augmenter la valeur maximale, vous devez utiliser Azure PowerShell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode** . Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/sizes-general.md).
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +145,7 @@ Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécute
 | Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96 x 500                       | 8 / 16 000                                      |
 | Standard\_E64\_v3| 64   | 432         | 1 600                   | 96000 / 1000 / 500                                         | 32/192 x 500                      | 8 / 30000                                      |
 
-Voici les instructions à suivre pour définir la valeur correcte pour la propriété **AzureSSISMaxParallelExecutionsPerNode** : 
+Voici les instructions à suivre pour définir la valeur correcte pour la propriété **AzureSSISMaxParallelExecutionsPerNode**  : 
 
 1. Commencez par définir une petite valeur.
 2. Augmentez-la par petites quantités pour vérifier si le débit global est amélioré.
@@ -161,7 +161,7 @@ Voici les instructions à suivre pour définir la valeur correcte pour la propri
 
 -   Choisissez une base de données plus puissante, telles que s3, si le niveau de journalisation est mis sur Informations détaillées. Selon notre test interne non officiel, le niveau tarifaire s3 peut prendre en charge l’exécution du package SSIS avec 2 nœuds, 128 nombres parallèle et le niveau de journalisation détaillé.
 
-Vous pouvez également ajuster le niveau tarifaire de la base de données en fonction des informations d’utilisation de l’[unité de transaction de base de données](../sql-database/sql-database-what-is-a-dtu.md) (DTU) disponibles sur le portail Azure.
+Vous pouvez également ajuster le niveau tarifaire de la base de données en fonction des informations d’utilisation de l’[unité de transaction de base de données](../azure-sql/database/service-tiers-dtu.md) (DTU) disponibles sur le portail Azure.
 
 ## <a name="design-for-high-performance"></a>Conception pour de hautes performances
 La conception d’un package SSIS à exécuter sur Azure diffère de la conception d’un package pour une exécution locale. Au lieu de combiner plusieurs tâches indépendantes dans le même package, séparez-les en plusieurs packages pour une exécution plus efficace dans Azure-SSIS Integration Runtime. Créez une exécution pour chaque package, afin qu’aucun package ne doive attendre que l’exécution des autres soit terminée. Cette approche tire parti de l’évolutivité d’Azure-SSIS Integration Runtime et améliore le débit global.

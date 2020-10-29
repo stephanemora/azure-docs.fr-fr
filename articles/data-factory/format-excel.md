@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328281"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636338"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format Excel dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -23,7 +23,7 @@ Suivez cet article lorsque vous souhaitez **analyser les fichiers Excel** . Azur
 
 Le format Excel est pris en charge pour les connecteurs suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) et [SFTP](connector-sftp.md). Il est pris en charge en tant que source, mais pas en tant que récepteur. 
 
-**Remarque** : le format « .xls » n’est pas pris en charge lors de l’utilisation d’[HTTP](connector-http.md). 
+**Remarque** : le format « .xls » n’est pas pris en charge lors de l’utilisation d’ [HTTP](connector-http.md). 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -39,7 +39,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide** . | Non       |
 | compression | Groupe de propriétés pour configurer la compression de fichier. Configurez cette section lorsque vous souhaitez effectuer la compression/décompression lors de l’exécution de l’activité. | Non |
 | type<br/>( *sous `compression`* ) | Le codec de compression utilisé pour lire/écrire des fichiers JSON. <br>Les valeurs autorisées sont **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** et **lz4** . La valeur par défaut n’est pas compressée.<br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ».<br>**Remarque** lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non.  |
-| level<br/>( *sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest** .<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal**  : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
+| level<br/>( *sous `compression`* ) | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest** .<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal**  : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](/dotnet/api/system.io.compression.compressionlevel) . | Non       |
 
 Voici un exemple de jeu de données Excel sur Stockage Blob Azure :
 

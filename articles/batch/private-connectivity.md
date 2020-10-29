@@ -4,12 +4,12 @@ description: Découvrez comment vous connecter en privé à un compte Azure Batc
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7dba3dd1d34421666821c6bc7320ef76ab77bb7f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542136"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669019"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utiliser des points de terminaison privés avec des comptes Azure Batch
 
@@ -28,25 +28,25 @@ Cet article décrit les étapes permettant de créer un compte Batch privé et d
 
 Procédez comme suit pour créer un compte Batch privé à l’aide du portail Azure :
 
-1. Dans le volet **Créer une ressource**, choisissez **Service Batch**, puis sélectionnez **Créer**.
-2. Entrez l’abonnement, le groupe de ressources, la région et le nom du compte Batch sous l’onglet **De base**, puis sélectionnez **Suivant : Avancé**.
-3. Sous l’onglet **Avancé**, définissez **Accès réseau public** sur **Désactivé**.
-4. Dans **Paramètres**, sélectionnez **Connexions des points de terminaison privés**, puis **+ Point de terminaison privé**.
+1. Dans le volet **Créer une ressource** , choisissez **Service Batch** , puis sélectionnez **Créer** .
+2. Entrez l’abonnement, le groupe de ressources, la région et le nom du compte Batch sous l’onglet **De base** , puis sélectionnez **Suivant : Avancé** .
+3. Sous l’onglet **Avancé** , définissez **Accès réseau public** sur **Désactivé** .
+4. Dans **Paramètres** , sélectionnez **Connexions des points de terminaison privés** , puis **+ Point de terminaison privé** .
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Connexions des points de terminaison privés":::
-5. Dans le volet **De base**, entrez ou sélectionnez l’abonnement, le groupe de ressources, le nom de la ressource de point de terminaison privé et les détails de la région, puis sélectionnez **suivant : Ressource**.
-6. Dans le volet **Ressource**, définissez le **type de ressource** sur **Microsoft.Batch/batchAccounts**. Sélectionnez le compte Batch privé auquel vous souhaitez accéder, puis choisissez **Suivant : Configuration**.
+5. Dans le volet **De base** , entrez ou sélectionnez l’abonnement, le groupe de ressources, le nom de la ressource de point de terminaison privé et les détails de la région, puis sélectionnez **suivant : Ressource** .
+6. Dans le volet **Ressource** , définissez le **type de ressource** sur **Microsoft.Batch/batchAccounts** . Sélectionnez le compte Batch privé auquel vous souhaitez accéder, puis choisissez **Suivant : Configuration** .
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Connexions des points de terminaison privés":::
-7. Dans le volet **Configuration**, entrez ou sélectionnez les informations suivantes :
+7. Dans le volet **Configuration** , entrez ou sélectionnez les informations suivantes :
    - **Réseau virtuel** : Sélectionnez votre réseau virtuel.
    - **Sous-réseau** : Sélectionnez votre sous-réseau.
-   - **Intégrer à une zone DNS privée** :   Sélectionnez **Oui**. Pour vous connecter en privé à votre point de terminaison privé, vous avez besoin d’un enregistrement DNS. Nous vous recommandons d’intégrer votre point de terminaison privé à une zone DNS privée. Vous pouvez également utiliser vos propres serveurs DNS ou créer des enregistrements DNS à l’aide des fichiers hôtes sur vos machines virtuelles.
-   - **Zone DNS privée** :  Sélectionnez privatelink.<region>.batch.azure.com. La zone DNS privée est déterminée automatiquement. Vous ne pouvez pas la modifier à l’aide du Portail Azure.
-8. Sélectionnez **Vérifier + créer**, puis attendez qu’Azure valide votre configuration.
-9. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+   - **Intégrer à une zone DNS privée**  :   Sélectionnez **Oui** . Pour vous connecter en privé à votre point de terminaison privé, vous avez besoin d’un enregistrement DNS. Nous vous recommandons d’intégrer votre point de terminaison privé à une zone DNS privée. Vous pouvez également utiliser vos propres serveurs DNS ou créer des enregistrements DNS à l’aide des fichiers hôtes sur vos machines virtuelles.
+   - **Zone DNS privée**  :  Sélectionnez privatelink.\<region\>.batch.azure.com. La zone DNS privée est déterminée automatiquement. Vous ne pouvez pas la modifier à l’aide du Portail Azure.
+8. Sélectionnez **Vérifier + créer** , puis attendez qu’Azure valide votre configuration.
+9. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** .
 
 Une fois le point de terminaison privé approvisionné, vous pouvez accéder au compte Batch à partir de machines virtuelles dans le même réseau virtuel à l’aide du point de terminaison privé. Pour afficher l’adresse IP à partir du portail Azure :
 
-1. Sélectionnez **Toutes les ressources**.
+1. Sélectionnez **Toutes les ressources** .
 2. Recherchez le point de terminaison privé que vous avez créé précédemment.
 3. Sélectionnez l’onglet **Vue d’ensemble** pour afficher les paramètres DNS et les adresses IP.
 
