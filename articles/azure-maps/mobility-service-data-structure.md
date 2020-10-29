@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033221"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896308"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Structure des données Azure Maps Mobility Service
 
-Cet article présente le concept de zone urbaine dans [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). Nous aborderons certains des champs communs qui sont renvoyés lorsque ce service est interrogé pour les arrêts et les lignes de transport en commun. Nous vous recommandons de lire cet article avant de commencer à développer à l’aide des API Mobility Service.
+Cet article présente le concept de zone urbaine dans [Azure Maps Mobility Service](/rest/api/maps/mobility). Nous aborderons certains des champs communs qui sont renvoyés lorsque ce service est interrogé pour les arrêts et les lignes de transport en commun. Nous vous recommandons de lire cet article avant de commencer à développer à l’aide des API Mobility Service.
 
 ## <a name="metro-area"></a>Zone urbaine
 
 Les données Mobility Service sont regroupées par zones urbaines prises en charge. Les zones urbaines ne suivent pas les limites des villes. Une zone urbaine peut contenir plusieurs villes : une ville densément peuplée et les villes environnantes. En fait, un pays ou une région peut être une zone urbaine. 
 
-Le paramètre `metroID` est l’ID d’une zone urbaine qui peut être utilisé pour appeler l’[API Get Metro Area Info](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Utilisez l’API « Get Metro » d’Azure Maps pour demander des types de transport en commun, des agences de transport, des alertes actives et des détails supplémentaires pour la zone urbaine choisie. Vous pouvez également demander les zones urbaines prises en charge et les metroID. Les ID de zones urbaines sont susceptibles d’être modifiés.
+Le paramètre `metroID` est l’ID d’une zone urbaine qui peut être utilisé pour appeler l’[API Get Metro Area Info](/rest/api/maps/mobility/getmetroareainfopreview). Utilisez l’API « Get Metro » d’Azure Maps pour demander des types de transport en commun, des agences de transport, des alertes actives et des détails supplémentaires pour la zone urbaine choisie. Vous pouvez également demander les zones urbaines prises en charge et les metroID. Les ID de zones urbaines sont susceptibles d’être modifiés.
 
 **metroID :** 522   **Nom :** Seattle-Tacoma-Bellevue
 
@@ -33,7 +33,7 @@ Le paramètre `metroID` est l’ID d’une zone urbaine qui peut être utilisé 
 
 Les arrêts de transport peuvent avoir deux types d’ID, l’ID [General Transit Feed Specification (GFTS)](http://gtfs.org/) et l’ID d’arrêt Azure Maps. L’ID GFTS est appelé stopKey, et l’ID d’arrêt Azure Maps stopID. Lorsque vous faites souvent référence à des arrêts de transport, vous êtes encouragé à utiliser l’ID d’arrêt Azure Maps. stopID est plus stable et susceptible de rester le même tant que l’arrêt physique existe. L’ID d’arrêt GTFS est mis à jour plus souvent. Par exemple, l’ID d’arrêt GTFS peut être mis à jour en fonction de la requête du fournisseur GTFS ou lors de la publication d’une nouvelle version de GTFS. Bien que l’arrêt physique n’ait pas changé, l’ID d’arrêt GTFS peut changer.
 
-Pour commencer, vous pouvez demander les arrêts de transport proches, en utilisant l’[API Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Pour commencer, vous pouvez demander les arrêts de transport proches, en utilisant l’[API Get Nearby Transit](/rest/api/maps/mobility/getnearbytransitpreview).
 
 ## <a name="line-groups-and-lines"></a>Lignes et groupes de lignes
 
@@ -49,7 +49,7 @@ Un groupe de lignes est une entité regroupant toutes les lignes qui font logiqu
 
 Comme indiqué ci-dessus, chaque groupe de lignes comprend un ensemble de lignes. Chaque groupe de lignes est composé de deux lignes, et chaque ligne décrit une direction.  Toutefois, il existe des cas où un groupe de lignes est composé d’un plus grand nombre de lignes. Par exemple, une ligne fait parfois des détours dans un quartier donné et parfois non. Dans les deux cas, elle fonctionne sous le même numéro de ligne. En outre, un groupe de lignes peut être composé d’une seule ligne. Une ligne circulaire avec une seule direction est un groupe de lignes à une seule ligne.
 
-Pour commencer, vous pouvez demander les groupes de lignes en utilisant l’[API Get Transit Line](https://aka.ms/AzureMapsMobilityTransitLine).
+Pour commencer, vous pouvez demander les groupes de lignes en utilisant l’[API Get Transit Line](/rest/api/maps/mobility/gettransitlineinfopreview).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -67,4 +67,4 @@ Découvrez comment demander des données en temps réel à l’aide de Mobility 
 Explorer la documentation de l’API Mobility Service d’Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentation de l’API Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [Documentation de l’API Mobility Service](/rest/api/maps/mobility)

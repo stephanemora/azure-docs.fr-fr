@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1f25aadf716b7768b6122a4fb165466aef7f8a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053390"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895832"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
-Vous pouvez convertir les packages de dessin chargés en données cartographiques à l’aide du [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion). Cet article décrit les exigences du package de dessin pour l’API de conversion. Pour voir un exemple de package, vous pouvez télécharger l’exemple [Package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Vous pouvez convertir les packages de dessin chargés en données cartographiques à l’aide du [service de conversion d’Azure Maps](/rest/api/maps/conversion). Cet article décrit les exigences du package de dessin pour l’API de conversion. Pour voir un exemple de package, vous pouvez télécharger l’exemple [Package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -25,7 +25,7 @@ Le package Dessin comprend des dessins enregistrés au format DWG. Il s’agit d
 
 Vous pouvez choisir n’importe quel logiciel de CAO pour produire les dessins du package de dessin.  
 
-Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) convertit le package de dessin en données cartographiques. Le service de conversion fonctionne avec le format de fichier DWG AutoCAD. `AC1032` correspond à la version de format interne des fichiers DWG, et il apparaît judicieux de sélectionner `AC1032` pour la version de format des fichiers DWG internes.  
+Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) convertit le package de dessin en données cartographiques. Le service de conversion fonctionne avec le format de fichier DWG AutoCAD. `AC1032` correspond à la version de format interne des fichiers DWG, et il apparaît judicieux de sélectionner `AC1032` pour la version de format des fichiers DWG internes.  
 
 ## <a name="glossary-of-terms"></a>Glossaire des termes
 
@@ -50,13 +50,13 @@ Vous pouvez organiser les fichiers DWG à votre guise dans le dossier, mais le f
 
 ## <a name="dwg-files-requirements"></a>Exigences relatives aux fichiers DWG
 
-Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données du niveau doivent être contenues dans un fichier DWG unique. Toute référence externe (_xref_) doit être liée au dessin parent. En outre, chaque fichier DWG :
+Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données du niveau doivent être contenues dans un fichier DWG unique. Toute référence externe ( _xref_ ) doit être liée au dessin parent. En outre, chaque fichier DWG :
 
-* Doit définir les calques _Extérieur_ et _Unité_. Il peut éventuellement définir les calques facultatifs suivants : _Mur_, _Porte_, _UnitLabel_, _Zone_ et _ZoneLabel_.
+* Doit définir les calques _Extérieur_ et _Unité_ . Il peut éventuellement définir les calques facultatifs suivants : _Mur_ , _Porte_ , _UnitLabel_ , _Zone_ et _ZoneLabel_ .
 * Ne doit pas contenir de caractéristiques de plusieurs niveaux.
 * Ne doit pas contenir de caractéristiques de plusieurs bâtiments.
 
-Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
+Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
 
 * Levels
 * Units
@@ -73,11 +73,11 @@ Les calques DWG doivent également respecter les critères suivants :
 
 * Les origines des dessins de tous les fichiers DWG doivent s’aligner sur les mêmes latitude et longitude.
 * Chaque niveau doit être dans la même orientation que les autres niveaux.
-* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) génère un avertissement. Vous devez inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
+* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](/rest/api/maps/conversion) génère un avertissement. Vous devez inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
 
 Toutes les entités de calque doivent être de l’un des types suivants : Ligne, Polyligne, Polygone, Arc circulaire, Cercle ou Texte (ligne unique). Tous les autres types d’entités sont ignorés.
 
-Le tableau suivant présente les types d’entités et les caractéristiques pris en charge pour chaque calque. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) ignore ces entités.  
+Le tableau suivant présente les types d’entités et les caractéristiques pris en charge pour chaque calque. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](/rest/api/maps/conversion) ignore ces entités.  
 
 | Couche | Types d’entités | Fonctionnalités |
 | :----- | :-------------------| :-------
@@ -93,7 +93,7 @@ Les sections suivantes détaillent les exigences pour chaque calque.
 
 ### <a name="exterior-layer"></a>Calque Extérieur
 
-Le fichier DWG pour chaque niveau doit contenir un calque pour définir le périmètre de ce niveau. Ce calque est appelé calque *Extérieur*. Par exemple, si un bâtiment contient deux niveaux, il doit avoir deux fichiers DWG, avec un calque Extérieur pour chaque fichier.
+Le fichier DWG pour chaque niveau doit contenir un calque pour définir le périmètre de ce niveau. Ce calque est appelé calque *Extérieur* . Par exemple, si un bâtiment contient deux niveaux, il doit avoir deux fichiers DWG, avec un calque Extérieur pour chaque fichier.
 
 Quel que soit le nombre de dessins d’entité dans le calque Extérieur, le [jeu de données du bâtiment obtenu](tutorial-creator-indoor-maps.md#create-a-feature-stateset) ne contient qu’une seule caractéristique de niveau pour chaque fichier DWG. De plus :
 
@@ -168,11 +168,11 @@ Vous pouvez consulter un exemple de calque ZoneLabel dans l’[exemple de packag
 
 ## <a name="manifest-file-requirements"></a>Exigences du fichier manifeste
 
-Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json**. Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
+Le dossier zip doit contenir un fichier manifeste au niveau racine du répertoire, et le fichier doit être nommé **manifest.json** . Il décrit les fichiers DWG pour permettre au [service de conversion d’Azure Maps](/rest/api/maps/conversion) d’analyser leur contenu. Seuls les fichiers identifiés par le manifeste sont ingérés. Les fichiers qui se trouvent dans le dossier zip mais qui ne sont pas correctement répertoriés dans le manifeste sont ignorés.
 
 Les chemins d’accès aux fichiers, dans l’objet `buildingLevels` du fichier manifeste doivent être relatifs à la racine du dossier zip. Le nom du fichier DWG doit correspondre exactement au nom du niveau du bâtiment. Par exemple, un fichier DWG pour le niveau « sous-sol » est nommé « sous-sol.dwg ». Un fichier DWG pour le niveau 2 est nommé « niveau_2.dwg ». Si votre nom de niveau comporte une espace, remplacez-la par un trait de soulignement.
 
-Bien que des exigences s’appliquent à l’utilisation des objets de manifeste, tous les objets ne sont pas obligatoires. Le tableau suivant répertorie les objets obligatoires et facultatifs pour la version 1.1 du [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
+Bien que des exigences s’appliquent à l’utilisation des objets de manifeste, tous les objets ne sont pas obligatoires. Le tableau suivant répertorie les objets obligatoires et facultatifs pour la version 1.1 du [service de conversion d’Azure Maps](/rest/api/maps/conversion).
 
 | Object | Obligatoire | Description |
 | :----- | :------- | :------- |
@@ -404,7 +404,7 @@ Vous trouverez ci-dessous un exemple de fichier manifeste pour l’exemple du pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque votre package de dessin répond aux exigences, vous pouvez utiliser le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pour convertir le package en un jeu de données cartographiques. Ensuite, vous pouvez utiliser le jeu de données pour générer une carte d’intérieur à l’aide du module de cartes d’intérieur.
+Lorsque votre package de dessin répond aux exigences, vous pouvez utiliser le [service de conversion d’Azure Maps](/rest/api/maps/conversion) pour convertir le package en un jeu de données cartographiques. Ensuite, vous pouvez utiliser le jeu de données pour générer une carte d’intérieur à l’aide du module de cartes d’intérieur.
 
 > [!div class="nextstepaction"]
 >[Créateur pour cartes d’intérieur](creator-indoor-maps.md)

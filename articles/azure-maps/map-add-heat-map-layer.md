@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310626"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896376"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
@@ -120,10 +120,10 @@ Consultez <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zoomable
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 

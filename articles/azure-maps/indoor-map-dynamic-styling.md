@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517295"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895373"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
-Le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate) du Créateur Azure Maps permet d’appliquer des styles basés sur les propriétés dynamiques des caractéristiques de données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate) et le [module web Intérieur](how-to-use-indoor-module.md).
+Le [service État de caractéristique](/rest/api/maps/featurestate) du Créateur Azure Maps permet d’appliquer des styles basés sur les propriétés dynamiques des caractéristiques de données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de caractéristique](/rest/api/maps/featurestate) et le [module web Intérieur](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +36,7 @@ Une fois les prérequis réunis, vous devez disposer d’une application web sim
 
 ### <a name="select-features"></a>Sélectionner les caractéristiques
 
-Pour implémenter l’application de style dynamique, une caractéristique telle qu’une salle de réunion ou de conférence doit être référencée par sa caractéristique `id`. Vous utiliserez la caractéristique `id` pour mettre à jour la propriété dynamique, ou *état*, de cette caractéristique. Pour afficher les fonctionnalités définies dans un jeu de données, vous pouvez utiliser l’une des méthodes suivantes :
+Pour implémenter l’application de style dynamique, une caractéristique telle qu’une salle de réunion ou de conférence doit être référencée par sa caractéristique `id`. Vous utiliserez la caractéristique `id` pour mettre à jour la propriété dynamique, ou *état* , de cette caractéristique. Pour afficher les fonctionnalités définies dans un jeu de données, vous pouvez utiliser l’une des méthodes suivantes :
 
 * API WFS (service de caractéristique web). Des jeux de données peuvent être interrogés à l’aide de l’API de service de caractéristique web. L’API de service de caractéristique web suit les caractéristiques de l’API Open Geospatial Consortium. L’API de service de caractéristique web est utile pour interroger des caractéristiques à l’intérieur d’un jeu de données. Par exemple, vous pouvez utiliser le service de caractéristique web pour rechercher toutes les salles de réunion de taille moyenne d’un bâtiment et d’un étage donnés.
 
@@ -60,21 +60,21 @@ map.events.add("click", function(e){
 
 Le tutoriel [Créer une carte d’intérieur](tutorial-creator-indoor-maps.md) a configuré le stateset de caractéristique pour accepter les mises à jour d’état pour `occupancy`.
 
-Dans la section suivante, nous allons définir l’*état* d’occupation du bureau `UNIT26` sur `true`. tandis le bureau `UNIT27` est défini sur `false`.
+Dans la section suivante, nous allons définir l’ *état* d’occupation du bureau `UNIT26` sur `true`. tandis le bureau `UNIT27` est défini sur `false`.
 
 ### <a name="set-occupancy-status"></a>Définir l’état d’occupation
 
  Nous allons maintenant mettre à jour l’état des deux bureaux, `UNIT26` et `UNIT27` :
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
-2. Utilisez l’[API d’états de mise à jour de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) pour mettre à jour l’état. Transmettez l’ID de stateset, et `UNIT26` pour l’une des deux unités. Ajoutez votre clé d’abonnement Azure Maps. Voici l’URL d’une requête **POST** pour mettre à jour l’état :
+2. Utilisez l’[API d’états de mise à jour de caractéristique](/rest/api/maps/featurestate/updatestatespreview) pour mettre à jour l’état. Transmettez l’ID de stateset, et `UNIT26` pour l’une des deux unités. Ajoutez votre clé d’abonnement Azure Maps. Voici l’URL d’une requête **POST** pour mettre à jour l’état :
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST**, écrivez le code JSON suivant avec les mises à jour de caractéristique. La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique. Transmettez le `keyName` « occupé » pour mettre à jour sa valeur.
+3. Dans les **En-têtes** de la requête **POST** , définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST** , écrivez le code JSON suivant avec les mises à jour de caractéristique. La mise à jour n’est enregistrée que si l’horodatage de publication est postérieur à l’horodatage utilisé dans les requêtes de mise à jour d’état de caractéristique précédentes pour le même `ID` de caractéristique. Transmettez le `keyName` « occupé » pour mettre à jour sa valeur.
 
     ```json
     {
@@ -134,4 +134,3 @@ Consultez les références des API mentionnées dans cet article :
 
 > [!div class="nextstepaction"]
 > [Service de caractéristique web](creator-indoor-maps.md#web-feature-service-api)
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896580"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Étant donné que la largeur et la hauteur de la carte sont différentes à chaque niveau de zoom, il en est de même pour les coordonnées des pixels. Le pixel situé dans le coin supérieur gauche de la carte possède toujours les coordonnées suivantes (0, 0). Le pixel situé dans le coin inférieur droit de la carte possède des coordonnées *(largeur-1, hauteur-1)* ou fait référence aux équations de la section précédente *(TileSize \* 2<sup>zoom</sup>–1 , tileSize\* 2<sup>zoom</sup>–1)* . Par exemple, lors de l’utilisation de 512 mosaïques carrées au niveau 2, les coordonnées de pixels sont comprises entre (0, 0) et (2047, 2047), comme suit :
+Étant donné que la largeur et la hauteur de la carte sont différentes à chaque niveau de zoom, il en est de même pour les coordonnées des pixels. Le pixel situé dans le coin supérieur gauche de la carte possède toujours les coordonnées suivantes (0, 0). Le pixel situé dans le coin inférieur droit de la carte possède des coordonnées *(largeur-1, hauteur-1)* ou fait référence aux équations de la section précédente *(TileSize \* 2 <sup>zoom</sup>–1 , tileSize\* 2 <sup>zoom</sup>–1)* . Par exemple, lors de l’utilisation de 512 mosaïques carrées au niveau 2, les coordonnées de pixels sont comprises entre (0, 0) et (2047, 2047), comme suit :
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mosaïque de la carte du monde":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Chaque mosaïque reçoit des coordonnées XY allant de (0,0) dans le coin supérieur gauche à *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* dans le coin inférieur droit. Par exemple, au niveau de zoom 3, les coordonnées de la mosaïque vont de (0, 0) à (7, 7) comme suit :
+Chaque mosaïque reçoit des coordonnées XY allant de (0,0) dans le coin supérieur gauche à *(2 <sup>zoom</sup>–1, 2 <sup>zoom</sup>–1)* dans le coin inférieur droit. Par exemple, au niveau de zoom 3, les coordonnées de la mosaïque vont de (0, 0) à (7, 7) comme suit :
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mosaïque de la carte du monde":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Les contrôles de carte interactive dans le kit de développement logiciel (SDK) Azure Maps ont des fonctions d’assistance pour la conversion entre des positions géospatiales et des pixels de la fenêtre d’affichage. 
-> - [Kit de développement logiciel (SDK) web : calculs de correspondance des pixels et des positions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Kit de développement logiciel (SDK) web : calculs de correspondance des pixels et des positions](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Accéder directement aux mosaïques à partir des services REST Azure Maps :
 
 > [!div class="nextstepaction"]
-> [Recevoir les mosaïques de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Recevoir les mosaïques de la carte](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Afficher les mosaïques de flux de trafic](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Afficher les mosaïques de flux de trafic](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Afficher les mosaïques d’incident de trafic](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Afficher les mosaïques d’incident de trafic](/rest/api/maps/traffic/gettrafficincidenttile)
 
 En savoir plus sur les concepts géospatiales :
 

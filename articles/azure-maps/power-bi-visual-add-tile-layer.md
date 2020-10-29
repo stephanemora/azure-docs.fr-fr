@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261405"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896206"
 ---
 # <a name="add-a-tile-layer"></a>Ajouter un calque de vignettes
 
@@ -25,7 +25,7 @@ La fonctionnalité de calque de vignettes, comme la fonctionnalité de calque de
 
 Un calque de vignettes charge des vignettes à partir d’un serveur. Ces images peuvent être prérendues ou rendues dynamiquement. Les images prérendues sont stockées comme toute autre image sur un serveur à l’aide d’une convention d’affectation de noms compréhensible par la couche de mosaïques. Les images rendues dynamiquement utilisent un service pour charger les images presque en temps réel. Les calques de vignettes sont un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques.
 
-Le cadre englobant et la plage de zoom indiquant où un service de vignettes est disponible peuvent être passés en tant que paramètres pour limiter les emplacements où les vignettes sont demandées. Il s’agit d’une amélioration des performances pour le visuel et le service de vignettes. Vous trouverez ci-dessous une vue d’ensemble de tous les paramètres disponibles dans le volet **Format** et dans la section **Calque de vignettes**.
+Le cadre englobant et la plage de zoom indiquant où un service de vignettes est disponible peuvent être passés en tant que paramètres pour limiter les emplacements où les vignettes sont demandées. Il s’agit d’une amélioration des performances pour le visuel et le service de vignettes. Vous trouverez ci-dessous une vue d’ensemble de tous les paramètres disponibles dans le volet **Format** et dans la section **Calque de vignettes** .
 
 | Paramètre        | Description   |
 |----------------|---------------|
@@ -45,9 +45,9 @@ Le cadre englobant et la plage de zoom indiquant où un service de vignettes est
 
 Trois conventions de nommage du service de vignettes sont prises en charge par le visuel Azure Maps :
 
--   **X, Y et notation de zoom** : X correspond à la position de colonne et Y à la position de ligne de la vignette dans la grille de vignettes, et la valeur de la notation de zoom est basée sur le niveau de zoom.
--   **Notation Quadkey** : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
--   **Cadre englobant** : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
+-   **X, Y et notation de zoom**  : X correspond à la position de colonne et Y à la position de ligne de la vignette dans la grille de vignettes, et la valeur de la notation de zoom est basée sur le niveau de zoom.
+-   **Notation Quadkey**  : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
+-   **Cadre englobant**  : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 URL de la vignette : URL HTTPS vers un modèle d’URL de vignette qui utilise les paramètres suivants :
 
@@ -57,11 +57,11 @@ URL de la vignette : URL HTTPS vers un modèle d’URL de vignette qui utilise 
 -   `{quadkey}` : identificateur `quadkey` de la vignette basé sur la convention de nommage du système de vignettes de Bing Maps.
 -   `{bbox-epsg-3857}` : chaîne de cadre englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 
-En guise d’exemple, voici une URL de vignette mise en forme pour le [service de vignettes de radar météo](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) dans Azure Maps. Notez que `[subscription-key]` est un espace réservé pour votre clé d’abonnement Azure Maps.
+En guise d’exemple, voici une URL de vignette mise en forme pour le [service de vignettes de radar météo](/rest/api/maps/renderv2/getmaptilepreview) dans Azure Maps. Notez que `[subscription-key]` est un espace réservé pour votre clé d’abonnement Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Pour plus d’informations sur le système de vignettes Azure Maps, consultez  [Niveaux de zoom et grille de vignettes](zoom-levels-and-tile-grid.md).
+Pour plus d’informations sur le système de mosaïques Azure Maps, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

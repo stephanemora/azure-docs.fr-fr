@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 4368e71e0ae6185214a0e3e15773fbe1aef375de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895424"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utiliser le module des services Azure Maps
 
-Le Kit de développement logiciel (SDK) web Azure Maps fournit un *module des services*. Ce module est une bibliothèque d’assistance facilitant l’utilisation des services REST Azure Maps dans des applications web ou Node.js en utilisant JavaScript ou TypeScript.
+Le Kit de développement logiciel (SDK) web Azure Maps fournit un *module des services* . Ce module est une bibliothèque d’assistance facilitant l’utilisation des services REST Azure Maps dans des applications web ou Node.js en utilisant JavaScript ou TypeScript.
 
 ## <a name="use-the-services-module-in-a-webpage"></a>Utiliser le module des services dans une page web
 
@@ -191,19 +191,19 @@ Si vous accédez directement aux services REST d’Azure Maps, définissez le do
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl)
+> [MapsURL](/javascript/api/azure-maps-rest/atlas.service.mapsurl)
 
 > [!div class="nextstepaction"]
-> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)
+> [SearchURL](/javascript/api/azure-maps-rest/atlas.service.searchurl)
 
 > [!div class="nextstepaction"]
-> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl)
+> [RouteURL](/javascript/api/azure-maps-rest/atlas.service.routeurl)
 
 > [!div class="nextstepaction"]
-> [SubscriptionKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
+> [SubscriptionKeyCredential](/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
 
 > [!div class="nextstepaction"]
-> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential)
+> [TokenCredential](/javascript/api/azure-maps-rest/atlas.service.tokencredential)
 
 Pour d’autres exemples de code qui utilisent le module des services, voir les articles suivants :
 

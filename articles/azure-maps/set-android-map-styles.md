@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4e37ae82b46ce06162d0a67d74af54cddaf3f6eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15dbe7d30652d0ace78bca4dc053757d57361c1a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895305"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Définir le style de carte à l’aide d'Android SDK Azure Maps
 
@@ -22,7 +22,7 @@ Cet article vous présente deux façons de définir des styles de carte à l’a
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
+Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](./how-to-use-android-map-control-library.md) afin de charger une carte.
 
 
 ## <a name="set-map-style-in-the-layout"></a>Définir le style de carte dans la disposition
@@ -51,7 +51,7 @@ Vous pouvez définir un style de carte dans le fichier de disposition de votre c
 </FrameLayout>
 ```
 
-L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **grayscale_dark**. 
+L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **grayscale_dark** . 
 
 <center>
 
@@ -59,7 +59,7 @@ L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **graysca
 
 ## <a name="set-map-style-in-the-activity-class"></a>Définir le style de carte dans la classe d’activité
 
-Le style de carte peut être défini dans la classe d’activité. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`. Ce code définit le style de carte sur **satellite_road_labels**.
+Le style de carte peut être défini dans la classe d’activité. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`. Ce code définit le style de carte sur **satellite_road_labels** .
 
 ```Java
 mapControl.onReady(map -> {

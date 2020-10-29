@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524741"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895849"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilisation du Visualiseur d’erreurs de dessin Azure Maps
 
-Le Visualiseur d’erreurs de dessin est une application web autonome qui affiche les [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md) détectés pendant le processus de conversion. L’application web du Visualiseur d’erreurs se compose d’une page statique que vous pouvez utiliser sans vous connecter à Internet.  Vous pouvez utiliser le Visualiseur d’erreurs pour corriger les erreurs et les avertissements conformément aux [Exigences du package de dessin](drawing-requirements.md). L’[API de conversion Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) retourne une réponse avec un lien vers le Visualiseur d’erreurs uniquement quand une erreur est détectée.
+Le Visualiseur d’erreurs de dessin est une application web autonome qui affiche les [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md) détectés pendant le processus de conversion. L’application web du Visualiseur d’erreurs se compose d’une page statique que vous pouvez utiliser sans vous connecter à Internet.  Vous pouvez utiliser le Visualiseur d’erreurs pour corriger les erreurs et les avertissements conformément aux [Exigences du package de dessin](drawing-requirements.md). L’[API de conversion Azure Maps](/rest/api/maps/conversion) retourne une réponse avec un lien vers le Visualiseur d’erreurs uniquement quand une erreur est détectée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,14 +58,14 @@ Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vo
 
 Dans le package compressé téléchargé à partir du lien `diagnosticPackageLocation`, vous trouverez deux fichiers.
 
-* _VisualizationTool.zip_ : contient le code source, le média et la page web pour le Visualiseur d’erreurs de dessin.
-* _ConversionWarningsAndErrors.json_ : contient une liste mise en forme d’avertissements, d’erreurs et de détails supplémentaires utilisés par le Visualiseur d’erreurs de dessin.
+* _VisualizationTool.zip_  : contient le code source, le média et la page web pour le Visualiseur d’erreurs de dessin.
+* _ConversionWarningsAndErrors.json_  : contient une liste mise en forme d’avertissements, d’erreurs et de détails supplémentaires utilisés par le Visualiseur d’erreurs de dessin.
 
-Décompressez le dossier _VisualizationTool.zip_. Il contient les fichiers suivants :
+Décompressez le dossier _VisualizationTool.zip_ . Il contient les fichiers suivants :
 
-* Dossier _assets_ : contient des images et des fichiers multimédias.
-* Dossier _static_ : code source.
-* Fichier _index.html_ : l’application web.
+* Dossier _assets_  : contient des images et des fichiers multimédias.
+* Dossier _static_  : code source.
+* Fichier _index.html_  : l’application web.
 
 Ouvrez le fichier _index.html_ dans l’un des navigateurs ci-dessous avec le numéro de version respectif. Vous pouvez utiliser une autre version si celle-ci offre un comportement identique à celui de la version indiquée.
 
@@ -80,17 +80,17 @@ Après le lancement de l’outil Visualiseur d’erreurs de dessin, la page de c
 
 :::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
-Le fichier _ConversionWarningsAndErrors.json_ a été placé à la racine du répertoire téléchargé. Pour charger le fichier _ConversionWarningsAndErrors.json_, vous pouvez le glisser-déposer sur la zone ou cliquer sur la zone, rechercher le fichier dans la boîte de dialogue de l’Explorateur de fichiers, puis le charger.
+Le fichier _ConversionWarningsAndErrors.json_ a été placé à la racine du répertoire téléchargé. Pour charger le fichier _ConversionWarningsAndErrors.json_ , vous pouvez le glisser-déposer sur la zone ou cliquer sur la zone, rechercher le fichier dans la boîte de dialogue de l’Explorateur de fichiers, puis le charger.
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
-Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’afficher la liste de vos avertissements et erreurs de package de dessin. Chaque erreur ou avertissement est spécifié par sa couche, son niveau et un message détaillé. Pour voir des informations détaillées sur une erreur ou un avertissement, cliquez sur le lien **Détails**. Une section inflexible s’affiche alors en dessous de la liste. Vous pouvez maintenant accéder à chaque erreur pour en savoir plus sur la manière de la résoudre.
+Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’afficher la liste de vos avertissements et erreurs de package de dessin. Chaque erreur ou avertissement est spécifié par sa couche, son niveau et un message détaillé. Pour voir des informations détaillées sur une erreur ou un avertissement, cliquez sur le lien **Détails** . Une section inflexible s’affiche alors en dessous de la liste. Vous pouvez maintenant accéder à chaque erreur pour en savoir plus sur la manière de la résoudre.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Application Visualiseur d’erreurs de dessin – Page de démarrage":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que votre [Package de dessin répond aux exigences](https://docs.microsoft.com/rest/api/maps/conversion), vous pouvez utiliser le [service Jeu de données Azure Maps](drawing-requirements.md) pour convertir le package en un jeu de données. Ensuite, vous pouvez utiliser le module web Cartes d’intérieur pour développer votre application. Pour en savoir plus, consultez les articles suivants :
+Une fois que votre [Package de dessin répond aux exigences](/rest/api/maps/conversion), vous pouvez utiliser le [service Jeu de données Azure Maps](drawing-requirements.md) pour convertir le package en un jeu de données. Ensuite, vous pouvez utiliser le module web Cartes d’intérieur pour développer votre application. Pour en savoir plus, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
 > [Codes d’erreur de conversion de dessin](drawing-conversion-error-codes.md)

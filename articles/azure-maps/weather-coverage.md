@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896614"
 ---
 # <a name="azure-maps-weather-coverage"></a>Couverture météo Azure Maps
 
-Cet article fournit des informations sur les [services météo](https://aka.ms/AzureMapsWeatherService) Azure Maps. Les services de données météorologiques Azure Maps retournent des détails tels que les vignettes radar, les conditions météorologiques actuelles, les prévisions météorologiques et la météo le long d’un itinéraire.
+Cet article fournit des informations sur les [services météo](/rest/api/maps/weather) Azure Maps. Les services de données météorologiques Azure Maps retournent des détails tels que les vignettes radar, les conditions météorologiques actuelles, les prévisions météorologiques et la météo le long d’un itinéraire.
 
 Azure Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions.
 
@@ -299,4 +299,4 @@ Le tableau suivant fournit des informations sur les types de données météorol
 | Turquie                 | ✓ |   | | ✓| 
 | Ukraine                | ✓ |   | | ✓| 
 | Royaume-Uni         | ✓ | ✓ | ✓| ✓| 
-| État de la Cité du Vatican           | ✓ |   |✓ | ✓| 
+| État de la Cité du Vatican           | ✓ |   |✓ | ✓|

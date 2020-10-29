@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8450fbd5287c88431f21753a9c88e8603455f844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310422"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890975"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Ajouter une couche de mosaïques à une carte
 
 Cet article vous montre comment superposer une couche de mosaïques sur une carte. Les couches de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Pour plus d’informations sur le système de mosaïques Azure Maps, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
-Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être prérendues ou rendues dynamiquement. Les images prérendues sont stockées comme toute autre image sur un serveur à l’aide d’une convention d’affectation de noms compréhensible par la couche de mosaïques. Les images rendues dynamiquement utilisent un service pour charger les images presque en temps réel. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) d’Azure Maps : 
+Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être prérendues ou rendues dynamiquement. Les images prérendues sont stockées comme toute autre image sur un serveur à l’aide d’une convention d’affectation de noms compréhensible par la couche de mosaïques. Les images rendues dynamiquement utilisent un service pour charger les images presque en temps réel. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) d’Azure Maps : 
 
 * X, Y et notation de zoom : X correspond à la position de colonne et Y à la position de ligne de la mosaïque dans la grille mosaïque, et la valeur de la notation de zoom est basée sur le niveau de zoom.
 * Notation Quadkey : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
 * Cadre englobant : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Une [couche de mosaïques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. En affichant des données vectorielles sous forme de couche de mosaïques, le contrôle de carte doit uniquement charger les mosaïques dont la taille de fichier est inférieure à celle des données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
+> Une [couche de mosaïques](/javascript/api/azure-maps-control/atlas.layer.tilelayer) est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. En affichant des données vectorielles sous forme de couche de mosaïques, le contrôle de carte doit uniquement charger les mosaïques dont la taille de fichier est inférieure à celle des données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
 
 L’URL de la mosaïque transmise à une couche de mosaïques doit être l’URL http ou https d’une ressource TileJSON ou d’un modèle d’URL de mosaïque qui utilise les paramètres suivants : 
 
@@ -74,10 +74,10 @@ La classe de calque de mosaïques dispose de nombreuses options de style. Voici 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+> [TileLayerOptions](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 

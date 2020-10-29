@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310252"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890766"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Ajouter une couche d’extrusion de polygone à la carte
 
-Cet article explique comment utiliser la couche d’extrusion de polygone pour afficher des zones d’entités géométriques `Polygon` et `MultiPolygon` en tant que formes extrudées. Le Kit de développement logiciel (SDK) web Azure Maps prend également en charge le rendu de géométries Circle comme défini dans le [schéma GeoJSON étendu](extend-geojson.md#circle). Ces cercles peuvent être transformés en polygones une fois rendus sur la carte. Toutes les entités géométriques peuvent facilement être mises à jour lorsqu’elles sont enveloppées dans la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape).
+Cet article explique comment utiliser la couche d’extrusion de polygone pour afficher des zones d’entités géométriques `Polygon` et `MultiPolygon` en tant que formes extrudées. Le Kit de développement logiciel (SDK) web Azure Maps prend également en charge le rendu de géométries Circle comme défini dans le [schéma GeoJSON étendu](extend-geojson.md#circle). Ces cercles peuvent être transformés en polygones une fois rendus sur la carte. Toutes les entités géométriques peuvent facilement être mises à jour lorsqu’elles sont enveloppées dans la classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape).
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Utiliser une couche d’extrusion de polygone
 
-Connectez la [couche d’extrusion de polygone](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) à une source de données. Ensuite, chargez-la sur la carte. La couche d’extrusion de polygone restitue les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres**. Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
+Connectez la [couche d’extrusion de polygone](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) à une source de données. Ensuite, chargez-la sur la carte. La couche d’extrusion de polygone restitue les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres** . Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
 
 > [!Note]
 > La valeur de `base` définie dans la couche d’extrusion de polygone doit être inférieure ou égale à la valeur de `height`.
@@ -45,7 +45,7 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded 
 
 ## <a name="add-a-circle-to-the-map"></a>Ajouter un cercle à la carte
 
-Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition de cercles, comme indiqué [ici](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). Un cercle extrudé peut être affiché sur la carte en créant une entité `point` avec une propriété `subType` dotée de la valeur `Circle` et une propriété `Radius` numérique représentant le rayon en **mètres**. Par exemple :
+Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une définition de cercles, comme indiqué [ici](./extend-geojson.md#circle). Un cercle extrudé peut être affiché sur la carte en créant une entité `point` avec une propriété `subType` dotée de la valeur `Circle` et une propriété `Radius` numérique représentant le rayon en **mètres** . Par exemple :
 
 ```javascript
 {
@@ -83,10 +83,10 @@ La couche d’extrusion de polygone comporte plusieurs options de style. Voici u
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygon](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [Couche d’extrusion de polygone](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [Couche d’extrusion de polygone](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Ressources supplémentaires :
 

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 60d8dc45fb26ea210b1827a6938716474faa0304
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090282"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895611"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Sécuriser une application monopage avec connexion de l’utilisateur
 
@@ -75,7 +75,7 @@ Créez l’application web dans Azure AD pour que les utilisateurs se connectent
 
 Apprenez-en davantage sur le scénario d’application monopage :
 > [!div class="nextstepaction"]
-> [Application monopage](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Application monopage](../active-directory/develop/scenario-spa-overview.md)
 
 Recherchez les métriques d’utilisation de l’API pour votre compte Azure Maps :
 > [!div class="nextstepaction"]

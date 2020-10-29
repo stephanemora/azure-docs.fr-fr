@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321694"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896658"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -41,7 +41,7 @@ Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utilise
 
 L’API Map Control est une bibliothèque de client pratique. Elle vous permet d’intégrer facilement des cartes dans votre application web. Elle masque la complexité des appels de service REST bruts et améliore votre productivité grâce à des composants personnalisables. Les étapes suivantes vous indiquent comment créer une page HTML statique intégrée avec l’API Map Control.
 
-1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html**.
+1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html** .
 2. Ajoutez les composants HTML suivants au fichier :
 
    ```HTML
@@ -139,7 +139,7 @@ L’API Map Control est une bibliothèque de client pratique. Elle vous permet d
 
 ## <a name="add-search-capabilities"></a>Ajouter les fonctionnalités de recherche
 
-Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
+Cette section montre comment utiliser l’[API de recherche](/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
 
 ### <a name="service-module"></a>Module de service
 
@@ -156,7 +156,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential` crée un `SubscriptionKeyCredentialPolicy` pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` représente une URL vers les opérations de [recherche](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps.
+   `SubscriptionKeyCredential` crée un `SubscriptionKeyCredentialPolicy` pour authentifier les requêtes HTTP auprès d’Azure Maps avec la clé d’abonnement. `atlas.service.MapsURL.newPipeline()` utilise la stratégie `SubscriptionKeyCredential` et crée une instance de [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` représente une URL vers les opérations de [recherche](/rest/api/maps/search) d’Azure Maps.
 
 2. Ajoutez ensuite le bloc de script suivant pour générer la requête de recherche. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme des adresses, des lieux et des points d’intérêt (POI). Ce code recherche les stations-service situées à proximité dans le rayon spécifié par la latitude et la longitude fournies. Une collection de fonctionnalités GeoJSON déterminée par la réponse est ensuite extraite à l’aide de la méthode `geojson.getFeatures()` et ajoutée à la source de données. Les données sont alors automatiquement restituées sur la carte par le biais de la couche de symboles. La dernière partie du script définit la vue de caméra de la carte en utilisant le rectangle englobant des résultats à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
@@ -185,7 +185,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
     });
     ```
 
-3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez voir que la carte est centrée sur Seattle, avec des épingles de couleur bleu pour les stations-service dans la zone.
+3. Enregistrez le fichier **MapSearch.html** , puis actualisez votre navigateur. Vous devriez voir que la carte est centrée sur Seattle, avec des épingles de couleur bleu pour les stations-service dans la zone.
 
    ![Afficher la carte avec les résultats de la recherche](./media/tutorial-search-location/pins-map.png)
 

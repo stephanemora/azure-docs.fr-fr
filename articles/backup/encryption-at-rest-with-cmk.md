@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378285"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895985"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -25,15 +25,15 @@ Cet article aborde les sujets suivants :
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- Cette fonctionnalité vous permet de chiffrer les **nouveaux coffres Recovery Services uniquement**. Les coffres contenant des éléments existants inscrits ou en attente de l’être ne sont pas pris en charge.
+- Cette fonctionnalité vous permet de chiffrer les **nouveaux coffres Recovery Services uniquement** . Les coffres contenant des éléments existants inscrits ou en attente de l’être ne sont pas pris en charge.
 
 - Une fois activé pour un coffre Recovery Services, le chiffrement à base de clés gérées par le client ne peut pas revenir à une utilisation de clés gérées par la plateforme (option par défaut). Vous pouvez changer les clés de chiffrement en fonction de vos besoins.
 
-- Pour l’heure, cette fonctionnalité **ne prend pas en charge la sauvegarde à l’aide de l’agent MARS**, et vous ne pourrez peut-être pas utiliser de coffre chiffré par une clé CMK à cette fin. L’agent MARS utilise un chiffrement basé sur une phrase secrète utilisateur. Cette fonctionnalité ne prend pas non plus en charge la sauvegarde de machines virtuelles classiques.
+- Pour l’heure, cette fonctionnalité **ne prend pas en charge la sauvegarde à l’aide de l’agent MARS** , et vous ne pourrez peut-être pas utiliser de coffre chiffré par une clé CMK à cette fin. L’agent MARS utilise un chiffrement basé sur une phrase secrète utilisateur. Cette fonctionnalité ne prend pas non plus en charge la sauvegarde de machines virtuelles classiques.
 
 - Elle n’est pas liée à [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), qui utilise le chiffrement basé sur l’invité des disques d’une machine virtuelle à l’aide de BitLocker (pour Windows) et de DM-Crypt (pour Linux)
 
-- Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être de type **RSA 2048** uniquement et doivent être à l’état **activé**.
+- Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région** . De même, les clés doivent être de type **RSA 2048** uniquement et doivent être à l’état **activé** .
 
 - Le déplacement d’un coffre Recovery Services chiffré par clé CMK d’un groupe de ressources ou d’un abonnement vers un autre n’est pas actuellement pris en charge.
 
@@ -62,11 +62,11 @@ Sauvegarde Azure utilise l’identité managée affectée par le système pour a
 >[!NOTE]
 >Une fois activée, l'identité managée ne doit **pas** être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
 
-1. Accédez à votre coffre Recovery Services -> **Identité**.
+1. Accédez à votre coffre Recovery Services -> **Identité** .
 
     ![Paramètres d’identité](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Cliquez sur le bouton bascule sous **État** pour le définir sur la valeur **Activé**, puis sélectionnez **Enregistrer**.
+1. Cliquez sur le bouton bascule sous **État** pour le définir sur la valeur **Activé** , puis sélectionnez **Enregistrer** .
 
 1. Un ID d’objet est généré, qui correspond à l’identité managée affectée par le système du coffre.
 
@@ -74,11 +74,11 @@ Sauvegarde Azure utilise l’identité managée affectée par le système pour a
 
 Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffre de clés Azure qui contient la clé de chiffrement. Pour cela, vous devez autoriser l’identité managée du coffre Recovery Services à accéder au coffre de clés.
 
-1. Accédez à votre coffre de clés Azure -> **Stratégies d’accès**. Continuez pour **+Ajouter une stratégie d’accès**.
+1. Accédez à votre coffre de clés Azure -> **Stratégies d’accès** . Continuez pour **+Ajouter une stratégie d’accès** .
 
     ![Ajouter des stratégies d’accès](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Sous **Autorisations de clé**, sélectionnez les opérations **Obtenir**, **Lister**, **Ne pas inclure la clé** et **Inclure la clé**. Cela indique les actions qui seront autorisées sur la clé.
+1. Sous **Autorisations de clé** , sélectionnez les opérations **Obtenir** , **Lister** , **Ne pas inclure la clé** et **Inclure la clé** . Cela indique les actions qui seront autorisées sur la clé.
 
     ![Attribuer des autorisations de clé](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -144,15 +144,15 @@ Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la cl
 
 Pour affecter la clé :
 
-1. Accédez à votre coffre Recovery Services -> **Propriétés**.
+1. Accédez à votre coffre Recovery Services -> **Propriétés** .
 
     ![Paramètres de chiffrement](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Sélectionnez **Mettre à jour** en dessous de **Paramètres de chiffrement**.
+1. Sélectionnez **Mettre à jour** en dessous de **Paramètres de chiffrement** .
 
-1. Dans le volet Paramètres de chiffrement, sélectionnez **Utiliser votre propre clé**, puis continuez à spécifier la clé de l’une des façons suivantes. **Vérifiez que la clé que vous souhaitez utiliser est une clé RSA 2048, qui est à l’état activé.**
+1. Dans le volet Paramètres de chiffrement, sélectionnez **Utiliser votre propre clé** , puis continuez à spécifier la clé de l’une des façons suivantes. **Vérifiez que la clé que vous souhaitez utiliser est une clé RSA 2048, qui est à l’état activé.**
 
-    1. Entrez l’**URI de clé** avec lequel vous souhaitez chiffrer les données dans ce coffre Recovery Services. Vous devez aussi spécifier l’abonnement dans lequel le coffre de clés Azure (qui contient cette clé) est présent. Cet URI de clé peut être obtenu à partir de la clé correspondante dans votre coffre de clés Azure. Vérifiez que l’URI de la clé est correctement copié. Il est recommandé d’utiliser le bouton **Copier dans le Presse-papiers** fourni avec l’identificateur de clé.
+    1. Entrez l’ **URI de clé** avec lequel vous souhaitez chiffrer les données dans ce coffre Recovery Services. Vous devez aussi spécifier l’abonnement dans lequel le coffre de clés Azure (qui contient cette clé) est présent. Cet URI de clé peut être obtenu à partir de la clé correspondante dans votre coffre de clés Azure. Vérifiez que l’URI de la clé est correctement copié. Il est recommandé d’utiliser le bouton **Copier dans le Presse-papiers** fourni avec l’identificateur de clé.
 
         ![Entrer l’URI de la clé](./media/encryption-at-rest-with-cmk/key-uri.png)
 
@@ -160,9 +160,9 @@ Pour affecter la clé :
 
         ![Sélectionner une clé dans le coffre de clés](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer** .
 
-1. **Suivi de la progression de la mise à jour de la clé de chiffrement :** vous pouvez suivre la progression de l’affectation de la clé à l’aide du **Journal d’activité**  dans le coffre Recovery Services. L’état doit passer rapidement à **Réussite**. Votre coffre chiffre alors toutes les données avec la clé spécifiée en tant que KEK.
+1. **Suivi de la progression de la mise à jour de la clé de chiffrement :** vous pouvez suivre la progression de l’affectation de la clé à l’aide du **Journal d’activité**  dans le coffre Recovery Services. L’état doit passer rapidement à **Réussite** . Votre coffre chiffre alors toutes les données avec la clé spécifiée en tant que KEK.
 
     ![Suivre la progression avec le journal d’activité](./media/encryption-at-rest-with-cmk/activity-log.png)
 
@@ -184,7 +184,6 @@ Avant de poursuivre la configuration de la protection, nous vous recommandons vi
 >[!IMPORTANT]
 > Avant de poursuivre la configuration de la protection, vous devez avoir **correctement** effectué les étapes suivantes :
 >
->1. Activation de l’utilisation de clés gérées par le client dans votre abonnement pour votre coffre de sauvegarde.
 >1. Création de votre coffre de sauvegarde.
 >1. Activation de l’identité managée affectée par le système du coffre de sauvegarde.
 >1. Attribution d’autorisations à votre coffre de sauvegarde pour lui permettre d’accéder aux clés de chiffrement à partir de votre coffre de clés.
@@ -193,7 +192,7 @@ Avant de poursuivre la configuration de la protection, nous vous recommandons vi
 >
 >Si toutes les étapes ci-dessus ont été confirmées, poursuivez alors la configuration de la sauvegarde.
 
-Les processus de configuration et d’exécution de sauvegardes dans un coffre Recovery Services chiffré avec des clés gérées par le client sont les mêmes que pour un coffre qui utilise des clés gérées par la plateforme, sans **aucun changement au niveau de l’expérience**. Cela est vrai pour la [sauvegarde de machines virtuelles Azure](./quick-backup-vm-portal.md), mais aussi pour la sauvegarde des charges de travail s’exécutant dans une machine virtuelle (par exemple, les bases de données [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md)).
+Les processus de configuration et d’exécution de sauvegardes dans un coffre Recovery Services chiffré avec des clés gérées par le client sont les mêmes que pour un coffre qui utilise des clés gérées par la plateforme, sans **aucun changement au niveau de l’expérience** . Cela est vrai pour la [sauvegarde de machines virtuelles Azure](./quick-backup-vm-portal.md), mais aussi pour la sauvegarde des charges de travail s’exécutant dans une machine virtuelle (par exemple, les bases de données [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md)).
 
 ## <a name="restoring-data-from-backup"></a>Restauration de données à partir d’une sauvegarde
 
@@ -215,7 +214,7 @@ Vous pouvez chiffrer la machine virtuelle ou le disque restauré une fois la res
 
 Le jeu de chiffrement de disque est spécifié en dessous de Paramètres de chiffrement dans le volet de restauration, comme le montre l’image ci-dessous :
 
-1. Dans **Chiffrer le(s) disque(s) à l’aide de votre clé**, sélectionnez **Oui**.
+1. Dans **Chiffrer le(s) disque(s) à l’aide de votre clé** , sélectionnez **Oui** .
 
 1. Dans la liste déroulante, sélectionnez le jeu de chiffrement que vous voulez utiliser pour le ou les disques restaurés. **Vérifiez que vous avez accès au jeu de chiffrement de disque.**
 

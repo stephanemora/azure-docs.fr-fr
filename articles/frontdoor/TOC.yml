@@ -14,6 +14,7 @@
     - name: Créer une porte d’entrée - CLI
       href: quickstart-create-front-door-cli.md
     - name: Créer une porte d’entrée - Modèle ARM
+      displayName: Resource Manager
       href: quickstart-create-front-door-template.md
 - name: Tutoriels
   items:

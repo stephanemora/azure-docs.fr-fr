@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891458"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
 Cet article fournit des réponses à certaines des questions les plus courantes sur [Azure Automanage pour machines virtuelles](automanage-virtual-machines.md).
 
-Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou [@AzureSupport sur Twitter](https://twitter.com/AzureSupport). Vous pouvez également soumettre une demande de support Azure. Pour soumettre une demande de support, sur la [page de support Azure](https://azure.microsoft.com/support/options/), sélectionnez **Obtenir de l’aide**.
+Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou [@AzureSupport sur Twitter](https://twitter.com/AzureSupport). Vous pouvez également soumettre une demande de support Azure. Pour soumettre une demande de support, sur la [page de support Azure](https://azure.microsoft.com/support/options/), sélectionnez **Obtenir de l’aide** .
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
@@ -32,7 +32,6 @@ Les conditions préalables à l’activation d’Azure Automanage sont les suiva
 - Les machines virtuelles doivent se trouver dans une région prise en charge.
 - L’utilisateur doit disposer des autorisations appropriées.
 - Les machines virtuelles ne peuvent pas faire partie d’un groupe identique.
-- Les machines virtuelles ne doivent pas être liées à un espace de travail d’analytique des journaux d’activité dans un autre abonnement.
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
 **Quelle autorisation Azure RBAC est nécessaire pour activer Automanage ?**
@@ -106,11 +105,11 @@ Non, Automanage ne va pas la reconfigurer. Nous allons commencer à surveiller l
 
 **Pourquoi l’état de ma machine virtuelle est-il Échec dans le portail Automanage ?**
 
-Si vous voyez l’état *Échec*, vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+Si vous voyez l’état *Échec* , vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources** , sélectionnez votre groupe de ressources, cliquez sur **Déploiements** , puis consultez l’état *Échec* contenant tous les détails de l’erreur.
 
 **Comment puis-je obtenir une assistance pour la résolution des problèmes en lien avec Automanage ?**
 
-Vous pouvez créer un [ticket de cas de support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pour l’option **Service**, recherchez et sélectionnez *Automanage* dans la section *Surveillance et gestion*.
+Vous pouvez créer un [ticket de cas de support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pour l’option **Service** , recherchez et sélectionnez *Automanage* dans la section *Surveillance et gestion* .
 
 
 ## <a name="next-steps"></a>Étapes suivantes

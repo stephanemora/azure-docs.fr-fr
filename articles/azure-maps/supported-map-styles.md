@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310354"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896937"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Styles de carte intégrés pris en charge par Azure Maps
 
@@ -27,8 +27,8 @@ Une carte **routière** est une carte standard qui affiche les routes, les élé
 
 **API applicables :**
 
-* [Image de la carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Image de la carte](/rest/api/maps/render/getmapimage)
+* [Vignette de la carte](/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
 * Visuel Power BI
@@ -52,7 +52,7 @@ Le style **satellite** est une combinaison d’imagerie satellite et d’imageri
 
 **API applicables :**
 
-* [Vignette Satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Vignette Satellite](/rest/api/maps/render/getmapimagerytilepreview)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
 * Visuel Power BI
@@ -77,8 +77,8 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 
 **API applicables :**
 
-* [Image de la carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Image de la carte](/rest/api/maps/render/getmapimage)
+* [Vignette de la carte](/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
 * Visuel Power BI
@@ -114,7 +114,7 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 
 **API applicables :**
 
-* [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Vignette de la carte](/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
 * Visuel Power BI
@@ -134,4 +134,4 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 
 Découvrez comment définir un style de carte dans Azure Maps :
 
-[Choisir un style de carte](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Choisir un style de carte](./choose-map-style.md)

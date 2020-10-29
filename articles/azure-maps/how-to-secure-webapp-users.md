@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ebdc4b219e0840c18e6bef8ebfe9b8eefa8faf3b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090214"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895566"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Sécuriser une application web avec connexion de l’utilisateur
 
@@ -32,7 +32,7 @@ Vous devez créer l’application web dans Azure AD pour que les utilisateurs se
     > [!div class="mx-imgBorder"]
     > ![Inscription d’application](./media/how-to-manage-authentication/app-registration.png)
 
-2. Entrez un **Nom** , choisissez un **Type de compte de support** , fournissez un URI de redirection qui représente l’URL à laquelle Azure AD émettra le jeton et est l’URL où le contrôle de carte est hébergé. Pour plus d’informations, consultez [Scénario Azure AD : application web qui connecte les utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview). Effectuez les étapes indiquées dans le scénario Azure AD.  
+2. Entrez un **Nom** , choisissez un **Type de compte de support** , fournissez un URI de redirection qui représente l’URL à laquelle Azure AD émettra le jeton et est l’URL où le contrôle de carte est hébergé. Pour plus d’informations, consultez [Scénario Azure AD : application web qui connecte les utilisateurs](../active-directory/develop/scenario-web-app-sign-user-overview.md). Effectuez les étapes indiquées dans le scénario Azure AD.  
 
 3. Une fois l’inscription de l’application terminée, vérifiez que la connexion à l’application fonctionne pour les utilisateurs. Une fois que la connexion réussit, l’application peut bénéficier d’un accès délégué aux API REST Azure Maps.
     
@@ -46,17 +46,17 @@ Vous devez créer l’application web dans Azure AD pour que les utilisateurs se
     > [!div class="mx-imgBorder"]
     > ![Sélectionner des autorisations d’API d’application](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Autorisez l’application web à appeler les API REST Azure Maps en configurant l’inscription d’application avec un secret d’application. Pour obtenir des instructions détaillées, consultez [Application web qui appelle des API web : Inscription d’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). Un secret est nécessaire afin de s’authentifier auprès d’Azure AD pour le compte de l’utilisateur. Le certificat ou le secret d’inscription d’application doit être stocké dans un magasin sécurisé afin que l’application web puisse le récupérer pour s’authentifier auprès d’Azure AD. 
+6. Autorisez l’application web à appeler les API REST Azure Maps en configurant l’inscription d’application avec un secret d’application. Pour obtenir des instructions détaillées, consultez [Application web qui appelle des API web : Inscription d’application](../active-directory/develop/scenario-web-app-call-api-app-registration.md). Un secret est nécessaire afin de s’authentifier auprès d’Azure AD pour le compte de l’utilisateur. Le certificat ou le secret d’inscription d’application doit être stocké dans un magasin sécurisé afin que l’application web puisse le récupérer pour s’authentifier auprès d’Azure AD. 
    
    * Si l’application a déjà configuré un secret et une inscription d’application Azure AD, cette étape peut être ignorée.
 
 > [!Tip]
-> Si l’application est hébergée dans un environnement Azure, nous vous recommandons d’utiliser des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) et une instance d’Azure Key Vault afin d’accéder aux secrets en [acquérant un jeton d’accès](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) pour accéder aux secrets ou certificats Azure Key Vault. Pour vous connecter à Azure Key Vault afin de récupérer des secrets, consultez le [tutoriel sur la connexion par le biais d’une identité managée](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> Si l’application est hébergée dans un environnement Azure, nous vous recommandons d’utiliser des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et une instance d’Azure Key Vault afin d’accéder aux secrets en [acquérant un jeton d’accès](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) pour accéder aux secrets ou certificats Azure Key Vault. Pour vous connecter à Azure Key Vault afin de récupérer des secrets, consultez le [tutoriel sur la connexion par le biais d’une identité managée](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
    
 7. Implémentez un point de terminaison de jeton sécurisé pour le SDK web Azure Maps pour accéder à un jeton. 
    
    * Pour obtenir un exemple de contrôleur de jetons, consultez [Exemples Azure AD Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/blob/master/src/OpenIdConnect/AzureMapsOpenIdConnectv1/AzureMapsOpenIdConnect/Controllers/TokenController.cs). 
-   * Pour une implémentation non-AspNetCore ou autre, consultez [Acquérir un jeton pour l’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) dans la documentation d’Azure AD.
+   * Pour une implémentation non-AspNetCore ou autre, consultez [Acquérir un jeton pour l’application](../active-directory/develop/scenario-web-app-call-api-acquire-token.md) dans la documentation d’Azure AD.
    * Le point de terminaison de jeton sécurisé est chargé de retourner un jeton d’accès pour l’utilisateur authentifié et autorisé afin d’appeler les API REST Azure Maps.
 
 8. Configurez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les utilisateurs ou les groupes. Consultez la section [Accorder l’accès en fonction du rôle pour des utilisateurs](#grant-role-based-access-for-users-to-azure-maps).
@@ -100,7 +100,7 @@ var map = new atlas.Map("map", {
 
 Apprenez-en davantage sur le scénario d’application web :
 > [!div class="nextstepaction"]
-> [Scénario : application web qui connecte les utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+> [Scénario : application web qui connecte les utilisateurs](../active-directory/develop/scenario-web-app-sign-user-overview.md)
 
 Recherchez les métriques d’utilisation de l’API pour votre compte Azure Maps :
 > [!div class="nextstepaction"]

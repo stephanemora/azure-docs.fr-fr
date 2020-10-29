@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310473"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891034"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -22,7 +22,7 @@ Cet article vous explique comment ajouter une fenêtre contextuelle à un point 
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) est créée, mais elle n’est pas affichée. Les événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
+Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](/javascript/api/azure-maps-control/atlas.popup) est créée, mais elle n’est pas affichée. Les événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>Popup event
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Pour voir des exemples de codes complets, consultez les articles suivants qui sont très intéressants :
 

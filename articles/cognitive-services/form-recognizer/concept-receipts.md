@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761445"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893684"
 ---
 # <a name="receipt-concepts"></a>Concepts relatifs aux reçus
 
@@ -86,7 +86,7 @@ L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Opération obtenir le résultat de l’analyse du ticket de caisse
 
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded** . Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -95,7 +95,7 @@ La seconde étape consiste à appeler l’opération d’[obtention du résultat
 | |  | failed : L’opération d’analyse a échoué. |
 | |  | succeeded : L’opération d’analyse a réussi. |
 
-Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de compréhension de ticket de caisse est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
+Quand le champ d’ **état** a la valeur de **réussite** , la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de compréhension de ticket de caisse est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
 
 ![exemples de résultats de ticket de caisse](./media/contoso-receipt-2-information.png)
 
@@ -437,7 +437,7 @@ Les données extraites avec l’API Receipt peuvent être utilisées pour effect
 
 Souvent, le classement des dépenses commerciales implique de consacrer du temps à la saisie manuelle de données à partir d’images de ticket de caisse. Avec l’API Receipt, vous pouvez utiliser les champs extraits pour automatiser partiellement ce processus et analyser rapidement vos tickets de caisse.  
 
-Étant donné que l’API Receipt a une sortie JSON simple, vous pouvez utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Étant donné que l’API Receipt a une sortie JSON simple, vous pouvez utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Audit et comptabilité 
 

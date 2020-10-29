@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335328"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895441"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -26,7 +26,7 @@ Pour utiliser le contrôle de carte dans une page web, vous devez respecter l’
 
 * [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) et [obtenir une clé d’abonnement primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement
 
-* Obtenir vos informations d’identification AAD (Azure Active Directory) avec [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)
+* Obtenir vos informations d’identification AAD (Azure Active Directory) avec [options d’authentification](/javascript/api/azure-maps-control/atlas.authenticationoptions)
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Créer une carte dans une page web
 
@@ -75,7 +75,7 @@ Vous pouvez intégrer une carte dans une page web en utilisant la bibliothèque 
     </style>
    ```
 
-4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id`**myMap**.
+4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id`**myMap** .
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ Vous pouvez intégrer une carte dans une page web en utilisant la bibliothèque 
     </body>
    ```
 
-5. À présent, nous allons initialiser le contrôle de carte. Pour authentifier le contrôle, vous devez être propriétaire d’une clé d’abonnement Azure Maps ou utiliser des informations d’identification AAD (Azure Active Directory) avec [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. À présent, nous allons initialiser le contrôle de carte. Pour authentifier le contrôle, vous devez être propriétaire d’une clé d’abonnement Azure Maps ou utiliser des informations d’identification AAD (Azure Active Directory) avec [options d’authentification](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     Si vous utilisez une clé d’abonnement pour l’authentification, copiez l’élément de script suivant et collez-le dans l’élément `<head>` et sous le premier élément `<script>`. Remplacez `<Your Azure Maps Key>` par votre clé d’abonnement primaire Azure Maps.
 
@@ -279,7 +279,7 @@ Pour ajouter des données à votre carte :
 > [Créer une carte](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code](/samples/browse/?products=azure-maps)
 
 Pour obtenir une liste d’exemples montrant comment intégrer AAD (Azure Active Directory) à Azure Maps, consultez :
 

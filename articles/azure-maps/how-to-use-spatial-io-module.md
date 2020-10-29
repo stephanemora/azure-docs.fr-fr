@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335294"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895390"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Utiliser le module E/S spatiales Azure Maps
 
-Le kit de développement logiciel (SDK) web Azure Maps fournit le module **E/S spatiales**, qui intègre les données spatiales au kit de développement logiciel (SDK) web Azure Maps à l’aide de JavaScript ou TypeScript. Les puissantes fonctionnalités de ce module permettent aux développeurs d’effectuer les opérations suivantes :
+Le kit de développement logiciel (SDK) web Azure Maps fournit le module **E/S spatiales** , qui intègre les données spatiales au kit de développement logiciel (SDK) web Azure Maps à l’aide de JavaScript ou TypeScript. Les puissantes fonctionnalités de ce module permettent aux développeurs d’effectuer les opérations suivantes :
 
 - [Lire et écrire des fichiers de données spatiales courants](spatial-io-read-write-spatial-data.md). Les formats de fichiers pris en charge sont les suivants : Fichiers KML, KMZ, GPX, GeoRSS, GML, GeoJSON et CSV contenant des colonnes avec des informations spatiales. Prend également en charge le texte connu (WKT).
 - [Connectez-vous aux services Open Geospatial Consortium (OGC) et intégrez-les au kit de développement logiciel (SDK) web Azure Maps. Superposez les services WMS (Web Map Services) et WMTS (Web Map Tile Services) en tant que couches sur la carte](spatial-io-add-ogc-map-layer.md).
@@ -40,7 +40,7 @@ Cette vidéo fournit une vue d’ensemble du module E/S spatiales dans le Kit de
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant d'utiliser le module E/S spatiales, vous devez [créer un compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) et [obtenir la clé primaire d’abonnement pour votre compte](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Avant d'utiliser le module E/S spatiales, vous devez [créer un compte Azure Maps](./quick-demo-map-app.md#create-an-azure-maps-account) et [obtenir la clé primaire d’abonnement pour votre compte](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Installation du module E/S spatiales
 
@@ -68,7 +68,7 @@ Vous pouvez charger le module E/S spatiales Azure Maps à l’aide de l'une des 
 
 1. Créez un fichier HTML.
 
-2. Chargez le kit de développement logiciel (SDK) web Azure Maps et initialisez le contrôle de carte. Pour plus d’informations, consultez le guide [Contrôle de carte Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control). Au terme de cette étape, votre fichier HTML devrait se présenter comme suit :
+2. Chargez le kit de développement logiciel (SDK) web Azure Maps et initialisez le contrôle de carte. Pour plus d’informations, consultez le guide [Contrôle de carte Azure Maps](./how-to-use-map-control.md). Au terme de cette étape, votre fichier HTML devrait se présenter comme suit :
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ La fonctionnalité présentée ici n’est qu’une des nombreuses fonctionnalit
 Reportez-vous à la documentation E/S spatiales Azure Maps :
 
 > [!div class="nextstepaction"]
-> [Package E/S spatiales Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Package E/S spatiales Azure Maps](/javascript/api/azure-maps-spatial-io/)

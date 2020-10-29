@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d94a681fa987a4b23dbcda744c2f8516da4437a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128554"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891663"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Ajouter une couche fournie par l’Open Geospatial Consortium (OGC)
 
@@ -83,10 +83,10 @@ Vous pouvez également spécifier les paramètres de carte pour utiliser un serv
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [OgcMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
+> [OgcMapLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
 
 > [!div class="nextstepaction"]
-> [OgcMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
+> [OgcMapLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
 
 Consultez les articles suivants, qui contiennent des exemples de code que vous pouvez ajouter à vos cartes :
 

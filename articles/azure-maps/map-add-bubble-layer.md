@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 446a70a4399b7ec0e16fed2d33c9ec711acfe200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310830"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895326"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 
@@ -25,7 +25,7 @@ Cet article vous montre comment afficher des données de point sur une carte à 
 
 ## <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 
-Le code suivant charge un tableau de points dans une source de données. Ensuite, il connecte les points de données à une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer). La couche de bulles affiche le rayon de chaque bulle avec cinq pixels et le blanc comme couleur de remplissage. Il utilise également le bleu comme couleur de trait et une largeur de trait de six pixels. 
+Le code suivant charge un tableau de points dans une source de données. Ensuite, il connecte les points de données à une [couche de bulles](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). La couche de bulles affiche le rayon de chaque bulle avec cinq pixels et le blanc comme couleur de remplissage. Il utilise également le bleu comme couleur de trait et une largeur de trait de six pixels. 
 
 ```javascript
 //Add point locations.
@@ -83,10 +83,10 @@ La couche de bulles ne dispose que de quelques options de style. Voici un outil 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
@@ -100,4 +100,4 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code](/samples/browse/?products=azure-maps)

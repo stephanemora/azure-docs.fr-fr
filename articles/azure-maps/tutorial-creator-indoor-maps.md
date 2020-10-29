@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371420"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896777"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutoriel : Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -44,13 +44,13 @@ Ce tutoriel utilise l’application [Postman](https://www.postman.com/), mais vo
 
 ## <a name="upload-a-drawing-package"></a>Charger un package de dessin
 
-Utilisez l’[API de chargement de données](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) pour charger le package de dessin dans les ressources Azure Maps.
+Utilisez l’[API de chargement de données](/rest/api/maps/data/uploadpreview) pour charger le package de dessin dans les ressources Azure Maps.
 
 L’API de chargement de données est une transaction de longue durée qui implémente le modèle défini ici. Une fois l’opération terminée, nous allons utiliser l’`udid` pour accéder au package chargé afin de le convertir. Suivez les étapes ci-dessous pour obtenir l’`udid`.
 
-1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer).
+1. Ouvrez l’application Postman. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection** .  Nommez la collection puis sélectionnez le bouton **Create** (Créer).
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer**.
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente, puis sélectionnez **Enregistrer** .
 
 3. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour charger le package de dessin dans le service Azure Maps. Pour cette requête et d’autres requêtes mentionnées dans cet article, remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale.
 
@@ -58,11 +58,11 @@ L’API de chargement de données est une transaction de longue durée qui impl�
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Sous l’onglet **En-têtes**, spécifiez une valeur pour la clé `Content-Type`. Le package de dessin étant un dossier compressé, utilisez la valeur `application/octet-stream`. Sous l’onglet **Corps**, sélectionnez **binaire**. Cliquez sur **Sélectionner un fichier**, puis choisissez un package de dessin.
+4. Sous l’onglet **En-têtes** , spécifiez une valeur pour la clé `Content-Type`. Le package de dessin étant un dossier compressé, utilisez la valeur `application/octet-stream`. Sous l’onglet **Corps** , sélectionnez **binaire** . Cliquez sur **Sélectionner un fichier** , puis choisissez un package de dessin.
 
      ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
-5. Cliquez sur le bouton bleu **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la **Emplacement**, qui est l’URL `status URL`.
+5. Cliquez sur le bouton bleu **Envoyer** , puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la **Emplacement** , qui est l’URL `status URL`.
 
 6. Pour vérifier l’état de l’appel d’API, créez une requête HTTP **GET** sur `status URL`. Vous devez ajouter votre clé d’abonnement principale à l’URL pour l’authentification. La requête **GET** doit ressembler à l’URL suivante :
 
@@ -102,7 +102,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 
  À présent que le package de dessin est chargé, nous allons utiliser `udid` pour le convertir en données cartographiques. L’API de conversion utilise une transaction de longue durée qui implémente le modèle défini [ici](creator-long-running-operation.md). Une fois l’opération terminée, nous allons utiliser la valeur `conversionId` pour accéder aux données converties. Suivez les étapes ci-dessous pour obtenir la valeur `conversionId`.
 
-1. Sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
 2. Sélectionnez la méthode HTTP **POST** sous l’onglet du générateur, puis entrez l’URL suivante pour convertir votre package de dessin chargé en données cartographiques. Utilisez l’`udid` pour le package chargé.
 
@@ -113,7 +113,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
     >[!IMPORTANT]
     > Les url d’API dans ce document peuvent devoir être ajustées en fonction de l'emplacement de votre ressource du Créateur. Pour plus d’informations, consultez [l’accès aux services du Créateur](how-to-manage-creator.md#access-to-creator-services).
 
-3. Cliquez sur le bouton **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse, puis recherchez la clé **Emplacement**. Copiez la valeur de la clé **Emplacement** qui est `status URL` pour la demande de conversion. Vous en aurez besoin lors de l'étape suivante.
+3. Cliquez sur le bouton **Envoyer** , puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse, puis recherchez la clé **Emplacement** . Copiez la valeur de la clé **Emplacement** qui est `status URL` pour la demande de conversion. Vous en aurez besoin lors de l'étape suivante.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copier la valeur de la clé Emplacement":::
 
@@ -164,11 +164,11 @@ L’exemple de package de dessin doit être converti sans erreur ou avertissemen
 
 ## <a name="create-a-dataset"></a>Créer un jeu de données
 
-Le jeu de données est une collection de caractéristiques cartographiques, telles que des bâtiments, des niveaux et des salles. Pour créer un jeu de données, utilisez l’[API de création de jeu de données](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). L’API de création jeu de données prend la valeur `conversionId` pour le package de dessin converti et retourne une valeur `datasetId` du jeu de données créé. Les étapes ci-dessous vous montrent comment créer un jeu de données.
+Le jeu de données est une collection de caractéristiques cartographiques, telles que des bâtiments, des niveaux et des salles. Pour créer un jeu de données, utilisez l’[API de création de jeu de données](/rest/api/maps/dataset/createpreview). L’API de création jeu de données prend la valeur `conversionId` pour le package de dessin converti et retourne une valeur `datasetId` du jeu de données créé. Les étapes ci-dessous vous montrent comment créer un jeu de données.
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
-2. Adressez une requête **POST** à l’[API de création de jeu de données](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) pour créer un jeu de données. Avant de soumettre la requête, ajoutez à la fois votre clé d’abonnement et la valeur `conversionId` avec la valeur `conversionId` obtenue pendant le processus de conversion à l’étape 5.  La requête doit ressembler à l’URL suivante :
+2. Adressez une requête **POST** à l’ [API de création de jeu de données](/rest/api/maps/dataset/createpreview) pour créer un jeu de données. Avant de soumettre la requête, ajoutez à la fois votre clé d’abonnement et la valeur `conversionId` avec la valeur `conversionId` obtenue pendant le processus de conversion à l’étape 5.  La requête doit ressembler à l’URL suivante :
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -197,7 +197,7 @@ Le jeu de données est une collection de caractéristiques cartographiques, tell
 
 Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la carte. Des tilesets sont créés à partir de jeux de données existants. Toutefois, un tileset est indépendant du jeu de données source. Si le jeu de données est supprimé, le tileset continue d’exister. Pour créer un tileset, suivez les étapes ci-dessous :
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
 2. Effectuez une requête **POST** sous l’onglet du générateur. L’URL de la requête doit ressembler à l’URL suivante :
 
@@ -224,9 +224,9 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
 ## <a name="query-datasets-with-wfs-api"></a>Interroger des jeux de données avec l’API de service de caractéristique web
 
- Des jeux de données peuvent être interrogés à l’aide de l’[API de service de caractéristique web](https://docs.microsoft.com/rest/api/maps/wfs). L’API de service de caractéristique web vous permet d’interroger des collections de caractéristiques, une collection spécifique ou une caractéristique spécifique avec un **ID** de caractéristique. L’**ID** de caractéristique identifie de façon unique la caractéristique à l’intérieur du jeu de données. Il est utilisé, par exemple, pour identifier l’état de caractéristique à mettre à jour dans un stateset donné.
+ Des jeux de données peuvent être interrogés à l’aide de l’[API de service de caractéristique web](/rest/api/maps/wfs). L’API de service de caractéristique web vous permet d’interroger des collections de caractéristiques, une collection spécifique ou une caractéristique spécifique avec un **ID** de caractéristique. L’ **ID** de caractéristique identifie de façon unique la caractéristique à l’intérieur du jeu de données. Il est utilisé, par exemple, pour identifier l’état de caractéristique à mettre à jour dans un stateset donné.
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
 2. Effectuez une requête **GET** pour afficher la liste des collections dans votre jeu de données. Remplacez la valeur `<dataset-id>` par vôtre valeur `datasetId`. Utilisez votre clé primaire Azure Maps au lieu de l’espace réservé. La requête doit ressembler à l’URL suivante :
 
@@ -234,7 +234,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Le corps de la réponse est fourni au format GeoJSON, et contient toutes les collections dans le jeu de données. Par souci de simplicité, l’exemple fourni ici affiche uniquement la collection `unit`. Pour voir un exemple contenant tous les collections, consultez [API Describe Collections du service de caractéristique web](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Pour en savoir plus sur une collection, vous pouvez cliquer sur l’une des URL à l’intérieur de l’élément `link`.
+3. Le corps de la réponse est fourni au format GeoJSON, et contient toutes les collections dans le jeu de données. Par souci de simplicité, l’exemple fourni ici affiche uniquement la collection `unit`. Pour voir un exemple contenant tous les collections, consultez [API Describe Collections du service de caractéristique web](/rest/api/maps/wfs/collectiondescriptionpreview). Pour en savoir plus sur une collection, vous pouvez cliquer sur l’une des URL à l’intérieur de l’élément `link`.
 
     ```json
     {
@@ -302,15 +302,15 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
 ## <a name="create-a-feature-stateset"></a>Créer un stateset de caractéristique
 
-1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
+1. Dans l’application Postman, sélectionnez **Nouveau** . Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande** , puis sélectionnez une collection. Cliquez sur **Enregistrer** .
 
-2. Adressez une requête **POST** à l’[API de création de stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Utilisez l’ID `datasetId` du jeu de données contenant l’état que vous souhaitez modifier. La requête doit ressembler à l’URL suivante :
+2. Adressez une requête **POST** à l’ [API de création de stateset](/rest/api/maps/featurestate/createstatesetpreview). Utilisez l’ID `datasetId` du jeu de données contenant l’état que vous souhaitez modifier. La requête doit ressembler à l’URL suivante :
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **Corps**, fournissez les styles ci-dessous pour refléter les modifications apportées aux *états* `occupied` et `temperature`. Quand vous avez terminé, cliquez sur **Envoyer**.
+3. Dans les **En-têtes** de la requête **POST** , définissez `Content-Type` sur `application/json`. Dans le **Corps** , fournissez les styles ci-dessous pour refléter les modifications apportées aux *états* `occupied` et `temperature`. Quand vous avez terminé, cliquez sur **Envoyer** .
 
     ```json
     {
@@ -383,7 +383,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. Dans les **En-têtes** de la requête **POST**, définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST**, copiez et collez le code JSON de l’exemple ci-dessous.
+6. Dans les **En-têtes** de la requête **POST** , définissez `Content-Type` sur `application/json`. Dans le **CORPS** de la requête **POST** , copiez et collez le code JSON de l’exemple ci-dessous.
 
     ```json
     {
@@ -402,7 +402,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
 7. Une fois la mise à jour réussie, vous recevez un code d’état HTTP `200 OK`. Si vous avez une [application de style dynamique implémentée](indoor-map-dynamic-styling.md) pour une carte d’intérieur, la mise à jour s’affiche dans votre carte rendue à l’horodatage spécifié.
 
-L’[API d’obtention d’états de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) vous permet de récupérer l’état d’une caractéristique à l’aide de son `ID` de caractéristique. Vous pouvez également supprimer le stateset et ses ressources à l’aide de l’[API de suppression d’état de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+L’[API d’obtention d’états de caractéristique](/rest/api/maps/featurestate/getstatespreview) vous permet de récupérer l’état d’une caractéristique à l’aide de son `ID` de caractéristique. Vous pouvez également supprimer le stateset et ses ressources à l’aide de l’[API de suppression d’état de caractéristique](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Pour en savoir plus sur les différents services Créateur Azure Maps abordés dans cet article, consultez [Créateur de cartes d’intérieur](creator-indoor-maps.md).
 

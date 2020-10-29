@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829431"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793430"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ Les certificats sont configurés de deux manières.
 
 ## <a name="to-obtain-certificates"></a>Pour obtenir des certificats
 
-Les certificats peuvent être obtenus à partir d’autorités de certification publiques ou du [Service de certificats Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Il s’agit des méthodes préférées pour obtenir des certificats.
+Les certificats peuvent être obtenus à partir d’autorités de certification publiques ou du [Service de certificats Windows](/windows/win32/seccrypto/certificate-services). Il s’agit des méthodes préférées pour obtenir des certificats.
 
-Si ces options ne sont pas disponibles, vous pouvez générer des **certificats auto-signés**.
+Si ces options ne sont pas disponibles, vous pouvez générer des **certificats auto-signés** .
 
 ## <a name="tools-to-generate-certificates"></a>Outils de génération de certificats
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>Pour exécuter les outils
 
-* Depuis une invite de commandes développeur pour Visual Studio, consultez la rubrique [Invite de commandes Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
+* Depuis une invite de commandes développeur pour Visual Studio, consultez la rubrique [Invite de commandes Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     Si installée, accédez à :
   
@@ -124,7 +124,7 @@ La configuration par défaut refuse tout accès au point de terminaison HTTP. I
 La configuration par défaut accepte tout accès au point de terminaison HTTPS. Ce paramètre peut être restreint davantage.
 
 ### <a name="changing-the-configuration"></a>Modification de la configuration
-Le groupe de règles de contrôle d’accès qui s’appliquent à un point de terminaison est configuré dans la section **\<EndpointAcls>** du **fichier de configuration de service**.
+Le groupe de règles de contrôle d’accès qui s’appliquent à un point de terminaison est configuré dans la section **\<EndpointAcls>** du **fichier de configuration de service** .
 
 ```xml
 <EndpointAcls>
@@ -441,31 +441,31 @@ Procédez comme suit :
 
 1. Exécutez mmc.exe.
 2. Fichier -> Ajouter/supprimer un composant logiciel enfichable...
-3. Sélectionnez **Certificats**.
-4. Cliquez sur **Add**.
+3. Sélectionnez **Certificats** .
+4. Cliquez sur **Add** .
 5. Choisissez l’emplacement du magasin de certificats.
-6. Cliquez sur **Terminer**.
-7. Cliquez sur **OK**.
-8. Développez les **certificats**.
+6. Cliquez sur **Terminer** .
+7. Cliquez sur **OK** .
+8. Développez les **certificats** .
 9. Développez le nœud du magasin du certificat.
 10. Développez le nœud enfant du certificat.
 11. Sélectionnez un certificat dans la liste.
 
 ## <a name="export-certificate"></a>Exportation du certificat
-Dans l’ **Assistant Exportation de certificat**:
+Dans l’ **Assistant Exportation de certificat** :
 
-1. Cliquez sur **Suivant**.
-2. Sélectionnez l’option **Oui**, puis **Exporter la clé privée**.
-3. Cliquez sur **Suivant**.
+1. Cliquez sur **Suivant** .
+2. Sélectionnez l’option **Oui** , puis **Exporter la clé privée** .
+3. Cliquez sur **Suivant** .
 4. Sélectionnez le format de fichier de sortie souhaité.
 5. Vérifiez les options de votre choix.
-6. Vérifiez le **mot de passe**.
+6. Vérifiez le **mot de passe** .
 7. Entrez un mot de passe fort et confirmez-le.
-8. Cliquez sur **Suivant**.
+8. Cliquez sur **Suivant** .
 9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
-10. Cliquez sur **Suivant**.
-11. Cliquez sur **Terminer**.
-12. Cliquez sur **OK**.
+10. Cliquez sur **Suivant** .
+11. Cliquez sur **Terminer** .
+12. Cliquez sur **OK** .
 
 ## <a name="import-certificate"></a>Importation d’un certificat
 Dans l'Assistant Importation de certificat :
@@ -474,26 +474,26 @@ Dans l'Assistant Importation de certificat :
    
    * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
-2. Cliquez sur **Suivant**.
+2. Cliquez sur **Suivant** .
 3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
 4. Si vous importez depuis un fichier .PFX :
    1. Entrez le mot de passe protégeant la clé privée
    2. Sélectionnez les options d’importation
 5. Sélectionnez « Placer » les certificats dans le magasin suivant
-6. Cliquez sur **Parcourir**.
+6. Cliquez sur **Parcourir** .
 7. Sélectionnez le magasin de votre choix.
-8. Cliquez sur **Terminer**.
+8. Cliquez sur **Terminer** .
    
-   * Si le magasin racine des autorités de certification approuvées a été choisi, cliquez sur **Oui**.
+   * Si le magasin racine des autorités de certification approuvées a été choisi, cliquez sur **Oui** .
 9. Cliquez sur **OK** dans toutes les fenêtres des boîtes de dialogue.
 
 ## <a name="upload-certificate"></a>Téléchargement d’un certificat
 Dans le [portail Azure](https://portal.azure.com/) :
 
-1. Sélectionnez **Services Cloud**.
+1. Sélectionnez **Services Cloud** .
 2. Sélectionnez le service cloud.
-3. Dans le menu supérieur, cliquez sur **Certificats**.
-4. Dans la barre inférieure, cliquez sur **Télécharger**.
+3. Dans le menu supérieur, cliquez sur **Certificats** .
+4. Dans la barre inférieure, cliquez sur **Télécharger** .
 5. Sélectionnez le fichier de certificat.
 6. S’il s’agit d’un fichier .PFX, entrez le mot de passe de la clé privée.
 7. Lorsque vous avez terminé, copiez l’empreinte de certificat à partir de la nouvelle entrée dans la liste.
@@ -508,4 +508,3 @@ Les paramètres TLS décrits dans ce document chiffrent les communications entr
 Les informations d’identification stockées dans cette base de données sont chiffrées. Toutefois, il est recommandé de s’assurer que les rôles Web et de travail de vos déploiements de service sont mis à jour et sécurisés, car les deux types de rôle ont accès à la base de données de métadonnées et au certificat utilisé pour le chiffrement et le déchiffrement des informations d’identification stockées. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335260"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896847"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -87,7 +87,7 @@ Il existe de nombreuses façons d’exposer le jeu de données à l’applicatio
 
 Une autre approche consiste à convertir le jeu de données en fichier texte plat que le navigateur peut analyser facilement. Le fichier lui-même peut être hébergé avec le reste de l’application. Simple de conception, cette option doit cependant être réservée aux jeux de données peu volumineux, car l’utilisateur télécharge toutes les données. Pour ce jeu de données, nous optons pour le fichier texte plat dans la mesure où la taille du fichier de données est inférieure à 1 Mo.  
 
-Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*.
+Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous** . Dans la liste déroulante **Type de fichier** , sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt* .
 
 ![Capture d’écran de la boîte de dialogue Type de fichier](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Si vous ouvrez le fichier texte dans le Bloc-notes, il se présente comme suit 
 
 ## <a name="set-up-the-project"></a>Configuration du projet
 
-Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html*, *index.css*, et *index.js*. Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt*. Créez un autre dossier nommé *images*. Cette application utilise 10 images pour les icônes, les boutons et les marqueurs sur la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
+Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio.microsoft.com) ou l’éditeur de code de votre choix. Dans le dossier du projet, créez trois fichiers : *index.html* , *index.css* , et *index.js* . Ces fichiers définissent la disposition, le style et la logique de l’application. Créez un dossier nommé *data* et ajoutez-y le fichier *ContosoCoffee.txt* . Créez un autre dossier nommé *images* . Cette application utilise 10 images pour les icônes, les boutons et les marqueurs sur la carte. Vous pouvez [télécharger ces images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Le dossier du projet doit maintenant se présenter comme suit :
 
 ![Capture d’écran du dossier du projet de localisateur de magasin simple](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Créer l’interface utilisateur
 
-Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
+Pour créer l’interface utilisateur, ajoutez le code à *index.html*  :
 
-1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html*. La balise `charset` définit le jeu de caractères (UTF-8). La valeur de `http-equiv` indique à Internet Explorer et à Microsoft Edge d’utiliser les versions les plus récentes du navigateur. De plus, la dernière balise `meta` spécifie une fenêtre d’affichage qui fonctionne bien pour les dispositions dynamiques.
+1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html* . La balise `charset` définit le jeu de caractères (UTF-8). La valeur de `http-equiv` indique à Internet Explorer et à Microsoft Edge d’utiliser les versions les plus récentes du navigateur. De plus, la dernière balise `meta` spécifie une fenêtre d’affichage qui fonctionne bien pour les dispositions dynamiques.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Ajoutez des références à *index.js* et *index.css* :
+1. Ajoutez des références à *index.js* et *index.css*  :
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Ajoutez du code à *index.js*. Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
+1. Ajoutez du code à *index.js* . Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](/javascript/api/azure-maps-control/atlas.map#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
 
    Quand l’utilisateur sélectionne le bouton de recherche, ou tape une localisation dans la zone de recherche puis appuie sur Entrée, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays/régions à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
@@ -931,8 +931,8 @@ Ce tutoriel vous a appris à créer un localisateur de magasin simple à l’aid
  * Autorisez l’utilisateur à [filtrer les emplacements le long d’un itinéraire](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Ajoutez la possibilité de [définir des filtres](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
  * Ajoutez la possibilité de spécifier une valeur de recherche initiale en utilisant une chaîne de requête. Quand vous incluez cette option dans votre localisateur de magasin, les utilisateurs peuvent ajouter les recherches aux favoris et les partager. Elle offre aussi un moyen simple de transférer les recherches de la page active vers une autre.  
- * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
- * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) et [Interroger des données spatiales au sujet du plus proche voisin](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+ * Déployez votre localisateur de magasin en tant qu’[application web Azure App Service](../app-service/quickstart-html.md). 
+ * Stockez vos données dans une base de données et recherchez les emplacements à proximité. Pour en savoir plus, consultez la [présentation des types de données spatiales SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) et [Interroger des données spatiales au sujet du plus proche voisin](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Vous pouvez [afficher le code source complet](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) et en apprendre davantage sur la couverture et les fonctionnalités d’Azure Maps en utilisant les [niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md). Vous pouvez également [utiliser des expressions de style axées sur les données](data-driven-style-expressions-web-sdk.md) à appliquer à votre logique métier.
 

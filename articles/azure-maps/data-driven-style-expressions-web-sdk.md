@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311374"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895968"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -475,13 +475,13 @@ Les expressions de couleur simplifient la création et la manipulation de valeur
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Crée une valeur de couleur à partir des composants *red*, *green* et *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha ayant la valeur `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
-| `['rgba', number, number, number, number]` | color | Crée une valeur de couleur à partir des composants *red*, *green*, *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha dont la valeur est comprise entre `0` et `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
-| `['to-rgba']` | \[nombre, nombre, nombre, nombre\] | Retourne un tableau à quatre éléments contenant les composants *red*, *green*, *blue* et *alpha* de la couleur d’entrée, dans cet ordre. |
+| `['rgb', number, number, number]` | color | Crée une valeur de couleur à partir des composants *red* , *green* et *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha ayant la valeur `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
+| `['rgba', number, number, number, number]` | color | Crée une valeur de couleur à partir des composants *red* , *green* , *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha dont la valeur est comprise entre `0` et `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
+| `['to-rgba']` | \[nombre, nombre, nombre, nombre\] | Retourne un tableau à quatre éléments contenant les composants *red* , *green* , *blue* et *alpha* de la couleur d’entrée, dans cet ordre. |
 
 **Exemple**
 
-L’exemple suivant crée une valeur de couleur RVB qui a une valeur *red* égale à `255` et des valeurs *green* et *blue* calculées en multipliant `2.5` par la valeur de la propriété `temperature`. Quand la température change, la couleur est remplacée par différentes nuances de rouge (*red*).
+L’exemple suivant crée une valeur de couleur RVB qui a une valeur *red* égale à `255` et des valeurs *green* et *blue* calculées en multipliant `2.5` par la valeur de la propriété `temperature`. Quand la température change, la couleur est remplacée par différentes nuances de rouge ( *red* ).
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ Expressions spéciales qui s’appliquent uniquement à des couches spécifiques
 
 ### <a name="heat-map-density-expression"></a>Expression de densité de carte thermique
 
-Une expression de densité de carte thermique, qui est définie sous la forme `['heatmap-density']`, récupère la valeur de densité de carte thermique pour chaque pixel d’une couche de carte thermique. Cette valeur est un nombre compris entre `0` et `1`. Elle est utilisée en combinaison avec une expression `interpolation` ou `step` pour définir le dégradé de couleurs utilisé pour mettre en couleur la carte thermique. Cette expression peut uniquement être utilisée dans l’[option color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) de la couche de carte thermique.
+Une expression de densité de carte thermique, qui est définie sous la forme `['heatmap-density']`, récupère la valeur de densité de carte thermique pour chaque pixel d’une couche de carte thermique. Cette valeur est un nombre compris entre `0` et `1`. Elle est utilisée en combinaison avec une expression `interpolation` ou `step` pour définir le dégradé de couleurs utilisé pour mettre en couleur la carte thermique. Cette expression peut uniquement être utilisée dans l’[option color](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) de la couche de carte thermique.
 
 > [!TIP]
 > La couleur à l’index 0 dans une expression d’interpolation ou la couleur par défaut d’une expression d’étape définit la couleur des zones où il n’existe aucune donnée. La couleur à l’index 0 peut être utilisée pour définir une couleur d’arrière-plan. La plupart des utilisateurs préfèrent définir cette valeur sur une couleur noire transparente ou semi-transparente.
@@ -954,16 +954,16 @@ Pour obtenir plus d’exemples de code qui implémentent des expressions, consul
 En savoir plus sur les options de couche qui prennent en charge des expressions :
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

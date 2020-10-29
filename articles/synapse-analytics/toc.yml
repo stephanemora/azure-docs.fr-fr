@@ -115,8 +115,6 @@
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Calendrier de maintenance
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Sauvegarde et restauration
-          href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Surveillance
       items:
         - name: Supervision de pools
@@ -259,6 +257,8 @@
               href: sql/best-practices-sql-on-demand.md
             - name: Bonnes pratiques relatives aux pools SQL
               href: sql/best-practices-sql-pool.md
+        - name: Sauvegarde et restauration
+          href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Ingestion et préparation des données
           items:
             - name: Vue d’ensemble
@@ -431,8 +431,6 @@
               href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Superviser votre charge de travail - Portail
               href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Moderniser votre entrepôt de données
-              href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Gérer des charges de travail
               items:
                 - name: Analyser votre charge de travail

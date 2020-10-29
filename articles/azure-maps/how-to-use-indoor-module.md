@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335345"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895458"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utiliser le module Cartes d’intérieur d’Azure Maps
 
-Le Kit de développement logiciel (SDK) web Azure Maps comprend le module *Cartes d’intérieur Azure*. Le module *Cartes d’intérieur Azure* vous permet d’afficher des cartes d’intérieur créées dans le Créateur Azure Maps.
+Le Kit de développement logiciel (SDK) web Azure Maps comprend le module *Cartes d’intérieur Azure* . Le module *Cartes d’intérieur Azure* vous permet d’afficher des cartes d’intérieur créées dans le Créateur Azure Maps.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,14 +32,14 @@ Le Kit de développement logiciel (SDK) web Azure Maps comprend le module *Carte
 
 Vous pouvez installer et incorporer le module *Cartes d’intérieur Azure* de l’une des deux façons suivantes.
 
-Pour utiliser la version Azure Content Delivery Network hébergée dans le monde entier du module *Cartes d’intérieur Azure*, reportez-vous aux références JavaScript et de feuille de style suivantes dans l’élément `<head>` du fichier HTML :
+Pour utiliser la version Azure Content Delivery Network hébergée dans le monde entier du module *Cartes d’intérieur Azure* , reportez-vous aux références JavaScript et de feuille de style suivantes dans l’élément `<head>` du fichier HTML :
 
 ```html
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
 <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
- Vous pouvez également télécharger le module *Cartes d’intérieur Azure*. Le module *Cartes d’intérieur Azure* contient une bibliothèque cliente permettant d’accéder aux services Azure Maps. Suivez les étapes ci-dessous pour installer et charger le module *Cartes d’intérieur* dans votre application web.  
+ Vous pouvez également télécharger le module *Cartes d’intérieur Azure* . Le module *Cartes d’intérieur Azure* contient une bibliothèque cliente permettant d’accéder aux services Azure Maps. Suivez les étapes ci-dessous pour installer et charger le module *Cartes d’intérieur* dans votre application web.  
   
   1. Installez le [package azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
@@ -56,7 +56,7 @@ Pour utiliser la version Azure Content Delivery Network hébergée dans le monde
 
 ## <a name="instantiate-the-map-object"></a>Instancier l’objet Map
 
-Tout d’abord, créez un *objet Map*. L’*objet Map* sera utilisé à l’étape suivante pour instancier l’objet *Gestionnaire d’intérieur*.  Le code ci-dessous montre comment instancier l’*objet Map* :
+Tout d’abord, créez un *objet Map* . L’ *objet Map* sera utilisé à l’étape suivante pour instancier l’objet *Gestionnaire d’intérieur* .  Le code ci-dessous montre comment instancier l’ *objet Map*  :
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
@@ -77,7 +77,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Instancier le Gestionnaire d’intérieur
 
-Pour charger les tilesets d’intérieur et le style de la carte des vignettes, vous devez instancier le *Gestionnaire d’intérieur*. Instanciez le *Gestionnaire d’intérieur* en fournissant l’*objet Map* et l’ID `tilesetId` correspondant. Si vous souhaitez prendre en charge l’[application de style de carte dynamique](indoor-map-dynamic-styling.md), vous devez passer l’ID `statesetId`. Le nom de la variable `statesetId` respecte la casse. Votre code doit ressembler au code JavaScript ci-dessous.
+Pour charger les tilesets d’intérieur et le style de la carte des vignettes, vous devez instancier le *Gestionnaire d’intérieur* . Instanciez le *Gestionnaire d’intérieur* en fournissant l’ *objet Map* et l’ID `tilesetId` correspondant. Si vous souhaitez prendre en charge l’[application de style de carte dynamique](indoor-map-dynamic-styling.md), vous devez passer l’ID `statesetId`. Le nom de la variable `statesetId` respecte la casse. Votre code doit ressembler au code JavaScript ci-dessous.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +89,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-Pour activer le sondage de données d’état que vous fournissez, vous devez spécifier l’ID `statesetId` et appeler `indoorManager.setDynamicStyling(true)`. Le sondage de données d’état vous permet de mettre à jour de façon dynamique l’état de propriétés dynamiques ou *états*. Par exemple, une caractéristique telle qu’une salle peut avoir une propriété dynamique (*état*) nommée `occupancy`. Votre application peut interroger tout changement d’*état* pour refléter la modification à l’intérieur de la carte visuelle. Le code ci-dessous montre comment activer le sondage d’état :
+Pour activer le sondage de données d’état que vous fournissez, vous devez spécifier l’ID `statesetId` et appeler `indoorManager.setDynamicStyling(true)`. Le sondage de données d’état vous permet de mettre à jour de façon dynamique l’état de propriétés dynamiques ou *états* . Par exemple, une caractéristique telle qu’une salle peut avoir une propriété dynamique ( *état* ) nommée `occupancy`. Votre application peut interroger tout changement d’ *état* pour refléter la modification à l’intérieur de la carte visuelle. Le code ci-dessous montre comment activer le sondage d’état :
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +107,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Contrôle Sélecteur de niveau intérieur
 
- Le contrôle *Sélecteur de niveau intérieur* vous permet de modifier le niveau de la carte affichée. Vous pouvez également initialiser le contrôle *Sélecteur de niveau intérieur* via le *Gestionnaire d’intérieur*. Voici le code permettant d’initialiser le sélecteur de contrôle de niveau :
+ Le contrôle *Sélecteur de niveau intérieur* vous permet de modifier le niveau de la carte affichée. Vous pouvez également initialiser le contrôle *Sélecteur de niveau intérieur* via le *Gestionnaire d’intérieur* . Voici le code permettant d’initialiser le sélecteur de contrôle de niveau :
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +116,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Événements d’intérieur
 
- Le module *Cartes d’intérieur d’Azure* prend en charge les événements d’*objet Map*. Les écouteurs d’événements d’*objet Map* sont appelés quand un niveau ou un bâtiment a changé. Si vous souhaitez exécuter du code lors de la modification d’un niveau ou d’un bâtiment, placez votre code à l’intérieur de l’écouteur d’événements. Le code ci-dessous montre comment ajouter des écouteurs d’événements à l’*objet Map*.
+ Le module *Cartes d’intérieur d’Azure* prend en charge les événements d’ *objet Map* . Les écouteurs d’événements d’ *objet Map* sont appelés quand un niveau ou un bâtiment a changé. Si vous souhaitez exécuter du code lors de la modification d’un niveau ou d’un bâtiment, placez votre code à l’intérieur de l’écouteur d’événements. Le code ci-dessous montre comment ajouter des écouteurs d’événements à l’ *objet Map* .
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -136,26 +136,26 @@ La variable `eventData` contient des informations sur le niveau ou le bâtiment 
 
 ## <a name="example-use-the-indoor-maps-module"></a>Exemple : Utiliser le module Cartes d’intérieur
 
-Cet exemple montre comment utiliser le module *Cartes d’intérieur d’Azure Maps* dans votre application web. Bien que l’étendue de l’exemple soit limitée, il couvre les informations de base sur ce dont vous avez besoin pour commencer à utiliser le module *Cartes d’intérieur d’Azure Maps*. Le code HTML complet figure dans les étapes ci-dessous.
+Cet exemple montre comment utiliser le module *Cartes d’intérieur d’Azure Maps* dans votre application web. Bien que l’étendue de l’exemple soit limitée, il couvre les informations de base sur ce dont vous avez besoin pour commencer à utiliser le module *Cartes d’intérieur d’Azure Maps* . Le code HTML complet figure dans les étapes ci-dessous.
 
-1. Utilisez l’[option](#embed-the-indoor-maps-module) Azure Content Delivery Network pour installer le module *Cartes d’intérieur d’Azure Maps*.
+1. Utilisez l’ [option](#embed-the-indoor-maps-module) Azure Content Delivery Network pour installer le module *Cartes d’intérieur d’Azure Maps* .
 
 2. Créez un fichier HTML
 
-3. Dans l’en-tête HTML, référencez le JavaScript et la feuille de style du module *Cartes d’intérieur d’Azure Maps*.
+3. Dans l’en-tête HTML, référencez le JavaScript et la feuille de style du module *Cartes d’intérieur d’Azure Maps* .
 
-4. Initialisez un *objet Map*. L’*objet Map* prend en charge les options suivantes :
+4. Initialisez un *objet Map* . L’ *objet Map* prend en charge les options suivantes :
     - `Subscription key` est votre clé d’abonnement principale Azure Maps.
     - `center` définit une latitude et une longitude pour l’emplacement du centre de votre carte d’intérieur. Fournissez une valeur pour `center` si vous ne souhaitez pas fournir de valeur pour `bounds`. Le format doit être `center`: [-122.13315, 47.63637].
-    - `bounds` est la plus petite forme rectangulaire qui englobe les données cartographiques du tileset. Définissez une valeur pour `bounds` si vous ne souhaitez pas définir de valeur pour `center`. Vous pouvez trouver vos limites de carte en appelant l’[API de liste de tileset](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). L’API de liste de tileset retourne la valeur `bbox`, que vous pouvez analyser et assigner à `bounds`. Le format doit apparaître comme `bounds` : [# west, # south, # east, # north].
+    - `bounds` est la plus petite forme rectangulaire qui englobe les données cartographiques du tileset. Définissez une valeur pour `bounds` si vous ne souhaitez pas définir de valeur pour `center`. Vous pouvez trouver vos limites de carte en appelant l’[API de liste de tileset](/rest/api/maps/tileset/listpreview). L’API de liste de tileset retourne la valeur `bbox`, que vous pouvez analyser et assigner à `bounds`. Le format doit apparaître comme `bounds` : [# west, # south, # east, # north].
     - `style` vous permet de définir la couleur de l’arrière-plan. Pour afficher un arrière-plan blanc, définissez `style` sur « vide ».
     - `zoom` vous permet de spécifier les niveaux de zoom minimum et maximum pour votre carte.
 
-5. Ensuite, créez le module *Gestionnaire d’intérieur*. Assignez l’ID `tilesetId` de *Cartes d’intérieur d’Azure Maps* et ajoutez éventuellement l’ID `statesetId`.
+5. Ensuite, créez le module *Gestionnaire d’intérieur* . Assignez l’ID `tilesetId` de *Cartes d’intérieur d’Azure Maps* et ajoutez éventuellement l’ID `statesetId`.
 
-6. Instanciez le contrôle *Sélecteur de niveau intérieur*.
+6. Instanciez le contrôle *Sélecteur de niveau intérieur* .
 
-7. Ajoutez les écouteurs d’événements d’*objet Map*.  
+7. Ajoutez les écouteurs d’événements d’ *objet Map* .  
 
 Votre fichier doit maintenant ressembler au code HTML ci-dessous.
 
@@ -243,7 +243,7 @@ Pour afficher votre carte d’intérieur, chargez-la dans un navigateur web. Ell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les API relatives au module *Cartes d’intérieur d’Azure Maps* :
+En savoir plus sur les API relatives au module *Cartes d’intérieur d’Azure Maps*  :
 
 > [!div class="nextstepaction"]
 > [exigences du package de dessin](drawing-requirements.md)
@@ -257,4 +257,4 @@ En savoir plus sur l’ajout de données à votre carte :
 > [Application de style dynamique de Cartes d’intérieur](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code](/samples/browse/?products=azure-maps)

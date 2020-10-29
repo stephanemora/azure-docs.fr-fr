@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677951"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895798"
 ---
 # <a name="manage-azure-maps-creator"></a>Gérer le Créateur Azure Maps
 
@@ -25,19 +25,19 @@ Cet article vous guide tout au long des étapes de création et de suppression d
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 
-2. Sélectionnez votre compte Azure Maps. Si vous ne voyez pas votre compte Azure Maps sous **Ressources récentes**, accédez au menu du portail Azure. Sélectionnez **Toutes les ressources**. Recherchez et sélectionnez votre compte Azure Maps.
+2. Sélectionnez votre compte Azure Maps. Si vous ne voyez pas votre compte Azure Maps sous **Ressources récentes** , accédez au menu du portail Azure. Sélectionnez **Toutes les ressources** . Recherchez et sélectionnez votre compte Azure Maps.
 
     ![Page d’accueil du portail Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Une fois que vous êtes sur la page du compte Azure Maps, accédez à l’option **Vue d’ensemble** sous **Créateur**. Cliquez sur **Créer** pour créer une ressource de Créateur Azure Maps.
+3. Une fois que vous êtes sur la page du compte Azure Maps, accédez à l’option **Vue d’ensemble** sous **Créateur** . Cliquez sur **Créer** pour créer une ressource de Créateur Azure Maps.
 
     ![Page Créer un Créateur Azure Maps](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Entrez le nom et l’emplacement de votre ressource de Créateur. Actuellement, le Créateur n’est pris en charge qu’aux États-Unis. Cliquez sur **Vérifier + créer**.
+4. Entrez le nom et l’emplacement de votre ressource de Créateur. Actuellement, le Créateur n’est pris en charge qu’aux États-Unis. Cliquez sur **Vérifier + créer** .
 
    ![Page Entrer les informations du compte du Créateur](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Vérifiez vos paramètres, puis cliquez sur **Créer**.
+5. Vérifiez vos paramètres, puis cliquez sur **Créer** .
 
     ![Page Confirmer les paramètres du compte du créateur](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ Cet article vous guide tout au long des étapes de création et de suppression d
 
    ![Page État du déploiement de la ressource](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Cliquez sur **Accéder à la ressource**. La page d’affichage de la ressource de Créateur montre l’état de votre ressource de Créateur et la région démographique choisie.
+7. Cliquez sur **Accéder à la ressource** . La page d’affichage de la ressource de Créateur montre l’état de votre ressource de Créateur et la région démographique choisie.
 
     ![Page État du créateur](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,14 +54,14 @@ Cet article vous guide tout au long des étapes de création et de suppression d
 
 ## <a name="delete-creator-resource"></a>Supprimer une ressource de Créateur
 
-Pour supprimer la ressource de Créateur, accédez à votre compte Azure Maps. Sous **Créateur**, cliquez sur **Vue d’ensemble**. Cliquez sur le bouton **Supprimer** .
+Pour supprimer la ressource de Créateur, accédez à votre compte Azure Maps. Sous **Créateur** , cliquez sur **Vue d’ensemble** . Cliquez sur le bouton **Supprimer** .
 
 >[!WARNING]
 >Lorsque vous supprimez la ressource de Créateur de votre compte Azure Maps, vous supprimez également les jeux de données, tilesets et statesets de caractéristiques créés à l’aide des services du Créateur.
 
 ![Page Créateur avec le bouton Supprimer](./media/how-to-manage-creator/creator-delete.png)
 
-Cliquez sur le bouton **Supprimer**, puis tapez le nom du Créateur pour confirmer la suppression. Une fois la ressource supprimée, une page de confirmation s’affiche, comme dans l’image ci-dessous :
+Cliquez sur le bouton **Supprimer** , puis tapez le nom du Créateur pour confirmer la suppression. Une fois la ressource supprimée, une page de confirmation s’affiche, comme dans l’image ci-dessous :
 
 ![Page Créateur avec confirmation de la suppression](./media/how-to-manage-creator/creator-confirmdelete.png)
 
@@ -69,7 +69,7 @@ Cliquez sur le bouton **Supprimer**, puis tapez le nom du Créateur pour confirm
 
 Le Créateur hérite des paramètres de Contrôle d’accès (IAM) d’Azure Maps. Tous les appels d’API pour l’accès aux données doivent être envoyés avec des règles d’authentification et d’autorisation.
 
-Les données d’utilisation du Créateur sont incorporées dans vos graphiques d’utilisation et journal d’activité Azure Maps.  Pour plus d’informations, consultez [Gérer l’authentification dans Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Les données d’utilisation du Créateur sont incorporées dans vos graphiques d’utilisation et journal d’activité Azure Maps.  Pour plus d’informations, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Accès aux services du Créateur
 

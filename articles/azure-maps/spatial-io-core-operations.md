@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 1689ff4d24b3bf82298041fbb84d759b451d8eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08966549d2c4d2bf701ee0dbfc5ed24f202396fc
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321762"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891374"
 ---
 # <a name="core-io-operations"></a>Opérations d’E/S principales
 
@@ -131,13 +131,13 @@ Le fichier XML généré à partir du code ci-dessus ressemble à ce qui suit.
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
-[CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
+[CsvReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
 
-[CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
+[CsvWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
 
-[SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
+[SimpleXmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
 
-[SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
+[SimpleXmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
 
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 

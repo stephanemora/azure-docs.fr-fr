@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: be0b2a3a15c77ae0de303f02be078f115b283eb9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876513"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897141"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutoriel – Migrer une application web à partir de Bing Cartes
 
 Les applications web qui utilisent Bing Cartes utilisent souvent le kit SDK JavaScript Bing Cartes V8. Le Kit de développement logiciel (SDK) web Azure Maps est le kit de développement logiciel (SDK) Azure approprié vers lequel migrer. Le Kit de développement logiciel (SDK) web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres pour les afficher dans vos applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le kit de développement logiciel (SDK) à l’aide de JavaScript ou de TypeScript.
 
-Si vous migrez une application Web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte Open source telle que Cesium, Leaflet et OpenLayers. Si c’est le cas et que vous préférez continuer à utiliser cette bibliothèque, vous pouvez la connecter aux services de mosaïques Azure Maps ([mosaïques routières](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [mosaïques satellites](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Les liens ci-dessous fournissent des détails sur l’utilisation d’Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
+Si vous migrez une application Web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte Open source telle que Cesium, Leaflet et OpenLayers. Si c’est le cas et que vous préférez continuer à utiliser cette bibliothèque, vous pouvez la connecter aux services de mosaïques Azure Maps ([mosaïques routières](/rest/api/maps/render/getmaptile) \| [mosaïques satellites](/rest/api/maps/render/getmapimagerytile)). Les liens ci-dessous fournissent des détails sur l’utilisation d’Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
 
 -   Cesium : contrôle carte 3D pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [de l’exemple de code](https://cesiumjs.org/)
 -   Leaflet : contrôle de carte 2D léger pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [de l’exemple de code](https://leafletjs.com/)
@@ -68,7 +68,7 @@ Azure Maps a également de nombreux [modules open- source supplémentaires pour 
 
 Voici quelques-unes des principales différences entre les SDK web Bing Cartes et Azure Maps à connaître :
 
--   En plus de fournir un point de terminaison hébergé pour accéder au kit de développement logiciel (SDK) Web d’Azure Maps, un package NPM est également disponible pour incorporer le kit de développement logiciel (SDK) Web dans les applications, si vous préférez. Pour plus d’informations, consultez cette [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control). Ce package inclut aussi des définitions de TypeScript.
+-   En plus de fournir un point de terminaison hébergé pour accéder au kit de développement logiciel (SDK) Web d’Azure Maps, un package NPM est également disponible pour incorporer le kit de développement logiciel (SDK) Web dans les applications, si vous préférez. Pour plus d’informations, consultez cette [documentation](./how-to-use-map-control.md). Ce package inclut aussi des définitions de TypeScript.
 -   Bing Cartes fournit deux branches hébergées de son kit SDK : Release et Experimental. La branche Experimental peut recevoir plusieurs mises à jour par jour pendant le nouveau développement. Azure Maps héberge uniquement une branche Release ; toutefois, des fonctionnalités expérimentales sont créées en tant que modules personnalisés dans le projet d’exemples de code open source Azure Maps. Avant, Bing Cartes avait également une branche figée qui était mise à jour moins fréquemment, réduisant ainsi le risque de changements cassants dus à une mise en production. Dans Azure Maps, vous pouvez utiliser le module NPM et pointer vers n’importe quelle version mineure précédente.
 
 > [!TIP]
@@ -78,20 +78,20 @@ Voici quelques-unes des principales différences entre les SDK web Bing Cartes e
 -   Les deux plateformes utilisent un système de mosaïque similaire pour les cartes de base, mais les mosaïques dans Bing Cartes ont une dimension de 256 pixels tandis que celles d’Azure Maps ont une dimension de 512 pixels. Par conséquent, pour obtenir la même vue cartographique que Bing Cartes dans Azure Maps, le niveau de zoom utilisé dans Bing Cartes doit être soustrait d’une unité dans Azure Maps.
 -   Dans Bing Cartes, les coordonnées se présentent sous la forme `latitude, longitude`, tandis qu’Azure Maps utilise `longitude, latitude`. Ce format est conforme à la norme `[x, y]` qui est respectée par la plupart des plateformes GIS.
 
--   Les formes du kit de développement logiciel (SDK) Web Azure Maps sont basées sur le schéma GeoJSON. Les classes d’assistance sont exposées par le biais de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). Il existe également la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) qui peut être utilisée pour encapsuler des objets GeoJSON et simplifier leur mise à jour et leur gestion, de manière pouvant être liée aux données.
+-   Les formes du kit de développement logiciel (SDK) Web Azure Maps sont basées sur le schéma GeoJSON. Les classes d’assistance sont exposées par le biais de l’espace de noms [atlas.data](/javascript/api/azure-maps-control/atlas.data). Il existe également la classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) qui peut être utilisée pour encapsuler des objets GeoJSON et simplifier leur mise à jour et leur gestion, de manière pouvant être liée aux données.
 -   Les coordonnées dans Azure Maps sont définies comme des objets Position qui peuvent être spécifiés sous forme d’un simple tableau de nombres au format `[longitude, latitude]` ou `new atlas.data.Position(longitude, latitude)`.
 
 > [!TIP]
-> La classe Position a une fonction d’assistance statique pour l’importation de coordonnées qui sont au format `latitude, longitude`. La fonction [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position) peut souvent remplacer la fonction `new Microsoft.Maps.Location` dans le code Bing Cartes.
+> La classe Position a une fonction d’assistance statique pour l’importation de coordonnées qui sont au format `latitude, longitude`. La fonction [atlas.data.Position.fromLatLng](/javascript/api/azure-maps-control/atlas.data.position) peut souvent remplacer la fonction `new Microsoft.Maps.Location` dans le code Bing Cartes.
 
 -   Au lieu de spécifier des informations de style pour chaque forme ajoutée à la carte, Azure Maps sépare les styles des données. Les données sont stockées dans des sources de données et sont connectées aux couches de rendu que le code Azure Maps utilise pour afficher les données. Cette approche offre un gain de performances amélioré. De plus, de nombreux calques prennent en charge le style basé sur les données dans lequel la logique métier peut être ajoutée aux options de style de calque qui changeront la façon dont les formes individuelles sont rendues au sein d'un calque en fonction des propriétés définies dans la forme.
 -   Azure Maps fournit un ensemble de fonctions mathématiques spatiales utiles dans l’espace de noms `atlas.math`, mais elles diffèrent de celles du module mathématique spatial Bing Cartes. La principale différence réside dans le fait qu’Azure Maps ne fournit pas de fonctions intégrées pour les opérations binaires telles que l’union et l’intersection. Toutefois, Azure Maps étant basé sur GeoJSON, qui est une norme ouverte, de nombreuses bibliothèques open source sont disponibles. Une option très populaire qui fonctionne bien avec Azure Maps et fournit une multitude de fonctionnalités mathématiques spatiales est [turf js](http://turfjs.org/).
 
-Consultez également le [Glossaire Azure Maps](https://docs.microsoft.com/azure/azure-maps/glossary) pour obtenir une liste détaillée de la terminologie associée à Azure Maps.
+Consultez également le [Glossaire Azure Maps](./glossary.md) pour obtenir une liste détaillée de la terminologie associée à Azure Maps.
 
 ## <a name="web-sdk-side-by-side-examples"></a>Exemples côte à côte du kit de développement logiciel (SDK) Web
 
-Vous trouverez ci-dessous une collection d’exemples de code pour chaque plateforme, qui couvrent les cas d’usage courants pour vous aider à migrer votre application web du kit SDK JavaScript Bing Cartes v8 vers le kit SDK web Azure Maps. Des exemples de code liés aux applications Web sont fournis en JavaScript. Toutefois, Azure Maps fournit également des définitions TypeScript sous la forme d’une option supplémentaire via un module [NPM](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Vous trouverez ci-dessous une collection d’exemples de code pour chaque plateforme, qui couvrent les cas d’usage courants pour vous aider à migrer votre application web du kit SDK JavaScript Bing Cartes v8 vers le kit SDK web Azure Maps. Des exemples de code liés aux applications Web sont fournis en JavaScript. Toutefois, Azure Maps fournit également des définitions TypeScript sous la forme d’une option supplémentaire via un module [NPM](./how-to-use-map-control.md).
 
 **Rubriques**
 
@@ -230,14 +230,14 @@ L’exécution de ce code dans un navigateur affichera une carte ressemblant à 
 
 ![Carte Azure Maps](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)</center>
 
-Vous trouverez des informations détaillées sur la façon de configurer et d’utiliser le contrôle de carte Azure Maps dans une application Web [ici](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Vous trouverez des informations détaillées sur la façon de configurer et d’utiliser le contrôle de carte Azure Maps dans une application Web [ici](./how-to-use-map-control.md).
 
 > [!TIP]
 > Azure Maps publie des versions minifiées et déminifiées du kit SDK. Supprimez `.min` des noms de fichiers. La version déminifiée est utile lors du débogage de problème, mais veillez à utiliser la version minifiée en production afin de tirer parti de la plus petite taille de fichier.
 
 **Ressources supplémentaires**
 
--   Azure Maps fournit également des contrôles de navigation pour faire pivoter et mettre en forme la vue cartographique comme indiqué [ici](https://docs.microsoft.com/azure/azure-maps/map-add-controls).
+-   Azure Maps fournit également des contrôles de navigation pour faire pivoter et mettre en forme la vue cartographique comme indiqué [ici](./map-add-controls.md).
 
 ### <a name="localizing-the-map"></a>Localisation de la carte
 
@@ -281,7 +281,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!NOTE]
-> Avec Azure Maps il est possible de charger plusieurs instances de carte sur la même page avec des paramètres de langue et de région différents. En outre, il est également possible de mettre à jour ces paramètres dans la carte après son chargement. Vous trouverez une liste détaillée des langues prises en charge dans Azure Maps [ici](https://docs.microsoft.com/azure/azure-maps/supported-languages).
+> Avec Azure Maps il est possible de charger plusieurs instances de carte sur la même page avec des paramètres de langue et de région différents. En outre, il est également possible de mettre à jour ces paramètres dans la carte après son chargement. Vous trouverez une liste détaillée des langues prises en charge dans Azure Maps [ici](./supported-languages.md).
 
 Voici un exemple de Azure Maps avec la langue définie sur « fr » et la région de l’utilisateur définie sur « fr-FR ».
 
@@ -333,8 +333,8 @@ map.setStyle({
 
 **Ressources supplémentaires**
 
--   [Choisir un style de carte](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
--   [Styles de carte pris en charge](https://docs.microsoft.com/azure/azure-maps/supported-map-styles)
+-   [Choisir un style de carte](./choose-map-style.md)
+-   [Styles de carte pris en charge](./supported-map-styles.md)
 
 ### <a name="adding-a-pushpin"></a>Ajout d’une punaise
 
@@ -462,16 +462,16 @@ Lorsque vous utilisez un calque de symbole, les données doivent être ajoutées
 
 **Ressources supplémentaires**
 
--   [Créer une source de données](https://docs.microsoft.com/azure/azure-maps/create-data-source-web-sdk)
--   [Ajouter une calque de symbole](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Ajouter un calque de bulles](https://docs.microsoft.com/azure/azure-maps/map-add-bubble-layer)
--   [Données de point de cluster](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk)
--   [Ajouter des marqueurs HTML](https://docs.microsoft.com/azure/azure-maps/map-add-custom-html)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
--   [Options de l’icône de calque de symbole](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Option de texte du calque de symbole](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
--   [Classe de marqueur HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Options du marqueur HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+-   [Créer une source de données](./create-data-source-web-sdk.md)
+-   [Ajouter une calque de symbole](./map-add-pin.md)
+-   [Ajouter un calque de bulles](./map-add-bubble-layer.md)
+-   [Données de point de cluster](./clustering-point-data-web-sdk.md)
+-   [Ajouter des marqueurs HTML](./map-add-custom-html.md)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
+-   [Options de l’icône de calque de symbole](/javascript/api/azure-maps-control/atlas.iconoptions)
+-   [Option de texte du calque de symbole](/javascript/api/azure-maps-control/atlas.textoptions)
+-   [Classe de marqueur HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
+-   [Options du marqueur HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-custom-pushpin"></a>Ajout d’une punaise personnalisée
 
@@ -593,14 +593,14 @@ Dans Azure Maps, les calques de symboles prennent également en charge les image
 
 **Ressources supplémentaires**
 
--   [Créer une source de données](https://docs.microsoft.com/azure/azure-maps/create-data-source-web-sdk)
--   [Ajouter une calque de symbole](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Ajouter des marqueurs HTML](https://docs.microsoft.com/azure/azure-maps/map-add-custom-html)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
--   [Options de l’icône de calque de symbole](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Option de texte du calque de symbole](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
--   [Classe de marqueur HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Options du marqueur HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+-   [Créer une source de données](./create-data-source-web-sdk.md)
+-   [Ajouter une calque de symbole](./map-add-pin.md)
+-   [Ajouter des marqueurs HTML](./map-add-custom-html.md)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
+-   [Options de l’icône de calque de symbole](/javascript/api/azure-maps-control/atlas.iconoptions)
+-   [Option de texte du calque de symbole](/javascript/api/azure-maps-control/atlas.textoptions)
+-   [Classe de marqueur HTML](/javascript/api/azure-maps-control/atlas.htmlmarker)
+-   [Options du marqueur HTML](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-polyline"></a>Ajout d’une polyligne
 
@@ -668,9 +668,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Ressources supplémentaires**
 
--   [Ajouter des lignes à la carte](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-lines-to-the-map)
--   [Options du calque de ligne](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Ajouter des lignes à la carte](./map-add-line-layer.md)
+-   [Options du calque de ligne](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="adding-a-polygon"></a>Ajout d’un polygone
 
@@ -744,11 +744,11 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Ressources supplémentaires**
 
--   [Ajouter un polygone à la carte](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-polygon-to-the-map)
--   [Ajouter un cercle à la carte](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-circle-to-the-map)
--   [Options du calque de polygones](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
--   [Options du calque de ligne](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Ajouter un polygone à la carte](./map-add-shape.md#use-a-polygon-layer)
+-   [Ajouter un cercle à la carte](./map-add-shape.md#add-a-circle-to-the-map)
+-   [Options du calque de polygones](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+-   [Options du calque de ligne](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="display-an-infobox"></a>Afficher une zone d’informations
 
@@ -820,12 +820,12 @@ map.events.add('click', marker, function () {
 
 **Ressources supplémentaires**
 
--   [Ajouter une fenêtre contextuelle](https://docs.microsoft.com/azure/azure-maps/map-add-popup)
+-   [Ajouter une fenêtre contextuelle](./map-add-popup.md)
 -   [Fenêtre contextuelle avec contenu multimédia](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
 -   [Fenêtres contextuelles sur les formes](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
 -   [Réutilisation d’une fenêtre contextuelle avec plusieurs épingles](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
--   [Classe de fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
--   [Options de la fenêtre contextuelle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+-   [Classe de fenêtre contextuelle](/javascript/api/azure-maps-control/atlas.popup)
+-   [Options de la fenêtre contextuelle](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### <a name="pushpin-clustering"></a>Clustering de punaises
 
@@ -947,7 +947,7 @@ La classe `DataSource` possède la fonction d’assistance suivante pour accéde
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Calcule un niveau de zoom à partir duquel le cluster commence à se développer ou à se décomposer.    |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | `Promise<Feature<Geometry, any> | Shape>` | Récupère tous les points dans un cluster. Définissez le paramètre `limit` de manière à retourner un sous-ensemble des points, et utilisez `offset` pour parcourir les points.    |
 
-Lors du rendu des données en cluster sur la carte, il est souvent plus facile d’utiliser au moins deux calques. L’exemple ci-dessous utilise trois calques : un calque de bulles pour dessiner des cercles de couleur mis à l’échelle en fonction de la taille des clusters, un calque de symboles pour afficher la taille de cluster en tant que texte, et un deuxième calque de symboles pour le rendu des points non cluster. Il existe de nombreuses autres façons de restituer des données en cluster dans Azure Maps mises en surbrillance dans la documentation [Données de points de cluster](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk).
+Lors du rendu des données en cluster sur la carte, il est souvent plus facile d’utiliser au moins deux calques. L’exemple ci-dessous utilise trois calques : un calque de bulles pour dessiner des cercles de couleur mis à l’échelle en fonction de la taille des clusters, un calque de symboles pour afficher la taille de cluster en tant que texte, et un deuxième calque de symboles pour le rendu des points non cluster. Il existe de nombreuses autres façons de restituer des données en cluster dans Azure Maps mises en surbrillance dans la documentation [Données de points de cluster](./clustering-point-data-web-sdk.md).
 
 Les données GeoJSON peuvent être importées directement dans Azure Maps à l’aide de la fonction `importDataFromUrl` sur la classe `DataSource`.
 
@@ -1051,10 +1051,10 @@ Les données GeoJSON peuvent être importées directement dans Azure Maps à l�
 
 **Ressources supplémentaires**
 
--   [Ajouter une calque de symbole](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Ajouter un calque de bulles](https://docs.microsoft.com/azure/azure-maps/map-add-bubble-layer)
--   [Données de point de cluster](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Ajouter une calque de symbole](./map-add-pin.md)
+-   [Ajouter un calque de bulles](./map-add-bubble-layer.md)
+-   [Données de point de cluster](./clustering-point-data-web-sdk.md)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="add-a-heat-map"></a>Ajouter une carte thermique
 
@@ -1183,10 +1183,10 @@ Dans Azure Maps, chargez les données GeoJSON dans une source de données et con
 
 **Ressources supplémentaires**
 
--   [Ajouter une couche de carte thermique](https://docs.microsoft.com/azure/azure-maps/map-add-heat-map-layer)
--   [Classe de couche de carte thermique](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
--   [Options de la couche de carte thermique](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
--   [Utiliser des expressions de style basées sur les données](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Ajouter une couche de carte thermique](./map-add-heat-map-layer.md)
+-   [Classe de couche de carte thermique](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+-   [Options de la couche de carte thermique](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+-   [Utiliser des expressions de style basées sur les données](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="overlay-a-tile-layer"></a>Superposer une couche de mosaïques
 
@@ -1238,9 +1238,9 @@ map.layers.add(new atlas.layer.TileLayer({
 
 **Ressources supplémentaires**
 
--   [Ajouter des couches de vignettes](https://docs.microsoft.com/azure/azure-maps/map-add-tile-layer)
--   [Classe de couche de mosaïque](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
--   [Options de la couche de mosaïques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+-   [Ajouter des couches de vignettes](./map-add-tile-layer.md)
+-   [Classe de couche de mosaïque](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+-   [Options de la couche de mosaïques](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 ### <a name="show-traffic-data"></a>Afficher les données du trafic
 
@@ -1284,7 +1284,7 @@ Si vous cliquez sur l’une des icônes de trafic dans Azure Maps, des informati
 
 **Ressources supplémentaires**
 
--   [Afficher le trafic sur la carte](https://docs.microsoft.com/azure/azure-maps/map-show-traffic)
+-   [Afficher le trafic sur la carte](./map-show-traffic.md)
 -   [Options de superposition du trafic](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
 -   [Gestion du trafic](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
 
@@ -1344,7 +1344,7 @@ L’exécution de ce code dans un navigateur affichera une carte ressemblant à 
 Dans Azure Maps, les images géoréférencées peuvent être superposées à l’aide de la classe `atlas.layer.ImageLayer`. Cette classe requiert une URL vers une image et un ensemble de coordonnées pour les quatre coins de l’image. L’image doit être hébergée soit sur le même domaine, soit avec CORs activé.
 
 > [!TIP]
-> Si vous avez uniquement des informations relatives au nord, au sud, à l’est, à l’ouest et à la rotation, et non les coordonnées de chaque angle de l’image, vous pouvez utiliser la fonction statique [atlas.layer.ImageLayer.getCoordinatesFromEdges](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-).
+> Si vous avez uniquement des informations relatives au nord, au sud, à l’est, à l’ouest et à la rotation, et non les coordonnées de chaque angle de l’image, vous pouvez utiliser la fonction statique [atlas.layer.ImageLayer.getCoordinatesFromEdges](/javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-).
 
 ```html
 <!DOCTYPE html>
@@ -1404,8 +1404,8 @@ Dans Azure Maps, les images géoréférencées peuvent être superposées à l�
 
 **Ressources supplémentaires**
 
--   [Superposer une image](https://docs.microsoft.com/azure/azure-maps/map-add-image-layer)
--   [Classe de couche image](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+-   [Superposer une image](./map-add-image-layer.md)
+-   [Classe de couche image](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 ### <a name="add-kml-data-to-the-map"></a>Ajouter des données KML à la carte
 
@@ -1467,7 +1467,7 @@ L’exécution de ce code dans un navigateur affichera une carte ressemblant à 
 
 **Après : Azure Maps**
 
-Dans Azure Maps, le format GeoJSON est le format de données principal utilisé dans le SDK web. Vous pouvez facilement intégrer d’autres formats de données spatiales à l’aide du  [module d’E/S de données spatiales](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Ce module présente des fonctions de lecture et d’écriture de données spatiales, et inclut un calque de données simple restituant facilement les données à partir de l’un de ces formats de données spatiales. Pour lire les données d’un fichier de données spatiales, transmettez une URL ou des données brutes sous la forme d’une chaîne ou d’un objet blob dans la fonction  `atlas.io.read`. Ceci retournera toutes les données analysées du fichier, qui pourront alors être ajoutées à la carte. Le format KML est un peu plus complexe que la plupart des autres formats de données spatiales. En effet, il inclut beaucoup plus d’informations de style. La classe  `SpatialDataLayer` prend en charge le rendu de la plupart de ces styles. Cependant, les images d’icônes doivent être chargées dans la carte avant les données de caractéristiques, et les superpositions au sol doivent être ajoutées séparément à la carte sous forme de couches. Quand vous chargez des données par le biais d’une URL, elles doivent être hébergées sur un point de terminaison CORS, ou un service proxy doit être transmis comme option dans la fonction read.
+Dans Azure Maps, le format GeoJSON est le format de données principal utilisé dans le SDK web. Vous pouvez facilement intégrer d’autres formats de données spatiales à l’aide du [module d’E/S de données spatiales](/javascript/api/azure-maps-spatial-io/). Ce module présente des fonctions de lecture et d’écriture de données spatiales, et inclut un calque de données simple restituant facilement les données à partir de l’un de ces formats de données spatiales. Pour lire les données d’un fichier de données spatiales, transmettez une URL ou des données brutes sous la forme d’une chaîne ou d’un objet blob dans la fonction `atlas.io.read`. Ceci retournera toutes les données analysées du fichier, qui pourront alors être ajoutées à la carte. Le format KML est un peu plus complexe que la plupart des autres formats de données spatiales. En effet, il inclut beaucoup plus d’informations de style. La classe `SpatialDataLayer` prend en charge le rendu d’une majorité de ces styles. Cependant, les images d’icônes doivent être chargées dans la carte avant les données de caractéristiques, et les calques de relief doivent être ajoutés séparément à la carte sous forme de couches. Quand vous chargez des données par le biais d’une URL, elles doivent être hébergées sur un point de terminaison CORS, ou un service proxy doit être transmis comme option dans la fonction read.
 
 ```html
 <!DOCTYPE html>
@@ -1564,9 +1564,9 @@ Dans Azure Maps, le format GeoJSON est le format de données principal utilisé 
 
 **Ressources supplémentaires**
 
--   [Fonction atlas.io.read](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
--   [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
--   [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+-   [Fonction atlas.io.read](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
+-   [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+-   [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ### <a name="add-drawing-tools"></a>Ajouter des outils de dessin
 
@@ -1683,7 +1683,7 @@ Dans Azure Maps, le module d’outils de dessin doit être chargé en chargeant 
 
 **Ressources supplémentaires**
 
--   [Documentation](https://docs.microsoft.com/azure/azure-maps/set-drawing-options)
+-   [Documentation](./set-drawing-options.md)
 -   [Exemples de code](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -1703,16 +1703,16 @@ Passez en revue les exemples de code relatifs à la migration d’autres fonctio
 **Services**
 
 > [!div class="nextstepaction"]
-> [Utiliser le module de service Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Utiliser le module de service Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Rechercher des points d’intérêt](https://docs.microsoft.com/azure/azure-maps/map-search-location)
+> [Rechercher des points d’intérêt](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Obtenir des informations à partir d’une coordonnée (géocode inversé)](https://docs.microsoft.com/azure/azure-maps/map-get-information-from-coordinate)
+> [Obtenir des informations à partir d’une coordonnée (géocode inversé)](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Afficher des directions de A à B](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Afficher des directions de A à B](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Rechercher la suggestion automatique avec JQuery UI](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Search%20Autosuggest%20and%20JQuery%20UI)
@@ -1729,7 +1729,7 @@ En savoir plus sur le SDK web Azure Maps.
 > [Comment utiliser le module Outils de dessin](set-drawing-options.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
-> [Documentation de référence sur l’API de service du kit SDK web Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-control/)
+> [Documentation de référence sur l’API de service du kit SDK web Azure Maps](/javascript/api/azure-maps-control/)

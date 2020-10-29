@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895492"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
@@ -38,7 +38,7 @@ Commencez par créer un projet avec une activité vide. Suivez ces étapes pour 
 
 1. Sous **Choose your project** (Choisissez votre projet), sélectionnez **Phone and Tablet** (Téléphone et tablette). Votre application s’exécutera sur ce facteur de forme.
 2. Dans l’onglet **Phone and Tablet** (Téléphone et tablette), sélectionnez **Empty Activity** (Activité vide), puis sélectionnez **Next** (Suivant).
-3. Sous **Configurer votre projet**, sélectionnez `API 21: Android 5.0.0 (Lollipop)` comme SDK minimum. Il s’agit de la version minimale prise en charge par Android SDK Azure Maps.
+3. Sous **Configurer votre projet** , sélectionnez `API 21: Android 5.0.0 (Lollipop)` comme SDK minimum. Il s’agit de la version minimale prise en charge par Android SDK Azure Maps.
 4. Acceptez les valeurs par défaut `Activity Name` et `Layout Name`, puis cliquez sur **Finish** (Terminer).
 
 Pour obtenir de l’aide supplémentaire sur l’installation d’Android Studio et la création d’un projet, consultez la [documentation Android Studio](https://developer.android.com/studio/intro/).
@@ -83,7 +83,7 @@ L’étape suivante de la création de votre application consiste à installer A
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. Accédez à **Fichier** dans la barre d’outils, puis cliquez sur **Synchroniser le projet avec les fichiers Gradle**.
+    4. Accédez à **Fichier** dans la barre d’outils, puis cliquez sur **Synchroniser le projet avec les fichiers Gradle** .
 3. Ajoutez un fragment de carte à l’activité principale (res \> layout \> activity\_main.xml) :
     
     ```XML
@@ -103,7 +103,7 @@ L’étape suivante de la création de votre application consiste à installer A
     </FrameLayout>
     ```
 
-4. Dans le fichier **MainActivity.java**, vous devez :
+4. Dans le fichier **MainActivity.java** , vous devez :
     
     * Ajouter des importations pour le Kit de développement logiciel (SDK) Azure Maps
     * Définir vos informations d’authentification Azure Maps
@@ -299,7 +299,7 @@ Découvrez comment ajouter des données superposées sur la carte :
 > [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md) (Ajouter une couche de symboles à une carte Android)
 
 > [!div class="nextstepaction"]
-> [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Ajouter des formes à une carte Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles) (Modifier les styles de carte dans les cartes Android)
+> [Change map styles in Android maps](./set-android-map-styles.md) (Modifier les styles de carte dans les cartes Android)

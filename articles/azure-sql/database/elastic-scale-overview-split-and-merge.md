@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034650"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793464"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’**outil de division-fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
+Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’ **outil de division-fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
 
 L'outil de division-fusion fonctionne comme un service web Azure. Grâce à cet outil, un administrateur ou un développeur déplace des shardlets (les données d'une partition) entre différentes bases de données (partitions). L'outil s’appuie sur la gestion de cartes de partitions pour gérer la base de données de métadonnées de service et garantir des mappages cohérents.
 
@@ -49,7 +49,7 @@ L'outil de division-fusion fonctionne comme un service web Azure. Grâce à cet 
 
 - **Diviser pour augmenter**
 
-  Pour accroître la capacité globale de façon à gérer une croissance importante et soudaine, créez une capacité supplémentaire en partitionnant les données et en les distribuant de manière incrémentielle entre plusieurs bases de données jusqu’à ce que les besoins en capacité soient satisfaits. Il s’agit d’un parfait exemple de la fonctionnalité de **division**.
+  Pour accroître la capacité globale de façon à gérer une croissance importante et soudaine, créez une capacité supplémentaire en partitionnant les données et en les distribuant de manière incrémentielle entre plusieurs bases de données jusqu’à ce que les besoins en capacité soient satisfaits. Il s’agit d’un parfait exemple de la fonctionnalité de **division** .
 
 - **Fusionner pour réduire**
 
@@ -220,7 +220,7 @@ Le service de division-fusion utilise Diagnostics Azure basé sur Azure SDK 2.5 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Pour activer la surveillance et le diagnostic à l'aide de la configuration de diagnostic pour les rôles Web et les rôles de travail fournis par le package NuGet, exécutez les commandes suivantes à l'aide d'Azure PowerShell :
 
@@ -244,7 +244,7 @@ Vous trouverez des informations supplémentaires sur la configuration et le dép
 
 ## <a name="retrieve-diagnostics"></a>Récupérer les diagnostics
 
-Vous pouvez accéder facilement aux diagnostics à partir de l’Explorateur de serveurs Visual Studio dans la partie Azure de l’arborescence de l’Explorateur de serveurs : Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur Affichage et Explorateur de serveurs. Cliquez sur l’icône Azure pour vous connecter à votre abonnement Azure. Ensuite, accédez à Azure -> Stockage -> `<your storage account>` -> Tables -> WADLogsTable. Pour plus d’informations, consultez [Explorateur de serveurs](https://msdn.microsoft.com/library/x603htbk.aspx).
+Vous pouvez accéder facilement aux diagnostics à partir de l’Explorateur de serveurs Visual Studio dans la partie Azure de l’arborescence de l’Explorateur de serveurs : Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur Affichage et Explorateur de serveurs. Cliquez sur l’icône Azure pour vous connecter à votre abonnement Azure. Ensuite, accédez à Azure -> Stockage -> `<your storage account>` -> Tables -> WADLogsTable. Pour plus d’informations, consultez [Explorateur de serveurs](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

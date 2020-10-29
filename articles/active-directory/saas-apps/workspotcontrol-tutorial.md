@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 65e424c6275f9990a5d5a42a54bc4131300a45bf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "88526521"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d'Azure Active Directory à Workspot Control
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Ac
 * autoriser les utilisateurs à se connecter automatiquement à Workspot Control (par le biais de l’authentification unique) avec leur compte Azure AD ;
 * gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -100,20 +100,20 @@ Pour configurer l’authentification unique Azure AD avec Workspot Control, effe
 
 4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le fournisseur d’identité, effectuez ces étapes :
 
-    ![Informations d’authentification unique dans Domaine et URL Workspot Control](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
     1. Dans la zone de texte **Identificateur** , entrez une URL au format suivant :<br/>
     **_https://<<i></i>NOMINSTANCE>-saml.workspot.com/saml/metadata_* _
 
     1. Dans la zone de texte _*URL de réponse* *, entrez une URL au format suivant :<br/>
-    **_https://<<i></i>NOMINSTANCE>-saml.workspot.com/saml/assertion_*_
+    **_https://< <i></i>NOMINSTANCE>-saml.workspot.com/saml/assertion_*_
 
 5. Si vous voulez configurer l’application en mode initié par le fournisseur de services, sélectionnez _*Définir des URL supplémentaires**.
 
-    ![Informations d’authentification unique dans Domaine et URL Workspot Control](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion** , entrez une URL au format suivant :<br/>
-    **_https://<<i></i>NOMINSTANCE>-saml.workspot.com/_* _
+    **_https://< <i></i>NOMINSTANCE>-saml.workspot.com/_* _
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Remplacez ces valeurs par l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Workspot Control](mailto:support@workspot.com). Vous pouvez également consulter les modèles présentés dans la section _ *Configuration SAML de base* * du portail Azure.
@@ -172,7 +172,7 @@ Dans cette section, vous créez un utilisateur de test dans le portail Azure.
 
     1. Dans le champ **Nom** , entrez **BrittaSimon** .
   
-    1. Dans le champ **Nom d’utilisateur** , entrez * *brittasimon@* yourcompanydomain.extension***. Par exemple, entrez **BrittaSimon@contoso.<i></i>com** .
+    1. Dans le champ **Nom d’utilisateur** , entrez * *brittasimon@* yourcompanydomain.extension***. Par exemple, entrez **BrittaSimon@contoso. <i></i>com** .
 
     1. Cochez la case **Afficher le mot de passe** . Notez ensuite la valeur affichée dans la zone **Mot de passe** .
 
@@ -224,7 +224,7 @@ Pour pouvoir se connecter à Workspot Control, les utilisateurs Azure AD doivent
 
     1. Dans la zone de texte **Last name** (Nom), entrez le nom de famille de l’utilisateur, par exemple **Simon** .
 
-    1. Dans la zone **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.<i></i>com** .
+    1. Dans la zone **Email** (E-mail), entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso. <i></i>com** .
 
     1. Sélectionnez le rôle d’utilisateur approprié dans la liste déroulante **Role** (Rôle).
 
@@ -236,12 +236,12 @@ Pour pouvoir se connecter à Workspot Control, les utilisateurs Azure AD doivent
 
 Dans cette section, vous testez la configuration de l’authentification unique Azure AD par le biais du *volet d’accès* .
 
-Quand vous cliquez sur la vignette **Workspot Control** dans le volet d’accès, vous devez être connecté automatiquement à l’application Workspot Control pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Présentation du volet d’accès](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Quand vous cliquez sur la vignette **Workspot Control** dans le volet d’accès, vous devez être connecté automatiquement à l’application Workspot Control pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

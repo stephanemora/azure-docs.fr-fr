@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895628"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Sécuriser un appareil d’entrée contraint avec des API REST Azure Maps et Azure AD
 
@@ -25,7 +25,7 @@ Ce guide explique comment sécuriser des applications ou des appareils publics q
 ## <a name="create-an-application-registration-in-azure-ad"></a>Créer une inscription d’application dans Azure AD
 
 > [!NOTE]
-> * **Lecture requise :** [Scénario : Application de bureau qui appelle des API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
+> * **Lecture requise :** [Scénario : Application de bureau qui appelle des API web](../active-directory/develop/scenario-desktop-overview.md)
 > * Le scénario suivant utilise le flux de code d’appareil, qui n’implique pas de navigateur web pour obtenir un jeton.
 
 Créez l’application basée sur un appareil dans Azure AD pour activer la connexion Azure AD. Cette application sera autorisée à accéder aux API REST Azure Maps.
@@ -35,7 +35,7 @@ Créez l’application basée sur un appareil dans Azure AD pour activer la conn
     > [!div class="mx-imgBorder"]
     > ![Inscription d’application](./media/how-to-manage-authentication/app-registration.png)
 
-2. Entrez un **Nom** et choisissez **Comptes dans cet annuaire d’organisation uniquement** comme **Type de compte pris en charge** . Dans **URI de redirection** , spécifiez **Client public/natif (mobile bureau)** , puis ajoutez `https://login.microsoftonline.com/common/oauth2/nativeclient` à la valeur. Pour plus d’informations, consultez [Azure AD : application de bureau qui appelle des API web : Inscription d’application](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Ensuite, **inscrivez** l’application.
+2. Entrez un **Nom** et choisissez **Comptes dans cet annuaire d’organisation uniquement** comme **Type de compte pris en charge** . Dans **URI de redirection** , spécifiez **Client public/natif (mobile bureau)** , puis ajoutez `https://login.microsoftonline.com/common/oauth2/nativeclient` à la valeur. Pour plus d’informations, consultez [Azure AD : application de bureau qui appelle des API web : Inscription d’application](../active-directory/develop/scenario-desktop-app-registration.md). Ensuite, **inscrivez** l’application.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter les détails de l’inscription d’application pour le nom et l’URI de redirection](./media/azure-maps-authentication/devicecode-app-registration.png)
@@ -57,10 +57,10 @@ Créez l’application basée sur un appareil dans Azure AD pour activer la conn
 
 6. Configurez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les utilisateurs ou les groupes. Consultez [Accorder l’accès en fonction du rôle pour des utilisateurs à Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
-7. Ajoutez du code pour l’acquisition du flux de jeton dans l’application. Pour plus d’informations sur l’implémentation, consultez [Flux de code d’appareil](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Lors de l’acquisition des jetons, référencez l’étendue : `user_impersonation` qui a été sélectionnée lors des étapes précédentes.
+7. Ajoutez du code pour l’acquisition du flux de jeton dans l’application. Pour plus d’informations sur l’implémentation, consultez [Flux de code d’appareil](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). Lors de l’acquisition des jetons, référencez l’étendue : `user_impersonation` qui a été sélectionnée lors des étapes précédentes.
 
 > [!Tip]
-> Utilisez la bibliothèque d’authentification Microsoft (MSAL) pour acquérir des jetons d’accès. Consultez les recommandations fournies dans [Applications de bureau qui appelle des API web : Configuration de code](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
+> Utilisez la bibliothèque d’authentification Microsoft (MSAL) pour acquérir des jetons d’accès. Consultez les recommandations fournies dans [Applications de bureau qui appelle des API web : Configuration de code](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Composez la requête HTTP avec le jeton obtenu auprès d’Azure AD et envoyez la requête avec un client HTTP valide.
 

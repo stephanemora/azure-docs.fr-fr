@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033255"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896291"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Couverture de la mobilité Azure Maps
 
-Le [service Mobility](https://aka.ms/AzureMapsMobilityService) d’Azure Maps améliore le temps de développement pour les applications présentant des fonctionnalités de transport public, comme le calcul d’itinéraires de transport et la recherche d’arrêts à proximité. Les utilisateurs peuvent extraire des informations détaillées sur les arrêts, les lignes et les horaires des transports publics. Le service Mobility permet aussi aux utilisateurs de récupérer les géométries d’arrêts et de lignes, les alertes pour les arrêts, les lignes, les zones de service ainsi que les arrivées des transports publics et les alertes de service en temps réel. De plus, le service Mobility fournit des fonctionnalités de routage avec des options de planification de déplacement multimodal. La planification de trajet multimodal permet de combiner marche, vélo et transports publics. Les utilisateurs peuvent aussi accéder à des itinéraires pas à pas multimodaux détaillés. 
+Le [service Mobility](/rest/api/maps/mobility) d’Azure Maps améliore le temps de développement pour les applications présentant des fonctionnalités de transport public, comme le calcul d’itinéraires de transport et la recherche d’arrêts à proximité. Les utilisateurs peuvent extraire des informations détaillées sur les arrêts, les lignes et les horaires des transports publics. Le service Mobility permet aussi aux utilisateurs de récupérer les géométries d’arrêts et de lignes, les alertes pour les arrêts, les lignes, les zones de service ainsi que les arrivées des transports publics et les alertes de service en temps réel. De plus, le service Mobility fournit des fonctionnalités de routage avec des options de planification de déplacement multimodal. La planification de trajet multimodal permet de combiner marche, vélo et transports publics. Les utilisateurs peuvent aussi accéder à des itinéraires pas à pas multimodaux détaillés. 
 
 Azure Maps n’offre pas le même niveau d’information et de précision dans toutes les villes et tous les pays/régions. La possibilité d’appeler des données de transport public dépend de la zone urbaine. De plus, les données cartographiques peuvent ne pas inclure toutes les options et services de transport public qui desservent la zone urbaine.
 
@@ -159,4 +159,4 @@ Découvrez comment demander des données en temps réel à l’aide de Mobility 
 Explorer la documentation de l’API Mobility Service d’Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentation de l’API Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [Documentation de l’API Mobility Service](/rest/api/maps/mobility)

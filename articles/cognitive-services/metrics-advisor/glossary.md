@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046772"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893418"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Metrics Advisor du vocabulaire et des concepts courants
 
@@ -33,7 +33,7 @@ Un flux de données est ce que Metrics Advisor ingère de votre source de donné
 
 ## <a name="metric"></a>Métrique
 
-Une métrique est une mesure quantifiable utilisée pour analyser et évaluer l’état d’un processus d’entreprise spécifique. Il peut s’agir d’une combinaison de plusieurs valeurs de séries chronologiques divisées en dimensions. Par exemple, une métrique d’*intégrité du Web* peut contenir des dimensions pour le *nombre d’utilisateurs* et le *marché en-US*.
+Une métrique est une mesure quantifiable utilisée pour analyser et évaluer l’état d’un processus d’entreprise spécifique. Il peut s’agir d’une combinaison de plusieurs valeurs de séries chronologiques divisées en dimensions. Par exemple, une métrique d’ *intégrité du Web* peut contenir des dimensions pour le *nombre d’utilisateurs* et le *marché en-US* .
 
 ## <a name="dimension"></a>Dimension
 
@@ -139,29 +139,29 @@ Metrics Advisor fournit plusieurs [méthodes de détection](how-tos/configure-me
 
 Détection d’anomalies à l’aide de plusieurs algorithmes de Machine Learning.
 
-**Sensibilité** : Valeur numérique pour ajuster la tolérance de la détection d’anomalie. Visuellement, plus la valeur est élevée, plus les limites supérieure et inférieure de la série chronologique sont étroites.
+**Sensibilité**  : Valeur numérique pour ajuster la tolérance de la détection d’anomalie. Visuellement, plus la valeur est élevée, plus les limites supérieure et inférieure de la série chronologique sont étroites.
 
 ### <a name="hard-threshold"></a>Seuil définitif
 
 Les valeurs en dehors des limites supérieure ou inférieure sont des anomalies.
 
-**Min** : Limite inférieure
+**Min**  : Limite inférieure
 
-**Max** : Limite supérieure
+**Max**  : Limite supérieure
 
 ### <a name="change-threshold"></a>Seuil de modification
 
 Utilisez la valeur du point précédent pour déterminer si ce point est une anomalie.
 
-**Pourcentage de modification** : Comparé au point précédent, le point actuel est une anomalie si le pourcentage de la modification est supérieur à ce paramètre.
+**Pourcentage de modification**  : Comparé au point précédent, le point actuel est une anomalie si le pourcentage de la modification est supérieur à ce paramètre.
 
-**Modification des points** : Nombre de points à examiner.
+**Modification des points**  : Nombre de points à examiner.
 
 ### <a name="common-parameters"></a>Paramètres communs
 
-**Direction** : Un point est une anomalie uniquement lorsque l’écart se produit dans la direction *haut*, *bas* ou *les deux*.
+**Direction**  : Un point est une anomalie uniquement lorsque l’écart se produit dans la direction *haut* , *bas* ou *les deux* .
 
-**Anomalie non valide tant que** : Un point de données n’est qu’une anomalie si un pourcentage spécifié de points précédents est également une anomalie.
+**Anomalie non valide tant que**  : Un point de données n’est qu’une anomalie si un pourcentage spécifié de points précédents est également une anomalie.
 
 ## <a name="alert-settings"></a>Paramètres d’alerte
 
@@ -173,17 +173,17 @@ Vous pouvez également créer une alerte sur les mesures. Par exemple, une alert
 
 L’étendue de l’alerte fait référence à la portée de l’alerte. Quatre options s’offrent à vous :
 
-**Anomalies de toutes les séries** : Des alertes sont déclenchées pour les anomalies dans toutes les séries de la mesure.
+**Anomalies de toutes les séries**  : Des alertes sont déclenchées pour les anomalies dans toutes les séries de la mesure.
 
-**Anomalies dans le groupe de séries** : Les alertes sont déclenchées uniquement pour les anomalies de dimensions spécifiques du groupe de séries. Le nombre de dimensions spécifiées doit être inférieur au nombre total de dimensions.
+**Anomalies dans le groupe de séries**  : Les alertes sont déclenchées uniquement pour les anomalies de dimensions spécifiques du groupe de séries. Le nombre de dimensions spécifiées doit être inférieur au nombre total de dimensions.
 
-**Anomalies dans les séries de favoris** : Les alertes sont déclenchées uniquement pour les anomalies ajoutées en tant que favoris. Vous pouvez choisir un groupe de séries en tant que favoris pour chaque configuration de détection.
+**Anomalies dans les séries de favoris**  : Les alertes sont déclenchées uniquement pour les anomalies ajoutées en tant que favoris. Vous pouvez choisir un groupe de séries en tant que favoris pour chaque configuration de détection.
 
-**Anomalies dans les N premières séries** : Les alertes sont déclenchées uniquement pour les anomalies dans les N premières séries. Vous pouvez définir des paramètres pour spécifier le nombre de timestamps à prendre en compte, ainsi que le nombre d’anomalies qu’ils doivent avoir pour envoyer l’alerte.
+**Anomalies dans les N premières séries**  : Les alertes sont déclenchées uniquement pour les anomalies dans les N premières séries. Vous pouvez définir des paramètres pour spécifier le nombre de timestamps à prendre en compte, ainsi que le nombre d’anomalies qu’ils doivent avoir pour envoyer l’alerte.
 
 ### <a name="severity"></a>Gravité
 
-La gravité est un degré utilisé par Metrics Advisor pour décrire la gravité de l’incident, y compris *Élevé*, *Moyen* et *Faible*.
+La gravité est un degré utilisé par Metrics Advisor pour décrire la gravité de l’incident, y compris *Élevé* , *Moyen* et *Faible* .
 
 À l’heure actuelle, Metrics Advisor utilise les facteurs suivants pour mesurer la gravité de l’alerte :
 1. La proportion de valeur et de quantité d’anomalies dans la mesure.
@@ -200,7 +200,7 @@ Le comportement de la répétition peut être défini sur un niveau de métrique
 
 ### <a name="ingestion-time-offset"></a>Décalage du temps d’ingestion
 
-Par défaut, les données sont ingérées en fonction de la granularité (par exemple *tous les jours*). En utilisant un entier positif, vous pouvez retarder l’ingestion des données par la valeur spécifiée. En utilisant un nombre négatif, vous pouvez avancer l’ingestion de la valeur spécifiée.
+Par défaut, les données sont ingérées en fonction de la granularité (par exemple *tous les jours* ). En utilisant un entier positif, vous pouvez retarder l’ingestion des données par la valeur spécifiée. En utilisant un nombre négatif, vous pouvez avancer l’ingestion de la valeur spécifiée.
 
 ### <a name="max-ingestion-per-minute"></a>Ingestion maximale par minute
 
@@ -238,7 +238,7 @@ Lorsque cette option a la valeur zéro, chaque timestamp à l’état *Non dispo
 
 ## <a name="data-feed-permissions"></a>Autorisations de flux de données
 
-Il existe deux rôles pour gérer les autorisations de flux de données : *Administrateur* et *Viewer*. 
+Il existe deux rôles pour gérer les autorisations de flux de données : *Administrateur* et *Viewer* . 
 
 * Un *Administrateur* a le contrôle total du flux de données et des mesures qu’il contient. Ils peuvent activer, suspendre, supprimer le flux de données et effectuer des mises à jour vers des flux et des configurations. Un *Administrateur* est généralement le propriétaire des mesures.
 
@@ -246,5 +246,4 @@ Il existe deux rôles pour gérer les autorisations de flux de données : *Admi
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation de Metrics Advisor](overview.md)
-- [Essayer le site de la version de démonstration](quickstarts/explore-demo.md)
 - [Utiliser le Portail web](quickstarts/web-portal.md)

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972034"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896725"
 ---
 # <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
 
-Cet article présente les concepts qui s’appliquent aux [Services météo d’Azure Maps](https://aka.ms/AzureMapsWeatherService). Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
+Cet article présente les concepts qui s’appliquent aux [Services météo d’Azure Maps](/rest/api/maps/weather). Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
 
 ## <a name="unit-types"></a>Types d’unités
 
@@ -100,7 +100,7 @@ Certaines API de service Météo retournent `iconCode` dans la réponse. `iconCo
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Mise à l’échelle de couleurs des images radar et par satellite
 
-Via l’[API Get Map Tile v2](https://aka.ms/AzureMapsWeatherTiles), les utilisateurs peuvent demander les images radar et infra-rouges par satellite les plus récentes. Consultez le guide ci-dessous pour interpréter les couleurs utilisées pour les vignettes radar et satellite.
+Via l’[API Get Map Tile v2](/rest/api/maps/renderv2/getmaptilepreview), les utilisateurs peuvent demander les images radar et infra-rouges par satellite les plus récentes. Consultez le guide ci-dessous pour interpréter les couleurs utilisées pour les vignettes radar et satellite.
 
 ### <a name="radar-images"></a>Images radar
 
@@ -475,7 +475,7 @@ La palette de couleurs détaillée pour les mosaïques de satellite infrarouges 
 
 ## <a name="index-ids-and-index-groups-ids"></a>ID d’index et ID de groupes d’index
 
-L’[API Obtenir des index quotidiens](https://aka.ms/AzureMapsWeatherDailyIndices) permet aux utilisateurs de limiter les résultats renvoyés à des types ou groupes d’index spécifiques.
+L’[API Obtenir des index quotidiens](/rest/api/maps/weather) permet aux utilisateurs de limiter les résultats renvoyés à des types ou groupes d’index spécifiques.
 
 Vous trouverez ci-dessous une table des ID d’index disponibles, leurs noms et un lien vers leurs ensembles de plages. Le tableau ci-dessous répertorie les différents groupes d’index.
 
@@ -547,7 +547,7 @@ Voici la liste des groupes d’index disponibles (indexGroupId) :
 
 ## <a name="daily-index-range-sets"></a>Ensembles de plages d’index quotidiens
 
-L’[API Obtenir des index quotidiens](https://aka.ms/AzureMapsWeatherDailyIndices) renvoie la valeur de plage et son nom de catégorie associé pour chaque ID d’index. Les ensembles de plages ne sont pas identiques pour tous les index. Les tableaux ci-dessous montrent les différents ensembles de plages utilisés par les index pris en charge et répertoriés dans [ID d’index et de groupes d’index](#index-ids-and-index-groups-ids). Pour déterminer les index qui utilisent les ensembles de plages, consultez la section [ID d’index et groupes d’index](#index-ids-and-index-groups-ids) de ce document.
+L’[API Obtenir des index quotidiens](/rest/api/maps/weather) renvoie la valeur de plage et son nom de catégorie associé pour chaque ID d’index. Les ensembles de plages ne sont pas identiques pour tous les index. Les tableaux ci-dessous montrent les différents ensembles de plages utilisés par les index pris en charge et répertoriés dans [ID d’index et de groupes d’index](#index-ids-and-index-groups-ids). Pour déterminer les index qui utilisent les ensembles de plages, consultez la section [ID d’index et groupes d’index](#index-ids-and-index-groups-ids) de ce document.
 
 ### <a name="poor-excellent-1"></a>Médiocre-Excellent 1
 

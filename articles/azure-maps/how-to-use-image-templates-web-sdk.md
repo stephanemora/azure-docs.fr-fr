@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335549"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895679"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
@@ -24,7 +24,7 @@ Les images peuvent être utilisées avec des marqueurs HTML et différentes couc
  - Les couches de polygones peuvent être rendues avec une image de motif de remplissage. 
  - Les marqueurs HTML peuvent afficher des points à l’aide d’images et d’autres éléments HTML.
 
-Pour garantir de bonnes performances avec les couches, chargez les images dans la ressource de sprite d’image de carte avant le rendu. Par défaut, l’interface [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), de SymbolLayer, précharge dans le sprite d’image de carte quelques images de marqueur dans un certain nombre de couleurs. Ces images de marqueur, entre autres éléments, sont disponibles sous forme de modèles SVG. Elles peuvent être utilisées pour créer des images avec des échelles personnalisées ou être utilisées comme couleur principale et secondaire du client. Au total, 42 modèles d’images sont fournis : 27 icônes de symboles et 15 motifs de remplissage de polygones.
+Pour garantir de bonnes performances avec les couches, chargez les images dans la ressource de sprite d’image de carte avant le rendu. Par défaut, l’interface [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions), de SymbolLayer, précharge dans le sprite d’image de carte quelques images de marqueur dans un certain nombre de couleurs. Ces images de marqueur, entre autres éléments, sont disponibles sous forme de modèles SVG. Elles peuvent être utilisées pour créer des images avec des échelles personnalisées ou être utilisées comme couleur principale et secondaire du client. Au total, 42 modèles d’images sont fournis : 27 icônes de symboles et 15 motifs de remplissage de polygones.
 
 Il est possible d’ajouter des modèles d’image aux ressources de sprite d’image de carte à l’aide de la fonction `map.imageSprite.createFromTemplate`. Cette fonction permet de passer jusqu’à cinq paramètres :
 
@@ -514,10 +514,10 @@ Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Options
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [Espace de noms atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [Espace de noms atlas](/javascript/api/azure-maps-control/atlas#functions
 )
 
 Consultez les articles suivants pour obtenir d’autres exemples de code dans lesquels des modèles d’image peuvent être utilisés :

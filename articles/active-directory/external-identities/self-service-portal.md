@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62805564f716d255f38c9312da5c5c986fba944c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896104"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Inscription en libre-service pour Azure AD B2B Collaboration
 
@@ -24,14 +24,14 @@ Les clients peuvent faire beaucoup d’opérations avec les fonctionnalités int
 
 ## <a name="azure-ad-entitlement-management-for-b2b-guest-user-sign-up"></a>Gestion des droits d’utilisation Azure AD pour l’inscription des utilisateurs invités B2B
 
-En tant qu’organisation invitante, vous ne pouvez pas savoir à l’avance quels collaborateurs externes auront besoin d’accéder à vos ressources. Vos devez disposer d’un moyen de permettre à des utilisateurs d’entreprises partenaires de s’inscrire avec les stratégies que vous contrôlez. Si vous souhaitez autoriser les utilisateurs d’autres organisations à demander l’accès, et qu’après approbation ils soient provisionnés avec des comptes invités et affectés à des groupes, des applications et des sites SharePoint Online, vous pouvez utiliser la [gestion des droits d’utilisation Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) pour configurer des stratégies qui [gèrent l’accès pour les utilisateurs externes](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+En tant qu’organisation invitante, vous ne pouvez pas savoir à l’avance quels collaborateurs externes auront besoin d’accéder à vos ressources. Vos devez disposer d’un moyen de permettre à des utilisateurs d’entreprises partenaires de s’inscrire avec les stratégies que vous contrôlez. Si vous souhaitez autoriser les utilisateurs d’autres organisations à demander l’accès, et qu’après approbation ils soient provisionnés avec des comptes invités et affectés à des groupes, des applications et des sites SharePoint Online, vous pouvez utiliser la [gestion des droits d’utilisation Azure AD](../governance/entitlement-management-overview.md) pour configurer des stratégies qui [gèrent l’accès pour les utilisateurs externes](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>API d’invitation B2B Azure Active Directory
 
-Les organisations peuvent utiliser l’[API gestionnaire d’invitation Microsoft Graph](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) pour créer leurs propres expériences d’intégration pour les utilisateurs invités B2B. Quand vous souhaitez proposer une inscription d’utilisateur invité en libre-service B2B, nous vous recommandons d’utiliser la [gestion des droits d’utilisation Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Si par contre vous souhaitez créer votre propre expérience, vous pouvez utiliser l’[API de création d’invitation](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) pour envoyer automatiquement votre e-mail d’invitation personnalisé directement à l’utilisateur B2B, par exemple. Votre application peut aussi utiliser l’inviteRedeemUrl retourné dans la réponse de création pour créer votre propre invitation (par le biais du mécanisme de communication de votre choix) pour l’utilisateur invité.
+Les organisations peuvent utiliser l’[API gestionnaire d’invitation Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0) pour créer leurs propres expériences d’intégration pour les utilisateurs invités B2B. Quand vous souhaitez proposer une inscription d’utilisateur invité en libre-service B2B, nous vous recommandons d’utiliser la [gestion des droits d’utilisation Azure AD](../governance/entitlement-management-overview.md). Si par contre vous souhaitez créer votre propre expérience, vous pouvez utiliser l’[API de création d’invitation](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) pour envoyer automatiquement votre e-mail d’invitation personnalisé directement à l’utilisateur B2B, par exemple. Votre application peut aussi utiliser l’inviteRedeemUrl retourné dans la réponse de création pour créer votre propre invitation (par le biais du mécanisme de communication de votre choix) pour l’utilisateur invité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-* [Attribution de licences Azure AD B2B Collaboration](licensing-guidance.md)
+* [Prix des identités externes](external-identities-pricing.md)
 * [Questions fréquemment posées (FAQ) sur Azure Active Directory B2B Collaboration](faq.md)

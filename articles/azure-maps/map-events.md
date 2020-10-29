@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310371"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890783"
 ---
 # <a name="interact-with-the-map"></a>Interagir avec la carte
 
-Cet article explique comment utiliser la [classe d’événements cartographiques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). La propriété met en surbrillance les événements sur la carte et sur les différentes couches de la carte. Vous pouvez également mettre en surbrillance des événements lorsque vous interagissez avec un marqueur HTML.
+Cet article explique comment utiliser la [classe d’événements cartographiques](/javascript/api/azure-maps-control/atlas.map#events). La propriété met en surbrillance les événements sur la carte et sur les différentes couches de la carte. Vous pouvez également mettre en surbrillance des événements lorsque vous interagissez avec un marqueur HTML.
 
 ## <a name="interact-with-the-map"></a>Interagir avec la carte
 
-Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’**onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur **Modifier sur CodePen** afin de modifier le code par ce biais.
+Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’ **onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur **Modifier sur CodePen** afin de modifier le code par ce biais.
 
 <br/>
 
@@ -117,4 +117,4 @@ Pour voir des exemples de codes complets, consultez les articles suivants :
 > [Utiliser le module de service Azure Maps](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code](/samples/browse/?products=azure-maps)

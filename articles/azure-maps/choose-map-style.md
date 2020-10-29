@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285160"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889797"
 ---
 # <a name="change-the-style-of-the-map"></a>Changer le style de la carte
 
-Le contrôle de carte prend en charge différentes [options de style](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) de carte et plusieurs [styles de carte de base](supported-map-styles.md). Tous les styles peuvent être définis lors de l’initialisation du contrôle de carte. Vous pouvez également définir des styles à l’aide de la fonction `setStyle` du contrôle de carte. Cet article explique comment utiliser ces options de style pour personnaliser l’apparence de la carte. En outre, vous apprendrez à implémenter le contrôle du sélecteur de styles dans votre carte. Le contrôle du sélecteur de styles permet à l’utilisateur de basculer entre différents styles de base.
+Le contrôle de carte prend en charge différentes [options de style](/javascript/api/azure-maps-control/atlas.styleoptions) de carte et plusieurs [styles de carte de base](supported-map-styles.md). Tous les styles peuvent être définis lors de l’initialisation du contrôle de carte. Vous pouvez également définir des styles à l’aide de la fonction `setStyle` du contrôle de carte. Cet article explique comment utiliser ces options de style pour personnaliser l’apparence de la carte. En outre, vous apprendrez à implémenter le contrôle du sélecteur de styles dans votre carte. Le contrôle du sélecteur de styles permet à l’utilisateur de basculer entre différents styles de base.
 
 ## <a name="set-map-style-options"></a>Définir les options de style de carte
 
-Les options de style peuvent être définies lors de l’initialisation du contrôle web. Vous pouvez également mettre à jour les options de style en appelant la fonction `setStyle` du contrôle de carte. Pour afficher toutes les options de style disponibles, consultez [Options de style](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions).
+Les options de style peuvent être définies lors de l’initialisation du contrôle web. Vous pouvez également mettre à jour les options de style en appelant la fonction `setStyle` du contrôle de carte. Pour afficher toutes les options de style disponibles, consultez [Options de style](/javascript/api/azure-maps-control/atlas.styleoptions).
 
 ```javascript
 //Set the style options when creating the map.
@@ -82,7 +82,7 @@ Le style de la carte de base peut être mis à jour à l’aide de la fonction `
 map.setStyle({ style: 'satellite' });
 ```
 
-Dans le code suivant, après le chargement d’une instance de carte, le style de carte est mis à jour de `grayscale_dark` en `satellite` à l’aide de la fonction [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-).
+Dans le code suivant, après le chargement d’une instance de carte, le style de carte est mis à jour de `grayscale_dark` en `satellite` à l’aide de la fonction [setStyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-).
 
 <br/>
 
@@ -93,7 +93,7 @@ Dans le code suivant, après le chargement d’une instance de carte, le style d
 
 Le contrôle du sélecteur de styles fournit un bouton facile à utiliser doté d’un panneau volant que l’utilisateur final peut se servir pour passer d’un style de base à un autre.
 
-Le sélecteur de styles propose deux options de disposition distinctes : `icon` et `list`. En outre, le sélecteur de styles vous permet de choisir deux options `style` différentes pour le contrôle : `light` et `dark`. Dans cet exemple, le sélecteur de styles utilise la disposition `icon` et affiche une liste sélective de styles de carte de base sous forme d’icônes. Le contrôle du sélecteur de styles comprend l’ensemble de styles de base suivant : `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. Pour plus d’informations sur les options de contrôle du sélecteur de styles, consultez [Options de contrôle de style](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+Le sélecteur de styles propose deux options de disposition distinctes : `icon` et `list`. En outre, le sélecteur de styles vous permet de choisir deux options `style` différentes pour le contrôle : `light` et `dark`. Dans cet exemple, le sélecteur de styles utilise la disposition `icon` et affiche une liste sélective de styles de carte de base sous forme d’icônes. Le contrôle du sélecteur de styles comprend l’ensemble de styles de base suivant : `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. Pour plus d’informations sur les options de contrôle du sélecteur de styles, consultez [Options de contrôle de style](/javascript/api/azure-maps-control/atlas.stylecontroloptions).
 
 L’image ci-dessous montre le contrôle du sélecteur de styles avec la disposition `icon`.
 
@@ -118,16 +118,16 @@ Le code suivant montre comment remplacer la liste de styles de base `mapStyles` 
 Pour en savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
 Ajouter des contrôle à vos cartes :
 
