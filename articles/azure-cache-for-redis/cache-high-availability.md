@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654045"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536791"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
 Azure Cache pour Redis offre une haute disponibilité intégrée. L’objectif de son architecture de haute disponibilité est de garantir le fonctionnement de votre instance Redis gérée, même lorsque ses machines virtuelles sous-jacentes sont concernées par des interruptions planifiées ou non planifiées. Elle offre des taux de pourcentage bien supérieurs à ce qui est réalisable en hébergeant Redis sur une seule machine virtuelle.
 
-Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieurs machines virtuelles, appelées *nœuds*, pour un cache. Il configure ces nœuds de manière à ce que la réplication des données et le basculement se fassent de manière coordonnée. Il orchestre également des opérations de maintenance telles que la mise à jour corrective du logiciel Redis. Diverses options de haute disponibilité sont disponibles dans les niveaux Standard et Premium :
+Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieurs machines virtuelles, appelées *nœuds* , pour un cache. Il configure ces nœuds de manière à ce que la réplication des données et le basculement se fassent de manière coordonnée. Il orchestre également des opérations de maintenance telles que la mise à jour corrective du logiciel Redis. Diverses options de haute disponibilité sont disponibles dans les niveaux Standard et Premium :
 
 | Option | Description | Disponibilité | standard | Premium |
 | ------------------- | ------- | ------- | :------: | :---: |
@@ -28,7 +28,7 @@ Azure Cache pour Redis implémente la haute disponibilité en utilisant plusieur
 
 ## <a name="standard-replication"></a>Réplication standard
 
-Une instance Azure Cache pour Redis dans le niveau Standard ou Premium s’exécute par défaut sur une paire de serveurs Redis. Les deux serveurs sont hébergés sur des machines virtuelles dédiées. Le logiciel Redis open source permet à un seul serveur de traiter les demandes d’écriture de données. Ce serveur est le nœud *principal*, tandis que l’autre est son *réplica*. Après avoir configuré les nœuds de serveur, Azure Cache pour Redis leur attribue des rôles principaux et de réplica. Le nœud principal est généralement chargé de traiter les demandes d’écriture et de lecture des clients Redis. Lors d’une opération d’écriture, il valide une nouvelle clé et une mise à jour de clé dans sa mémoire interne et répond immédiatement au client. Il transfère l’opération au réplica de manière asynchrone.
+Une instance Azure Cache pour Redis dans le niveau Standard ou Premium s’exécute par défaut sur une paire de serveurs Redis. Les deux serveurs sont hébergés sur des machines virtuelles dédiées. Le logiciel Redis open source permet à un seul serveur de traiter les demandes d’écriture de données. Ce serveur est le nœud *principal* , tandis que l’autre est son *réplica* . Après avoir configuré les nœuds de serveur, Azure Cache pour Redis leur attribue des rôles principaux et de réplica. Le nœud principal est généralement chargé de traiter les demandes d’écriture et de lecture des clients Redis. Lors d’une opération d’écriture, il valide une nouvelle clé et une mise à jour de clé dans sa mémoire interne et répond immédiatement au client. Il transfère l’opération au réplica de manière asynchrone.
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Configuration de la réplication des données":::
    
@@ -37,7 +37,7 @@ Une instance Azure Cache pour Redis dans le niveau Standard ou Premium s’exéc
 >
 >
 
-Si le nœud principal d’un cache Redis n’est pas disponible, le réplica se promouvra automatiquement pour devenir le nouveau nœud principal. Ce processus s’appelle le *basculement*. Le réplica attendra suffisamment de temps avant de prendre le relais au cas où le nœud principal se rétablirait rapidement. En cas de basculement, Azure Cache pour Redis approvisionne une nouvelle machine virtuelle et la joint au cache en tant que nœud de réplica. Le réplica effectue une synchronisation complète des données avec le nœud principal afin de disposer d’une autre copie des données du cache.
+Si le nœud principal d’un cache Redis n’est pas disponible, le réplica se promouvra automatiquement pour devenir le nouveau nœud principal. Ce processus s’appelle le *basculement* . Le réplica attendra suffisamment de temps avant de prendre le relais au cas où le nœud principal se rétablirait rapidement. En cas de basculement, Azure Cache pour Redis approvisionne une nouvelle machine virtuelle et la joint au cache en tant que nœud de réplica. Le réplica effectue une synchronisation complète des données avec le nœud principal afin de disposer d’une autre copie des données du cache.
 
 Un nœud principal peut être mis hors service dans le cadre d’une activité de maintenance planifiée, telle que la mise à jour du système d’exploitation ou du logiciel Redis. Il peut également cesser de fonctionner en raison d’événements imprévus tels que des défaillances du matériel, du logiciel ou du réseau sous-jacent. L’article [Basculement et mise à jour corrective pour Azure Cache pour Redis](cache-failover.md) fournit une explication détaillée sur les types de basculements de Redis. Une instance Azure Cache pour Redis connaîtra de nombreux basculements pendant sa durée de vie. L’architecture de haute disponibilité est conçue pour rendre ces modifications à l’intérieur d’un cache aussi transparente que possible pour ses clients.
 
@@ -57,7 +57,7 @@ Azure Cache pour Redis autorise des nœuds de réplica supplémentaires dans le 
 >
 >
 
-Azure Cache pour Redis prend en charge les configurations redondantes interzones dans le niveau Premium. Un [cache redondant interzone](cache-how-to-zone-redundancy.md) peut placer ses nœuds dans différentes [Zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) au sein de la même région. Ainsi, les pannes du centre de donnée ou de la zone de disponibilité ne constituent plus un point de défaillance unique et la disponibilité globale de votre cache en est accrue.
+Azure Cache pour Redis prend en charge les configurations redondantes interzones dans le niveau Premium. Un [cache redondant interzone](cache-how-to-zone-redundancy.md) peut placer ses nœuds dans différentes [Zones de disponibilité Azure](../availability-zones/az-overview.md) au sein de la même région. Ainsi, les pannes du centre de donnée ou de la zone de disponibilité ne constituent plus un point de défaillance unique et la disponibilité globale de votre cache en est accrue.
 
 Le diagramme suivant illustre la configuration redondante interzone :
 

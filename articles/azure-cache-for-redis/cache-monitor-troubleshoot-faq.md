@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010757"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537522"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>FAQ sur l’analyse et la résolution des problèmes pour Azure Cache pour Redis
 Cet article fournit des réponses aux questions fréquentes sur l’analyse et la résolution des problèmes pour Azure Cache pour Redis.
@@ -29,7 +29,7 @@ Les instances du Cache Microsoft Azure pour Redis peuvent être surveillées dan
 Le **menu Ressource** du Cache Azure pour Redis contient également plusieurs outils permettant de surveiller et dépanner vos caches.
 
 * **Diagnostiquer et résoudre les problèmes** fournit des informations sur les problèmes courants et les stratégies de résolutions associées.
-* **Resource Health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../resource-health/resource-health-overview.md).
+* **Resource Health** surveille vos ressources et vous indique si elles s’exécutent comme prévu. Pour plus d’informations sur le service Azure Resource Health, consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).
 * **Nouvelle demande de support** fournit des options pour ouvrir une demande de support pour votre cache.
 
 Ces outils vous permettent de surveiller l’intégrité de vos instances de cache Azure pour Redis et vous aident à gérer vos applications de mise en cache. Pour plus d’informations, consultez la section « Paramètres de support et dépannage » de l’article [Configuration de Cache Azure pour Redis](cache-configure.md).

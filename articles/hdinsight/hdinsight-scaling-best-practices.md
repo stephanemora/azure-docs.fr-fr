@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505010"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535397"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -32,9 +32,9 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 
 |Utilitaire | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure Classic CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure portal](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **Taille de cluster** dans le menu de gauche, puis, dans le volet Taille de cluster, entrez le nombre de nœuds Worker, puis sélectionnez Enregistrer.|  
 
@@ -43,8 +43,8 @@ Microsoft fournit les utilitaires suivants pour la mise à l’échelle des clus
 Grâce à ces méthodes, vous pouvez monter ou descendre en puissance votre cluster HDInsight en quelques minutes.
 
 > [!IMPORTANT]  
-> * L’interface de ligne de commande Azure Classic est dépréciée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * Le module PowerShell AzureRM est déconseillé.  Utilisez le [module Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) autant que possible.
+> * L’interface de ligne de commande Azure Classic est dépréciée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](/cli/azure/).
+> * Le module PowerShell AzureRM est déconseillé.  Utilisez le [module Az](/powershell/azure/new-azureps-module-az) autant que possible.
 
 ## <a name="impact-of-scaling-operations"></a>Impact des opérations de mise à l’échelle
 
@@ -128,7 +128,7 @@ Pour éviter l’échec de vos travaux en cours d’exécution pendant une opér
 Pour afficher la liste des travaux en attente ou en cours d’exécution, vous pouvez utiliser **l’interface utilisateur Resource Manager** de YARN en procédant comme suit :
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Le cluster est ouvert dans une nouvelle page du portail.
-2. À partir de la vue principale, accédez à **Tableaux de bord du cluster** > **Accueil Ambari**. Entrez les informations d’identification du cluster.
+2. À partir de la vue principale, accédez à **Tableaux de bord du cluster** > **Accueil Ambari** . Entrez les informations d’identification du cluster.
 3. Dans l’interface utilisateur d’Ambari, sélectionnez **YARN** dans la liste des services du menu de gauche.  
 4. Dans la page YARN, sélectionnez **Quick Links** (Liens rapides), placez le curseur sur le nœud principal actif, puis sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager).
 

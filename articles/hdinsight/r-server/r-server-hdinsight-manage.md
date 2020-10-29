@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087637"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536281"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
@@ -21,7 +21,7 @@ Dans cet article, vous découvrez comment gérer un cluster ML Services existan
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster** .
 
 * Un client Secure Shell (SSH) : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -31,7 +31,7 @@ Vous pouvez autoriser plusieurs utilisateurs simultanés pour le cluster ML Ser
 
 ![HDI - Portail Azure - Paramètres de connexion](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **Nom d’utilisateur de connexion du cluster** : un utilisateur HTTP pour l’authentification via la passerelle HDInsight qui est utilisée pour protéger les clusters HDInsight que vous avez créés. Cet utilisateur HTTP est utilisé pour accéder à l’IU Apache Ambari, à l’IU Apache Hadoop YARN ainsi qu’à d’autres composants d’interface utilisateur.
+- **Nom d’utilisateur de connexion du cluster**  : un utilisateur HTTP pour l’authentification via la passerelle HDInsight qui est utilisée pour protéger les clusters HDInsight que vous avez créés. Cet utilisateur HTTP est utilisé pour accéder à l’IU Apache Ambari, à l’IU Apache Hadoop YARN ainsi qu’à d’autres composants d’interface utilisateur.
 - **Nom d’utilisateur Secure Shell (SSH)**  : un utilisateur SSH pour l’accès au cluster via Secure Shell. Ce dernier correspond à un utilisateur dans le système Linux pour tous les nœuds principaux, les nœuds Worker et les nœuds de périmètre. Par conséquent, vous pouvez utiliser Secure Shell pour accéder à n’importe quel nœud dans un cluster distant.
 
 La version de R Studio Server Community utilisée dans le cluster ML Services sur HDInsight n’accepte comme mécanisme de connexion que les noms d’utilisateur et mots de passe Linux. Elle ne prend pas en charge le passage de jetons. Par conséquent, quand vous essayez d’accéder à R Studio pour la première fois sur un cluster ML Services, vous devez vous connecter deux fois.
@@ -68,13 +68,13 @@ La capture d’écran qui suit présente les résultats.
 
 ![Capture d’écran montrant les utilisateurs simultanés](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
 
-Ignorez le message vous invitant à entrer le « mot de passe Kerberos actuel » en appuyant simplement sur la touche **Entrée**. L’option `-m` de la commande `useradd` indique que le système va créer un dossier de base pour l’utilisateur, requis pour RStudio Community.
+Ignorez le message vous invitant à entrer le « mot de passe Kerberos actuel » en appuyant simplement sur la touche **Entrée** . L’option `-m` de la commande `useradd` indique que le système va créer un dossier de base pour l’utilisateur, requis pour RStudio Community.
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Étape 3 : Utiliser la version RStudio Community avec l’utilisateur créé
 
 Accédez à RStudio à partir de `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Si vous vous connectez pour la première fois après avoir créé le cluster, entrez les informations d’identification de l’administrateur du cluster, suivies des informations d’identification de l’utilisateur SSH que vous avez créées. S’il ne s’agit pas de votre première connexion, entrez uniquement les informations d’identification de l’utilisateur SSH que vous avez créé.
 
-Vous pouvez aussi vous connecter simultanément en utilisant les informations d’identification d’origine (par défaut, *sshuser*) à partir d’une autre fenêtre de navigateur.
+Vous pouvez aussi vous connecter simultanément en utilisant les informations d’identification d’origine (par défaut, *sshuser* ) à partir d’une autre fenêtre de navigateur.
 
 Notez également que les utilisateurs récemment ajoutés ne possèdent pas les privilèges racine dans le système Linux. Cependant, ils bénéficient du même accès à l’ensemble des fichiers dans les stockages distants HDFS et WASB.
 
@@ -106,7 +106,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-Pour plus d’informations, consultez la section « Utilisation de Microsoft Machine Learning Server comme client Apache Hadoop » dans [Guide pratique pour utiliser RevoScaleR dans un contexte de calcul Apache Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+Pour plus d’informations, consultez la section « Utilisation de Microsoft Machine Learning Server comme client Apache Hadoop » dans [Guide pratique pour utiliser RevoScaleR dans un contexte de calcul Apache Spark](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## <a name="use-a-compute-context"></a>Utiliser un contexte de calcul
 
@@ -195,19 +195,19 @@ Pour installer des packages R sur les nœuds Worker du cluster, vous devez utili
 
 1. Suivez les étapes fournies dans [Personnaliser des clusters à l’aide d’une action de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
-3. Pour **Envoyer une action de script**, entrez les informations suivantes :
+3. Pour **Envoyer une action de script** , entrez les informations suivantes :
 
-   * Pour **Type de script**, sélectionnez **Personnalisé**.
+   * Pour **Type de script** , sélectionnez **Personnalisé** .
 
-   * Dans le champ **Nom**, renseignez un nom pour l’action de script.
+   * Dans le champ **Nom** , renseignez un nom pour l’action de script.
 
-     * Pour **URI de script bash**, entrez `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Il s’agit du script permettant d’installer les packages R supplémentaires sur le nœud Worker.
+     * Pour **URI de script bash** , entrez `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Il s’agit du script permettant d’installer les packages R supplémentaires sur le nœud Worker.
 
-   * Sélectionnez uniquement la case à cocher en regard de **Worker**.
+   * Sélectionnez uniquement la case à cocher en regard de **Worker** .
 
-   * **Paramètres** : les packages R à installer. Par exemple : `bitops stringr arules`
+   * **Paramètres**  : les packages R à installer. Par exemple : `bitops stringr arules`
 
-   * Sélectionnez la case à cocher en regard de **Conservez cette action de script**.  
+   * Sélectionnez la case à cocher en regard de **Conservez cette action de script** .  
 
    > [!NOTE]
    > 1. Par défaut, tous les packages R sont installés à partir d’un instantané du référentiel Microsoft MRAN compatible avec la version de ML Server qui a été installée. Si vous souhaitez installer des versions plus récentes des packages, vous risquez de rencontrer des problèmes de compatibilité. Toutefois, vous pouvez effectuer ce type d’installation en spécifiant `useCRAN` comme premier élément de la liste des packages, par exemple `useCRAN bitops, stringr, arules`.  

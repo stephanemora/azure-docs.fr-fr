@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079426"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542792"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Utiliser Apache Zeppelin pour exécuter des requêtes Apache Phoenix sur Apache HBase dans Azure HDInsight
 
@@ -31,22 +31,22 @@ Un cluster Apache HBase sur HDInsight. Consultez [Bien démarrer avec Apache HBa
 
 1. Remplacez `CLUSTERNAME` par le nom de votre cluster dans l’URL suivante `https://CLUSTERNAME.azurehdinsight.net/zeppelin`. Entrez ensuite l’URL dans un navigateur web. Entrez le nom d’utilisateur et le mot de passe de connexion pour votre cluster.
 
-1. Dans la page Zeppelin, sélectionnez **Créer une note**.
+1. Dans la page Zeppelin, sélectionnez **Créer une note** .
 
     ![Zeppelin avec Interactive Query HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
-1. Dans la boîte de dialogue **Créer une note**, entrez ou sélectionnez les valeurs suivantes :
+1. Dans la boîte de dialogue **Créer une note** , entrez ou sélectionnez les valeurs suivantes :
 
     - Nom de la note : entrez un nom pour la note.
     - Interpréteur par défaut : sélectionnez **jdbc** dans la liste déroulante.
 
-    Sélectionnez ensuite **Créer une note**.
+    Sélectionnez ensuite **Créer une note** .
 
 1. Vérifiez que l'en-tête du bloc-notes indique un état connecté. Il est indiqué par un point vert dans le coin supérieur droit.
 
     ![État du notebook Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "État du bloc-notes Zeppelin")
 
-1. Créez une table HBase. Entrez la commande suivante, puis appuyez sur **Maj + Entrée** :
+1. Créez une table HBase. Entrez la commande suivante, puis appuyez sur **Maj + Entrée**  :
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Un cluster Apache HBase sur HDInsight. Consultez [Bien démarrer avec Apache HBa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apache Phoenix prend désormais en charge Zeppelin dans Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix prend désormais en charge Zeppelin dans Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Grammaire Apache Phoenix](https://phoenix.apache.org/language/index.html)

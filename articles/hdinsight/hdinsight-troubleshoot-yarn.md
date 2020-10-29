@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535023"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
@@ -24,7 +24,7 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 
 Effectuez les étapes suivantes via Ambari pour créer une file d’attente YARN, puis équilibrer l’allocation de capacité entre toutes les files d’attente.
 
-Dans cet exemple, la capacité de deux files d’attente existantes (**default** et **thriftsvr**) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
+Dans cet exemple, la capacité de deux files d’attente existantes ( **default** et **thriftsvr** ) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
 
 | File d'attente | Capacité | Capacité maximale |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ Dans cet exemple, la capacité de deux files d’attente existantes (**default**
 | thrftsvr | 25 % | 50 |
 | spark | 50 | 50 |
 
-1. Cliquez sur l’icône **Vues Ambari**, puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
+1. Cliquez sur l’icône **Vues Ambari** , puis sur l’icône de grille. Sélectionnez ensuite **YARN Queue Manager** (Gestionnaire de files d’attente YARN).
 
     ![Tableau de bord Apache Ambari - YARN - Gestionnaire de files d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Sélectionnez la file d’attente **default** (par défaut).
@@ -49,7 +49,7 @@ Dans cet exemple, la capacité de deux files d’attente existantes (**default**
 
     ![Tableau de bord Apache Ambari - YARN - Nommage d’une file d’attente](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
-6. Conservez la valeur de **capacité** de 50 %, puis cliquez sur le bouton **Actions**.
+6. Conservez la valeur de **capacité** de 50 %, puis cliquez sur le bouton **Actions** .
 
     ![Apache Ambari - YARN - Sélection d’une action](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Sélectionnez **Save and Refresh Queues** (Enregistrer et actualiser les files d’attente).
@@ -74,7 +74,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
     yarn top
     ```
 
-    Les ID sont répertoriés dans la colonne **APPLICATIONID**. Vous pouvez télécharger les journaux d’activité depuis la colonne **APPLICATIONID**.
+    Les ID sont répertoriés dans la colonne **APPLICATIONID** . Vous pouvez télécharger les journaux d’activité depuis la colonne **APPLICATIONID** .
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -131,7 +131,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Documentation supplémentaire
 
-- [Se connecter à HDInsight (Apache Hadoop) avec SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Se connecter à HDInsight (Apache Hadoop) avec SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow) (Concepts et applications Apache Hadoop Yarn, en anglais)
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -142,4 +142,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 - Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

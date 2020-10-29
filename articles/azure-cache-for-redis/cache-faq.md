@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 197decbb263391a32b8bf01cdbb6c2f34b750111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e554a3354b9cfdce7d0c367f757251f44e4599
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003573"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536822"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ sur le cache Azure pour Redis
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques concernant le Cache Azure pour Redis.
@@ -33,12 +33,11 @@ Pour consulter la documentation archivée, voir [Documentation archivée du serv
 
 Pour consulter la documentation archivée, voir [Documentation archivée du service In-Role Cache](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
-["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: /previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse.
 
-* Pour atteindre un public plus large, vous pouvez publier une question sur la [page Microsoft Q&R sur Azure Cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) et collaborer avec l’équipe Azure Cache et d’autres membres de la communauté.
+* Pour atteindre un public plus large, vous pouvez publier une question sur la [page Microsoft Q&R sur Azure Cache](/answers/topics/azure-cache-redis.html) et collaborer avec l’équipe Azure Cache et d’autres membres de la communauté.
 * Si vous souhaitez effectuer une demande de fonctionnalité, vous pouvez envoyer vos demandes et idées à [Azure Cache for Redis User Voice](https://feedback.azure.com/forums/169382-cache).
 * Vous pouvez également nous envoyer votre question à [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
-

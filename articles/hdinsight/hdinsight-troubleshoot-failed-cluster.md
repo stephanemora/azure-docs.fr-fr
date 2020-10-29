@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895313"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535091"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -56,7 +56,7 @@ Le portail Azure peut fournir les informations suivantes :
 
 ![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
-Vous pouvez également utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) :
+Vous pouvez également utiliser [Azure CLI](/cli/azure/) :
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -90,8 +90,8 @@ HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virt
 
 #### <a name="check-azure-service-usage-limits"></a>Rechercher les limites d’utilisation des services Azure
 
-Si vous démarrez un cluster volumineux ou si vous avez lancé simultanément un grand nombre de clusters, un cluster peut échouer si vous avez dépassé une limite de service Azure. Les limites de service varient selon votre abonnement Azure. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Vous pouvez demander à Microsoft d’augmenter le nombre de ressources HDInsight disponibles (par exemple, les cœurs de machines virtuelles et les instances de machines virtuelles) en soumettant une [demande d’augmentation des quotas de processeurs virtuels pour Resource Manager](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Si vous démarrez un cluster volumineux ou si vous avez lancé simultanément un grand nombre de clusters, un cluster peut échouer si vous avez dépassé une limite de service Azure. Les limites de service varient selon votre abonnement Azure. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Vous pouvez demander à Microsoft d’augmenter le nombre de ressources HDInsight disponibles (par exemple, les cœurs de machines virtuelles et les instances de machines virtuelles) en soumettant une [demande d’augmentation des quotas de processeurs virtuels pour Resource Manager](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Vérifier la version
 
@@ -115,7 +115,7 @@ Le [tableau de bord de l’interface utilisateur Ambari](#view-cluster-configura
 
 ### <a name="check-your-webhcat-service"></a>Vérifier votre service WebHCat
 
-Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN Apache Hadoop et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
+Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton* ). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN Apache Hadoop et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (code d’état 502)
 
@@ -172,7 +172,7 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
     Si vous ouvrez le fichier journal `/var/log/webhcat/webhcat.log` et que vous recherchez un « travail en file d’attente », vous pouvez voir plusieurs entrées associées à une durée d’exécution trop longue (> 2 000 ms), où les entrées indiquent une augmentation des temps d’attente.
 
-    La durée des travaux en file d’attente continue d’augmenter car la vitesse à laquelle les nouveaux travaux sont envoyés est supérieure à la fréquence d’exécution des anciens travaux. Une fois que la mémoire de YARN est utilisée à 100 %, la *file d’attente joblauncher* ne peut plus emprunter de capacité à la *file d’attente par défaut*. Par conséquent, la file d’attente joblauncher ne peut plus accepter de nouveaux travaux. Ce comportement peut provoquer un allongement des temps d’attente et provoquer une erreur de délai d’expiration, qui est généralement suivie de nombreuses autres erreurs du même type.
+    La durée des travaux en file d’attente continue d’augmenter car la vitesse à laquelle les nouveaux travaux sont envoyés est supérieure à la fréquence d’exécution des anciens travaux. Une fois que la mémoire de YARN est utilisée à 100 %, la *file d’attente joblauncher* ne peut plus emprunter de capacité à la *file d’attente par défaut* . Par conséquent, la file d’attente joblauncher ne peut plus accepter de nouveaux travaux. Ce comportement peut provoquer un allongement des temps d’attente et provoquer une erreur de délai d’expiration, qui est généralement suivie de nombreuses autres erreurs du même type.
 
     L’illustration suivante montre la file d’attente joblauncher à un taux d’utilisation de 714,4 %. Ce taux est acceptable tant qu’il reste de la capacité disponible à emprunter à la file d’attente par défaut. Toutefois, lorsque le cluster est entièrement utilisé et que la mémoire YARN a atteint 100 % de sa capacité, les nouveaux travaux doivent attendre, ce qui finit par provoquer une expiration des délais d’attente.
 
@@ -206,7 +206,7 @@ Pour diagnostiquer ces problèmes :
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : Examiner la pile et les versions de l’environnement
 
-La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
+La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin** , puis **Piles et versions** .  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
 
 ![Apache Ambari - Piles et versions](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -228,7 +228,7 @@ Les journaux d’activité d’actions de script se trouvent dans le répertoire
 
 ### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Afficher les journaux d’activité HDInsight à l’aide des liens rapides d’Ambari
 
-L’interface utilisateur HDInsight Ambari comprend un certain nombre de sections **Liens rapides**.  Pour accéder aux liens vers les journaux d’un service donné de votre cluster HDInsight, ouvrez l’interface utilisateur Ambari de votre cluster, puis sélectionnez le lien du service dans la liste située à gauche. Sélectionnez la liste déroulante **Liens rapides**, puis le nœud HDInsight qui vous intéresse, et sélectionnez le lien vers le journal correspondant.
+L’interface utilisateur HDInsight Ambari comprend un certain nombre de sections **Liens rapides** .  Pour accéder aux liens vers les journaux d’un service donné de votre cluster HDInsight, ouvrez l’interface utilisateur Ambari de votre cluster, puis sélectionnez le lien du service dans la liste située à gauche. Sélectionnez la liste déroulante **Liens rapides** , puis le nœud HDInsight qui vous intéresse, et sélectionnez le lien vers le journal correspondant.
 
 Par exemple, pour les journaux d’activité HDFS :
 
@@ -262,7 +262,7 @@ Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Analyse des journaux d’activité HDInsight](hdinsight-debug-jobs.md)
+* [Analyse des journaux d’activité HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Accéder à la connexion des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Problèmes connus du cluster Apache Spark sur Azure HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Problèmes connus du cluster Apache Spark sur Azure HDInsight](./spark/apache-spark-known-issues.md)

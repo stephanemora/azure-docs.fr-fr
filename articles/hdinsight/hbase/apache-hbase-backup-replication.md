@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505027"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542775"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur HDInsight
 
@@ -52,7 +52,7 @@ Une fois que vous avez supprimé le cluster, vous pouvez laisser les données te
 
 * Créez une nouvelle instance HDInsight pointant vers l’emplacement actuel de stockage. La nouvelle instance est créée avec l’ensemble des données existantes.
 
-* Copiez à un autre emplacement le dossier `hbase` dans un conteneur d’objets blob du stockage Azure ou dans une instance Data Lake Storage, puis démarrez un nouveau cluster avec ces données. Pour le stockage Azure, utilisez [AzCopy](../../storage/common/storage-use-azcopy.md), et pour Data Lake Storage, utilisez [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copiez à un autre emplacement le dossier `hbase` dans un conteneur d’objets blob du stockage Azure ou dans une instance Data Lake Storage, puis démarrez un nouveau cluster avec ces données. Pour le stockage Azure, utilisez [AzCopy](../../storage/common/storage-use-azcopy-v10.md), et pour Data Lake Storage, utilisez [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exporter puis importer
 
@@ -173,7 +173,7 @@ Dans notre exemple :
 
 ## <a name="snapshots"></a>Instantanés
 
-Les [instantanés](https://hbase.apache.org/book.html#ops.snapshots) vous permettent d’exécuter une sauvegarde à un point dans le temps des données de votre magasin de données HBase. Les instantanés présentent une charge minimale et s’exécutent en quelques secondes, dans la mesure où l’opération associée correspond en réalité à une opération de métadonnées consistant à capturer les noms de tous les fichiers stockés à cet instant. Au moment de la prise d’un instantané, aucune donnée réelle n’est copiée. Les instantanés s’appuient sur la nature immuable des données stockées dans HDFS, où les mises à jour, les suppressions et les insertions sont toutes représentées en tant que nouvelles données. Vous pouvez restaurer (*cloner*) un instantané sur le même cluster, ou exporter un instantané vers un cluster différent.
+Les [instantanés](https://hbase.apache.org/book.html#ops.snapshots) vous permettent d’exécuter une sauvegarde à un point dans le temps des données de votre magasin de données HBase. Les instantanés présentent une charge minimale et s’exécutent en quelques secondes, dans la mesure où l’opération associée correspond en réalité à une opération de métadonnées consistant à capturer les noms de tous les fichiers stockés à cet instant. Au moment de la prise d’un instantané, aucune donnée réelle n’est copiée. Les instantanés s’appuient sur la nature immuable des données stockées dans HDFS, où les mises à jour, les suppressions et les insertions sont toutes représentées en tant que nouvelles données. Vous pouvez restaurer ( *cloner* ) un instantané sur le même cluster, ou exporter un instantané vers un cluster différent.
 
 Pour créer un instantané, exécutez SSH dans le nœud principal de votre cluster HBase, puis démarrez le shell `hbase` :
 
@@ -245,4 +245,4 @@ Pour activer la réplication sur HDInsight, appliquez une action de script sur v
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer la réplication Apache HBase](apache-hbase-replication.md)
-* [Utilisation de l’utilitaire d’importation et d’exportation HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Utilisation de l’utilitaire d’importation et d’exportation HBase](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

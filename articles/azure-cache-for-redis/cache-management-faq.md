@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205385"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537658"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>FAQ sur la gestion d’Azure Cache pour Redis
 Cet article fournit des réponses aux questions fréquentes sur la gestion d’Azure Cache pour Redis.
@@ -63,7 +63,7 @@ Pour obtenir des instructions sur le téléchargement des outils Redis, consulte
 * La machine virtuelle cliente utilisée pour le test doit figurer dans la même région que votre instance de Cache Azure pour Redis.
 * Nous recommandons d’utiliser des machines virtuelles Dv2 pour votre client car elles disposent d’un matériel plus performant et fournissent de meilleurs résultats.
 * Assurez-vous que la machine virtuelle cliente que vous choisissez possède au moins autant de puissance de calcul et de bande passante que le cache que vous testez.
-* Activez VRSS sur la machine cliente si vous êtes sous Windows. [Vous trouverez plus d’informations ici](https://technet.microsoft.com/library/dn383582.aspx).
+* Activez VRSS sur la machine cliente si vous êtes sous Windows. [Vous trouverez plus d’informations ici](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
 * Les instances Redis de niveau Premium offriront une meilleure latence de réseau et un débit supérieur car elles s’exécutent sur un matériel plus performant en termes de processeur et de réseau.
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quels sont les points à prendre en compte en ce qui concerne les commandes Redis les plus courantes ?
@@ -144,10 +144,10 @@ Configuration de ce paramètre :
     > [!NOTE]
     > La valeur spécifiée par cette méthode est un paramètre global qui affecte tout le domaine d’application. Par exemple, si vous avez une machine à 4 cœurs et que vous souhaitez définir *minWorkerThreads* et *minIoThreads* à 50 par processeur pendant l’exécution, vous utiliserez **ThreadPool.SetMinThreads(200, 200)** .
 
-* Il est également possible de spécifier le paramètre minimal de threads à l’aide du [paramètre de configuration *minIoThreads* ou *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sous l’élément de configuration `<processModel>` dans `Machine.config`, généralement situé dans `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Définir le nombre minimal de threads de cette manière n’est généralement pas recommandé, car il s’agit d’un paramètre de l’échelle du système.**
+* Il est également possible de spécifier le paramètre minimal de threads à l’aide du [paramètre de configuration *minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) sous l’élément de configuration `<processModel>` dans `Machine.config`, généralement situé dans `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Définir le nombre minimal de threads de cette manière n’est généralement pas recommandé, car il s’agit d’un paramètre de l’échelle du système.**
 
   > [!NOTE]
-  > La valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur*. Par exemple, si vous utilisez un ordinateur à 4 cœurs et que vous souhaitez définir votre paramètre *minIoThreads* sur 200 au moment de l’exécution, vous utilisez `<processModel minIoThreads="50"/>`.
+  > La valeur spécifiée dans cet élément de configuration est un paramètre applicable *par cœur* . Par exemple, si vous utilisez un ordinateur à 4 cœurs et que vous souhaitez définir votre paramètre *minIoThreads* sur 200 au moment de l’exécution, vous utilisez `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Activation de Garbage Collection sur le serveur pour obtenir un meilleur début sur le client lors de l'utilisation de StackExchange.Redis

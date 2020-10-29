@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895231"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534887"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Hive à l’aide d’Azure HDInsight
 
@@ -49,7 +49,7 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 
-1. Connectez-vous au cluster HDInsight à l’aide de SSH. Pour plus d’informations, consultez la section **Documentation supplémentaire**.
+1. Connectez-vous au cluster HDInsight à l’aide de SSH. Pour plus d’informations, consultez la section **Documentation supplémentaire** .
 
 2. Pour afficher les journaux d’activité du client Hive, utilisez la commande suivante :
 
@@ -120,17 +120,17 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
    Vous devez fournir un exemple de programme comme premier argument.
 
    Noms de programme valides :
-    - **ContainerReuseAnalyzer**: Imprimer les détails de réutilisation du conteneur dans un DAG
-    - **CriticalPath**: Trouver le chemin critique d’un DAG
-    - **LocalityAnalyzer**: Imprimer les détails de localité dans un DAG
-    - **ShuffleTimeAnalyzer**: Analyser les détails de délai de lecture aléatoire dans un DAG
-    - **SkewAnalyzer**: Analyser les détails d’asymétrie dans un DAG
-    - **SlowNodeAnalyzer**: Imprimer les détails des nœuds dans un DAG
-    - **SlowTaskIdentifier**: Imprimer les détails des tâches lentes dans un DAG
-    - **SlowestVertexAnalyzer**: Imprimer les détails des données vertex les plus lentes dans un DAG
-    - **SpillAnalyzer**: Imprimer les détails de dépassement dans un DAG
-    - **TaskConcurrencyAnalyzer**: Imprimer les détails de simultanéité des tâches dans un DAG
-    - **VertexLevelCriticalPathAnalyzer**: Trouver le chemin critique au niveau des données vertex dans un DAG
+    - **ContainerReuseAnalyzer** : Imprimer les détails de réutilisation du conteneur dans un DAG
+    - **CriticalPath** : Trouver le chemin critique d’un DAG
+    - **LocalityAnalyzer** : Imprimer les détails de localité dans un DAG
+    - **ShuffleTimeAnalyzer** : Analyser les détails de délai de lecture aléatoire dans un DAG
+    - **SkewAnalyzer** : Analyser les détails d’asymétrie dans un DAG
+    - **SlowNodeAnalyzer** : Imprimer les détails des nœuds dans un DAG
+    - **SlowTaskIdentifier** : Imprimer les détails des tâches lentes dans un DAG
+    - **SlowestVertexAnalyzer** : Imprimer les détails des données vertex les plus lentes dans un DAG
+    - **SpillAnalyzer** : Imprimer les détails de dépassement dans un DAG
+    - **TaskConcurrencyAnalyzer** : Imprimer les détails de simultanéité des tâches dans un DAG
+    - **VertexLevelCriticalPathAnalyzer** : Trouver le chemin critique au niveau des données vertex dans un DAG
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
@@ -169,4 +169,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 - Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

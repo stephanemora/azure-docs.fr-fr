@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929350"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534054"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutoriel : Créer un serveur flexible Azure Database pour MySQL (préversion) avec une application web App Services dans le même réseau virtuel
 
 > [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
-Ce didacticiel vous montre comment créer une application web Azure App Service avec un serveur flexible MySQL (préversion) à l’intérieur d’un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Ce didacticiel vous montre comment créer une application web Azure App Service avec un serveur flexible MySQL (préversion) à l’intérieur d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
 
 ```azurecli
 az login
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

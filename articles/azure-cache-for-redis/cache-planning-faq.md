@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010753"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537403"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>FAQ sur la planification d’Azure Cache pour Redis
 
@@ -84,7 +84,7 @@ Oui, le Cache Azure pour Redis est disponible dans le cloud Azure Government, le
 
 Pour plus d’informations sur les éléments à prendre en compte lors de l’utilisation du Cache Azure pour Redis avec d’autres clouds, consultez les liens suivants.
 
-- [Bases de données Azure Government - Cache Azure pour Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Bases de données Azure Government - Cache Azure pour Redis](../azure-government/compare-azure-government-global-azure.md)
 - [Cloud Azure Chine 21Vianet - Cache Azure pour Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 

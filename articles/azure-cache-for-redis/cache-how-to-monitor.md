@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004847"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536740"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 
@@ -34,13 +34,13 @@ Le **Panneau de vue d’ensemble** comporte les graphiques de surveillance préc
 
 ### <a name="monitoring-charts"></a>Graphiques de surveillance
 
-La **Section surveillance** du **Panneau de vue d’ensemble** affiche des **Correspondances et des absences**, des **Obtentions et des définitions**, des **Connexions** et des graphiques de **Commandes totales** .
+La **Section surveillance** du **Panneau de vue d’ensemble** affiche des **Correspondances et des absences** , des **Obtentions et des définitions** , des **Connexions** et des graphiques de **Commandes totales** .
 
 ![Graphiques de surveillance](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Graphiques d’utilisation
 
-La section **utilisation** du panneau **Vue d’ensemble** affiche les graphiques **Charge du serveur Redis**, **Utilisation de la mémoire**, **Bande passante réseau** et **Utilisation de l’UC**, ainsi que affiche également le **Niveau tarifaire** de l’instance de cache.
+La section **utilisation** du panneau **Vue d’ensemble** affiche les graphiques **Charge du serveur Redis** , **Utilisation de la mémoire** , **Bande passante réseau** et **Utilisation de l’UC** , ainsi que affiche également le **Niveau tarifaire** de l’instance de cache.
 
 ![Graphiques d’utilisation](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,27 +48,27 @@ La section **utilisation** du panneau **Vue d’ensemble** affiche les graphique
 
 ## <a name="view-metrics-with-azure-monitor"></a>Afficher les mesures avec Azure Monitor
 
-Pour afficher les mesures Redis et créer des graphiques personnalisés à l’aide d’Azure Monitor, cliquez sur **Mesures** depuis le **menu Ressource**et personnalisez votre graphique à l’aide des mesures souhaitées, de l’intervalle de consignation désiré, du type de graphique voulu et bien plus encore.
+Pour afficher les mesures Redis et créer des graphiques personnalisés à l’aide d’Azure Monitor, cliquez sur **Mesures** depuis le **menu Ressource** et personnalisez votre graphique à l’aide des mesures souhaitées, de l’intervalle de consignation désiré, du type de graphique voulu et bien plus encore.
 
 ![Mesures Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure Monitor, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure Monitor, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exporter les mesures de cache
 
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-platform-metrics.md), puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../azure-monitor/platform/archive-diagnostic-logs.md) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-platform-metrics.md), puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
 
 Pour configurer un compte de stockage pour vos mesures de cache :
 
-1. Dans la page **Azure Cache for Redis**, sous l’en-tête **Supervision**, sélectionnez **Diagnostics**.
-2. Sélectionnez **+ Ajouter le paramètre de diagnostic**.
+1. Dans la page **Azure Cache for Redis** , sous l’en-tête **Supervision** , sélectionnez **Diagnostics** .
+2. Sélectionnez **+ Ajouter le paramètre de diagnostic** .
 3. Nommez les paramètres.
-4. Cochez **Archive vers un compte de stockage**. Des frais de données normaux vous sont facturés pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage.
+4. Cochez **Archive vers un compte de stockage** . Des frais de données normaux vous sont facturés pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage.
 4. Sélectionnez **Configurer** pour choisir le compte de stockage dans lequel stocker les métriques de cache.
-5. Sous l’en-tête de table **métrique**, cochez la case en regard des éléments de ligne que vous souhaitez stocker, par exemple **AllMetrics**. Spécifiez une stratégie de **Rétention (jours)** . Le durée maximale de rétention que vous pouvez spécifier est **365 jours**. Toutefois, si vous souhaitez conserver les données de métriques à jamais, définissez la valeur **Rétention (jours)** sur **0**.
-6. Cliquez sur **Enregistrer**.
+5. Sous l’en-tête de table **métrique** , cochez la case en regard des éléments de ligne que vous souhaitez stocker, par exemple **AllMetrics** . Spécifiez une stratégie de **Rétention (jours)** . Le durée maximale de rétention que vous pouvez spécifier est **365 jours** . Toutefois, si vous souhaitez conserver les données de métriques à jamais, définissez la valeur **Rétention (jours)** sur **0** .
+6. Cliquez sur **Enregistrer** .
 
 
 ![Diagnostics Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, co
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Mesures disponibles et intervalles de création des rapports
 
-Les mesures de cache font l’objet de rapports à différents intervalles : **Dernière heure**, **Aujourd’hui**, **Semaine dernière** et **Personnalisé**. Le panneau **Mesure** de chaque mesure affiche les valeurs moyennes, minimales et maximales de chaque mesure du graphique et certaines mesures affichent le total pour l’intervalle de création des rapports. 
+Les mesures de cache font l’objet de rapports à différents intervalles : **Dernière heure** , **Aujourd’hui** , **Semaine dernière** et **Personnalisé** . Le panneau **Mesure** de chaque mesure affiche les valeurs moyennes, minimales et maximales de chaque mesure du graphique et certaines mesures affichent le total pour l’intervalle de création des rapports. 
 
 Chaque mesure inclut deux versions. Une première mesure évalue les performances de la totalité du cache et, pour les caches qui utilisent le [clustering](cache-how-to-premium-clustering.md), une deuxième version de la mesure dont le nom inclut `(Shard 0-9)` évalue les performances d’une seule partition d’un cache. Par exemple, si un cache comporte quatre partitions, `Cache Hits` indique le nombre total d’accès pour le cache entier, et `Cache Hits (Shard 3)` simplement le nombre d’accès à cette partition du cache.
 
@@ -103,7 +103,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 | Cache d’écriture |Quantité de données écrites dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. Cette valeur correspond à la bande passante réseau des données envoyées au cache depuis le client. |
 | Clients connectés |Nombre de connexions client au cache au cours de l’intervalle de création des rapports spécifié. Ce nombre mappe à `connected_clients` à partir de la commande Redis INFO. Une fois la [limite de connexions](cache-configure.md#default-redis-server-configuration) atteinte, les tentatives de connexion ultérieures au cache échouent. Même s’il n’y a aucune application cliente active, il peut rester quelques instances de clients connectés en raison de connexions et processus internes. |
 | UC |Utilisation du processeur du serveur de cache Azure pour Redis (sous forme de pourcentage) au cours de l’intervalle spécifié pour la création des rapports. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |
-| Erreurs | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Failover** : quand un cache bascule (nœud subordonné promu nœud principal)</li><li>**Dataloss** : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF** : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB** : quand il y a un problème lié à la persistance de RDB</li><li>**Import** : quand il y a un problème lié à l’importation RDB</li><li>**Export** : quand il y a un problème lié à l’exportation RDB</li></ul> |
+| Erreurs | Défaillances et problèmes de performances spécifiques que le cache pourrait rencontrer pendant un intervalle de rapport spécifié. Cette mesure a huit dimensions représentant différents types d’erreurs, mais d’autres pourraient y être ajoutées à l’avenir. Les types d’erreurs actuellement représentés sont les suivants : <br/><ul><li>**Failover**  : quand un cache bascule (nœud subordonné promu nœud principal)</li><li>**Dataloss**  : quand une perte de données se produit sur le cache</li><li>**UnresponsiveClients** : quand les clients ne lisent pas les données du serveur assez rapidement</li><li>**AOF**  : quand il y a un problème lié à la persistance d’AOF</li><li>**RDB**  : quand il y a un problème lié à la persistance de RDB</li><li>**Import**  : quand il y a un problème lié à l’importation RDB</li><li>**Export**  : quand il y a un problème lié à l’exportation RDB</li></ul> |
 | Clés exclues |Nombre d’éléments supprimés du cache au cours de l’intervalle de création des rapports, en raison de la limite `maxmemory` . Ce nombre mappe à `evicted_keys` à partir de la commande Redis INFO. |
 | Clés expirées |Nombre d’éléments expirés dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur correspond à la commande Redis INFO `expired_keys` .|
 | Gets |Nombre d’opérations get dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur est la somme des valeurs suivantes obtenues de toutes les commandes Redis INFO : `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` et `cmdstat_getrange`. Elle est équivalente à la somme du nombre de présences et d’absences au cours de l’intervalle de création du rapport. |
@@ -125,11 +125,11 @@ Vous pouvez configurer les paramètres pour recevoir des alertes en fonction des
 * Appeler un webhook
 * Appeler une application logique Azure
 
-Pour configurer les Règles d’alerte de votre cache, cliquez sur **Règles d’alerte** depuis le **menu Ressource**.
+Pour configurer les Règles d’alerte de votre cache, cliquez sur **Règles d’alerte** depuis le **menu Ressource** .
 
 ![Surveillance](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Journaux d’activité
 Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances de cache Azure pour Redis. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux d’activité des opérations ». À l’aide des journaux d’activité, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos instances de cache Azure pour Redis. 
@@ -138,6 +138,6 @@ Les journaux d’activité fournissent des insights sur les opérations qui ont 
 > Les journaux d’activité n’incluent pas les opérations (GET) de lecture.
 >
 
-Pour afficher les journaux d’activité de votre cache, cliquez sur **Journaux d’activité** depuis le **menu Ressource**.
+Pour afficher les journaux d’activité de votre cache, cliquez sur **Journaux d’activité** depuis le **menu Ressource** .
 
 Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).

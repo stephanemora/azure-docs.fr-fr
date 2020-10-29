@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839688"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536876"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
 
@@ -51,11 +51,11 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="add-a-geo-replication-link"></a>Ajouter un lien de géoréplication
 
-1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Cliquez ensuite sur **Ajouter une liaison de réplication de cache** dans le panneau **Géoréplication**.
+1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Cliquez ensuite sur **Ajouter une liaison de réplication de cache** dans le panneau **Géoréplication** .
 
     ![Ajouter un lien](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Dans la liste **Caches compatibles**, cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, cliquez sur la région à partir de la carte afin de n'afficher que les caches figurant dans la liste **Caches compatibles**.
+2. Dans la liste **Caches compatibles** , cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, cliquez sur la région à partir de la carte afin de n'afficher que les caches figurant dans la liste **Caches compatibles** .
 
     ![Caches compatibles avec la géoréplication](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -67,7 +67,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
     ![Lier des caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Vous pouvez voir la progression du processus de réplication sur le panneau **Géoréplication**.
+4. Vous pouvez voir la progression du processus de réplication sur le panneau **Géoréplication** .
 
     ![État du lien](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +75,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
     ![Capture d’écran montrant comment afficher l’état de liaison pour les caches principal et secondaire.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Une fois le processus de réplication terminé, l’**État du lien** devient **Réussi**.
+    Une fois le processus de réplication terminé, l’ **État du lien** devient **Réussi** .
 
     ![État du cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -83,7 +83,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="remove-a-geo-replication-link"></a>Supprimer un lien de géoréplication
 
-1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication**.
+1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication** .
     
     ![Dissocier les caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -145,8 +145,8 @@ Oui, la géoréplication de caches dans des réseaux virtuels est prise en charg
 
 - La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge.
 - La géoréplication entre caches figurant dans des réseaux virtuels différents est également prise en charge.
-  - Si les réseaux virtuels se trouvent dans la même région, vous pouvez les connecter via un [peering de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou une [connexion de passerelle VPN de réseau virtuel à réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Si les réseaux virtuels se trouvent dans des régions différentes, la géoréplication à l’aide du peering de réseau virtuel est prise en charge, mais une machine virtuelle cliente dans VNET 1 (région 1) ne pourra pas accéder au cache dans VNET 2 (région 2) via son nom DNS en raison d’une contrainte liée aux équilibreurs de charge internes de base. Pour plus d'informations sur les contraintes liées au peering de réseaux virtuels, consultez [Réseau virtuel - Peering - Exigences et contraintes](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solution recommandée est d'utiliser une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
+  - Si les réseaux virtuels se trouvent dans la même région, vous pouvez les connecter via un [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) ou une [connexion de passerelle VPN de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Si les réseaux virtuels se trouvent dans des régions différentes, la géoréplication à l’aide du peering de réseau virtuel est prise en charge, mais une machine virtuelle cliente dans VNET 1 (région 1) ne pourra pas accéder au cache dans VNET 2 (région 2) via son nom DNS en raison d’une contrainte liée aux équilibreurs de charge internes de base. Pour plus d'informations sur les contraintes liées au peering de réseaux virtuels, consultez [Réseau virtuel - Peering - Exigences et contraintes](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La solution recommandée est d'utiliser une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
   
 [Ce modèle Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) vous permet de déployer rapidement deux caches géorépliqués dans un réseau virtuel connecté avec une connexion de passerelle VPN de réseau virtuel à réseau virtuel.
 
@@ -166,7 +166,7 @@ Pour obtenir un point de récupération, [exportez](cache-how-to-import-export-d
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Puis-je utiliser PowerShell ou Azure CLI pour gérer la géoréplication ?
 
-Oui, la géoréplication peut être gérée à l'aide du portail Azure, de PowerShell ou d'Azure CLI. Pour plus d'informations, consultez la documentation de [PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou d'[Azure CLI](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Oui, la géoréplication peut être gérée à l'aide du portail Azure, de PowerShell ou d'Azure CLI. Pour plus d'informations, consultez la documentation de [PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou d'[Azure CLI](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Combien coûte la réplication de mes données entre régions Azure ?
 
@@ -188,7 +188,7 @@ Pour lancer un basculement initié par le client, commencez par dissocier les ca
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Puis-je configurer un pare-feu avec la géoréplication ?
 
-Oui, vous pouvez configurer un [pare-feu](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) avec la géoréplication. Pour que la géoréplication fonctionne avec le pare-feu, assurez-vous que l’adresse IP du cache secondaire est ajoutée aux règles de pare-feu du cache principal.
+Oui, vous pouvez configurer un [pare-feu](./cache-configure.md#firewall) avec la géoréplication. Pour que la géoréplication fonctionne avec le pare-feu, assurez-vous que l’adresse IP du cache secondaire est ajoutée aux règles de pare-feu du cache principal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

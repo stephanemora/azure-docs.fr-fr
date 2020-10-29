@@ -3,12 +3,12 @@ title: Sélectionner une option de migration VMware avec la migration de serveur
 description: Fournit une vue d’ensemble des options de migration de machines virtuelles VMware vers Azure avec la migration de serveur Azure Migrate
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950219"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534105"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -29,9 +29,9 @@ Utilisez ces comparaisons sélectionnées pour vous aider à choisir la méthode
 **Étapes de déploiement d’appliance** | L'[appliance Azure Migrate](migrate-appliance.md) est déployée en local. | L'[appliance de réplication Azure Migrate](migrate-replication-appliance.md) est déployée en local.
 **Compatibilité Site Recovery** | Compatible. | Vous ne pouvez pas répliquer avec Azure Migrate Server Migration si vous avez défini la réplication pour une machine utilisant Site Recovery.
 **Disque cible** | Disques managés | Disques managés
-**Limites du disque** | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 8 To<br/><br/> Nombre maximal de disques : 60 | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 8 To<br/><br/> Nombre maximal de disques : 63
+**Limites du disque** | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 32 To<br/><br/> Nombre maximal de disques : 60 | Disque de système d’exploitation : 2 To<br/><br/> Disque de données : 8 To<br/><br/> Nombre maximal de disques : 63
 **Disques directs** | Non pris en charge | Prise en charge
-**Démarrage UEFI** | Non pris en charge | La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS.<br/><br/> Le disque du système d’exploitation doit avoir jusqu’à quatre partitions et les volumes doivent être formatés avec NTFS.
+**Démarrage UEFI** | Pris en charge. | Pris en charge.
 
 ## <a name="compare-deployment-steps"></a>Comparer les étapes de déploiement
 
@@ -45,7 +45,7 @@ Après avoir examiné les limitations, la compréhension des étapes impliquées
 **Préparer VMware pour la migration** | Configurez les paramètres sur les serveurs VMware et les machines virtuelles. | Obligatoire | Obligatoire
 **Installez le service Mobilité sur des machines virtuelles** | Le service Mobilité s’exécute sur chaque machine virtuelle que vous souhaitez répliquer | Non requis | Obligatoire
 **Déployer l’appliance de réplication** | [L’appliance de réplication](migrate-replication-appliance.md) est utilisée pour la migration basée sur les agents. Il se connecte entre le service Mobilité en cours d’exécution sur les machines virtuelles et Server Migration. | Non requis | Obligatoire
-**Répliquez les machines virtuelles**. Activez la réplication de machines virtuelles. | Configurez les paramètres de réplication et sélectionner les machines virtuelles à répliquer | Obligatoire | Obligatoire
+**Répliquez les machines virtuelles** . Activez la réplication de machines virtuelles. | Configurez les paramètres de réplication et sélectionner les machines virtuelles à répliquer | Obligatoire | Obligatoire
 **Exécutez un test de migration** | Exécuter une migration de test pour vérifier que tout fonctionne comme prévu. | Obligatoire | Obligatoire
 **Exécutez une migration complète** | Migrez les machines virtuelles. | Obligatoire | Obligatoire
 

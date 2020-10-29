@@ -4,12 +4,12 @@ description: Découvrez les services pris en charge et le schéma d’événemen
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144002"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543408"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -70,7 +70,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | ExpressRoute | Schéma non disponible. |
 | Pare-feu Azure | Schéma non disponible. |
 | Front Door | [Journalisation pour Front Door](../../frontdoor/front-door-diagnostics.md) |
-| IoT Hub | [Opérations IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| IoT Hub | [Opérations IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856226"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541993"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -26,7 +26,7 @@ Découvrez comment utiliser des actions de script pour ajouter des *comptes* Sto
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nom et clé du compte de stockage. Consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
-* Si vous utilisez PowerShell, vous avez besoin du module AZ.  Consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* Si vous utilisez PowerShell, vous avez besoin du module AZ.  Consultez [Vue d’ensemble d’Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -61,7 +61,7 @@ Utilisez une [action de script](hdinsight-hadoop-customize-cluster-linux.md#scri
 
 ## <a name="verification"></a>Vérification
 
-Lorsque vous affichez le cluster HDInsight sur le Portail Azure, les comptes de stockage ajoutés par cette action de script ne s’affichent pas quand vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__. Azure PowerShell et Azure CLI n’affichent pas non plus les comptes de stockage supplémentaires. Les informations de stockage n’apparaissent pas, car le script modifie uniquement la configuration `core-site.xml` du cluster. Ces informations ne sont pas utilisées pour récupérer les informations du cluster avec les API de gestion Azure.
+Lorsque vous affichez le cluster HDInsight sur le Portail Azure, les comptes de stockage ajoutés par cette action de script ne s’affichent pas quand vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__ . Azure PowerShell et Azure CLI n’affichent pas non plus les comptes de stockage supplémentaires. Les informations de stockage n’apparaissent pas, car le script modifie uniquement la configuration `core-site.xml` du cluster. Ces informations ne sont pas utilisées pour récupérer les informations du cluster avec les API de gestion Azure.
 
 Pour vérifier le stockage supplémentaire, appliquez l’une des méthodes indiquées ci-dessous :
 
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
 
 1. Observez les clés qui commencent par `fs.azure.account.key`. Le nom du compte fera partie de la clé, comme illustré dans cet exemple :
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
 
 1. Supprimez les clés suivantes :
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +119,7 @@ Après avoir supprimé ces clés et enregistré la configuration, vous devez red
 
 ### <a name="storage-firewall"></a>Pare-feu de stockage
 
-Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage`.`
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés** , veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Impossible d’accéder au stockage après avoir modifié la clé
 

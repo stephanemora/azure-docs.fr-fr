@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087603"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536332"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Options de contexte de calcul pour ML Services sur HDInsight
 
@@ -23,14 +23,14 @@ Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services sur HDInsight
 
-[ML Services sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités analytiques R. Il peut utiliser les données stockées dans un conteneur Apache Hadoop HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "Stockage Blob Azure"), un référentiel Data Lake Store ou le système de fichiers Linux local. Sachant que ML Services repose sur la version open source de R, les applications R que vous créez peuvent appliquer n’importe quels packages R open source qui se dénombrent à plus de 8000. Elles peuvent aussi utiliser les routines de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), package analytique Big Data de Microsoft fourni avec ML Services.  
+[ML Services sur Azure HDInsight](r-server-overview.md) propose les dernières fonctionnalités analytiques R. Il peut utiliser les données stockées dans un conteneur Apache Hadoop HDFS de votre compte de stockage [Blob Azure](../../storage/common/storage-introduction.md "Stockage Blob Azure"), un référentiel Data Lake Store ou le système de fichiers Linux local. Sachant que ML Services repose sur la version open source de R, les applications R que vous créez peuvent appliquer n’importe quels packages R open source qui se dénombrent à plus de 8000. Elles peuvent aussi utiliser les routines de [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), package analytique Big Data de Microsoft fourni avec ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextes de calcul pour un nœud de périmètre
 
 En général, un script R qui s’exécute dans un cluster ML Services sur le nœud de périphérie s’exécute au sein de l’interpréteur R de ce nœud. L’exception concerne ces étapes qui appellent une fonction RevoScaleR. Les appels RevoScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul RevoScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
 
-- local séquentiel (*local*)
-- local parallèle (*localpar*)
+- local séquentiel ( *local* )
+- local parallèle ( *localpar* )
 - Map Reduce
 - Spark
 
@@ -59,12 +59,12 @@ Compte tenu de ces principes, la section suivante propose quelques règles gén�
 
 ### <a name="local"></a>Local
 
-- Si les données à analyser sont peu volumineuses et ne nécessitent pas d’analyses répétées, transmettez-les directement à la routine d’analyse avec *local* ou *localpar*.
-- Si les données à analyser sont peu ou moyennement volumineuses et nécessitent des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les avec *local* ou *localpar*.
+- Si les données à analyser sont peu volumineuses et ne nécessitent pas d’analyses répétées, transmettez-les directement à la routine d’analyse avec *local* ou *localpar* .
+- Si les données à analyser sont peu ou moyennement volumineuses et nécessitent des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les avec *local* ou *localpar* .
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- Si les données à analyser sont volumineuses, importez-les dans un DataFrame Spark à l’aide de **RxHiveData** ou de **RxParquetData**, ou au format XDF dans HDFS (sauf si le stockage est problématique), puis analysez-les selon le contexte de calcul Spark.
+- Si les données à analyser sont volumineuses, importez-les dans un DataFrame Spark à l’aide de **RxHiveData** ou de **RxParquetData** , ou au format XDF dans HDFS (sauf si le stockage est problématique), puis analysez-les selon le contexte de calcul Spark.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop MapReduce
 
@@ -77,7 +77,7 @@ Pour obtenir plus d’informations et des exemples de contextes de calcul RevoSc
 > ?rxSetComputeContext
 ```
 
-Vous pouvez également consulter la section [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) (Vue d’ensemble de l’informatique distribuée) dans la [documentation Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
+Vous pouvez également consulter la section [Distributed computing overview](/machine-learning-server/r/how-to-revoscaler-distributed-computing) (Vue d’ensemble de l’informatique distribuée) dans la [documentation Machine Learning Server](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

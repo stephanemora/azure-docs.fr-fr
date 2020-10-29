@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086260"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534377"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Prise en charge des logiciels open source dans Azure HDInsight
 
@@ -40,7 +40,7 @@ En tant qu’utilisateur du cluster, vous pouvez installer ou utiliser dans votr
 > [!WARNING]  
 > Les composants fournis avec le cluster HDInsight sont entièrement pris en charge. Le support Microsoft vous aide à isoler et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Le support Microsoft peut réussir à résoudre le problème. Ou alors, il peut vous inviter à faire appel à d’autres canaux qui offrent une expertise reconnue sur ces technologies open source. De nombreux sites de communauté sont disponibles, comme par exemple la [page de questions Microsoft Q&A sur HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) et [Stack Overflow](https://stackoverflow.com).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Le support Microsoft peut réussir à résoudre le problème. Ou alors, il peut vous inviter à faire appel à d’autres canaux qui offrent une expertise reconnue sur ces technologies open source. De nombreux sites de communauté sont disponibles, comme par exemple la [page de questions Microsoft Q&A sur HDInsight](/answers/topics/azure-hdinsight.html) et [Stack Overflow](https://stackoverflow.com).
 >
 > Par ailleurs, les projets Apache ont des sites de projet sur le [site web Apache](https://apache.org). [Hadoop](https://hadoop.apache.org/) en est un exemple.
 

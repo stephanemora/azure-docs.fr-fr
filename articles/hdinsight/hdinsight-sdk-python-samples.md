@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 8aa2644f86f5c26fa861aba8c928e79b7bc58a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b6f1f8b22435af33c9ae908bb0a3f6f3df8889
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873192"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535346"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight : Exemples Python
 
@@ -35,7 +35,7 @@ Cet article fournit :
 
 ## <a name="prerequisites"></a>Prérequis
 
-[SDK Azure HDInsight pour Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+[SDK Azure HDInsight pour Python](/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Gestion des clusters - création
 
@@ -48,4 +48,4 @@ Vous pouvez obtenir ces exemples pour Python en clonant le dépôt GitHub [hdins
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Des extraits de code pour les fonctionnalités supplémentaires de ce SDK sont disponibles dans la [documentation de référence du SDK HDInsight pour Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Des extraits de code pour les fonctionnalités supplémentaires de ce SDK sont disponibles dans la [documentation de référence du SDK HDInsight pour Python](/python/api/overview/azure/hdinsight).

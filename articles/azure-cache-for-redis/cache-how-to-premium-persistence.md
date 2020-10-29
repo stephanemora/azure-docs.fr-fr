@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339541"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536570"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Comment configurer la persistance des données pour un Cache Redis Azure Premium
 Dans cet article, vous allez apprendre à configurer la persistance dans une instance Premium d’Azure Cache pour Redis via le portail Azure. Le Cache Azure pour Redis offre différents types de caches permettant de choisir parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de niveau Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. 
@@ -28,7 +28,7 @@ La persistance écrit des données Redis dans un compte Stockage Azure que vous 
 
 > [!NOTE]
 > 
-> Stockage Azure chiffre automatiquement vos données lors de leur conservation. Vous pouvez utiliser vos propres clés de chiffrement. Pour plus d’informations, consultez [Clés gérées par le client avec Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Stockage Azure chiffre automatiquement vos données lors de leur conservation. Vous pouvez utiliser vos propres clés de chiffrement. Pour plus d’informations, consultez [Clés gérées par le client avec Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 

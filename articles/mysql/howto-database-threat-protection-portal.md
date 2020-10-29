@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902801"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541449"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Protection avancée contre les menaces d’Azure Database pour MySQL
 
@@ -32,7 +32,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.
-   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces** , dans la zone de texte **Envoyer les alertes à** , fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
    :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurer la détection des menaces":::
 
@@ -63,5 +63,5 @@ Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/).  
+* En savoir plus sur [Azure Security Center](../security-center/security-center-introduction.md)
+* Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/).

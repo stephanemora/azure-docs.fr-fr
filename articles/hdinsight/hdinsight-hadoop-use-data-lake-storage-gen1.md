@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e05e89cae8688162c6ac6ded5ad56c85394dc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858716"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539834"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -62,7 +62,7 @@ Quand HDInsight est déployé avec Data Lake Storage Gen1 en tant que stockage p
 * Cluster1 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster1storage`
 * Cluster2 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster2storage`
 
-Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore**. Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le Portail Azure vous invite à utiliser un nom de dossier du type **/clusters/\<clustername>** comme chemin racine.
+Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore** . Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le Portail Azure vous invite à utiliser un nom de dossier du type **/clusters/\<clustername>** comme chemin racine.
 
 Pour utiliser Data Lake Storage Gen1 comme stockage par défaut, vous devez accorder au principal de service l’accès aux chemins suivants :
 
@@ -126,7 +126,7 @@ Vous pouvez effectuer l’ajout d’un compte Data Lake Storage supplémentaire 
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Configurer l’accès à Data Lake Storage Gen1
 
-Pour configurer l’accès à Data Lake Storage Gen1 à partir de votre cluster HDInsight, vous devez disposer d’un principal de service Azure Active Directory (Azure AD). Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Le principal de service doit être créé avec un certificat. Pour plus d’informations, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), et [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate) (Créer un principal du service avec un certificat auto-signé).
+Pour configurer l’accès à Data Lake Storage Gen1 à partir de votre cluster HDInsight, vous devez disposer d’un principal de service Azure Active Directory (Azure AD). Vous pouvez créer un principal de service uniquement si vous être administrateur Azure AD. Le principal de service doit être créé avec un certificat. Pour plus d’informations, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](./hdinsight-hadoop-provision-linux-clusters.md), et [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate) (Créer un principal du service avec un certificat auto-signé).
 
 > [!NOTE]  
 > Si vous comptez utiliser Azure Data Lake Storage Gen1 comme stockage supplémentaire pour le cluster HDInsight, nous vous recommandons vivement de procéder ainsi quand vous créez le cluster comme décrit dans cet article. L’ajout d’Azure Data Lake Storage Gen1 en tant que stockage supplémentaire à un cluster HDInsight existant n’est pas pris en charge.
@@ -137,19 +137,19 @@ Pour plus d’informations sur le modèle de contrôle d’accès, consultez [Co
 
 Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight.
 
-* **Utilisation du nom complet**. Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
+* **Utilisation du nom complet** . Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci** . Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     adl:///<file path>
     ```
 
-* **Utilisation du chemin d’accès relatif**. Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
+* **Utilisation du chemin d’accès relatif** . Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
 
     ```
     /<file.path>/
@@ -220,7 +220,7 @@ Pour identifier le chemin d’accès complet au magasin par défaut configuré, 
 
 Suivez les liens ci-dessous pour obtenir des instructions détaillées sur la manière de créer des clusters HDInsight avec accès à Data Lake Storage Gen1.
 
-* [Utilisation du portail](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Utilisation du portail](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Utilisation de PowerShell (avec Data Lake Storage Gen1 en tant que stockage par défaut)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Utilisation de PowerShell (avec Data Lake Storage Gen1 en tant que stockage supplémentaire)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Utilisation de modèles Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -305,7 +305,7 @@ Dans cet article, vous avez appris à utiliser Azure Data Lake Storage Gen1 comp
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Démarrage rapide : Configurer des clusters dans HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Créer un cluster HDInsight pour utiliser Data Lake Storage Gen1 à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
 * [Utiliser des signatures d’accès partagé Stockage Blob Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)

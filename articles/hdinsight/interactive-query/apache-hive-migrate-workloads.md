@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308382"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534683"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrer des charges de travail Azure HDInsight 3.6 Hive vers HDInsight 4.0
 
@@ -117,7 +117,7 @@ Les clusters HDInsight 3.6 et 4.0 doivent utiliser le même compte de stockage.
 
 1. Connectez-vous au cluster HDInsight 3.6 à l’aide d’un [client Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. À partir de la session SSH ouverte, téléchargez le fichier de script suivant pour générer un fichier nommé **alltables.hql**.
+1. À partir de la session SSH ouverte, téléchargez le fichier de script suivant pour générer un fichier nommé **alltables.hql** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ Une fois que vous avez confirmé que la mise en production était terminée et e
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Exécution de requêtes sur les versions HDInsight
 
-Il existe deux façons d’exécuter et de déboguer les requêtes Hive/LLAP au sein d’un cluster HDInsight 3.6. L’interface CLI Hive offre une expérience de ligne de commande, tandis que [l’affichage Hive/Tez](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) propose un workflow basé sur une interface utilisateur graphique.
+Il existe deux façons d’exécuter et de déboguer les requêtes Hive/LLAP au sein d’un cluster HDInsight 3.6. L’interface CLI Hive offre une expérience de ligne de commande, tandis que [l’affichage Hive/Tez](../hadoop/apache-hadoop-use-hive-ambari-view.md) propose un workflow basé sur une interface utilisateur graphique.
 
 Dans HDInsight 4.0, l’interface CLI Hive a été remplacée par BeeLine. L’affichage Tez/Hive propose un workflow basé sur une interface utilisateur graphique. HiveCLI est un client Thrift pour Hiveserver 1, et Beeline est un client JDBC qui fournit l’accès à Hiveserver 2. Beeline peut également être utilisé pour se connecter à n’importe quel autre point de terminaison de base de données compatible avec JDBC. Beeline est disponible de manière prédéfinie sur HDInsight 4.0 sans aucune installation nécessaire.
 

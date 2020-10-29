@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263258"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538644"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -24,8 +24,8 @@ Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsof
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 
 * Créez un **déclencheur Azure Functions pour Cosmos DB** basé sur les événements. Ce déclencheur se base sur les [flux de modification](change-feed.md) pour effectuer le monitoring des modifications du conteneur Azure Cosmos. Quand des modifications sont apportées à un conteneur, le flux de modification est envoyé au déclencheur, qui appelle la fonction Azure.
-* Vous pouvez également lier une fonction Azure à un conteneur Azure Cosmos à l'aide d'une **liaison d'entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
-* Liez une fonction à un conteneur Azure Cosmos à l'aide d'une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
+* Vous pouvez également lier une fonction Azure à un conteneur Azure Cosmos à l'aide d'une **liaison d'entrée** . Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
+* Liez une fonction à un conteneur Azure Cosmos à l'aide d'une **liaison de sortie** . Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
 > Actuellement, les liaisons d’entrée, les liaisons de sortie et le déclencheur Azure Functions pour Cosmos DB sont uniquement pris en charge pour une utilisation avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données depuis votre fonction en utilisant le client statique pour votre API.
@@ -69,7 +69,7 @@ Dans les implémentations financières, vous pouvez appeler une fonction lorsqu�
 
 **Implémentation :** Déclencheur de minuteur avec une liaison d’entrée Azure Cosmos DB
 
-1. À l'aide d'un [déclencheur de minuteur](../azure-functions/functions-bindings-timer.md), vous pouvez récupérer les informations relatives aux soldes de comptes bancaires stockées dans un conteneur Azure Cosmos à intervalles réguliers à l'aide d'une **liaison d'entrée**.
+1. À l'aide d'un [déclencheur de minuteur](../azure-functions/functions-bindings-timer.md), vous pouvez récupérer les informations relatives aux soldes de comptes bancaires stockées dans un conteneur Azure Cosmos à intervalles réguliers à l'aide d'une **liaison d'entrée** .
 2. Si le solde est inférieur au seuil de solde faible défini par l’utilisateur, effectuez un suivi à l’aide d’une action à partir de la fonction Azure.
 3. La liaison de sortie peut être une [intégration SendGrid](../azure-functions/functions-bindings-sendgrid.md) qui envoie un e-mail à partir d’un compte de service aux adresses e-mail identifiées pour chacun des comptes dont le solde est faible.
 
@@ -81,12 +81,12 @@ Les illustrations suivantes montrent le code dans le portail Azure pour ce scén
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Cas d’usage de jeu - Déclencheur Azure Functions et liaison de sortie pour Cosmos DB 
 
-En matière de gaming, quand un utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Gremlin Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données SQL Azure Cosmos DB]() pour faciliter leur récupération.
+En matière de gaming, quand un utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Gremlin Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une base de données SQL Azure Cosmos DB pour faciliter leur récupération.
 
 **Implémentation :** Utiliser un déclencheur Azure Functions et une liaison de sortie pour Cosmos DB
 
 1. À l’aide d’une [base de données de graphes](graph-introduction.md) Azure Cosmos DB pour stocker tous les utilisateurs, vous pouvez créer une nouvelle fonction avec un déclencheur Azure Functions pour Cosmos DB. 
-2. Chaque fois qu’un nouvel utilisateur est inséré, la fonction est appelée, puis le résultat est stocké à l’aide d’une **liaison de sortie**.
+2. Chaque fois qu’un nouvel utilisateur est inséré, la fonction est appelée, puis le résultat est stocké à l’aide d’une **liaison de sortie** .
 3. La fonction interroge la base de données des graphes pour rechercher tous les utilisateurs qui sont directement associés au nouvel utilisateur et retourne un jeu de données à la fonction.
 4. Ces données sont ensuite stockées dans une base de données Azure Cosmos DB, qui peut être facilement récupérée par la suite par toute application frontale qui montre au nouvel utilisateur ses amis connectés.
 

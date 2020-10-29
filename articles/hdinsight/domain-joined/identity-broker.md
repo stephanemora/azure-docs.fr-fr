@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999946"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543149"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker d’ID Azure HDInsight (préversion)
 
@@ -43,7 +43,7 @@ Dans ce diagramme, le client (autrement dit, un navigateur ou une application) d
 
 Il existe toujours de nombreuses applications héritées qui prennent uniquement en charge l’authentification de base (autrement dit, le nom d’utilisateur et le mot de passe). Pour ces scénarios, vous pouvez toujours utiliser l’authentification de base HTTP pour vous connecter aux passerelles de cluster. Dans cette configuration, vous devez garantir la connectivité réseau entre les nœuds de passerelle et le point de terminaison Active Directory Federation Services (AD FS) pour garantir une ligne directe à partir des nœuds de passerelle.
 
-Le diagramme suivant illustre le flux d’authentification de base pour les utilisateurs fédérés. Tout d’abord, la passerelle tente d’effectuer l’authentification à l’aide du [flux ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). Si aucun hachage de mot de passe n’est synchronisé avec Azure AD, la passerelle retourne à la découverte du point de terminaison AD FS et termine l’authentification en accédant au point de terminaison AD FS.
+Le diagramme suivant illustre le flux d’authentification de base pour les utilisateurs fédérés. Tout d’abord, la passerelle tente d’effectuer l’authentification à l’aide du [flux ROPC](../../active-directory/develop/v2-oauth-ropc.md). Si aucun hachage de mot de passe n’est synchronisé avec Azure AD, la passerelle retourne à la découverte du point de terminaison AD FS et termine l’authentification en accédant au point de terminaison AD FS.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramme illustrant le flux d’authentification avec le broker d’ID HDInsight.":::
 
@@ -54,7 +54,7 @@ Pour créer un cluster Pack Sécurité Entreprise avec le broker d’ID HDInsigh
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Suivez les étapes de création de base pour un cluster Pack Sécurité Entreprise. Pour plus d’informations, consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Sélectionnez **Activer le broker d’ID HDInsight**.
+1. Sélectionnez **Activer le broker d’ID HDInsight** .
 
 La fonctionnalité de broker d’ID HDInsight ajoute une machine virtuelle supplémentaire au cluster. Cette machine virtuelle est le nœud du broker d’ID HDInsight et comprend des composants serveur pour prendre en charge l’authentification. Le nœud du broker d’ID HDInsight est joint au domaine Azure AD DS.
 
@@ -103,7 +103,7 @@ Si vous ajoutez un nouveau rôle appelé `idbrokernode` avec les attributs suiva
 
 ## <a name="tool-integration"></a>Intégration d’outils
 
-Les outils HDInsight sont mis à jour pour prendre en charge OAuth en mode natif. Utilisez ces outils pour un accès basé sur OAuth moderne aux clusters. Le [plug-in IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) HDInsight peut être utilisé pour les applications basées sur Java, comme Scala. [Les outils Spark et Hive pour Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) peuvent être utilisés pour les tâches PySpark et Hive. Les outils prennent en charge les tâches par lots et interactives.
+Les outils HDInsight sont mis à jour pour prendre en charge OAuth en mode natif. Utilisez ces outils pour un accès basé sur OAuth moderne aux clusters. Le [plug-in IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) HDInsight peut être utilisé pour les applications basées sur Java, comme Scala. [Les outils Spark et Hive pour Visual Studio Code](../hdinsight-for-vscode.md) peuvent être utilisés pour les tâches PySpark et Hive. Les outils prennent en charge les tâches par lots et interactives.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Accès SSH sans hachage de Mot de passe dans Azure AD DS
 
@@ -117,11 +117,11 @@ Pour utiliser SSH avec une machine virtuelle jointe à un domaine ou pour exécu
 
 Si votre organisation ne synchronise pas les hachages de mot de passe avec Azure AD DS, il est recommandé de créer un utilisateur cloud seulement dans Azure AD. Ensuite, affectez-le en tant qu’administrateur du cluster lorsque vous créez le cluster et utilisez-le à des fins d’administration. Vous pouvez l’utiliser pour accéder à la racine des machines virtuelles via SSH.
 
-Pour résoudre les problèmes d’authentification, consultez [ce guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Pour résoudre les problèmes d’authentification, consultez [ce guide](./domain-joined-authentication-issues.md).
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Clients utilisant OAuth pour se connecter à une passerelle HDInsight avec le broker d’ID HDInsight
 
-Dans la configuration du broker d’ID HDInsight, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Suivez les étapes décrites dans [ce document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) pour obtenir le jeton avec les informations suivantes :
+Dans la configuration du broker d’ID HDInsight, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Suivez les étapes décrites dans [ce document](../../storage/common/storage-auth-aad-app.md) pour obtenir le jeton avec les informations suivantes :
 
 *   URI de ressource OAuth : `https://hib.azurehdinsight.net` 
 *   AppId : 7865c1d2-f040-46cc-875f-831a1ef6a28a

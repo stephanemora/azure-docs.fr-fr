@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 8fd42169ab6ccb144215e1b6ad2ece09ff55c07f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072835"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538729"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utiliser Apache Pig avec Apache Hadoop sur HDInsight
 
 Découvrez comment utiliser [Apache Pig](https://pig.apache.org/) avec HDInsight.
 
-Apache Pig est une plateforme qui permet de créer des programmes pour Apache Hadoop dans un langage procédural appelé *Pig Latin*. Pig est une alternative à Java, dédiée à la création de solutions *MapReduce* , qui est incluse avec Azure HDInsight. Utilisez le tableau suivant pour découvrir les différentes façons dont Pig peut être utilisé avec HDInsight :
+Apache Pig est une plateforme qui permet de créer des programmes pour Apache Hadoop dans un langage procédural appelé *Pig Latin* . Pig est une alternative à Java, dédiée à la création de solutions *MapReduce* , qui est incluse avec Azure HDInsight. Utilisez le tableau suivant pour découvrir les différentes façons dont Pig peut être utilisé avec HDInsight :
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Pourquoi utiliser Apache Pig
 
@@ -95,15 +95,15 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
 * [Utilisation d’Apache Hive avec HDInsight](./hadoop/hdinsight-use-hive.md)
-* [Utiliser Apache Sqoop avec HDInsight](hdinsight-use-sqoop.md)
+* [Utiliser Apache Sqoop avec HDInsight](./hadoop/hdinsight-use-sqoop.md)
 * [Utilisation des tâches MapReduce avec HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: https://curl.haxx.se/
-[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: /sql/integration-services/control-flow/azure-hdinsight-pig-task?viewFallbackFrom=sql-server-2014
+[connectionmanager]: /sql/integration-services/connection-manager/azure-subscription-connection-manager?viewFallbackFrom=sql-server-2014
+[ssispack]: /sql/integration-services/azure-feature-pack-for-integration-services-ssis?viewFallbackFrom=sql-server-2014
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md

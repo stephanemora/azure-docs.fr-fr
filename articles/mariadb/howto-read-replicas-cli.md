@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f6b53efdf49538476821ddeaed9bbf4278af0728
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8bb8ad4baec4c59a78afd6a92d69e94240c056a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542408"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542622"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide d’Azure CLI et de l’API REST
 
@@ -23,7 +23,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
 ### <a name="prerequisites"></a>Prérequis
 
-- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli)
 - Un [serveur Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) qui sera utilisé comme serveur source. 
 
 > [!IMPORTANT]
@@ -42,9 +42,9 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 La commande `az mariadb server replica create` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | name | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
 | source-server | mydemoserver | Nom ou ID du serveur source à partir duquel la réplication doit être effectuée. |
 
@@ -72,9 +72,9 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 La commande `az mariadb server replica list` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | server-name | mydemoserver | Nom ou ID du serveur source. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
@@ -90,9 +90,9 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 La commande `az mariadb server replica stop` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur réplica.  |
+| resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur réplica.  |
 | name | mydemoreplicaserver | Nom du serveur réplica pour lequel arrêter la réplication. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica

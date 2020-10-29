@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221662"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537471"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Options d’isolement réseau d’Azure Cache pour Redis 
 Dans cet article, vous allez apprendre à déterminer la meilleure solution d’isolement réseau pour vos besoins. Nous allons passer en revue les concepts de base d’Azure Private Link, l’injection Azure Virtual Network et des règles de pare-feu Azure avec leurs avantages et leurs limites.  
@@ -21,7 +21,7 @@ Azure Private Link fournit une connectivité privée entre un réseau virtuel et
 
 ### <a name="advantages"></a>Avantages
 * Prise en charge des instances Azure Cache pour Redis De base, Standard et Premium. 
-* En utilisant [Azure Private Link](/azure/private-link/private-link-overview), vous pouvez vous connecter à une instance Azure Cache depuis votre réseau virtuel via un point de terminaison privé, auquel est attribuée une adresse IP privée dans un sous-réseau du réseau virtuel. Ainsi, les instances de cache sont disponibles à partir du réseau virtuel et publiquement.  
+* En utilisant [Azure Private Link](../private-link/private-link-overview.md), vous pouvez vous connecter à une instance Azure Cache depuis votre réseau virtuel via un point de terminaison privé, auquel est attribuée une adresse IP privée dans un sous-réseau du réseau virtuel. Ainsi, les instances de cache sont disponibles à partir du réseau virtuel et publiquement.  
 * Une fois qu’un point de terminaison privé est créé, l’accès au réseau public peut être limité à l’aide de l’indicateur `publicNetworkAccess`. Cet indicateur est défini sur `Enabled` par défaut, ce qui vous donne la possibilité d’autoriser à la fois l’accès public et via liaison privée au cache. S’il est défini sur `Disabled`, il autorise uniquement l’accès via liaison privée. Vous pouvez définir la valeur sur `Disabled` avec une requête PATCH. Pour plus d’informations, consultez [Azure Cache pour Redis avec Azure Private Link (préversion)](cache-private-link.md). 
 * Toutes les dépendances de cache externes seront sans effet sur les règles NSG du réseau virtuel.
 
@@ -51,7 +51,7 @@ Le réseau virtuel est l’élément de base de votre réseau privé dans Azure.
 
 
 ## <a name="azure-firewall-rules"></a>Règles de Pare-feu Azure
-[Pare-feu Azure](/azure/firewall/overview) est un service de sécurité réseau informatique managé qui protège vos ressources de réseau virtuel Azure. Il s’agit d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud. Vous pouvez créer, appliquer et consigner des stratégies de connectivité réseau et d’application de façon centralisée entre les abonnements et les réseaux virtuels.  
+[Pare-feu Azure](../firewall/overview.md) est un service de sécurité réseau informatique managé qui protège vos ressources de réseau virtuel Azure. Il s’agit d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud. Vous pouvez créer, appliquer et consigner des stratégies de connectivité réseau et d’application de façon centralisée entre les abonnements et les réseaux virtuels.  
 
 ### <a name="advantages"></a>Avantages
 * Lorsque des règles de pare-feu sont configurées, seules les connexions client à partir des plages d’adresses IP spécifiées peuvent se connecter au cache. Les connexions depuis les systèmes de surveillance de cache Azure pour Redis sont toujours autorisées, même si des règles de pare-feu sont configurées. Les règles NSG que vous définissez sont également autorisées.  
@@ -63,4 +63,4 @@ Le réseau virtuel est l’élément de base de votre réseau privé dans Azure.
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment configurer un [cache injecté sur un réseau virtuel pour une instance Azure Cache pour Redis Premium](cache-how-to-premium-vnet.md).  
 * Découvrez comment configurer des [règles de pare-feu pour tous les niveaux d’Azure Cache pour Redis](cache-configure.md#firewall). 
-* Découvrez comment [configurer des points de terminaison privés pour tous les niveaux d’Azure Cache pour Redis](cache-private-link.md). 
+* Découvrez comment [configurer des points de terminaison privés pour tous les niveaux d’Azure Cache pour Redis](cache-private-link.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462239"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540378"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
 
@@ -27,11 +27,11 @@ HDInsight inclut également Jython, une implémentation de Python écrite en Jav
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Un client SSH**. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un cluster Hadoop sur HDInsight** . Consultez [Bien démarrer avec HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Un client SSH** . Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Le [schéma d’URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera wasbs://.  Voir aussi [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md).
 * **Changement possible de la configuration du stockage.**  Consultez [Configuration du stockage](#storage-configuration) si vous utilisez le type de compte de stockage `BlobStorage`.
-* facultatif.  Si vous prévoyez d’utiliser PowerShell, le [module AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) doit être installé.
+* facultatif.  Si vous prévoyez d’utiliser PowerShell, le [module AZ](/powershell/azure/new-azureps-module-az) doit être installé.
 
 > [!NOTE]  
 > Le compte de stockage utilisé dans cet article était Stockage Azure avec le [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md) activé : `wasbs` est donc utilisé tout au long de cet article.
@@ -46,7 +46,7 @@ Aucune action n’est nécessaire si le compte de stockage utilisé est de type 
 > * Vous créez les scripts Python sur votre environnement de développement local.
 > * Vous chargez les scripts sur HDInsight en utilisant la commande `scp` ou le script PowerShell fourni.
 >
-> Si vous voulez utiliser [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) pour travailler avec HDInsight, vous devez :
+> Si vous voulez utiliser [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) pour travailler avec HDInsight, vous devez :
 >
 > * Créez les scripts à l’intérieur de l’environnement de l’interpréteur de commandes cloud.
 > * Utilisez `scp` pour charger les fichiers de l’interpréteur de commandes cloud vers HDInsight.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 Dans l’exemple Pig Latin, nous avons défini l’entrée `LINE` comme un tableau de caractères car il n’existait pas de schéma cohérent pour l’entrée. Le script Python transforme les données en un schéma cohérent pour la sortie.
 
-1. L’instruction `@outputSchema` définit le format des données qui sont renvoyées à Pig. Dans le cas présent, il s'agit d'un **data bag**, qui est un type de données Pig. Ce conteneur contient les champs suivants, qui sont tous des tableaux de caractères (chaînes) :
+1. L’instruction `@outputSchema` définit le format des données qui sont renvoyées à Pig. Dans le cas présent, il s'agit d'un **data bag** , qui est un type de données Pig. Ce conteneur contient les champs suivants, qui sont tous des tableaux de caractères (chaînes) :
 
    * date : date de création de l'entrée du journal
    * time : heure de création de l'entrée du journal
@@ -423,7 +423,7 @@ Dans les commandes ci-dessous, remplacez `sshuser` par le nom d’utilisateur r�
     #from pig_util import outputSchema
     ```
 
-    Cette ligne modifie le script Python pour le faire fonctionner avec C Python plutôt qu’avec Jython. Une fois la modification effectuée, utilisez **Ctrl+X** pour quitter l’éditeur. Sélectionnez **Y**, puis appuyez sur **Entrée** pour enregistrer les modifications.
+    Cette ligne modifie le script Python pour le faire fonctionner avec C Python plutôt qu’avec Jython. Une fois la modification effectuée, utilisez **Ctrl+X** pour quitter l’éditeur. Sélectionnez **Y** , puis appuyez sur **Entrée** pour enregistrer les modifications.
 
 6. Utilisez la commande `pig` pour relancer l’interpréteur de commandes. Une fois dans l’invite de commandes `grunt>` , utilisez les commandes suivantes pour exécuter le script Python à l’aide de l’interpréteur C Python.
 
@@ -594,7 +594,7 @@ Les informations sur l’erreur (STDERR) et le résultat du travail (STDOUT) son
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 
-Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez l’article [How to deploy a Python module to Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight) (Déploiement d’un module Python vers Azure HDInsight).
+Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez l’article [How to deploy a Python module to Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight) (Déploiement d’un module Python vers Azure HDInsight).
 
 Pour connaître d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’utilisation de MapReduce, consultez les documents suivants :
 

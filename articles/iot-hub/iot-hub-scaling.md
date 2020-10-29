@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144286"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538457"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -47,7 +47,7 @@ Dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://
 | [Routage de messages](iot-hub-devguide-messages-read-custom.md), [enrichissements des messages](iot-hub-message-enrichments-overview.md) et [intégration Event Grid](iot-hub-event-grid.md) | Oui | Oui |
 | [Protocoles HTTP, AMQP et MQTT](iot-hub-devguide-protocols.md) | Oui | Oui |
 | [Service Device Provisioning](../iot-dps/about-iot-dps.md) | Oui | Oui |
-| [Surveillance et diagnostics](iot-hub-monitor-resource-health.md) | Oui | Oui |
+| [Surveillance et diagnostics](monitor-iot-hub.md) | Oui | Oui |
 | [Messages de cloud-à-appareil](iot-hub-devguide-c2d-guidance.md) |   | Oui |
 | [Jumeaux d’appareil](iot-hub-devguide-device-twins.md), [Jumeaux de module](iot-hub-devguide-module-twins.md) et [Gestion des appareils](iot-hub-device-management-overview.md) |   | Oui |
 | [Flux d’appareils (préversion)](iot-hub-device-streams-overview.md) |   | Oui |

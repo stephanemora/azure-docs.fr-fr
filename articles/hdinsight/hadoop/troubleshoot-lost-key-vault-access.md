@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532560"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533408"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scénario : Les clusters Azure HDInsight avec chiffrement de disque perdent l’accès à Key Vault
 
@@ -26,7 +26,7 @@ L’alerte du Resource Health Center (RHC), `The HDInsight cluster is unable to 
 
 L’alerte garantit que KV est accessible à partir des nœuds de cluster, garantissant ainsi la connexion réseau, l’intégrité de KV et la stratégie d’accès de l’identité managée affectée par l’utilisateur. Cette alerte est uniquement un avertissement de l’arrêt imminent du répartiteur lors des redémarrages ultérieurs du nœud ; le cluster continue de fonctionner jusqu’au redémarrage des nœuds.
 
-Accédez à l’interface utilisateur d’Apache Ambari pour obtenir plus d’informations sur l’alerte à partir de la rubrique **État de Key Vault pour le chiffrement de disque**. Cette alerte aura des détails sur la raison pour laquelle la vérification a échoué.
+Accédez à l’interface utilisateur d’Apache Ambari pour obtenir plus d’informations sur l’alerte à partir de la rubrique **État de Key Vault pour le chiffrement de disque** . Cette alerte aura des détails sur la raison pour laquelle la vérification a échoué.
 
 ## <a name="resolution"></a>Résolution
 
@@ -36,7 +36,7 @@ Pour plus d’informations, consultez [Disponibilité et redondance d’Azure Ke
 
 ### <a name="kv-accidental-deletion"></a>Suppression accidentelle de KV
 
-* Restaurez la clé supprimée sur KV pour la récupérer automatiquement. Pour plus d’informations, consultez [Récupérer une clé supprimée](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
+* Restaurez la clé supprimée sur KV pour la récupérer automatiquement. Pour plus d’informations, consultez [Récupérer une clé supprimée](/rest/api/keyvault/recoverdeletedkey).
 * Contactez l’équipe KV pour une récupération en cas de suppressions accidentelles.
 
 ### <a name="kv-access-policy-changed"></a>Modification de la stratégie d’accès de KV
@@ -88,4 +88,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
