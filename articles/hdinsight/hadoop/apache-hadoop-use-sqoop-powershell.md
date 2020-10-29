@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 3f8a5bdc9e1240303216df1dec31c78a560c55eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 781c19edb9261b13f31bebecb6bc74bf2b616b47
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086492"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546974"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec Azure PowerShell dans HDInsight
 
@@ -23,7 +23,7 @@ Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Apache S
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Une station de travail dans laquelle le [module Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/) est installé.
+* Une station de travail dans laquelle le [module Azure PowerShell AZ](/powershell/azure/) est installé.
 
 * Avoir effectué [Configurer un environnement de test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) dans [Utiliser Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
 

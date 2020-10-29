@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596497"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544033"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
@@ -20,7 +20,7 @@ Cet article décrit comment configurer [Réplication des données entrantes](con
 > [!NOTE]
 > Communication sans stéréotype
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 Pour créer un réplica dans le service Azure Database pour MySQL, [Réplication des données entrantes](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MySQL source qui s’exécute en local dans des machines virtuelles ou des services de base de données cloud. La réplication des données est basée sur une réplication selon la position du fichier journal binaire (binlog) native à MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -53,7 +53,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
 2. Assurez-vous que le serveur source autorise le trafic entrant et sortant sur le port 3306, que le serveur source dispose d’une **IP publique** et que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
    
-   Testez la connectivité au serveur source en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+   Testez la connectivité au serveur source en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](../cloud-shell/overview.md) accessible sur le portail Azure.
 
    Si votre organisation a des stratégies de sécurité strictes et qu’elle n’autorise pas toutes les adresses IP sur le serveur source à permettre la communication d’Azure vers votre serveur source, vous pouvez éventuellement utiliser la commande ci-dessous pour déterminer l’adresse IP de votre serveur MySQL.
 
@@ -134,15 +134,15 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    **MySQL Workbench**
 
-   Pour créer le rôle de réplication dans MySQL Workbench, ouvrez le panneau **Utilisateurs et privilèges** à partir du panneau **Gestion**. Cliquez ensuite sur **Ajouter un compte**. 
+   Pour créer le rôle de réplication dans MySQL Workbench, ouvrez le panneau **Utilisateurs et privilèges** à partir du panneau **Gestion** . Cliquez ensuite sur **Ajouter un compte** . 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Utilisateurs et privilèges":::
 
-   Tapez le nom d’utilisateur dans le champ **Nom de connexion**. 
+   Tapez le nom d’utilisateur dans le champ **Nom de connexion** . 
 
    :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilisateurs et privilèges":::
  
-   Cliquez sur le panneau **Rôles administratifs**, puis sélectionnez **Subordonné de réplication** dans la liste **Privilèges globaux**. Cliquez ensuite sur **Appliquer** pour créer le rôle de réplication.
+   Cliquez sur le panneau **Rôles administratifs** , puis sélectionnez **Subordonné de réplication** dans la liste **Privilèges globaux** . Cliquez ensuite sur **Appliquer** pour créer le rôle de réplication.
 
    :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Utilisateurs et privilèges":::
 
@@ -189,7 +189,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
 1. Définir le serveur source
 
-   Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench. 
+   Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](./reference-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench. 
 
    Pour lier deux serveurs et démarrer une réplication, connectez-vous au serveur réplica cible dans le service Azure Database pour MySQL, et définissez l’instance externe en tant que serveur source. Pour ce faire, utilisez la procédure stockée `mysql.az_replication_change_master` sur le serveur Azure DB pour MySQL.
 
@@ -206,7 +206,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
        - Il est recommandé de transmettre ce paramètre en tant que variable. Pour plus d’informations, consultez les exemples suivants.
 
    > [!NOTE]
-   > Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion**. Pour plus d’informations, consultez la [gestion des règles de pare-feu à l’aide du portail](howto-manage-firewall-using-portal.md).
+   > Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion** . Pour plus d’informations, consultez la [gestion des règles de pare-feu à l’aide du portail](howto-manage-firewall-using-portal.md).
       
    **Exemples**
    
@@ -286,4 +286,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur la [Réplication des données entrantes](concepts-data-in-replication.md) pour Azure Database pour MySQL. 
+- En savoir plus sur la [Réplication des données entrantes](concepts-data-in-replication.md) pour Azure Database pour MySQL.

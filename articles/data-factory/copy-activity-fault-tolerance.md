@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440641"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634775"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -93,7 +93,7 @@ path | Chemin des fichiers journaux. | Spécifiez le chemin que vous utilisez po
 > - Si vous spécifiez plusieurs fichiers dans le jeu de données source, qui peut être un dossier, un caractère générique ou une liste de fichiers, l’activité de copie peut ignorer les fichiers d’erreur particuliers. Si un seul fichier est spécifié dans le jeu de données source à copier vers la destination, l’activité de copie échoue si une erreur s’est produite.
 >
 > Pour ignorer des fichiers particuliers lorsqu’ils sont vérifiés comme étant incohérents entre la source et le magasin de destination :
-> - Vous pouvez obtenir plus de détails à partir du document de cohérence des données [ici](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
+> - Vous pouvez obtenir plus de détails à partir du document de cohérence des données [ici](./copy-activity-data-consistency.md).
 
 ### <a name="monitoring"></a>Surveillance 
 
@@ -154,14 +154,14 @@ L’activité de copie offre trois possibilités de détecter, d’ignorer et de
 
     Par exemple : Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus de six colonnes sont considérées comme incompatibles et ignorées.
 
-- **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB**.
+- **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB** .
 
     Par exemple : Copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 >[!NOTE]
 >- Pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant les règles de rejet « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.
 >- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée de sorte à appeler [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée pour appeler une [procédure stockée à partir d’un récepteur SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée pour appeler une [procédure stockée à partir d’un récepteur SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### <a name="configuration"></a>Configuration
 L’exemple suivant fournit une définition JSON pour configurer l’omission des lignes incompatibles dans le cadre de l’activité de copie :
@@ -298,5 +298,3 @@ Consultez les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Performances de l’activité de copie](copy-activity-performance.md)
-
-

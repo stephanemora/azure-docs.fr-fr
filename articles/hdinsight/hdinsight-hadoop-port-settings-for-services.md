@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085274"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546056"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Apache Hadoop sur HDInsight
 
@@ -158,7 +158,7 @@ Exemples :
 | --- | --- | --- | --- | --- |
 | Service Broker |Nœuds de travail |9092 |Protocole de transmission Kafka |Utilisé pour la communication client |
 | &nbsp; |Nœuds Zookeeper |2181 |&nbsp; |Le port que les clients utilisent pour se connecter à ZooKeeper |
-| Proxy REST | Nœuds de gestion Kafka |9400 |HTTPS |[Spécification REST Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| Proxy REST | Nœuds de gestion Kafka |9400 |HTTPS |[Spécification REST Kafka](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Ports Spark
 

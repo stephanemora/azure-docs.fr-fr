@@ -7,18 +7,18 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d355e7557ff38c52872a89941025d33d01bd92d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa9f9b07eb20c995bc0cf47dd3bf72f236c3112
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503308"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546821"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Croissance automatique du stockage sur le serveur Azure Database pour MySQL à l’aide de PowerShell
 
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database pour MySQL sans affecter la charge de travail.
 
-La croissance automatique du stockage évite à votre serveur d’[atteindre la limite de stockage](/azure/mysql/concepts-pricing-tiers#reaching-the-storage-limit) et de passer en lecture seule. Pour les serveurs disposant de jusqu’à 100 Go de stockage approvisionné, la taille est augmentée de 5 Go lorsque l’espace libre est inférieur à 10 %. Pour les serveurs disposant de plus de 100 Go de stockage approvisionné, la taille est augmentée de 5 % lorsque l’espace libre est inférieur à 10 Go. Des limites de stockage maximales s’appliquent comme spécifié dans la section relative au stockage des [niveaux tarifaires d’Azure Database pour MySQL](/azure/mysql/concepts-pricing-tiers#storage).
+La croissance automatique du stockage évite à votre serveur d’[atteindre la limite de stockage](./concepts-pricing-tiers.md#reaching-the-storage-limit) et de passer en lecture seule. Pour les serveurs disposant de jusqu’à 100 Go de stockage approvisionné, la taille est augmentée de 5 Go lorsque l’espace libre est inférieur à 10 %. Pour les serveurs disposant de plus de 100 Go de stockage approvisionné, la taille est augmentée de 5 % lorsque l’espace libre est inférieur à 10 Go. Des limites de stockage maximales s’appliquent comme spécifié dans la section relative au stockage des [niveaux tarifaires d’Azure Database pour MySQL](./concepts-pricing-tiers.md#storage).
 
 > [!IMPORTANT]
 > N’oubliez pas que le stockage peut seulement monter en puissance.

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632768"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données
 
@@ -28,7 +28,7 @@ En général, un magasin de données cloud contrôle l’accès à l’aide des 
 * Mécanismes d’autorisation qui restreignent les utilisateurs à certaines actions et données.
 
 > [!TIP]
-> Avec l’[introduction de la plage d’adresses IP statiques](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), vous pouvez désormais autoriser en les mettant en liste verte des plages d’adresses IP pour la région du runtime d’intégration Azure, afin de vous assurer que vous n’avez pas à autoriser toutes les adresses IP Azure dans vos magasins de données cloud. De cette façon, vous pouvez limiter les adresses IP qui sont autorisées à accéder aux magasins de données.
+> Avec l’[introduction de la plage d’adresses IP statiques](./azure-integration-runtime-ip-addresses.md), vous pouvez désormais autoriser en les mettant en liste verte des plages d’adresses IP pour la région du runtime d’intégration Azure, afin de vous assurer que vous n’avez pas à autoriser toutes les adresses IP Azure dans vos magasins de données cloud. De cette façon, vous pouvez limiter les adresses IP qui sont autorisées à accéder aux magasins de données.
 
 > [!NOTE] 
 > Les plages d’adresses IP sont bloquées pour Azure Integration Runtime et sont actuellement utilisées uniquement pour le déplacement des données, le pipeline et les activités externes. Les dataflows et Azure Integration Runtime qui activent le réseau virtuel géré n’utilisent plus ces plages d’adresses IP. 
@@ -37,12 +37,12 @@ Cela devrait fonctionner dans de nombreux scénarios et nous savons bien qu’un
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Stratégies d’accès aux données via Azure Data Factory
 
-* **[Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)**  : vous pouvez créer un runtime d’intégration Azure au sein d’un réseau virtuel géré Azure Data Factory et il tirera parti des points de terminaison privés pour se connecter en toute sécurité aux magasins de données pris en charge. Le trafic entre le réseau virtuel géré et les sources de données transite par le réseau principal de Microsoft et n’est pas exposé au réseau public.
-* **[Service approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)**  : le Stockage Azure (BLOB, ADLS Gen2) prend en charge une configuration de pare-feu qui permet à certains services de plateforme Azure approuvés d’accéder au compte de stockage en toute sécurité . Les services approuvés appliquent une authentification d’identité gérée, qui garantit qu’aucune autre fabrique de données ne peut se connecter à ce stockage, sauf si elle est autorisée à le faire à l’aide de son identité gérée. Pour plus d’informations, lisez **[ce blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Cette solution est donc extrêmement sécurisée et recommandée. 
-* **Adresse IP statique unique** : vous devez configurer un runtime d’intégration auto-hébergé pour obtenir une adresse IP statique pour les connecteurs Data Factory. Ce mécanisme garantit que vous pouvez bloquer l’accès à partir de toutes les autres adresses IP. 
-* **[Plage d’adresses IP statiques](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)**  : vous pouvez utiliser les adresses IP d’Azure Integration Runtime pour les autoriser par mise en liste verte dans votre stockage (par exemple, S3, Salesforce, etc.). Cela restreint certainement les adresses IP qui peuvent se connecter aux magasins de données, mais dépend également des règles d’authentification/autorisation.
-* **[Balise de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)**  : une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné (comme Azure Data Factory). Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Cette solution est utile lors du filtrage de l’accès aux données sur des magasins de données hébergés par IaaS dans un réseau virtuel.
-* **Autoriser les services Azure** : certains services vous permettent d’autoriser tous les services Azure à s’y connecter si vous choisissez cette option. 
+* **[Azure Private Link](../private-link/private-link-overview.md)**  : vous pouvez créer un runtime d’intégration Azure au sein d’un réseau virtuel géré Azure Data Factory et il tirera parti des points de terminaison privés pour se connecter en toute sécurité aux magasins de données pris en charge. Le trafic entre le réseau virtuel géré et les sources de données transite par le réseau principal de Microsoft et n’est pas exposé au réseau public.
+* **[Service approuvé](../storage/common/storage-network-security.md#exceptions)**  : le Stockage Azure (BLOB, ADLS Gen2) prend en charge une configuration de pare-feu qui permet à certains services de plateforme Azure approuvés d’accéder au compte de stockage en toute sécurité . Les services approuvés appliquent une authentification d’identité gérée, qui garantit qu’aucune autre fabrique de données ne peut se connecter à ce stockage, sauf si elle est autorisée à le faire à l’aide de son identité gérée. Pour plus d’informations, lisez **[ce blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Cette solution est donc extrêmement sécurisée et recommandée. 
+* **Adresse IP statique unique**  : vous devez configurer un runtime d’intégration auto-hébergé pour obtenir une adresse IP statique pour les connecteurs Data Factory. Ce mécanisme garantit que vous pouvez bloquer l’accès à partir de toutes les autres adresses IP. 
+* **[Plage d’adresses IP statiques](./azure-integration-runtime-ip-addresses.md)**  : vous pouvez utiliser les adresses IP d’Azure Integration Runtime pour les autoriser par mise en liste verte dans votre stockage (par exemple, S3, Salesforce, etc.). Cela restreint certainement les adresses IP qui peuvent se connecter aux magasins de données, mais dépend également des règles d’authentification/autorisation.
+* **[Balise de service](../virtual-network/service-tags-overview.md)**  : une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné (comme Azure Data Factory). Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Cette solution est utile lors du filtrage de l’accès aux données sur des magasins de données hébergés par IaaS dans un réseau virtuel.
+* **Autoriser les services Azure**  : certains services vous permettent d’autoriser tous les services Azure à s’y connecter si vous choisissez cette option. 
 
 Pour plus d’informations sur les mécanismes de sécurité réseau pris en charge sur les banques de données dans Azure Integration Runtime et le runtime d’intégration auto-hébergé, voir les deux tableaux ci-dessous.  
 * **Azure Integration Runtime**
@@ -82,7 +82,7 @@ Pour plus d’informations sur les mécanismes de sécurité réseau pris en cha
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, consultez les articles connexes suivants :
-* [Magasins de données pris en charge](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* [Services approuvés par Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* [Services Microsoft approuvés par Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Magasins de données pris en charge](./copy-activity-overview.md#supported-data-stores-and-formats)
+* [Services approuvés par Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Services Microsoft approuvés par Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Identité managée pour Data Factory](./data-factory-service-identity.md)

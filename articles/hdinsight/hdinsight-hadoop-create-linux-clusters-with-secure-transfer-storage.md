@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 43abe6a827af668f2b756e5f00497fbfe1698413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083234"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547467"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Clusters Apache Hadoop avec des comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
@@ -32,13 +32,13 @@ Pour mettre à jour un compte de stockage existant avec le Portail Azure, consul
 
 ### <a name="powershell"></a>PowerShell
 
-Pour la cmdlet PowerShell [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount), vérifiez que le paramètre `-EnableHttpsTrafficOnly` est défini sur `1`.
+Pour la cmdlet PowerShell [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), vérifiez que le paramètre `-EnableHttpsTrafficOnly` est défini sur `1`.
 
 Pour mettre à jour un compte de stockage existant avec PowerShell, consultez [Exiger un transfert sécurisé avec PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour la commande Azure CLI [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), vérifiez que le paramètre `--https-only` est défini sur `true`.
+Pour la commande Azure CLI [az storage account create](/cli/azure/storage/account#az-storage-account-create), vérifiez que le paramètre `--https-only` est défini sur `true`.
 
 Pour mettre à jour un compte de stockage existant avec Azure CLI, consultez [Exiger un transfert sécurisé avec Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 

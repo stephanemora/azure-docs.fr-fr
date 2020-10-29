@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982987"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558514"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guide de dépannage du Connecteur Azure IoT pour FHIR (préversion)
 
@@ -93,7 +93,7 @@ Les copies du fichier de mappage doivent être fournies au support technique Azu
 > [!TIP]
 > En savoir plus sur le connecteur Azure IoT pour le [fichier JSON de mappage de conversion d’appareil et FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
-1. Sélectionnez **Connecteur IoT (préversion)** en bas à gauche du tableau de bord des ressources de l’API Azure pour FHIR dans la section **Compléments**.
+1. Sélectionnez **Connecteur IoT (préversion)** en bas à gauche du tableau de bord des ressources de l’API Azure pour FHIR dans la section **Compléments** .
 
    :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Connecteur1 IoT" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
@@ -102,9 +102,9 @@ Les copies du fichier de mappage doivent être fournies au support technique Azu
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connecteur1 IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
-> Ce processus peut également être utilisé pour copier et enregistrer le contenu du JSON **Configurer le mappage FHIR**.
+> Ce processus peut également être utilisé pour copier et enregistrer le contenu du JSON **Configurer le mappage FHIR** .
 
-3. Sélectionnez **Configurer le mappage d’appareil**.
+3. Sélectionnez **Configurer le mappage d’appareil** .
 
     :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connecteur1 IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
@@ -122,7 +122,7 @@ Les copies du fichier de mappage doivent être fournies au support technique Azu
 Consultez les questions fréquemment posées sur le Connecteur Azure IoT pour FHIR.
 
 >[!div class="nextstepaction"]
->[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
 
 *Dans le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
 

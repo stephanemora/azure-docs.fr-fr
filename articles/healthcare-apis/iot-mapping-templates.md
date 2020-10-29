@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553645"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558531"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
 Cet article explique comment configurer le connecteur Azure IoT pour FHIR* à l’aide des modèles de mappage.
 
-Le connecteur Azure IoT pour FHIR requiert deux types de modèles de mappage basés sur JSON. Le premier type, le **mappage d’appareils**, est chargé de mapper les charges utiles d’appareils envoyées au point de terminaison `devicedata` Azure Event Hub. Il extrait les types, les identificateurs d’appareil, les dates et heures de mesure, ainsi que la ou les valeur(s) de mesure. Le second type, le **mappage FHIR**, contrôle le mappage de la ressource FHIR. Il permet de configurer la durée de la période d’observation, le type de données FHIR utilisé pour stocker les valeurs et le ou les code(s) de terminologie. 
+Le connecteur Azure IoT pour FHIR requiert deux types de modèles de mappage basés sur JSON. Le premier type, le **mappage d’appareils** , est chargé de mapper les charges utiles d’appareils envoyées au point de terminaison `devicedata` Azure Event Hub. Il extrait les types, les identificateurs d’appareil, les dates et heures de mesure, ainsi que la ou les valeur(s) de mesure. Le second type, le **mappage FHIR** , contrôle le mappage de la ressource FHIR. Il permet de configurer la durée de la période d’observation, le type de données FHIR utilisé pour stocker les valeurs et le ou les code(s) de terminologie. 
 
-Les modèles de mappage sont composés dans un document JSON en fonction de leur type. Ces documents JSON sont ensuite ajoutés à votre connecteur Azure IoT pour FHIR via le Portail Azure. Le document de mappage d’appareils est ajouté via la page **Configurer le mappage d’appareils** et le document de mappage FHIR via la page **Configurer le mappage de FHIR**.
+Les modèles de mappage sont composés dans un document JSON en fonction de leur type. Ces documents JSON sont ensuite ajoutés à votre connecteur Azure IoT pour FHIR via le Portail Azure. Le document de mappage d’appareils est ajouté via la page **Configurer le mappage d’appareils** et le document de mappage FHIR via la page **Configurer le mappage de FHIR** .
 
 > [!NOTE]
 > Les modèles de mappage sont stockés dans un stockage d’objets BLOB sous-jacent et chargés à partir d’un objet BLOB par exécution de calcul. Une fois mis à jour, ils doivent prendre effet immédiatement. 
@@ -71,8 +71,8 @@ JsonPathContentTemplate permet la correspondance et l’extraction des valeurs d
 |**TypeMatchExpression**|Expression de chemin d’accès JSON qui est évaluée par rapport à la charge utile Event Hub. Si un JToken correspondant est trouvé, le modèle est considéré comme une correspondance. Toutes les expressions suivantes sont évaluées par rapport aux JToken extraits correspondants.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Expression de chemin d’accès JSON pour extraire la valeur d’horodatage pour le OccurenceTimeUtc de la mesure.|`$.endDate`
 |**DeviceIdExpression**|Expression de chemin d’accès JSON pour extraire l’identificateur d’appareil.|`$.deviceId`
-|**PatientIdExpression**|*Facultatif* : Expression de chemin d’accès JSON pour extraire l’identificateur de patient.|`$.patientId`
-|**EncounterIdExpression**|*Facultatif* : Expression de chemin d’accès JSON pour extraire l’identificateur de rencontre.|`$.encounterId`
+|**PatientIdExpression**|*Facultatif*  : Expression de chemin d’accès JSON pour extraire l’identificateur de patient.|`$.patientId`
+|**EncounterIdExpression**|*Facultatif*  : Expression de chemin d’accès JSON pour extraire l’identificateur de rencontre.|`$.encounterId`
 |**Values[].ValueName**|Nom à associer à la valeur extraite par l’expression suivante. Utilisé pour lier la valeur/le composant requis dans le modèle de mappage FHIR. |`hr`
 |**Values[].ValueExpression**|Expression de chemin d’accès JSON pour extraire la valeur requise.|`$.heartRate`
 |**Values[].Required**|Nécessite que la valeur soit présente dans la charge utile.  Si la valeur est introuvable, la mesure n’est pas générée et une exception InvalidOperationException est levée.|`true`
@@ -565,7 +565,7 @@ Représente le type de données [CodeableConcept](http://hl7.org/fhir/datatypes.
 Consultez les questions fréquemment posées sur le connecteur Azure IoT pour FHIR (préversion).
 
 >[!div class="nextstepaction"]
->[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[FAQ sur le Connecteur Azure IoT pour FHIR](fhir-faq.md)
 
 *Dans le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
 

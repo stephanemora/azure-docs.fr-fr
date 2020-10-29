@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79233457"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545631"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Spark à l’aide d’Azure HDInsight
 
@@ -25,23 +25,23 @@ Les valeurs de configuration Spark peuvent être paramétrées afin d’éviter 
 
 1. Connectez-vous à Ambari sur `https://CLUSTERNAME.azurehdidnsight.net` avec les informations d’identification du cluster. L’écran initial affiche un tableau de bord de présentation. Il existe de légères différences de présentation entre HDInsight 3.6 et 4.0.
 
-1. Accédez à **Spark2** > **Configs**.
+1. Accédez à **Spark2** > **Configs** .
 
     ![Sélectionnez l’onglet Configurations](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Dans la liste des configurations, sélectionnez et développez **Custom-spark2-defaults**.
+1. Dans la liste des configurations, sélectionnez et développez **Custom-spark2-defaults** .
 
-1. Recherchez le paramètre de valeur que vous avez besoin d’ajuster, par exemple **spark.executor.memory**. Dans le cas présent, la valeur de **9728m** est trop élevée.
+1. Recherchez le paramètre de valeur que vous avez besoin d’ajuster, par exemple **spark.executor.memory** . Dans le cas présent, la valeur de **9728m** est trop élevée.
 
     ![Sélectionnez custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Définissez la valeur sur le paramètre recommandé. La valeur **2048m** est recommandée pour ce paramètre.
 
-1. Enregistrez la valeur, puis la configuration. Sélectionnez **Enregistrer**.
+1. Enregistrez la valeur, puis la configuration. Sélectionnez **Enregistrer** .
 
     ![Remplacez la valeur par 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Notez les modifications apportées à la configuration, puis sélectionnez **Enregistrer**.
+    Notez les modifications apportées à la configuration, puis sélectionnez **Enregistrer** .
 
     ![Saisissez une note concernant les modifications apportées](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
@@ -49,7 +49,7 @@ Les valeurs de configuration Spark peuvent être paramétrées afin d’éviter 
 
     ![Sélectionnez Proceed Anyway (Continuer)](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. À chaque fois que vous enregistrez une configuration, vous êtes invité à redémarrer le service. Sélectionnez **Redémarrer**.
+1. À chaque fois que vous enregistrez une configuration, vous êtes invité à redémarrer le service. Sélectionnez **Redémarrer** .
 
     ![Sélectionnez Redémarrer](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Les valeurs de configuration Spark peuvent être paramétrées afin d’éviter 
 
     ![Examinez les processus en cours d’exécution](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Vous pouvez ajouter des configurations. Dans la liste des configurations, sélectionnez **Custom-spark2-defaults**, puis **Ajouter une propriété**.
+1. Vous pouvez ajouter des configurations. Dans la liste des configurations, sélectionnez **Custom-spark2-defaults** , puis **Ajouter une propriété** .
 
     ![Sélectionnez Ajouter une propriété](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Définissez une nouvelle propriété. Vous pouvez définir une propriété unique via une boîte de dialogue de paramètres spécifiques tels que le type de données. Vous pouvez également définir plusieurs propriétés en utilisant une définition par ligne.
 
-    Dans cet exemple, la propriété **spark.driver.memory** est définie avec une valeur de **4g**.
+    Dans cet exemple, la propriété **spark.driver.memory** est définie avec une valeur de **4g** .
 
     ![Définissez une nouvelle propriété](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -77,7 +77,7 @@ Ces modifications s’appliquent à l’ensemble du cluster, mais elles peuvent 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Comment configurer une application Apache Spark sur des clusters via un bloc-notes Jupyter ?
 
-Dans la première cellule du bloc-notes Jupyter, après la directive **%%configure**, spécifiez les configurations Spark dans un format JSON valide. Modifiez les valeurs si nécessaire :
+Dans la première cellule du bloc-notes Jupyter, après la directive **%%configure** , spécifiez les configurations Spark dans un format JSON valide. Modifiez les valeurs si nécessaire :
 
 ![Ajoutez une configuration](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -107,10 +107,10 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * [Vue d’ensemble de la gestion de la mémoire dans Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Débogage d’une application Spark sur des clusters HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Débogage d’une application Spark sur des clusters HDInsight](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support** . Pour plus d’informations, consultez [Création d’une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207470"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547960"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur une machine virtuelle
 
@@ -39,8 +39,8 @@ Pour télécharger une version antérieure du bac à sable HDP, consultez les li
 ## <a name="start-the-virtual-machine"></a>Démarrage de la machine virtuelle
 
 1. Ouvrez Oracle VirtualBox pour machine virtuelle.
-1. À partir du menu **Fichier**, cliquez sur **Importer l’appliance**, puis spécifiez l’image de sandbox Hortonworks.
-1. Sélectionnez Hortonworks Sandbox, cliquez sur **Démarrer**, puis sur **Démarrage normal**. Une fois le processus de démarrage de la machine virtuelle terminé, celle-ci affiche les instructions de connexion.
+1. À partir du menu **Fichier** , cliquez sur **Importer l’appliance** , puis spécifiez l’image de sandbox Hortonworks.
+1. Sélectionnez Hortonworks Sandbox, cliquez sur **Démarrer** , puis sur **Démarrage normal** . Une fois le processus de démarrage de la machine virtuelle terminé, celle-ci affiche les instructions de connexion.
 
     ![démarrage normal de VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
@@ -85,7 +85,7 @@ Pour télécharger une version antérieure du bac à sable HDP, consultez les li
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Apprendre à utiliser Visual Studio avec Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Apprendre à utiliser Visual Studio avec Hortonworks Sandbox](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Se familiariser avec Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

@@ -10,12 +10,12 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194625"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632230"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données de SQL Server sur Azure
 
@@ -27,9 +27,9 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **SQL Server**. Dans cet exemple, vous allez utiliser une base de données SQL Server comme magasin de données **source**.
-- **Compte Stockage Azure**. Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-- **Runtime d’intégration auto-hébergé**. Téléchargez le fichier MSI à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et exécutez-le pour installer un runtime d’intégration auto-hébergé sur votre ordinateur.  
+- **SQL Server** . Dans cet exemple, vous allez utiliser une base de données SQL Server comme magasin de données **source** .
+- **Compte Stockage Azure** . Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception** . Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
+- **Runtime d’intégration auto-hébergé** . Téléchargez le fichier MSI à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et exécutez-le pour installer un runtime d’intégration auto-hébergé sur votre ordinateur.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Créer un exemple de base de données dans SQL Server
 1. Dans la base de données SQL Server, créez une table nommée **emp** en utilisant le script SQL suivant :
@@ -92,6 +92,6 @@ Ce script utilise les commandes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](https://docs.microsoft.com/powershell/).
+Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/).
 
 Des exemples supplémentaires de scripts PowerShell pour Azure Data Factory sont à votre disposition dans [Exemples PowerShell pour Azure Data Factory](../samples-powershell.md).

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123747"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632802"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -252,4 +252,4 @@ Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’i
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
 
-Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité managée de fabrique de données est basée, consultez [Que sont les identités managées pour les ressources Azure ?](/azure/active-directory/managed-identities-azure-resources/overview). 
+Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité managée de fabrique de données est basée, consultez [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md).

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537155"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544050"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -41,8 +41,8 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/8.0/en/repli
 - Chaque table doit avoir une clé primaire.
 - Le serveur source doit utiliser le moteur MySQL InnoDB.
 - L’utilisateur doit disposer des autorisations nécessaires pour configurer la journalisation binaire et créer de nouveaux utilisateurs sur le serveur source.
-- Si SSL est activé sur le serveur source, vérifiez que le certificat d’autorité de certification SSL fourni pour le domaine a été inclus dans la procédure stockée `mysql.az_replication_change_master`. Consultez les [exemples](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) suivants et le paramètre `master_ssl_ca`.
-- Vérifiez que l’adresse IP du serveur source a été ajoutée aux règles de pare-feu du serveur réplica Azure Database pour MySQL. Mettez à jour les règles de pare-feu à l’aide du [portail Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou d’[Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Si SSL est activé sur le serveur source, vérifiez que le certificat d’autorité de certification SSL fourni pour le domaine a été inclus dans la procédure stockée `mysql.az_replication_change_master`. Consultez les [exemples](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) suivants et le paramètre `master_ssl_ca`.
+- Vérifiez que l’adresse IP du serveur source a été ajoutée aux règles de pare-feu du serveur réplica Azure Database pour MySQL. Mettez à jour les règles de pare-feu à l’aide du [portail Azure](./howto-manage-firewall-using-portal.md) ou d’[Azure CLI](./howto-manage-firewall-using-cli.md).
 - Vérifiez que la machine qui héberge le serveur source autorise à la fois le trafic entrant et le trafic sortant sur le port 3306.
 - Vérifiez que le serveur source dispose d’une **adresse IP publique** et que le système DNS est accessible publiquement ou comporte un nom de domaine complet (FQDN).
 

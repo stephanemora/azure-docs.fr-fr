@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087722"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546192"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
@@ -33,7 +33,7 @@ Hue est un ensemble d’applications web permettant d’interagir avec un cluste
 > [!WARNING]  
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Il existe par exemple de nombreux sites communautaires, comme : [Page de questions Microsoft Q&A pour HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html),[https://stackoverflow.com](https://stackoverflow.com). Par ailleurs, les projets Apache ont des sites de projet sur [https://apache.org](https://apache.org), par exemple : [Hadoop](https://hadoop.apache.org/).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Il existe par exemple de nombreux sites communautaires, comme : [Page de questions Microsoft Q&A pour HDInsight](/answers/topics/azure-hdinsight.html),[https://stackoverflow.com](https://stackoverflow.com). Par ailleurs, les projets Apache ont des sites de projet sur [https://apache.org](https://apache.org), par exemple : [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Installer Hue à l’aide d’actions de script
 
@@ -87,11 +87,11 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
 ### <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. À partir du portail Hue, sélectionnez **Éditeurs de requête**, puis sélectionnez **Hive** pour ouvrir l’éditeur Hive.
+1. À partir du portail Hue, sélectionnez **Éditeurs de requête** , puis sélectionnez **Hive** pour ouvrir l’éditeur Hive.
 
     ![Portail Hue sur HDInsight - Utiliser l’éditeur Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Utiliser Hive")
 
-2. Sous l’onglet **Aide**, sous **Base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
+2. Sous l’onglet **Aide** , sous **Base de données** , vous devez voir **hivesampletable** . Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
 
     ![Portail Hue sur HDInsight - Requête Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Exécuter une requête Hive")
 
@@ -125,8 +125,8 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
    Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur le nœud principal primaire.
 
-1. Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasbs://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’ **Explorateur de fichiers**), il doit être compris comme WASB.
+1. Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasbs://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’ **Explorateur de fichiers** ), il doit être compris comme WASB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Installation de R sur des clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Utilisez la personnalisation de clusters pour installer R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
+[Installation de R sur des clusters HDInsight](./r-server/r-server-overview.md). Utilisez la personnalisation de clusters pour installer R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.

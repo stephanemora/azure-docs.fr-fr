@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74e62c39295d36132abdce0abc033162fa22cb64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531630"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546311"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide d’Azure CLI et de l’API REST
 
@@ -23,7 +23,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
 ### <a name="prerequisites"></a>Prérequis
 
-- [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli)
 - Un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) qui sera utilisé comme serveur source. 
 
 > [!IMPORTANT]
@@ -32,7 +32,7 @@ Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 
@@ -42,9 +42,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 La commande `az mysql server replica create` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | name | mydemoreplicaserver | Nom du nouveau serveur réplica créé. |
 | source-server | mydemoserver | Nom ou ID du serveur source à partir duquel la réplication doit être effectuée. |
 
@@ -61,9 +61,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
 
 
-### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d’un serveur source
+### <a name="list-replicas-for-a-source-server"></a>Répertorier les réplicas d'un serveur source
 
-Pour afficher tous les réplicas d’un serveur source donné, exécutez la commande suivante : 
+Pour afficher tous les réplicas d'un serveur source donné, exécutez la commande suivante : 
 
 ```azurecli-interactive
 az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
@@ -71,9 +71,9 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 La commande `az mysql server replica list` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
+| resource-group |  myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
 | server-name | mydemoserver | Nom ou ID du serveur source. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
@@ -89,9 +89,9 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 La commande `az mysql server replica stop` requiert les paramètres suivants :
 
-| Paramètre | Valeur d'exemple | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur réplica.  |
+| resource-group |  myResourceGroup |  Groupe de ressources où se trouve le serveur réplica.  |
 | name | mydemoreplicaserver | Nom du serveur réplica pour lequel arrêter la réplication. |
 
 ### <a name="delete-a-replica-server"></a>Supprimer un serveur réplica
@@ -137,7 +137,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
 
-Si vous n’avez pas affecté au paramètre `azure.replication_support` la valeur **REPLICA** sur un serveur source à usage général ou à mémoire optimisée, et que vous avez redémarré le serveur, vous recevez une erreur. Effectuez ces deux étapes avant de créer un réplica.
+Si vous n'avez pas affecté au paramètre `azure.replication_support` la valeur **REPLICA** sur un serveur source à usage général ou à mémoire optimisée, et que vous avez redémarré le serveur, vous recevez une erreur. Effectuez ces deux étapes avant de créer un réplica.
 
 Le réplica doit être créé en utilisant les mêmes paramètres de calcul et de stockage que le serveur maître. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur source : génération de calcul, vCores, stockage et durée de conservation des sauvegardes. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
 
@@ -146,14 +146,14 @@ Le réplica doit être créé en utilisant les mêmes paramètres de calcul et d
 > Avant de modifier un paramètre du serveur source, remplacez la valeur du paramètre du réplica par une valeur supérieure ou égale à celle du serveur maître. Vous garantissez ainsi l’alignement du réplica sur les changements apportés au serveur maître.
 
 ### <a name="list-replicas"></a>Lister les réplicas
-Vous pouvez afficher la liste des réplicas d’un serveur source à l’aide de l’[API Lister les réplicas](/rest/api/mysql/replicas/listbyserver) :
+Vous pouvez afficher la liste des réplicas d'un serveur source à l'aide de l'[API Lister les réplicas](/rest/api/mysql/replicas/listbyserver) :
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrêter la réplication vers un serveur réplica
-Vous pouvez arrêter la réplication entre un serveur source et un réplica en lecture à l’aide de l’[API de mise à jour](/rest/api/mysql/servers/update).
+Vous pouvez arrêter la réplication entre un serveur source et un réplica en lecture à l'aide de l'[API de mise à jour](/rest/api/mysql/servers/update).
 
 Une fois que vous avez arrêté la réplication entre un serveur source et un réplica en lecture, vous ne pouvez pas revenir en arrière. Le réplica en lecture devient un serveur autonome qui prend en charge les lectures et les écritures. Le serveur autonome ne peut pas être retransformé en réplica.
 
@@ -170,7 +170,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```
 
 ### <a name="delete-a-source-or-replica-server"></a>Supprimer un serveur source ou réplica
-Pour supprimer un serveur source ou réplica, vous devez utiliser l’[API de suppression](/rest/api/mysql/servers/delete) :
+Pour supprimer un serveur source ou réplica, vous devez utiliser l'[API de suppression](/rest/api/mysql/servers/delete) :
 
 Lorsque vous supprimez un serveur source, la réplication est arrêtée sur tous les réplicas en lecture. Les réplicas en lecture deviennent des serveurs autonomes qui prennent désormais en charge les lectures et les écritures.
 

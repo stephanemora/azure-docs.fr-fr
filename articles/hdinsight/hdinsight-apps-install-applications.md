@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: e0d1f9ad99e1b64560321312a22f61f5a2ef3dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016034"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547943"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -52,12 +52,12 @@ La procédure suivante montre comment installer des applications HDInsight dans 
 **Installer une application HDInsight**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
+2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight** .
 3. Sélectionnez un cluster HDInsight dans la liste.  Si vous ne disposez pas d’un tel cluster, vous devez d’abord en créer un.  Consultez la page [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. Sous la catégorie **Paramètres**, sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
+4. Sous la catégorie **Paramètres** , sélectionnez **Applications** . Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
    
     ![Applications HDInsight - menu du portail](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. Dans le menu, sélectionnez **+Ajouter**. La liste des applications disponibles s’affiche.  Si l’option **+Ajouter** est grisée, cela signifie qu’il n’existe aucune application pour cette version du cluster HDInsight.
+5. Dans le menu, sélectionnez **+Ajouter** . La liste des applications disponibles s’affiche.  Si l’option **+Ajouter** est grisée, cela signifie qu’il n’existe aucune application pour cette version du cluster HDInsight.
    
     ![Applications HDInsight - applications disponibles](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. Sélectionnez l’une des applications disponibles, puis suivez les instructions pour accepter les conditions légales.
@@ -66,7 +66,7 @@ Vous pouvez vérifier l’état de l’installation de l’application dans les 
 
 ## <a name="install-applications-during-cluster-creation"></a>Installer des applications lors de la création du cluster
 
-Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer des applications pendant la création du cluster à l’aide du portail Azure, à partir de l’onglet **Configuration + prix**, sélectionnez **+ Ajouter une application**.
+Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer des applications pendant la création du cluster à l’aide du portail Azure, à partir de l’onglet **Configuration + prix** , sélectionnez **+ Ajouter une application** .
 
 ![Portail Azure - Configuration des clusters - Applications](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -76,9 +76,9 @@ Le portail affiche une liste des applications HDInsight installées pour un clus
 **Répertorier une application HDInsight et afficher des propriétés**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
+2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight** .
 3. Sélectionnez un cluster HDInsight dans la liste.
-4. Sous la catégorie **Paramètres**, sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
+4. Sous la catégorie **Paramètres** , sélectionnez **Applications** . Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
    
     ![Applications HDInsight - applications installées](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Sélectionnez l’une des applications installées pour en afficher la propriété. Listes des propriétés :
@@ -104,8 +104,7 @@ Consultez [Dépanner l’installation](hdinsight-apps-install-custom-application
 ## <a name="next-steps"></a>Étapes suivantes
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md): découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Publier des applications HDInsight](hdinsight-apps-publish-applications.md) : découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
-* [MSDN : Installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment définir les applications HDInsight.
+* [MSDN : Installer une application HDInsight](/rest/api/hdinsight/hdinsight-application) : découvrez comment définir les applications HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md): apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 * [Créer des clusters Apache Hadoop sous Linux dans HDInsight à l’aide de modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles Resource Manager pour la création de clusters HDInsight.
 * [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md): apprenez à utiliser un nœud de périmètre vide pour accéder au cluster HDInsight, tester des applications HDInsight et héberger des applications HDInsight.
-

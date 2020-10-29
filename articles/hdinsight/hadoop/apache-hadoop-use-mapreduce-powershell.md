@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006600"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545206"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Exécuter des travaux MapReduce avec Apache Hadoop sur HDInsight à l’aide de PowerShell
 
@@ -25,7 +25,7 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécut
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Créer des clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Le [module Az](https://docs.microsoft.com/powershell/azure/) PowerShell installé.
+* Le [module Az](/powershell/azure/) PowerShell installé.
 
 ## <a name="run-a-mapreduce-job"></a>Exécuter une tâche MapReduce
 
@@ -43,7 +43,7 @@ Les applets de commande suivantes sont utilisées lors de l’exécution des tâ
 
 Les étapes suivantes montrent comment utiliser ces applets de commande pour exécuter une tâche sur votre cluster HDInsight.
 
-1. À l’aide d’un éditeur, enregistrez le code suivant sous **mapreducejob.ps1**.
+1. À l’aide d’un éditeur, enregistrez le code suivant sous **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -85,7 +85,7 @@ Pour afficher les mots et les décomptes générés par la tâche, ouvrez le fic
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Si aucune information n’est retournée lorsque la tâche est terminée, affichez les erreurs liées à cette tâche. Pour afficher les informations d’erreur pour ce projet, ajoutez la commande suivante à la fin du fichier **mapreducejob.ps1**. Ensuite, enregistrez le fichier et réexécutez le script.
+Si aucune information n’est retournée lorsque la tâche est terminée, affichez les erreurs liées à cette tâche. Pour afficher les informations d’erreur pour ce projet, ajoutez la commande suivante à la fin du fichier **mapreducejob.ps1** . Ensuite, enregistrez le fichier et réexécutez le script.
 
 ```powershell
 # Print the output of the WordCount job.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541816"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634094"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Charger de façon incrémentielle les données de plusieurs tables de SQL Server sur Azure SQL Database avec PowerShell
 
@@ -42,11 +42,11 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 ## <a name="overview"></a>Vue d’ensemble
 Voici les étapes importantes à suivre pour créer cette solution : 
 
-1. **Sélectionner la colonne de limite**.
+1. **Sélectionner la colonne de limite** .
 
     Sélectionnez une colonne pour chaque table du magasin de données source, qui peut servir à identifier les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
-2. **Préparer un magasin de données pour stocker la valeur de limite**.
+2. **Préparer un magasin de données pour stocker la valeur de limite** .
 
     Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
 
@@ -69,14 +69,14 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données source. 
-* **Azure SQL Database**. Vous utilisez une base de données dans Azure SQL Database comme magasin de données récepteur. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une. 
+* **SQL Server** . Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données source. 
+* **Azure SQL Database** . Vous utilisez une base de données dans Azure SQL Database comme magasin de données récepteur. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données dans Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
-1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
+1. Ouvrez [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
 
-2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
+2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête** .
 
 3. Exécutez la commande SQL suivante sur votre base de données pour créer des tables nommées `customer_table` et `project_table` :
 
@@ -113,9 +113,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données Azure SQL
 
-1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
+1. Ouvrez [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
 
-2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
+2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête** .
 
 3. Exécutez la commande SQL suivante sur votre base de données pour créer des tables nommées `customer_table` et `project_table` :  
 
@@ -283,7 +283,7 @@ Notez les points suivants :
 
 * Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles Contributeur ou Propriétaire, ou administrateur de l’abonnement Azure.
 
-* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, SQL Database, SQL Managed Instance, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+* Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory**  : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, SQL Database, SQL Managed Instance, etc.) et les services de calcul (Azure HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -537,15 +537,15 @@ Dans cette étape, vous allez créer un jeu de données pour stocker une valeur 
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
-Ce pipeline prend une liste de noms de tables comme paramètre. L’**activité ForEach** effectue une itération dans la liste des noms de table et effectue les opérations suivantes : 
+Ce pipeline prend une liste de noms de tables comme paramètre. L’ **activité ForEach** effectue une itération dans la liste des noms de table et effectue les opérations suivantes : 
 
-1. Utilisez l’**activité Rechercher** pour récupérer la valeur de l’ancienne limite (la valeur initiale ou celle utilisée dans la dernière itération).
+1. Utilisez l’ **activité Rechercher** pour récupérer la valeur de l’ancienne limite (la valeur initiale ou celle utilisée dans la dernière itération).
 
-2. Utilisez l’**activité Rechercher** pour récupérer la valeur de la nouvelle limite (la valeur maximale de la colonne de limite dans la table source).
+2. Utilisez l’ **activité Rechercher** pour récupérer la valeur de la nouvelle limite (la valeur maximale de la colonne de limite dans la table source).
 
-3. Utilisez l’**activité Copier** pour copier les données entre ces deux valeurs de limite depuis la base de données source vers la base de données de destination.
+3. Utilisez l’ **activité Copier** pour copier les données entre ces deux valeurs de limite depuis la base de données source vers la base de données de destination.
 
-4. Utilisez l’**activité StoredProcedure** pour mettre à jour l’ancienne valeur de la limite à utiliser dans la première étape de l’itération suivante. 
+4. Utilisez l’ **activité StoredProcedure** pour mettre à jour l’ancienne valeur de la limite à utiliser dans la première étape de l’itération suivante. 
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 
@@ -804,7 +804,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’**activité 
         ]
     }
     ```
-2. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
+2. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzDataFactoryV2Pipeline** . Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -814,21 +814,21 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’**activité 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Sélectionnez **Tous les services**, effectuez une recherche avec le mot clé *Fabriques de données*, puis sélectionnez **Fabriques de données**. 
+2. Sélectionnez **Tous les services** , effectuez une recherche avec le mot clé *Fabriques de données* , puis sélectionnez **Fabriques de données** . 
 
-3. Recherchez votre fabrique de données dans la liste des fabriques de données, puis sélectionnez-la pour ouvrir la page **Fabrique de données**. 
+3. Recherchez votre fabrique de données dans la liste des fabriques de données, puis sélectionnez-la pour ouvrir la page **Fabrique de données** . 
 
-4. Dans la page **Fabrique de données**, sélectionnez **Créer et surveiller** pour lancer Azure Data Factory dans un onglet séparé.
+4. Dans la page **Fabrique de données** , sélectionnez **Créer et surveiller** pour lancer Azure Data Factory dans un onglet séparé.
 
-5. Dans la page **Commençons**, sélectionnez **Superviser** sur le côté gauche. 
+5. Dans la page **Commençons** , sélectionnez **Superviser** sur le côté gauche. 
 ![Capture d’écran montrant la page de prise en main pour Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite**. Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres**. Si une erreur s’est produite, un lien figure dans la colonne **Erreur**.
+6. Vous pouvez voir toutes les exécutions de pipeline et leurs états. Notez que dans l’exemple suivant, l’état d’exécution de pipeline est **Réussite** . Pour vérifier les paramètres transmis au pipeline, sélectionnez le lien dans la colonne **Paramètres** . Si une erreur s’est produite, un lien figure dans la colonne **Erreur** .
 
     ![Capture d’écran montrant les exécutions de pipeline pour une fabrique de données incluant votre pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
-7. Si vous sélectionnez le lien dans la colonne **Actions**, vous voyez toutes les exécutions d’activité du pipeline. 
+7. Si vous sélectionnez le lien dans la colonne **Actions** , vous voyez toutes les exécutions d’activité du pipeline. 
 
-8. Pour revenir à la vue **Exécutions de pipeline**, sélectionnez **Toutes les exécutions de pipeline**. 
+8. Pour revenir à la vue **Exécutions de pipeline** , sélectionnez **Toutes les exécutions de pipeline** . 
 
 ## <a name="review-the-results"></a>Passer en revue les résultats.
 
@@ -907,7 +907,7 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Analysez les exécutions du pipeline en suivant les instructions indiquées dans la section [Surveiller le pipeline](#monitor-the-pipeline). Quand l’état du pipeline est **En cours**, vous voyez un autre lien d’action sous **Actions** pour annuler l’exécution du pipeline. 
+2. Analysez les exécutions du pipeline en suivant les instructions indiquées dans la section [Surveiller le pipeline](#monitor-the-pipeline). Quand l’état du pipeline est **En cours** , vous voyez un autre lien d’action sous **Actions** pour annuler l’exécution du pipeline. 
 
 3. Sélectionnez **Actualiser** pour actualiser la liste jusqu’à ce que l’exécution du pipeline réussisse. 
 
@@ -994,5 +994,3 @@ Passez au tutoriel suivant pour en savoir plus sur la transformation des donnée
 
 > [!div class="nextstepaction"]
 >[Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

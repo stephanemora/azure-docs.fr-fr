@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537393"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634281"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utiliser des secrets Azure Key Vault dans les activités de pipeline
 
@@ -25,7 +25,7 @@ Vous pouvez stocker des informations d’identification ou des valeurs secrètes
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cette fonctionnalité repose sur l’identité managée de la fabrique de données.  Découvrez comment cela fonctionne dans la section [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) et vérifiez que votre fabrique de données est bien associée à une identité managée.
+Cette fonctionnalité repose sur l’identité managée de la fabrique de données.  Découvrez comment cela fonctionne dans la section [Identité managée pour Data Factory](./data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité managée.
 
 ## <a name="steps"></a>Étapes
 
@@ -39,7 +39,7 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
 
     ![Stratégies d’accès Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Cliquez sur **Ajouter**, puis sur **Enregistrer**.
+    Cliquez sur **Ajouter** , puis sur **Enregistrer** .
 
 3. Accédez à votre secret Key Vault et copiez l’identificateur de secret.
 
@@ -65,10 +65,10 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
     > [!CAUTION]
     > Définissez l’option de sortie sécurisée sur « True » pour empêcher la journalisation de la valeur secrète en texte brut.  Pour toutes les autres activités qui consomment cette valeur, l’option d’entrée sécurisée doit être définie sur « True ».
 
-5. Pour utiliser la valeur dans une autre activité, utilisez l’expression de code suivante : **@activity('Web1').output.value**.
+5. Pour utiliser la valeur dans une autre activité, utilisez l’expression de code suivante : **@activity('Web1').output.value** .
 
     ![Expression de code](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment utiliser Azure Key Vault pour stocker les informations d’identification des magasins de données et des calculs, voir [Informations d’identification dans Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault).
+Pour savoir comment utiliser Azure Key Vault pour stocker les informations d’identification des magasins de données et des calculs, voir [Informations d’identification dans Azure Key Vault](./store-credentials-in-key-vault.md).

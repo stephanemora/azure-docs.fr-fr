@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740120"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546804"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 
@@ -33,11 +33,11 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez le serveur Azure Database pour MySQL que vous souhaitez utiliser comme serveur maître. Cette action ouvre la page **Vue d’ensemble**.
+2. Sélectionnez le serveur Azure Database pour MySQL que vous souhaitez utiliser comme serveur maître. Cette action ouvre la page **Vue d’ensemble** .
 
-3. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
+3. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
 
-4. Sélectionnez **Ajouter un réplica**.
+4. Sélectionnez **Ajouter un réplica** .
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database pour MySQL - Réplication":::
 
@@ -55,9 +55,9 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 7. Sélectionnez **OK** pour confirmer la création du réplica.
 
 > [!NOTE]
-> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources et dans le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
+> Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Le serveur réplica est toujours créé dans le même groupe de ressources et dans le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) après sa création. Il est recommandé de maintenir la configuration du serveur réplica à des valeurs égales ou supérieures à celles du serveur source pour garantir que le réplica sera à la hauteur du serveur maître.
 
-Une fois le serveur réplica créé, il est affiché dans le panneau **Réplication**.
+Une fois le serveur réplica créé, il est affiché dans le panneau **Réplication** .
 
    :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database pour MySQL - Réplication":::
 
@@ -70,17 +70,17 @@ Pour arrêter la réplication entre un serveur source et un serveur réplica à 
 
 1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL. 
 
-2. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
+2. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
 
 3. Sélectionnez le serveur réplica pour lequel vous souhaitez arrêter la réplication.
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database pour MySQL - Réplication":::
 
-4. Sélectionnez **Arrêter la réplication**.
+4. Sélectionnez **Arrêter la réplication** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database pour MySQL - Réplication":::
 
-5. Validez que vous voulez arrêter la réplication en cliquant sur **OK**.
+5. Validez que vous voulez arrêter la réplication en cliquant sur **OK** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database pour MySQL - Réplication":::
 
@@ -90,13 +90,13 @@ Pour supprimer un serveur réplica en lecture du portail Azure, utilisez les ét
 
 1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL.
 
-2. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
+2. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
 
 3. Sélectionnez le serveur réplica que vous voulez supprimer.
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database pour MySQL - Réplication":::
 
-4. Sélectionnez **Supprimer le réplica**.
+4. Sélectionnez **Supprimer le réplica** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database pour MySQL - Réplication":::
 
@@ -113,7 +113,7 @@ Pour supprimer un serveur source du portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL.
 
-2. Dans la **Vue d’ensemble**, sélectionnez **Supprimer**.
+2. Dans la **Vue d’ensemble** , sélectionnez **Supprimer** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database pour MySQL - Réplication":::
 
@@ -125,7 +125,7 @@ Pour supprimer un serveur source du portail Azure, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur réplica Azure Database pour MySQL à superviser.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Métriques** :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Métriques**  :
 
 3. Sélectionnez **Décalage de la réplication en secondes** dans la liste déroulante des métriques disponibles.
 

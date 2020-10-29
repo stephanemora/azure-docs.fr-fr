@@ -8,12 +8,12 @@ keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893643"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546940"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuité de l’activité Azure HDInsight
 
@@ -39,7 +39,7 @@ Cette section décrit quelques-unes des meilleures pratiques à prendre en compt
 
 * Utilisez les outils d’analyse Azure sur HDInsight pour détecter un comportement anormal dans le cluster et définir les notifications d’alerte correspondantes. Vous pouvez déployer les solutions de gestion de cluster HDInsight préconfigurées qui collectent des métriques de performances importantes du type de cluster spécifique. Pour plus d’informations, consultez [Azure Monitor pour HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Abonnez-vous aux alertes d’intégrité Azure pour être informé des problèmes de service, de la maintenance planifiée et des conseils en matière d’intégrité et de sécurité pour un abonnement, un service ou une région. Les notifications d’intégrité qui incluent la cause du problème et une estimation de l’heure de résolution vous aident à mieux exécuter le basculement et les restaurations. Pour plus d’informations, consultez la [documentation Azure Service Health](/azure/service-health/).
+* Abonnez-vous aux alertes d’intégrité Azure pour être informé des problèmes de service, de la maintenance planifiée et des conseils en matière d’intégrité et de sécurité pour un abonnement, un service ou une région. Les notifications d’intégrité qui incluent la cause du problème et une estimation de l’heure de résolution vous aident à mieux exécuter le basculement et les restaurations. Pour plus d’informations, consultez la [documentation Azure Service Health](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Disponibilité dans une seule région
 

@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 20401a3c96a9a20399c07d1a30370d27f2858e29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929524"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546566"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Tutoriel : Créer une instance d'Azure Database pour PostgreSQL - Serveur flexible avec une application web App Service dans un réseau virtuel
 
 > [!IMPORTANT]
 > Azure Database pour PostgreSQL - Serveur flexible est disponible en préversion.
 
-Ce tutoriel explique comment créer une application web Azure App Service avec Azure Database pour PostgreSQL - Serveur flexible (préversion) dans un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Ce tutoriel explique comment créer une application web Azure App Service avec Azure Database pour PostgreSQL - Serveur flexible (préversion) dans un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
 
 Dans ce tutoriel, vous allez :
 >[!div class="checklist"]
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/authenticate-azure-cli). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
 
 ```azurecli
 az login
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872580"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545461"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Développer des topologies Storm Apache à l’aide de Python sur HDInsight
 
@@ -24,13 +24,13 @@ Découvrez comment créer une topologie [Apache Storm](https://storm.apache.org/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
+* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster** .
 
 * Un environnement de développement Storm local (facultatif). Un environnement Storm local n’est nécessaire que si vous souhaitez exécuter la topologie localement. Pour plus d’informations, consultez la page [Configurer un environnement de développement](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2.7 ou version ultérieure](https://www.python.org/downloads/).
 
-* [Kit de développeur Java (JDK), version 8](https://aka.ms/azure-jdks).
+* [Kit de développeur Java (JDK), version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correctement [installé](https://maven.apache.org/install.html) en fonction d’Apache.  Maven est un système de génération de projet pour les projets Java.
 
@@ -114,7 +114,7 @@ Comme mentionné précédemment, il existe un fichier `storm.py` qui implémente
     storm kill wordcount
     ```
 
-    Vous pouvez également utiliser l’interface utilisateur Storm. Sous **Actions de topologie** pour la topologie, sélectionnez **Supprimer**.
+    Vous pouvez également utiliser l’interface utilisateur Storm. Sous **Actions de topologie** pour la topologie, sélectionnez **Supprimer** .
 
 ## <a name="run-the-topology-locally"></a>Exécuter la topologie localement
 
@@ -141,7 +141,7 @@ Une fois démarrée, la topologie émet des informations de ce type sur la conso
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-Pour arrêter la topologie, appuyez sur __Ctrl+C__.
+Pour arrêter la topologie, appuyez sur __Ctrl+C__ .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

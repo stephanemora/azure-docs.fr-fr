@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211302"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544509"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>FAQ sur le développement d’Azure Cache pour Redis
 
@@ -55,8 +55,8 @@ Généralement, les valeurs par défaut du client sont suffisantes. Vous pouvez 
 
 * **Nouvelle tentatives**
   * Pour ConnectRetry et ConnectTimeout, la recommandation générale consiste à effectuer un Fail-fast, puis à réessayer. Cela dépend de votre charge de travail et de combien de temps en moyenne votre client prend pour émettre une commande Redis et recevoir une réponse.
-  * Laissez StackExchange.Redis se reconnecter automatiquement au lieu de vérifier l’état de la connexion et de vous reconnecter vous-même. **Évitez d’utiliser la propriété ConnectionMultiplexer.IsConnected**.
-  * Effet boule de neige : vous pouvez parfois rencontrer un problème, vous réessayez, mais le problème ne fait que grossir et n’est jamais résolu. Dans ce cas, envisagez d’utiliser un algorithme de nouvelle tentative d’interruption exponentiel, comme décrit dans l’article [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md), publié par le groupe Microsoft Patterns & Practices.
+  * Laissez StackExchange.Redis se reconnecter automatiquement au lieu de vérifier l’état de la connexion et de vous reconnecter vous-même. **Évitez d’utiliser la propriété ConnectionMultiplexer.IsConnected** .
+  * Effet boule de neige : vous pouvez parfois rencontrer un problème, vous réessayez, mais le problème ne fait que grossir et n’est jamais résolu. Dans ce cas, envisagez d’utiliser un algorithme de nouvelle tentative d’interruption exponentiel, comme décrit dans l’article [Conseils généraux sur les nouvelles tentatives](/azure/architecture/best-practices/transient-faults), publié par le groupe Microsoft Patterns & Practices.
   
 * **Valeurs de délai d’expiration**
   * Réfléchissez à votre charge de travail et définissez les valeurs en conséquence. Si vous stockez des valeurs élevées, définissez le délai sur une valeur plus élevée.
@@ -109,7 +109,7 @@ Vous pouvez utiliser les commandes répertoriées dans [Commandes Redis](https:/
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Les outils en ligne de commande Redis ne fonctionnent pas avec le port TLS, mais vous pouvez utiliser un utilitaire comme `stunnel` pour connecter de manière sécurisée les outils au port TLS en suivant les instructions données dans l’article [Utiliser l’outil en ligne de commande Redis avec Azure Cache pour Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool).
+> Les outils en ligne de commande Redis ne fonctionnent pas avec le port TLS, mais vous pouvez utiliser un utilitaire comme `stunnel` pour connecter de manière sécurisée les outils au port TLS en suivant les instructions données dans l’article [Utiliser l’outil en ligne de commande Redis avec Azure Cache pour Redis](./cache-how-to-redis-cli-tool.md).
 >
 >
 

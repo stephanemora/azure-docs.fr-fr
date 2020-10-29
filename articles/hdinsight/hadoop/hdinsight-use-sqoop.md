@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076876"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545223"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utiliser Apache Sqoop avec Hadoop dans HDInsight
 
@@ -97,9 +97,9 @@ Le cluster, la base de données SQL et d’autres objets sont créés via le por
 
     Le nom du [serveur SQL logique](../../azure-sql/database/logical-servers.md) sera `<ClusterName>dbserver`. Le nom de la base de données sera `<ClusterName>db`. Le nom du compte de stockage par défaut sera `e6qhezrh2pdqu`.
 
-3. **J’accepte les termes et conditions mentionnés ci-dessus**.
+3. **J’accepte les termes et conditions mentionnés ci-dessus** .
 
-4. Sélectionnez **Achat**. Une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle s’affiche. La création du cluster et de la base de données SQL prend environ 20 minutes.
+4. Sélectionnez **Achat** . Une nouvelle vignette intitulée Envoi du déploiement pour Déploiement de modèle s’affiche. La création du cluster et de la base de données SQL prend environ 20 minutes.
 
 ## <a name="run-sqoop-jobs"></a>Exécuter des tâches Sqoop
 
@@ -120,6 +120,6 @@ HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes
 
 Vous maîtrisez à présent l’utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
-* [Utilisation d’Apache Hive avec HDInsight](../hdinsight-use-hive.md)
+* [Utilisation d’Apache Hive avec HDInsight](./hdinsight-use-hive.md)
 * [Chargez des données dans HDInsight](../hdinsight-upload-data.md) : Découvrez d’autres méthodes pour charger des données dans HDInsight ou le stockage Blob Azure.
 * [Utiliser Apache Sqoop pour échanger des données entre Apache Hadoop sur HDInsight et SQL Database](./apache-hadoop-use-sqoop-mac-linux.md)

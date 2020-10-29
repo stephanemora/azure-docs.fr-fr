@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73667651"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631510"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Variables système et fonctions
 > [!NOTE]
@@ -37,7 +37,7 @@ Cet article fournit des informations sur les fonctions et variables prises en ch
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Exemple d’utilisation d’une variable système
-Dans l’exemple suivant, l’année, le mois, le jour et l’heure de **SliceStart** sont extraits dans des variables distinctes qui sont utilisées par les propriétés **folderPath** et **fileName**.
+Dans l’exemple suivant, l’année, le mois, le jour et l’heure de **SliceStart** sont extraits dans des variables distinctes qui sont utilisées par les propriétés **folderPath** et **fileName** .
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Vous pouvez utiliser des fonctions dans Data Factory avec les variables système
    
     $$ n’est pas nécessaire pour spécifier des expressions de dépendance d’entrée.     
 
-Dans l’exemple suivant, la propriété **sqlReaderQuery** d’un fichier JSON est affectée à une valeur renvoyée par la fonction `Text.Format`. Cet exemple utilise également une variable système nommée **WindowStart**, qui représente l’heure de début de la fenêtre d’activité à exécuter.
+Dans l’exemple suivant, la propriété **sqlReaderQuery** d’un fichier JSON est affectée à une valeur renvoyée par la fonction `Text.Format`. Cet exemple utilise également une variable système nommée **WindowStart** , qui représente l’heure de début de la fenêtre d’activité à exécuter.
 
 ```json
 {
@@ -70,7 +70,7 @@ Dans l’exemple suivant, la propriété **sqlReaderQuery** d’un fichier JSON 
 }
 ```
 
-Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa). 
+Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) , qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa). 
 
 ### <a name="functions"></a>Fonctions
 Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factory :
@@ -97,7 +97,7 @@ Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factor
 | Texte |Format(X) |X: variable de chaîne |Met en forme le texte (utilisez la combinaison `\\'` pour échapper le caractère `'`).|
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**. 
+> Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' et RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours** . 
 
 #### <a name="example"></a>Exemple
 Dans l’exemple suivant, les paramètres d’entrée et de sortie de l’activité Hive sont déterminés à l’aide de la fonction `Text.Format` et de la variable système SliceStart. 
@@ -227,5 +227,4 @@ Pour lire les données de la veille au lieu du jour représenté par SliceStart,
 }
 ```
 
-Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](https://msdn.microsoft.com/library/8kb3ddd4.aspx) , qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa). 
-
+Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](/dotnet/standard/base-types/custom-date-and-time-format-strings) , qui décrit les différentes options de formatage que vous pouvez utiliser (par exemple : aa et aaaa).

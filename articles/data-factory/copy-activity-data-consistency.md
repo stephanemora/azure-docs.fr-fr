@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522905"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634910"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Vérification de la cohérence des données dans l’activité de copie (préversion)
 
@@ -79,7 +79,7 @@ linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-s
 path | Chemin d’accès des fichiers journaux. | Spécifiez le chemin d’accès que vous souhaitez utiliser pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
 >[!NOTE]
->- Lorsque vous copiez des fichiers binaires depuis ou vers Azure Blob ou Azure Data Lake Storage Gen2, ADF effectue une vérification de la somme de contrôle MD5 au niveau du bloc en tirant parti de l’[API Azure Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) et de l’[API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si des fichiers ContentMD5 se trouvent dans Azure Blob ou Azure Data Lake Storage Gen2 sous la forme de sources de données, ADF effectue également une vérification de la somme de contrôle MD5 au niveau du fichier après la lecture des fichiers. Après la copie des fichiers vers Azure Blob ou Azure Data Lake Storage Gen2 en tant que destination des données, ADF écrit des données ContentMD5 dans Azure Blob ou Azure Data Lake Storage Gen2, qui pourront être consommées plus tard par les applications en aval en vue de vérifier la cohérence des données.
+>- Lorsque vous copiez des fichiers binaires depuis ou vers Azure Blob ou Azure Data Lake Storage Gen2, ADF effectue une vérification de la somme de contrôle MD5 au niveau du bloc en tirant parti de l’[API Azure Blob](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) et de l’[API Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si des fichiers ContentMD5 se trouvent dans Azure Blob ou Azure Data Lake Storage Gen2 sous la forme de sources de données, ADF effectue également une vérification de la somme de contrôle MD5 au niveau du fichier après la lecture des fichiers. Après la copie des fichiers vers Azure Blob ou Azure Data Lake Storage Gen2 en tant que destination des données, ADF écrit des données ContentMD5 dans Azure Blob ou Azure Data Lake Storage Gen2, qui pourront être consommées plus tard par les applications en aval en vue de vérifier la cohérence des données.
 >- Lorsque vous copiez des fichiers binaires d’un magasin de stockage à l’autre, ADF vérifie la taille de ces fichiers.
 
 ## <a name="monitoring"></a>Surveillance
@@ -106,15 +106,15 @@ Après l’exécution de l’activité de copie terminée, vous pouvez voir le r
 ```
 Vous pouvez voir les détails de la vérification de la cohérence des données dans la propriété « dataConsistencyVerification ».
 
-Valeur de **VerificationResult** : 
--   **Verified** :  la cohérence de vos données copiées a été vérifiée entre les magasins source et de destination. 
--   **NotVerified** : la cohérence de vos données copiées n’a pas été vérifiée, car vous n’avez pas activé la propriété validateDataConsistency dans l’activité de copie. 
--   **Non pris en charge** : la cohérence de vos données copiées n’a pas été vérifiée, car la vérification de la cohérence des données n’est pas prise en charge pour cette paire de copies particulière. 
+Valeur de **VerificationResult**  : 
+-   **Verified**  :  la cohérence de vos données copiées a été vérifiée entre les magasins source et de destination. 
+-   **NotVerified**  : la cohérence de vos données copiées n’a pas été vérifiée, car vous n’avez pas activé la propriété validateDataConsistency dans l’activité de copie. 
+-   **Non pris en charge**  : la cohérence de vos données copiées n’a pas été vérifiée, car la vérification de la cohérence des données n’est pas prise en charge pour cette paire de copies particulière. 
 
-Valeur d’**InconsistentData** : 
--   **Found** : l’activité de copie ADF a détecté des données incohérentes. 
--   **Ignoré** : l’activité de copie ADF a détecté des données incohérentes et les a ignorées. 
--   **Aucun** : l’activité de copie ADF n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
+Valeur d’ **InconsistentData**  : 
+-   **Found**  : l’activité de copie ADF a détecté des données incohérentes. 
+-   **Ignoré**  : l’activité de copie ADF a détecté des données incohérentes et les a ignorées. 
+-   **Aucun**  : l’activité de copie ADF n’a détecté aucune donnée incohérente. Cela peut être dû au fait que la cohérence de vos données a été vérifiée entre les magasins source et de destination ou parce que vous avez désactivé la propriété validateDataConsistency dans l’activité de copie. 
 
 ### <a name="session-log-from-copy-activity"></a>Journal de session de l’activité de copie
 
@@ -144,5 +144,3 @@ Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
 - [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
-
-

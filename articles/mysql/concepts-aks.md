@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519862"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546906"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Connexion entre Azure Kubernetes Service et Azure Database pour MySQL
 
@@ -26,7 +26,7 @@ Utilisez des machines virtuelles sous-jacentes dotées de la mise en réseau acc
 Vous pouvez vérifier si votre cluster AKS dispose de la mise en réseau accélérée de la façon suivante :
 1. Accédez au portail Azure et sélectionnez votre cluster AKS.
 2. Sélectionnez l’onglet Propriétés.
-3. Copiez le nom du **Groupe de ressources d’infrastructure**.
+3. Copiez le nom du **Groupe de ressources d’infrastructure** .
 4. Utilisez la barre de recherche du portail pour localiser et ouvrir le groupe de ressources d’infrastructure.
 5. Sélectionnez une machine virtuelle dans ce groupe de ressources.
 6. Accédez à l’onglet **Mise en réseau** de la machine virtuelle.
@@ -44,4 +44,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer un cluster Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)
-- Découvrir comment [Installer WordPress à partir du graphique Helm à l’aide de OSBA et d’Azure Database pour MySQL](../aks/integrate-azure.md)
+- Découvrir comment [Installer WordPress à partir du graphique Helm à l’aide de OSBA et d’Azure Database pour MySQL](../aks/index.yml)

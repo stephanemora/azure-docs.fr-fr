@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906597"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547229"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure ATP pour Azure Database pour MySQL
 
@@ -34,14 +34,14 @@ Azure ATP pour Azure Database pour MySQL fournit une nouvelle couche de sécurit
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertes Azure ATP 
 Azure ATP pour Azure Database pour MySQL détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder aux bases de données ou à les exploiter et peut déclencher les alertes suivantes :
-- **Accès à partir d’un emplacement inhabituel** : cette alerte est déclenchée en cas de modification du modèle d’accès à un serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur Azure Database pour MySQL à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime (une nouvelle application ou opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
-- **Accès à partir d’un centre de données Azure inhabituel** : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur à partir d’un centre de données Azure inhabituel observé sur ce serveur récemment. Dans certains cas, l’alerte détecte une action légitime (votre nouvelle application dans Azure, Power BI, l’éditeur de requête Azure Database pour MySQL). Dans d’autres cas, l’alerte détecte une action malveillante provenant d’une ressource/d’un service Azure (ancien employé, attaquant externe).
-- **Accès à partir d’une entité de sécurité inconnue** : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur avec un principal inhabituel (utilisateur Azure Database pour MySQL). Dans certains cas, l’alerte détecte une action légitime (nouvelle application, opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
-- **Accès à partir d’une application potentiellement dangereuse** : cette alerte est déclenchée quand une application potentiellement dangereuse est utilisée pour accéder à la base de données. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque à l’aide d’outils d’attaque courants.
-- **Attaque par force brute pour obtenir les informations d’identification d’Azure Database pour MySQL** : cette alerte est déclenchée quand il existe un nombre anormalement élevé d’échecs de connexion avec des informations d’identification différentes. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque par force brute.
+- **Accès à partir d’un emplacement inhabituel**  : cette alerte est déclenchée en cas de modification du modèle d’accès à un serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur Azure Database pour MySQL à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime (une nouvelle application ou opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
+- **Accès à partir d’un centre de données Azure inhabituel**  : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur à partir d’un centre de données Azure inhabituel observé sur ce serveur récemment. Dans certains cas, l’alerte détecte une action légitime (votre nouvelle application dans Azure, Power BI, l’éditeur de requête Azure Database pour MySQL). Dans d’autres cas, l’alerte détecte une action malveillante provenant d’une ressource/d’un service Azure (ancien employé, attaquant externe).
+- **Accès à partir d’une entité de sécurité inconnue**  : cette alerte est déclenchée en cas de modification du modèle d’accès au serveur Azure Database pour MySQL, quand un utilisateur s’est connecté au serveur avec un principal inhabituel (utilisateur Azure Database pour MySQL). Dans certains cas, l’alerte détecte une action légitime (nouvelle application, opération de maintenance du développeur). Dans d’autres cas, l’alerte détecte une action malveillante (ancien employé, attaquant externe).
+- **Accès à partir d’une application potentiellement dangereuse**  : cette alerte est déclenchée quand une application potentiellement dangereuse est utilisée pour accéder à la base de données. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque à l’aide d’outils d’attaque courants.
+- **Attaque par force brute pour obtenir les informations d’identification d’Azure Database pour MySQL**  : cette alerte est déclenchée quand il existe un nombre anormalement élevé d’échecs de connexion avec des informations d’identification différentes. Dans certains cas, l’alerte détecte le test d’intrusion en action. Dans d’autres cas, l’alerte détecte une attaque par force brute.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* En savoir plus sur [Azure Security Center](../security-center/security-center-introduction.md)
 * Pour plus d’informations sur les prix, consultez la [page Tarification d’Azure Database pour MySQL](https://azure.microsoft.com/pricing/details/mysql/). 
-* Configurer [Azure ATP pour Azure Database pour MySQL](howto-database-threat-protection-portal.md) avec le portail Azure  
+* Configurer [Azure ATP pour Azure Database pour MySQL](howto-database-threat-protection-portal.md) avec le portail Azure

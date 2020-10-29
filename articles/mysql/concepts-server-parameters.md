@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627344"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545155"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -108,7 +108,7 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 
 MySQL stocke la table InnoDB dans différents espaces de stockage en fonction de la configuration que vous avez fournie lors de la création de la table. L’[espace disque logique du système](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) est la zone de stockage pour le dictionnaire de données InnoDB. Un [espace disque logique de fichier par table](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contient des données et des index pour une table InnoDB unique, et est stocké dans son propre fichier de données au sein du système de fichiers. Ce comportement est contrôlé par le paramètre de serveur `innodb_file_per_table`. La définition de `innodb_file_per_table` sur `OFF` amène InnoDB à créer des tables dans l’espace disque logique du système. Autrement, InnoDB crée des tables dans des espaces disques logiques de fichier par table.
 
-Azure Database pour MySQL prend en charge jusqu’à **1 To**, dans un fichier de données unique. Si la taille de votre base de données est supérieure à 1 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si vous avez une table d’une taille supérieure à 1 To, vous devez utiliser la table de partition.
+Azure Database pour MySQL prend en charge jusqu’à **1 To** , dans un fichier de données unique. Si la taille de votre base de données est supérieure à 1 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si vous avez une table d’une taille supérieure à 1 To, vous devez utiliser la table de partition.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,9 +215,9 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Si vous recevez une erreur semblable à « Taille de ligne trop grande (> 8126) », vous pouvez désactiver le paramètre **innodb_strict_mode**. Le paramètre de serveur **innodb_strict_mode** n’est pas autorisé à être modifié globalement au niveau du serveur, car si la taille des données de ligne est supérieure à 8 ko, les données seront tronquées sans erreur entraînant une perte de données potentielle. Nous vous recommandons de modifier le schéma pour qu’il corresponde à la limite de taille de page. 
+Si vous recevez une erreur semblable à « Taille de ligne trop grande (> 8126) », vous pouvez désactiver le paramètre **innodb_strict_mode** . Le paramètre de serveur **innodb_strict_mode** n’est pas autorisé à être modifié globalement au niveau du serveur, car si la taille des données de ligne est supérieure à 8 ko, les données seront tronquées sans erreur entraînant une perte de données potentielle. Nous vous recommandons de modifier le schéma pour qu’il corresponde à la limite de taille de page. 
 
-Ce paramètre peut être défini au niveau de la session à l’aide de `init_connect`. Pour définir **innodb_strict_mode** au niveau de la session, reportez-vous à [Définition des paramètres non listés](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Ce paramètre peut être défini au niveau de la session à l’aide de `init_connect`. Pour définir **innodb_strict_mode** au niveau de la session, reportez-vous à [Définition des paramètres non listés](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Si vous avez un serveur de réplica en lecture, la désactivation de **innodb_strict_mode** au niveau de la session sur un serveur source interrompt la réplication. Nous vous suggérons de conserver le paramètre activé si vous avez des réplicas en lecture.

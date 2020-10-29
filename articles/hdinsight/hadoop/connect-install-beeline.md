@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754954"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547586"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Se connecter à Apache Beeline sur HDInsight ou l’installer localement
 
@@ -104,7 +104,7 @@ Lorsque vous vous connectez directement depuis le nœud principal du cluster, ou
 
 ## <a name="install-beeline-client"></a>Installer le client Beeline
 
-Bien que Beeline soit inclus sur les nœuds principaux, il est utile dans certains cas de l’installer localement.  La procédure d’installation sur un ordinateur local concerne un [Sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Bien que Beeline soit inclus sur les nœuds principaux, il est utile dans certains cas de l’installer localement.  La procédure d’installation sur un ordinateur local concerne un [Sous-système Windows pour Linux](/windows/wsl/install-win10).
 
 1. Mettez à jour vos listes de packages. Entrez la commande suivante dans votre interpréteur de commandes Bash :
 
@@ -128,7 +128,7 @@ Bien que Beeline soit inclus sur les nœuds principaux, il est utile dans certai
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Appuyez ensuite sur **Ctrl+X**, sur **Y**, puis sur Entrée.
+        Appuyez ensuite sur **Ctrl+X** , sur **Y** , puis sur Entrée.
 
 1. Téléchargez les archives Hadoop et Beeline, puis entrez les commandes suivantes :
 
@@ -144,7 +144,7 @@ Bien que Beeline soit inclus sur les nœuds principaux, il est utile dans certai
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Modifiez le fichier bashrc. Vous devez identifier le chemin d’accès de l’emplacement où les archives ont été décompressées. Si vous utilisez le [sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10) et avez scrupuleusement suivi les étapes, votre chemin doit être `/mnt/c/Users/user/`, où `user` est votre nom d’utilisateur.
+1. Modifiez le fichier bashrc. Vous devez identifier le chemin d’accès de l’emplacement où les archives ont été décompressées. Si vous utilisez le [sous-système Windows pour Linux](/windows/wsl/install-win10) et avez scrupuleusement suivi les étapes, votre chemin doit être `/mnt/c/Users/user/`, où `user` est votre nom d’utilisateur.
 
     1. Ouvrez le fichier : `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Bien que Beeline soit inclus sur les nœuds principaux, il est utile dans certai
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Appuyez ensuite sur **Ctrl+X**, sur **Y**, puis sur Entrée.
+    1. Appuyez ensuite sur **Ctrl+X** , sur **Y** , puis sur Entrée.
 
 1. Fermez, puis rouvrez votre session bash.
 

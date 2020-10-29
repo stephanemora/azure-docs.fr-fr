@@ -8,15 +8,15 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2cee60a71f6f19e09194dc689f95999bb11faad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086464"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547824"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
-Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/marketplace-publishers-guide.md).
+Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/overview.md).
 
 Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)* . Dans un scénario BYOL, un fournisseur d’applications est responsable de concéder la licence des applications aux utilisateurs. Les utilisateurs paient uniquement pour les ressources Azure qu’ils créent, telles que le cluster HDInsight, ainsi que les nœuds et machines virtuelles du cluster. À l’heure actuelle, la facturation de l’application n’est pas effectuée dans Azure.
 
@@ -28,10 +28,10 @@ Pour plus d’informations, consultez les articles suivants relatifs à l’appl
 ## <a name="prerequisites"></a>Conditions préalables requises
 Pour envoyer votre application personnalisée à la Place de marché, vous devez d’abord [créer et tester votre application personnalisée](hdinsight-apps-install-custom-applications.md).
 
-Vous devez également enregistrer votre compte de développeur. Pour plus d’informations, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/marketplace-publishers-guide.md) et [Créer un compte de développeur Microsoft](../marketplace/marketplace-publishers-guide.md).
+Vous devez également enregistrer votre compte de développeur. Pour plus d’informations, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/overview.md) et [Créer un compte de développeur Microsoft](../marketplace/overview.md).
 
 ## <a name="define-the-application"></a>Définition de l’application
-La publication d’applications sur la Place de marché comprend deux étapes. Définissez d’abord un fichier *createUiDef.json*. Le fichier createUiDef.json indique les clusters avec lesquels votre application est compatible. Publiez ensuite le modèle depuis le portail Azure. Voici un exemple de fichier createUiDef.json :
+La publication d’applications sur la Place de marché comprend deux étapes. Définissez d’abord un fichier *createUiDef.json* . Le fichier createUiDef.json indique les clusters avec lesquels votre application est compatible. Publiez ensuite le modèle depuis le portail Azure. Voici un exemple de fichier createUiDef.json :
 
 ```json
 {
@@ -63,7 +63,7 @@ Lorsqu’une application est installée sur un cluster (existant ou nouveau), un
   > * Un trait d’union, pour une meilleure lisibilité.
   > * Une fonction de chaîne unique utilisant le nom de l’application comme paramètre.
   > 
-  > Dans la liste d’actions de script persistantes, l’exemple précédent apparaît sous le nom : **hue-install-v0-4wkahss55hlas**. Consultez cet [exemple de charge utile JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > Dans la liste d’actions de script persistantes, l’exemple précédent apparaît sous le nom : **hue-install-v0-4wkahss55hlas** . Consultez cet [exemple de charge utile JSON](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 
 Le script d’installation doit avoir les caractéristiques suivantes :
@@ -87,14 +87,14 @@ Créez un fichier zip contenant tous les fichiers requis pour l’installation d
 Pour publier une application HDInsight :
 
 1. Connectez-vous à la [Publication Azure](https://publish.windowsazure.com/).
-2. Dans le menu de gauche, sélectionnez **Modèles de solution**.
-3. Entrez un titre, puis sélectionnez **Créer un modèle de solution**.
-4. Si vous n’avez pas encore enregistré votre organisation, sélectionnez **Create Dev Center account and join the Azure program** (Créer un compte du Centre de développement et participer au programme Azure).  Pour plus d’informations, consultez [Créer un compte de développeur Microsoft](../marketplace/marketplace-publishers-guide.md).
-5. Sélectionnez **Définir des Topologies pour démarrer**. Un modèle de solution est « parent » de toutes ses topologies. Vous pouvez définir plusieurs topologies dans une offre ou un modèle de solution. Quand une offre est envoyée dans l’environnement intermédiaire, toutes ses topologies l’accompagnent. 
+2. Dans le menu de gauche, sélectionnez **Modèles de solution** .
+3. Entrez un titre, puis sélectionnez **Créer un modèle de solution** .
+4. Si vous n’avez pas encore enregistré votre organisation, sélectionnez **Create Dev Center account and join the Azure program** (Créer un compte du Centre de développement et participer au programme Azure).  Pour plus d’informations, consultez [Créer un compte de développeur Microsoft](../marketplace/overview.md).
+5. Sélectionnez **Définir des Topologies pour démarrer** . Un modèle de solution est « parent » de toutes ses topologies. Vous pouvez définir plusieurs topologies dans une offre ou un modèle de solution. Quand une offre est envoyée dans l’environnement intermédiaire, toutes ses topologies l’accompagnent. 
 6. Entrez un nom de topologie, puis sélectionnez **+** .
 7. Entrez une nouvelle version, puis sélectionnez **+** .
 8. Téléchargez le fichier .zip que vous avez créé lorsque vous avez empaqueté l’application.  
-9. Sélectionnez **Request Certification**(Demander la certification). L’équipe de certification Microsoft examine les fichiers et certifie la topologie.
+9. Sélectionnez **Request Certification** (Demander la certification). L’équipe de certification Microsoft examine les fichiers et certifie la topologie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [installer des applications HDInsight](hdinsight-apps-install-applications.md) sur vos clusters.
@@ -102,4 +102,3 @@ Pour publier une application HDInsight :
 * Découvrez comment [utiliser une action de script pour personnaliser des clusters HDInsight basés sur Linux](hdinsight-hadoop-customize-cluster-linux.md) et ajouter d’autres applications. 
 * Découvrez comment [créer des clusters Apache Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Découvrez comment [utiliser un nœud de périphérie vide dans HDInsight](hdinsight-apps-use-edge-node.md) pour accéder aux clusters HDInsight, tester des applications HDInsight et héberger des applications HDInsight.
-

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ec926bf6065e11e1b6ca2e3f6df22c4b5ee2c2c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0725de878836e415695d307b68db43802d9b5c2f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83836122"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545852"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser l’instruction EXPLAIN visant à profiler les performances des requêtes dans Azure Database pour MySQL
 **EXPLAIN** est un outil pratique pour optimiser les requêtes. L’instruction EXPLAIN permet d’obtenir des informations sur la façon dont les instructions SQL sont exécutées. La sortie suivante présente un exemple d’exécution d’une instruction EXPLAIN.
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Comme le montre cet exemple, *key* a la valeur NULL. Cette sortie indique que MySQL ne trouve pas d’index optimisés pour la requête et effectue une analyse de table complète. Optimisons cette requête en ajoutant un index dans la colonne **ID**.
+Comme le montre cet exemple, *key* a la valeur NULL. Cette sortie indique que MySQL ne trouve pas d’index optimisés pour la requête et effectue une analyse de table complète. Optimisons cette requête en ajoutant un index dans la colonne **ID** .
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -54,10 +54,10 @@ possible_keys: id
 ```
 
 La nouvelle instruction EXPLAIN montre que MySQL utilise à présent un index pour limiter le nombre de lignes à 1, ce qui réduit nettement le temps de recherche.
- 
+ 
 ## <a name="covering-index"></a>Index de couverture
-Un index de couverture se compose de toutes les colonnes d’une requête dans l’index pour réduire l’extraction de valeurs dans les tables de données. En voici une illustration dans l’instruction **GROUP BY**.
- 
+Un index de couverture se compose de toutes les colonnes d’une requête dans l’index pour réduire l’extraction de valeurs dans les tables de données. En voici une illustration dans l’instruction **GROUP BY** .
+ 
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -75,11 +75,11 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Comme le montre la sortie, MySQL n’utilise pas d’index, car il n’en existe aucun qui convienne. Elle indique aussi *Using temporary; Using file sort*, ce qui signifie que MySQL crée une table temporaire pour satisfaire la clause **GROUP BY**.
- 
+Comme le montre la sortie, MySQL n’utilise pas d’index, car il n’en existe aucun qui convienne. Elle indique aussi *Using temporary; Using file sort* , ce qui signifie que MySQL crée une table temporaire pour satisfaire la clause **GROUP BY** .
+ 
 Le simple fait de créer un index dans la colonne **c2** n’apporte aucune différence, et MySQL doit quand même créer une table temporaire :
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -97,9 +97,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Dans ce cas, il est possible de créer un **index couvert** dans **c1** et **c2**, moyennant quoi la valeur de **c2** est directement ajoutée dans l’index pour éliminer toute recherche de données supplémentaire.
+Dans ce cas, il est possible de créer un **index couvert** dans **c1** et **c2** , moyennant quoi la valeur de **c2** est directement ajoutée dans l’index pour éliminer toute recherche de données supplémentaire.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -120,7 +120,7 @@ possible_keys: covered
 Comme le montre l’exemple d’instruction EXPLAIN ci-dessus, MySQL utilise maintenant l’index couvert et empêche la création d’une table temporaire. 
 
 ## <a name="combined-index"></a>Index combiné
-Un index combiné est constitué de plusieurs colonnes et peut être considéré comme un tableau de lignes triées en concaténant les valeurs des colonnes indexées. Cette méthode peut être utile dans une instruction **GROUP BY**.
+Un index combiné est constitué de plusieurs colonnes et peut être considéré comme un tableau de lignes triées en concaténant les valeurs des colonnes indexées.  Cette méthode peut être utile dans une instruction **GROUP BY** .
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -141,7 +141,7 @@ possible_keys: NULL
 
 MySQL effectue une opération de *tri de fichiers* qui est relativement lente, en particulier quand le tri porte sur un grand nombre de lignes. Pour optimiser cette requête, un index combiné peut être créé dans les deux colonnes qui font l’objet du tri.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -160,11 +160,11 @@ possible_keys: NULL
 ```
 
 L’instruction EXPLAIN montre à présent que MySQL peut utiliser l’index combiné pour empêcher un nouveau tri, car l’index est déjà trié.
- 
+ 
 ## <a name="conclusion"></a>Conclusion
- 
+ 
 L’utilisation de l’instruction EXPLAIN et de différents types d’index peut améliorer considérablement les performances. Le fait de disposer d’un index dans la table ne signifie pas nécessairement que MySQL pourra l’utiliser pour vos requêtes. Validez toujours vos hypothèses en utilisant EXPLAIN et optimisez vos requêtes en utilisant des index.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour consulter les réponses d’homologues aux questions qui vous préoccupent le plus ou pour poster une nouvelle question/réponse, visitez la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Pour consulter les réponses d’homologues aux questions qui vous préoccupent le plus ou pour poster une nouvelle question/réponse, visitez la [page de questions Microsoft Q&A](/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da49a6f5299ef4e53b06acd5ce3fb838915a661
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619914"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633924"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -28,7 +28,7 @@ Cet article décrit l’infrastructure de sécurité de base qu’utilisent les 
 
 Dans une solution Data Factory, vous créez un ou plusieurs [pipelines](data-factory-create-pipelines.md) de données. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Ces pipelines se trouvent dans la région où la fabrique de données a été créée. 
 
-Même si Data Factory est disponible uniquement dans **USA Ouest**, **USA Est** et **Europe Nord**, le service de déplacement des données est [mondialement disponible dans plusieurs régions](data-factory-data-movement-activities.md#global). Le service Data Factory s’assure que les données ne quittent pas une zone/région géographique donnée, sauf si vous demandez explicitement au service d’utiliser une autre région dans le cas où le service de déplacement des données n’est pas encore déployé dans cette région. 
+Même si Data Factory est disponible uniquement dans **USA Ouest** , **USA Est** et **Europe Nord** , le service de déplacement des données est [mondialement disponible dans plusieurs régions](data-factory-data-movement-activities.md#global). Le service Data Factory s’assure que les données ne quittent pas une zone/région géographique donnée, sauf si vous demandez explicitement au service d’utiliser une autre région dans le cas où le service de déplacement des données n’est pas encore déployé dans cette région. 
 
 Azure Data Factory ne stocke aucune donnée à l’exception des informations d’identification du service lié pour les banques de données cloud, qui sont chiffrées à l’aide de certificats. Il vous permet de créer des workflows pilotés par les données afin d’orchestrer le déplacement de données entre les [banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ainsi que le traitement des données à l’aide des [services de calcul](data-factory-compute-linked-services.md) situés dans d’autres régions ou dans un environnement local. Il vous permet également de [surveiller et gérer des workflows](data-factory-monitor-manage-pipelines.md) au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
@@ -49,13 +49,13 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
 ### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
-Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/fundamentals/storage-overview.md).
+Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft** . Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory** . Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../storage/blobs/security-recommendations.md).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
 Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
 
 > [!NOTE]
-> Toutes les connexions à **Azure SQL Database** et à **Azure Synapse Analytics** doivent toujours être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide d’un éditeur JSON, ajoutez la propriété **encryption** et définissez sa valeur sur **true** dans la **chaîne de connexion**. Si vous utilisez [l’Assistant de copie](data-factory-azure-copy-wizard.md), celui-ci définit cette propriété par défaut. Pour le **stockage Azure**, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
+> Toutes les connexions à **Azure SQL Database** et à **Azure Synapse Analytics** doivent toujours être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide d’un éditeur JSON, ajoutez la propriété **encryption** et définissez sa valeur sur **true** dans la **chaîne de connexion** . Si vous utilisez [l’Assistant de copie](data-factory-azure-copy-wizard.md), celui-ci définit cette propriété par défaut. Pour le **stockage Azure** , vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
 
 ### <a name="data-encryption-at-rest"></a>Chiffrement des données au repos
 Certaines banques de données prennent en charge le chiffrement des données au repos. Nous vous suggérons d’activer le mécanisme de chiffrement des données pour ces banques de données. 
@@ -64,7 +64,7 @@ Certaines banques de données prennent en charge le chiffrement des données au 
 Transparent Data Encryption (TDE) dans Azure Synapse Analytics vous aide à vous protéger contre les menaces d’activités malveillantes, par le biais d’un chiffrement et déchiffrement en temps réel de vos données au repos. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Sécuriser une base de données dans Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous protège contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+Azure SQL Database prend également en charge TDE (Transparent Data Encryption) qui vous protège contre toute menace d’activité malveillante, en effectuant un chiffrement et un déchiffrement en temps réel des données, sans qu’il soit nécessaire de modifier l’application. Ce comportement est transparent pour le client. Pour plus d’informations, consultez [Transparent Data Encryption avec Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store assure également le chiffrement des données stockées dans le compte. Dans ce cas, il chiffre automatiquement les données avant qu’elles soient rendues persistantes, il les déchiffre avant qu’elles soient récupérées. Ainsi, ces opérations sont totalement transparentes vis-à-vis du client qui accède aux données. Pour plus d’informations, consultez [Sécurité dans Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
@@ -92,12 +92,12 @@ Le **canal de commande** établit la communication entre les services de déplac
 Les informations d’identification associées à vos banques de données locales sont stockées en local (et non dans le cloud). Elles peuvent être définies de trois façons différentes. 
 
 - À l’aide de **texte brut** (moins sécurisé) via HTTPS depuis le portail Azure ou l’Assistant de copie. Les informations d’identification sont transmises en texte brut à la passerelle locale.
-- À l’aide de la **bibliothèque de chiffrement JavaScript depuis l’Assistant de copie**.
-- À l’aide de **l’application Gestionnaire des informations d’identification ClickOnce**. L’application ClickOnce s’exécute sur l’ordinateur local ayant accès à la passerelle et définit les informations d’identification pour la banque de données. Cette option et l’option suivante sont les plus sécurisées. L’application Gestionnaire des informations d’identification utilise par défaut le port 8050 de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée.  
+- À l’aide de la **bibliothèque de chiffrement JavaScript depuis l’Assistant de copie** .
+- À l’aide de **l’application Gestionnaire des informations d’identification ClickOnce** . L’application ClickOnce s’exécute sur l’ordinateur local ayant accès à la passerelle et définit les informations d’identification pour la banque de données. Cette option et l’option suivante sont les plus sécurisées. L’application Gestionnaire des informations d’identification utilise par défaut le port 8050 de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée.  
 - Utilisez la cmdlet PowerShell [New-AzureRmDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez utiliser les informations d’identification chiffrées retournées par cette cmdlet et les ajouter à l’élément **EncryptedCredential** de la **chaîne de connexion** dans le fichier JSON que vous utilisez avec la cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou dans l’extrait de code JSON de Data Factory Editor dans le portail. Cette option et l’application ClickOnce sont les options les plus sécurisées. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Chiffrement à partir de la bibliothèque de chiffrement JavaScript
-Vous pouvez chiffrer les informations d’identification des banques de données à l’aide de la [bibliothèque de chiffrement JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) depuis [l’Assistant de copie](data-factory-copy-wizard.md). Lorsque vous sélectionnez cette option, l’Assistant de copie récupère la clé publique de la passerelle et l’utilise pour chiffrer les informations d’identification des banques de données. Les informations d’identification sont déchiffrées par l’ordinateur de la passerelle et protégées par l’API de protection des données Windows [(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx).
+Vous pouvez chiffrer les informations d’identification des banques de données à l’aide de la [bibliothèque de chiffrement JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) depuis [l’Assistant de copie](data-factory-copy-wizard.md). Lorsque vous sélectionnez cette option, l’Assistant de copie récupère la clé publique de la passerelle et l’utilise pour chiffrer les informations d’identification des banques de données. Les informations d’identification sont déchiffrées par l’ordinateur de la passerelle et protégées par l’API de protection des données Windows [(DPAPI)](/previous-versions/ms995355(v=msdn.10)).
 
 **Navigateurs pris en charge :** IE8, IE9, IE10, IE11, Microsoft Edge, ainsi que les derniers navigateurs Firefox, Chrome, Opera et Safari. 
 
@@ -106,7 +106,7 @@ Vous pouvez lancer l’application Gestionnaire des informations d’identificat
   
 ![Port HTTPS pour la passerelle](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-La passerelle de gestion des données utilise actuellement un seul **certificat**. Ce certificat est créé lors de l’installation de la passerelle (pour toutes les passerelles de gestion des données créées après novembre 2016 et ayant une version 2.4.xxxx.x ou ultérieure). Vous pouvez remplacer ce certificat par votre propre certificat SSL/TLS. Ce certificat est utilisé par l’application Gestionnaire des informations d’identification ClickOnce pour se connecter en toute sécurité à l’ordinateur de la passerelle et définir les informations d’identification des banques de données. Il stocke les informations d’identification des banques de données en local et de manière sécurisée à l’aide de l’API Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) sur l’ordinateur qui héberge la passerelle. 
+La passerelle de gestion des données utilise actuellement un seul **certificat** . Ce certificat est créé lors de l’installation de la passerelle (pour toutes les passerelles de gestion des données créées après novembre 2016 et ayant une version 2.4.xxxx.x ou ultérieure). Vous pouvez remplacer ce certificat par votre propre certificat SSL/TLS. Ce certificat est utilisé par l’application Gestionnaire des informations d’identification ClickOnce pour se connecter en toute sécurité à l’ordinateur de la passerelle et définir les informations d’identification des banques de données. Il stocke les informations d’identification des banques de données en local et de manière sécurisée à l’aide de l’API Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) sur l’ordinateur qui héberge la passerelle. 
 
 > [!NOTE]
 > Les passerelles plus anciennes qui ont été installées avant novembre 2016 ou ayant une version 2.3.xxxx.x continuent à utiliser les informations d’identification chiffrées et stockées dans le cloud. Même si vous mettez à niveau la passerelle vers la dernière version, les informations d’identification ne sont pas migrées vers un ordinateur local.    
@@ -147,7 +147,7 @@ Les illustrations suivantes décrivent l’utilisation de la passerelle de gesti
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé  
 Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur central. Le **pare-feu Windows** s’exécute quant à lui en tant que démon sur l’ordinateur local sur lequel est installée la passerelle. 
 
-Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise**.
+Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise** .
 
 | Noms de domaine | Ports sortants | Description |
 | ------------ | -------------- | ----------- | 
@@ -160,7 +160,7 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 > [!NOTE] 
 > Vous serez peut-être amené à gérer les ports/domaines de filtrage au niveau du pare-feu de l'entreprise, comme l'exigent les sources de données correspondantes. Ce tableau utilise uniquement Azure SQL Database, Azure Synapse Analytics et Azure Data Lake Store comme exemples.   
 
-Le tableau suivant indique les paramètres de **port entrant** requis pour le **pare-feu Windows**.
+Le tableau suivant indique les paramètres de **port entrant** requis pour le **pare-feu Windows** .
 
 | Ports entrants | Description | 
 | ------------- | ----------- | 
@@ -174,9 +174,9 @@ Pour certaines banques de données hébergées dans le cloud, vous devez égalem
 Les banques de données cloud suivantes requièrent l'approbation de l'adresse IP de l'ordinateur de passerelle. Certaines de ces banques de données peuvent ne pas nécessiter l'approbation des adresses IP par défaut. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
@@ -185,7 +185,7 @@ Les banques de données cloud suivantes requièrent l'approbation de l'adresse I
 **Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.
 
 **Question :** Quels sont les paramètres de port permettant de garantir le bon fonctionnement de la passerelle ?
-**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure Synapse Analytics comme source/destination, vous devez également ouvrir le port **1433**. Pour plus d'informations, consultez la section [Configurations de pare-feu et filtrage d'adresses IP](#firewall-configurations-and-filtering-ip-address-of gateway). 
+**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure Synapse Analytics comme source/destination, vous devez également ouvrir le port **1433** . Pour plus d'informations, consultez la section [Configurations de pare-feu et filtrage d'adresses IP](#firewall-configurations-and-filtering-ip-address-of gateway). 
 
 **Question :** De quels certificats la passerelle a-t-elle besoin ?
 **Réponse :** La passerelle actuelle requiert un certificat utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6cb3bf53db14c6c01290abea7a5c48c332a07632
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217777"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634876"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 
@@ -33,7 +33,7 @@ Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Dat
 Dans le cadre de la procédure pas à pas de cet article, Azure SQL Database est utilisé pour héberger le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
-Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Tutoriel : Déployer des packages SSIS](tutorial-create-azure-ssis-runtime-portal.md).
+Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Tutoriel : Déployer des packages SSIS](./tutorial-deploy-ssis-packages-azure.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interface utilisateur de Data Factory (portail Azure)
 Dans cette section, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline Data Factory avec une activité de procédure stockée qui appelle un package SSIS.

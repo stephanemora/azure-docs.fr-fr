@@ -1,17 +1,15 @@
 ---
 title: Mettre à niveau les images de nœud Azure Kubernetes service (AKS)
 description: Découvrez comment mettre à niveau les images sur des nœuds de cluster AKS et des pools de nœuds.
-author: laurenhughes
-ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6abb0eb98e2548e53ff67a943970613e6981c2b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055683"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631119"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Mise à niveau des images de nœud Azure Kubernetes service (AKS)
 

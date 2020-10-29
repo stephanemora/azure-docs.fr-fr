@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d3d5ced5860c14e9e4d522c42ffd0bc71341a9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac252c3898eb014885bf9a6bf6bdedb7db74fb62
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930092"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545835"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Utiliser le portail Azure pour configurer des alertes de métriques pour Azure Database pour PostgreSQL – Serveur flexible
 
@@ -30,15 +30,15 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
 
-* [Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#create-with-azure-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
-* [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour PostgreSQL à surveiller.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes**, comme illustré :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes** , comme illustré :
 
    :::image type="content" source="./media/howto-alert-on-metrics/2-alert-rules.png" alt-text="Sélectionner des règles d’alerte":::
 
@@ -48,23 +48,23 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
 
    :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Sélectionner des règles d’alerte":::
 
-5. Dans la section **Condition**, sélectionnez **Ajouter une condition**.
+5. Dans la section **Condition** , sélectionnez **Ajouter une condition** .
 
 6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
 
    :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Sélectionner des règles d’alerte":::
 
-7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps** , **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency** .
 
    Sélectionnez **Terminé** lorsque vous avez terminé.
 
    :::image type="content" source="./media/howto-alert-on-metrics/7-set-threshold-time.png" alt-text="Sélectionner des règles d’alerte":::
 
-8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
+8. Dans la section **Groupes d’actions** , sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
 9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
 
-10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
+10. Configurez un type d'action **E-mail/SMS/Push/Voix** .
 
     1. Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
 
@@ -92,5 +92,5 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et exécu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail la [configuration des webhooks dans les alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-webhooks).
-* Consultez une [vue d’ensemble de la collecte des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-customize-monitoring) pour vous assurer que votre service est disponible et réactif.
+* Découvrez plus en détail la [configuration des webhooks dans les alertes](../../azure-monitor/platform/alerts-webhooks.md).
+* Consultez une [vue d’ensemble de la collecte des métriques](../../azure-monitor/platform/data-platform.md) pour vous assurer que votre service est disponible et réactif.

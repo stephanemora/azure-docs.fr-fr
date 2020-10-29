@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 89f7a4a23f4d1b62fe5a76fbd4625bae8bb3018f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951084"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634758"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -38,10 +38,10 @@ Dans certains scénarios, lorsque vous exécutez une activité de copie dans Dat
 | Category              | Conseils sur le réglage des performances                                      |
 | --------------------- | ------------------------------------------------------------ |
 | Spécifique au magasin de données   | Chargement de données dans **Azure Synpase Analytics (anciennement SQL DW)**  : suggérez l’utilisation de PolyBase ou de l’instruction COPY si elle n’est pas utilisée. |
-| &nbsp;                | Copie de données depuis/vers **Azure SQL Database** : lorsque la DTU est très utilisée, suggérez une mise à niveau vers un niveau supérieur. |
-| &nbsp;                | Copie de données depuis/vers **Azure Cosmos DB** : lorsque la RU est très utilisée, suggérez une mise à niveau vers une RU plus importante. |
-|                       | Copie de données à partir d’une **table SAP** : quand de grandes quantités de données sont copiées, nous suggérons de tirer parti de l’option de partition du connecteur SAP pour activer la charge parallèle et augmenter le nombre maximal de partitions. |
-| &nbsp;                | Ingestion de données à partir d’**Amazon Redshift** : suggérez l’utilisation de UNLOAD si elle n’est pas utilisée. |
+| &nbsp;                | Copie de données depuis/vers **Azure SQL Database**  : lorsque la DTU est très utilisée, suggérez une mise à niveau vers un niveau supérieur. |
+| &nbsp;                | Copie de données depuis/vers **Azure Cosmos DB**  : lorsque la RU est très utilisée, suggérez une mise à niveau vers une RU plus importante. |
+|                       | Copie de données à partir d’une **table SAP**  : quand de grandes quantités de données sont copiées, nous suggérons de tirer parti de l’option de partition du connecteur SAP pour activer la charge parallèle et augmenter le nombre maximal de partitions. |
+| &nbsp;                | Ingestion de données à partir d’ **Amazon Redshift**  : suggérez l’utilisation de UNLOAD si elle n’est pas utilisée. |
 | Limitation du magasin de données | Si plusieurs opérations de lecture/écriture sont limitées par le magasin de données au cours de la copie, suggérez de vérifier et d’augmenter le taux de requêtes autorisées pour le magasin de données ou de réduire la charge de travail simultanée. |
 | Runtime d’intégration  | Si vous utilisez un **runtime d’intégration (IR) auto-hébergé** et que l’activité de copie attend longtemps dans la file d’attente avant que le runtime d’intégration ne dispose des ressources nécessaires à son exécution, suggérez une montée en charge ou en puissance de votre IR. |
 | &nbsp;                | Si vous utilisez un **Azure Integration Runtime** qui se trouve dans une région non optimale, ce qui entraîne une lecture/écriture lente, suggérez de configurer l’utilisation d’un IR dans une autre région. |
@@ -74,7 +74,7 @@ Si les performances de l’activité de copie ne répondent pas à vos attentes 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier «  **prefix**  » pour Amazon S3/Blob Azure/Stockage Fichier Azure et «  **listAfter/listBefore**  » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 
@@ -128,7 +128,7 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
     - Vérifiez si vous pouvez [copier des fichiers en fonction du chemin d’accès de fichier ou du nom de fichier partitionné DateHeure](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De cette façon, le côté source n’est plus chargé.
 
-    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier « **prefix** » pour Amazon S3/Blob Azure/Stockage Fichier Azure et « **listAfter/listBefore** » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
+    - Vérifiez si vous pouvez utiliser le filtre natif du magasin de données à la place, en particulier «  **prefix**  » pour Amazon S3/Blob Azure/Stockage Fichier Azure et «  **listAfter/listBefore**  » pour ADLS Gen1. Ces filtres sont des filtres côté serveur du magasin de données et offrent de meilleures performances.
 
     - Envisagez de fractionner un jeu de données volumineux en plusieurs jeux de données plus petits et de laisser les travaux de copie s’exécuter simultanément, chacun s’attaquant à une partie des données. Vous pouvez le faire avec Lookup/GetMetadata + ForEach + Copy. Reportez-vous aux modèles de solution [Copie de fichiers à partir de plusieurs conteneurs](solution-template-copy-files-multiple-containers.md) ou [Migrer des données d’Amazon S3 vers ADLS Gen2](solution-template-migration-s3-azure.md) en guise d’exemple général.
 
@@ -178,11 +178,11 @@ Voici des références relatives au monitoring et au réglage des performances p
 
 * Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../storage/blobs/storage-performance-checklist.md).
 * Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
+* Azure SQL Database : Vous pouvez [surveiller les performances](../azure-sql/database/monitor-tune-overview.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 * Azure Synapse Analytics (anciennement SQL Data Warehouse) : Sa capacité est mesurée en DWU (Data Warehouse Units). Voir [Gérer la puissance de calcul dans Azure Synapse Analytics (présentation)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
-* Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server : [Surveiller et régler les performances](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](/previous-versions//dn567661(v=vs.85)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres articles relatifs à l’activité de copie :

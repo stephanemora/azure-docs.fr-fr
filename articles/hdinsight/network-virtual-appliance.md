@@ -7,21 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630931"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545920"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurer une appliance virtuelle réseau dans Azure HDInsight
 
 > [!Important]
-> Les informations suivantes sont requises **uniquement** si vous souhaitez configurer une appliance virtuelle réseau (NVA) autre que le pare-feu Azure.
+> Les informations suivantes sont requises **uniquement** si vous souhaitez configurer une appliance virtuelle réseau (NVA) autre que le [Pare-feu Azure](./hdinsight-restrict-outbound-traffic.md).
 
-Le pare-feu Azure est automatiquement configuré pour autoriser le trafic dans la plupart des scénarios importants courants. L’utilisation d’une autre appliance virtuelle réseau vous oblige à configurer un certain nombre de fonctionnalités supplémentaires. Gardez les facteurs suivants à l’esprit pendant la configuration de votre appliance virtuelle réseau :
+La balise FQDN du service Pare-feu Azure est automatiquement configurée pour autoriser le trafic dans la plupart des FQDN importants courants. L’utilisation d’une autre appliance virtuelle réseau vous oblige à configurer un certain nombre de fonctionnalités supplémentaires. Gardez les facteurs suivants à l’esprit pendant la configuration de votre appliance virtuelle réseau :
 
 * Les services pouvant prendre en charge les points de terminaison de service peuvent être configurés avec des points de terminaison de service, ce qui entraîne le contournement du NVA, généralement pour des considérations relatives aux coûts ou aux performances.
+* Si ResourceProviderConnection est défini sur *outbound* (sortant), vous pouvez utiliser des points de terminaison privés pour le stockage et des serveurs SQL pour les metastores, et il n’est pas nécessaire de les ajouter aux NVA (Appliances virtuelles réseau).
 * Les dépendances d’adresses IP sont destinées au trafic non HTTP/S (à la fois le trafic TCP et UDP).
 * Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être approuvés dans votre dispositif NVA.
 * Affectez la table de routage créée à votre sous-réseau HDInsight.
@@ -40,22 +41,25 @@ Vous pouvez éventuellement activer un ou plusieurs points de terminaison de ser
 
 | **Point de terminaison** | **Détails** |
 |---|---|
-| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Ces adresses IP sont destinées à l’emplacement de contrôle HDInsight et doivent être incluses dans UDR pour éviter le routage asymétrique |
-| Adresses IP privées AAD-DS | Nécessaires uniquement pour les clusters ESP|
+| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Ces adresses IP sont destinées au fournisseur de ressources HDInsight et doivent être incluses dans l’UDR pour éviter le routage asymétrique. Cette règle est requise uniquement si ResourceProviderConnection est défini sur *Inbound* (Entrant). Si ResourceProviderConnection est défini sur *Outbound* (Sortant), ces adresses IP ne sont pas nécessaires dans l’UDR.  |
+| Adresses IP privées AAD-DS | Nécessaire uniquement pour les clusters ESP, si les réseaux virtuels ne sont pas appairés.|
 
 
 ### <a name="fqdn-httphttps-dependencies"></a>Dépendances HTTP/HTTPS FQDN
 
-> [!Important]
-> La liste ci-dessous ne fournit que quelques noms de domaine complets (FQDN) qui peuvent être nécessaires pour les mises à jour correctives du système d’exploitation et de la sécurité, ou les validations de certificats après la création du cluster et pendant la durée de vie des opérations du cluster. Vous pouvez obtenir la liste des dépendances de FQDN (principalement Stockage Azure et Azure Service Bus) pour configurer votre appliance virtuelle réseau (NVA) [dans ce fichier](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Ces dépendances sont utilisées par le fournisseur de ressources (RP) HDInsight pour créer et surveiller/gérer les clusters avec succès. Celles-ci incluent des journaux de télémétrie/diagnostic, des métadonnées d’approvisionnement, des configurations liées au cluster, des scripts, des modèles ARM, etc. La liste de dépendances de FQDN peut changer avec la publication des mises à jour futures de HDIngisht.
+Vous pouvez obtenir la liste des dépendances de FQDN (principalement Stockage Azure et Azure Service Bus) pour configurer votre appliance virtuelle réseau (NVA) [dans ce référentiel](https://github.com/Azure-Samples/hdinsight-fqdn-lists/). La liste régionale est disponible [ici](https://github.com/Azure-Samples/hdinsight-fqdn-lists/tree/master/Regional). Ces dépendances sont utilisées par le fournisseur de ressources (RP) HDInsight pour créer et surveiller/gérer les clusters avec succès. Celles-ci incluent des journaux de télémétrie/diagnostic, des métadonnées d’approvisionnement, des configurations liées au cluster, des scripts, etc. Cette liste de dépendances de FQDN peut changer avec la publication des mises à jour futures de HDInsight.
 
-| **Point de terminaison**                                                          |
+La liste ci-dessous ne fournit que quelques noms de domaine complets (FQDN) qui peuvent être nécessaires pour les mises à jour correctives du système d’exploitation et de la sécurité, ou les validations de certificats *après* la création du cluster et pendant la durée de vie des opérations du cluster :
+
+| **Dépendances d’exécution FQDN**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 | microsoft.com:80                                                      |
+|login.windows.net:443                                                  |
+|login.microsoftonline.com:443                                          |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

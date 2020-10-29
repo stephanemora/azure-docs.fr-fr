@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044642"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544951"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutoriel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="create-domain-users"></a>Créer des utilisateurs du domaine
 
-Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) pour découvrir comment créer les utilisateurs du domaine **sales_user1** et **marketing_user1**. Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
+Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise](./apache-domain-joined-configure-using-azure-adds.md) pour découvrir comment créer les utilisateurs du domaine **sales_user1** et **marketing_user1** . Dans un scénario de production, les utilisateurs du domaine proviennent de votre locataire Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Créer des tables HBase et importer des données d’exemple
 
@@ -93,9 +93,9 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
 
-Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
+Créez une stratégie Ranger pour **sales_user1** et **marketing_user1** .
 
-1. Ouvrez **l’interface utilisateur de l’administrateur Ranger**. Cliquez sur **\<ClusterName>_hbase** sous **HBase**.
+1. Ouvrez **l’interface utilisateur de l’administrateur Ranger** . Cliquez sur **\<ClusterName>_hbase** sous **HBase** .
 
    ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -123,11 +123,11 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    ![créer une stratégie Apache Ranger pour sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
+   >Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur** .
 
 4. Cliquez sur **Ajouter** pour enregistrer la stratégie.
 
-5. Cliquez sur **Ajouter une nouvelle stratégie**, puis entrez les valeurs suivantes :
+5. Cliquez sur **Ajouter une nouvelle stratégie** , puis entrez les valeurs suivantes :
 
    |**Paramètre**  |**Valeur suggérée**  |
    |---------|---------|
@@ -191,7 +191,7 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
 
 ### <a name="access-data-as-marketing_user1"></a>Accéder aux données en tant qu’utilisateur marketing_user1
 
-1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter en tant que **marketing_user1** :
+1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter en tant que **marketing_user1**  :
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
 Si vous ne comptez pas continuer à utiliser cette application, effectuez les étapes suivantes pour supprimer le cluster HBase que vous avez créé :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans la zone **Recherche** située en haut, tapez **HDInsight**. 
-1. Sous **Services**, sélectionnez **Clusters HDInsight**.
+2. Dans la zone **Recherche** située en haut, tapez **HDInsight** . 
+1. Sous **Services** , sélectionnez **Clusters HDInsight** .
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel. 
-1. Cliquez sur **Supprimer**. Cliquez sur **Oui**.
+1. Cliquez sur **Supprimer** . Cliquez sur **Oui** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

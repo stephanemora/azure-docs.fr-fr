@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542510"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546328"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Déplacer un serveur Azure Database pour MySQL vers une autre région à l’aide du Portail Azure
 
@@ -21,7 +21,7 @@ Il existe différents scénarios pour déplacer un serveur Azure Database pour M
 Vous pouvez utiliser un [réplica en lecture entre région](concepts-read-replicas.md#cross-region-replication) Azure Database pour MySQL pour terminer le déplacement vers une autre région. Pour ce faire, créez tout d’abord un réplica en lecture dans la région cible. Ensuite, arrêtez la réplication vers le serveur de réplica en lecture pour en faire un serveur autonome qui accepte à la fois le trafic en lecture et en écriture. 
 
 > [!NOTE]
-> Cet article se concentre sur le déplacement de votre serveur vers une région différente. Si vous souhaitez déplacer votre serveur vers un groupe de ressources ou un abonnement différent, référez vous à l’article de [déplacement](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription). 
+> Cet article se concentre sur le déplacement de votre serveur vers une région différente. Si vous souhaitez déplacer votre serveur vers un groupe de ressources ou un abonnement différent, référez vous à l’article de [déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,9 +34,9 @@ Vous pouvez utiliser un [réplica en lecture entre région](concepts-read-replic
 Pour créer un serveur de réplica en lecture interrégional dans la région cible à l’aide du portail Azure, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Sélectionnez le serveur Azure Database pour MySQL que vous souhaitez utiliser comme serveur source. Cette action ouvre la page **Vue d’ensemble**.
-1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
-1. Sélectionnez **Ajouter un réplica**.
+1. Sélectionnez le serveur Azure Database pour MySQL que vous souhaitez utiliser comme serveur source. Cette action ouvre la page **Vue d’ensemble** .
+1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
+1. Sélectionnez **Ajouter un réplica** .
 1. Entrez un nom pour le serveur de réplica.
 1. Sélectionnez l’emplacement du serveur de réplica. L'emplacement par défaut est le même que celui du serveur source. Vérifiez que vous avez sélectionné l’emplacement cible souhaité où le réplica sera déployé.
 1. Sélectionnez **OK** pour confirmer la création du réplica. Pendant la création de réplica, les données sont copiées depuis le serveur source vers le réplica. Le temps de création peut durer plusieurs minutes ou plus, proportionnellement à la taille du serveur source.
@@ -53,19 +53,19 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 En arrêtant la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database pour MySQL. 
-1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.
+1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES** .
 1. Sélectionnez le serveur réplica.
-1. Sélectionnez **Arrêter la réplication**.
-1. Validez que vous voulez arrêter la réplication en cliquant sur **OK**.
+1. Sélectionnez **Arrêter la réplication** .
+1. Validez que vous voulez arrêter la réplication en cliquant sur **OK** .
 
 ## <a name="clean-up-source-server"></a>Nettoyer le serveur source
 
 Vous pourriez vouloir supprimer le serveur source Azure Database pour MySQL. Pour ce faire, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database pour MySQL.
-1. Dans la fenêtre **Vue d’ensemble**, sélectionnez **Supprimer**.
+1. Dans la fenêtre **Vue d’ensemble** , sélectionnez **Supprimer** .
 1. Tapez le nom du serveur source pour confirmer que vous souhaitez le supprimer.
-1. Sélectionnez **Supprimer**.
+1. Sélectionnez **Supprimer** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 
