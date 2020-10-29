@@ -3,19 +3,19 @@ title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344bd2c801cb21932b35bcdfdcc38cc3fa73783b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102980"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370166"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
 L’agent Connected Machine des serveurs activés par Azure Arc vous permet de gérer vos machines Windows et Linux hébergées en dehors d’Azure sur votre réseau d’entreprise ou un autre fournisseur de cloud. Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
 >[!NOTE]
->À partir de la version générale des serveurs Azure Arc activés en septembre 2020, toutes les versions préliminaires d’Azure Connected Machine Agent (les agents dont la version est inférieure à 1.0) sont **déconseillées** d’ici le **2 février 2021**.  Ce délai d’exécution vous permet d’effectuer une mise à niveau vers la version 1 0 ou une version ultérieure avant que les agents prédéfinis ne soient plus en mesure de communiquer avec le service Azure Arc activé.
+>À partir de la version générale des serveurs Azure Arc activés en septembre 2020, toutes les versions préliminaires d’Azure Connected Machine Agent (les agents dont la version est inférieure à 1.0) sont **déconseillées** d’ici le **2 février 2021** .  Ce délai d’exécution vous permet d’effectuer une mise à niveau vers la version 1 0 ou une version ultérieure avant que les agents prédéfinis ne soient plus en mesure de communiquer avec le service Azure Arc activé.
 
 ## <a name="agent-component-details"></a>Détails du composant Agent
 
@@ -58,9 +58,9 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 ### <a name="required-permissions"></a>Autorisations requises
 
-* Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
+* Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure** .
 
-* Pour lire, modifier, réintégrer et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources de la machine connectée à Azure**. 
+* Pour lire, modifier, réintégrer et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources de la machine connectée à Azure** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
@@ -68,7 +68,7 @@ Avant de configurer vos machines à l’aide de serveurs activés par Azure Arc,
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocole Transport Layer Security 1.2
 
-Pour garantir la sécurité des données en transit vers Azure, nous vous encourageons vivement à configurer la machine de manière à utiliser le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.
+Pour garantir la sécurité des données en transit vers Azure, nous vous encourageons vivement à configurer la machine de manière à utiliser le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées** .
 
 |Plateforme/Langage | Support | Informations complémentaires |
 | --- | --- | --- |
@@ -118,7 +118,7 @@ Pour utiliser ce service, les serveurs activés par Azure Arc dépendent des fo
 
 S’ils ne sont pas inscrits, vous pouvez les inscrire à l’aide des commandes suivantes :
 
-Azure PowerShell :
+Azure PowerShell :
 
 ```azurepowershell-interactive
 Login-AzAccount
@@ -127,7 +127,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-Azure CLI :
+Azure CLI :
 
 ```azurecli-interactive
 az account set --subscription "{Your Subscription Name}"
@@ -203,7 +203,7 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
 
 * Lors de la désinstallation de l’agent, les artefacts suivants ne sont pas supprimés.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent et sous-répertoires
     * %ProgramData%\GuestConfig
 

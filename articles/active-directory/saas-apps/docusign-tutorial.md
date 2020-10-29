@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 51ad28319a372cd791575b5a3e67cc0fd6934be2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981650"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454692"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign
 
@@ -40,29 +40,29 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test pour vérifier que :
 
-* DocuSign prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* DocuSign prend en charge l’authentification unique lancée par le **fournisseur de services** .
 
-* DocuSign prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
+* DocuSign prend en charge le provisionnement d’utilisateurs **juste-à-temps** .
 
-* DocuSign prend en charge le [provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* DocuSign prend en charge le [provisionnement automatique d’utilisateurs](./docusign-provisioning-tutorial.md).
 
-* Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Ajout de DocuSign à partir de la galerie
 
 Pour configurer l’intégration de DocuSign à Azure AD, vous devez ajouter DocuSign à partir de la galerie à votre liste d’applications SaaS managées.
 
 1. Connectez-vous au portail Azure soit avec un compte professionnel ou scolaire, soit avec un compte Microsoft personnel.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **DocuSign** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
+1. Dans la section **Ajouter à partir de la galerie** , tapez **DocuSign** dans la zone de recherche.
 1. Sélectionnez **DocuSign** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>Configurer et tester l’authentification unique Azure AD pour DocuSign
 
-Configurez et testez l’authentification unique Azure AD avec DocuSign au moyen d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur DocuSign correspondant.
+Configurez et testez l’authentification unique Azure AD avec DocuSign au moyen d’un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur DocuSign correspondant.
 
 Pour configurer et tester l’authentification unique Azure AD avec DocuSign, effectuez les étapes suivantes :
 
@@ -77,15 +77,15 @@ Pour configurer et tester l’authentification unique Azure AD avec DocuSign, e
 
 Pour activer l’authentification unique Azure AD dans le portail Azure, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **DocuSign**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **DocuSign** , recherchez la section **Gérer** , puis sélectionnez **Authentification unique** .
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
+1. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez l’icône de stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+    a. Dans la zone de texte **URL de connexion** , entrez une URL au format suivant :
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
@@ -93,7 +93,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. Dans la zone de texte **URL de réponse**, entrez l’un des modèles d’URL suivants :
+    c. Dans la zone de texte **URL de réponse** , entrez l’un des modèles d’URL suivants :
     
     | URL de réponse |
     |-------------|
@@ -103,11 +103,11 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
     > [!NOTE]
     > Ces valeurs entre crochets sont des espaces réservés. Remplacez ces valeurs par les valeurs réelles de l’URL de connexion, de l’identificateur et de l’URL de réponse. Ces détails sont expliqués dans la section « Afficher les points de terminaison SAML 2.0 » plus loin dans ce tutoriel.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (Base64)** . Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer DocuSign**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer DocuSign** , copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -115,47 +115,47 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
 Dans cette section, vous allez créer un utilisateur de test nommé B.Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur**, en haut de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez **B.Simon**.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez `<username>@<companydomain>.<extension>`. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Sélectionnez **Nouvel utilisateur** , en haut de l’écran.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez **B.Simon** .  
+   1. Dans le champ **Nom de l’utilisateur** , entrez `<username>@<companydomain>.<extension>`. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
    1. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin que cet utilisateur puisse utiliser l’authentification unique Azure.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **DocuSign**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur** puis, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste **Utilisateurs**, puis appuyez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **DocuSign** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Sélectionnez **Ajouter un utilisateur** puis, dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Utilisateurs et groupes** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** dans la liste **Utilisateurs** , puis appuyez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
 
 ## <a name="configure-docusign-sso"></a>Configurer l’authentification unique DocuSign
 
-1. Pour automatiser la configuration dans DocuSign, installez l’extension de navigateur My Apps Secure Sign-in en sélectionnant **Installer l’extension**.
+1. Pour automatiser la configuration dans DocuSign, installez l’extension de navigateur My Apps Secure Sign-in en sélectionnant **Installer l’extension** .
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après avoir ajouté l’extension au navigateur, sélectionnez **Configurer DocuSign**. Vous êtes dirigé vers l’application DocuSign. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à DocuSign. L’extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+2. Après avoir ajouté l’extension au navigateur, sélectionnez **Configurer DocuSign** . Vous êtes dirigé vers l’application DocuSign. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à DocuSign. L’extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
 
     ![Configuration](common/setup-sso.png)
 
 3. Si vous souhaitez configurer manuellement DocuSign, ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise DocuSign en tant qu’administrateur.
 
-4. Dans le coin supérieur droit de la page, sélectionnez le logo du profil, puis sélectionnez **Go to Admin**.
+4. Dans le coin supérieur droit de la page, sélectionnez le logo du profil, puis sélectionnez **Go to Admin** .
   
     ![Go to Admin sous le profil][51]
 
-5. Dans la page des solutions de votre domaine, sélectionnez **Domains**.
+5. Dans la page des solutions de votre domaine, sélectionnez **Domains** .
 
     ![Domaines/solutions de domaine][50]
 
-6. Dans la section **Domains**, sélectionnez **CLAIM DOMAIN** (Revendiquer un domaine).
+6. Dans la section **Domains** , sélectionnez **CLAIM DOMAIN** (Revendiquer un domaine).
 
     ![Option Claim Domain][52]
 
@@ -167,7 +167,7 @@ Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin q
   
     ![Option Identity Providers][54]
 
-9. Dans la section **Identity Providers**, cliquez sur **ADD IDENTITY PROVIDER** (Ajouter un fournisseur d’identité).
+9. Dans la section **Identity Providers** , cliquez sur **ADD IDENTITY PROVIDER** (Ajouter un fournisseur d’identité).
 
     ![Option Add Identity Provider][55]
 
@@ -183,11 +183,11 @@ Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin q
 
     d. Dans la zone **Identity Provider Logout URL** (URL de déconnexion du fournisseur d’identité), collez la valeur **URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    e. Sélectionnez **Signer la demande d’authentification**.
+    e. Sélectionnez **Signer la demande d’authentification** .
 
-    f. Pour **Send AuthN request by** (Envoyer la requête d’authentification par), sélectionnez **POST**.
+    f. Pour **Send AuthN request by** (Envoyer la requête d’authentification par), sélectionnez **POST** .
 
-    g. Pour **Send logout request by** (Envoyer la requête de déconnexion par), sélectionnez **GET**.
+    g. Pour **Send logout request by** (Envoyer la requête de déconnexion par), sélectionnez **GET** .
 
     h. Dans la section **Custom Attribute Mapping** (Mappage des attributs personnalisés), sélectionnez **ADD NEW MAPPING** (Ajouter un nouveau mappage).
 
@@ -198,13 +198,13 @@ Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin q
        ![Champs de mappage des attributs personnalisés][57]
 
        > [!NOTE]
-       > Utilisez l’**identificateur d’utilisateur** approprié pour mapper l’utilisateur d’Azure AD au mappage utilisateur DocuSign. Sélectionnez le champ correct et entrez la valeur appropriée en fonction des paramètres de votre organisation.
+       > Utilisez l’ **identificateur d’utilisateur** approprié pour mapper l’utilisateur d’Azure AD au mappage utilisateur DocuSign. Sélectionnez le champ correct et entrez la valeur appropriée en fonction des paramètres de votre organisation.
 
     j. Dans la section **Identity Provider Certificates** (Certificats du fournisseur d’identité), sélectionnez **ADD CERTIFICATE** (Ajouter un certificat), puis chargez le certificat que vous avez téléchargé à partir du portail Azure AD et cliquez sur **SAVE** (Enregistrer).
 
        ![Identity Provider Certificates/Add Certificate][58]
 
-    k. Dans la section **Identity Providers** (Fournisseurs d’identité), sélectionnez **ACTIONS**, puis **Endpoints** (Points de terminaison).
+    k. Dans la section **Identity Providers** (Fournisseurs d’identité), sélectionnez **ACTIONS** , puis **Endpoints** (Points de terminaison).
 
        ![Identity Providers/Endpoints][59]
 
@@ -216,9 +216,9 @@ Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin q
        
        1. Copiez la valeur **Service Provider Assertion Consumer Service URL** (URL du service consommateur d’assertion) et collez-la dans la zone **URL de réponse** de la section **Configuration SAML de base** dans le Portail Azure.
        
-       1. Copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur de services) et collez-la dans la zone **URL de connexion** de la section **Configuration SAML de base** du portail Azure. La valeur IDPID est indiquée à la fin de **Service Provider Login URL**.
+       1. Copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur de services) et collez-la dans la zone **URL de connexion** de la section **Configuration SAML de base** du portail Azure. La valeur IDPID est indiquée à la fin de **Service Provider Login URL** .
 
-       1. Sélectionnez **Fermer**.
+       1. Sélectionnez **Fermer** .
 
 ### <a name="create-docusign-test-user"></a>Créer un utilisateur de test DocuSign
 
@@ -235,12 +235,12 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion DocuSign pour lancer le flux de connexion à partir de là.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette DocuSign dans le volet d’accès doit vous connecter automatiquement à l’application DocuSign pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette DocuSign dans le volet d’accès doit vous connecter automatiquement à l’application DocuSign pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 
