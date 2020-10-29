@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f5a01d74d22d6ea010d80ef1ef8ce1a53fbd4422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649a26e474c7c4d6b4f51a035b3f8f9da35b9dd1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548811"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92511152"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Raketa
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Raketa à Azure Active Direc
 * Permettre à vos utilisateurs de se connecter automatiquement à Raketa avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,8 +39,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Raketa prend en charge l’authentification unique initiée par le **fournisseur de services**.
-* Après avoir configuré Raketa, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Raketa prend en charge l’authentification unique initiée par le **fournisseur de services** .
+* Après avoir configuré Raketa, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-raketa-from-the-gallery"></a>Ajout de Raketa à partir de la galerie
 
@@ -66,7 +66,7 @@ Pour configurer l’intégration de Raketa à Azure AD, vous devez ajouter Rake
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-raketa"></a>Configurer et tester l’authentification unique Azure AD pour Raketa
 
-Configurez et testez l’authentification unique Azure AD avec Raketa à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Raketa associé.
+Configurez et testez l’authentification unique Azure AD avec Raketa à l’aide d’un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Raketa associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Raketa, suivez les indications des sections ci-après :
 
@@ -81,7 +81,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Raketa, suiv
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Raketa**, recherchez la section **Gérer** et sélectionnez **Authentification unique** [9].
+1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Raketa** , recherchez la section **Gérer** et sélectionnez **Authentification unique** [9].
 
     ![rkt_4](./media/raketa-tutorial/manage-sso.png)
 
@@ -89,9 +89,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![rkt_5](./media/raketa-tutorial/saml.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** [11] pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** [11] pour modifier les paramètres.
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
 
     1. Dans les zones de texte **Identificateur (ID d’entité)** [12] et **URL de connexion** [14], tapez l’URL `https://raketa.travel/`.
 
@@ -102,9 +102,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe de support client Raketa](mailto:help@raketa.travel). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** et sélectionnez **Télécharger** [15] pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (en base64)** et sélectionnez **Télécharger** [15] pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-1. Dans la section **Configurer Raketa**, copiez la ou les URL appropriées selon vos besoins.
+1. Dans la section **Configurer Raketa** , copiez la ou les URL appropriées selon vos besoins.
 
     1. URL de connexion [16] : URL de la page web d’autorisation, qui est utilisée pour rediriger les utilisateurs vers le système d’authentification.
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
     ![rkt_8](./media/raketa-tutorial/new-user.png)
 
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
 
    1. Dans le champ **Nom d’utilisateur** [22], entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
 
@@ -152,21 +152,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![rkt_11](./media/raketa-tutorial/users-groups.png)
 
-1. Sélectionnez **Ajouter un utilisateur** [29], puis **Utilisateurs et groupes** [30] dans la boîte de dialogue **Ajouter une attribution**.
+1. Sélectionnez **Ajouter un utilisateur** [29], puis **Utilisateurs et groupes** [30] dans la boîte de dialogue **Ajouter une attribution** .
 
     ![rkt_12](./media/raketa-tutorial/add-user-raketa.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** [31] dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** [32] au bas de l’écran.
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** [31] dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** [32] au bas de l’écran.
 
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer** [33]. 
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** [33]. 
 
     ![rkt_13](./media/raketa-tutorial/assign-user.png)
 
 ## <a name="configure-raketa-sso"></a>Configurer l’authentification unique Raketa
 
-Pour configurer l’authentification unique côté **Raketa**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Raketa](mailto:help@raketa.travel). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Raketa** , vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées à partir du portail Azure à l’ [équipe du support technique Raketa](mailto:help@raketa.travel). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-raketa-test-user"></a>Créer un utilisateur de test Raketa
 
@@ -176,18 +176,18 @@ Dans cette section, vous créez un utilisateur appelé B.Simon dans Raketa. Cont
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Raketa dans le volet d’accès, vous devez être connecté automatiquement à l’application Raketa pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Raketa dans le volet d’accès, vous devez être connecté automatiquement à l’application Raketa pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
 
 - [Essayer Raketa avec Azure AD](https://aad.portal.azure.com/)
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger Raketa avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Guide pratique pour protéger Raketa avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)

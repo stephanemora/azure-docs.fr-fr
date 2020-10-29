@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 543085eaea993f6e464a501ffc93befd7589a009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554122"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92513788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutoriel : Intégration d’Azure Active Directory à PageDNA
 
@@ -28,7 +28,7 @@ L’intégration de PageDNA à Azure AD vous offre les avantages suivants :
 * Vous pouvez permettre à vos utilisateurs de se connecter automatiquement à PageDNA (par le biais de l'authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
-Pour obtenir des détails sur l’intégration d’applications SaaS (software as a service) avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour obtenir des détails sur l’intégration d’applications SaaS (software as a service) avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,7 +56,7 @@ Pour configurer l'intégration de PageDNA à Azure AD, vous devez ajouter PageDN
 
     ![Option Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
 
     ![Volet Applications d’entreprise](common/enterprise-applications.png)
 
@@ -64,13 +64,13 @@ Pour configurer l'intégration de PageDNA à Azure AD, vous devez ajouter PageDN
 
     ![Option Nouvelle application](common/add-new-app.png)
 
-1. Dans la zone de recherche, entrez **PageDNA**. Dans les résultats de recherche, sélectionnez **PageDNA**, puis **Ajouter** pour ajouter l'application.
+1. Dans la zone de recherche, entrez **PageDNA** . Dans les résultats de recherche, sélectionnez **PageDNA** , puis **Ajouter** pour ajouter l'application.
 
     ![PageDNA dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l'authentification unique Azure AD auprès de PageDNA à l'aide d'un utilisateur de test appelé **Britta Simon**. Pour que l'authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l'utilisateur PageDNA associé.
+Dans cette section, vous allez configurer et tester l'authentification unique Azure AD auprès de PageDNA à l'aide d'un utilisateur de test appelé **Britta Simon** . Pour que l'authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l'utilisateur PageDNA associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec PageDNA, vous devez suivre les indications des sections suivantes :
 
@@ -87,23 +87,23 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l'authentification unique Azure AD auprès de PageDNA, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **PageDNA**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **PageDNA** , sélectionnez **Authentification unique** .
 
     ![Configurer l’option d’authentification unique](common/select-sso.png)
 
-1. Dans le volet **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique.
+1. Dans le volet **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-1. Dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez **Modifier** (icône de crayon) pour ouvrir le volet **Configuration SAML de base**.
+1. Dans le volet **Configurer l’authentification unique avec SAML** , sélectionnez **Modifier** (icône de crayon) pour ouvrir le volet **Configuration SAML de base** .
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans le volet **Configuration SAML de base**, procédez comme suit :
+1. Dans le volet **Configuration SAML de base** , procédez comme suit :
 
     ![Informations d'authentification unique dans Domaine et URL PageDNA](common/sp-identifier.png)
 
-    1. Dans la zone **URL de connexion**, entrez une URL en utilisant l'un des formats suivants :
+    1. Dans la zone **URL de connexion** , entrez une URL en utilisant l'un des formats suivants :
 
         ```https
         https://stores.pagedna.com/<your site>
@@ -122,11 +122,11 @@ Pour configurer l'authentification unique Azure AD auprès de PageDNA, procédez
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l'équipe de support technique PageDNA](mailto:success@pagedna.com). Vous pouvez aussi vous référer aux modèles figurant dans le volet **Configuration SAML de base** sur le portail Azure.
 
-1. Dans le volet **Configurer l'authentification unique avec SAML**, accédez à la section **Certificat de signature SAML**, sélectionnez **Télécharger** pour télécharger le fichier **Certificat (brut)** à partir des options données, puis enregistrez-le sur votre ordinateur.
+1. Dans le volet **Configurer l'authentification unique avec SAML** , accédez à la section **Certificat de signature SAML** , sélectionnez **Télécharger** pour télécharger le fichier **Certificat (brut)** à partir des options données, puis enregistrez-le sur votre ordinateur.
 
     ![Option de téléchargement du certificat (brut)](common/certificateraw.png)
 
-1. Dans la section **Configurer PageDNA**, copiez les URL dont vous avez besoin :
+1. Dans la section **Configurer PageDNA** , copiez les URL dont vous avez besoin :
 
    * **URL de connexion**
    * **Identificateur Azure AD**
@@ -142,23 +142,23 @@ Pour configurer l'authentification unique côté PageDNA, envoyez le certificat 
 
 Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**   > **Utilisateurs** > **Tous les utilisateurs**.
+1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**   > **Utilisateurs** > **Tous les utilisateurs** .
 
     ![Options Utilisateurs et « Tous les utilisateurs »](common/users.png)
 
-1. En haut de l’écran, sélectionnez **+ Nouvel utilisateur**.
+1. En haut de l’écran, sélectionnez **+ Nouvel utilisateur** .
 
     ![Option Nouvel utilisateur](common/new-user.png)
 
-1. Dans le volet **Utilisateur**, effectuez les étapes suivantes :
+1. Dans le volet **Utilisateur** , effectuez les étapes suivantes :
 
     ![Volet Utilisateur](common/user-properties.png)
 
-    1. Dans la zone **Nom**, entrez **BrittaSimon**.
+    1. Dans la zone **Nom** , entrez **BrittaSimon** .
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com**.
+    1. Dans la zone **Nom d’utilisateur** , entrez **BrittaSimon\@\<yourcompanydomain>.\<extension>** . Par exemple, **BrittaSimon\@contoso.com** .
 
-    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
 
     1. Sélectionnez **Create** (Créer).
 
@@ -166,27 +166,27 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
 Dans cette section, vous allez autoriser l’utilisateur Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à PageDNA.
 
-1. Sur le portail Azure, sélectionnez **Applications d'entreprise** > **Toutes les applications** > **PageDNA**.
+1. Sur le portail Azure, sélectionnez **Applications d'entreprise** > **Toutes les applications** > **PageDNA** .
 
     ![Volet Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans la liste des applications, sélectionnez **PageDNA**.
+1. Dans la liste des applications, sélectionnez **PageDNA** .
 
     ![PageDNAdans la liste des applications](common/all-applications.png)
 
-1. Dans le volet gauche, sous **GÉRER**, sélectionnez **Utilisateurs et groupes**.
+1. Dans le volet gauche, sous **GÉRER** , sélectionnez **Utilisateurs et groupes** .
 
     ![Option « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **+ Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans le volet **Ajouter une attribution**.
+1. Sélectionnez **+ Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans le volet **Ajouter une attribution** .
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-1. Dans le volet **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste **Utilisateurs**, puis choisissez **Sélectionner** au bas du volet.
+1. Dans le volet **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste **Utilisateurs** , puis choisissez **Sélectionner** au bas du volet.
 
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Au bas du volet, choisissez **Sélectionner**.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans le volet **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste. Au bas du volet, choisissez **Sélectionner** .
 
-1. Dans le volet **Ajouter une attribution**, sélectionnez **Attribuer**.
+1. Dans le volet **Ajouter une attribution** , sélectionnez **Attribuer** .
 
 ### <a name="create-a-pagedna-test-user"></a>Créer un utilisateur de test PageDNA
 
@@ -196,13 +196,12 @@ Un utilisateur nommé Britta Simon est maintenant créé dans PageDNA. Aucune ac
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à partir du portail Mes applications.
 
-Lorsque vous sélectionnez **PageDNA** sur le portail Mes applications, vous devez être automatiquement connecté à l'abonnement PageDNA pour lequel vous avez configuré l'authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Accéder aux applications du portail Mes applications et les utiliser](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Lorsque vous sélectionnez **PageDNA** sur le portail Mes applications, vous devez être automatiquement connecté à l'abonnement PageDNA pour lequel vous avez configuré l'authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Accéder aux applications du portail Mes applications et les utiliser](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Liste de tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-* [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

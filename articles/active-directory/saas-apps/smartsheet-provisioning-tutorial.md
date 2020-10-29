@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a3c2567cf1799bca5750e90fbe5d89f6da952ff5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285989"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514889"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutoriel : Configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
-L’objectif de ce didacticiel est de présenter les étapes à suivre dans Smartsheet et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et annuler automatiquement des utilisateurs et/ou des groupes dans [Smartsheet](https://www.smartsheet.com/pricing). Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md). 
+L’objectif de ce didacticiel est de présenter les étapes à suivre dans Smartsheet et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et annuler automatiquement des utilisateurs et/ou des groupes dans [Smartsheet](https://www.smartsheet.com/pricing). Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
@@ -37,21 +37,21 @@ L’objectif de ce didacticiel est de présenter les étapes à suivre dans Smar
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
+* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
+* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../users-groups-roles/directory-assign-admin-roles.md) de configurer l’approvisionnement (par exemple, Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général).
 * [Un locataire Smartsheet](https://www.smartsheet.com/pricing).
 * Un compte d’utilisateur sur un plan Smartsheet Enterprise ou Enterprise Premier avec des autorisations d’administrateur système.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
-1. En savoir plus sur le [fonctionnement du service d’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Déterminez les données à [mapper entre Azure AD et Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
+2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Déterminez les données à [mapper entre Azure AD et Smartsheet](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Smartsheet pour prendre en charge le provisionnement avec Azure AD
 
 Avant de configurer Smartsheet pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez activer le provisionnement SCIM sur Smartsheet.
 
-1. Connectez-vous en tant que **SysAdmin** dans le **[portail Smartsheet](https://app.smartsheet.com/b/home)** et accédez à l’**administrateur de compte**.
+1. Connectez-vous en tant que **SysAdmin** dans le **[portail Smartsheet](https://app.smartsheet.com/b/home)** et accédez à l’ **administrateur de compte** .
 
     ![Administrateur de compte Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
 
@@ -71,27 +71,27 @@ Avant de configurer Smartsheet pour l’attribution automatique d’utilisateurs
 
     ![Capture d’écran de la page d’administration de Smartsheet avec l’avatar de l’utilisateur et l’option Apps and Integrations (Applications et intégrations) en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
-6. Choisissez **Accès d’API**. Cliquez sur **Generate new access token (Générer un nouveau jeton d'accès)** .
+6. Choisissez **Accès d’API** . Cliquez sur **Generate new access token (Générer un nouveau jeton d'accès)** .
 
     ![Capture d’écran de la boîte de dialogue Personal Settings (Paramètres personnels) avec les options API Access (Accès à l’API) et Generate new access token (Générer un nouveau jeton d’accès) en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Définissez le nom du jeton d’accès d’API. Cliquez sur **OK**.
+7. Définissez le nom du jeton d’accès d’API. Cliquez sur **OK** .
 
     ![Capture d’écran de Step 1 of 2: Generate new access token (Étape 1 sur 2 : Générer un nouveau jeton d’accès) avec l’option OK en évidence.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
-8. Copiez le jeton d’accès d’API et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Il est requis dans le champ **Jeton secret**, dans Azure AD.
+8. Copiez le jeton d’accès d’API et enregistrez-le car il s’agit de la seule fois où vous pouvez le consulter. Il est requis dans le champ **Jeton secret** , dans Azure AD.
 
     ![Jeton Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
 ## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Smartsheet à partir de la galerie d’applications Azure AD
 
-Ajoutez Smartsheet à partir de la galerie d’applications Azure AD pour commencer à gérer le provisionnement vers Smartsheet. Si vous avez déjà configuré Smartsheet pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Ajoutez Smartsheet à partir de la galerie d’applications Azure AD pour commencer à gérer le provisionnement vers Smartsheet. Si vous avez déjà configuré Smartsheet pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement 
 
-Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quand vous affectez des utilisateurs et des groupes à Smartsheet, vous devez sélectionner un rôle différent du rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) pour ajouter des rôles supplémentaires. 
+* Quand vous affectez des utilisateurs et des groupes à Smartsheet, vous devez sélectionner un rôle différent du rôle **Accès par défaut** . Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
 
 * Pour garantir la parité dans les attributions de rôles d’utilisateur entre Smartsheet et Azure AD, il est recommandé d’utiliser les attributions de rôles renseignées dans la liste complète des utilisateurs Smartsheet. Pour récupérer cette liste d’utilisateurs à partir de Smartsheet, accédez à **Account Admin (Administrateur de compte) > User Management (Gestion des utilisateurs) > More Actions (Autres Actions) > Download User List (csv) (Télécharger la liste des utilisateurs (csv))** .
 
@@ -99,7 +99,7 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
 *  Si un utilisateur a plusieurs rôles dans Smartsheet, vous **DEVEZ** garantir que ces attributions de rôles sont répliquées dans Azure AD afin d’éviter un scénario où les utilisateurs pourraient perdre définitivement l’accès aux objets Smartsheet. Chaque rôle unique dans Smartsheet **DOIT** être attribué à un groupe différent dans Azure AD. L’utilisateur **DOIT** ensuite être ajouté à chacun des groupes correspondant aux rôles que vous souhaitez. 
 
-* Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Étape 5. Configurer l’attribution automatique d’utilisateurs dans Smartsheet 
 
@@ -107,35 +107,35 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Smartsheet dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Smartsheet**.
+2. Dans la liste des applications, sélectionnez **Smartsheet** .
 
     ![Lien Smartsheet dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement**.
+3. Sélectionnez l’onglet **Approvisionnement** .
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
+4. Définissez le **Mode d’approvisionnement** sur **Automatique** .
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur**, entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** récupérées précédemment sur Smartsheet dans **URL de locataire** et **Jeton secret**, respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Smartsheet. Si la connexion échoue, vérifiez que votre compte Smartsheet dispose d’autorisations d’administrateur système et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur** , entrez les valeurs d’URL de base **SCIM 2.0 et de Jeton du porteur** récupérées précédemment sur Smartsheet dans **URL de locataire** et **Jeton secret** , respectivement. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Smartsheet. Si la connexion échoue, vérifiez que votre compte Smartsheet dispose d’autorisations d’administrateur système et réessayez.
 
     ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance** .
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-7. Cliquez sur **Enregistrer**.
+7. Cliquez sur **Enregistrer** .
 
-8. Sous la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Smartsheet (Synchroniser les utilisateurs Azure Active Directory dans Smartsheet)** .
+8. Sous la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Smartsheet (Synchroniser les utilisateurs Azure Active Directory dans Smartsheet)** .
 
-9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Smartsheet dans la section **Mappage d’attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les comptes d’utilisateur dans Smartsheet pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Passez en revue les attributs utilisateur qui sont synchronisés d’Azure AD vers Smartsheet dans la section **Mappage d’attributs** . Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour mettre en correspondance les comptes d’utilisateur dans Smartsheet pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
    |Attribut|Type|
    |---|---|
@@ -160,26 +160,26 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Pour activer le service de provisionnement Azure AD pour Smartsheet, modifiez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
+11. Pour activer le service de provisionnement Azure AD pour Smartsheet, modifiez le paramètre **État de l’approvisionnement** sur **Activé** dans la section **Paramètres** .
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou groupes que vous aimeriez provisionner dans Smartsheet en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
+12. Définissez les utilisateurs et/ou groupes que vous aimeriez provisionner dans Smartsheet en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres** .
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer** .
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres** . La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
 Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
 
-1. Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
-3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
+2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 

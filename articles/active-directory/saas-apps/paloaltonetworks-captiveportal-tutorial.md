@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1096437fc1d77042a9db4dc359d51cd6d9d22960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304387"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal
 
@@ -39,22 +39,22 @@ Pour intégrer Azure AD à Palo Alto Networks Captive Portal, vous avez besoin d
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Palo Alto Networks Captive Portal prend en charge l’authentification unique initiée par le **fournisseur d’identité**
-* Palo Alto Networks Captive Portal prend en charge l’attribution d’utilisateurs **juste-à-temps**.
+* Palo Alto Networks Captive Portal prend en charge l’attribution d’utilisateurs **juste-à-temps** .
 
 ## <a name="adding-palo-alto-networks-captive-portal-from-the-gallery"></a>Ajout de Palo Alto Networks Captive Portal depuis la galerie
 
 Pour configurer l’intégration de Palo Alto Networks - Captive Portal avec Azure AD, vous devez ajouter Palo Alto Networks Captive Portal à partir de la galerie à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, entrez **Palo Alto Networks Captive Portal** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
+1. Dans la section **Ajouter à partir de la galerie** , entrez **Palo Alto Networks Captive Portal** dans la zone de recherche.
 1. Sélectionnez **Palo Alto Networks Captive Portal** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous configurez et vous testez l’authentification unique Azure AD avec Palo Alto Networks Captive Portal sur un utilisateur de test nommé **B.Simon**.
+Dans cette section, vous configurez et vous testez l’authentification unique Azure AD avec Palo Alto Networks Captive Portal sur un utilisateur de test nommé **B.Simon** .
 Pour que l’authentification unique fonctionne, une relation doit être établie entre un utilisateur Azure AD et l’utilisateur Palo Alto Networks Captive Portal associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Networks Captive Portal, procédez comme suit :
@@ -70,22 +70,22 @@ Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Ne
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Palo Alto Networks Captive Portal**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Palo Alto Networks Captive Portal** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
+1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans le volet **Configuration SAML de base**, procédez comme suit :
+4. Dans le volet **Configuration SAML de base** , procédez comme suit :
 
-   1. Pour **Identificateur**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. Pour **Identificateur** , entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP`.
 
-   2. Pour **URL de réponse**, entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. Pour **URL de réponse** , entrez une URL au format `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
       > [!NOTE]
       > Mettez à jour les valeurs d’espace réservé à cette étape avec les URL d’identificateur et de réponse réelles. Pour obtenir les valeurs réelles, contactez l’[équipe de support client Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
-5. Dans la section **Certificat de signature SAML**, en regard de **XML de métadonnées de fédération**, sélectionnez **Télécharger**. Enregistrez le fichier téléchargé sur votre ordinateur.
+5. Dans la section **Certificat de signature SAML** , en regard de **XML de métadonnées de fédération** , sélectionnez **Télécharger** . Enregistrez le fichier téléchargé sur votre ordinateur.
 
     ![Lien de téléchargement du XML de métadonnées de fédération](common/metadataxml.png)
 
@@ -93,25 +93,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
+   1. Cliquez sur **Créer** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous autoriserez B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Palo Alto Networks Captive Portal.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Palo Alto Networks Captive Portal**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **Palo Alto Networks Captive Portal** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
 
 ## <a name="configure-palo-alto-networks-captive-portal-sso"></a>Configurer l’authentification unique Palo Alto Networks Captive Portal
 
@@ -119,11 +119,11 @@ Ensuite, configurez l’authentification unique dans Palo Alto Networks Captive 
 
 1. Dans une autre fenêtre de navigateur, connectez-vous au site web Palo Alto Networks en tant qu’administrateur.
 
-2. Sélectionnez l’onglet **Appareil**.
+2. Sélectionnez l’onglet **Appareil** .
 
     ![Onglet Device (Appareil) sur le site web Palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-3. Dans le menu, sélectionnez **SAML Identity Provider** (Fournisseur d’identité SAML), puis sélectionnez **Import**.
+3. Dans le menu, sélectionnez **SAML Identity Provider** (Fournisseur d’identité SAML), puis sélectionnez **Import** .
 
     ![Bouton Import](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
@@ -131,11 +131,11 @@ Ensuite, configurez l’authentification unique dans Palo Alto Networks Captive 
 
     ![Configurer l’authentification unique Palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    1. Pour **Profile Name** (Nom du profil), entrez un nom, par exemple, **AzureAD-CaptivePortal**.
+    1. Pour **Profile Name** (Nom du profil), entrez un nom, par exemple, **AzureAD-CaptivePortal** .
     
-    2. En regard d’**Identity Provider Metadata** (Métadonnées du fournisseur d’identité), sélectionnez **Browse** (Parcourir). Sélectionnez le fichier metadata.xml que vous avez téléchargé dans le portail Azure.
+    2. En regard d’ **Identity Provider Metadata** (Métadonnées du fournisseur d’identité), sélectionnez **Browse** (Parcourir). Sélectionnez le fichier metadata.xml que vous avez téléchargé dans le portail Azure.
     
-    3. Sélectionnez **OK**.
+    3. Sélectionnez **OK** .
 
 ### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Créer un utilisateur de test Palo Alto Networks Captive Portal
 
@@ -150,8 +150,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 Cliquez sur Tester cette application dans le portail Azure. Vous devriez être connecté automatiquement à l’instance Palo Alto Networks Captive Portal pour laquelle vous avez configuré l’authentification unique.
 
-Vous pouvez utiliser le volet d’accès Microsoft. Lorsque vous cliquez sur la vignette Palo Alto Networks Captive Portal dans le panneau d’accès, vous devez être connecté automatiquement à l’application Palo Alto Networks Captive Portal pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez utiliser le volet d’accès Microsoft. Lorsque vous cliquez sur la vignette Palo Alto Networks Captive Portal dans le panneau d’accès, vous devez être connecté automatiquement à l’application Palo Alto Networks Captive Portal pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Palo Alto Networks Captive Portal, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Palo Alto Networks Captive Portal, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

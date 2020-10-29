@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543980"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515677"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guide de l’administrateur Atlassian Jira et Confluence pour Azure Active Directory
 
@@ -67,7 +67,7 @@ Le plug-in prend en charge les versions suivantes de Jira et Confluence :
 
 * JIRA Core et Software : 6.0 à 7.12
 * Jira Service Desk : 3.0.0 à 3.5.0
-* JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial).
+* JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence : 5.0 à 5.10
 * Confluence : 6.0.1
 * Confluence : 6.1.1
@@ -89,7 +89,7 @@ Pour installer le plug-in, procédez comme suit :
 
 1. Connectez-vous à votre instance de Jira ou Confluence en tant qu’administrateur.
 
-2. Accédez à la console d’administration de Jira ou Confluence, puis sélectionnez **Modules complémentaires**.
+2. Accédez à la console d’administration de Jira ou Confluence, puis sélectionnez **Modules complémentaires** .
 
 3. Depuis le Centre de téléchargement Microsoft, téléchargez le [plug-in Microsoft SAML SSO pour Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [plug-in Microsoft SAML SSO pour Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
@@ -101,45 +101,45 @@ Une fois installé, le plug-in s’affiche dans la section **User Installed Add-
 
 ## <a name="plug-in-configuration"></a>Configuration du plug-in
 
-Avant de commencer à utiliser le plug-in, vous devez le configurer. Sélectionnez le plug-in, cliquez sur le bouton **Configurer**, puis indiquez les détails de la configuration.
+Avant de commencer à utiliser le plug-in, vous devez le configurer. Sélectionnez le plug-in, cliquez sur le bouton **Configurer** , puis indiquez les détails de la configuration.
 
 L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
 ![Écran de configuration du plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* **URL de métadonnées** : URL pour obtenir les métadonnées de fédération à partir d’Azure AD.
+* **URL de métadonnées**  : URL pour obtenir les métadonnées de fédération à partir d’Azure AD.
 
-* **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /.
+* **Identificateurs**  : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /.
 
-* **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /plugins/servlet/saml/auth.
+* **URL de réponse**  : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **URL d’authentification** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /plugins/servlet/saml/auth.
+* **URL d’authentification**  : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **ID d'entité de fournisseur d'identité** : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
+* **ID d'entité de fournisseur d'identité**  : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
 
-* **URL de connexion** : URL de connexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **URL de connexion**  : URL de connexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-* **URL de déconnexion** : URL de déconnexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **URL de déconnexion**  : URL de déconnexion fournie par votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-* **Certificat X.509** : certificat X.509 de votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
+* **Certificat X.509**  : certificat X.509 de votre fournisseur d’identité. Cette case est renseignée à partir d’Azure AD quand l’URL des métadonnées est résolue.
 
-* **Nom du bouton Connexion** : nom du bouton de connexion que votre organisation souhaite que les utilisateurs visualisent sur la page de connexion.
+* **Nom du bouton Connexion**  : nom du bouton de connexion que votre organisation souhaite que les utilisateurs visualisent sur la page de connexion.
 
-* **Emplacements des ID utilisateur SAML** : emplacement auquel l’ID d’utilisateur Jira ou Confluence est attendu dans la réponse SAML. Il peut apparaître sous la forme **NameID** ou dans un nom d’attribut personnalisé.
+* **Emplacements des ID utilisateur SAML**  : emplacement auquel l’ID d’utilisateur Jira ou Confluence est attendu dans la réponse SAML. Il peut apparaître sous la forme **NameID** ou dans un nom d’attribut personnalisé.
 
-* **Nom de l’attribut** : nom de l’attribut sur lequel l’ID utilisateur est attendu.
+* **Nom de l’attribut**  : nom de l’attribut sur lequel l’ID utilisateur est attendu.
 
-* **Activer la découverte du domaine d’accueil** : sélection à effectuer si l’entreprise utilise une connexion basée sur Active Directory Federation Services (AD FS).
+* **Activer la découverte du domaine d’accueil**  : sélection à effectuer si l’entreprise utilise une connexion basée sur Active Directory Federation Services (AD FS).
 
-* **Nom de domaine** : nom de domaine si la connexion est basée sur AD FS.
+* **Nom de domaine**  : nom de domaine si la connexion est basée sur AD FS.
 
-* **Activer la déconnexion unique** : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
+* **Activer la déconnexion unique**  : sélection à effectuer si vous souhaitez vous déconnecter d’Azure AD lorsqu’un utilisateur se déconnecte de Jira ou Confluence.
 
 ## <a name="troubleshooting"></a>Dépannage
 
-* **Vous obtenez des erreurs de certificats multiples** : Connectez-vous à Azure AD et supprimez les différents certificats disponibles pour l’application. Vérifiez qu’il n’en reste qu’un.
+* **Vous obtenez des erreurs de certificats multiples**  : Connectez-vous à Azure AD et supprimez les différents certificats disponibles pour l’application. Vérifiez qu’il n’en reste qu’un.
 
-* **Un certificat est sur le point d’expirer dans Azure AD** : Les modules complémentaires prennent soin de la substitution automatique du certificat. Quand un certificat est sur le point d’expirer, un nouveau certificat doit être marqué comme actif, et les certificats inutilisés doivent être supprimés. Quand un utilisateur tente de se connecter à Jira dans ce scénario, le plug-in extrait le nouveau certificat et l’enregistre.
+* **Un certificat est sur le point d’expirer dans Azure AD**  : Les modules complémentaires prennent soin de la substitution automatique du certificat. Quand un certificat est sur le point d’expirer, un nouveau certificat doit être marqué comme actif, et les certificats inutilisés doivent être supprimés. Quand un utilisateur tente de se connecter à Jira dans ce scénario, le plug-in extrait le nouveau certificat et l’enregistre.
 
 * **Comment désactiver WebSudo (désactiver la session administrateur sécurisée)** :
 
@@ -153,13 +153,13 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
   * Accédez à l’URL dans un navigateur et vérifiez si vous recevez le fichier XML des métadonnées de fédération.
 
-* **Une erreur interne du serveur s'est produite** : consultez les journaux d’activité dans le répertoire des journaux d’activité de l’installation. Si vous obtenez cette erreur quand l’utilisateur essaie de se connecter à l’aide de l’authentification unique Azure AD, vous pouvez partager les journaux d’activité avec l’équipe de support technique.
+* **Une erreur interne du serveur s'est produite**  : consultez les journaux d’activité dans le répertoire des journaux d’activité de l’installation. Si vous obtenez cette erreur quand l’utilisateur essaie de se connecter à l’aide de l’authentification unique Azure AD, vous pouvez partager les journaux d’activité avec l’équipe de support technique.
 
-* **Une erreur du type « Identifiant d’utilisateur introuvable » apparaît lorsque l’utilisateur tente de se connecter** : créez l’ID d’utilisateur dans Jira ou Confluence.
+* **Une erreur du type « Identifiant d’utilisateur introuvable » apparaît lorsque l’utilisateur tente de se connecter**  : créez l’ID d’utilisateur dans Jira ou Confluence.
 
-* **Erreur « Application introuvable » dans Azure AD** : Vérifiez si l’URL appropriée est mappée à l’application dans Azure AD.
+* **Erreur « Application introuvable » dans Azure AD**  : Vérifiez si l’URL appropriée est mappée à l’application dans Azure AD.
 
-* **Vous avez besoin d’une assistance ?**  : Contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Elle répond dans un délai de 24 à 48 heures.
+* **Vous avez besoin d’une assistance ?**  : Contactez l’ [équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Elle répond dans un délai de 24 à 48 heures.
 
   Vous pouvez également créer un ticket de support auprès de Microsoft par le biais du portail Azure.
 
@@ -185,7 +185,7 @@ Le plug-in prend en charge les versions suivantes :
 
 * JIRA Core et Software : 6.0 à 7.12
 * Jira Service Desk : 3.0.0 à 3.5.0
-* JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial).
+* JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence : 5.0 à 5.10
 * Confluence : 6.0.1
 * Confluence : 6.1.1
