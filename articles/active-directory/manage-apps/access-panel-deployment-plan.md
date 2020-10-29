@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146621"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372478"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planifier le déploiement de Mes applications Azure Active Directory
 
@@ -225,7 +225,7 @@ Des flux de travail d’approbation sont disponibles pour une approbation explic
 
 Vous pouvez autoriser les utilisateurs à créer et gérer leurs propres groupes de sécurité ou Microsoft 365 dans Azure AD. Le propriétaire du groupe peut approuver ou refuser des demandes d’appartenance et peut déléguer le contrôle de l’appartenance au groupe. Les fonctionnalités de gestion de groupes en libre-service ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
 
-Pour planifier l’appartenance de groupe en libre-service, déterminez si vous autorisez tous les utilisateurs de votre organisation à créer et à gérer des groupes, ou seulement un sous-ensemble d’utilisateurs. S’il s’agit d’un sous-ensemble d’utilisateurs, vous devez configurer un groupe auquel ces personnes sont ajoutées. Pour plus d’informations sur l’activation de ces scénarios, consultez [Configurer la gestion de groupes en libre-service dans Azure Active Directory](../users-groups-roles/groups-self-service-management.md).
+Pour planifier l’appartenance de groupe en libre-service, déterminez si vous autorisez tous les utilisateurs de votre organisation à créer et à gérer des groupes, ou seulement un sous-ensemble d’utilisateurs. S’il s’agit d’un sous-ensemble d’utilisateurs, vous devez configurer un groupe auquel ces personnes sont ajoutées. Pour plus d’informations sur l’activation de ces scénarios, consultez [Configurer la gestion de groupes en libre-service dans Azure Active Directory](../enterprise-users/groups-self-service-management.md).
 
 ## <a name="plan-reporting-and-auditing"></a>Planifier la création de rapports et d’audits
 
@@ -299,7 +299,7 @@ Il est important d’avoir un plan de repli en cas d’échec de votre déploiem
 
 ## <a name="manage-your-implementation"></a>Gérer l’implémentation
 
-Utilisez le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
+Utilisez le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](../roles/permissions-reference.md) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
 
 | Rôles| Rôles| Rôle Azure AD  |
 | - | -| -|

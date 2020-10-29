@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265785"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442063"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modèle de facturation pour les identités externes Azure AD
 
-La tarification des identités externes Azure Active Directory (Azure AD) est basée sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois à la collaboration d’utilisateur invité Azure AD (B2B) et aux [locataires B2C Azure AD](https://docs.microsoft.com/azure/active-directory-b2c/billing). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Cet article décrit la facturation MAU et la liaison de vos locataires Azure AD à un abonnement.
+La tarification des identités externes Azure Active Directory (Azure AD) est basée sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois à la collaboration d’utilisateur invité Azure AD (B2B) et aux [locataires B2C Azure AD](../../active-directory-b2c/billing.md). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Cet article décrit la facturation MAU et la liaison de vos locataires Azure AD à un abonnement.
 
 > [!IMPORTANT]
 > Cet article ne contient pas de détails sur la tarification. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,26 +45,26 @@ Le niveau tarifaire qui s’applique à vos utilisateurs invités est basé sur 
 
 Pour obtenir une facturation et un accès corrects aux fonctionnalités, Un locataire Azure AD doit être lié à un abonnement Azure. Si le répertoire ne dispose pas déjà d’un abonnement auquel vous pouvez le lier, vous avez la possibilité d’en ajouter un au cours de ce processus.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Azure auquel a été attribué au moins le rôle [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) au sein de l’abonnement ou d’un groupe de ressources.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Azure auquel a été attribué au moins le rôle [Contributeur](../../role-based-access-control/built-in-roles.md) au sein de l’abonnement ou d’un groupe de ressources.
 
-2. Sélectionnez le répertoire que vous souhaitez lier : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement**, puis sélectionnez le répertoire.
+2. Sélectionnez le répertoire que vous souhaitez lier : Dans la barre d’outils du portail Azure, sélectionnez l’icône **Annuaire et abonnement** , puis sélectionnez le répertoire.
 
     ![Sélectionner l’icône Annuaire et abonnement](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
+3. Sous **Services Azure** , sélectionnez **Azure Active Directory** .
 
-4. Dans le menu de gauche, sélectionnez **Identités externes**.
+4. Dans le menu de gauche, sélectionnez **Identités externes** .
 
-5. Sous **Abonnements**, sélectionnez **Abonnements liés**.
+5. Sous **Abonnements** , sélectionnez **Abonnements liés** .
 
-6. Dans la liste des locataires, activez la case à cocher en regard du locataire, puis sélectionnez **Lier l’abonnement**.
+6. Dans la liste des locataires, activez la case à cocher en regard du locataire, puis sélectionnez **Lier l’abonnement** .
 
     ![Sélectionner le locataire et lier un abonnement](media/external-identities-pricing/linked-subscriptions.png)
 
-7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement**, puis un **Groupe de ressources**. Ensuite, sélectionnez **Appliquer**.
+7. Dans le volet Lier un abonnement, sélectionnez un **Abonnement** , puis un **Groupe de ressources** . Ensuite, sélectionnez **Appliquer** .
 
    > [!NOTE]
-   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici**.
+   > Si aucun abonnement n’est répertorié, vous pouvez [associer un abonnement à votre locataire](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Vous pouvez également ajouter un nouvel abonnement en sélectionnant le lien **Si vous n’avez pas encore d’abonnement, vous pouvez en créer un ici** .
 
     ![Sélectionner un abonnement et un groupe de ressources](media/external-identities-pricing/link-subscription-resource.png)
 

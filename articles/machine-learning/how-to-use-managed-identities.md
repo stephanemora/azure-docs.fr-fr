@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079622"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440448"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utiliser les identités managées avec Azure Machine Learning (préversion)
 
-Les [identités managées](/azure/active-directory/managed-identities-azure-resources/overview) vous permettent de configurer votre espace de travail avec les *autorisations minimales requises pour accéder aux ressources*. 
+Les [identités managées](/azure/active-directory/managed-identities-azure-resources/overview) vous permettent de configurer votre espace de travail avec les *autorisations minimales requises pour accéder aux ressources* . 
 
 Pour configurer un espace de travail Azure Machine Learning de manière fiable, il est important de s’assurer que les différents services associés à l’espace de travail disposent du niveau d’accès correct. Par exemple, pendant le workflow Machine Learning, l’espace de travail doit accéder à Azure Container Registry (ACR) pour les images Docker et aux comptes de stockage pour les données de formation. 
 
@@ -29,7 +29,6 @@ Cet article explique comment utiliser les identités managées pour :
 
  * Configurer et utiliser ACR pour votre espace de travail Azure Machine Learning sans avoir à activer l’accès utilisateur administrateur à ACR.
  * Accéder à un ACR privé externe à votre espace de travail, pour extraire des images de base à des fins de formation ou d’inférence.
- * Accéder à des jeux de données pour la formation en utilisant des identités managées au lieu de clés d’accès de stockage.
 
 > [!IMPORTANT]
 > L’utilisation d’identités managées pour contrôler l’accès aux ressources avec Azure Machine Learning est actuellement disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -39,7 +38,7 @@ Cet article explique comment utiliser les identités managées pour :
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - L’[extension Azure CLI pour le service Machine Learning](reference-azure-machine-learning-cli.md)
 - Le [kit SDK Python d’Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Pour attribuer des rôles, la connexion de votre abonnement Azure doit avoir le rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou un autre rôle qui accorde les actions requises (par exemple, __Propriétaire__).
+- Pour attribuer des rôles, la connexion de votre abonnement Azure doit avoir le rôle [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou un autre rôle qui accorde les actions requises (par exemple, __Propriétaire__ ).
 - Vous devez être familiarisé avec la création et l’utilisation des [identités managées](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## <a name="configure-managed-identities"></a>Configurer des identités managées
@@ -47,7 +46,7 @@ Cet article explique comment utiliser les identités managées pour :
 Dans certains cas, il est nécessaire d’interdire l’accès utilisateur administrateur à Azure Container Registry. Par exemple, il se peut que le registre ACR soit partagé et que vous deviez interdire l’accès administrateur à d’autres utilisateurs. Ou encore, une stratégie de niveau d’abonnement n’autorise pas la création d’un ACR avec accès utilisateur administrateur activé.
 
 > [!IMPORTANT]
-> Lors de l’utilisation d’Azure Machine Learning pour l’inférence sur Azure Container Instance (ACI), l’accès utilisateur administrateur sur ACR est __requis__. Ne le désactivez pas si vous envisagez de déployer des modèles dans ACI pour l’inférence.
+> Lors de l’utilisation d’Azure Machine Learning pour l’inférence sur Azure Container Instance (ACI), l’accès utilisateur administrateur sur ACR est __requis__ . Ne le désactivez pas si vous envisagez de déployer des modèles dans ACI pour l’inférence.
 
 Lorsque vous créez un ACR sans activer l’accès utilisateur administrateur, les identités managées sont utilisées pour accéder à l’ACR afin de créer et d’extraire des images Docker.
 
@@ -174,8 +173,8 @@ env.python.user_managed_dependencies = True
 
 Dans ce scénario, Azure Machine Learning Service crée l’environnement de formation ou d’inférence en plus d’une image de base que vous fournissez à partir d’un ACR privé. Étant donné que la tâche de création d’image s’effectue sur l’ACR d’espace de travail à l’aide de ACR Tasks, vous devez effectuer des étapes supplémentaires pour autoriser l’accès.
 
-1. Créez une __identité managée attribuée par l’utilisateur__ et accordez-lui l’accès ACRPull sur l’__ACR privé__.  
-1. Accordez à l’__identité managée attribuée par le système__ de l’espace de travail un rôle Opérateur de l’identité managée sur l’__identité managée attribuée par l’utilisateur__  de l’étape précédente. Ce rôle permet à l’espace de travail d’attribuer l’identité managée attribuée par l’utilisateur à ACR Task pour la création de l’environnement managé. 
+1. Créez une __identité managée attribuée par l’utilisateur__ et accordez-lui l’accès ACRPull sur l’ __ACR privé__ .  
+1. Accordez à l’ __identité managée attribuée par le système__ de l’espace de travail un rôle Opérateur de l’identité managée sur l’ __identité managée attribuée par l’utilisateur__  de l’étape précédente. Ce rôle permet à l’espace de travail d’attribuer l’identité managée attribuée par l’utilisateur à ACR Task pour la création de l’environnement managé. 
 
     1. Obtenez l’ID du principal de l’identité managée attribuée par le système de l’espace de travail :
 
@@ -191,7 +190,7 @@ Dans ce scénario, Azure Machine Learning Service crée l’environnement de for
 
         L’ID de ressource UAI est l’ID de ressource Azure de l’identité attribuée par l’utilisateur, au format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>`.
 
-1. Spécifiez l’ID client et l’ACR externe de l’__identité managée attribuée par l’utilisateur__ dans les connexions de l’espace de travail à l’aide de la [méthode Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) :
+1. Spécifiez l’ID client et l’ACR externe de l’ __identité managée attribuée par l’utilisateur__ dans les connexions de l’espace de travail à l’aide de la [méthode Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) :
 
     ```python
     workspace.set_connection(
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Accéder aux données de formation
-
-Une fois que vous avez créé un cluster de calcul Machine Learning avec identité managée comme décrit plus haut, vous pouvez utiliser cette identité pour accéder aux données de formation sans clé de compte de stockage. Vous pouvez utiliser une identité managée attribuée par le système ou par l’utilisateur pour ce scénario.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Accorder l’accès à l’identité managée de calcul au compte de stockage
-
-[Accordez à l’identité managée un rôle Lecteur](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) sur le compte de stockage dans lequel vous stockez vos données de formation.
-
-### <a name="register-data-store-with-workspace"></a>Enregistrer le magasin de données avec l’espace de travail
-
-Une fois que vous avez attribué l’identité mangée, vous pouvez créer un magasin de données sans avoir à spécifier les informations d’identification de stockage.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Soumettre une exécution d’entraînement
-
-Lorsque vous soumettez une exécution d’entraînement à l’aide du magasin de données, l’instance de calcul Machine Learning utilise son identité managée pour accéder aux données.
 
 ## <a name="use-docker-images-for-inference"></a>Utiliser des Images Docker pour l’inférence
 

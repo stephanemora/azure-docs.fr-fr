@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907107"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441451"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Définir des attributs personnalisés pour les flux utilisateurs (préversion)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87907107"
 
 Pour chaque application, vous pouvez avoir des exigences différentes concernant les informations que vous souhaitez collecter lors de l’inscription. Azure AD est fourni avec un ensemble intégré d’informations stockées dans des attributs, comme le prénom, le nom, la localité et le code postal. Avec Azure AD, vous pouvez étendre l’ensemble des attributs stockés sur un compte invité lorsque l’utilisateur externe s’inscrit via un flux utilisateur.
 
-Vous pouvez créer des attributs personnalisés dans le portail Azure et les utiliser dans vos flux utilisateur d’inscription en libre-service. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Dans l’API Graph, les attributs d’extension sont nommés à l’aide de la convention `extension_<extensions-app-id>_attributename`. Par exemple :
+Vous pouvez créer des attributs personnalisés dans le portail Azure et les utiliser dans vos flux utilisateur d’inscription en libre-service. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Dans l’API Graph, les attributs d’extension sont nommés à l’aide de la convention `extension_<extensions-app-id>_attributename`. Par exemple :
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -36,18 +36,18 @@ Cette valeur `<extensions-app-id>` est spécifique à votre locataire. Pour trou
 ## <a name="create-a-custom-attribute"></a>Création d’un attribut personnalisé
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
-3. Dans le menu de gauche, sélectionnez **Identités externes**.
+2. Sous **Services Azure** , sélectionnez **Azure Active Directory** .
+3. Dans le menu de gauche, sélectionnez **Identités externes** .
 4. Sélectionnez **Attributs utilisateur personnalisés (préversion)** . Les attributs utilisateur disponibles sont répertoriés.
 
    ![Sélectionner les attributs utilisateur pour l’inscription](media/user-flow-add-custom-attributes/user-attributes.png)
 
-5. Pour ajouter un attribut, sélectionnez **Ajouter**.
-6. Dans le volet **Ajouter un attribut**, entrez les valeurs suivantes :
+5. Pour ajouter un attribut, sélectionnez **Ajouter** .
+6. Dans le volet **Ajouter un attribut** , entrez les valeurs suivantes :
 
-   - **Nom** : fournissez un nom pour l’attribut personnalisé (par exemple, « ShoeSize »).
-   - **Type de données** : choisissez un type de données (**chaîne**, **booléen**ou **entier**).
-   - **Description** : vous pouvez entrez une description de l’attribut personnalisé à usage interne. Cette description n’est pas visible par l’utilisateur.
+   - **Nom**  : fournissez un nom pour l’attribut personnalisé (par exemple, « ShoeSize »).
+   - **Type de données**  : choisissez un type de données ( **chaîne** , **booléen** ou **entier** ).
+   - **Description**  : vous pouvez entrez une description de l’attribut personnalisé à usage interne. Cette description n’est pas visible par l’utilisateur.
 
    ![Ajouter un attribut](media/user-flow-add-custom-attributes/add-an-attribute.png)
 

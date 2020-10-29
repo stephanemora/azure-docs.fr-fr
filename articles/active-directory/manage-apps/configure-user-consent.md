@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.custom: contperfq2
+ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819271"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427624"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurer le consentement de l’utilisateur final pour une application
 
@@ -35,21 +36,21 @@ Les stratégies de consentement d’application décrivent les conditions qui do
 
 En choisissant les stratégies de consentement de l’application qui s’appliquent à tous les utilisateurs, vous pouvez définir des limites lorsque les utilisateurs finaux sont autorisés à accorder leur consentement aux applications et quand ils devront demander la révision et l’approbation par l’administrateur :
 
-* **Désactiver le consentement de l’utilisateur** : les utilisateurs ne peuvent pas accorder d’autorisations aux applications. Les utilisateurs peuvent continuer à se connecter aux applications qu’ils ont précédemment autorisées ou que des administrateurs ont autorisées en leur nom, mais ils ne sont pas autorisés à accorder de nouvelles autorisations ou à autoriser de nouvelles applications. Seuls les utilisateurs auxquels est dévolu un rôle d’annuaire comprenant l’autorisation de donner un consentement sont en mesure de donner leur consentement à de nouvelles applications.
+* **Désactiver le consentement de l’utilisateur**  : les utilisateurs ne peuvent pas accorder d’autorisations aux applications. Les utilisateurs peuvent continuer à se connecter aux applications qu’ils ont précédemment autorisées ou que des administrateurs ont autorisées en leur nom, mais ils ne sont pas autorisés à accorder de nouvelles autorisations ou à autoriser de nouvelles applications. Seuls les utilisateurs auxquels est dévolu un rôle d’annuaire comprenant l’autorisation de donner un consentement sont en mesure de donner leur consentement à de nouvelles applications.
 
-* **Les utilisateurs peuvent accorder des autorisations à des applications d’éditeurs de votre organisation vérifiés, mais uniquement les autorisations que vous sélectionnez** : les utilisateurs ne peuvent accorder des autorisations qu’à des applications publiées par un [serveur de publication vérifié](../develop/publisher-verification-overview.md) et inscrites dans votre locataire. Les utilisateurs ne peuvent accorder que des autorisations classifiées comme ayant un « faible impact ». Vous devez [classifier les autorisations](configure-permission-classifications.md) pour sélectionner les autorisations que les utilisateurs peuvent accorder.
+* **Les utilisateurs peuvent accorder des autorisations à des applications d’éditeurs de votre organisation vérifiés, mais uniquement les autorisations que vous sélectionnez**  : les utilisateurs ne peuvent accorder des autorisations qu’à des applications publiées par un [serveur de publication vérifié](../develop/publisher-verification-overview.md) et inscrites dans votre locataire. Les utilisateurs ne peuvent accorder que des autorisations classifiées comme ayant un « faible impact ». Vous devez [classifier les autorisations](configure-permission-classifications.md) pour sélectionner les autorisations que les utilisateurs peuvent accorder.
 
-* **Les utilisateurs peuvent accorder des autorisations à toutes les applications** : cette option permet à tout utilisateur d’accorder à toute application toute autorisation ne nécessitant pas de consentement de l’administrateur.
+* **Les utilisateurs peuvent accorder des autorisations à toutes les applications**  : cette option permet à tout utilisateur d’accorder à toute application toute autorisation ne nécessitant pas de consentement de l’administrateur.
 
-* **Stratégie de consentement d’application personnalisée** : pour encore plus d’options sur les conditions qui régissent le consentement de l’utilisateur, vous pouvez [créer une stratégie de consentement d’application personnalisée](manage-app-consent-policies.md#create-a-custom-app-consent-policy) et la configurer pour qu’elle s’applique au consentement de l’utilisateur.
+* **Stratégie de consentement d’application personnalisée**  : pour encore plus d’options sur les conditions qui régissent le consentement de l’utilisateur, vous pouvez [créer une stratégie de consentement d’application personnalisée](manage-app-consent-policies.md#create-a-custom-app-consent-policy) et la configurer pour qu’elle s’applique au consentement de l’utilisateur.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour configurer les paramètres de consentement de l’utilisateur via le portail Azure :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur**.
-1. Sous **Consentement de l’utilisateur pour les applications**, sélectionnez le paramètre de consentement que vous souhaitez configurer pour tous les utilisateurs.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur** .
+1. Sous **Consentement de l’utilisateur pour les applications** , sélectionnez le paramètre de consentement que vous souhaitez configurer pour tous les utilisateurs.
 1. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Paramètres de consentement de l’utilisateur":::

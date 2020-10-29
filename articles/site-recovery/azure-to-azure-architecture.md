@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825416"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370421"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -167,11 +167,11 @@ Autoriser le trafic HTTPS sortant : port 443 | Autoriser les plages corresponda
 
 #### <a name="control-access-with-nsg-rules"></a>Contrôler l’accès avec des règles de groupe de sécurité réseau
 
-Si vous contrôlez la connectivité des machines virtuelles en filtrant le trafic entrant et sortant des réseaux/sous-réseaux Azure à l’aide de [règles NSG](../virtual-network/security-overview.md), notez les exigences suivantes :
+Si vous contrôlez la connectivité des machines virtuelles en filtrant le trafic entrant et sortant des réseaux/sous-réseaux Azure à l’aide de [règles NSG](../virtual-network/network-security-groups-overview.md), notez les exigences suivantes :
 
 - Les règles NSG de la région Azure source doivent autoriser l’accès sortant pour le trafic de réplication.
 - Nous vous recommandons de créer des règles dans un environnement de test avant de les utiliser en production.
-- Utilisez des [étiquettes de service](../virtual-network/security-overview.md#service-tags) au lieu d’autoriser les adresses IP individuelles.
+- Utilisez des [étiquettes de service](../virtual-network/network-security-groups-overview.md#service-tags) au lieu d’autoriser les adresses IP individuelles.
     - Les étiquettes de service correspondent à un groupe de préfixes d’adresses IP permettant de simplifier la création de règles de sécurité.
     - Microsoft met automatiquement à jour les étiquettes de service. 
  

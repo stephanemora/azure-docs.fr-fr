@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ffbacd9167f6c73fb2815f76f56bfe2ae08eca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502269"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425941"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide de l'interface de ligne de commande Azure
 Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour avoir une vue d’ensemble des pare-feu Azure Database for MariaDB, consultez [Règles de pare-feu Azure Database for MariaDB](./concepts-firewall-rules.md).
@@ -21,21 +21,21 @@ Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès 
 Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
-* [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 * Un [serveur Azure Database for MariaDB et une base de données](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Commandes de règle de pare-feu :
 La commande **az mariadb server firewall-rule** est utilisée à partir de l’interface de ligne de commande Azure pour créer, supprimer, répertorier, afficher et mettre à jour des règles de pare-feu.
 
 Commandes :
-- **create** : créez une règle de pare-feu du serveur Azure MariaDB.
-- **delete** : créez une règle de pare-feu du serveur Azure MariaDB.
+- **create**  : créez une règle de pare-feu du serveur Azure MariaDB.
+- **delete**  : créez une règle de pare-feu du serveur Azure MariaDB.
 - **list** : répertoriez les règles de pare-feu du serveur Azure MariaDB.
 - **show** : affichez les détails d’une règle de pare-feu du serveur Azure MariaDB.
-- **update** : mettez à jour une règle de pare-feu du serveur Azure MariaDB.
+- **update**  : mettez à jour une règle de pare-feu du serveur Azure MariaDB.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Se connecter à Azure et lister les serveurs Azure Database for MariaDB
-Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.
+Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login** .
 
 1. Exécutez la commande suivante à partir de la ligne de commande :
    ```azurecli
@@ -65,7 +65,7 @@ Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azur
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Répertorier les règles de pare-feu d’un serveur Azure Database for MariaDB 
-À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Utilisez la commande [az mariadb firewall list](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list).  Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non dans le commutateur **--name**. 
+À l’aide du nom du serveur et du nom de groupe de ressources, répertoriez les règles de pare-feu existantes sur le serveur. Utilisez la commande [az mariadb firewall list](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list).  Notez que l’attribut de nom de serveur est spécifié dans le commutateur **-server** et non dans le commutateur **--name** . 
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```

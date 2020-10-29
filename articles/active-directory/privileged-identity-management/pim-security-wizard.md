@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534435"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372427"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Détection et insights (préversion) pour les rôles Azure AD (anciennement Assistant Sécurité)
 
@@ -29,7 +29,7 @@ Si vous commencez à utiliser Privileged Identity Management (PIM) dans votre or
 
 Avant que votre organisation commence à utiliser Privileged Identity Management, toutes les attributions de rôles sont permanentes. Les utilisateurs se trouvent toujours dans les rôles qui leur sont attribués, même s’ils n’ont pas besoin des privilèges associés. Détection et insights (préversion), qui remplace l’ancien Assistant Sécurité, affiche une liste des rôles privilégiés et le nombre d’utilisateurs actuellement dans ces rôles. Vous pouvez répertorier les attributions d’un rôle pour en savoir plus sur les utilisateurs affectés si un ou plusieurs d’entre eux ne vous sont pas familiers.
 
-:heavy_check_mark: **Microsoft recommande** de conserver deux comptes de secours qui sont attribués de façon permanente au rôle d’administrateur général. Assurez-vous que ces comptes ne nécessitent pas le même mécanisme d’authentification multifacteur que vos comptes d’administration normaux pour se connecter, comme décrit dans la section [ Gérer les comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md).
+:heavy_check_mark: **Microsoft recommande** de conserver deux comptes de secours qui sont attribués de façon permanente au rôle d’administrateur général. Assurez-vous que ces comptes ne nécessitent pas le même mécanisme d’authentification multifacteur que vos comptes d’administration normaux pour se connecter, comme décrit dans la section [ Gérer les comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md).
 
 En outre, conservez les attributions de rôles permanentes si un utilisateur possède un compte Microsoft (en d’autres termes, un compte pour se connecter aux services Microsoft tels que Skype ou Outlook.com). Si vous avez besoin de l’authentification multifacteur pour un utilisateur disposant d’un compte Microsoft afin d’activer une attribution de rôle, l’utilisateur est verrouillé.
 
@@ -37,13 +37,13 @@ En outre, conservez les attributions de rôles permanentes si un utilisateur pos
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
 
-1. Sélectionnez **Rôles Azure AD**, puis sélectionnez **Détection et insights (préversion)** . L’ouverture de la page lance le processus de détection pour rechercher les attributions de rôles pertinentes.
+1. Sélectionnez **Rôles Azure AD** , puis sélectionnez **Détection et insights (préversion)** . L’ouverture de la page lance le processus de détection pour rechercher les attributions de rôles pertinentes.
 
     ![Rôles Azure AD - Page Détection et insights présentant les 3 options](./media/pim-security-wizard/new-preview-link.png)
 
-1. Sélectionnez **Réduire les administrateurs généraux**.
+1. Sélectionnez **Réduire les administrateurs généraux** .
 
     ![Capture d’écran représentant « Détection et insights (préversion) » avec l’action « Réduire les administrateurs généraux » sélectionnée.](./media/pim-security-wizard/new-preview-page.png)
 
@@ -51,7 +51,7 @@ En outre, conservez les attributions de rôles permanentes si un utilisateur pos
 
     ![Réduire les administrateurs généraux - Volet Rôle présentant tous les Administrateurs généraux](./media/pim-security-wizard/new-global-administrator-list.png)
 
-1. Sélectionnez **Suivant** pour sélectionner les utilisateurs ou les groupes que vous souhaitez rendre éligibles, puis sélectionnez **Rendre éligible** ou **Supprimer l’attribution**.
+1. Sélectionnez **Suivant** pour sélectionner les utilisateurs ou les groupes que vous souhaitez rendre éligibles, puis sélectionnez **Rendre éligible** ou **Supprimer l’attribution** .
 
     ![Convertir les membres dans la page éligible avec les options permettant de sélectionner les membres que vous souhaitez rendre éligibles pour les rôles](./media/pim-security-wizard/new-global-administrator-buttons.png)
 

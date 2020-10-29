@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976223"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424340"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -37,7 +37,7 @@ Les valeurs disponibles pour -GatewayType sont :
 * Vpn
 * ExpressRoute
 
-Une passerelle VPN nécessite le `-GatewayType` *VPN*.
+Une passerelle VPN nécessite le `-GatewayType` *VPN* .
 
 Exemple :
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configurer une référence SKU de passerelle
 
-#### <a name="azure-portal"></a>Portail Azure
+**Azure portal**
 
 Si vous utilisez le portail Azure pour créer une passerelle de réseau virtuel Resource Manager, vous pouvez sélectionner la référence SKU de la passerelle dans la liste déroulante. Les options qui vous sont présentées correspondent au type de passerelle et au type de VPN sélectionnés.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que VpnGw1. Lorsque vous utilisez PowerShell pour créer une passerelle, vous devez d’abord créer la configuration IP, puis utiliser une variable qui y fait référence. Dans cet exemple, la variable de configuration est $gwipconfig.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ Si vous disposez d’une passerelle VPN et que vous souhaitez utiliser une autre
 3. Vous **ne pouvez pas** effectuer de redimensionnement pour passer des références SKU de base/standard/haute performance à des références SKU VpnGw. Au lieu de cela, vous devez [effectuer la modification](#change) vers les nouvelles références SKU.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Pour redimensionner une passerelle
+
+**Azure portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -98,7 +104,7 @@ Dans le modèle de déploiement de Resource Manager, chaque configuration néces
 * ExpressRoute
 * VPNClient
 
-Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion *IPsec*.
+Dans l’exemple PowerShell suivant, nous créons une connexion S2S qui nécessite le type de connexion *IPsec* .
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -116,7 +122,7 @@ Une fois qu’une passerelle de réseau virtuel a été créée, vous ne pouvez 
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased*. Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
+L’exemple PowerShell suivant spécifie la `-VpnType` en tant que *RouteBased* . Lorsque vous créez une passerelle, vous devez vous assurer que -VpnType convient pour votre configuration.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0283688ca2de4e7978da69753d08dd4763d30a75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532305"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425969"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection pour Azure Database for MariaDB
 
@@ -31,7 +31,7 @@ La protection avancée contre les menaces fait partie de l’offre Advanced Data
 3. Dans la page de configuration **Protection avancée contre les menaces (préversion)** :
 
    - Activez la protection avancée contre les menaces sur le serveur.
-   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces** , dans la zone de texte **Envoyer les alertes à** , fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
    ![Configurer la détection des menaces](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
@@ -62,5 +62,5 @@ Cliquez sur **Threat detection alert** (Alerte de détection des menaces) pour o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur les prix, consultez la page [Tarification d’Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).  
+* En savoir plus sur [Azure Security Center](../security-center/security-center-introduction.md)
+* Pour plus d’informations sur les prix, consultez la page [Tarification d’Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).

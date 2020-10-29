@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152014"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427091"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutoriel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
 
@@ -238,7 +238,7 @@ Ouvrez le fichier `pom.xml` dans le répertoire `initial/spring-boot-todo` et aj
 
 ## <a name="deploy-to-app-service-on-linux"></a>Déployer vers App Service sous Linux
 
-Utilisez l’objectif Maven `azure-webapp:deploy` pour déployer l’application de liste de tâches dans Azure App Service sous Linux.
+Utilisez l’objectif Maven `mvn azure-webapp:deploy` pour déployer l’application de liste de tâches dans Azure App Service sous Linux.
 
 ```bash
 
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 La sortie contient l’URL vers votre application déployée (dans cet exemple, `https://spring-todo-app.azurewebsites.net`). Vous pouvez copier cette URL dans votre navigateur web ou exécuter la commande suivante dans la fenêtre de votre terminal pour charger votre application.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 Vous devez voir l’application exécutée avec l’URL distante dans la barre d’adresses :

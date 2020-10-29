@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940325"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425281"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Base de sécurité Azure pour Azure Load Balancer
 
@@ -24,7 +24,7 @@ La base de référence de sécurité Azure pour Microsoft Azure Load Balancer co
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1 : Protéger les ressources Azure au sein des réseaux virtuels
 
-**Conseils** : Utilisez des instances Azure Load Balancer internes pour autoriser uniquement le trafic vers les ressources principales à partir de certains réseaux virtuels ou réseaux virtuels avec peering sans exposition à Internet. Implémentez un équilibreur de charge externe avec traduction d’adresses réseau source (SNAT) pour maquiller les adresses IP des ressources principales pour la protection contre l’exposition directe à Internet.
+**Conseils**  : Utilisez des instances Azure Load Balancer internes pour autoriser uniquement le trafic vers les ressources principales à partir de certains réseaux virtuels ou réseaux virtuels avec peering sans exposition à Internet. Implémentez un équilibreur de charge externe avec traduction d’adresses réseau source (SNAT) pour maquiller les adresses IP des ressources principales pour la protection contre l’exposition directe à Internet.
 
 Azure propose deux types d’offres d’équilibreur de charge, Standard et De base. Utilisez Standard Load Balancer pour toutes les charges de travail de production. Implémentez des groupes de sécurité réseau et autorisez uniquement l’accès aux plages d’adresses IP et ports approuvés de votre application. Dans les cas où aucun groupe de sécurité réseau n’est affecté au sous-réseau principal ou à la carte réseau des machines virtuelles principales, le trafic n’est pas autorisé à utiliser ces ressources à partir de l’équilibreur de charge. Avec les équilibreurs de charge standard, fournissez des règles de trafic sortant pour définir un NAT sortant avec un groupe de sécurité réseau. Passez en revue les règles de trafic sortant pour régler le comportement de vos connexions sortantes. 
 
@@ -34,13 +34,13 @@ L’utilisation de Standard Load Balancer est recommandée pour vos charges de t
 
 - [Mettre à niveau l’équilibreur de charge public Azure](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
-**Conseils** : L’équilibreur de charge est un service direct, car il s’appuie sur les règles des groupes de sécurité réseau appliquées aux ressources principales et les règles de trafic sortant configurées pour contrôler l’accès à Internet.
+**Conseils**  : L’équilibreur de charge est un service direct, car il s’appuie sur les règles des groupes de sécurité réseau appliquées aux ressources principales et les règles de trafic sortant configurées pour contrôler l’accès à Internet.
 
 Passez en revue les règles de trafic sortant configurées pour votre Standard Load Balancer via le panneau Règles de trafic sortant de votre Load Balancer et le panneau Règles d’équilibrage de charge dans lequel vous pouvez activer des règles de trafic sortant implicites.
 
@@ -60,23 +60,23 @@ Envoyez aussi les journaux de flux à un espace de travail Log Analytics, puis u
 
 - [Comment faire pour vérifier les statistiques de ma connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-outbound-connection-statistics)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
-**Conseils** : Définissez explicitement la connectivité Internet et les adresses IP sources valides via des règles de trafic sortant et des groupes de sécurité réseau avec votre équilibreur de charge pour utiliser les informations sur les menaces de Microsoft pour protéger vos applications web.
+**Conseils**  : Définissez explicitement la connectivité Internet et les adresses IP sources valides via des règles de trafic sortant et des groupes de sécurité réseau avec votre équilibreur de charge pour utiliser les informations sur les menaces de Microsoft pour protéger vos applications web.
 
 - [Intégrer le pare-feu Azure](https://docs.microsoft.com/azure/firewall/integrate-lb)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
-**Conseils** : Activez la protection Azure Distributed Denial of Service (DDoS) Standard sur les réseaux virtuels Azure pour vous protéger des attaques DDoS. 
+**Conseils**  : Activez la protection Azure Distributed Denial of Service (DDoS) Standard sur les réseaux virtuels Azure pour vous protéger des attaques DDoS. 
 
 Déployez le Pare-feu Azure aux limites réseau de l’organisation en activant le filtrage basé sur le renseignement sur les menaces et en le configurant sur « Alerter et refuser » afin de vous protéger de tout trafic réseau malveillant.
 
@@ -110,23 +110,23 @@ Utilisez la fonctionnalité de sécurisation renforcée du réseau adaptatif Sec
 
 - [Intégrer le pare-feu Azure à votre équilibreur de charge](https://docs.microsoft.com/azure/firewall/overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
-**Conseils** : Activez la capture de paquets Network Watcher pour analyser les activités anormales.
+**Conseils**  : Activez la capture de paquets Network Watcher pour analyser les activités anormales.
 
 - [Créer une instance d’Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions (IDS/IPS) basés sur le réseau
 
-**Conseils** : Implémentez une offre de la Place de marché Azure qui prend en charge les fonctionnalités IDS/IPS avec des fonctionnalités d’inspection de la charge utile dans l’environnement de votre équilibreur de charge. 
+**Conseils**  : Implémentez une offre de la Place de marché Azure qui prend en charge les fonctionnalités IDS/IPS avec des fonctionnalités d’inspection de la charge utile dans l’environnement de votre équilibreur de charge. 
 
 Utilisez le pare-feu de renseignement sur les menaces Azure si l’inspection de la charge utile n’est pas obligatoire. Le filtrage basé sur le renseignement sur les menaces du Pare-feu Azure génère des alertes et bloque le trafic en provenance ou à destination d’adresses IP et de domaines malveillants connus. Ces adresses IP et domaines proviennent du flux Microsoft Threat Intelligence.
 
@@ -138,23 +138,23 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 - [Guide pratique pour configurer des alertes avec le Pare-feu Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
-**Conseils** : Définissez explicitement la connectivité Internet et les adresses IP sources valides via des règles de trafic sortant et des groupes de sécurité réseau avec votre équilibreur de charge pour utiliser les informations sur les menaces de Microsoft pour protéger vos applications web.
+**Conseils**  : Définissez explicitement la connectivité Internet et les adresses IP sources valides via des règles de trafic sortant et des groupes de sécurité réseau avec votre équilibreur de charge pour utiliser les informations sur les menaces de Microsoft pour protéger vos applications web.
 
 - [Intégrer le pare-feu Azure](https://docs.microsoft.com/azure/firewall/integrate-lb)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Conseils** : Utilisez des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. Spécifiez le nom de l’étiquette de service dans le champ source ou de destination d’une règle pour autoriser ou refuser le trafic pour le service correspondant. 
+**Conseils**  : Utilisez des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. Spécifiez le nom de l’étiquette de service dans le champ source ou de destination d’une règle pour autoriser ou refuser le trafic pour le service correspondant. 
 
 Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. 
 
@@ -164,13 +164,13 @@ Reportez-vous à la documentation Azure pour toutes les étiquettes de service d
 
 - [Balises de service disponibles](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
-**Aide** : Définissez et implémentez des configurations de sécurité standard pour les ressources réseau à l'aide d'Azure Policy.
+**Aide**  : Définissez et implémentez des configurations de sécurité standard pour les ressources réseau à l'aide d'Azure Policy.
 
 Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les principaux artefacts d’environnement (par exemple, les modèles Resource Manager, les contrôles Azure RBAC et les stratégies) dans une même définition de blueprint. 
 
@@ -182,13 +182,13 @@ Appliquez le blueprint aux nouveaux abonnements et affinez le contrôle et la ge
 
 - [Guide pratique pour créer un blueprint Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
-**Conseils** : Utilisez des étiquettes de ressource pour les groupes de sécurité réseau (NSG) et autres ressources liées à la sécurité réseau et au trafic. 
+**Conseils**  : Utilisez des étiquettes de ressource pour les groupes de sécurité réseau (NSG) et autres ressources liées à la sécurité réseau et au trafic. 
 
 Pour les règles de groupe de sécurité réseau, utilisez le champ « Description » pour documenter les règles qui autorisent le trafic vers/à partir d’un réseau.
 
@@ -202,13 +202,13 @@ Utilisez Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectu
 
 - [Comment filtrer le trafic réseau avec les règles de groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
-**Conseils** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations de ressources et détecter les changements apportés à vos ressources Azure. 
+**Conseils**  : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations de ressources et détecter les changements apportés à vos ressources Azure. 
 
 Créez des alertes dans Azure Monitor pour vous avertir lorsque des ressources critiques sont modifiées.
 
@@ -216,9 +216,9 @@ Créez des alertes dans Azure Monitor pour vous avertir lorsque des ressources c
 
 - [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
 
@@ -226,7 +226,7 @@ Créez des alertes dans Azure Monitor pour vous avertir lorsque des ressources c
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
-**Conseils** : Passez en revue les modifications apportées à vos règles de trafic sortant et vos groupes de sécurité réseau pour vos équilibreurs de charge en consultant le journal d’activité dans vos abonnements. 
+**Conseils**  : Passez en revue les modifications apportées à vos règles de trafic sortant et vos groupes de sécurité réseau pour vos équilibreurs de charge en consultant le journal d’activité dans vos abonnements. 
 
 Affichez les journaux des hôtes internes pour vous assurer que vos ressources principales sont sécurisées.
 
@@ -244,13 +244,13 @@ Activez ces données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Journaux d’activité de la plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
-**Conseils** : Passez en revue les informations de journalisation et d’audit du plan de gestion et de contrôle capturées avec les journaux d’activité pour l’équilibreur de charge de base. Ces paramètres de capture sont activés par défaut. 
+**Conseils**  : Passez en revue les informations de journalisation et d’audit du plan de gestion et de contrôle capturées avec les journaux d’activité pour l’équilibreur de charge de base. Ces paramètres de capture sont activés par défaut. 
 
 Utilisez les journaux d’activité pour surveiller les actions sur les ressources afin d’afficher l’ensemble de l’activité et des états. 
 
@@ -284,13 +284,13 @@ Activez les données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
-**Conseils** : Le journal d’activité est activé par défaut et est conservé pendant 90 jours dans le magasin des journaux des événements d’Azure. Définissez la période de rétention de votre espace de travail Log Analytics en fonction des réglementations de conformité de votre organisation dans Azure Monitor. Utilisez les comptes de stockage Azure pour le stockage à long terme et l’archivage.
+**Conseils**  : Le journal d’activité est activé par défaut et est conservé pendant 90 jours dans le magasin des journaux des événements d’Azure. Définissez la période de rétention de votre espace de travail Log Analytics en fonction des réglementations de conformité de votre organisation dans Azure Monitor. Utilisez les comptes de stockage Azure pour le stockage à long terme et l’archivage.
 
 - [Article Afficher les journaux d’activité pour surveiller les actions sur les ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)
 
@@ -298,13 +298,13 @@ Activez les données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
-**Conseils** : Surveillez, gérez et dépannez des ressources Standard Load Balancer sur la page Load Balancer dans le Portail Azure et la page Resource Health sous Azure Monitor. Les métriques disponibles incluent celles pour la sécurité, notamment les informations sur les connexions et ports de traduction d’adresse réseau source (SNAT). Des métriques supplémentaires sur les paquets SYN (synchroniser) et des compteurs de paquets sont également disponibles. 
+**Conseils**  : Surveillez, gérez et dépannez des ressources Standard Load Balancer sur la page Load Balancer dans le Portail Azure et la page Resource Health sous Azure Monitor. Les métriques disponibles incluent celles pour la sécurité, notamment les informations sur les connexions et ports de traduction d’adresse réseau source (SNAT). Des métriques supplémentaires sur les paquets SYN (synchroniser) et des compteurs de paquets sont également disponibles. 
 
 Utilisez Azure Monitor pour vérifier l’état de la sonde d’intégrité des points de terminaison avec des métriques multidimensionnelles pour les équilibrages de charge standard, externes et internes. Collectez ces métriques par programmation à l’aide d’API et écrites dans un compte de stockage via l’option « Toutes les métriques ».
 
@@ -332,13 +332,13 @@ Diffusez en continu les journaux vers Event Hub ou un espace de travail Log Anal
 
 - [Afficher vos métriques d’équilibreur de charge dans le portail Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#view-your-load-balancer-metrics-in-the-azure-portal)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
-**Conseils** : Utilisez Security Center avec un espace de travail Log Analytics pour superviser les activités anormales liées à l’équilibreur de charge dans les journaux de sécurité et les événements et générer des alertes s’y rapportant.
+**Conseils**  : Utilisez Security Center avec un espace de travail Log Analytics pour superviser les activités anormales liées à l’équilibreur de charge dans les journaux de sécurité et les événements et générer des alertes s’y rapportant.
 
 Activez et intégrez les données dans Azure Sentinel ou une solution SIEM tierce.
 
@@ -348,33 +348,33 @@ Activez et intégrez les données dans Azure Sentinel ou une solution SIEM tierc
 
 - [Guide pratique pour générer une alerte sur des données de journal Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
-**Conseils** : Non applicable à Azure Load Balancer. non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils**  : Non applicable à Azure Load Balancer. non applicable. Cette recommandation a trait aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
-**Conseils** : Non applicable, car Azure Load Balancer est un service réseau de base qui ne fait pas de requêtes DNS.
+**Conseils**  : Non applicable, car Azure Load Balancer est un service réseau de base qui ne fait pas de requêtes DNS.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10 : Activer l’enregistrement d’audit en ligne de commande
 
-**Conseils** : Non applicable à Azure Load Balancer, car cette recommandation s’applique aux ressources de calcul.
+**Conseils**  : Non applicable à Azure Load Balancer, car cette recommandation s’applique aux ressources de calcul.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -382,7 +382,7 @@ Activez et intégrez les données dans Azure Sentinel ou une solution SIEM tierc
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
-**Conseils** : Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer l’accès aux ressources Azure, comme votre équilibreur de charge, par le biais d’attributions de rôles. Attribuez ces rôles aux utilisateurs, groupes, principaux de service et identités managées. 
+**Conseils**  : Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer l’accès aux ressources Azure, comme votre équilibreur de charge, par le biais d’attributions de rôles. Attribuez ces rôles aux utilisateurs, groupes, principaux de service et identités managées. 
 
 Stockez les rôles prédéfinis et intégrés pour certaines ressources avec des outils tels qu’Azure CLI, Azure PowerShell ou le Portail Azure.
 
@@ -390,9 +390,9 @@ Stockez les rôles prédéfinis et intégrés pour certaines ressources avec des
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="data-protection"></a>Protection de données
 
@@ -400,17 +400,17 @@ Stockez les rôles prédéfinis et intégrés pour certaines ressources avec des
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
-**Conseils** : Utilisez Azure RBAC pour contrôler l’accès à vos ressources d’équilibreur de charge.
+**Conseils**  : Utilisez Azure RBAC pour contrôler l’accès à vos ressources d’équilibreur de charge.
 
-- [Configurer le contrôle d'accès en fonction du rôle dans Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Comment configurer Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
-**Conseils** : L’équilibreur de charge est un service direct qui ne stocke pas de données client. Il fait partie de la plateforme sous-jacente qui est gérée par Microsoft. 
+**Conseils**  : L’équilibreur de charge est un service direct qui ne stocke pas de données client. Il fait partie de la plateforme sous-jacente qui est gérée par Microsoft. 
 
 Microsoft traite tout le contenu client comme sensible et déploie d'importants efforts pour vous protéger contre la perte et l’exposition des données client. 
 
@@ -418,19 +418,19 @@ Pour garantir la sécurité des données client dans Azure, Microsoft a impléme
 
 - [Présentation de la protection des données client dans Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
-**Conseils** : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des ressources Azure critiques, comme les équilibreurs de charge utilisés pour les charges de travail de production importantes.
+**Conseils**  : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des ressources Azure critiques, comme les équilibreurs de charge utilisés pour les charges de travail de production importantes.
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -438,7 +438,7 @@ Pour garantir la sécurité des données client dans Azure, Microsoft a impléme
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1 : Utiliser la solution de détection automatisée des ressources
 
-**Conseils** : Azure Resource Graph permet d’interroger/de découvrir toutes les ressources (telles que le calcul, le stockage, le réseau, les ports, les protocoles et ainsi de suite) dans vos abonnements. Azure Resource Manager est recommandé pour créer et utiliser les ressources actuelles. 
+**Conseils**  : Azure Resource Graph permet d’interroger/de découvrir toutes les ressources (telles que le calcul, le stockage, le réseau, les ports, les protocoles et ainsi de suite) dans vos abonnements. Azure Resource Manager est recommandé pour créer et utiliser les ressources actuelles. 
 
 Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez l’ensemble des abonnements et ressources Azure dans vos abonnements.
 
@@ -448,23 +448,23 @@ Vérifiez les autorisations (lecture) appropriées dans votre locataire et répe
 
 - [Présentation d’Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
-**Conseils** : Appliquez des balises aux ressources Azure en utilisant des métadonnées pour les organiser de façon logique en suivant une taxonomie.
+**Conseils**  : Appliquez des balises aux ressources Azure en utilisant des métadonnées pour les organiser de façon logique en suivant une taxonomie.
 
 - [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
-**Aide** : Le cas échéant, utilisez des étiquettes, des groupes d’administration et des abonnements séparés pour organiser et suivre les ressources. 
+**Aide**  : Le cas échéant, utilisez des étiquettes, des groupes d’administration et des abonnements séparés pour organiser et suivre les ressources. 
 
 Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de vos abonnements en temps utile.
 
@@ -474,21 +474,21 @@ Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non
 
 - [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Dresser et tenir un inventaire des ressources Azure approuvées
 
-**Conseils** : Créez une liste de ressources Azure approuvées selon les besoins de votre organisation, que vous pouvez exploiter en tant que mécanisme de liste verte. Cela permettra à votre organisation d’intégrer tous les services Azure nouvellement disponibles une fois qu’ils ont été officiellement examinés et approuvés par les processus d’évaluation de sécurité classiques de votre organisation.
+**Conseils**  : Créez une liste de ressources Azure approuvées selon les besoins de votre organisation, que vous pouvez exploiter en tant que mécanisme de liste verte. Cela permettra à votre organisation d’intégrer tous les services Azure nouvellement disponibles une fois qu’ils ont été officiellement examinés et approuvés par les processus d’évaluation de sécurité classiques de votre organisation.
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Aide**  : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Interrogez et découvrez des ressources avec Azure Resource Graph au sein d’abonnements détenus. 
 
@@ -498,31 +498,31 @@ Vérifiez que toutes les ressources Azure présentes dans l’environnement sont
 
 - [Procédure pour créer des requêtes avec l’Explorateur Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
-**Aide** : Utilisez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
+**Aide**  : Utilisez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
 - [Guide pratique pour configurer l’accès conditionnel de façon à bloquer l’accès à Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
-**Conseils** : Les logiciels nécessaires à des opérations métier, mais qui peuvent poser un risque élevé pour l’organisation, doivent être isolés sur leur propre machine virtuelle et/ou réseau virtuel et être suffisamment sécurisés à l’aide d’un Pare-feu Azure ou d’un groupe de sécurité réseau.
+**Conseils**  : Les logiciels nécessaires à des opérations métier, mais qui peuvent poser un risque élevé pour l’organisation, doivent être isolés sur leur propre machine virtuelle et/ou réseau virtuel et être suffisamment sécurisés à l’aide d’un Pare-feu Azure ou d’un groupe de sécurité réseau.
 
 - [Guide pratique pour créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 - [Comment créer un groupe de sécurité réseau avec une configuration de sécurité](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -530,7 +530,7 @@ Vérifiez que toutes les ressources Azure présentes dans l’environnement sont
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
-**Aide** : Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration de vos ressources Azure. Utilisez les définitions Azure Policy intégrées.
+**Aide**  : Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration de vos ressources Azure. Utilisez les définitions Azure Policy intégrées.
 
 Azure Resource Manager est capable d’exporter le modèle au format JSON (JavaScript Object Notation), qui doit être examiné pour vérifier que les configurations répondent aux exigences de sécurité de votre organisation.
 
@@ -546,13 +546,13 @@ Implémentez les recommandations de Security Center comme base de référence de
 
 - [Recommandations de sécurité - Guide de référence](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.  En outre, vous pouvez utiliser des modèles Azure Resource Manager pour appliquer la configuration de sécurité des ressources Azure requise par votre organisation. 
+**Aide**  : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.  En outre, vous pouvez utiliser des modèles Azure Resource Manager pour appliquer la configuration de sécurité des ressources Azure requise par votre organisation. 
 
 - [Comprendre les effets d'Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
@@ -560,13 +560,13 @@ Implémentez les recommandations de Security Center comme base de référence de
 
 - [Présentation des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Conseils** : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les définitions de stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. 
+**Conseils**  : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les définitions de stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. 
 
 Octroyez ou refusez des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps ou dans Active Directory s’ils sont intégrés à TFS.
 
@@ -574,31 +574,31 @@ Octroyez ou refusez des autorisations à des utilisateurs spécifiques, à des g
 
 - [À propos des autorisations et des groupes dans Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
-**Conseils** : Définissez et implémentez des configurations de sécurité standard pour les ressources Azure à l’aide d’Azure Policy.  Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration réseau de vos ressources Azure. Implémentez des définitions de stratégie intégrées relatives à vos ressources Azure Load Balancer spécifiques.  En outre, utilisez Azure Automation pour déployer des modifications de configuration. sur vos ressources Azure Load Balancer.
+**Conseils**  : Définissez et implémentez des configurations de sécurité standard pour les ressources Azure à l’aide d’Azure Policy.  Utilisez des alias Azure Policy pour créer des stratégies personnalisées afin d’auditer ou d’appliquer la configuration réseau de vos ressources Azure. Implémentez des définitions de stratégie intégrées relatives à vos ressources Azure Load Balancer spécifiques.  En outre, utilisez Azure Automation pour déployer des modifications de configuration. sur vos ressources Azure Load Balancer.
 
 - [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 - [Utiliser des alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
-**Conseils** : Utilisez Security Center pour effectuer des analyses de base pour vos ressources Azure et Azure Policy pour les alertes et l’audit des configurations de ressources.
+**Conseils**  : Utilisez Security Center pour effectuer des analyses de base pour vos ressources Azure et Azure Policy pour les alertes et l’audit des configurations de ressources.
 
 - [Corriger les recommandations dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
-**Supervision Azure Security Center** : Oui
+**Supervision Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -606,7 +606,7 @@ Octroyez ou refusez des autorisations à des utilisateurs spécifiques, à des g
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
-**Conseils** : Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. 
+**Conseils**  : Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. 
 
 La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou à l’analytique utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
@@ -618,13 +618,13 @@ Il vous incombe de hiérarchiser le traitement des alertes en fonction de la cri
 
 - [Organisation des ressources Azure à l’aide de catégories](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
-**Conseils** : Exportez vos alertes et recommandations Security Center en utilisant la fonctionnalité d’exportation continue pour identifier les risques pesant sur les ressources Azure. 
+**Conseils**  : Exportez vos alertes et recommandations Security Center en utilisant la fonctionnalité d’exportation continue pour identifier les risques pesant sur les ressources Azure. 
 
 Utilisez la fonctionnalité d’exportation continue de Security Center, qui vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. 
 
@@ -634,19 +634,19 @@ Utilisez le connecteur de données Security Center pour diffuser en continu les 
 
 - [Comment envoyer des alertes à Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
-**Conseils** : Utilisez la fonctionnalité d’automatisation de workflow de Security Center pour déclencher automatiquement des réponses aux alertes et aux recommandations de sécurité afin de protéger vos ressources Azure.
+**Conseils**  : Utilisez la fonctionnalité d’automatisation de workflow de Security Center pour déclencher automatiquement des réponses aux alertes et aux recommandations de sécurité afin de protéger vos ressources Azure.
 
 - [Configurer l’automatisation du workflow dans Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
-**Supervision d’Azure Security Center** : Oui
+**Supervision d’Azure Security Center**  : Oui
 
-**Responsabilité** : Customer
+**Responsabilité**  : Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -654,15 +654,15 @@ Utilisez le connecteur de données Security Center pour diffuser en continu les 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
-**Aide** : Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies de Microsoft. Utilisez la stratégie et l’exécution de Red Teaming de Microsoft ainsi que les tests d’intrusion de site actif sur l’infrastructure cloud, les services et les applications gérés par Microsoft. 
+**Aide**  : Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies de Microsoft. Utilisez la stratégie et l’exécution de Red Teaming de Microsoft ainsi que les tests d’intrusion de site actif sur l’infrastructure cloud, les services et les applications gérés par Microsoft. 
 
 - [Règles d’engagement des tests d’intrusion](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision d’Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
-**Responsabilité** : Partagé
+**Responsabilité**  : Partagé
 
 ## <a name="next-steps"></a>Étapes suivantes
 

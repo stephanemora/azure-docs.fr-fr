@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.custom: contperfq2
+ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804244"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427649"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe
 
@@ -30,9 +31,9 @@ Vous pouvez configurer quels utilisateurs peuvent autoriser des applications à 
 
 Suivez ces étapes pour gérer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur**.
-3. Sous **Consentement du propriétaire du groupe pour les applications qui accèdent aux données**, sélectionnez l’option que vous souhaitez activer.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’[Administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator).
+2. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Paramètres de consentement de l’utilisateur** .
+3. Sous **Consentement du propriétaire du groupe pour les applications qui accèdent aux données** , sélectionnez l’option que vous souhaitez activer.
 4. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 Dans cet exemple, tous les propriétaires de groupes peuvent autoriser des applications qui accèdent aux données de leurs groupes :

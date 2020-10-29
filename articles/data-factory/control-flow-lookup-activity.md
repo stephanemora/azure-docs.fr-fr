@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425699"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -72,7 +72,7 @@ firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou to
 
 Le résultat de la recherche est retourné dans la section `output` du résultat de l’exécution d’activité.
 
-* **Quand `firstRowOnly` a la valeur `true` (par défaut)** , le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle de `@{activity('LookupActivity').output.firstRow.table`.
+* **Quand `firstRowOnly` a la valeur `true` (par défaut)** , le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle de `@{activity('LookupActivity').output.firstRow.table}`.
 
     ```json
     {
@@ -107,15 +107,15 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
 
 ## <a name="example"></a>Exemple
 
-Dans cet exemple, le pipeline comprend deux activités : **Lookup** et **Copy**. L’activité Copy copie les données d’une table SQL de votre instance Azure SQL Database dans le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité Lookup recherche le nom de la table lors de l’exécution. Le fichier JSON est modifié de manière dynamique avec cette approche. Vous n’avez pas besoin de redéployer les pipelines ou les jeux de données. 
+Dans cet exemple, le pipeline comprend deux activités : **Lookup** et **Copy** . L’activité Copy copie les données d’une table SQL de votre instance Azure SQL Database dans le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité Lookup recherche le nom de la table lors de l’exécution. Le fichier JSON est modifié de manière dynamique avec cette approche. Vous n’avez pas besoin de redéployer les pipelines ou les jeux de données. 
 
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
 
 
 ### <a name="pipeline"></a>Pipeline
 
-- L’activité Lookup est configurée pour utiliser **LookupDataset**, qui fait référence à un emplacement dans le stockage Blob Azure. L’activité Lookup lit le nom de la table SQL à partir d’un fichier JSON dans cet emplacement. 
-- L’activité Copy utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. La propriété **tableName** dans **SourceDataset** est configurée pour utiliser la sortie de l’activité Lookup. L’activité Copy copie les données de la table SQL dans un emplacement du stockage Blob Azure. L’emplacement est spécifié par la propriété **SinkDataset**. 
+- L’activité Lookup est configurée pour utiliser **LookupDataset** , qui fait référence à un emplacement dans le stockage Blob Azure. L’activité Lookup lit le nom de la table SQL à partir d’un fichier JSON dans cet emplacement. 
+- L’activité Copy utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. La propriété **tableName** dans **SourceDataset** est configurée pour utiliser la sortie de l’activité Lookup. L’activité Copy copie les données de la table SQL dans un emplacement du stockage Blob Azure. L’emplacement est spécifié par la propriété **SinkDataset** . 
 
 ```json
 {
@@ -244,7 +244,7 @@ Cet exemple illustre une recherche pour la première ligne uniquement. Pour effe
 
 ### <a name="lookup-dataset"></a>Jeu de données de recherche
 
-Le jeu de données **lookup** est le fichier **sourcetable.json** dans le dossier de recherche du stockage Azure spécifié par le type **AzureBlobStorageLinkedService**. 
+Le jeu de données **lookup** est le fichier **sourcetable.json** dans le dossier de recherche du stockage Azure spécifié par le type **AzureBlobStorageLinkedService** . 
 
 ```json
 {
@@ -269,7 +269,7 @@ Le jeu de données **lookup** est le fichier **sourcetable.json** dans le dossie
 
 ### <a name="source-dataset-for-copy-activity"></a>Jeu de données **source** pour l’activité Copy
 
-Le jeu de données **source** utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. L’activité Copy copie les données de cette table SQL dans un emplacement du stockage Blob Azure. L’emplacement est indiqué par le jeu de données **sink**. 
+Le jeu de données **source** utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. L’activité Copy copie les données de cette table SQL dans un emplacement du stockage Blob Azure. L’emplacement est indiqué par le jeu de données **sink** . 
 
 ```json
 {
@@ -306,7 +306,7 @@ Le jeu de données **source** utilise la sortie de l’activité Lookup, qui cor
 
 ### <a name="sink-dataset-for-copy-activity"></a>Jeu de données **sink** pour l’activité Copy
 
-L’activité Copy copie les données de la table SQL dans le fichier **filebylookup.csv** du dossier **csv** du stockage Azure. Le fichier est spécifié par la propriété **AzureBlobStorageLinkedService**. 
+L’activité Copy copie les données de la table SQL dans le fichier **filebylookup.csv** du dossier **csv** du stockage Azure. Le fichier est spécifié par la propriété **AzureBlobStorageLinkedService** . 
 
 ```json
 {
@@ -346,7 +346,7 @@ L’activité Copy copie les données de la table SQL dans le fichier **filebylo
 
 ### <a name="sourcetablejson"></a>sourcetable.json
 
-Vous pouvez utiliser deux types de formats pour le fichier **sourcetable.json**.
+Vous pouvez utiliser deux types de formats pour le fichier **sourcetable.json** .
 
 #### <a name="set-of-objects"></a>Ensemble d’objets
 

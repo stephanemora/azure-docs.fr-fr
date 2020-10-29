@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425574"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Répliquer des données dans Azure Database for MariaDB
 
@@ -34,8 +34,8 @@ La [*base de données système mysql*](https://mariadb.com/kb/en/library/the-mys
 - Chaque table doit avoir une clé primaire.
 - Le serveur source doit de préférence utiliser le moteur InnoDB.
 - L’utilisateur doit disposer des autorisations nécessaires pour configurer la journalisation binaire et créer de nouveaux utilisateurs sur le serveur source.
-- Si SSL est activé sur le serveur source, vérifiez que le certificat d’autorité de certification SSL fourni pour le domaine a été inclus dans la procédure stockée `mariadb.az_replication_change_master`. Consultez les [exemples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) suivants et le paramètre `master_ssl_ca`.
-- Vérifiez que l’adresse IP du serveur source a été ajoutée aux règles de pare-feu du serveur réplica Azure Database for MariaDB. Mettez à jour les règles de pare-feu à l’aide du [portail Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) ou d’[Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Si SSL est activé sur le serveur source, vérifiez que le certificat d’autorité de certification SSL fourni pour le domaine a été inclus dans la procédure stockée `mariadb.az_replication_change_master`. Consultez les [exemples](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) suivants et le paramètre `master_ssl_ca`.
+- Vérifiez que l’adresse IP du serveur source a été ajoutée aux règles de pare-feu du serveur réplica Azure Database for MariaDB. Mettez à jour les règles de pare-feu à l’aide du [portail Azure](howto-manage-firewall-portal.md) ou d’[Azure CLI](howto-manage-firewall-cli.md).
 - Vérifiez que la machine qui héberge le serveur source autorise à la fois le trafic entrant et le trafic sortant sur le port 3306.
 - Vérifiez que le serveur source dispose d’une **adresse IP publique** et que le système DNS est accessible publiquement ou comporte un nom de domaine complet (FQDN).
 

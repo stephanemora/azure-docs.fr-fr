@@ -4,19 +4,19 @@ description: Découvrez comment créer un agent de travail élastique à l’aid
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-ms.date: 03/13/2019
-ms.openlocfilehash: aaf749708b49c57d08a63581f3d911b04aba2103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408665"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427293"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Créer un agent de travail élastique à l’aide de PowerShell (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Find-Package PowerShellGet | Install-Package -Force
 # Restart your powershell session with administrative access
 
 # Install and import the Az.Sql module, then confirm
-Install-Module -Name Az.Sql
+Install-Module -Name Az.Sql
 Import-Module Az.Sql
 
 Get-Module Az.Sql
 ```
 
-En plus du module **Az.Sql**, ce tutoriel nécessite le module PowerShell *SqlServer*. Pour plus d’informations, consultez [Installer le module SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
+En plus du module **Az.Sql** , ce tutoriel nécessite le module PowerShell *SqlServer* . Pour plus d’informations, consultez [Installer le module SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Créer les ressources nécessaires
 
@@ -135,7 +135,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Un agent de travail élastique est une ressource Azure permettant de créer, exécuter et gérer des travaux. L’agent exécute les travaux selon un calendrier ou de manière ponctuelle.
 
-Pour l’applet de commande **New-AzSqlElasticJobAgent**, une base de données dans Azure SQL Database doit déjà exister pour que les paramètres *ResourceGroupName*, *ServerName* et *DatabaseName* pointent tous vers des ressources existantes.
+Pour l’applet de commande **New-AzSqlElasticJobAgent** , une base de données dans Azure SQL Database doit déjà exister pour que les paramètres *ResourceGroupName* , *ServerName* et *DatabaseName* pointent tous vers des ressources existantes.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -165,12 +165,12 @@ $params = @{
   'username' = $adminLogin
   'password' = $adminPassword
   'outputSqlErrors' = $true
-  'query' = "CREATE LOGIN masteruser WITH PASSWORD='password!123'"
+  'query' = 'CREATE LOGIN masteruser WITH PASSWORD=''password!123'''
 }
 Invoke-SqlCmd @params
 $params.query = "CREATE USER masteruser FROM LOGIN masteruser"
 Invoke-SqlCmd @params
-$params.query = "CREATE LOGIN jobuser WITH PASSWORD='password!123'"
+$params.query = 'CREATE LOGIN jobuser WITH PASSWORD=''password!123'''
 Invoke-SqlCmd @params
 
 # for each target database
@@ -192,7 +192,7 @@ $targetDatabases | % {
 
 # create job credential in Job database for master user
 Write-Output "Creating job credentials..."
-$loginPasswordSecure = (ConvertTo-SecureString -String "password!123" -AsPlainText -Force)
+$loginPasswordSecure = (ConvertTo-SecureString -String 'password!123' -AsPlainText -Force)
 
 $masterCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "masteruser", $loginPasswordSecure
 $masterCred = $jobAgent | New-AzSqlElasticJobCredential -Name "masteruser" -Credential $masterCred
@@ -205,7 +205,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Un [groupe cible](job-automation-overview.md#target-group) définit l’ensemble de base de données sur lequel une étape de travail s’exécute.
 
-L’extrait de code suivant crée deux groupes cibles : *serverGroup* et *serverGroupExcludingDb2*. *serverGroup* cible toutes les bases de données existant sur le serveur au moment de l’exécution et *serverGroupExcludingDb2* toutes les bases de données sur le serveur, à l’exception de *targetDb2* :
+L’extrait de code suivant crée deux groupes cibles : *serverGroup* et *serverGroupExcludingDb2* . *serverGroup* cible toutes les bases de données existant sur le serveur au moment de l’exécution et *serverGroupExcludingDb2* toutes les bases de données sur le serveur, à l’exception de *targetDb2*  :
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -221,7 +221,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>Créer un travail et une tâche
 
-Cet exemple définit un travail et deux étapes de travail pour le travail à exécuter. La première étape de travail (*step1*) crée une nouvelle table (*Step1Table*) dans chaque base de données du groupe cible *ServerGroup*. La deuxième étape de travail (*step2*) crée une table (*Step2Table*) dans chaque base de données à l’exception de *TargetDb2*, car le groupe cible défini précédemment indiquait de l’exclure.
+Cet exemple définit un travail et deux étapes de travail pour le travail à exécuter. La première étape de travail ( *step1* ) crée une nouvelle table ( *Step1Table* ) dans chaque base de données du groupe cible *ServerGroup* . La deuxième étape de travail ( *step2* ) crée une table ( *Step2Table* ) dans chaque base de données à l’exception de *TargetDb2* , car le groupe cible défini précédemment indiquait de l’exclure.
 
 ```powershell
 Write-Output "Creating a new job..."

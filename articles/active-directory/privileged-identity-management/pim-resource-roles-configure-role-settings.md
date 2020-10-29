@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a38194c46fa1f5bf7a6a0683e85776abb1f93b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8458fc11f5e836e290c593d3ad4983f44e6abf6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743794"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370370"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management
 
@@ -30,17 +30,17 @@ Lorsque vous configurez les paramètres des rôles de ressources Azure, vous dé
 
 Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
 
-1. Sélectionnez **Ressources Azure**.
+1. Sélectionnez **Ressources Azure** .
 
 1. Sélectionnez la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
 
     ![Page de ressources Azure qui répertorie les ressources pouvant être gérées](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Sélectionnez **Paramètres du rôle**.
+1. Sélectionnez **Paramètres du rôle** .
 
     ![Page Paramètres de rôle répertoriant les rôles de ressources Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -48,7 +48,7 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
     ![Page Détails des paramètres de rôle répertoriant plusieurs paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Sélectionnez **Modifier** pour ouvrir le volet **Paramètres de rôle**. Le premier onglet vous permet de mettre à jour la configuration de l’activation de rôles dans Privileged Identity Management.
+1. Sélectionnez **Modifier** pour ouvrir le volet **Paramètres de rôle** . Le premier onglet vous permet de mettre à jour la configuration de l’activation de rôles dans Privileged Identity Management.
 
     ![Page Modifier les paramètres de rôle avec l’onglet Activation ouvert](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
@@ -76,14 +76,14 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
 Vous pouvez choisir entre deux options de durée d’attribution pour chaque type d’attribution (éligible et actif) lorsque vous configurez les paramètres d’un rôle. Ces options deviennent la durée maximale par défaut lorsqu’un utilisateur est attribué au rôle dans Privileged Identity Management.
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
+Vous pouvez choisir l’une de ces options de durée d’attribution **éligible**  :
 
 | | |
 | --- | --- |
 | **Autoriser une attribution éligible permanente** | Les administrateurs de ressources peuvent accorder une attribution éligible permanente. |
 | **Faire expirer les attributions éligibles après** | Les administrateurs de ressources peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
 
-Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
+Vous pouvez choisir l’une de ces options de durée d’attribution **active**  :
 
 | | |
 | --- | --- |
@@ -101,13 +101,13 @@ Privileged Identity Management permet également l’implémentation facultative
 
 Dans certains cas, vous pouvez attribuer un utilisateur ou un groupe à un rôle pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
-Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active**.
+Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active** .
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Exiger Multi-Factor Authentication lors de l’activation
 
 Vous pouvez exiger des utilisateurs éligibles à un rôle qu’ils s’authentifient à l’aide d’Azure Multi-Factor Authentication pour effectuer l’activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
 
-Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation**.
+Pour exiger l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation** .
 
 Pour plus d’informations, consultez [Authentification multifacteur et Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -117,19 +117,19 @@ Utilisez le curseur **Durée maximum d’activation** pour définir la durée ma
 
 ## <a name="require-justification"></a>Demander une justification
 
-Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation**.
+Vous pouvez exiger que les utilisateurs saisissent une justification métier lorsqu’ils s’activent. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation** .
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
 Si vous souhaitez exiger l’approbation pour activer un rôle, suivez ces étapes.
 
-1. Cochez la case **Exiger une approbation pour activer**.
+1. Cochez la case **Exiger une approbation pour activer** .
 
-1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir la page **Sélectionner un membre ou un groupe**.
+1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir la page **Sélectionner un membre ou un groupe** .
 
     ![Sélectionner un volet d’utilisateur ou de groupe pour sélectionner les approbateurs](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
+1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner** . Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
     Vos sélections apparaissent dans la liste des approbateurs sélectionnés.
 

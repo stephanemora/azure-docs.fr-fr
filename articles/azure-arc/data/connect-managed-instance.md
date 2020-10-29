@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930198"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372359"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Se connecter à SQL Managed Instance avec Azure Arc
 
@@ -47,7 +47,7 @@ Si vous utilisez AKS ou kubeadm ou OpenShift, etc., vous pouvez copier l’adres
 
 Connectez-vous avec Azure Data Studio, SQL Server Management Studio ou SQLCMD.
 
-Ouvrez Azure Data Studio et connectez-vous à votre instance avec l’adresse IP et le numéro de port du point de terminaison externe ci-avant. Si vous utilisez une machine virtuelle Azure, vous aurez besoin de l’_adresse IP_ publique, qui est identifiable à l’aide de la [Remarque spéciale sur les déploiements de machines virtuelles Azure](#special-note-about-azure-virtual-machine-deployments).
+Ouvrez Azure Data Studio et connectez-vous à votre instance avec l’adresse IP et le numéro de port du point de terminaison externe ci-avant. Si vous utilisez une machine virtuelle Azure, vous aurez besoin de l’ _adresse IP_ publique, qui est identifiable à l’aide de la [Remarque spéciale sur les déploiements de machines virtuelles Azure](#special-note-about-azure-virtual-machine-deployments).
 
 Exemple :
 
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Si vous utilisez une machine virtuelle Azure, l’adresse IP du point de terminaison n’affiche pas l’adresse IP publique. Utilisez la commande suivante pour localiser l’adresse IP externe :
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,15 +78,15 @@ Vous devrez peut-être également exposer le port de l’instance sql à l’aid
 
 Pour définir une règle, vous devez connaître le nom de votre groupe de sécurité réseau, que vous pouvez découvrir à l’aide de la commande ci-dessous :
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
-Une fois que vous avez le nom du groupe de sécurité réseau, vous pouvez ajouter une règle de pare-feu à l’aide de la commande suivante. Les exemples de valeurs ci-dessous créent une règle NSG pour le port 30913 et autorisent la connexion à partir de **n’importe quelle adresse IP source**.  Il ne s’agit pas d'une meilleure pratique de sécurité.  Vous pouvez mieux verrouiller les choses en spécifiant une valeur-source-adresse-préfixes spécifique à votre adresse IP du client ou une plage d’adresses IP qui couvre les adresses IP de votre équipe ou de votre organisation.
+Une fois que vous avez le nom du groupe de sécurité réseau, vous pouvez ajouter une règle de pare-feu à l’aide de la commande suivante. Les exemples de valeurs ci-dessous créent une règle NSG pour le port 30913 et autorisent la connexion à partir de **n’importe quelle adresse IP source** .  Il ne s’agit pas d'une meilleure pratique de sécurité.  Vous pouvez mieux verrouiller les choses en spécifiant une valeur-source-adresse-préfixes spécifique à votre adresse IP du client ou une plage d’adresses IP qui couvre les adresses IP de votre équipe ou de votre organisation.
 
 Remplacez la valeur du paramètre `--destination-port-ranges` ci-dessous par le numéro de port que vous avez obtenu à partir de la commande `azdata sql instance list`F ci-dessus.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

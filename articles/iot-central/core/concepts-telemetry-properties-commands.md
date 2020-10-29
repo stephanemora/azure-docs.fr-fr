@@ -7,12 +7,13 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291607"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427865"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -41,9 +42,9 @@ Pour obtenir un exemple de code d’appareil illustrant l’utilisation de certa
 
 IoT Central vous permet d’afficher les données brutes qu’un appareil envoie à une application. Cette vue est utile pour résoudre les problèmes liés à la charge utile envoyée à partir d’un appareil. Pour afficher les données brutes envoyées par un appareil :
 
-1. Accédez à l’appareil à partir de la page **Appareils**.
+1. Accédez à l’appareil à partir de la page **Appareils** .
 
-1. Sélectionnez l’onglet **Données brutes** :
+1. Sélectionnez l’onglet **Données brutes**  :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Vue Données brutes":::
 

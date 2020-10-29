@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340599"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441876"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -63,7 +63,7 @@ La section suivante de l’e-mail contient des informations sur l’endroit où 
 
 ### <a name="footer-section"></a>Section Pied de page
 
-Le pied de page contient d’autres informations sur l’invitation envoyée. Il comporte toujours une option permettant à l’invité de bloquer les futures invitations. Si l’organisation a [défini une déclaration de confidentialité](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), le lien associé est affiché ici.  Sinon, une note indique que l’organisation n’a pas défini de déclaration de confidentialité.
+Le pied de page contient d’autres informations sur l’invitation envoyée. Il comporte toujours une option permettant à l’invité de bloquer les futures invitations. Si l’organisation a [défini une déclaration de confidentialité](../fundamentals/active-directory-properties-area.md), le lien associé est affiché ici.  Sinon, une note indique que l’organisation n’a pas défini de déclaration de confidentialité.
 
 ![Image de la section de pied de page dans l’e-mail](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ Un utilisateur invité peut suivre les étapes suivantes pour afficher ou export
 
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue.
 
-- Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
--   Propriété **preferredLanguage** spécifiée dans l' [objet utilisateur](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) de l'invité
+- Propriété **messageLanguage** de l'objet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) si l'API Créer une invitation est utilisée
+-   Propriété **preferredLanguage** spécifiée dans l' [objet utilisateur](/graph/api/resources/user?view=graph-rest-1.0) de l'invité
 -   **Langue de notification** définie dans les propriétés du client de base de l'utilisateur invité (pour les clients Azure AD uniquement)
 -   **Langue de Notification** définie dans les propriétés du client de la ressource
 

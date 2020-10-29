@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598191"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426003"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Passez en revue les [limitations et conditions requises](concepts-data-in-replic
 > [!NOTE]
 > Communication sans biais
 >
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_ . Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
 >
 
 ## <a name="configure-the-source-server"></a>Configurer le serveur source
@@ -56,7 +56,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
 2. Assurez-vous que le serveur source autorise le trafic entrant et sortant sur le port 3306, que le serveur source dispose d’une **IP publique** et que le DNS est accessible publiquement ou possède un nom de domaine complet (FQDN). 
    
-   Testez la connectivité au serveur source en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) accessible sur le portail Azure.
+   Testez la connectivité au serveur source en tentant de vous connecter à partir d’un outil tel que la ligne de commande MySQL hébergée sur un autre ordinateur ou à partir d’[Azure Cloud Shell](../cloud-shell/overview.md) accessible sur le portail Azure.
 
    Si votre organisation a des stratégies de sécurité strictes et qu’elle n’autorise pas toutes les adresses IP sur le serveur source à permettre la communication d’Azure vers votre serveur source, vous pouvez éventuellement utiliser la commande ci-dessous pour déterminer l’adresse IP de votre serveur Azure Database for MariaDB.
     
@@ -141,15 +141,15 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
    **MySQL Workbench**
 
-   Pour créer le rôle de réplication dans MySQL Workbench, dans le volet **Gestion**, sélectionnez **Utilisateurs et privilèges**. Sélectionnez ensuite **Ajouter un compte**.
+   Pour créer le rôle de réplication dans MySQL Workbench, dans le volet **Gestion** , sélectionnez **Utilisateurs et privilèges** . Sélectionnez ensuite **Ajouter un compte** .
  
    ![Utilisateurs et privilèges](./media/howto-data-in-replication/users_privileges.png)
 
-   Entrez un nom d’utilisateur dans le champ **Nom de connexion**.
+   Entrez un nom d’utilisateur dans le champ **Nom de connexion** .
 
    ![Synchroniser l’utilisateur](./media/howto-data-in-replication/syncuser.png)
  
-   Sélectionnez le panneau **Rôles administratifs**, puis dans la liste **Privilèges globaux**, sélectionnez **Subordonné de réplication**. Sélectionnez **Appliquer** pour créer le rôle de réplication.
+   Sélectionnez le panneau **Rôles administratifs** , puis dans la liste **Privilèges globaux** , sélectionnez **Subordonné de réplication** . Sélectionnez **Appliquer** pour créer le rôle de réplication.
 
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
@@ -212,7 +212,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
 
 1. Définissez le serveur source.
 
-   Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench.
+   Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](reference-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench.
 
    Pour lier deux serveurs et démarrer une réplication, connectez-vous au serveur réplica cible dans le service Azure Database for MariaDB. Définissez ensuite l’instance externe en tant que serveur source à l’aide de la procédure stockée `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` sur le serveur Azure Database for MariaDB.
 
