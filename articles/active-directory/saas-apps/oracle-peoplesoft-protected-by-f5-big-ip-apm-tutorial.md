@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620135"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522289"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -57,16 +57,16 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer son intégration à Azure AD, vous devez ajouter Oracle PeopleSoft - Protected by F5 BIG-IP APM à votre liste d’applications SaaS gérées, depuis la galerie.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Oracle PeopleSoft - Protected by F5 BIG-IP APM** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
+1. Dans la section **Ajouter à partir de la galerie** , tapez **Oracle PeopleSoft - Protected by F5 BIG-IP APM** dans la zone de recherche.
 1. Sélectionnez **Oracle PeopleSoft - Protected by F5 BIG-IP APM** à partir du volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Configuration et test de l’authentification unique Azure AD pour Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
-Configurez et testez l’authentification unique Azure AD avec Oracle PeopleSoft - Protected by F5 BIG-IP APM à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Oracle PeopleSoft - Protected by F5 BIG-IP APM associé.
+Configurez et testez l’authentification unique Azure AD avec Oracle PeopleSoft - Protected by F5 BIG-IP APM à l’aide d’un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Oracle PeopleSoft - Protected by F5 BIG-IP APM associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Oracle PeopleSoft - Protected by F5 BIG-IP APM, effectuez les étapes suivantes :
 
@@ -81,23 +81,23 @@ Pour configurer et tester l’authentification unique Azure AD avec Oracle Peopl
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le portail Azure, accédez à la page d’intégration de l’application **Oracle PeopleSoft - Protected by F5 BIG-IP APM**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Oracle PeopleSoft - Protected by F5 BIG-IP APM** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
+1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité** , entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com`
+    a. Dans la zone de texte **Identificateur** , tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/post/acs`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/post/acs`
 
-    c. Dans la zone de texte **URL de déconnexion**, tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/redirect/slr`
+    c. Dans la zone de texte **URL de déconnexion** , tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/redirect/slr`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/`
+    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<FQDN>.peoplesoft.f5.com/`
 
     > [!NOTE]
     >Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’URL de connexion, de l’identificateur, de l’URL de réponse et de l’URL de déconnexion. Pour connaître les valeurs, contactez [l’équipe du support technique d’Oracle PeopleSoft - Protected by F5 BIG-IP APM](https://support.f5.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -112,7 +112,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | ------------------ | --------- |
     | EMPLID | user.employeeid |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, téléchargez le fichier **XML des métadonnées de fédération** et le **Certificat (Base64)** , puis enregistrez-les sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , à la section **Certificat de signature SAML** , téléchargez le fichier **XML des métadonnées de fédération** et le **Certificat (Base64)** , puis enregistrez-les sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/both-certificate.png)
 
@@ -120,25 +120,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-   1. Cliquez sur **Créer**.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
+   1. Cliquez sur **Créer** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en accordant l’accès à Oracle PeopleSoft - Protected by F5 BIG-IP APM.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Oracle PeopleSoft - Protected by F5 BIG-IP APM**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **Oracle PeopleSoft - Protected by F5 BIG-IP APM** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
 
 ## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Configuration de l’authentification unique Oracle PeopleSoft-Protected by F5 BIG-IP APM
 
@@ -156,17 +156,17 @@ Importez dans F5 le certificat de métadonnées qui sera utilisé plus tard pend
 
 1. Dans la page suivante, cliquez sur **Browse** (Parcourir) pour charger le fichier xml.
 
-1. Attribuez un nom de fournisseur d’identité valide dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), puis cliquez sur **OK**.
+1. Attribuez un nom de fournisseur d’identité valide dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), puis cliquez sur **OK** .
 
     ![nouveau connecteur IDP SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-idp.png)
 
-1. Effectuez les étapes demandées dans l’onglet **Security Settings** (Paramètres de sécurité), puis cliquez sur **OK**.
+1. Effectuez les étapes demandées dans l’onglet **Security Settings** (Paramètres de sécurité), puis cliquez sur **OK** .
 
     ![modifier le connecteur IDP SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp.png)
 
 #### <a name="setup-the-saml-sp"></a>Configurer le fournisseur de services SAML
 
-1. Accédez à **Access > Federation > SAML Service Provider > Local SP Services** (Accès > Fédération > Fournisseur de services SAML > Services SP locaux), puis cliquez sur **Create** (Créer). Fournissez les informations suivantes et cliquez sur **OK**.
+1. Accédez à **Access > Federation > SAML Service Provider > Local SP Services** (Accès > Fédération > Fournisseur de services SAML > Services SP locaux), puis cliquez sur **Create** (Créer). Fournissez les informations suivantes et cliquez sur **OK** .
 
     * Nom : `<Name>`
     * Entity ID (ID d’entité) : `https://<FQDN>.peoplesoft.f5.com`
@@ -178,7 +178,7 @@ Importez dans F5 le certificat de métadonnées qui sera utilisé plus tard pend
     ![nouveaux services SP SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-sp-service.png)
 
 1. Sélectionnez la configuration de fournisseur de services PeopleSoftAppSSO, puis cliquez sur **Bind/UnBind IdP Connectors** (Lier/Dissocier les connecteurs IdP).
-Cliquez sur **Add New Row** (Ajouter une nouvelle ligne), sélectionnez le connecteur IdP externe (**External IdP connector**) créé à l’étape précédente, cliquez sur **Update** (Mettre à jour), puis cliquez sur **OK**.
+Cliquez sur **Add New Row** (Ajouter une nouvelle ligne), sélectionnez le connecteur IdP externe ( **External IdP connector** ) créé à l’étape précédente, cliquez sur **Update** (Mettre à jour), puis cliquez sur **OK** .
 
     ![créer des services SP SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp-use-sp.png)
 
@@ -244,16 +244,16 @@ Accédez à **Peopletools > Security > User Profiles > User Profiles** (Peopleto
 
     ![Profils utilisateur](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 
-1. À partir de **PeopleTools Application Designer** (Concepteur d’applications PeopleTools), ouvrez l’enregistrement **FUNCLIB_LDAP**.
+1. À partir de **PeopleTools Application Designer** (Concepteur d’applications PeopleTools), ouvrez l’enregistrement **FUNCLIB_LDAP** .
 
     ![Configuration du profil web](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/funclib.png)
 
-1. Mettez à jour l’en-tête utilisateur avec **PS_SSO_UID** pour la fonction **OAMSSO_AUTHENTICATION**.
+1. Mettez à jour l’en-tête utilisateur avec **PS_SSO_UID** pour la fonction **OAMSSO_AUTHENTICATION** .
 Dans la fonction **getWWWAuthConfig()** , remplacez la valeur affectée à **&defaultUserId** par **OAMPSFT** que nous avons défini dans le profil web. Enregistrez la définition Record.
 
     ![OAMSSO_AUTHENTICATION](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/record.png)
 
-1. Accédez à la page **Signon PeopleCode** (PeopleTools, Security, Security Objects, Signon PeopleCode) (PeopleTools, Sécurité, Objets de sécurité, Authentification PeopleCode) et activez la fonction **OAMSSO_AUTHENTICATION**, qui est l’authentification PeopleCode pour l’authentification unique Oracle Access Manager.
+1. Accédez à la page **Signon PeopleCode** (PeopleTools, Security, Security Objects, Signon PeopleCode) (PeopleTools, Sécurité, Objets de sécurité, Authentification PeopleCode) et activez la fonction **OAMSSO_AUTHENTICATION** , qui est l’authentification PeopleCode pour l’authentification unique Oracle Access Manager.
 
     ![OAMSSO_AUTHENTICATION ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/sign-on-people-soft.png)
 
@@ -329,9 +329,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Oracle PeopleSoft-Protected by F5 BIG-IP APM dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Oracle PeopleSoft-Protected by F5 BIG-IP APM dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Oracle PeopleSoft - Protected by F5 BIG-IP APM, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Oracle PeopleSoft - Protected by F5 BIG-IP APM, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

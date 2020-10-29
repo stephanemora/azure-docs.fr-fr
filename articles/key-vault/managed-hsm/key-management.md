@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448277"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521031"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gérer un HSM managé à l’aide de l’interface Azure CLI
 
 > [!NOTE]
-> Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Cet article concerne le **HSM managé**. Si vous souhaitez apprendre à gérer un coffre, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](../general/manage-with-cli2.md).
+> Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Cet article concerne le **HSM managé** . Si vous souhaitez apprendre à gérer un coffre, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](../general/manage-with-cli2.md).
 
 Pour obtenir une vue d’ensemble du HSM managé, consultez [Qu’est-ce que HSM managé ?](overview.md)
 
@@ -69,7 +69,7 @@ Notez que l’opération `get` retourne uniquement la clé publique et les attri
 
 ### <a name="create-an-ec-key"></a>Créer une clé EC
 
-L’exemple ci-dessous montre comment créer une clé **EC** avec la courbe P-256 qui sera utilisée uniquement pour les opérations **signer et vérifier** (--ops) et comporte deux balises, d’**utilisation** et **appname**. Les balises vous aident à ajouter des métadonnées supplémentaires à la clé pour le suivi et la gestion.
+L’exemple ci-dessous montre comment créer une clé **EC** avec la courbe P-256 qui sera utilisée uniquement pour les opérations **signer et vérifier** (--ops) et comporte deux balises, d’ **utilisation** et **appname** . Les balises vous aident à ajouter des métadonnées supplémentaires à la clé pour le suivi et la gestion.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
@@ -90,7 +90,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## <a name="view-key-attributes-and-tags"></a>Afficher les balises et les attributs de clé

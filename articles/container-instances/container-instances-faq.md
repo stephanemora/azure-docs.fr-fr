@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818478"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516968"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Forum aux questions sur Azure Container Instances
 
@@ -53,7 +53,7 @@ Retrouvez des [conseils détaillés](container-instances-troubleshooting.md#cont
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quels calques d’image .NET ou .NET Core dois-je utiliser dans mon conteneur ? 
 
-Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous pouvez utiliser une image .NET Core *runtime-alpine*, prise en charge depuis la version 2.1 de .NET Core. Pour Windows, si vous utilisez le .NET Framework complet, vous devez utiliser une image Windows Server Core (image runtime, comme *4.7.2-windowsservercore-ltsc2016*). Les images runtime sont plus petites, mais ne prennent pas en charge les charges de travail qui nécessitent le SDK .NET.
+Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous pouvez utiliser une image .NET Core *runtime-alpine* , prise en charge depuis la version 2.1 de .NET Core. Pour Windows, si vous utilisez le .NET Framework complet, vous devez utiliser une image Windows Server Core (image runtime, comme *4.7.2-windowsservercore-ltsc2016* ). Les images runtime sont plus petites, mais ne prennent pas en charge les charges de travail qui nécessitent le SDK .NET.
 
 ## <a name="availability-and-quotas"></a>Disponibilité et quotas
 
@@ -61,7 +61,7 @@ Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous p
 
 Cela dépend vraiment de votre charge de travail. Commencez petit et testez les performances pour voir comment vos conteneurs évoluent. [Surveillez l’utilisation des ressources d’UC et de mémoire](container-instances-monitor.md), puis ajoutez des cœurs ou de la mémoire en fonction du type de processus que vous déployez dans le conteneur.
 
-Veillez également à vérifier la [disponibilité des ressources](container-instances-region-availability.md#availability---general) pour la région dans laquelle vous effectuez le déploiement, ainsi que les limites supérieures sur les cœurs d’UC et la mémoire disponibles par groupe de conteneurs. 
+Veillez également à vérifier la [disponibilité des ressources](container-instances-region-availability.md) pour la région dans laquelle vous effectuez le déploiement, ainsi que les limites supérieures sur les cœurs d’UC et la mémoire disponibles par groupe de conteneurs. 
 
 > [!NOTE]
 > Une petite quantité des ressources d’un groupe de conteneurs est utilisée par l’infrastructure sous-jacente du service. Vos conteneurs pourront accéder à la plupart des ressources allouées au groupe, mais pas à toutes. Pour cette raison, planifiez une petite mémoire tampon de ressources en cas de demande de ressources pour les conteneurs du groupe.
@@ -80,7 +80,7 @@ Pas encore. Actuellement, ce sont les valeurs maximales pour un groupe de conten
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quand ACI sera-t-il disponible dans une région spécifique ?
 
-La disponibilité actuelle dans les différentes régions est publiée [ici](container-instances-region-availability.md#availability---general). Si vous en avez besoin dans une région spécifique, contactez le support Azure.
+La disponibilité actuelle dans les différentes régions est publiée [ici](container-instances-region-availability.md). Si vous en avez besoin dans une région spécifique, contactez le support Azure.
 
 ## <a name="features-and-scenarios"></a>Fonctionnalités et scénarios
 

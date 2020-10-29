@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751168"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521944"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Didacticiels pour l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -25,7 +25,7 @@ Pour vous aider à intégrer vos applications cloud [SaaS (software as a service
 
 Pour obtenir la liste complète des applications SaaS qui ont été préalablement intégrées dans Azure AD, consultez la [Place de marché Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Utilisez le [portail Application Network](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) pour demander l’ajout d’une application [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) à la galerie en vue d’un approvisionnement automatiquement, ou l’ajout d’une application SAML/OIDC à la galerie pour l’authentification unique (SSO).
+Utilisez le [portail Application Network](../azuread-dev/howto-app-gallery-listing.md) pour demander l’ajout d’une application [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) à la galerie en vue d’un approvisionnement automatiquement, ou l’ajout d’une application SAML/OIDC à la galerie pour l’authentification unique (SSO).
 
 ## <a name="quick-links"></a>Liens rapides
 
@@ -34,7 +34,7 @@ Utilisez le [portail Application Network](https://docs.microsoft.com/azure/activ
 | ![logo Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - Attribution d’utilisateurs](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow – Attribution d’utilisateurs](servicenow-provisioning-tutorial.md)|
 | ![logo Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - Approvisionnement d’utilisateurs](slack-provisioning-tutorial.md)|
-| ![logo SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - Approvisionnement d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logo SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - Approvisionnement d’utilisateurs](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![logo Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - Approvisionnement d’utilisateurs](workday-inbound-tutorial.md)|
 
 Pour accéder à d’autres didacticiels, reportez-vous à la table des matières à gauche.
@@ -47,7 +47,7 @@ Pour accéder à d’autres didacticiels, reportez-vous à la table des matière
 | ![logo Alibaba Cloud Service (SSO par rôle)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (SSO par rôle)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![Logo Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - Approvisionnement d’utilisateurs](google-apps-provisioning-tutorial.md) |
 | ![logo Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Approvisionnement d’utilisateurs](salesforce-provisioning-tutorial.md) |
-| ![logo SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform - Provisionnement](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logo SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform - Provisionnement](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>Authentification unique OneClick
 

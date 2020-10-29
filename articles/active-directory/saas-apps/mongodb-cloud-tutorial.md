@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 6a59df062adf9b5c2e511db29cb8601d4a4df70e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f76f6bc77a26a8574218a07321ab72acc9280569
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554559"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à MongoDB Cloud
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer MongoDB Cloud à Azure
 * Permettre à vos utilisateurs de se connecter automatiquement à MongoDB Cloud avec leur compte Azure AD
 * gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,9 +39,9 @@ Pour commencer, vous avez besoin des éléments suivants :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* MongoDB Cloud prend en charge l’authentification unique initiée par le **fournisseur de services** et le **fournisseur d’identité**.
-* MongoDB Cloud prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
-* Après avoir configuré MongoDB Cloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* MongoDB Cloud prend en charge l’authentification unique initiée par le **fournisseur de services** et le **fournisseur d’identité** .
+* MongoDB Cloud prend en charge le provisionnement d’utilisateurs **juste-à-temps** .
+* Après avoir configuré MongoDB Cloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mongodb-cloud-from-the-gallery"></a>Ajouter MongoDB Cloud à partir de la galerie
 
@@ -49,15 +49,15 @@ Pour configurer l’intégration de MongoDB Cloud dans Azure AD, vous devez ajo
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **MongoDB Cloud** dans la zone de recherche.
+1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
+1. Dans la section **Ajouter à partir de la galerie** , tapez **MongoDB Cloud** dans la zone de recherche.
 1. Sélectionnez **MongoDB Cloud** dans les résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>Configurer et tester l’authentification unique Azure AD pour MongoDB Cloud
 
-Configurez et testez l’authentification unique Azure AD avec MongoDB Cloud à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur MongoDB Cloud associé.
+Configurez et testez l’authentification unique Azure AD avec MongoDB Cloud à l’aide d’un utilisateur de test appelé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur MongoDB Cloud associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec MongoDB Cloud, suivez les indications des sections ci-après :
 
@@ -72,21 +72,21 @@ Pour configurer et tester l’authentification unique Azure AD avec MongoDB Clo
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **MongoDB Cloud**, puis recherchez la section **Gérer**. Sélectionnez **Authentification unique**.
-1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **MongoDB Cloud** , puis recherchez la section **Gérer** . Sélectionnez **Authentification unique** .
+1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
+1. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Capture d’écran de la page Configurer l’authentification unique avec SAML avec l’icône de crayon mise en évidence](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous voulez configurer l’application en mode lancé par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base** , si vous voulez configurer l’application en mode lancé par le **fournisseur d’identité** , entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, saisissez une URL au format suivant : `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. Dans la zone de texte **Identificateur** , saisissez une URL au format suivant : `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Sélectionnez **Définir des URL supplémentaires**, puis effectuez l’étape suivante si vous voulez configurer l’application en mode initié par le **fournisseur de services** :
+1. Sélectionnez **Définir des URL supplémentaires** , puis effectuez l’étape suivante si vous voulez configurer l’application en mode initié par le **fournisseur de services**  :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://cloud.mongodb.com/sso/<Customer_Unique>`
+    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de MongoDB Cloud](https://support.mongodb.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -103,22 +103,22 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | firstName | user.givenname |
     | lastName | user.surname |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**. Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **XML de métadonnées de fédération** . Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Capture d’écran de la section Certificat de signature SAML, avec mise en évidence du lien Télécharger](common/metadataxml.png)
 
-1. Dans la section **Configurer MongoDB Cloud**, copiez les URL appropriées, selon vos besoins.
+1. Dans la section **Configurer MongoDB Cloud** , copiez les URL appropriées, selon vos besoins.
 
     ![Capture d’écran de la section Configurer MongoDB Cloud avec les URL mises en évidence](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon sur le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** > **Utilisateurs** > **Tous les utilisateurs** .
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
+   1. Dans le champ **Nom** , entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe** et notez le mot de passe.
    1. Sélectionnez **Create** (Créer).
 
@@ -126,19 +126,19 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon su
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à MongoDB Cloud.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **MongoDB Cloud**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications** .
+1. Dans la liste des applications, sélectionnez **MongoDB Cloud** .
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
 
    ![Capture d’écran de la section Gérer, avec Utilisateurs et groupes mis en évidence](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur**. Ensuite, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur** . Ensuite, dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Utilisateurs et groupes** .
 
     ![Capture d’écran de la page Utilisateurs et groupes, avec Ajouter un utilisateur mis en évidence](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Choisissez **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Choisissez **Sélectionner** au bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B.Simon** dans la liste des utilisateurs. Choisissez **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste. Choisissez **Sélectionner** au bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter** .
 
 ## <a name="configure-mongodb-cloud-sso"></a>Configurer l’authentification unique MongoDB Cloud
 
@@ -152,21 +152,20 @@ MongoDB Cloud prend en charge le provisionnement d’utilisateurs juste-à-temps
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous sélectionnez la vignette MongoDB Cloud dans le volet d’accès, vous êtes connecté automatiquement à l’application MongoDB Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous sélectionnez la vignette MongoDB Cloud dans le volet d’accès, vous êtes connecté automatiquement à l’application MongoDB Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
 
 - [S’inscrire à MongoDB Atlas sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Essayer MongoDB Cloud avec Azure AD](https://aad.portal.azure.com/)
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
 
-- [Protéger MongoDB Cloud avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Protéger MongoDB Cloud avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
