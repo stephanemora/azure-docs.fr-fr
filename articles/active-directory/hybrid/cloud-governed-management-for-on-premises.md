@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369792"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Comment Azure AD permet une gestion gouvernée par le cloud pour les charges de travail locales
 
@@ -39,7 +39,7 @@ Ce document décrit la stratégie de Microsoft concernant l’IDaaS hybride et e
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Approche Azure AD concernant la gestion des identités gouvernée par le cloud
 
-Lorsque les organisations effectuent leur transition vers le cloud, elles veulent être sûres de garder le contrôle sur l’intégralité de leur environnement. Elles veulent également plus de sécurité et plus de visibilité sur les activités, ce qui est facilité par l’automatisation et les insights proactifs. La « **gestion gouvernée par le cloud** » désigne la façon dont les organisations gèrent et gouvernent les utilisateurs, les applications, les groupes et les appareils à partir du cloud.
+Lorsque les organisations effectuent leur transition vers le cloud, elles veulent être sûres de garder le contrôle sur l’intégralité de leur environnement. Elles veulent également plus de sécurité et plus de visibilité sur les activités, ce qui est facilité par l’automatisation et les insights proactifs. La «  **gestion gouvernée par le cloud**  » désigne la façon dont les organisations gèrent et gouvernent les utilisateurs, les applications, les groupes et les appareils à partir du cloud.
 
 En raison de la prolifération des applications SaaS et du rôle grandissant que jouent la collaboration et les identités externes, les organisations doivent pouvoir gérer efficacement à grande échelle. Le nouveau paysage des risques liés au cloud nécessite que les organisations soient plus réactives. Un acteur malveillant qui compromet un utilisateur cloud risque d’affecter aussi bien les applications cloud que les applications locales.
 
@@ -107,7 +107,7 @@ Les organisations ont besoin d’un processus pour gérer un accès scalable. Le
 
 En règle générale, le service informatique délègue aux décideurs d’entreprise la prise de décision en matière d’approbation d’accès. De plus, le service informatique peut impliquer les utilisateurs eux-mêmes. Par exemple, les utilisateurs accédant à des données client confidentielles dans l’application marketing d’une société en Europe doivent connaître les stratégies de l’entreprise. Il est également possible que les utilisateurs invités n’aient pas connaissance des exigences de traitement des données appliquées par l’organisation.
 
-Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../users-groups-roles/groups-dynamic-membership.md), couplées à l’attribution des utilisateurs dans les [applications SaaS](../saas-apps/tutorial-list.md), ou comme les [applications intégrées respectant le standard SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md). Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../external-identities/hybrid-cloud-to-on-premises.md). Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](../governance/access-reviews-overview.md) récurrentes.
+Les organisations peuvent automatiser le processus de cycle de vie des accès à l’aide de technologies comme les [groupes dynamiques](../enterprise-users/groups-dynamic-membership.md), couplées à l’attribution des utilisateurs dans les [applications SaaS](../saas-apps/tutorial-list.md), ou comme les [applications intégrées respectant le standard SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md). Les organisations peuvent également contrôler les [utilisateurs invités pouvant accéder aux applications locales](../external-identities/hybrid-cloud-to-on-premises.md). Ces droits d’accès peuvent ensuite être révisés régulièrement par le biais de [révisions d’accès Azure AD](../governance/access-reviews-overview.md) récurrentes.
 
 ## <a name="future-directions"></a>À l’avenir
 

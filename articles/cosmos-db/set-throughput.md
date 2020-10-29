@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331819"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367123"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 
@@ -43,9 +43,6 @@ L’illustration suivante montre comment une partition physique héberge une ou 
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partition physique hébergeant une ou plusieurs partitions logiques d'un conteneur" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Définir le débit sur une base de données
-
-> [!NOTE]
-> Le provisionnement du débit sur une base de données Azure Cosmos n’est actuellement pas possible dans les comptes où les [clés gérées par le client](how-to-setup-cmk.md) sont activées.
 
 Quand vous provisionnez le débit sur une base de données Azure Cosmos, il est partagé entre tous les conteneurs (nommés conteneurs de base de données partagée) de la base de données. Sauf si vous avez spécifié un débit provisionné sur des conteneurs spécifiques dans la base de données. Le partage de débit provisionné au niveau de la base de données entre ses conteneurs est analogue à l’hébergement d’une base de données sur un cluster de machines. Tous les conteneurs d’une base de données partageant les ressources disponibles sur une machine, vous ne pouvez pas prévoir les performances d'un conteneur spécifique. Pour découvrir comment configurer le débit provisionné sur une base de données, consultez [Configurer le débit provisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md). Pour découvrir comme configurer le débit avec mise à l’échelle automatique sur une base de données, consultez [Approvisionner le débit avec mise à l’échelle automatique](how-to-provision-autoscale-throughput.md).
 

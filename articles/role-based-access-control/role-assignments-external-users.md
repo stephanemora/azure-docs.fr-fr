@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361902"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368381"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôle Azure pour des utilisateurs invités externes à l’aide du portail Azure
 
@@ -51,7 +51,7 @@ Effectuez les étapes suivantes pour ajouter un utilisateur invité à votre ann
 
 1. Assurez-vous que les paramètres de collaboration externe de votre organisation sont configurés de telle sorte que vous êtes autorisé à inviter des invités. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../active-directory/b2b/delegate-invitations.md).
 
-1. Dans le portail Azure, cliquez sur **Azure Active Directory** > **Utilisateurs** > **Nouvel utilisateur invité**.
+1. Dans le portail Azure, cliquez sur **Azure Active Directory** > **Utilisateurs** > **Nouvel utilisateur invité** .
 
     ![Fonctionnalité Nouvel utilisateur invité dans le portail Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -71,9 +71,9 @@ Pour plus d’informations sur le processus d’invitation, consultez [Utilisati
 
 Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour ajouter une attribution de rôle pour un utilisateur invité dans différentes étendues.
 
-1. Dans le portail Azure, cliquez sur **Tous les services**.
+1. Dans le portail Azure, cliquez sur **Tous les services** .
 
-1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration** , **Abonnements** , **Groupes de ressources** , ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
 
@@ -93,9 +93,9 @@ Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour ajouter 
 
     Le volet Ajouter une attribution de rôle s’ouvre.
 
-1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
+1. Dans la liste déroulante **Rôle** , sélectionnez un rôle, tel que **Contributeur de machines virtuelles** .
 
-1. Dans la liste **Sélectionner**, sélectionnez l’utilisateur invité. Si vous ne voyez pas le l’utilisateur dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
+1. Dans la liste **Sélectionner** , sélectionnez l’utilisateur invité. Si vous ne voyez pas le l’utilisateur dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
 
    ![Volet Ajouter une attribution de rôle](./media/role-assignments-external-users/add-role-assignment.png)
 
@@ -109,9 +109,9 @@ Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez l
 
 Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez l’inviter directement à partir du volet Ajouter une attribution de rôle.
 
-1. Dans le portail Azure, cliquez sur **Tous les services**.
+1. Dans le portail Azure, cliquez sur **Tous les services** .
 
-1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration** , **Abonnements** , **Groupes de ressources** , ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
 
@@ -125,9 +125,9 @@ Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez
 
     Le volet Ajouter une attribution de rôle s’ouvre.
 
-1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
+1. Dans la liste déroulante **Rôle** , sélectionnez un rôle, tel que **Contributeur de machines virtuelles** .
 
-1. Dans la liste **Sélectionner**, tapez l’adresse e-mail de la personne que vous voulez inviter, puis sélectionnez cette personne.
+1. Dans la liste **Sélectionner** , tapez l’adresse e-mail de la personne que vous voulez inviter, puis sélectionnez cette personne.
 
    ![Inviter un utilisateur invité dans le volet Ajouter une attribution de rôle](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
@@ -159,17 +159,17 @@ Avant de supprimer un utilisateur invité d’un annuaire, vous devez d’abord 
 
    ![Supprimer une attribution de rôle](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
-1. Cliquez sur **Supprimer**.
+1. Cliquez sur **Supprimer** .
 
    ![Supprimer le message d’attribution de rôle](./media/role-assignments-external-users/remove-role-assignment.png)
 
-1. Dans le message d’attribution de rôle qui s’affiche, cliquez sur **Oui**.
+1. Dans le message d’attribution de rôle qui s’affiche, cliquez sur **Oui** .
 
-1. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory** > **Utilisateurs**.
+1. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory** > **Utilisateurs** .
 
 1. Cliquez sur l’utilisateur invité à supprimer.
 
-1. Cliquez sur **Supprimer**.
+1. Cliquez sur **Supprimer** .
 
    ![Supprimer un utilisateur invité](./media/role-assignments-external-users/delete-guest-user.png)
 
@@ -183,7 +183,7 @@ Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Par ex
 
 ![Impossible pour l’utilisateur invité de parcourir les utilisateurs figurant dans un annuaire](./media/role-assignments-external-users/directory-no-users.png)
 
-Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annuaire, vous pouvez lui attribuer un rôle d’annuaire. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annuaire, vous pouvez lui attribuer un rôle d’annuaire. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Attribuer le rôle Lecteur de répertoire](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,21 +193,21 @@ Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Même 
 
 ![Impossible pour l’utilisateur invité de parcourir les principaux de sécurité pour attribuer des rôles](./media/role-assignments-external-users/directory-no-browse.png)
 
-Si l’utilisateur invité connaît le nom de connexion exact d’une personne dans l’annuaire, il peut lui accorder l’accès. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Si l’utilisateur invité connaît le nom de connexion exact d’une personne dans l’annuaire, il peut lui accorder l’accès. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Impossible pour l’utilisateur invité d’inscrire des applications ou de créer des principaux du service
 
-Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Si un utilisateur invité a besoin de pouvoir inscrire des applications ou de créer des principaux du service, vous pouvez l’ajouter au rôle [Développeur d’applications](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Si un utilisateur invité a besoin de pouvoir inscrire des applications ou de créer des principaux du service, vous pouvez l’ajouter au rôle [Développeur d’applications](../active-directory/roles/permissions-reference.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Impossible pour l’utilisateur invité d’inscrire des applications](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### <a name="guest-user-does-not-see-the-new-directory"></a>Nouvel annuaire invisible pour l’utilisateur invité
 
-Si un utilisateur invité a reçu l’autorisation d’accéder à un nouvel annuaire, mais qu’il ne le voit pas listé dans le portail Azure quand il essaie de basculer vers son volet **Annuaire + abonnement**, vérifiez qu’il a bien achevé le processus d’invitation. Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
+Si un utilisateur invité a reçu l’autorisation d’accéder à un nouvel annuaire, mais qu’il ne le voit pas listé dans le portail Azure quand il essaie de basculer vers son volet **Annuaire + abonnement** , vérifiez qu’il a bien achevé le processus d’invitation. Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
 
 ### <a name="guest-user-does-not-see-resources"></a>Ressources invisibles pour l’utilisateur
 
-Si un utilisateur invité a reçu l’autorisation d’accéder à un annuaire, mais qu’il ne voit pas les ressources auxquelles il est autorisé à accéder dans le portail Azure, vérifiez qu’il a sélectionné le bon annuaire. Un utilisateur invité peut avoir accès à plusieurs annuaires. Pour changer d’annuaire, dans le coin supérieur gauche, cliquez sur **Annuaire + abonnement**, puis cliquez sur l’annuaire approprié.
+Si un utilisateur invité a reçu l’autorisation d’accéder à un annuaire, mais qu’il ne voit pas les ressources auxquelles il est autorisé à accéder dans le portail Azure, vérifiez qu’il a sélectionné le bon annuaire. Un utilisateur invité peut avoir accès à plusieurs annuaires. Pour changer d’annuaire, dans le coin supérieur gauche, cliquez sur **Annuaire + abonnement** , puis cliquez sur l’annuaire approprié.
 
 ![Volet Annuaires + abonnements dans le portail Azure](./media/role-assignments-external-users/directory-subscription.png)
 

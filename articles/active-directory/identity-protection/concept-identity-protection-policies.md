@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83736498"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368789"
 ---
 # <a name="identity-protection-policies"></a>Stratégies Identity Protection
 
-Azure Active Directory Identity Protection comprend trois stratégies par défaut que les administrateurs peuvent choisir d’activer. Ces stratégies incluent une personnalisation limitée, mais s’appliquent à la plupart des organisations. Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../users-groups-roles/directory-emergency-access.md).
+Azure Active Directory Identity Protection comprend trois stratégies par défaut que les administrateurs peuvent choisir d’activer. Ces stratégies incluent une personnalisation limitée, mais s’appliquent à la plupart des organisations. Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../roles/security-emergency-access.md).
 
 ![Stratégies Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070365"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363689"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -34,13 +34,13 @@ L’attribution d’utilisateurs jette les bases d’une gouvernance des identit
 
 Les principaux avantages de l’activation de l’attribution automatique d’utilisateurs sont les suivants :
 
-* **Accroissement de la productivité**. Vous pouvez gérer les identités utilisateur sur les applications SaaS avec une seule interface de gestion de l’attribution d’utilisateurs. Cette interface dispose d’un ensemble unique de stratégies d’attribution.
+* **Accroissement de la productivité** . Vous pouvez gérer les identités utilisateur sur les applications SaaS avec une seule interface de gestion de l’attribution d’utilisateurs. Cette interface dispose d’un ensemble unique de stratégies d’attribution.
 
-* **Gestion des risques**. Vous pouvez augmenter la sécurité en automatisant les changements, en fonction du statut des employés ou des appartenances aux groupes qui définissent les rôles et/ou les accès.
+* **Gestion des risques** . Vous pouvez augmenter la sécurité en automatisant les changements, en fonction du statut des employés ou des appartenances aux groupes qui définissent les rôles et/ou les accès.
 
-* **Respect de la gouvernance et de la conformité**. Azure AD prend en charge les journaux d’audit natifs de chaque requête d’attribution d’utilisateurs. Les requêtes sont exécutées dans les systèmes source et cible. Vous pouvez ainsi effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
+* **Respect de la gouvernance et de la conformité** . Azure AD prend en charge les journaux d’audit natifs de chaque requête d’attribution d’utilisateurs. Les requêtes sont exécutées dans les systèmes source et cible. Vous pouvez ainsi effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
 
-* **Réduction des coûts**. L’attribution automatique d’utilisateurs réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’attribution manuelle. Elle diminue la nécessité de recourir à des journaux d’audit, des scripts et des solutions d’attribution d’utilisateurs personnalisées.
+* **Réduction des coûts** . L’attribution automatique d’utilisateurs réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’attribution manuelle. Elle diminue la nécessité de recourir à des journaux d’audit, des scripts et des solutions d’attribution d’utilisateurs personnalisées.
 
 ### <a name="licensing"></a>Licence
 
@@ -89,7 +89,7 @@ Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une base 
 
 1. Les utilisateurs/groupes sont créés dans une application ou un système RH local, tel que SAP. 
 
-1. L’**agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
+1. L’ **agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
 
 1. Le **service de provisionnement Azure AD** démarre un [cycle initial](../app-provisioning/user-provisioning.md) sur le système source et le système cible. 
 
@@ -139,13 +139,13 @@ La communication est essentielle à la réussite de tout nouveau service. Commun
 
 Nous recommandons de procéder à la configuration initiale de l’attribution automatique d’utilisateurs dans un environnement de test avec une petite partie des utilisateurs avant de l’appliquer à tous les utilisateurs en production. Consultez les [meilleures pratiques](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) pour l’exécution d’un pilote.
 
-#### <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote  
+#### <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote  
 
 Un pilote vous permet de tester une fonctionnalité sur un petit groupe avant de la déployer pour tout le monde. Vérifiez que, dans le cadre de vos tests, chaque cas d’usage au sein de votre organisation est soigneusement testé.
 
 Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Utilisez ces commentaires pour enrichir les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner également des insights sur les types de problèmes que le personnel de votre support technique peut rencontrer.
 
-Élargissez le déploiement à des groupes d’utilisateurs plus importants en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../users-groups-roles/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
+Élargissez le déploiement à des groupes d’utilisateurs plus importants en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
 
 ## <a name="plan-application-connections-and-administration"></a>Planifier l’administration et les connexions des applications
 

@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3c5274a1b63d486bb7eb48b89560d5684db2e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317005"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365508"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell pour les rôles Azure AD dans Privileged Identity Management
 
@@ -49,7 +49,7 @@ Cet article contient des instructions concernant l’utilisation des applets de 
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. Recherchez l’ID de locataire de votre organisation Azure AD en accédant à **Azure Active Directory** > **Propriétés** > **ID de répertoire**. Dans la section des applets de commande, utilisez cet ID chaque fois que vous devez fournir l’ID de la ressource.
+1. Recherchez l’ID de locataire de votre organisation Azure AD en accédant à **Azure Active Directory** > **Propriétés** > **ID de répertoire** . Dans la section des applets de commande, utilisez cet ID chaque fois que vous devez fournir l’ID de la ressource.
 
     ![Rechercher l’ID d’organisation dans les propriétés de l’organisation Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
@@ -162,4 +162,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Attribuer un rôle personnalisé Azure AD](azure-ad-custom-roles-assign.md)
 - [Supprimer ou mettre à jour une attribution de rôle personnalisé Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurer une attribution de rôle Azure AD personnalisée](azure-ad-custom-roles-configure.md)
-- [Définitions de rôles dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Définitions de rôles dans Azure AD](../roles/permissions-reference.md)

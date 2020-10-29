@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 49d0d3e8665e0e80b1626c180300611149eff23f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 819a897e2a785991378ce4b6cb19194665b569f0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005976"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363400"
 ---
 Présentation des contraintes d’utilisation et autres limites de service pour le service Azure Active Directory (Azure AD).
 
@@ -21,7 +21,7 @@ Présentation des contraintes d’utilisation et autres limites de service pour 
 | --- | --- |
 | Locataires | Un même utilisateur peut appartenir à un maximum de 500 locataires Azure AD en tant que membre ou invité.<br/>Un même utilisateur peut créer un maximum de 200 annuaires. |
 | Domaines | Vous ne pouvez pas ajouter plus de 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec l’annuaire Active Directory local, vous ne pouvez pas ajouter plus de 450 noms de domaine dans chacun des locataires. |
-|Ressources |<ul><li>L’édition gratuite d’Azure Active Directory permet de créer par défaut 50 000 ressources Azure AD au maximum dans un même locataire. Si vous avez au moins un domaine vérifié, le quota de service Azure AD par défaut est étendu à 300 000 ressources Azure AD. Cette limite de service n’est pas liée à la limite de niveau tarifaire de 500 000 ressources sur la page de tarification Azure AD. Pour aller au-delà du quota par défaut, vous devez contacter le Support Microsoft.</li><li>Un utilisateur non-administrateur peut créer jusqu’à 250 ressources Azure AD. Les ressources actives et les ressources supprimées qui peuvent être restaurées sont comptabilisées dans ce quota. Seules les ressources Azure AD supprimées il y a moins de 30 jours peuvent être restaurées. Les ressources Azure AD supprimées qui ne peuvent plus être restaurées comptent pour un quart dans ce quota pendant 30 jours. Si vos développeurs sont susceptibles de dépasser régulièrement ce quota dans le cadre de leurs tâches habituelles, vous pouvez [créer et attribuer un rôle personnalisé](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) avec l’autorisation de créer un nombre illimité d’inscriptions d’applications.</li></ul> |
+|Ressources |<ul><li>L’édition gratuite d’Azure Active Directory permet de créer par défaut 50 000 ressources Azure AD au maximum dans un même locataire. Si vous avez au moins un domaine vérifié, le quota de service Azure AD par défaut est étendu à 300 000 ressources Azure AD. Cette limite de service n’est pas liée à la limite de niveau tarifaire de 500 000 ressources sur la page de tarification Azure AD. Pour aller au-delà du quota par défaut, vous devez contacter le Support Microsoft.</li><li>Un utilisateur non-administrateur peut créer jusqu’à 250 ressources Azure AD. Les ressources actives et les ressources supprimées qui peuvent être restaurées sont comptabilisées dans ce quota. Seules les ressources Azure AD supprimées il y a moins de 30 jours peuvent être restaurées. Les ressources Azure AD supprimées qui ne peuvent plus être restaurées comptent pour un quart dans ce quota pendant 30 jours. Si vos développeurs sont susceptibles de dépasser régulièrement ce quota dans le cadre de leurs tâches habituelles, vous pouvez [créer et attribuer un rôle personnalisé](../articles/active-directory/roles/quickstart-app-registration-limits.md) avec l’autorisation de créer un nombre illimité d’inscriptions d’applications.</li></ul> |
 | Extensions de schéma |<ul><li>Les extensions de type chaîne peuvent avoir jusqu’à 256 caractères. </li><li>Les extensions de type binaire sont limitées à 256 octets.</li><li>Seules 100 valeurs d’extension (de *tous* les types et pour *toutes* les applications) peuvent être écrites dans une ressource Azure AD.</li><li>Actuellement, seules les entités User, Group, TenantDetail, Device, Application et ServicePrincipal peuvent être étendues avec des attributs à valeur unique de type binaire ou chaîne.</li><li>Les extensions de schéma sont disponibles uniquement dans la préversion de la version 1.21 de l’API Graph. L’accès en écriture pour enregistrer une extension doit être accordé à l’application.</li></ul> |
 | Applications |100 utilisateurs au maximum peuvent être propriétaires d'une seule application. |
 |Manifeste d’application |Il est possible d’ajouter au maximum 1 200 entrées dans le manifeste de l’application. |

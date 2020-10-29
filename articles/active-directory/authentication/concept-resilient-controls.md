@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049568"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366562"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -55,7 +55,7 @@ L'atténuation des interruptions doit être l'une des priorités de l'organisati
 
 ### <a name="administrator-lockout-contingency"></a>Plan d'urgence en cas de verrouillage des administrateurs
 
-Pour déverrouiller l'accès administrateur à votre locataire, vous devez créer des comptes d'accès d'urgence. Ces comptes d'accès d'urgence (ou *break glass*) permettent de gérer la configuration d'Azure AD lorsque les procédures normales d'accès aux comptes à privilèges ne sont pas disponibles. Au moins deux comptes d'accès d'urgence doivent être créés, conformément aux [recommandations relatives aux comptes d'accès d'urgence]( ../users-groups-roles/directory-emergency-access.md).
+Pour déverrouiller l'accès administrateur à votre locataire, vous devez créer des comptes d'accès d'urgence. Ces comptes d'accès d'urgence (ou *break glass* ) permettent de gérer la configuration d'Azure AD lorsque les procédures normales d'accès aux comptes à privilèges ne sont pas disponibles. Au moins deux comptes d'accès d'urgence doivent être créés, conformément aux [recommandations relatives aux comptes d'accès d'urgence]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Atténuer le risque de verrouillage des utilisateurs
 
@@ -126,7 +126,7 @@ Une stratégie d’accès conditionnel d’urgence est une **stratégie de sauve
 * Nommez vos stratégies pour être certain qu’il soit facile de les trouver pendant une interruption. Incluez les éléments suivants dans le nom de la stratégie :
   * Un *numéro de libellé* pour la stratégie.
   * Un texte à afficher, cette stratégie n’étant prévue qu’en cas d’urgence. Par exemple : **ACTIVER EN CAS D’URGENCE**
-  * L’*interruption* à laquelle elle s’applique. Par exemple : **Pendant une interruption MFA**
+  * L’ *interruption* à laquelle elle s’applique. Par exemple : **Pendant une interruption MFA**
   * Un *numéro de séquence* pour montrer l’ordre dans lequel les stratégies doivent être activées.
   * Les *applications* auxquelles elle s’applique.
   * Les *contrôles* auxquels elle s’appliquera.
@@ -180,7 +180,7 @@ Ordre d'activation :
 5. Activer la stratégie 4 : vérifier qu'aucun utilisateur n'a accès à Exchange Online à partir des applications de messagerie natives sur les appareils mobiles.
 6. Désactiver la stratégie d'authentification multifacteur existante pour SharePoint Online et Exchange Online.
 
-Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce**, l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
+Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce** , l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
 
 **Exemple B - Stratégies d'accès conditionnel d'urgence :**
 
@@ -285,7 +285,7 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
 ## <a name="learn-more"></a>En savoir plus
 
 * [Documentation Azure AD Authentication](./howto-mfaserver-iis.md)
-* [Gérer les comptes d’administration de l’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gérer les comptes d’administration de l’accès d’urgence dans Azure AD](../roles/security-emergency-access.md)
 * [Configurer des emplacements nommés dans Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Comment configurer des appareils hybrides joints à Azure Active Directory](../devices/hybrid-azuread-join-plan.md)

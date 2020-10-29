@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318425"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371883"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
@@ -40,13 +40,13 @@ Les rôles peuvent inclure :
 
 **Les niveaux d’implication peuvent inclure :**
 
-- **R**esponsable de la mise en œuvre du plan de projet et des résultats 
+- **R** esponsable de la mise en œuvre du plan de projet et des résultats 
 
-- **A**pprobation du plan de projet et des résultats 
+- **A** pprobation du plan de projet et des résultats 
 
-- **C**ontributeur au plan de projet et aux résultats 
+- **C** ontributeur au plan de projet et aux résultats 
 
-- **I**nformé du plan de projet et des résultats
+- **I** nformé du plan de projet et des résultats
 
 
 ## <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote
@@ -54,7 +54,7 @@ Un pilote vous permet de tester sur un petit groupe avant d’activer une foncti
 
 Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Ces commentaires doivent être utilisés pour développer davantage les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner des insights sur les types de problèmes que votre personnel de support technique peut voir. 
 
-L’extension du déploiement à des groupes d’utilisateurs plus importants doit être effectuée en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../users-groups-roles/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
+L’extension du déploiement à des groupes d’utilisateurs plus importants doit être effectuée en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../enterprise-users/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
 
 
 ## <a name="deploy-authentication"></a>Déployer l’authentification

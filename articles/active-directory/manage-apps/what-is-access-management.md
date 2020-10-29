@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604102"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367786"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 
@@ -45,7 +45,7 @@ Avec certains types d’applications, vous avez la possibilité de [demander que
 * Les applications de proxy d’application qui utilisent la préauthentification Azure Active Directory
 * Les applications créées sur la plateforme d’application Azure AD, utilisant l’authentification OAuth 2.0 / OpenID Connect après le consentement donné par un utilisateur ou un administrateur à cette application. Certaines applications d’entreprise offre un contrôle supplémentaire sur les personnes qui sont autorisées à se connecter.
 
-Lorsque l’affectation d’utilisateurs n’est *pas obligatoire*, les utilisateurs non attribués ne voient pas l’application dans Mes applications, mais ils peuvent toujours se connecter à l’application elle-même (procédure également appelée « authentification initiée par le fournisseur de services »). Ils peuvent aussi utiliser l’**URL d’accès utilisateur** dans la page **Propriétés** de l’application (action également appelée « authentification initiée par IDP »).
+Lorsque l’affectation d’utilisateurs n’est *pas obligatoire* , les utilisateurs non attribués ne voient pas l’application dans Mes applications, mais ils peuvent toujours se connecter à l’application elle-même (procédure également appelée « authentification initiée par le fournisseur de services »). Ils peuvent aussi utiliser l’ **URL d’accès utilisateur** dans la page **Propriétés** de l’application (action également appelée « authentification initiée par IDP »).
 
 Pour certaines applications, l’option permettant de demander l’affectation d’utilisateurs n’est pas disponible dans les propriétés de l’application. Dans ce cas, vous pouvez utiliser PowerShell pour définir la propriété appRoleAssignmentRequired sur le principal du service.
 
@@ -82,7 +82,7 @@ Les applications Microsoft (comme Exchange, SharePoint, Yammer, etc.) sont attri
 
 Il existe trois méthodes principales pour se connecter à une application publiée par Microsoft.
 
-- Pour les applications de la suite Microsoft 365 ou d'autres suites payantes, les utilisateurs peuvent obtenir un accès par le biais de l'**attribution de licence**, soit directement sur leur compte d'utilisateur, soit par l'intermédiaire d'un groupe à l'aide de la fonctionnalité d'attribution de licence de groupe.
+- Pour les applications de la suite Microsoft 365 ou d'autres suites payantes, les utilisateurs peuvent obtenir un accès par le biais de l' **attribution de licence** , soit directement sur leur compte d'utilisateur, soit par l'intermédiaire d'un groupe à l'aide de la fonctionnalité d'attribution de licence de groupe.
 - Pour les applications publiées et fournies gratuitement par Microsoft ou un tiers, les utilisateurs peuvent obtenir un accès via le [consentement de l’utilisateur](configure-user-consent.md). Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
 - Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent également obtenir un accès via le [consentement de l’administrateur](manage-consent-requests.md). Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
 
@@ -94,4 +94,4 @@ Comme avec les applications d’entreprise, vous pouvez [affecter des utilisateu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Protection des applications avec un accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Gestion des groupes en libre service/accès aux applications en libre-service](../users-groups-roles/groups-self-service-management.md)
+* [Gestion des groupes en libre service/accès aux applications en libre-service](../enterprise-users/groups-self-service-management.md)

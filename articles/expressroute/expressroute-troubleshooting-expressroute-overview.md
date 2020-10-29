@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401739"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92204637"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute étend un réseau local au cloud de Microsoft via une connexion privée qui est généralement facilitée par un fournisseur de connectivité. La connectivité ExpressRoute implique traditionnellement trois zones de réseau distinctes, comme suit :
@@ -85,10 +85,10 @@ Dans le Portail Azure, ouvrez le panneau du circuit ExpressRoute. Dans la sectio
 
 Dans ExpressRoute Essentials, *l'état du circuit* indique l’état du circuit côté Microsoft. *L'état du fournisseur* indique si le circuit a été *approvisionné/non approvisionné* côté fournisseur de service. 
 
-Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit être *activé* et *l'état du fournisseur* doit être *approvisionné*.
+Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit être *activé* et *l'état du fournisseur* doit être *approvisionné* .
 
 > [!NOTE]
-> Après la configuration d’un circuit ExpressRoute, si l’*état du circuit* est désactivé, contactez le [Support Microsoft][Support]. En revanche, si l’*état du fournisseur* est non approvisionné, contactez votre fournisseur de services.
+> Après la configuration d’un circuit ExpressRoute, si l’ *état du circuit* est désactivé, contactez le [Support Microsoft][Support]. En revanche, si l’ *état du fournisseur* est non approvisionné, contactez votre fournisseur de services.
 >
 >
 
@@ -100,7 +100,7 @@ Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 ```
 
 >[!TIP]
->Si vous recherchez le nom d’un groupe de ressources, vous pouvez l’obtenir en répertoriant tous les groupes de ressources dans votre abonnement à l’aide de la commande *Get-AzResourceGroup*.
+>Si vous recherchez le nom d’un groupe de ressources, vous pouvez l’obtenir en répertoriant tous les groupes de ressources dans votre abonnement à l’aide de la commande *Get-AzResourceGroup* .
 >
 
 
@@ -145,7 +145,7 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> Après la configuration d’un circuit ExpressRoute, si l’*état du circuit* est désactivé, contactez le [Support Microsoft][Support]. En revanche, si l’*état du fournisseur* est non approvisionné, contactez votre fournisseur de services.
+> Après la configuration d’un circuit ExpressRoute, si l’ *état du circuit* est désactivé, contactez le [Support Microsoft][Support]. En revanche, si l’ *état du fournisseur* est non approvisionné, contactez votre fournisseur de services.
 >
 >
 
@@ -165,7 +165,7 @@ Dans le Portail Azure, l’état d’un Peering de circuit ExpressRoute peut êt
 Dans l’exemple précédent, nous avons noté que le Peering privé Azure est approvisionné, tandis que les Peerings public Azure et Microsoft ne sont pas approvisionnés. Un contexte de Peering correctement approvisionné doit également répertorier les sous-réseaux point à point principaux et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et CE/PE-MSEE. Pour les Peerings approvisionnées, la liste indique également qui a modifié la configuration pour la dernière fois. 
 
 > [!NOTE]
-> Si l’activation d’un Peering échoue, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les bons *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. La clé partagée précédemment configurée n’est pas affichée pour des raisons de sécurité. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
+> Si l’activation d’un Peering échoue, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les bons *VlanId* , *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. La clé partagée précédemment configurée n’est pas affichée pour des raisons de sécurité. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Si l’activation d’un Peering échoue, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les bons *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. La clé partagée précédemment configurée n’est pas affichée pour des raisons de sécurité. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
+> Si l’activation d’un Peering échoue, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les bons *VlanId* , *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. La clé partagée précédemment configurée n’est pas affichée pour des raisons de sécurité. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
 >
 >
 
@@ -249,7 +249,7 @@ Pour plus d’informations sur l’affichage de la table ARP d’un Peering Expr
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validation de BGP et des itinéraires sur les MSEE
 
-Pour obtenir la table de route à partir du MSEE sur le chemin d’accès *principal* pour le contexte de routage *privé*, utilisez la commande suivante :
+Pour obtenir la table de route à partir du MSEE sur le chemin d’accès *principal* pour le contexte de routage *privé* , utilisez la commande suivante :
 
 ```azurepowershell
 Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Si l’état d’un Peering eBGP entre un MSEE et un CE/PE-MSEE est Activé ou Inactif, vérifiez si les sous-réseaux de Peering principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
+> Si l’état d’un Peering eBGP entre un MSEE et un CE/PE-MSEE est Activé ou Inactif, vérifiez si les sous-réseaux de Peering principaux et secondaires attribués correspondent à la configuration sur le CE/PE-MSEE lié. Vérifiez également si les *VlanId* , *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le CE/PE-MSEE lié. Si le code de hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et CE/PE-MSEE. Si vous devez modifier l’une de ces configurations sur un routeur MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 
 
@@ -332,13 +332,8 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

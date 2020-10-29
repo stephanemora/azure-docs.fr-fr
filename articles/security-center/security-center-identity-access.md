@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341260"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371067"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -52,11 +52,11 @@ Il existe certaines limitations à la protection de l’identité et de l’acc�
 
 - Les recommandations d’identité ne sont pas disponibles pour les abonnements avec plus de 600 comptes. Dans ce cas, ces recommandations sont répertoriées sous « évaluations non disponibles ».
 - Les recommandations d’identité ne sont pas disponibles pour les agents d’administration du partenaire fournisseur de solutions Cloud (CSP).
-- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations**.
+- Les recommandations d’identité n’identifient pas les comptes qui sont gérés à l’aide d’un système Privileged Identity Management (PIM). Si vous utilisez un outil PIM, vous pouvez voir des résultats inexacts dans le contrôle **Gérer l’accès et les autorisations** .
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Authentification multifacteur (MFA) et Azure Active Directory 
 
-L’activation de MFA nécessite des [autorisations de locataire Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+L’activation de MFA nécessite des [autorisations de locataire Azure Active Directory (AD)](../active-directory/roles/permissions-reference.md).
 
 - Si vous disposez d’une édition Premium d’AD, activez MFA à l’aide de l’[accès conditionnel](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - Si vous utilisez l’édition gratuite d’AD, activez les **paramètres de sécurité par défaut** comme décrit dans la [documentation d’Azure Active Directory](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
@@ -65,11 +65,11 @@ L’activation de MFA nécessite des [autorisations de locataire Azure Active Di
 
 Pour connaître les comptes pour lesquels la MFA n’est pas activée, utilisez la requête Azure Resource Graph suivante. La requête retourne toutes les ressources défectueuses (comptes) de la recommandation « la MFA doit être activée sur les comptes avec des autorisations de propriétaire sur votre abonnement ». 
 
-1. Ouvrez l’**Explorateur Azure Resource Graph**.
+1. Ouvrez l’ **Explorateur Azure Resource Graph** .
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Lancement de la page de recommandations de l’Explorateur Azure Resource Graph**" :::
 
-1. Entrez la requête suivante et sélectionnez **Exécuter la requête**.
+1. Entrez la requête suivante et sélectionnez **Exécuter la requête** .
 
     ```kusto
     securityresources

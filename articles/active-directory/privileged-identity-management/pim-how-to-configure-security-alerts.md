@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cbe32125d957bb1fd53e7cb5a39ae9f745cef4a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317029"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359609"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurer les alertes de sécurité pour les rôles Azure AD dans Privileged Identity Management
 
@@ -29,8 +29,8 @@ Privileged Identity Management (PIM) génère des alertes en cas d’activité s
 
 Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles de ressources Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
-1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
+1. Ouvrez **Azure AD Privileged Identity Management** . Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente** .
 
   [![Sélectionnez Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -45,8 +45,8 @@ Suivez les étapes décrites dans cet article afin d’examiner des alertes de s
 Cette section répertorie toutes les alertes de sécurité pour les rôles Azure AD, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 
 - **Haute** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
-- **Moyenne** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
-- **Faible** : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
+- **Moyenne**  : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
+- **Faible**  : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés
 
@@ -87,7 +87,7 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 | **Procédure de résolution** | Passez en revue les comptes de la liste. S’ils n’ont plus besoin d’un accès, supprimez-les de leurs rôles privilégiés. |
 | **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](pim-how-to-start-security-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
 | **Action d´atténuation dans le portail** | Supprime le compte de leur rôle privilégié. |
-| **Bonnes pratiques** | Les mots de passe des comptes d’accès partagés, de service et d’urgence qui s’authentifient avec un mot de passe et qui sont attribués à des rôles d’administrateur disposant de privilèges élevés, comme Administrateur général ou Administrateur de la sécurité, doivent faire l’objet d’une rotation dans les cas suivants :<ul><li>Après un incident de sécurité impliquant une mauvaise utilisation ou une compromission de droits d’accès d’administration</li><li>Après la modification des privilèges d’un utilisateur afin qu’il ne soit plus administrateur (par exemple si un employé qui était administrateur quitte le département informatique ou l’organisation)</li><li>À intervalles réguliers (par exemple trimestriels ou annuels), même s’il n’y a pas eu de violation connue ou de modification du personnel du département informatique</li></ul>Comme plusieurs personnes ont accès aux informations d’identification de ces comptes, les informations d’identification doivent faire l’objet d’une rotation pour que les personnes ayant quitté leurs rôles ne puissent plus accéder aux comptes. [En savoir plus sur la sécurisation des comptes](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Bonnes pratiques** | Les mots de passe des comptes d’accès partagés, de service et d’urgence qui s’authentifient avec un mot de passe et qui sont attribués à des rôles d’administrateur disposant de privilèges élevés, comme Administrateur général ou Administrateur de la sécurité, doivent faire l’objet d’une rotation dans les cas suivants :<ul><li>Après un incident de sécurité impliquant une mauvaise utilisation ou une compromission de droits d’accès d’administration</li><li>Après la modification des privilèges d’un utilisateur afin qu’il ne soit plus administrateur (par exemple si un employé qui était administrateur quitte le département informatique ou l’organisation)</li><li>À intervalles réguliers (par exemple trimestriels ou annuels), même s’il n’y a pas eu de violation connue ou de modification du personnel du département informatique</li></ul>Comme plusieurs personnes ont accès aux informations d’identification de ces comptes, les informations d’identification doivent faire l’objet d’une rotation pour que les personnes ayant quitté leurs rôles ne puissent plus accéder aux comptes. [En savoir plus sur la sécurisation des comptes](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Les rôles sont affectés en dehors de Privileged Identity Management
 
@@ -127,7 +127,7 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ## <a name="customize-security-alert-settings"></a>Personnaliser les paramètres d’alerte de sécurité
 
-Sur la page **Alertes**, sélectionnez **Paramètres**.
+Sur la page **Alertes** , sélectionnez **Paramètres** .
 
 ![Page des alertes avec paramètres mis en surbrillance](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
@@ -144,8 +144,8 @@ Personnalisez les paramètres des différentes alertes pour travailler avec votr
 Cette section répertorie toutes les alertes de sécurité pour les rôles Azure AD, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 
 - **Haute** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
-- **Moyenne** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
-- **Faible** : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
+- **Moyenne**  : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
+- **Faible**  : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés
 
@@ -230,9 +230,9 @@ Vous pouvez personnaliser certaines des alertes de sécurité dans Privileged Id
 
 1. Ouvrez **Privileged Identity Management** dans Azure AD.
 
-1. Sélectionnez des **rôles Azure AD**.
+1. Sélectionnez des **rôles Azure AD** .
 
-1. Sélectionnez **Paramètres**, puis sur **Alertes**.
+1. Sélectionnez **Paramètres** , puis sur **Alertes** .
 
     ![Rôles Azure AD : paramètres avec les alertes sélectionnées](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 

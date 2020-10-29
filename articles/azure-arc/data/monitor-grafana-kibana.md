@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930281"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360375"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Afficher les journaux et les métriques à l’aide de Kibana et Grafana
 
@@ -30,7 +30,7 @@ Pour accéder aux tableaux de bord, vous devez récupérer l’adresse IP de vot
 
 Utilisez la commande suivante pour récupérer l’adresse IP publique :
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -45,7 +45,7 @@ kubectl cluster-info
 
 ### <a name="aks-or-other-load-balanced-cluster"></a>AKS ou un autre cluster avec équilibrage de charge
 
-Pour surveiller votre environnement dans AKS ou un autre cluster avec équilibrage de charge, vous devez récupérer l’adresse IP du service de proxy de gestion. Utilisez cette commande pour récupérer l’**adresse IP externe** :
+Pour surveiller votre environnement dans AKS ou un autre cluster avec équilibrage de charge, vous devez récupérer l’adresse IP du service de proxy de gestion. Utilisez cette commande pour récupérer l’ **adresse IP externe**  :
 
 ```console
 kubectl get svc mgmtproxy-svc-external -n <namespace>
@@ -66,7 +66,7 @@ Les étapes ci-dessous expliquent comment créer une règle de groupe de sécuri
 
 ### <a name="find-the-name-of-the-nsg"></a>Recherchez le nom du groupe de sécurité réseau
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -74,7 +74,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Une fois que vous avez le nom du groupe de sécurité réseau, vous pouvez ajouter une règle à l’aide de la commande suivante :
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

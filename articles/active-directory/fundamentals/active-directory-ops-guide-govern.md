@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f420f66e1db6efc6a0aa43cb88f26687839f0d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321512"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370965"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guide de référence des opérations de gouvernance Azure Active Directory
 
@@ -49,7 +49,7 @@ Quand vous passerez votre liste en revue, vous devrez peut-être affecter un pro
 
 #### <a name="owner-recommended-reading"></a>Lectures recommandées pour les propriétaires
 
-- [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md)
 - [Gouvernance dans Azure](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>Test des modifications de configuration
@@ -66,7 +66,7 @@ Le test de certaines modifications appelle des considérations spéciales, qui v
 |Déploiement d’une nouvelle fonctionnalité|Si la fonctionnalité prend en charge le déploiement sur un ensemble d’utilisateurs cible, identifiez les utilisateurs pilotes et commencez par ceux-ci. Par exemple, la réinitialisation de mot de passe en libre-service et l’authentification multifacteur peuvent cibler des utilisateurs ou des groupes spécifiques.|
 |Basculer une application depuis un fournisseur d’identité local, par exemple Active Directory, vers Azure AD|Si l’application prend en charge plusieurs configurations de fournisseur d’identité local, par exemple Salesforce, configurez les deux et testez Azure AD pendant une fenêtre de modification (au cas où l’application introduit une page HRD). Si l’application ne prend pas en charge plusieurs fournisseurs d’identité locaux, planifiez les tests pendant une fenêtre de contrôle des modifications et un temps d’arrêt du programme.|
 |Mettre à jour des règles de groupes dynamiques|Créez un groupe dynamique parallèle avec la nouvelle règle. Comparez aux résultats prévus, par exemple exécutez PowerShell avec la même condition.<br>Si le test réussit, échangez les emplacements où l’ancien groupe était utilisé (si possible).|
-|Migrer des licences de produits|Reportez-vous à [Modifier la licence pour un seul utilisateur au sein d’un groupe sous licence dans Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md).|
+|Migrer des licences de produits|Reportez-vous à [Modifier la licence pour un seul utilisateur au sein d’un groupe sous licence dans Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Modifier des règles AD FS, comme l’autorisation, l’émission, l’authentification MFA|Utilisez la revendication de groupe pour cibler un sous-ensemble d’utilisateurs.|
 |Modifier l’expérience d’authentification AD FS ou des modifications similaires à l’échelle d’une batterie de serveurs|Créez une batterie de serveurs parallèle avec le même nom d’hôte, implémentez les modifications de configuration, testez à partir de clients en utilisant un fichier HOSTS, des règles de routage NLB ou un routage similaire.<br>Si la plateforme cible ne prend pas en charge les fichiers HOSTS (par exemple des appareils mobiles), contrôlez la modification.|
 
@@ -92,9 +92,9 @@ Il est crucial que l’accès aux identités externes reste limité aux seules r
 
 ### <a name="privileged-account-usage"></a>Utilisation des comptes privilégiés
 
-Les pirates informatiques ciblent souvent des comptes administrateur et d’autres éléments avec des accès privilégiés pour obtenir rapidement un accès à des données et à des systèmes sensibles. Comme les utilisateurs disposant de rôles privilégiés ont tendance à s’accumuler au fil du temps, il est important de vérifier et de gérer régulièrement les accès administrateur et de fournir un accès privilégié juste-à-temps à Azure AD et aux ressources Azure.
+Les pirates informatiques ciblent souvent des comptes administrateur et d’autres éléments avec des accès privilégiés pour obtenir rapidement un accès à des données et à des systèmes sensibles.  Comme les utilisateurs disposant de rôles privilégiés ont tendance à s’accumuler au fil du temps, il est important de vérifier et de gérer régulièrement les accès administrateur et de fournir un accès privilégié juste-à-temps à Azure AD et aux ressources Azure.
 
-Si aucun processus n’existe dans votre organisation pour gérer les comptes privilégiés, ou si vous avez actuellement des administrateurs qui utilisent leurs comptes d’utilisateur standard pour gérer des services et des ressources, vous devez commencer immédiatement à utiliser des comptes distincts, par exemple un pour les activités quotidiennes normales, et l’autre, configuré avec l’authentification multifacteur, pour les accès privilégiés. Mieux encore, si votre organisation dispose d’un abonnement Azure AD Premium P2, vous devez déployer immédiatement [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). De même, vous devez aussi examiner ces comptes privilégiés et [attribuer des rôles moins privilégiés](../users-groups-roles/directory-admin-roles-secure.md) quand c’est applicable.
+Si aucun processus n’existe dans votre organisation pour gérer les comptes privilégiés, ou si vous avez actuellement des administrateurs qui utilisent leurs comptes d’utilisateur standard pour gérer des services et des ressources, vous devez commencer immédiatement à utiliser des comptes distincts, par exemple un pour les activités quotidiennes normales, et l’autre, configuré avec l’authentification multifacteur, pour les accès privilégiés. Mieux encore, si votre organisation dispose d’un abonnement Azure AD Premium P2, vous devez déployer immédiatement [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). De même, vous devez aussi examiner ces comptes privilégiés et [attribuer des rôles moins privilégiés](../roles/security-planning.md) quand c’est applicable.
 
 Un autre aspect de la gestion des comptes privilégiés à implémenter consiste à définir des [révisions d’accès](../governance/access-reviews-overview.md) pour ces comptes, manuellement ou de façon [automatisée via Privileged Identity Management](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
@@ -104,12 +104,12 @@ Un autre aspect de la gestion des comptes privilégiés à implémenter consiste
 
 ### <a name="emergency-access-accounts"></a>Comptes d’accès d’urgence
 
-Les organisations doivent créer des [comptes d’urgence](../users-groups-roles/directory-emergency-access.md) pour se préparer à gérer Azure AD dans les cas où l’authentification cesse de fonctionner :
+Les organisations doivent créer des [comptes d’urgence](../roles/security-emergency-access.md) pour se préparer à gérer Azure AD dans les cas où l’authentification cesse de fonctionner :
 
 - Panne de composants des infrastructures d’authentification (AD FS, AD local, service MFA)
 - Rotation du personnel d’administration
 
-Pour empêcher que votre locataire ne soit verrouillé par inadvertance car vous ne pouvez pas vous connecter ou activer un compte d’utilisateur individuel existant en tant qu’administrateur, vous devez créer deux comptes d’urgence ou plus, et vérifier qu’ils sont implémentés et alignés avec les [bonnes pratiques de Microsoft](../users-groups-roles/directory-admin-roles-secure.md) et les [procédures d’urgence](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency).
+Pour empêcher que votre locataire ne soit verrouillé par inadvertance car vous ne pouvez pas vous connecter ou activer un compte d’utilisateur individuel existant en tant qu’administrateur, vous devez créer deux comptes d’urgence ou plus, et vérifier qu’ils sont implémentés et alignés avec les [bonnes pratiques de Microsoft](../roles/security-planning.md) et les [procédures d’urgence](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Accès privilégié au portail Azure Contrat Entreprise
 
@@ -119,7 +119,7 @@ Pour être clair, si le niveau d’autorisation du portail Contrat Entreprise es
 
 #### <a name="privileged-access-recommended-reading"></a>Lecture recommandée pour l’accès privilégié
 
-- [Autorisations des rôles d'administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Autorisations des rôles d'administrateur dans Azure Active Directory](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>Gestion des droits d’utilisation
 

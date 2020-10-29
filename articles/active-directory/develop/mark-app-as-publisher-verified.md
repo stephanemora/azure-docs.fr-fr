@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258334"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363451"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
 
@@ -28,11 +28,11 @@ Si vous êtes déjà inscrit à Microsoft Partner Network (MPN) et que vous remp
 
 1. Se connecter au [portail d’inscription des applications](https://aka.ms/PublisherVerificationPreview) à l’aide de l’[authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
-1. Choisissez une application, puis cliquez sur **Personnalisation**. 
+1. Choisissez une application, puis cliquez sur **Personnalisation** . 
 
 1. Cliquez sur **Ajouter l’ID MPN pour valider l'éditeur** et passez en revue les conditions requises.
 
-1. Entrez votre ID MPN, puis cliquez sur **Vérifier et enregistrer**.
+1. Entrez votre ID MPN, puis cliquez sur **Vérifier et enregistrer** .
 
 Pour plus d’informations sur les avantages spécifiques, les conditions requises et les questions fréquemment posées, consultez la [vue d'ensemble](publisher-verification-overview.md).
 
@@ -42,7 +42,7 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Vérifiez que vous êtes connecté avec une [authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md) à un compte d’organisation (Azure AD) autorisé à apporter des modifications aux applications que vous souhaitez marquer avec la mention « éditeur vérifié » et sur le compte MPN dans l’Espace partenaires.
 
-    - Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
+    - Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../roles/permissions-reference.md) suivants : Administrateur d'application, Administrateur d'application cloud, Administrateur général. 
 
     - Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD). 
 
@@ -56,13 +56,13 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Cliquez sur **Ajouter l'ID MPN pour vérifier l'éditeur** en bas de la page. 
 
-1. Entrez votre **ID MPN**. Cet ID MPN doit correspondre à ce qui suit : 
+1. Entrez votre **ID MPN** . Cet ID MPN doit correspondre à ce qui suit : 
 
     - Un compte Microsoft Partner Network valide auquel le processus de vérification a été appliqué jusqu'à son terme.  
 
     - Le compte global partenaire (PGA) de votre organisation. 
 
-1. Cliquez sur **Vérifier et enregistrer**. 
+1. Cliquez sur **Vérifier et enregistrer** . 
 
 1. Attendez le traitement de la requête, ce qui peut prendre quelques minutes. 
 

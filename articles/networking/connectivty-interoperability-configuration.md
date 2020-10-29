@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "86171854"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : détails de la configuration de test
@@ -23,17 +23,17 @@ Cet article décrit les détails de configuration de l’[initialisation (tearDo
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke via le peering de réseaux virtuels
 
-La figure suivante montre les détails du peering de réseau virtuel Azure d’un réseau virtuel spoke. Pour savoir comment configurer le Peering de deux réseaux virtuels, consultez [Gérer le Peering de réseaux virtuels][VNet-Config]. Si vous voulez que le réseau virtuel spoke utilise les passerelles qui sont connectées au réseau virtuel hub, sélectionnez **Utiliser des passerelles distantes**.
+La figure suivante montre les détails du peering de réseau virtuel Azure d’un réseau virtuel spoke. Pour savoir comment configurer le Peering de deux réseaux virtuels, consultez [Gérer le Peering de réseaux virtuels][VNet-Config]. Si vous voulez que le réseau virtuel spoke utilise les passerelles qui sont connectées au réseau virtuel hub, sélectionnez **Utiliser des passerelles distantes** .
 
 [![1]][1]
 
-La figure suivante montre les détails du peering du réseau virtuel hub. Si vous souhaitez que le réseau virtuel hub autorise le réseau virtuel spoke à utiliser les passerelles du hub, sélectionnez **Autoriser le transit de la passerelle**.
+La figure suivante montre les détails du peering du réseau virtuel hub. Si vous souhaitez que le réseau virtuel hub autorise le réseau virtuel spoke à utiliser les passerelles du hub, sélectionnez **Autoriser le transit de la passerelle** .
 
 [![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Connectivité de réseau virtuel branch à l’aide d’un VPN de site à site
 
-Configurez la connectivité VPN de site à site entre les réseaux virtuels hub et branch à l’aide de passerelles VPN dans une passerelle VPN Azure. Par défaut, les passerelles VPN et les passerelles Azure ExpressRoute utilisent la valeur de numéro de système autonome (ASN) privée **65515**. Vous pouvez changer la valeur ASN dans la passerelle VPN. Dans l’initialisation (tearDown) de test, la valeur ASN de la passerelle VPN du réseau virtuel branch est remplacée par **65516** pour prendre en charge le routage eBGP entre les réseaux virtuels hub et branch.
+Configurez la connectivité VPN de site à site entre les réseaux virtuels hub et branch à l’aide de passerelles VPN dans une passerelle VPN Azure. Par défaut, les passerelles VPN et les passerelles Azure ExpressRoute utilisent la valeur de numéro de système autonome (ASN) privée **65515** . Vous pouvez changer la valeur ASN dans la passerelle VPN. Dans l’initialisation (tearDown) de test, la valeur ASN de la passerelle VPN du réseau virtuel branch est remplacée par **65516** pour prendre en charge le routage eBGP entre les réseaux virtuels hub et branch.
 
 
 [![3]][3]
@@ -51,7 +51,7 @@ La figure suivante montre la configuration de la connexion entre le circuit Expr
 
 [![5]][5]
 
-La liste suivante montre la configuration de routeur CE principal pour la connectivité de peering privé ExpressRoute. (Les routeurs Cisco ASR1000 sont utilisés en tant que routeurs CE dans l’initialisation (tearDown) de test.) Quand les circuits ExpressRoute et le VPN de site à site sont configurés en parallèle pour connecter un réseau local à Azure, Azure choisit en priorité le circuit ExpressRoute par défaut. Pour éviter un routage asymétrique, le réseau local doit également donner la priorité à la connectivité ExpressRoute plutôt qu’à la connectivité VPN de site à site. La configuration suivante établit la hiérarchisation des priorités en utilisant l’attribut BGP **local-préférence** :
+La liste suivante montre la configuration de routeur CE principal pour la connectivité de peering privé ExpressRoute. (Les routeurs Cisco ASR1000 sont utilisés en tant que routeurs CE dans l’initialisation (tearDown) de test.) Quand les circuits ExpressRoute et le VPN de site à site sont configurés en parallèle pour connecter un réseau local à Azure, Azure choisit en priorité le circuit ExpressRoute par défaut. Pour éviter un routage asymétrique, le réseau local doit également donner la priorité à la connectivité ExpressRoute plutôt qu’à la connectivité VPN de site à site. La configuration suivante établit la hiérarchisation des priorités en utilisant l’attribut BGP **local-préférence**  :
 
 ```config
 interface TenGigabitEthernet0/0/0.300

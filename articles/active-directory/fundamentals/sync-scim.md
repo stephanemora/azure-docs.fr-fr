@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8dbd4d8deccd42d6fcc391eab1e57df7514401
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113894"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367854"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Synchronisation SCIM avec Active Directory
 
@@ -51,5 +51,5 @@ Vous souhaitez approvisionner automatiquement les informations utilisateur à pa
 
 * [Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups)
 
-* [Conformité du protocole SCIM 2.0 du service d’approvisionnement Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groupsapplication-provisioning-config-problem-scim-compatibility)
+* [Conformité du protocole SCIM 2.0 du service d’approvisionnement Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-scim-compatibility)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964466"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366477"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure Multi-Factor Authentication
 
@@ -93,16 +93,16 @@ Nous recommandons aux organisations d’utiliser l’accès conditionnel pour d�
 
 1. Ouvrez **Azure Active Directory** dans le portail Azure.
 2. Sélectionnez **Sécurité**
-3. Dans **Gérer**, choisissez **Emplacements nommés**
+3. Dans **Gérer** , choisissez **Emplacements nommés**
 4. Sélectionnez **Nouvel emplacement**
-5. Dans le champ **Nom**, indiquez un nom explicite.
+5. Dans le champ **Nom** , indiquez un nom explicite.
 6. Indiquez si vous définissez l’emplacement à l’aide de *plages d’adresses IP* ou de *pays/régions*
    1. Si vous utilisez des *plages d’adresses IP*
-      1. Décidez s’il faut *marquer l’emplacement comme approuvé*. La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur. Marquez uniquement cet emplacement comme approuvé si vous savez que les plages d’adresses IP saisies sont établies et crédibles dans votre organisation.
+      1. Décidez s’il faut *marquer l’emplacement comme approuvé* . La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur. Marquez uniquement cet emplacement comme approuvé si vous savez que les plages d’adresses IP saisies sont établies et crédibles dans votre organisation.
       2. Spécifiez les plages d’adresses IP.
    2. Si vous utilisez des *pays/régions*
       1. Développez le menu déroulant et sélectionnez les pays ou régions que vous souhaitez définir pour cet emplacement nommé.
-      2. Décidez s’il faut inclure des *zones inconnues*. Les zones inconnues sont les adresses IP qui ne peuvent être mappées à aucun pays ou aucune région.
+      2. Décidez s’il faut inclure des *zones inconnues* . Les zones inconnues sont les adresses IP qui ne peuvent être mappées à aucun pays ou aucune région.
 7. Sélectionnez **Créer**
 
 ## <a name="plan-authentication-methods"></a>Planifier les méthodes d’authentification
@@ -133,17 +133,17 @@ L’utilisateur reçoit un SMS avec le code de vérification et il est invité �
 
 ### <a name="choose-verification-options"></a>Choisir les options de vérification
 
-1. Accédez à **Azure Active Directory**, **Utilisateurs**, **Multi-Factor Authentication**.
+1. Accédez à **Azure Active Directory** , **Utilisateurs** , **Multi-Factor Authentication** .
 
    ![Accès au portail Multi-Factor Authentication à partir du panneau Utilisateurs Azure AD dans le portail Azure](media/howto-mfa-getstarted/users-mfa.png)
 
-1. Sous le nouvel onglet qui vient de s’ouvrir dans votre navigateur, accédez aux **paramètres de service**.
-1. Sous **options de vérification**, cochez toutes les cases pour les méthodes disponibles pour les utilisateurs.
+1. Sous le nouvel onglet qui vient de s’ouvrir dans votre navigateur, accédez aux **paramètres de service** .
+1. Sous **options de vérification** , cochez toutes les cases pour les méthodes disponibles pour les utilisateurs.
 
    ![Configurer des méthodes de vérification dans l’onglet de paramètres de service Authentification multifacteur](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-1. Cliquez sur **Save**(Enregistrer).
-1. Fermez l’onglet **paramètres de service**.
+1. Cliquez sur **Save** (Enregistrer).
+1. Fermez l’onglet **paramètres de service** .
 
 ## <a name="plan-registration-policy"></a>Planifier la stratégie d'inscription
 
@@ -226,31 +226,31 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Pour planifier votre stratégie d’accès conditionnel, qui déterminera quand l’authentification multifacteur et d’autres contrôles sont requis, reportez-vous à [Stratégies d’accès conditionnel courantes](../conditional-access/concept-conditional-access-policy-common.md).
 
-Il est important que vous évitiez de perdre l’accès à votre locataire Azure AD. Vous pouvez pallier l’impact d’un défaut d’accès administratif [en créant plusieurs comptes d’accès d’urgence dans votre locataire](../users-groups-roles/directory-emergency-access.md) et en les excluant de la stratégie d’accès conditionnel.
+Il est important que vous évitiez de perdre l’accès à votre locataire Azure AD. Vous pouvez pallier l’impact d’un défaut d’accès administratif [en créant plusieurs comptes d’accès d’urgence dans votre locataire](../roles/security-emergency-access.md) et en les excluant de la stratégie d’accès conditionnel.
 
 ### <a name="create-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
-1. Sélectionnez **Nouvelle stratégie**.
+1. Sélectionnez **Nouvelle stratégie** .
    ![Créer une stratégie d’accès conditionnel pour activer l’authentification multifacteur pour les utilisateurs du portail Azure dans le groupe pilote](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Entrez un nom explicite pour votre stratégie.
-1. Sous **utilisateurs et groupes** :
-   * Dans l’onglet **Inclure**, sélectionnez la case d’option **Tous les utilisateurs**
-   * Dans l’onglet **Exclure**, cochez la case **Utilisateurs et groupes** et choisissez vos comptes d’accès d’urgence.
-   * Cliquez sur **Done**.
-1. Sous **Applications Cloud**, sélectionnez la case d’option **Toutes les applications cloud**.
-   * FACULTATIF : sous l’onglet **Exclure**, choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
-   * Cliquez sur **Done**.
-1. Sous la section **Conditions** :
+1. Sous **utilisateurs et groupes**  :
+   * Dans l’onglet **Inclure** , sélectionnez la case d’option **Tous les utilisateurs**
+   * Dans l’onglet **Exclure** , cochez la case **Utilisateurs et groupes** et choisissez vos comptes d’accès d’urgence.
+   * Cliquez sur **Done** .
+1. Sous **Applications Cloud** , sélectionnez la case d’option **Toutes les applications cloud** .
+   * FACULTATIF : sous l’onglet **Exclure** , choisissez les applications cloud pour lesquelles votre organisation ne nécessite pas d’authentification multifacteur.
+   * Cliquez sur **Done** .
+1. Sous la section **Conditions**  :
    * FACULTATIF : si vous avez activé Azure Identity Protection, vous pouvez choisir d’évaluer le risque de connexion dans le cadre de la stratégie.
    * FACULTATIF : si vous avez configuré des emplacements approuvés ou des emplacements nommés, vous pouvez spécifier l’inclusion ou l’exclusion de ces emplacements à partir de la stratégie.
-1. Sous **Accord**, assurez-vous que la case d’option **Accorder l’accès** est sélectionnée.
-    * Cochez la case **Exiger une authentification multifacteur**.
-    * Cliquez sur **Sélectionner**.
-1. Ignorez la section **Session**.
-1. Basculez **Activer la stratégie** sur **Activé**.
-1. Cliquez sur **Créer**.
+1. Sous **Accord** , assurez-vous que la case d’option **Accorder l’accès** est sélectionnée.
+    * Cochez la case **Exiger une authentification multifacteur** .
+    * Cliquez sur **Sélectionner** .
+1. Ignorez la section **Session** .
+1. Basculez **Activer la stratégie** sur **Activé** .
+1. Cliquez sur **Créer** .
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planifier l’intégration avec les systèmes locaux
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e13fe634db49dcc3f015eb90410c3b7753c8363
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318058"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362788"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -42,7 +42,7 @@ Les notes de publication relatives aux nouveautés d’Azure Active Directory fo
 **Catégorie de service :** B2B  
 **Fonctionnalité de produit :** B2B/B2C
  
-**À partir du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure Active Directory (Azure AD) non managés pour les scénarios de collaboration B2B. Dans cette optique, nous vous encourageons à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](../external-identities/one-time-passcode.md).
+**À partir du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure Active Directory (Azure AD) non managés pour les scénarios de collaboration B2B. Dans cette optique, nous vous encourageons à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](../external-identities/one-time-passcode.md).
 
 ---
 
@@ -183,7 +183,7 @@ Cette modification a été activée le 13 mars 2020, à 10 H 00 PST (18:00�
 **Catégorie de service :** Gestion des groupes  
 **Fonctionnalité de produit :** Collaboration
 
-Pour fournir aux clients un moyen plus souple de créer des groupes au niveau de l’annuaire, tout en répondant mieux à leurs besoins, nous avons remplacé l’option **Groupes à l’échelle de l’annuaire** dans **Groupes** > **Paramètres généraux** du portail Azure par un lien vers la [documentation du groupe dynamique](../users-groups-roles/groups-dynamic-membership.md). Nous avons amélioré notre documentation pour inclure des instructions supplémentaires permettant aux administrateurs de créer des groupes de tous les utilisateurs qui incluent ou excluent des utilisateurs invités.
+Pour fournir aux clients un moyen plus souple de créer des groupes au niveau de l’annuaire, tout en répondant mieux à leurs besoins, nous avons remplacé l’option **Groupes à l’échelle de l’annuaire** dans **Groupes** > **Paramètres généraux** du portail Azure par un lien vers la [documentation du groupe dynamique](../enterprise-users/groups-dynamic-membership.md). Nous avons amélioré notre documentation pour inclure des instructions supplémentaires permettant aux administrateurs de créer des groupes de tous les utilisateurs qui incluent ou excluent des utilisateurs invités.
 
 ---
 
@@ -432,11 +432,11 @@ Dans le cadre d’un modèle sécurisé par défaut pour les cookies, le navigat
 
 Nous recommandons à tous nos développeurs de tester leurs applications en suivant ces conseils :
 
-- Définissez la valeur par défaut du paramètre **Utiliser un cookie sécurisé** sur **Oui**.
+- Définissez la valeur par défaut du paramètre **Utiliser un cookie sécurisé** sur **Oui** .
 
-- Définissez la valeur par défaut de l’attribut **SameSite** sur **Aucun**.
+- Définissez la valeur par défaut de l’attribut **SameSite** sur **Aucun** .
 
-- Ajoutez un attribut `SameSite` supplémentaire de **Sécurisé**.
+- Ajoutez un attribut `SameSite` supplémentaire de **Sécurisé** .
 
 Pour plus d’informations, voir [Modifications de cookie SameSite à venir dans ASP.NET et ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) et [Perturbation potentielle des sites web client et des produits et services Microsoft dans la version 79 et les versions ultérieures de Chrome](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
 
@@ -614,7 +614,7 @@ Pour plus d’informations sur l’utilisation des définitions de rôle spécif
 
 **Type :** Modification planifiée **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Suite aux commentaires des développeurs, les abonnés à Azure AD Premium P2 peuvent désormais effectuer des requêtes complexes sur les données de détection des risques d’Azure AD Identity Protection à l’aide de la nouvelle API riskDetection pour Microsoft Graph. La version bêta de l’API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) existante cessera de renvoyer des données vers le **10 janvier 2020**. Si votre organisation utilise l’API identityRiskEvent, vous devez passer à la nouvelle API riskDetection.
+Suite aux commentaires des développeurs, les abonnés à Azure AD Premium P2 peuvent désormais effectuer des requêtes complexes sur les données de détection des risques d’Azure AD Identity Protection à l’aide de la nouvelle API riskDetection pour Microsoft Graph. La version bêta de l’API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) existante cessera de renvoyer des données vers le **10 janvier 2020** . Si votre organisation utilise l’API identityRiskEvent, vous devez passer à la nouvelle API riskDetection.
 
 Pour plus d’informations sur la nouvelle API riskDetection, consultez la [Documentation de référence sur l’API de détection des risques](/graph/api/resources/riskdetection).
 
@@ -624,13 +624,13 @@ Pour plus d’informations sur la nouvelle API riskDetection, consultez la [Docu
 
 **Type :** Modification planifiée **Catégorie de service :** Proxy d’application **Fonctionnalité produit :** Contrôle d’accès
 
-À quelques semaines de la publication du navigateur Chrome 80, nous envisageons de mettre à jour la manière dont les cookies du proxy d’application traitent l’attribut **SameSite**. Avec Chrome 80, tous les cookies qui ne spécifieront pas l’attribut **SameSite** seront traités comme s'ils avaient été définis sur `SameSite=Lax`.
+À quelques semaines de la publication du navigateur Chrome 80, nous envisageons de mettre à jour la manière dont les cookies du proxy d’application traitent l’attribut **SameSite** . Avec Chrome 80, tous les cookies qui ne spécifieront pas l’attribut **SameSite** seront traités comme s'ils avaient été définis sur `SameSite=Lax`.
 
 Pour éviter tout impact négatif lié à ce changement, nous mettons à jour l’accès au proxy d’application et les cookies de session en procédant comme suit :
 
-- Définition de la valeur par défaut du paramètre **Utiliser un cookie sécurisé** sur **Oui**.
+- Définition de la valeur par défaut du paramètre **Utiliser un cookie sécurisé** sur **Oui** .
 
-- Définition de la valeur par défaut de l’attribut **SameSite** sur **Aucun**.
+- Définition de la valeur par défaut de l’attribut **SameSite** sur **Aucun** .
 
     >[!NOTE]
     > Les cookies d’accès au proxy d’application ont toujours été transmis exclusivement via des canaux sécurisés. Ces modifications s’appliquent uniquement aux cookies de session.
@@ -739,7 +739,7 @@ Pour plus d’informations, consultez [Mise à niveau vers le modèle de factura
 
 En octobre 2019, nous avons ajouté à notre galerie d’applications les 35 nouvelles applications ci-dessous, qui prennent en charge la fédération :
 
-[In Case of Crisis – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://prd.salestim.io/forms), [Learnster](../saas-apps/learnster-tutorial.md), [Dynatrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [Contentful](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org](../saas-apps/visitorg-tutorial.md), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[In Case of Crisis – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [Dynatrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks](../saas-apps/freshworks-tutorial.md), [eCornell](../saas-apps/ecornell-tutorial.md), [ShipHazmat](../saas-apps/shiphazmat-tutorial.md), [Netskope Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [Contentful](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US](https://www.hirevue.com/), [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org](../saas-apps/visitorg-tutorial.md), [Cambium Xirrus EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speaking Email for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Speaking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
 Pour plus d’informations sur les applications, consultez [Intégration des applications SaaS à Azure Active Directory](../saas-apps/tutorial-list.md). Pour plus d’informations sur le référencement de votre application dans la galerie Azure AD App, consultez [Lister votre application dans la galerie d’applications Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
 
@@ -749,7 +749,7 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Vous pouvez désormais accéder à toutes les fonctionnalités de sécurité Azure AD disponibles à partir du nouvel élément de menu **Sécurité** et de la barre **Rechercher** du portail Azure. En outre, la nouvelle page d’accueil **Sécurité**, appelée **Sécurité - Prise en main**, propose des liens vers notre documentation publique, des conseils de sécurité, ainsi que des guides de déploiement.
+Vous pouvez désormais accéder à toutes les fonctionnalités de sécurité Azure AD disponibles à partir du nouvel élément de menu **Sécurité** et de la barre **Rechercher** du portail Azure. En outre, la nouvelle page d’accueil **Sécurité** , appelée **Sécurité - Prise en main** , propose des liens vers notre documentation publique, des conseils de sécurité, ainsi que des guides de déploiement.
 
 Le nouveau menu **Sécurité** comprend ce qui suit :
 
@@ -774,7 +774,7 @@ La stratégie d’expiration des groupes Office 365 a été améliorée pour re
 
 Cette amélioration permet de réduire les notifications d’expiration de votre groupe et de veiller à ce que les groupes actifs continuent d'être disponibles. Si vous disposez déjà d’une stratégie d’expiration active pour vos groupes Office 365, vous n’avez rien à faire pour activer cette nouvelle fonctionnalité.
 
-Pour plus d'informations, consultez [Configurer la stratégie d’expiration pour les groupes Office 365](../users-groups-roles/groups-lifecycle.md).
+Pour plus d'informations, consultez [Configurer la stratégie d’expiration pour les groupes Office 365](../enterprise-users/groups-lifecycle.md).
 
 ---
 
@@ -804,7 +804,7 @@ Pour plus d’informations sur les classeurs, découvrez [comment utiliser des c
 
 **Type :** Modification planifiée **Catégorie de service :** Mon profil/compte **Fonctionnalité produit :** Collaboration
 
-À compter d’octobre, l’expérience de la page Mon profil deviendra Mon compte. Dans le cadre de cette modification, **Mon compte** s’affichera partout où il est actuellement indiqué **Mon profil**. Outre le changement de nom et quelques améliorations en matière de conception, la mise à jour de l’expérience offrira une intégration supplémentaire à la page du compte Microsoft Office. En particulier, vous serez en mesure d’accéder aux installations et aux abonnements Office à partir de la page **Vue d’ensemble du compte** ainsi qu’à des préférences de contact Office à partir de la page **Confidentialité**.
+À compter d’octobre, l’expérience de la page Mon profil deviendra Mon compte. Dans le cadre de cette modification, **Mon compte** s’affichera partout où il est actuellement indiqué **Mon profil** . Outre le changement de nom et quelques améliorations en matière de conception, la mise à jour de l’expérience offrira une intégration supplémentaire à la page du compte Microsoft Office. En particulier, vous serez en mesure d’accéder aux installations et aux abonnements Office à partir de la page **Vue d’ensemble du compte** ainsi qu’à des préférences de contact Office à partir de la page **Confidentialité** .
 
 Pour plus d’informations sur l’expérience de la page Mon profil (préversion), consultez [Vue d’ensemble du portail Mon profil (préversion)](../user-help/my-account-portal-overview.md).
 
@@ -822,7 +822,7 @@ Nous sommes heureux d’annoncer la disponibilité de la préversion publique de
 
 - Téléchargement de la liste des membres d’un groupe spécifique.
 
-Pour plus d’informations, consultez [Ajouter des membres en bloc](../users-groups-roles/groups-bulk-import-members.md), [Supprimer en bloc des membres](../users-groups-roles/groups-bulk-remove-members.md), [Télécharger une liste de membres en bloc](../users-groups-roles/groups-bulk-download-members.md) et [Télécharger une liste de groupes en bloc](../users-groups-roles/groups-bulk-download.md).
+Pour plus d’informations, consultez [Ajouter des membres en bloc](../enterprise-users/groups-bulk-import-members.md), [Supprimer en bloc des membres](../enterprise-users/groups-bulk-remove-members.md), [Télécharger une liste de membres en bloc](../enterprise-users/groups-bulk-download-members.md) et [Télécharger une liste de groupes en bloc](../enterprise-users/groups-bulk-download.md).
 
 ---
 
@@ -861,7 +861,7 @@ Le rôle Lecteur général fonctionne avec le nouveau Centre d’administration 
 >[!NOTE]
 > Au début de la préversion publique, le rôle Lecteur général ne fonctionnera pas avec : SharePoint, Privileged Access Management, Customer Lockbox, les étiquettes de confidentialité, Teams Lifecycle, Teams Reporting & Call Analytics, Teams IP Phone Device Management et Teams App Catalog.
 
-Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -941,7 +941,7 @@ Pour plus d’informations, voir [Gérer des groupes dans le portail Azure](./ac
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Rôles Azure AD **Fonctionnalité produit :** Contrôle d’accès
 
-Les rôles personnalisés (disponibles avec un abonnement Azure AD P1 ou P2) peuvent désormais vous fournir un accès affiné, en vous permettant de créer des définitions de rôles avec des autorisations spécifiques, puis d’attribuer ces rôles à des ressources spécifiques. Actuellement, vous créez des rôles personnalisés en utilisant des autorisations pour gérer les inscriptions d’applications, puis en affectant le rôle à une application spécifique. Pour plus d’informations sur les rôles personnalisés, consultez [Rôles d’administrateur personnalisés dans Azure Active Directory (préversion)](../users-groups-roles/roles-custom-overview.md).
+Les rôles personnalisés (disponibles avec un abonnement Azure AD P1 ou P2) peuvent désormais vous fournir un accès affiné, en vous permettant de créer des définitions de rôles avec des autorisations spécifiques, puis d’attribuer ces rôles à des ressources spécifiques. Actuellement, vous créez des rôles personnalisés en utilisant des autorisations pour gérer les inscriptions d’applications, puis en affectant le rôle à une application spécifique. Pour plus d’informations sur les rôles personnalisés, consultez [Rôles d’administrateur personnalisés dans Azure Active Directory (préversion)](../roles/custom-overview.md).
 
 Si vous avez besoin de la prise en charge d’autorisations ou de ressources supplémentaires et que vous ne les voyez pas actuellement, vous pouvez envoyer des commentaires à notre [site de retours relatifs à Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) et nous ajouterons votre demande à notre feuille de route de mise à jour.
 
@@ -1044,7 +1044,7 @@ De nouvelles mises à jour des modules PowerShell AzureAD et AzureADPreview sont
 
 Nous avons apporté des améliorations à l’interface utilisateur du générateur de règles de groupe dynamique, disponible dans le portail Azure, pour vous aider à configurer plus facilement une nouvelle règle ou à modifier les règles existantes. Cette amélioration de la conception vous permet de créer des règles avec cinq expressions au lieu d’une seule. Nous avons également mis à jour la liste des propriétés d’appareil pour supprimer les propriétés d’appareil déconseillées.
 
-Pour plus d’informations, consultez gérer les [règles d’appartenance dynamique](../users-groups-roles/groups-dynamic-membership.md).
+Pour plus d’informations, consultez gérer les [règles d’appartenance dynamique](../enterprise-users/groups-dynamic-membership.md).
 
 ---
 
@@ -1080,9 +1080,9 @@ Pour en savoir plus sur l’expérience d’informations de sécurité renforcé
 
 1. Connectez-vous au portail Azure en tant qu’Administrateur général ou Administrateur d’utilisateurs.
 
-2. Accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres pour les fonctionnalités en préversion du volet d’accès**.
+2. Accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres pour les fonctionnalités en préversion du volet d’accès** .
 
-3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré**, choisissez **Sélectionné**, puis un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
+3. Dans la zone **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - amélioré** , choisissez **Sélectionné** , puis un groupe d’utilisateurs ou **Tout** pour activer cette fonctionnalité pour tous les utilisateurs du locataire.
 
 4. Sous la zone **Users can use preview features for registering and managing security **info**,**(les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité), sélectionnez **None** (Aucun).
 
@@ -1123,7 +1123,7 @@ Pour plus d’informations, consultez [Ajouter une application locale pour un ac
 
 **Type :** Modification planifiée **Catégorie de service :** Applications d’entreprise **Fonctionnalité produit :** SSO
 
-De nouvelles modifications d’interface utilisateur vont être apportées à la conception de la zone **Ajouter à partir de la galerie** du panneau **Ajouter une application**. Ces modifications vous aideront à trouver plus facilement vos applications qui prennent en charge l’approvisionnement automatique, OpenID Connect, Security Assertion Markup Language (SAML) et l’authentification unique (SSO) par mot de passe.
+De nouvelles modifications d’interface utilisateur vont être apportées à la conception de la zone **Ajouter à partir de la galerie** du panneau **Ajouter une application** . Ces modifications vous aideront à trouver plus facilement vos applications qui prennent en charge l’approvisionnement automatique, OpenID Connect, Security Assertion Markup Language (SAML) et l’authentification unique (SSO) par mot de passe.
 
 ---
 
@@ -1228,7 +1228,7 @@ Pour plus d’informations, voir [Utilisation et enseignements des méthodes d�
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Tous les administrateurs Azure AD peuvent désormais sélectionner la bannière en haut des rapports de sécurité existants, tels que le rapport **Utilisateurs avec indicateur de risque**, pour commencer à utiliser la nouvelle expérience de sécurité, comme indiqué dans les rapports **Utilisateurs à risque** et **Connexions à risque**. Au fil du temps, tous les rapports de sécurité seront migrés des anciennes versions vers les nouvelles versions, les nouveaux rapports offrant les fonctionnalités supplémentaires suivantes :
+Tous les administrateurs Azure AD peuvent désormais sélectionner la bannière en haut des rapports de sécurité existants, tels que le rapport **Utilisateurs avec indicateur de risque** , pour commencer à utiliser la nouvelle expérience de sécurité, comme indiqué dans les rapports **Utilisateurs à risque** et **Connexions à risque** . Au fil du temps, tous les rapports de sécurité seront migrés des anciennes versions vers les nouvelles versions, les nouveaux rapports offrant les fonctionnalités supplémentaires suivantes :
 
 - Filtrage et tri avancés
 
@@ -1530,7 +1530,7 @@ Vous pouvez appliquer une stratégie de nommage aux groupes Office 365 de deux m
 
 - Charger un jeu personnalisé de mots bloqués pour votre organisation, qui ne sont pas autorisés dans les noms de groupe (par exemple « PDG, paie, RH »).
 
-Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory](../users-groups-roles/groups-naming-policy.md).
+Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1594,7 +1594,7 @@ Vous pouvez appliquer une stratégie de nommage aux groupes Office 365 de deux m
 
 - Charger un jeu personnalisé de mots bloqués pour votre organisation, qui ne sont pas autorisés dans les noms de groupe (par exemple « PDG, paie, RH »).
 
-Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory](../users-groups-roles/groups-naming-policy.md).
+Pour plus d’informations, consultez [Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1634,7 +1634,7 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 Les nouvelles mises à jour des révisions d’accès Azure AD vous permettent d’effectuer les actions suivantes :
 
-- Modifier la fréquence de vos révisions d’accès et la définir sur une fréquence **semestrielle**, en plus des options existantes de fréquence hebdomadaire, mensuelle, trimestrielle et annuelle.
+- Modifier la fréquence de vos révisions d’accès et la définir sur une fréquence **semestrielle** , en plus des options existantes de fréquence hebdomadaire, mensuelle, trimestrielle et annuelle.
 
 - Sélectionnez plusieurs rôles de ressource Azure et Azure AD lors de la création d’une révision d’accès unique. Dans ce cas, tous les rôles sont configurés avec les mêmes paramètres et tous les réviseurs sont informés en même temps.
 
@@ -1664,7 +1664,7 @@ Pour plus d’informations, consultez [Résolution des erreurs lors de la synchr
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Accès conditionnel **Fonctionnalité produit :** Protection et sécurité des identités
 
-L’accès conditionnel basé sur la protection des applications est désormais disponible avec la stratégie **Exiger une protection des applications**. Cette nouvelle stratégie contribue à augmenter la sécurité de votre organisation en évitant les situations suivantes :
+L’accès conditionnel basé sur la protection des applications est désormais disponible avec la stratégie **Exiger une protection des applications** . Cette nouvelle stratégie contribue à augmenter la sécurité de votre organisation en évitant les situations suivantes :
 
 - Que les utilisateurs accèdent aux applications sans licence Microsoft Intune.
 
@@ -1740,7 +1740,7 @@ Pour découvrir comment sécuriser plus efficacement votre organisation à l’a
 
 Vous pouvez désormais afficher et gérer vos groupes Office 365 supprimés à partir du Portail Azure AD. Cette modification vous permet de voir quels groupes sont disponibles pour la restauration, ainsi que de supprimer définitivement tous les groupes qui ne sont pas nécessaires à votre organisation.
 
-Pour plus d’informations, consultez [Restaurer les groupes expirés ou supprimés](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
+Pour plus d’informations, consultez [Restaurer les groupes expirés ou supprimés](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
 ---
 
@@ -1766,11 +1766,11 @@ Cette mise à jour envoie une erreur `invalid_grant` : `AADSTS50196: The server 
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Création de rapports **Fonctionnalité produit :** Monitoring et création de rapports
 
-Nous avons créé une nouvelle page **Journaux d’audit** Azure AD pour aider à améliorer la lisibilité et la manière dont vous recherchez vos informations. Pour afficher la nouvelle page **Journaux d’audit**, sélectionnez **Journaux d’audit** dans la section **Activité** d’Azure AD.
+Nous avons créé une nouvelle page **Journaux d’audit** Azure AD pour aider à améliorer la lisibilité et la manière dont vous recherchez vos informations. Pour afficher la nouvelle page **Journaux d’audit** , sélectionnez **Journaux d’audit** dans la section **Activité** d’Azure AD.
 
 ![Nouvelle page Journaux d’audit, avec exemple d’informations](media/whats-new/audit-logs-page.png)
 
-Pour plus d’informations sur la nouvelle page **Journaux d’audit**, consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
+Pour plus d’informations sur la nouvelle page **Journaux d’audit** , consultez [Rapports d’activité d’audit dans le Portail Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
 
 ---
 
@@ -1866,17 +1866,17 @@ En réponse aux commentaires des clients, nous avons amélioré l’expérience 
 
 **Pour activer l’expérience améliorée pour vos utilisateurs dès aujourd’hui, procédez comme suit :**
 
-1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**.
+1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau** .
 
-2. Dans l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité – actualiser**, choisissez d’activer les fonctionnalités pour un **Groupe sélectionné d’utilisateurs** ou pour **Tous les utilisateurs**.
+2. Dans l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité – actualiser** , choisissez d’activer les fonctionnalités pour un **Groupe sélectionné d’utilisateurs** ou pour **Tous les utilisateurs** .
 
 Au cours des prochaines semaines, nous supprimerons la possibilité d’activer l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les locataires sur lesquels elle n’est pas encore activée.
 
 **Pour voir si le contrôle sera supprimé pour votre locataire, procédez comme suit :**
 
-1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau**.
+1. En tant qu’administrateur général ou administrateur des utilisateurs, connectez-vous au Portail Azure et accédez à **Azure Active Directory > Paramètres utilisateur > Gérer les paramètres d’accès aux fonctionnalités en préversion du panneau** .
 
-2. Si l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité** est définie sur **Aucun**, l’option sera supprimée de votre locataire.
+2. Si l’option **Utilisateurs pouvant utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité** est définie sur **Aucun** , l’option sera supprimée de votre locataire.
 
 Que vous ayez précédemment activé l’ancienne expérience en préversion d’inscription MFA/SSPR combinée pour les utilisateurs ou non, l’ancienne expérience sera désactivée à une date ultérieure. Pour cette raison, nous vous recommandons vivement d’opter pour la nouvelle expérience améliorée dès que possible.
 
@@ -1910,7 +1910,7 @@ Pour plus d’informations sur la sélection de versions spécifiques des élém
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** B2C - Gestion des identités **Fonctionnalité produit :** B2B/B2C
 
-Vous pouvez maintenant configurer la complexité du mot de passe de votre organisation pour les utilisateurs finaux, au lieu d’utiliser votre stratégie de mot de passe Azure AD native. À partir du panneau **Propriétés** de vos flux utilisateur (anciennement, les stratégies intégrées), vous pouvez choisir une complexité du mot de passe entre **Simple** ou **Forte**, ou vous pouvez créer un ensemble **Personnalisé** d’exigences.
+Vous pouvez maintenant configurer la complexité du mot de passe de votre organisation pour les utilisateurs finaux, au lieu d’utiliser votre stratégie de mot de passe Azure AD native. À partir du panneau **Propriétés** de vos flux utilisateur (anciennement, les stratégies intégrées), vous pouvez choisir une complexité du mot de passe entre **Simple** ou **Forte** , ou vous pouvez créer un ensemble **Personnalisé** d’exigences.
 
 Pour plus d’informations sur la configuration de la complexité du mot de passe, consultez [Configurer les exigences de complexité des mots de passe dans Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
 
@@ -1942,11 +1942,11 @@ Pour plus d'informations, consultez [Authentification à l'aide d'un code secret
 
 Nous avons introduit trois nouveaux paramètres de cookies, disponibles pour vos applications publiées via le proxy d’application :
 
-- **Utiliser un cookie HTTPOnly.** Définit l'indicateur **HTTPOnly** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et permet notamment d'éviter de copier ou de modifier les cookies via des scripts côté client. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui**) pour bénéficier de ces avantages supplémentaires.
+- **Utiliser un cookie HTTPOnly.** Définit l'indicateur **HTTPOnly** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et permet notamment d'éviter de copier ou de modifier les cookies via des scripts côté client. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui** ) pour bénéficier de ces avantages supplémentaires.
 
-- **Utiliser un cookie sécurisé.** Définit l'indicateur **Sécurisé** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et veille à ce que les cookies soient uniquement transmis via des canaux sécurisés TLS, tels que HTTPS. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui**) pour bénéficier de ces avantages supplémentaires.
+- **Utiliser un cookie sécurisé.** Définit l'indicateur **Sécurisé** sur l'accès du proxy d'application et les cookies de session. Cette option offre des avantages supplémentaires en termes de sécurité, et veille à ce que les cookies soient uniquement transmis via des canaux sécurisés TLS, tels que HTTPS. Nous vous recommandons d’activer cet indicateur (sélectionnez **Oui** ) pour bénéficier de ces avantages supplémentaires.
 
-- **Utiliser un cookie persistant.** Empêche l'expiration des cookies d'accès lorsque le navigateur web est fermé. La durée de vie de ces cookies correspond à la durée de vie du jeton d'accès. Cela étant, les cookies sont réinitialisés une fois le délai d'expiration atteint ou si l’utilisateur supprime manuellement le cookie. Nous vous recommandons de conserver le paramètre par défaut **Non**, et de n'activer le paramètre que pour les applications plus anciennes qui ne partagent pas de cookies entre processus.
+- **Utiliser un cookie persistant.** Empêche l'expiration des cookies d'accès lorsque le navigateur web est fermé. La durée de vie de ces cookies correspond à la durée de vie du jeton d'accès. Cela étant, les cookies sont réinitialisés une fois le délai d'expiration atteint ou si l’utilisateur supprime manuellement le cookie. Nous vous recommandons de conserver le paramètre par défaut **Non** , et de n'activer le paramètre que pour les applications plus anciennes qui ne partagent pas de cookies entre processus.
 
 Pour plus d’informations sur les nouveaux cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
 
@@ -2021,7 +2021,7 @@ Ce correctif empêche donc des mises à jour directes de l’attribut ImmutableI
 
 - **Mise à jour d’ImmutableID à grande échelle pour de nombreux utilisateurs en suivant une approche par étapes**
 
-  Par exemple, vous devez effectuer une migration inter-forêts d’AD DS un peu longue. Solution : Utilisez Azure AD Connect pour **configurer l’ancre source**, puis, lorsque l’utilisateur migre, copiez les valeurs d’ImmutableID existantes d’Azure AD dans l’attribut ms-DS-Consistency-Guid de l’utilisateur d’AD DS local de la nouvelle forêt. Pour plus d’informations, voir [Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](../hybrid/plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
+  Par exemple, vous devez effectuer une migration inter-forêts d’AD DS un peu longue. Solution : Utilisez Azure AD Connect pour **configurer l’ancre source** , puis, lorsque l’utilisateur migre, copiez les valeurs d’ImmutableID existantes d’Azure AD dans l’attribut ms-DS-Consistency-Guid de l’utilisateur d’AD DS local de la nouvelle forêt. Pour plus d’informations, voir [Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](../hybrid/plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 - **Mises à jour d’ImmutableID à grande échelle pour de nombreux utilisateurs en une fois**
 
@@ -2036,14 +2036,14 @@ Ce correctif empêche donc des mises à jour directes de l’attribut ImmutableI
 Nous publions actuellement à la fois des flux de journaux d’audit et de connexion via Azure Monitor. Vous pouvez donc en toute transparence intégrer les fichiers journaux avec vos outils SIEM ou Log Analytics. En réponse à vos commentaires et en vue de l’annonce de la disponibilité générale de cette fonctionnalité, nous apportons les modifications suivantes à notre schéma. Ces modifications de schéma et les mises à jour de documentation connexes se produiront d’ici la première semaine de janvier.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nouveaux champs du schéma d’audit
-Nous ajoutons un nouveau champ **Type d’opération**, pour fournir le type d’opération effectuée sur la ressource. Par exemple, **Ajouter**, **Mettre à jour** ou **Supprimer**.
+Nous ajoutons un nouveau champ **Type d’opération** , pour fournir le type d’opération effectuée sur la ressource. Par exemple, **Ajouter** , **Mettre à jour** ou **Supprimer** .
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Champs modifiés du schéma d’audit
 Les champs suivants font l’objet de modifications dans le schéma d’audit :
 
 |Nom du champ|Ce qui a changé|Anciennes valeurs|Nouvelles valeurs|
 |----------|------------|----------|----------|
-|Category|Il s’agissait du champ **Nom de service** qui se nomme à présent **Catégories d’audit**. **Nom du service** a été renommé en **loggedByService**.|<ul><li>Approvisionnement des comptes</li><li>Annuaire principal</li><li>Réinitialisation de mot de passe en libre service</li></ul>|<ul><li>User Management</li><li>Gestion des groupes</li><li>Gestion des applications</li></ul>|
+|Category|Il s’agissait du champ **Nom de service** qui se nomme à présent **Catégories d’audit** . **Nom du service** a été renommé en **loggedByService** .|<ul><li>Approvisionnement des comptes</li><li>Annuaire principal</li><li>Réinitialisation de mot de passe en libre service</li></ul>|<ul><li>User Management</li><li>Gestion des groupes</li><li>Gestion des applications</li></ul>|
 |targetResources|Inclut **TargetResourceType** au niveau supérieur.|&nbsp;|<ul><li>Policy</li><li>Application</li><li>Utilisateur</li><li>Groupe</li></ul>|
 |loggedByService|Fournit le nom du service ayant généré le journal d’audit.|Null|<ul><li>Approvisionnement des comptes</li><li>Annuaire principal</li><li>Réinitialisation de mot de passe libre-service</li></ul>|
 |Résultats|Fournit le résultat des journaux d’audit. Auparavant, nous présentions une énumération, mais nous montrons maintenant la valeur réelle.|<ul><li>0</li><li>1</li></ul>|<ul><li>Succès</li><li>Échec</li></ul>|
@@ -2053,7 +2053,7 @@ Les champs suivants font l’objet de modifications dans le schéma de connexion
 
 |Nom du champ|Ce qui a changé|Anciennes valeurs|Nouvelles valeurs|
 |----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Ce champ était nommé **conditionalaccessPolicies**. Il s’intitule à présent **conditionalaccessPolicies**.|Aucun changement|Aucun changement|
+|appliedConditionalAccessPolicies|Ce champ était nommé **conditionalaccessPolicies** . Il s’intitule à présent **conditionalaccessPolicies** .|Aucun changement|Aucun changement|
 |conditionalAccessStatus|Fournit le résultat de l’état de la stratégie d’accès conditionnel au moment de la connexion. Auparavant, nous présentions une énumération, mais nous montrons maintenant la valeur réelle.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Succès</li><li>Échec</li><li>Non appliqué</li><li>Désactivé</li></ul>|
 |appliedConditionalAccessPolicies: result|Fournit le résultat de l’état individuel de la stratégie d’accès conditionnel au moment de la connexion. Auparavant, nous présentions une énumération, mais nous montrons maintenant la valeur réelle.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Succès</li><li>Échec</li><li>Non appliqué</li><li>Désactivé</li></ul>|
 
@@ -2097,7 +2097,7 @@ Pour plus d’informations sur l’utilisation de l’application Microsoft Auth
 
 Les administrateurs peuvent attribuer des utilisateurs au nouveau rôle Administrateur d’appareil cloud pour effectuer des tâches d’administration des appareils cloud. Les utilisateurs attribués au rôle Administrateur d’appareil cloud peuvent activer, désactiver et supprimer des appareils dans Azure AD et lire des clés BitLocker Windows 10 (le cas échéant) dans le portail Azure.
 
-Pour plus d’informations sur les rôles et les autorisations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Pour plus d’informations sur les rôles et les autorisations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -2226,7 +2226,7 @@ Nous sommes heureux de vous annoncer que vous pouvez maintenant utiliser l'API d
 
 Ce changement vous permet de supprimer plus rapidement vos noms de domaine personnalisés si votre organisation n'utilise plus le nom, ou si vous devez utiliser le nom de domaine avec un autre AD Azure.
 
-Pour plus d’informations, consultez [Supprimer un nom de domaine personnalisé](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name).
+Pour plus d’informations, consultez [Supprimer un nom de domaine personnalisé](../enterprise-users/domains-manage.md#delete-a-custom-domain-name).
 
 ---
 
@@ -2246,7 +2246,7 @@ Ces rôles sont les suivants :
 
 - Administrateur d’utilisateurs
 
-Pour plus d’informations, consultez l’article [Créer un groupe dynamique et vérifier l’état](../users-groups-roles/groups-create-rule.md).
+Pour plus d’informations, consultez l’article [Créer un groupe dynamique et vérifier l’état](../enterprise-users/groups-create-rule.md).
 
 ---
 
@@ -2291,7 +2291,7 @@ Pour plus d’informations, consultez l’article [Qu’est-ce que le portail My
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Création de rapports **Fonctionnalité produit :** Monitoring et création de rapports
 
-Le nouvel onglet **Résolution des problèmes et support** de la page **Connexions** du Portail Azure est destinée à aider les administrateurs et les ingénieurs du support à résoudre les problèmes liés aux connexions Azure AD. Ce nouvel onglet fournit le code d’erreur, le message d’erreur et des recommandations de correction (le cas échéant) pour faciliter la résolution du problème. Si vous ne parvenez pas à résoudre le problème, nous vous indiquons également une nouvelle façon de créer un ticket de support à l’aide de l’expérience **Copier dans le Presse-papiers**, qui remplit les champs **ID de demande** et **Date (UTC)** pour le fichier journal dans votre ticket de support.
+Le nouvel onglet **Résolution des problèmes et support** de la page **Connexions** du Portail Azure est destinée à aider les administrateurs et les ingénieurs du support à résoudre les problèmes liés aux connexions Azure AD. Ce nouvel onglet fournit le code d’erreur, le message d’erreur et des recommandations de correction (le cas échéant) pour faciliter la résolution du problème. Si vous ne parvenez pas à résoudre le problème, nous vous indiquons également une nouvelle façon de créer un ticket de support à l’aide de l’expérience **Copier dans le Presse-papiers** , qui remplit les champs **ID de demande** et **Date (UTC)** pour le fichier journal dans votre ticket de support.
 
 ![Journaux d’activité de connexion présentant le nouvel onglet](media/whats-new/troubleshooting-and-support.png)
 
@@ -2303,7 +2303,7 @@ Le nouvel onglet **Résolution des problèmes et support** de la page **Connexio
 
 Grâce à cette mise à jour, vous pouvez désormais cliquer sur le lien **Get custom extension properties** (Obtenir les propriétés d’extension personnalisées) du générateur de règles de groupe d’utilisateurs dynamiques, entrer votre ID d’application unique et recevoir la liste complète des propriétés d’extension personnalisées à utiliser lors de la création d’une règle d’appartenance dynamique pour les utilisateurs. Vous pouvez également actualiser cette liste afin d’obtenir les nouvelles propriétés d’extension personnalisées pour cette application.
 
-Pour plus d’informations sur l’utilisation de propriétés d’extension personnalisées pour les règles d’appartenance dynamiques, consultez la section [Attributs d’extension et propriétés d’extension personnalisée](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).
+Pour plus d’informations sur l’utilisation de propriétés d’extension personnalisées pour les règles d’appartenance dynamiques, consultez la section [Attributs d’extension et propriétés d’extension personnalisée](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).
 
 ---
 
@@ -2385,7 +2385,7 @@ L’interface utilisateur de configuration d’applications basées sur SAML que
 
 - la possibilité de définir le format NameID pour les applications SAML et de définir la valeur NameID sous forme d’Extensions d’annuaire.
 
-Pour activer cet affichage mis à jour, cliquez sur le lien **Essayer la nouvelle expérience** en haut de la page **Authentification unique**. Pour plus d’informations, consultez [Didacticiel : Configurez l’authentification unique SAML pour une application avec Azure Active Directory](../manage-apps/view-applications-portal.md).
+Pour activer cet affichage mis à jour, cliquez sur le lien **Essayer la nouvelle expérience** en haut de la page **Authentification unique** . Pour plus d’informations, consultez [Didacticiel : Configurez l’authentification unique SAML pour une application avec Azure Active Directory](../manage-apps/view-applications-portal.md).
 
 ---
 
@@ -2651,7 +2651,7 @@ L’authentification directe prend en charge les applications et les protocoles 
 
 Cette nouvelle fonctionnalité permet aux utilisateurs de gérer leurs informations de sécurité (par exemple, numéro de téléphone, adresse de messagerie, application mobile, etc) pour la réinitialisation de mot de passe libre-service (SSPR) et l’authentification multifacteur (MFA) dans une seule expérience. Les utilisateurs ne devront plus inscrire les mêmes informations de sécurité pour SSPR et MFA dans deux expériences différentes. Cette nouvelle expérience s’applique également aux utilisateurs qui dispose de SSPR ou MFA.
 
-Si une organisation ne respecte pas l’inscription MFA ou SSPR, les utilisateurs peuvent inscrire leurs informations de sécurité via le portail **Mes applications**. À partir de là, les utilisateurs peuvent inscrire des méthodes activées pour MFA ou SSPR.
+Si une organisation ne respecte pas l’inscription MFA ou SSPR, les utilisateurs peuvent inscrire leurs informations de sécurité via le portail **Mes applications** . À partir de là, les utilisateurs peuvent inscrire des méthodes activées pour MFA ou SSPR.
 
 Il s’agit d’une inscription à une version préliminaire publique. Les administrateurs peuvent activer la nouvelle expérience (le cas échéant) pour un groupe sélectionné d’utilisateurs ou de tous les utilisateurs d’un client.
 
@@ -2673,16 +2673,16 @@ Les notifications d’application mobile peuvent uniquement être activées dans
 
 **Type :** Modification planifiée **Catégorie de service :** Création de rapports **Fonctionnalité produit :** Monitoring et création de rapports
 
-En raison du renforcement de la sécurité, nous avons dû modifier les autorisations pour les applications qui utilisent un flux d’autorisation déléguée pour accéder aux [API de journal d’activité Azure AD](../reports-monitoring/concept-reporting-api.md). Cette modification prendra effet d’ici **le 26 juin 2018**.
+En raison du renforcement de la sécurité, nous avons dû modifier les autorisations pour les applications qui utilisent un flux d’autorisation déléguée pour accéder aux [API de journal d’activité Azure AD](../reports-monitoring/concept-reporting-api.md). Cette modification prendra effet d’ici **le 26 juin 2018** .
 
 Si l’une de vos applications utilise des API de journal d’activité Azure AD, procédez comme suit pour vous assurer que l’application ne s’arrête pas après l’application de la modification.
 
 **Pour mettre à jour les autorisations de votre application**
 
-1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory**, puis **Inscriptions des applications**.
-2. Sélectionnez l’application qui utilise l’API Journal d’activité Azure AD, sélectionnez **Paramètres**, **Autorisations requises**, puis l’API **Microsoft Azure Active Directory**.
-3. Dans la zone **Autorisations déléguées** du panneau **Activer l’accès**, cochez la case à côté **Lire les données d'annuaire**, puis sélectionnez **Enregistrer**.
-4. Sélectionnez **Accorder des autorisations**, puis **Oui**.
+1. Connectez-vous au portail Azure, sélectionnez **Azure Active Directory** , puis **Inscriptions des applications** .
+2. Sélectionnez l’application qui utilise l’API Journal d’activité Azure AD, sélectionnez **Paramètres** , **Autorisations requises** , puis l’API **Microsoft Azure Active Directory** .
+3. Dans la zone **Autorisations déléguées** du panneau **Activer l’accès** , cochez la case à côté **Lire les données d'annuaire** , puis sélectionnez **Enregistrer** .
+4. Sélectionnez **Accorder des autorisations** , puis **Oui** .
 
     >[!Note]
     >Vous devez être un administrateur général pour accorder des autorisations à l’application.
@@ -2697,7 +2697,7 @@ Pour plus d’informations, consultez la section [Accorder des autorisations](..
 
 Le protocole TLS (Transport Layer Security) garantit la confidentialité et l’intégrité des données entre deux applications qui communiquent. Il s’agit du protocole de sécurité le plus largement utilisé aujourd’hui.
 
-Le [Conseil des normes de sécurité PCI](https://www.pcisecuritystandards.org/) a déterminé que les premières versions des protocoles TLS et SSL (Secure Sockets Layer) doivent être désactivées en faveur de nouveaux protocoles d’application plus sécurisés, dont l’utilisation est obligatoire depuis le **30 juin 2018**. Cela signifie que si vous vous connectez à des services Azure AD et que vous avez besoin de la conformité PCI DSS, vous devez désactiver TLS 1.0. Plusieurs versions de TLS sont disponibles, toutefois, TLS 1.2 est la version la plus récente disponible pour Azure Active Directory. Nous vous recommandons de passer directement à TLS 1.2, à la fois pour les combinaisons client/serveur et navigateur/serveur.
+Le [Conseil des normes de sécurité PCI](https://www.pcisecuritystandards.org/) a déterminé que les premières versions des protocoles TLS et SSL (Secure Sockets Layer) doivent être désactivées en faveur de nouveaux protocoles d’application plus sécurisés, dont l’utilisation est obligatoire depuis le **30 juin 2018** . Cela signifie que si vous vous connectez à des services Azure AD et que vous avez besoin de la conformité PCI DSS, vous devez désactiver TLS 1.0. Plusieurs versions de TLS sont disponibles, toutefois, TLS 1.2 est la version la plus récente disponible pour Azure Active Directory. Nous vous recommandons de passer directement à TLS 1.2, à la fois pour les combinaisons client/serveur et navigateur/serveur.
 
 Les navigateurs obsolètes risquent de ne pas prendre en charge les versions les plus récentes de TLS, telles que TLS 1.2. Pour savoir quelles versions de TLS sont prises en charge par votre navigateur, accédez au site [Qualys SSL Labs](https://www.ssllabs.com/), puis cliquez sur **Test your browser** (Testez votre navigateur). Nous vous recommandons de mettre à jour votre navigateur web vers la dernière version disponible et d’activer uniquement le protocole TLS 1.2.
 
@@ -2705,25 +2705,25 @@ Les navigateurs obsolètes risquent de ne pas prendre en charge les versions les
 
 - **Microsoft Edge et Internet Explorer (les deux sont configurés à l’aide d’Internet Explorer)**
 
-    1. Ouvrez Internet Explorer, sélectionnez **Outils** > **Options Internet** > **Avancé**.
-    2. Dans la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
+    1. Ouvrez Internet Explorer, sélectionnez **Outils** > **Options Internet** > **Avancé** .
+    2. Dans la zone **Sécurité** , sélectionnez **Utiliser TLS 1.2** , puis sélectionnez **OK** .
     3. Fermez toutes les fenêtres du navigateur, puis redémarrez Internet Explorer.
 
 - **Google Chrome**
 
-    1. Ouvrez Google Chrome, tapez *chrome://settings/* dans la barre d’adresse, puis appuyez sur **Entrée**.
-    2. Développez les options de la section **Avancé**, accédez à la zone **Système**, puis sélectionnez **Ouvrir les paramètres proxy**.
-    3. Dans la boîte de dialogue **Propriétés Internet**, sélectionnez l’onglet **Avancé**, accédez à la zone **Sécurité**, sélectionnez **Utiliser TLS 1.2**, puis sélectionnez **OK**.
+    1. Ouvrez Google Chrome, tapez *chrome://settings/* dans la barre d’adresse, puis appuyez sur **Entrée** .
+    2. Développez les options de la section **Avancé** , accédez à la zone **Système** , puis sélectionnez **Ouvrir les paramètres proxy** .
+    3. Dans la boîte de dialogue **Propriétés Internet** , sélectionnez l’onglet **Avancé** , accédez à la zone **Sécurité** , sélectionnez **Utiliser TLS 1.2** , puis sélectionnez **OK** .
     4. Fermez toutes les fenêtres du navigateur, puis redémarrez Google Chrome.
 
 - **Mozilla Firefox**
 
-    1. Ouvrez Firefox, tapez *about:config* dans la barre d’adresses, puis appuyez sur **Entrée**.
-    2. Lancez une recherche sur *TLS*, puis sélectionnez l’entrée **security.tls.version.max**.
-    3. Définissez la valeur sur **3** pour forcer le navigateur à utiliser la version TLS 1.2, puis sélectionnez **OK**.
+    1. Ouvrez Firefox, tapez *about:config* dans la barre d’adresses, puis appuyez sur **Entrée** .
+    2. Lancez une recherche sur *TLS* , puis sélectionnez l’entrée **security.tls.version.max** .
+    3. Définissez la valeur sur **3** pour forcer le navigateur à utiliser la version TLS 1.2, puis sélectionnez **OK** .
 
         >[!NOTE]
-        >Firefox version 60.0 prend en charge TLS 1.3, vous pouvez donc également définir la valeur de security.tls.version.max sur **4**.
+        >Firefox version 60.0 prend en charge TLS 1.3, vous pouvez donc également définir la valeur de security.tls.version.max sur **4** .
 
     4. Fermez toutes les fenêtres du navigateur, puis redémarrez Mozilla Firefox.
 
@@ -2807,7 +2807,7 @@ Les administrateurs peuvent désormais déléguer des tâches de gestion des app
 
     - **Propriétaire d’application d’entreprise.** Permet de gérer de nombreux aspects relatifs aux applications d’entreprise avec propriétaire, y compris les paramètres d’authentification unique, les affectations d’applications et le consentement (sauf pour les ressources Azure AD).
 
-Pour plus d’informations sur la préversion publique, consultez le blog [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) . Pour plus d’informations sur les rôles et les autorisations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Pour plus d’informations sur la préversion publique, consultez le blog [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) . Pour plus d’informations sur les rôles et les autorisations, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -2817,7 +2817,7 @@ Pour plus d’informations sur la préversion publique, consultez le blog [Azure
 
 **Type :** Modification planifiée **Catégorie de service :** Authentifications (connexions) **Fonctionnalité produit :** Plateforme
 
-Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour offrir de meilleures performances en accédant directement à Internet, sans passer par ExpressRoute ni par un autre tunnel VPN privé. Pour cette raison, à compter du **1er août 2018**, nous arrêtons la prise en charge d’ExpressRoute pour les services Azure AD qui utilisent le peering public Azure et les communautés Azure qui utilisent le peering Microsoft. Pour tous les services concernés par cette modification, vous remarquerez le passage progressif du trafic Azure AD d’ExpressRoute à Internet.
+Les offres de SaaS, comme Azure Active Directory (Azure AD) sont conçues pour offrir de meilleures performances en accédant directement à Internet, sans passer par ExpressRoute ni par un autre tunnel VPN privé. Pour cette raison, à compter du **1er août 2018** , nous arrêtons la prise en charge d’ExpressRoute pour les services Azure AD qui utilisent le peering public Azure et les communautés Azure qui utilisent le peering Microsoft. Pour tous les services concernés par cette modification, vous remarquerez le passage progressif du trafic Azure AD d’ExpressRoute à Internet.
 
 Même si nous modifions la prise en charge, nous savons qu’il existe toujours des situations où vous devrez peut-être utiliser un ensemble dédié de circuits pour le trafic d’authentification. Pour cette raison, Azure AD continue à prendre en charge les restrictions de plage d’adresses IP par abonné avec ExpressRoute et les services qui utilisent déjà le peering Microsoft avec la communauté « Autres services en ligne Office 365 ». Si vos services sont concernés, mais que vous avez besoin d’ExpressRoute, vous devez procéder comme suit :
 
@@ -2957,7 +2957,7 @@ La fonctionnalité de révision d’accès des groupes et applications fait main
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Authentifications (connexions) **Fonctionnalité produit :** Authentification utilisateur
 
-Les applications créées le 25 avril 2018 et après ne pourront plus demander un **id_token** à l’aide de la **requête** response_mode.  Cette opération met en ligne Azure AD avec les spécifications OIDC et vous aide à limiter la surface d’attaque des applications.  Rien n’empêche les applications créées avant le 25 avril 2018 d’utiliser la **requête** response_mode avec un paramètre response_type **id_token**.  Si vous demandez un id_token depuis AAD, vous recevez un message d’erreur du type : **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token** (AADSTS70007 : « query » n’est pas une valeur « response_mode » prise en charge au moment de demander un jeton).
+Les applications créées le 25 avril 2018 et après ne pourront plus demander un **id_token** à l’aide de la **requête** response_mode.  Cette opération met en ligne Azure AD avec les spécifications OIDC et vous aide à limiter la surface d’attaque des applications.  Rien n’empêche les applications créées avant le 25 avril 2018 d’utiliser la **requête** response_mode avec un paramètre response_type **id_token** .  Si vous demandez un id_token depuis AAD, vous recevez un message d’erreur du type : **AADSTS70007: ‘query’ is not a supported value of ‘response_mode’ when requesting a token** (AADSTS70007 : « query » n’est pas une valeur « response_mode » prise en charge au moment de demander un jeton).
 
 Les requêtes response_mode **fragment** et **form_post** continuent de fonctionner. Au moment de créer des objets d’application (par exemple, pour l’utilisation du proxy d’application), vérifiez que l’une de ces requêtes response_mode est utilisée avant de créer l’application.
 
@@ -3078,7 +3078,7 @@ Pour plus d’informations, consultez [Accorder aux utilisateurs B2B dans Azure 
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Autre **Fonctionnalité produit :** Intégration tierce
 
-Si une application qui est listée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant**, vous accédez au tutoriel sur l’intégration qui est associé à cette application.
+Si une application qui est listée dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) prend en charge l’authentification unique SAML, en cliquant sur **Obtenir maintenant** , vous accédez au tutoriel sur l’intégration qui est associé à cette application.
 
 ---
 
@@ -3254,7 +3254,7 @@ Pour plus d'informations, consultez les pages suivantes : [Personnaliser la lis
 Il est possible de modifier la façon dont l’appartenance est gérée dans un groupe. Cela est utile lorsque vous souhaitez conserver le même nom et le même ID de groupe dans le système, afin que toutes les références au groupe existantes soient toujours valides ; la création d’un groupe nécessiterait la mise à jour de ces références.
 Nous avons mis à jour le Centre d’administration Azure AD pour la prise en charge de cette fonctionnalité. Maintenant, les clients peuvent convertir l’appartenance dynamique à des groupes existants en appartenance affectée et vice versa. Les cmdlets PowerShell existants sont également toujours disponibles.
 
-Pour plus d’informations, consultez [Règles d’appartenance de groupe dynamique dans Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+Pour plus d’informations, consultez [Règles d’appartenance de groupe dynamique dans Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 
@@ -3299,9 +3299,9 @@ L’expérience de navigation pour la gestion des utilisateurs et groupes a ét�
 
 Les rapports du journal d’activité Azure AD sont maintenant disponibles dans Microsoft Azure géré par des instances 21Vianet (Azure China 21Vianet). Les journaux d’activité suivants sont inclus :
 
-- **Journaux d’activité des connexions** : incluent tous les journaux d’activité des connexions associés à votre locataire.
+- **Journaux d’activité des connexions**  : incluent tous les journaux d’activité des connexions associés à votre locataire.
 
-- **Journaux d’audit de mot de passe libre-service** : comprennent tous les journaux d’audit SSPR.
+- **Journaux d’audit de mot de passe libre-service**  : comprennent tous les journaux d’audit SSPR.
 
 - **Journaux d’audit de gestion des annuaires** : incluent tous les journaux d’audit liés à la gestion des annuaires, comme la gestion des utilisateurs, la gestion des applications, etc.
 
@@ -3473,7 +3473,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 **Type :** Fonctionnalité modifiée **Catégorie de service :** Conditions d’utilisation **Fonctionnalité produit :** Conformité
 
-Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cliquer sur **Des problèmes d’affichage ? Cliquez ici**. Ce lien ouvre les conditions d’utilisation en mode natif sur votre appareil. Quelle que soit la taille de police dans le document ou la taille d’écran de l’appareil, vous pouvez effectuer un zoom avant et lire le document selon vos besoins.
+Lorsque les conditions d’utilisation s’affichent, vous pouvez maintenant cliquer sur **Des problèmes d’affichage ? Cliquez ici** . Ce lien ouvre les conditions d’utilisation en mode natif sur votre appareil. Quelle que soit la taille de police dans le document ou la taille d’écran de l’appareil, vous pouvez effectuer un zoom avant et lire le document selon vos besoins.
 
 ---
 
@@ -3509,7 +3509,7 @@ Pour plus d’informations, consultez [Détections des risques dans Azure Active
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Mes applications **Fonctionnalité produit :** SSO
 
-Désormais, vous pouvez mieux gérer comment les applications Office 365 apparaissent dans les panneaux d’accès de vos utilisateurs, grâce à un nouveau paramètre utilisateur. Cette option permet de réduire le nombre d’applications dans les panneaux d’accès d’un utilisateur, si vous préférez n’afficher que les applications Office dans le portail Office. Ce paramètre se trouve dans **Paramètres utilisateur** et s’intitule **Les utilisateurs peuvent voir uniquement les applications Office 365 dans le portail Office 365**.
+Désormais, vous pouvez mieux gérer comment les applications Office 365 apparaissent dans les panneaux d’accès de vos utilisateurs, grâce à un nouveau paramètre utilisateur. Cette option permet de réduire le nombre d’applications dans les panneaux d’accès d’un utilisateur, si vous préférez n’afficher que les applications Office dans le portail Office. Ce paramètre se trouve dans **Paramètres utilisateur** et s’intitule **Les utilisateurs peuvent voir uniquement les applications Office 365 dans le portail Office 365** .
 
 Pour plus d’informations, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 
@@ -3581,7 +3581,7 @@ Procédez comme suit :
 
 2. Dans l’angle supérieur droit, sélectionnez votre nom puis **Profil** dans la liste.
 
-3. Dans votre **profil**, cliquez sur **Vérifier les conditions d’utilisation**.
+3. Dans votre **profil** , cliquez sur **Vérifier les conditions d’utilisation** .
 
 4. Vérifiez les conditions d’utilisation que vous avez acceptées.
 
@@ -3832,9 +3832,9 @@ Dans le centre d’administration Azure AD, vous pouvez désormais :
 
 **Pour essayer :**
 
-1. Dans le centre d’administration Azure AD, sélectionnez [Tous les utilisateurs](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) dans la section **Gérer**.
+1. Dans le centre d’administration Azure AD, sélectionnez [Tous les utilisateurs](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) dans la section **Gérer** .
 
-2. Dans la liste **Afficher**, sélectionnez **Utilisateurs supprimés récemment**.
+2. Dans la liste **Afficher** , sélectionnez **Utilisateurs supprimés récemment** .
 
 3. Sélectionnez un ou plusieurs utilisateurs supprimés récemment, puis restaurez-les ou supprimez-les définitivement.
 
@@ -3895,7 +3895,7 @@ En raison de ces nouvelles fonctionnalités, les API de rapport sous le point de
 
 **Type :** Corrigé **Catégorie de service :** Mes applications **Fonctionnalité produit :** Authentification unique
 
-Azure Active Directory prend en charge la détection automatique des champs de connexion pour les applications qui affichent un champ de nom d’utilisateur et un champ de mot de passe HTML. Ces étapes sont documentées sous [Comment capturer automatiquement les champs de connexion d’une application](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Vous pouvez rechercher cette fonctionnalité en ajoutant une application *ne provenant pas de la galerie* sur la page **Applications d’entreprise** du [portail Azure](https://aad.portal.azure.com). En outre dans cette nouvelle application, vous pouvez configurer le mode **Authentification unique** sur **Authentification unique avec mot de passe**, entrer une URL web, puis enregistrer la page.
+Azure Active Directory prend en charge la détection automatique des champs de connexion pour les applications qui affichent un champ de nom d’utilisateur et un champ de mot de passe HTML. Ces étapes sont documentées sous [Comment capturer automatiquement les champs de connexion d’une application](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Vous pouvez rechercher cette fonctionnalité en ajoutant une application *ne provenant pas de la galerie* sur la page **Applications d’entreprise** du [portail Azure](https://aad.portal.azure.com). En outre dans cette nouvelle application, vous pouvez configurer le mode **Authentification unique** sur **Authentification unique avec mot de passe** , entrer une URL web, puis enregistrer la page.
 
 En raison d’un problème de service, cette fonctionnalité a été temporairement désactivée. Le problème a été résolu et la détection automatique des champs de connexion est à nouveau disponible.
 
@@ -3967,7 +3967,7 @@ Pour plus d’informations, consultez [Révisions d’accès Azure AD](../govern
 
 **Type :** Nouvelle fonctionnalité **Catégorie de service :** Mes applications **Fonctionnalité produit :** Authentification unique
 
-Désormais, vous pouvez mieux gérer les applications qui s’affichent sur les portails de vos utilisateurs grâce à une nouvelle propriété permettant de **masquer une application**. Vous pouvez masquer des applications pour plus de clarté en cas d’affichage de mosaïques d’applications pour les services principaux, de vignettes en double et de lanceurs d’applications des utilisateurs. La commande se trouve dans la section **Properties (Propriétés)** de l’application tierce et s’appelle **Visible to user? (Visible par l’utilisateur ?)** . Vous pouvez également masquer une application par programme l’aide de PowerShell.
+Désormais, vous pouvez mieux gérer les applications qui s’affichent sur les portails de vos utilisateurs grâce à une nouvelle propriété permettant de **masquer une application** . Vous pouvez masquer des applications pour plus de clarté en cas d’affichage de mosaïques d’applications pour les services principaux, de vignettes en double et de lanceurs d’applications des utilisateurs. La commande se trouve dans la section **Properties (Propriétés)** de l’application tierce et s’appelle **Visible to user? (Visible par l’utilisateur ?)** . Vous pouvez également masquer une application par programme l’aide de PowerShell.
 
 Pour plus d’informations, consultez [Masquer une application de l’expérience utilisateur dans Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 

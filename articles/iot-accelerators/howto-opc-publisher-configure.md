@@ -9,12 +9,12 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320607"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366953"
 ---
 # <a name="configure-opc-publisher"></a>Configurer OPC Publisher
 
@@ -120,7 +120,7 @@ Cette section décrit les appels de méthode que vous pouvez utiliser pour confi
 
 ### <a name="configure-using-opc-ua-method-calls"></a>Configurer à l’aide des appels de méthode OPC UA
 
-OPC Publisher inclut un serveur OPC UA, accessible sur le port 62222. Si le nom d’hôte est **publisher**, l’URI du point de terminaison est : `opc.tcp://publisher:62222/UA/Publisher`.
+OPC Publisher inclut un serveur OPC UA, accessible sur le port 62222. Si le nom d’hôte est **publisher** , l’URI du point de terminaison est : `opc.tcp://publisher:62222/UA/Publisher`.
 
 Ce point de terminaison présente les quatre méthodes suivantes :
 
@@ -144,7 +144,7 @@ OPC Publisher implémente les appels de méthode directs IoT Hub suivants :
 - ExitApplication
 - GetInfo
 
-Le format de la charge utile JSON de la requête de méthode et des réponses est défini dans [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+Le format de la charge utile JSON de la requête de méthode et des réponses est défini dans [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 Si vous appelez une méthode inconnue sur le module, elle répond avec une chaîne indiquant que la méthode n’est pas implémentée. Vous pouvez appeler une méthode inconnue comme moyen de « pinger » le module.
 

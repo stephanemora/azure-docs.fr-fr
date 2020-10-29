@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312584"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371866"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -53,7 +53,7 @@ Les services Azure AD payants comme Enterprise Mobility + Security complètent 
 
 Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez leur assigner le [rôle intégré](../../role-based-access-control/built-in-roles.md) approprié. Pour obtenir des informations supplémentaires, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. L’Administrateur général a accès à toutes les fonctionnalités de répertoire d’Azure AD. Azure AD dispose d’un autre ensemble de rôles d’administrateur qui permet de gérer le répertoire et les fonctionnalités liées à l’identité. Ces administrateurs ont accès à diverses fonctionnalités dans le portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, assigner des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](active-directory-users-assign-role-azure-portal.md) et [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. L’Administrateur général a accès à toutes les fonctionnalités de répertoire d’Azure AD. Azure AD dispose d’un autre ensemble de rôles d’administrateur qui permet de gérer le répertoire et les fonctionnalités liées à l’identité. Ces administrateurs ont accès à diverses fonctionnalités dans le portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, assigner des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](active-directory-users-assign-role-azure-portal.md) et [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Security complètent d’autres services web, tels que Microsoft 365 et Microsoft Azure, avec des solutions avancées de gestion et de sécurité à l’échelle de l’entreprise.
 

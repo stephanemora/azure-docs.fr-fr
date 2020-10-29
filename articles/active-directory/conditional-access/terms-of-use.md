@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145395"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366494"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -44,7 +44,7 @@ Les conditions d’utilisation d’Azure AD vous permettent d’effectuer les o
 - Faire accepter vos conditions d’utilisation à vos employés ou à vos utilisateurs invités avant d’inscrire les informations de sécurité dans Azure Multi-Factor Authentication (MFA)
 - Faire accepter vos conditions d’utilisation à vos employés avant d’inscrire les informations de sécurité dans la réinitialisation de mot de passe en libre-service (SSPR) Azure AD
 - Présenter les conditions d’utilisation générales à tous les utilisateurs de votre organisation
-- Présenter les conditions d’utilisation spécifiques en fonction des attributs d’un utilisateur (par exemple, docteurs/infirmières ou employés nationaux/internationaux dans des [groupes dynamiques](../users-groups-roles/groups-dynamic-membership.md)).
+- Présenter les conditions d’utilisation spécifiques en fonction des attributs d’un utilisateur (par exemple, docteurs/infirmières ou employés nationaux/internationaux dans des [groupes dynamiques](../enterprise-users/groups-dynamic-membership.md)).
 - Présenter les conditions d’utilisation spécifiques lors de l’accès aux applications à fort impact commercial, comme Salesforce
 - Présenter les conditions d’utilisation dans différentes langues
 - Lister qui a accepté ou refusé vos conditions d’utilisation
@@ -76,17 +76,17 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
    ![Accès conditionnel - Panneau Conditions d’utilisation](./media/terms-of-use/tou-blade.png)
 
-1. Cliquez sur **Nouvelles conditions d’utilisation**.
+1. Cliquez sur **Nouvelles conditions d’utilisation** .
 
    ![Nouveau panneau Conditions d’utilisation permettant de spécifier les paramètres de vos conditions d’utilisation](./media/terms-of-use/new-tou.png)
 
-1. Dans la zone **Nom**, entrez le nom des conditions d’utilisation à utiliser dans le portail Azure.
-1. Dans la zone **Nom d’affichage**, entrez le titre présenté aux utilisateurs quand ils se connectent.
-1. Pour **Document Conditions d’utilisation**, accédez au fichier PDF finalisé de vos conditions d’utilisation et sélectionnez-le.
+1. Dans la zone **Nom** , entrez le nom des conditions d’utilisation à utiliser dans le portail Azure.
+1. Dans la zone **Nom d’affichage** , entrez le titre présenté aux utilisateurs quand ils se connectent.
+1. Pour **Document Conditions d’utilisation** , accédez au fichier PDF finalisé de vos conditions d’utilisation et sélectionnez-le.
 1. Sélectionnez la langue de votre document Conditions d’utilisation. L’option de langue vous permet de charger plusieurs conditions d’utilisation, chacune dans une langue différente. La version des conditions d’utilisation affichée pour l’utilisateur final dépend des préférences de son navigateur.
-1. Pour demander aux utilisateurs finaux d’afficher les conditions d’utilisation avant de les accepter, définissez **Demander aux utilisateurs d’étendre les conditions d’utilisation** sur **Activé**.
-1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** sur **Activé**. Les utilisateurs peuvent être amenés à installer des applications supplémentaires si cette option est activée. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
-1. Si vous voulez faire expirer les consentements pour les conditions d’utilisation selon une planification, définissez **Faire expirer les consentements** sur **Activé**. Si la valeur Activé est définie, deux paramètres de planification supplémentaires sont affichés.
+1. Pour demander aux utilisateurs finaux d’afficher les conditions d’utilisation avant de les accepter, définissez **Demander aux utilisateurs d’étendre les conditions d’utilisation** sur **Activé** .
+1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** sur **Activé** . Les utilisateurs peuvent être amenés à installer des applications supplémentaires si cette option est activée. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
+1. Si vous voulez faire expirer les consentements pour les conditions d’utilisation selon une planification, définissez **Faire expirer les consentements** sur **Activé** . Si la valeur Activé est définie, deux paramètres de planification supplémentaires sont affichés.
 
    ![Paramètres Faire expirer les consentements pour définir la date de début, la fréquence et la durée](./media/terms-of-use/expire-consents.png)
 
@@ -97,14 +97,14 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
    | Date du jour  | Mensuelle | À compter d’aujourd’hui, les utilisateurs doivent accepter les conditions d’utilisation et les réaccepter chaque mois. |
    | Date future  | Mensuelle | À compter d’aujourd’hui, les utilisateurs doivent accepter les conditions d’utilisation. Quand la date future survient, les consentements expirent. Les utilisateurs doivent alors réaccepter les conditions d’utilisation chaque mois.  |
 
-   Par exemple, si vous définissez « Expiration commençant le » avec la date **1 jan** et la fréquence avec la valeur **Mensuelle**, voici comment les expirations peuvent se produire pour deux utilisateurs :
+   Par exemple, si vous définissez « Expiration commençant le » avec la date **1 jan** et la fréquence avec la valeur **Mensuelle** , voici comment les expirations peuvent se produire pour deux utilisateurs :
 
    | Utilisateur | Date d’acceptation initiale | Première date d’expiration | Deuxième date d’expiration | Troisième date d’expiration |
    | --- | --- | --- | --- | --- |
    | Alice | 1 jan | 1 fév | 1 mar | 1 avr |
    | Bob | 15 jan | 1 fév | 1 mar | 1 avr |
 
-1. Utilisez le paramètre **Durée avant nouvelle acceptation requise (jours)** pour spécifier le nombre de jours au bout duquel l’utilisateur doit réaccepter les conditions d’utilisation. Les utilisateurs peuvent ainsi suivre leur propre calendrier. Par exemple, si vous définissez une durée de **30** jours, voici comment les expirations peuvent se produire pour deux utilisateurs :
+1. Utilisez le paramètre **Durée avant nouvelle acceptation requise (jours)** pour spécifier le nombre de jours au bout duquel l’utilisateur doit réaccepter les conditions d’utilisation. Les utilisateurs peuvent ainsi suivre leur propre calendrier. Par exemple, si vous définissez une durée de **30**  jours, voici comment les expirations peuvent se produire pour deux utilisateurs :
 
    | Utilisateur | Date d’acceptation initiale | Première date d’expiration | Deuxième date d’expiration | Troisième date d’expiration |
    | --- | --- | --- | --- | --- |
@@ -113,7 +113,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
    Il est possible d’utiliser les paramètres **Faire expirer les consentements** et **Durée avant nouvelle acceptation requise (jours)** ensemble, mais généralement, vous utilisez l’un ou l’autre.
 
-1. Sous **Accès conditionnel**, utilisez la liste **Appliquer avec des modèles de stratégie d’accès conditionnel** afin de sélectionner le modèle à utiliser pour appliquer les conditions d’utilisation.
+1. Sous **Accès conditionnel** , utilisez la liste **Appliquer avec des modèles de stratégie d’accès conditionnel** afin de sélectionner le modèle à utiliser pour appliquer les conditions d’utilisation.
 
    ![Liste déroulante Accès conditionnel pour sélectionner un modèle de stratégie](./media/terms-of-use/conditional-access-templates.png)
 
@@ -129,7 +129,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
     Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs. Pour plus d’informations, consultez [Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud](require-tou.md).
 
-1. Cliquez sur **Créer**.
+1. Cliquez sur **Créer** .
 
    Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de créer la stratégie d’accès conditionnel personnalisée.
 
@@ -147,11 +147,11 @@ Le panneau des conditions d’utilisation affiche le nombre d’utilisateurs aya
 
    ![Panneau Conditions d’utilisation montrant le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions](./media/terms-of-use/view-tou.png)
 
-1. Cliquez sur les chiffres situés sous **Accepté**et **Refusé** pour voir qui a accepté et qui a refusé les conditions d’utilisation.
+1. Cliquez sur les chiffres situés sous **Accepté** et **Refusé** pour voir qui a accepté et qui a refusé les conditions d’utilisation.
 
    ![Volet Consentements pour les conditions d’utilisation listant les utilisateurs qui ont accepté les conditions d’utilisation](./media/terms-of-use/accepted-tou.png)
 
-1. Pour afficher l’historique d’un utilisateur individuel, cliquez sur le bouton de sélection ( **...** ), puis sur **Afficher l’historique**.
+1. Pour afficher l’historique d’un utilisateur individuel, cliquez sur le bouton de sélection ( **...** ), puis sur **Afficher l’historique** .
 
    ![Menu contextuel Afficher l’historique pour un utilisateur](./media/terms-of-use/view-history-menu.png)
 
@@ -161,13 +161,13 @@ Le panneau des conditions d’utilisation affiche le nombre d’utilisateurs aya
 
 ## <a name="view-azure-ad-audit-logs"></a>Afficher les journaux d’audit Azure AD
 
-Si vous souhaitez afficher d’autres activités, la fonctionnalité Conditions d’utilisation d’Azure AD inclut des journaux d’audit. Chaque consentement d’utilisateur déclenche un événement dans les journaux d’audit qui est stocké pendant **30 jours**. Vous pouvez afficher ces journaux d’activité dans le portail ou les télécharger sous forme de fichier .csv.
+Si vous souhaitez afficher d’autres activités, la fonctionnalité Conditions d’utilisation d’Azure AD inclut des journaux d’audit. Chaque consentement d’utilisateur déclenche un événement dans les journaux d’audit qui est stocké pendant **30 jours** . Vous pouvez afficher ces journaux d’activité dans le portail ou les télécharger sous forme de fichier .csv.
 
 Pour démarrer avec les journaux d’audit Azure AD, effectuez les étapes suivantes :
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez des conditions d’utilisation.
-1. Cliquez sur **Afficher les journaux d’audit**.
+1. Cliquez sur **Afficher les journaux d’audit** .
 
    ![Panneau Conditions d’utilisation avec l’option Afficher les journaux d’audit mise en surbrillance](./media/terms-of-use/audit-tou.png)
 
@@ -202,11 +202,11 @@ Les utilisateurs n’ont à accepter les conditions d’utilisation qu’une seu
 Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont acceptées en procédant de la façon suivante.
 
 1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil**.
+1. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil** .
 
    ![Site MyApps avec le volet de l’utilisateur ouvert](./media/terms-of-use/tou14.png)
 
-1. Dans la page de votre profil, cliquez sur **Vérifier les conditions d’utilisation**.
+1. Dans la page de votre profil, cliquez sur **Vérifier les conditions d’utilisation** .
 
    ![Page de profil d’un utilisateur montrant le lien Vérifier les conditions d’utilisation](./media/terms-of-use/tou13a.png)
 
@@ -218,7 +218,7 @@ Vous pouvez modifier certains détails des conditions d’utilisation, mais il n
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez les conditions d’utilisation à modifier.
-1. Cliquez sur **Modifier les conditions**.
+1. Cliquez sur **Modifier les conditions** .
 1. Dans le volet Modifier les conditions d’utilisation, modifiez le nom, le nom d’affichage ou demandez aux utilisateurs de développer les valeurs.
 
    Si vous souhaitez changer d’autres paramètres, comme le document PDF, le fait de demander le consentement des utilisateurs sur chaque appareil, l’expiration des consentements, la durée avant nouvelle acceptation ou encore la stratégie d’accès conditionnel, vous devez établir de nouvelles conditions d’utilisation.
@@ -235,11 +235,11 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez les conditions d’utilisation à modifier.
-1. Dans le volet d’informations, cliquez sur l’onglet **Langues**.
+1. Dans le volet d’informations, cliquez sur l’onglet **Langues** .
 
    ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/languages-tou.png)
 
-1. Cliquez sur **Ajouter une langue**.
+1. Cliquez sur **Ajouter une langue** .
 1. Dans le volet Ajouter une langue aux conditions d’utilisation, chargez votre PDF localisé et sélectionnez la langue.
 
    ![Volet Ajouter une langue aux conditions d’utilisation avec les options permettant de charger des fichiers PDF localisés](./media/terms-of-use/language-add-tou.png)
@@ -297,8 +297,8 @@ Pour supprimer d’anciennes conditions d’utilisation, effectuez les étapes s
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez les conditions d’utilisation à supprimer.
-1. Cliquez sur **Supprimer les conditions d’utilisation**.
-1. Dans le message qui s’affiche vous demandant si vous souhaitez continuer, cliquez sur **Oui**.
+1. Cliquez sur **Supprimer les conditions d’utilisation** .
+1. Dans le message qui s’affiche vous demandant si vous souhaitez continuer, cliquez sur **Oui** .
 
    ![Message demandant de confirmer la suppression des conditions d’utilisation](./media/terms-of-use/delete-tou.png)
 
@@ -348,7 +348,7 @@ Vous pouvez configurer une stratégie d’accès conditionnel pour l’applicati
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**<br />
-A : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
+A : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté** . Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
 
 **Q : Combien de temps sont stockées les informations ?**<br />
 A : Le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions d’utilisation sont stockés pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.

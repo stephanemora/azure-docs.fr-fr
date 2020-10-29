@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601302"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370999"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guide de référence des opérations de gestion des identités et des accès Azure Active Directory
 
@@ -45,7 +45,7 @@ Quand vous passerez votre liste en revue, vous devrez peut-être affecter un pro
 
 #### <a name="assigning-owners-recommended-reading"></a>Affectation aux propriétaires des lectures recommandées
 
-- [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md)
 - [Gouvernance dans Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Synchronisation des identités locales
@@ -105,9 +105,9 @@ Si votre version d’Azure AD Connect a plus de six mois de retard, vous devez 
 
 #### <a name="source-anchor"></a>Ancre source
 
-L’utilisation de **ms-DS-consistencyguid** en tant qu’[ancre source](../hybrid/plan-connect-design-concepts.md) facilite la migration des objets entre les forêts et les domaines, ce qui est courant dans la consolidation/le nettoyage, les fusions, les acquisitions et les scissions de domaines AD.
+L’utilisation de **ms-DS-consistencyguid** en tant qu’ [ancre source](../hybrid/plan-connect-design-concepts.md) facilite la migration des objets entre les forêts et les domaines, ce qui est courant dans la consolidation/le nettoyage, les fusions, les acquisitions et les scissions de domaines AD.
 
-Si vous utilisez actuellement **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid**.
+Si vous utilisez actuellement **ObjectGuid** en tant qu’ancre source, nous vous recommandons d’utiliser **ms-DS-ConsistencyGuid** .
 
 #### <a name="custom-rules"></a>Règles personnalisées
 
@@ -157,20 +157,20 @@ Utilisez les instructions suivantes afin de définir des plans de service pour l
 - Vous pouvez éventuellement définir un attribut pour contenir les packages des utilisateurs.
 
 > [!IMPORTANT]
-> La gestion des licences basées sur les groupes dans Azure AD introduit le concept d’utilisateurs en état d’erreur d’affectation de licence. Si vous remarquez des erreurs de licence, vous devez immédiatement [identifier et résoudre](../users-groups-roles/licensing-groups-resolve-problems.md) les problèmes d’affectation de licence.
+> La gestion des licences basées sur les groupes dans Azure AD introduit le concept d’utilisateurs en état d’erreur d’affectation de licence. Si vous remarquez des erreurs de licence, vous devez immédiatement [identifier et résoudre](../enterprise-users/licensing-groups-resolve-problems.md) les problèmes d’affectation de licence.
 
 ![Capture d’écran d’un écran d’ordinateur Description générée automatiquement](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Gestion du cycle de vie
 
-Si vous utilisez un outil tel que [Microsoft Identity Manager](/microsoft-identity-manager/) ou un système tiers, qui repose sur une infrastructure locale, nous vous recommandons de déplacer l’affectation de l’outil existant, d’implémenter des licences basées sur les groupes et de définir une gestion du cycle de vie basée sur les [groupes](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). De même, si votre processus existant ne prend pas en compte les nouveaux employés ou les employés qui quittent l’organisation, vous devez déployer des licences basées sur les groupes en fonction des groupes dynamiques, et définir un cycle de vie d’appartenance aux groupes. Enfin, si les licences basées sur les groupes sont déployées sur des groupes locaux dépourvus de gestion du cycle de vie, utilisez des groupes cloud pour activer les fonctionnalités telles que la propriété déléguée ou l’appartenance dynamique basée sur les attributs.
+Si vous utilisez un outil tel que [Microsoft Identity Manager](/microsoft-identity-manager/) ou un système tiers, qui repose sur une infrastructure locale, nous vous recommandons de déplacer l’affectation de l’outil existant, d’implémenter des licences basées sur les groupes et de définir une gestion du cycle de vie basée sur les [groupes](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). De même, si votre processus existant ne prend pas en compte les nouveaux employés ou les employés qui quittent l’organisation, vous devez déployer des licences basées sur les groupes en fonction des groupes dynamiques, et définir un cycle de vie d’appartenance aux groupes. Enfin, si les licences basées sur les groupes sont déployées sur des groupes locaux dépourvus de gestion du cycle de vie, utilisez des groupes cloud pour activer les fonctionnalités telles que la propriété déléguée ou l’appartenance dynamique basée sur les attributs.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Affectation d’applications avec le groupe « Tous les utilisateurs »
 
-Les propriétaires de ressources peuvent penser que le groupe **Tous les utilisateurs** contient uniquement les **Employés d’entreprise**, alors qu’il peut contenir en fait les **Employés d’entreprise** et les **Invités**. Vous devez donc être particulièrement vigilant quand vous utilisez le groupe **Tous les utilisateurs** pour l’affectation d’applications et l’octroi d’un accès aux ressources telles que du contenu ou des applications SharePoint.
+Les propriétaires de ressources peuvent penser que le groupe **Tous les utilisateurs** contient uniquement les **Employés d’entreprise** , alors qu’il peut contenir en fait les **Employés d’entreprise** et les **Invités** . Vous devez donc être particulièrement vigilant quand vous utilisez le groupe **Tous les utilisateurs** pour l’affectation d’applications et l’octroi d’un accès aux ressources telles que du contenu ou des applications SharePoint.
 
 > [!IMPORTANT]
-> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](../external-identities/use-dynamic-groups.md) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise**. En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé, mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que les recommandations de votre organisation précisent bien de se servir de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités**) de manière intentionnelle.
+> Si le groupe **Tous les utilisateurs** est activé et utilisé pour les stratégies d’accès conditionnel, l’affectation d’applications ou de ressources, veillez à [sécuriser le groupe](../external-identities/use-dynamic-groups.md) si vous ne souhaitez pas qu’il inclue des utilisateurs invités. De plus, vous devez corriger vos affectations de licences en les créant et en les affectant aux groupes qui contiennent uniquement des **Employés d’entreprise** . En revanche, si vous constatez que le groupe **Tous les utilisateurs** est activé, mais qu’il n’est pas utilisé pour octroyer l’accès aux ressources, vérifiez que les recommandations de votre organisation précisent bien de se servir de ce groupe (qui inclut les **Employés de l’entreprise** et les **Invités** ) de manière intentionnelle.
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisionnement automatisé des utilisateurs pour les applications
 

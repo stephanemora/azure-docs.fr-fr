@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3fe7b39d0e47965a9603b276960d48d6d3063073
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108250"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364369"
 ---
 # <a name="delete-resources-from-azure"></a>Supprimer des ressources d’Azure
 
@@ -43,8 +43,8 @@ Si vous avez utilisé un groupe de ressources spécifique et dédié pour les se
 Vous pouvez supprimer un groupe de ressources dans le portail Azure en procédant comme suit :
 
 - Accédez au groupe de ressources dans le portail Azure où les ressources de services de données activées par Azure Arc ont été créées.
-- Cliquez sur le bouton **Supprimer le groupe de ressources**.
-- Validez la suppression en entrant le nom du groupe de ressources, puis cliquez sur **Supprimer**.
+- Cliquez sur le bouton **Supprimer le groupe de ressources** .
+- Validez la suppression en entrant le nom du groupe de ressources, puis cliquez sur **Supprimer** .
 
 ## <a name="delete-specific-resources-in-the-resource-group"></a>Supprimer des ressources spécifiques dans le groupe de ressources
 
@@ -53,7 +53,7 @@ Vous pouvez supprimer des ressources de services de données activées par Azure
 - Accédez au groupe de ressources dans le portail Azure où les ressources de services de données activées par Azure Arc ont été créées.
 - Sélectionnez toutes les ressources à supprimer.
 - Cliquez sur le bouton Supprimer.
-- Pour confirmer la suppression, tapez Oui, puis cliquez sur **Supprimer**.
+- Pour confirmer la suppression, tapez Oui, puis cliquez sur **Supprimer** .
 
 ## <a name="delete-resources-using-the-azure-cli"></a>Supprimer des ressources à l’aide d’Azure CLI
 
@@ -63,7 +63,7 @@ Vous pouvez supprimer des ressources de services de données activées par Azure
 
 Pour supprimer des ressources d’instance gérée SQL d’Azure à l’aide d’Azure CLI remplacez les valeurs d’espace réservé dans la commande ci-dessous, puis exécutez celle-ci.
 
-```console
+```azurecli
 az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
@@ -74,7 +74,7 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 
 Pour supprimer une ressource de groupe de serveurs PostgreSQL Hyperscale d’Azure à l’aide d’Azure CLI, remplacez les valeurs d’espace réservé dans la commande ci-dessous, puis exécutez-la.
 
-```console
+```azurecli
 az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
 
 #Example
@@ -88,7 +88,7 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 
 Pour supprimer un contrôleur de données Azure Arc d’Azure à l’aide d’Azure CLI, remplacez les valeurs d’espace réservé dans la commande ci-dessous, puis exécutez-la.
 
-```console
+```azurecli
 az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
 
 #Example

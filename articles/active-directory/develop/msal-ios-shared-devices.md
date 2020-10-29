@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528126"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365907"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 
@@ -43,7 +43,7 @@ Pour créer une application en mode d’appareil partagé, les développeurs et 
 
 1. Les **Administrateurs d’appareils** préparent l’appareil pour qu’il soit partagé à l’aide d’un fournisseur de gestion des périphériques mobiles (GPM) tel que Microsoft Intune pour gérer les appareils de leur organisation. Le GPM envoie (push) l’application Microsoft Authenticator sur les appareils et active le « mode partagé » pour chaque appareil via une mise à jour de profil sur l’appareil. Ce paramètre Mode partagé est ce qui modifie le comportement des applications prises en charge sur l’appareil. Cette configuration à partir du fournisseur GPM définit le mode Appareil partagé pour l’appareil et active le [plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple](apple-sso-plugin.md), qui est requis pour le mode Appareil partagé.
 
-1. [**Requis en Préversion publique uniquement**] Un utilisateur doté du rôle [Administrateur d’appareil cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) doit alors lancer l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) et joindre son appareil à l’organisation.
+1. [ **Requis en Préversion publique uniquement** ] Un utilisateur doté du rôle [Administrateur d’appareil cloud](../roles/permissions-reference.md#cloud-device-administrator) doit alors lancer l’ [application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) et joindre son appareil à l’organisation.
 
     Pour configurer l’appartenance de vos rôles organisationnels dans le Portail Azure : **Azure Active Directory** > **Rôles et administrateurs** > **Administrateur d’appareil cloud**
 
@@ -58,10 +58,10 @@ Votre appareil doit être configuré pour prendre en charge le mode Appareil par
 
 1. Dans le portail de configuration Intune, indiquez à l’appareil d’activer le [plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple](apple-sso-plugin.md) avec la configuration suivante :
 
-    - **Type** : Rediriger
-    - **ID d’extension** : com.microsoft.azureauthenticator.ssoextension
-    - **ID d'équipe** : (ce champ n'est pas nécessaire pour iOS)
-    - **URL** :   
+    - **Type**  : Rediriger
+    - **ID d’extension**  : com.microsoft.azureauthenticator.ssoextension
+    - **ID d'équipe**  : (ce champ n'est pas nécessaire pour iOS)
+    - **URL**  :   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +71,7 @@ Votre appareil doit être configuré pour prendre en charge le mode Appareil par
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Données supplémentaires à configurer** :
+    - **Données supplémentaires à configurer**  :
       - Clé : sharedDeviceMode
       - Tapez : Boolean
       - Valeur : true

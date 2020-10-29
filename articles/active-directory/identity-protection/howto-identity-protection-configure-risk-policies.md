@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337447"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367463"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procédure : Configurer et activer des stratégies de risque
 
@@ -39,13 +39,13 @@ Si votre organisation souhaite autoriser les utilisateurs à résoudre eux-même
 
 Les organisations doivent déterminer le niveau de risque consenti lorsqu’elles mettent dans la balance l’expérience utilisateur et la posture de sécurité. 
 
-La recommandation de Microsoft est de définir le seuil de stratégie de risque de l’utilisateur sur **Élevé** et la stratégie de risque de connexion sur **Moyen et supérieur**.
+La recommandation de Microsoft est de définir le seuil de stratégie de risque de l’utilisateur sur **Élevé** et la stratégie de risque de connexion sur **Moyen et supérieur** .
 
-La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les détections de risque **Faible** et **Moyen**. Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise. La sélection d’une seuil **Faible** introduit des interruptions utilisateur supplémentaires, mais renforce la sécurité.
+La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs. Cependant, cela a pour effet d’exclure les détections de risque **Faible** et **Moyen** . Par conséquent, il se peut qu’un cybercriminel soit en mesure d’exploiter une identité compromise. La sélection d’une seuil **Faible** introduit des interruptions utilisateur supplémentaires, mais renforce la sécurité.
 
 ## <a name="exclusions"></a>Exclusions
 
-Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../users-groups-roles/directory-emergency-access.md). Les organisations peuvent déterminer qu’elles doivent exclure les autres comptes de stratégies spécifiques en fonction de la façon dont les comptes sont utilisés. Toutes les exclusions doivent être examinées régulièrement pour déterminer si elles sont toujours applicables.
+Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../roles/security-emergency-access.md). Les organisations peuvent déterminer qu’elles doivent exclure les autres comptes de stratégies spécifiques en fonction de la façon dont les comptes sont utilisés. Toutes les exclusions doivent être examinées régulièrement pour déterminer si elles sont toujours applicables.
 
 Les [emplacements réseau](../conditional-access/location-condition.md) approuvés qui ont été configurés sont utilisés par Identity Protection dans certaines détections de risques afin de réduire les faux positifs.
 
@@ -54,23 +54,23 @@ Les [emplacements réseau](../conditional-access/location-condition.md) approuv�
 Pour activer les stratégies de risque utilisateur et de risque de connexion, procédez comme suit.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble**.
-1. Sélectionnez **Stratégie de risque utilisateur**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Identity Protection** > **Vue d’ensemble** .
+1. Sélectionnez **Stratégie de risque utilisateur** .
    1. Sous **Affectations**
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
+      1. **Utilisateurs**  : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque utilisateur** : la recommandation de Microsoft consiste à définir cette option sur **Élevé**.
+      1. **Conditions** - **Risque utilisateur**  : la recommandation de Microsoft consiste à définir cette option sur **Élevé** .
    1. Sous **Contrôles**
-      1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger la modification du mot de passe**.
+      1. **Accès**  : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger la modification du mot de passe** .
    1. **Appliquer la stratégie** - **Activé**
-   1. **Enregistrer** : cette action a pour effet de renvoyer à la page **Vue d’ensemble**.
-1. Sélectionnez **Stratégie de connexion à risque**.
+   1. **Enregistrer**  : cette action a pour effet de renvoyer à la page **Vue d’ensemble** .
+1. Sélectionnez **Stratégie de connexion à risque** .
    1. Sous **Affectations**
-      1. **Utilisateurs** : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
+      1. **Utilisateurs**  : choisissez **Tous les utilisateurs** ou **Sélectionner des personnes et des groupes** si vous limitez votre lancement.
          1. Si vous le souhaitez, vous pouvez exclure des utilisateurs de la stratégie.
-      1. **Conditions** - **Risque connexion** : la recommandation de Microsoft consiste à définir cette option sur **Moyen ou plus**.
+      1. **Conditions** - **Risque connexion**  : la recommandation de Microsoft consiste à définir cette option sur **Moyen ou plus** .
    1. Sous **Contrôles**
-      1. **Accès** : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger l’authentification multifacteur**.
+      1. **Accès**  : la recommandation de Microsoft consiste à **Autoriser l’accès** et à **Exiger l’authentification multifacteur** .
    1. **Appliquer la stratégie** - **Activé**
    1. **Save**
 

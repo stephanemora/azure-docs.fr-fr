@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050197"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367803"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Cette section passe en revue, à des fins de planification, les parties pertinen
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Rôles qui peuvent être gérés par PIM
 
-Les **rôles Azure AD** se trouvent tous dans Azure Active Directory (par exemple, Administrateur général, Administrateur Exchange et Administrateur de la sécurité). Vous trouverez plus d’informations sur les rôles et leurs fonctionnalités dans [Autorisations des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Afin d’obtenir de l’aide pour déterminer les rôles à affecter à vos administrateurs, consultez [Rôles moins privilégiés par tâche](../users-groups-roles/roles-delegate-by-task.md).
+Les **rôles Azure AD** se trouvent tous dans Azure Active Directory (par exemple, Administrateur général, Administrateur Exchange et Administrateur de la sécurité). Vous trouverez plus d’informations sur les rôles et leurs fonctionnalités dans [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md). Afin d’obtenir de l’aide pour déterminer les rôles à affecter à vos administrateurs, consultez [Rôles moins privilégiés par tâche](../roles/delegate-by-task.md).
 
 Les **rôles Azure** sont liés à une ressource, un groupe de ressources, un abonnement ou un groupe d’administration Azure. Vous pouvez utiliser PIM pour fournir un accès juste-à-temps aux rôles Azure intégrés comme Propriétaire, Administrateur de l’accès utilisateur et Contributeur, ainsi qu’à des [rôles personnalisés](../../role-based-access-control/custom-roles.md). Pour plus d’informations sur les rôles Azure, consultez [Contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md).
 
@@ -111,7 +111,7 @@ Pour les rôles Azure AD, il est courant pour les organisations d’attribuer le
 
 Suivez ces étapes pour implémenter le principe du privilège minimum pour vos rôles Azure AD.
 
-1. Appréhendez la précision des rôles en lisant et en comprenant les [rôles d’administrateur Azure AD disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Vous et votre équipe devez également faire référence aux [rôles d’administrateur par tâche d’identité dans Azure AD](../users-groups-roles/roles-delegate-by-task.md), qui explique le rôle moins privilégié pour des tâches spécifiques.
+1. Appréhendez la précision des rôles en lisant et en comprenant les [rôles d’administrateur Azure AD disponibles](../roles/permissions-reference.md#available-roles). Vous et votre équipe devez également faire référence aux [rôles d’administrateur par tâche d’identité dans Azure AD](../roles/delegate-by-task.md), qui explique le rôle moins privilégié pour des tâches spécifiques.
 
 1. Listez les utilisateurs avec des rôles privilégiés dans votre organisation. Vous pouvez utiliser la capacité [Détection et insights (préversion)](pim-security-wizard.md) de Privileged Identity Management pour réduire votre exposition.
 
@@ -200,11 +200,11 @@ L’attribution d’un rôle à un groupe plutôt qu’à des utilisateurs indiv
 
 #### <a name="many-users-are-assigned-to-a-role"></a>De nombreux utilisateurs sont affectés à un rôle
 
-Le suivi des personnes qui sont affectées à un rôle et la gestion de leurs affectations en fonction du moment où elles en ont besoin peut prendre du temps lorsqu’ils sont effectués manuellement. Pour affecter un groupe à un rôle, vous devez d’abord [créer un groupe assignable à un rôle](../users-groups-roles/roles-groups-create-eligible.md) puis rendre le groupe éligible à un rôle. Cette action soumet tous les membres du groupe au même processus d’activation que les utilisateurs individuels qui sont éligibles pour s’élever dans ce rôle. Les membres du groupe activent leurs affectations au groupe individuellement à l’aide de la demande d’activation et du processus d’approbation Privileged Identity Management. Le groupe n’est pas activé, seulement l’appartenance au groupe de l’utilisateur.
+Le suivi des personnes qui sont affectées à un rôle et la gestion de leurs affectations en fonction du moment où elles en ont besoin peut prendre du temps lorsqu’ils sont effectués manuellement. Pour affecter un groupe à un rôle, vous devez d’abord [créer un groupe assignable à un rôle](../roles/groups-create-eligible.md) puis rendre le groupe éligible à un rôle. Cette action soumet tous les membres du groupe au même processus d’activation que les utilisateurs individuels qui sont éligibles pour s’élever dans ce rôle. Les membres du groupe activent leurs affectations au groupe individuellement à l’aide de la demande d’activation et du processus d’approbation Privileged Identity Management. Le groupe n’est pas activé, seulement l’appartenance au groupe de l’utilisateur.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Vous voulez déléguer l’attribution du rôle
 
-Un propriétaire de groupe peut gérer l’appartenance à un groupe. Pour les groupes Azure AD assignables à un rôle, seuls l’administrateur de rôle privilégié, l’administrateur général et les propriétaires de groupes peuvent gérer l’appartenance à un groupe. En ajoutant de nouveaux membres au groupe, le membre obtient l’accès aux rôles auxquels le groupe est affecté, que l’affectation soit éligible ou active. Utilisez les propriétaires de groupe pour déléguer la gestion de l’appartenance à un groupe pour un rôle attribué afin de réduire l’étendue des privilèges requis. Pour plus d’informations sur l’affectation d’un propriétaire à un groupe lors de la création du groupe, consultez [Créer un groupe avec attribution de rôle dans Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
+Un propriétaire de groupe peut gérer l’appartenance à un groupe. Pour les groupes Azure AD assignables à un rôle, seuls l’administrateur de rôle privilégié, l’administrateur général et les propriétaires de groupes peuvent gérer l’appartenance à un groupe. En ajoutant de nouveaux membres au groupe, le membre obtient l’accès aux rôles auxquels le groupe est affecté, que l’affectation soit éligible ou active. Utilisez les propriétaires de groupe pour déléguer la gestion de l’appartenance à un groupe pour un rôle attribué afin de réduire l’étendue des privilèges requis. Pour plus d’informations sur l’affectation d’un propriétaire à un groupe lors de la création du groupe, consultez [Créer un groupe avec attribution de rôle dans Azure AD](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommande** de placer les groupes Azure AD assignables à un rôle sous la gestion de Privileged Identity Management. Une fois qu’un groupe assignable à un rôle a été placé sous la gestion de PIM, il est appelé groupe d’accès privilégié. Utilisez PIM pour exiger des propriétaires de groupe qu’ils activent leur attribution de rôle Propriétaire avant de pouvoir gérer l’appartenance au groupe. Pour plus d’informations sur le placement de groupes sous la gestion de PIM, consultez [Introduire un groupe d’accès privilégié (préversion) dans Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ Un propriétaire de groupe peut gérer l’appartenance à un groupe. Pour les g
 Une fois que vous avez dressé la liste des rôles qui seront gérés par Privileged Identity Management, vous devez choisir les utilisateurs qui auront le rôle éligible et ceux qui auront le rôle actif en permanence. Les rôles actifs en permanence sont les rôles normaux attribués via les ressources Azure et Azure Active Directory, tandis que les rôles éligibles peuvent uniquement être attribués dans Privileged Identity Management.
 
 > [!TIP]
-> :heavy_check_mark: **Microsoft recommande** de n’avoir aucune attribution active en permanence pour les rôles Azure AD et les rôles Azure autres que les [deux comptes d’accès d’urgence de secours](../users-groups-roles/directory-emergency-access.md) recommandés, qui doivent avoir le rôle Administrateur général permanent.
+> :heavy_check_mark: **Microsoft recommande** de n’avoir aucune attribution active en permanence pour les rôles Azure AD et les rôles Azure autres que les [deux comptes d’accès d’urgence de secours](../roles/security-emergency-access.md) recommandés, qui doivent avoir le rôle Administrateur général permanent.
 
 Même si nous recommandons de n’avoir aucun administrateur permanent, il est parfois difficile pour les organisations d’atteindre immédiatement cet objectif. Voici des éléments à prendre en compte lors de cette décision :
 
@@ -286,7 +286,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 1. [Configurez les paramètres de rôle Azure AD](pim-how-to-change-default-settings.md) selon ce que vous avez planifié.
 
-1. Accédez à **Rôles Azure AD**, sélectionnez **Rôles**, puis sélectionnez le rôle que vous avez configuré.
+1. Accédez à **Rôles Azure AD** , sélectionnez **Rôles** , puis sélectionnez le rôle que vous avez configuré.
 
 1. Pour le groupe d’utilisateurs de test, s’ils sont déjà des administrateurs permanents, vous pouvez les rendre éligibles en les recherchant et en les convertissant du statut permanent au statut éligible en sélectionnant e bouton de sélection (…) de leur ligne. S’ils n’ont pas encore les affectations de rôles, vous pouvez [créer une affectation éligible](pim-how-to-add-role-to-user.md#make-a-user-eligible-for-a-role).
 
@@ -298,7 +298,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 1. [Configurez les paramètres de rôle de ressource Azure](pim-resource-roles-configure-role-settings.md) pour un rôle dans un abonnement ou une ressource que vous souhaitez tester.
 
-1. Accédez à **Ressources Azure** pour cet abonnement et sélectionnez **Rôles**, puis sélectionnez le rôle que vous avez configuré.
+1. Accédez à **Ressources Azure** pour cet abonnement et sélectionnez **Rôles** , puis sélectionnez le rôle que vous avez configuré.
 
 1. Pour le groupe d’utilisateurs de test, s’ils sont déjà des administrateurs actifs, vous pouvez les rendre éligibles en les recherchant et en [mettant à jour leur attribution de rôle](pim-resource-roles-assign-roles.md#update-or-remove-an-existing-role-assignment). S’ils n’ont pas encore le rôle, vous pouvez [affecter un nouveau rôle](pim-resource-roles-assign-roles.md#assign-a-role).
 
@@ -341,17 +341,17 @@ Si Privileged Identity Management ne fonctionne pas comme vous le souhaitez dans
 #### <a name="azure-ad-roles"></a>Rôles Azure AD
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management**.
-1. Sélectionnez **Rôles Azure AD**, puis **Rôles**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Sélectionnez **Rôles Azure AD** , puis **Rôles** .
 1. Pour chaque rôle que vous avez configuré, sélectionnez le bouton de sélection ( **…** ) pour tous les utilisateurs ayant une affectation éligible.
 1. Sélectionnez l’option **Rendre permanent** afin de rendre l’attribution de rôle permanente.
 
 #### <a name="azure-roles"></a>Rôles Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management**.
-1. Sélectionnez **Ressources Azure**, puis un abonnement ou une ressource que vous souhaitez restaurer.
-1. Sélectionnez **Rôles**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Sélectionnez **Ressources Azure** , puis un abonnement ou une ressource que vous souhaitez restaurer.
+1. Sélectionnez **Rôles** .
 1. Pour chaque rôle que vous avez configuré, sélectionnez le bouton de sélection ( **…** ) pour tous les utilisateurs ayant une affectation éligible.
 1. Sélectionnez l’option **Rendre permanent** afin de rendre l’attribution de rôle permanente.
 
@@ -364,8 +364,8 @@ Le déploiement réussi de Privileged Identity Management en production est une 
 Pour plus d’informations sur l’utilisation de la fonctionnalité d’alerte intégrée de Privileged Identity Management pour protéger votre organisation, consultez [Alertes de sécurité](pim-how-to-configure-security-alerts.md#security-alerts). Ces alertes incluent notamment les suivantes : les administrateurs n’utilisent pas les rôles privilégiés, les rôles sont affectés en dehors de Privileged Identity Management, les rôles sont activés trop fréquemment, et bien plus encore. Pour protéger entièrement votre organisation, vous devez parcourir régulièrement votre liste d’alertes et résoudre les problèmes. Vous pouvez afficher et résoudre vos alertes de la façon suivante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Ouvrez **Azure AD Privileged Identity Management**.
-1. Sélectionnez **Rôles Azure AD**, puis **Alertes**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Sélectionnez **Rôles Azure AD** , puis **Alertes** .
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommande** de traiter immédiatement toutes les alertes marquées avec le niveau de gravité élevé. Pour les alertes avec les niveaux de gravité moyen et bas, vous devez rester informé et apporter des modifications si vous pensez qu’il existe une menace de sécurité.

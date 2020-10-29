@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258147"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363417"
 ---
 # <a name="publisher-verification"></a>Vérification de l'éditeur
 
@@ -29,11 +29,11 @@ Cette fonctionnalité est principalement destinée aux développeurs qui créent
 
 ## <a name="benefits"></a>Avantages
 La vérification de l'éditeur offre les avantages suivants :
-- **Transparence et réduction des risques accrues pour les clients** : cette fonctionnalité permet aux clients d'identifier les applications de leur organisation publiées par des développeurs en qui ils ont confiance. 
+- **Transparence et réduction des risques accrues pour les clients**  : cette fonctionnalité permet aux clients d'identifier les applications de leur organisation publiées par des développeurs en qui ils ont confiance. 
 
-- **Amélioration de l'image de marque** : un badge « vérifié » apparaît sur l'[invite de consentement](application-consent-experience.md) Azure AD, la page Applications d'entreprise et les autres pages auxquelles ont accès les utilisateurs finaux et les administrateurs. 
+- **Amélioration de l'image de marque**  : un badge « vérifié » apparaît sur l' [invite de consentement](application-consent-experience.md) Azure AD, la page Applications d'entreprise et les autres pages auxquelles ont accès les utilisateurs finaux et les administrateurs. 
 
-- **Adoption plus fluide par les entreprises** : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies.
+- **Adoption plus fluide par les entreprises**  : les administrateurs peuvent configurer des [stratégies de consentement des utilisateurs](../manage-apps/configure-user-consent.md), l'état de vérification de l'éditeur étant l'un des principaux critères de ces stratégies.
 
 > [!NOTE]
 > À compter du mois de novembre 2020, les utilisateurs finaux ne seront plus en mesure d’accorder leur consentement à la plupart des applications multilocataires nouvellement inscrites sans éditeurs vérifiés. Cela s’appliquera aux applications inscrites après le 8 novembre 2020, qui utilisent OAuth 2.0 pour demander des autorisations au-delà de la connexion de base et lire le profil utilisateur, et qui demandent le consentement d’utilisateurs situés dans d’autres locataires que celui où l’application est inscrite. Un avertissement s’affichera sur l’écran de consentement pour informer les utilisateurs que ces applications sont risquées et proviennent d’éditeurs non vérifiés.    
@@ -49,7 +49,7 @@ Il existe quelques conditions préalables à la vérification de l'éditeur, don
 
 -  L'utilisateur qui procède à la vérification doit être autorisé à apporter des modifications à l'inscription de l'application dans Azure AD et au compte MPN dans l'Espace partenaires. 
 
-    -  Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../users-groups-roles/directory-assign-admin-roles.md) suivants : Administrateur d’application, Administrateur d’application cloud ou Administrateur général. 
+    -  Dans Azure AD, cet utilisateur doit être membre d’un des [rôles](../roles/permissions-reference.md) suivants : Administrateur d’application, Administrateur d’application cloud ou Administrateur général. 
 
     -  Dans l'Espace partenaires, cet utilisateur doit disposer des [rôles](/partner-center/permissions-overview) suivants : Administrateur MPN, Administrateur de comptes ou Administrateur général (rôle partagé maîtrisé dans Azure AD).
     
@@ -62,7 +62,7 @@ Les développeurs qui ont déjà rempli ces conditions préalables peuvent être
 ## <a name="frequently-asked-questions"></a>Forum aux questions 
 Vous trouverez ci-dessous quelques questions fréquemment posées au sujet du programme de vérification de l'éditeur. Pour consulter le FAQ relatif aux exigences et au processus, consultez [Marquer une application avec la mention « éditeur vérifié »](mark-app-as-publisher-verified.md).
 
-- **Quelles informations la vérification de l'éditeur ne fournit-elle __pas__ ?**  Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela n'indique pas si l'application ou son éditeur a obtenu des certifications spécifiques, est conforme aux normes du secteur, respecte les meilleures pratiques, etc. D'autres programmes Microsoft fournissent ces informations, notamment la [Certification d'application Microsoft 365](/microsoft-365-app-certification/overview).
+- **Quelles informations la vérification de l'éditeur ne fournit-elle __pas__  ?**  Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela n'indique pas si l'application ou son éditeur a obtenu des certifications spécifiques, est conforme aux normes du secteur, respecte les meilleures pratiques, etc. D'autres programmes Microsoft fournissent ces informations, notamment la [Certification d'application Microsoft 365](/microsoft-365-app-certification/overview).
 
 - **Combien cela coûte-t-il ? Une licence est-elle requise ?** Microsoft ne facture pas la vérification de l'éditeur aux développeurs et n'exige pas de licence spécifique. 
 

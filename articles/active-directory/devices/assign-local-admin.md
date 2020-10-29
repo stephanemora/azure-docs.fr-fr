@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419816"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365831"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
 Pour gérer un appareil Windows, vous devez être membre du groupe Administrateurs local. Dans le cadre du processus de jonction à Azure Active Directory (Azure AD), Azure AD met à jour l’appartenance de ce groupe sur un appareil. Vous pouvez personnaliser la mise à jour de l’appartenance pour répondre aux besoins de votre entreprise. Une mise à jour de l’appartenance peut par exemple être utile si vous souhaitez autoriser le personnel du support technique à effectuer des tâches nécessitant des droits d’administrateur sur un appareil.
 
-Cet article explique comment la mise à jour de l’appartenance aux administrateurs locaux fonctionne et comment la personnaliser pendant une jonction à Azure AD. Le contenu de cet article ne s’applique pas à des appareils **joints Azure AD hybride**.
+Cet article explique comment la mise à jour de l’appartenance aux administrateurs locaux fonctionne et comment la personnaliser pendant une jonction à Azure AD. Le contenu de cet article ne s’applique pas à des appareils **joints Azure AD hybride** .
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -39,20 +39,20 @@ Azure AD ajoute également le rôle d’administrateur d’appareil Azure AD au 
 
 Pour afficher et mettre à jour l’appartenance du rôle Administrateur général, consultez :
 
-- [Afficher tous les membres d’un rôle d’administrateur dans Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Afficher tous les membres d’un rôle d’administrateur dans Azure Active Directory](../roles/manage-roles-portal.md)
 - [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
 ## <a name="manage-the-device-administrator-role"></a>Gérer le rôle Administrateur d’appareil 
 
-Dans le portail Azure, vous pouvez gérer le rôle d’administrateur d’appareil dans la page **Appareils**. Pour ouvrir la page **Appareils** :
+Dans le portail Azure, vous pouvez gérer le rôle d’administrateur d’appareil dans la page **Appareils** . Pour ouvrir la page **Appareils** :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
-1. Recherchez et sélectionnez *Azure Active Directory*.
-1. Dans la section **Gérer**, cliquez sur **Appareils**.
-1. Dans la page **Appareils**, cliquez sur **Paramètres de l’appareil**.
+1. Recherchez et sélectionnez *Azure Active Directory* .
+1. Dans la section **Gérer** , cliquez sur **Appareils** .
+1. Dans la page **Appareils** , cliquez sur **Paramètres de l’appareil** .
 
-Pour modifier le rôle d’administrateur d’appareils, configurez **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD**.  
+Pour modifier le rôle d’administrateur d’appareils, configurez **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** .  
 
 ![Administrateurs locaux supplémentaires](./media/assign-local-admin/10.png)
 
@@ -93,7 +93,7 @@ Par défaut, Azure AD ajoute l’utilisateur qui effectue la jonction à Azure A
 
 Outre l’utilisation du processus de jonction à Azure AD, vous pouvez également élever manuellement un utilisateur régulier pour qu’il devienne un administrateur local sur un appareil spécifique. Cette étape nécessite que vous soyez déjà membre du groupe Administrateurs local. 
 
-À compter de la version **Windows 10 1709**, vous pouvez effectuer cette tâche depuis **Paramètres -> Comptes -> Autres utilisateurs**. Sélectionnez **Ajouter un utilisateur professionnel ou scolaire**, entrez l’UPN de l’utilisateur sous **Compte d’utilisateur**, puis sélectionnez *Administrateur* sous **type de compte**  
+À compter de la version **Windows 10 1709** , vous pouvez effectuer cette tâche depuis **Paramètres -> Comptes -> Autres utilisateurs** . Sélectionnez **Ajouter un utilisateur professionnel ou scolaire** , entrez l’UPN de l’utilisateur sous **Compte d’utilisateur** , puis sélectionnez *Administrateur* sous **type de compte**  
  
 Vous pouvez également ajouter des utilisateurs à l’invite de commandes :
 

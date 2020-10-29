@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145414"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366358"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
@@ -46,13 +46,13 @@ Les options suivantes sont disponibles pour l’inclusion lors de la création d
 > Si des utilisateurs ou des groupes sont membres de plus de 2 048 groupes, leur accès peut être bloqué. Cette limite s’applique à l’appartenance de groupe directe et imbriquée.
 
 > [!WARNING]
-> Les stratégies d’accès conditionnel ne prennent pas en charge les utilisateurs affectés à un rôle d’annuaire [étendue à une unité administrative](../users-groups-roles/roles-admin-units-assign-roles.md) ou à des rôles d’annuaire étendus directement à un objet, par exemple via [des rôles personnalisés](../users-groups-roles/roles-create-custom.md).
+> Les stratégies d’accès conditionnel ne prennent pas en charge les utilisateurs affectés à un rôle d’annuaire [étendue à une unité administrative](../roles/admin-units-assign-roles.md) ou à des rôles d’annuaire étendus directement à un objet, par exemple via [des rôles personnalisés](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Exclure des utilisateurs
 
 Lorsque les organisations incluent et excluent à la fois un utilisateur ou un groupe, l’utilisateur ou le groupe est exclu de la stratégie, car une action d’exclusion l’emporte sur une action d’inclusion dans la stratégie. Les exclusions sont couramment utilisées pour les comptes d’accès d’urgence ou les comptes de secours. Pour plus d’informations sur les comptes d’accès d’urgence et la raison pour laquelle ils sont importants, consultez les articles suivants : 
 
-* [Gérer des comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gérer des comptes d’accès d’urgence dans Azure AD](../roles/security-emergency-access.md)
 * [Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Les options suivantes sont disponibles pour l’exclusion lors de la création d’une stratégie d’accès conditionnel.

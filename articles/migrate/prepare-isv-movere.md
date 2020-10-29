@@ -3,12 +3,12 @@ title: Préparer Azure Migrate à utiliser un outil ISV/Movere
 description: Cet article explique comment préparer Azure Migrate à utiliser un outil ISV ou Movere, puis comment commencer à utiliser l’outil.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103923"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369146"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Se préparer à utiliser un outil ISV ou Movere
 
@@ -25,18 +25,18 @@ Votre compte d’utilisateur Azure a besoin des autorisations suivantes :
 ### <a name="set-permissions-to-register-an-azure-ad-app"></a>Définir des autorisations pour inscrire une application Azure AD
 
 1. Dans Azure AD, vérifiez le rôle de votre compte.
-2. Si vous avez le rôle d’utilisateur, sélectionnez **Paramètres utilisateur** à gauche et vérifiez si les utilisateurs peuvent inscrire des applications. Si la valeur est **Oui**, tous les utilisateurs dans le locataire Azure AD peuvent inscrire une application. Si la valeur est **Non**, seuls les utilisateurs administrateurs peuvent inscrire des applications.   
-3. Si vous n’avez pas d’autorisations, un utilisateur administrateur peut fournir à votre compte d’utilisateur le rôle [d'administrateur de l’application](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator), afin que vous puissiez inscrire l’application.
+2. Si vous avez le rôle d’utilisateur, sélectionnez **Paramètres utilisateur** à gauche et vérifiez si les utilisateurs peuvent inscrire des applications. Si la valeur est **Oui** , tous les utilisateurs dans le locataire Azure AD peuvent inscrire une application. Si la valeur est **Non** , seuls les utilisateurs administrateurs peuvent inscrire des applications.   
+3. Si vous n’avez pas d’autorisations, un utilisateur administrateur peut fournir à votre compte d’utilisateur le rôle [d'administrateur de l’application](../active-directory/roles/permissions-reference.md#application-administrator), afin que vous puissiez inscrire l’application.
 4. Une fois l’outil lié à Azure Migrate, l’administrateur peut supprimer le rôle de votre compte.
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Définir des autorisations pour affecter un rôle à une application Azure AD
  
 Dans votre abonnement Azure, votre compte doit disposer de l’accès **Microsoft.Authorization/*/Write** pour attribuer un rôle à une application Azure AD. 
 
-1. Sur le portail Azure, ouvrez **Abonnements**.
-2. Sélectionnez l’abonnement approprié. Si vous ne le voyez pas, sélectionnez le **filtre d’abonnements généraux**. 
-3. Sélectionner **Mes autorisations**. Ensuite, sélectionnez **Cliquer ici pour afficher les détails d’accès complet pour cet abonnement**.
-4. Vérifiez les autorisations dans **Affectations de rôles** > **Affichage**. Si votre compte n’a pas d’autorisations, demandez à l’administrateur de l’abonnement de vous ajouter au rôle [Administrateur de l'accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) ou au rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner).
+1. Sur le portail Azure, ouvrez **Abonnements** .
+2. Sélectionnez l’abonnement approprié. Si vous ne le voyez pas, sélectionnez le **filtre d’abonnements généraux** . 
+3. Sélectionner **Mes autorisations** . Ensuite, sélectionnez **Cliquer ici pour afficher les détails d’accès complet pour cet abonnement** .
+4. Vérifiez les autorisations dans **Affectations de rôles** > **Affichage** . Si votre compte n’a pas d’autorisations, demandez à l’administrateur de l’abonnement de vous ajouter au rôle [Administrateur de l'accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) ou au rôle [Propriétaire](../role-based-access-control/built-in-roles.md#owner).
 
 ## <a name="allow-access-to-urls"></a>Autoriser l'accès à des URL
 
@@ -53,7 +53,7 @@ management.azure.com | Faites en sorte qu’Azure Resource Manager appelle le pr
 
 ## <a name="start-using-the-tool"></a>Commencer à utiliser le portail
 
-1. Si vous n’avez pas encore de licence ou d’essai gratuit pour l’outil, accédez à l’accueil de l’outil dans Azure Migrate, sous **Inscrire**, sélectionnez **En savoir plus**.
+1. Si vous n’avez pas encore de licence ou d’essai gratuit pour l’outil, accédez à l’accueil de l’outil dans Azure Migrate, sous **Inscrire** , sélectionnez **En savoir plus** .
 2. Dans l’outil, suivez les instructions pour lier l’outil au projet Azure Migrate et pour envoyer des données à Azure Migrate.
 
 ## <a name="next-steps"></a>Étapes suivantes

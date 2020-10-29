@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246807"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364046"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -226,14 +226,14 @@ Assurez-vous que votre application suit le principe du [privilège minimum](http
 
 #### <a name="implement-just-in-time-access"></a>Implémenter l’accès juste-à-temps
 
-Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) pour :
+Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) pour :
 
 - Donner aux utilisateurs les autorisations dont ils ont besoin uniquement juste-à-temps.
 - Attribuer des rôles pour une durée plus courte en sachant que les privilèges sont automatiquement révoqués.
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Obligation d’une nouvelle authentification pour les transactions importantes
 
-Une [falsification de requête intersites](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (également connue sous le nom de *XSRF* ou *CSRF*) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
+Une [falsification de requête intersites](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (également connue sous le nom de *XSRF* ou *CSRF* ) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
 Cette forme d’exploitation est également appelée *one-click attack* (attaque en un clic) ou *session riding* (détournement de session) du fait que l’attaque profite de la session précédemment authentifiée de l’utilisateur.
 
 La meilleure façon de se défendre contre ce genre d’attaque revient à demander à l’utilisateur quelque chose que lui seul peut fournir avant chaque transaction importante, comme un achat, une désactivation de compte ou une modification de mot de passe. Vous pouvez demander à l’utilisateur d’entrer de nouveau son mot de passe, d’effectuer un test captcha ou d’envoyer un jeton secret dont il est l’unique détenteur. La méthode la plus courante est le jeton secret.
@@ -244,7 +244,7 @@ La perte de clés ou d'informations d’identification est un problème courant.
 
 Placez toujours vos clés, certificats, secrets et chaînes de connexion dans une solution de gestion de clés. Vous pouvez utiliser une solution centralisée, dans laquelle clés et secrets sont stockés dans des modules de sécurité matériels (HSM). Azure vous fournit un module HSM dans le cloud avec [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault est un *magasin des secrets* : c’est un service cloud centralisé pour stocker des secrets d’application. Key Vault préserve la sécurité de vos données confidentielles en conservant les secrets de l’application dans un emplacement central unique et en fournissant l’accès sécurisé, le contrôle des autorisations et la journalisation des accès.
+Key Vault est un *magasin des secrets*  : c’est un service cloud centralisé pour stocker des secrets d’application. Key Vault préserve la sécurité de vos données confidentielles en conservant les secrets de l’application dans un emplacement central unique et en fournissant l’accès sécurisé, le contrôle des autorisations et la journalisation des accès.
 
 Les secrets sont stockés dans des *coffres* individuels. Chaque coffre a sa propre configuration et ses stratégies de sécurité pour en contrôler l’accès. Vous accédez à vos données par le biais d’une API REST, ou d’un kit SDK client disponible pour la plupart des langages de programmation.
 

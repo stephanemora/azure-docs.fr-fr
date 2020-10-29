@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076450"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370625"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -40,7 +40,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 
 1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur l’onglet **Administrateurs classiques**.
+1. Cliquez sur l’onglet **Administrateurs classiques** .
 
     ![Capture d’écran qui ouvre Administrateurs classiques](./media/classic-administrators/classic-administrators.png)
 
@@ -48,7 +48,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 
     Si l’option Ajouter un coadministrateur est désactivée, cela signifie que vous n’avez pas les autorisations requises.
 
-1. Sélectionnez l’utilisateur que vous souhaitez ajouter, cliquez sur **Ajouter**.
+1. Sélectionnez l’utilisateur que vous souhaitez ajouter, cliquez sur **Ajouter** .
 
     ![Capture d’écran d’ajout d’un coadministrateur](./media/classic-administrators/add-coadmin.png)
 
@@ -71,9 +71,9 @@ Les utilisateurs invités qui ont été affectés au rôle de coadministrateur p
 
 Vous vous attendiez sans doute à ce que l’utilisateur B puisse tout gérer. La raison de cette différence est que le compte Microsoft est ajouté à l’abonnement en tant qu’invité utilisateur et non en tant qu’utilisateur membre. Les utilisateurs invités disposent d’autorisations par défaut différentes dans Azure AD par rapport aux utilisateurs membres. Par exemple, les utilisateurs membres peuvent voir les autres utilisateurs dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités. Les utilisateurs membres peuvent inscrire de nouveaux principaux de service dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités.
 
-Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter les rôles Azure AD spécifiques dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md). Pour plus d’informations sur l’octroi de l’accès pour les utilisateurs invités, consultez [Ajouter ou supprimer des attributions de rôle Azure pour les utilisateurs invités externes à l’aide du portail Azure](role-assignments-external-users.md).
+Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter les rôles Azure AD spécifiques dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/roles/permissions-reference.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/roles/permissions-reference.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md). Pour plus d’informations sur l’octroi de l’accès pour les utilisateurs invités, consultez [Ajouter ou supprimer des attributions de rôle Azure pour les utilisateurs invités externes à l’aide du portail Azure](role-assignments-external-users.md).
 
-Notez que les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md) sont différents des [rôles Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Les rôles intégrés n’accordent aucun accès à Azure AD. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Notez que les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md) sont différents des [rôles Azure AD](../active-directory/roles/permissions-reference.md). Les rôles intégrés n’accordent aucun accès à Azure AD. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Pour plus d’informations comparant les utilisateurs membres et les utilisateurs invités, consultez [Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md).
 
@@ -85,13 +85,13 @@ Pour plus d’informations comparant les utilisateurs membres et les utilisateur
 
 1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur l’onglet **Administrateurs classiques**.
+1. Cliquez sur l’onglet **Administrateurs classiques** .
 
 1. Ajoutez une coche en regard du Coadministrateur que vous souhaitez supprimer.
 
-1. Cliquez sur **Supprimer**.
+1. Cliquez sur **Supprimer** .
 
-1. Dans la boîte de message qui s’affiche, cliquez sur **Oui**.
+1. Dans la boîte de message qui s’affiche, cliquez sur **Oui** .
 
     ![Capture d’écran de suppression de coadministrateur](./media/classic-administrators/remove-coadmin.png)
 
@@ -99,7 +99,7 @@ Pour plus d’informations comparant les utilisateurs membres et les utilisateur
 
 Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, quand vous vous inscrivez à un abonnement Azure, l’Administrateur de services est le même que l’Administrateur de compte. L’utilisateur avec le rôle Administrateur de compte n’a pas accès au portail Azure. L’utilisateur avec le rôle Administrateur de service a un accès complet au portail Azure. Si l’Administrateur de compte et l’Administrateur de service sont le même utilisateur et que vous remplacez l’Administrateur de service par un autre utilisateur, alors l’Administrateur de compte perd l’accès au portail Azure. Toutefois, l’administrateur de compte peut toujours utiliser le centre des comptes pour se réaffecter le rôle d’administrateur de services fédérés à lui-même.
 
-Procédez comme suit pour modifier l’administrateur de services fédérés dans le **centre des comptes**.
+Procédez comme suit pour modifier l’administrateur de services fédérés dans le **centre des comptes** .
 
 ### <a name="account-center"></a>Centre des comptes
 
@@ -109,7 +109,7 @@ Procédez comme suit pour modifier l’administrateur de services fédérés dan
 
 1. Cliquez sur un abonnement.
 
-1. Sur le côté droit, cliquez sur **Modifier les détails de l’abonnement**.
+1. Sur le côté droit, cliquez sur **Modifier les détails de l’abonnement** .
 
     ![Capture d’écran montrant le bouton Modifier l’abonnement dans le Centre des comptes](./media/classic-administrators/editsub.png)
 
@@ -142,9 +142,9 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 
 1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
-1. Cliquez sur **Propriétés**.
+1. Cliquez sur **Propriétés** .
 
-    L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
+    L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
 
     ![Capture d’écran montrant l’Administrateur de compte](./media/classic-administrators/account-admin.png)
 

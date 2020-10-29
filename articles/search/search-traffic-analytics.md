@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91333730"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
@@ -49,11 +49,11 @@ Une fois que vous disposez d’une ressource Application Insights, vous pouvez s
 
 Un raccourci qui fonctionne pour certains types de projets Visual Studio est reflété dans les étapes suivantes. Il crée une ressource et inscrit votre application en quelques clics.
 
-1. Pour Visual Studio et le développement ASP.NET, ouvrez votre solution et sélectionnez **Projet** > **Ajouter Application Insights Telemetry**.
+1. Pour Visual Studio et le développement ASP.NET, ouvrez votre solution et sélectionnez **Projet** > **Ajouter Application Insights Telemetry** .
 
-1. Cliquez sur **Prise en main**.
+1. Cliquez sur **Prise en main** .
 
-1. Inscrivez votre application en fournissant un compte Microsoft, un abonnement Azure et une ressource Application Insights (une nouvelle ressource par défaut). Cliquez sur **S'inscrire**.
+1. Inscrivez votre application en fournissant un compte Microsoft, un abonnement Azure et une ressource Application Insights (une nouvelle ressource par défaut). Cliquez sur **S'inscrire** .
 
 À ce stade, votre application est configurée pour l’analyse des applications, ce qui signifie que tous les chargements de page sont suivis avec les métriques par défaut. Pour plus d’informations sur les étapes précédentes, consultez [Activer la télémétrie Application Insights côté serveur](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 Après avoir instrumenté votre application et vérifié qu’elle est correctement connectée à Application Insights, vous pouvez télécharger un modèle de rapport prédéfini pour analyser les données dans Power BI Desktop. Le rapport contient des graphiques et des tableaux prédéfinis utiles pour analyser les données supplémentaires capturées pour l’analytique du trafic des recherches.
 
-1. Dans le volet de navigation de gauche du tableau de bord de la Recherche cognitive Azure, sous **Paramètres**, cliquez sur **Analytique du trafic des recherches**.
+1. Dans le volet de navigation de gauche du tableau de bord de la Recherche cognitive Azure, sous **Paramètres** , cliquez sur **Analytique du trafic des recherches** .
 
-1. Dans la page **Analytique du trafic des recherches**, à l’étape 3, cliquez sur **Obtenir Power BI Desktop** pour installer Power BI.
+1. Dans la page **Analytique du trafic des recherches** , à l’étape 3, cliquez sur **Obtenir Power BI Desktop** pour installer Power BI.
 
    ![Obtenir des rapports Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Obtenir des rapports Power BI")
 
-1. Dans la même page, cliquez sur **Télécharger un rapport Power BI**.
+1. Dans la même page, cliquez sur **Télécharger un rapport Power BI** .
 
 1. Le rapport s’ouvre dans Power BI Desktop et vous invite à vous connecter à Application Insights et à fournir des informations d’identification. Des informations de connexion sont disponibles dans les pages du portail Azure relatives à votre ressource Application Insights. Pour les informations d’identification, indiquez les mêmes nom d’utilisateur et mot de passe que vous utilisez pour vous connecter au portail.
 
    ![Se connecter à Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Se connecter à Application Insights")
 
-1. Cliquez sur **Charger**.
+1. Cliquez sur **Charger** .
 
 Ce rapport contient des graphiques et des tableaux qui vous aident à prendre des décisions plus éclairées pour améliorer les performances et la pertinence de vos recherches.
 

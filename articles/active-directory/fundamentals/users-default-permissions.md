@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101860"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367820"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -48,19 +48,18 @@ Vous pouvez restreindre les autorisations par défaut des utilisateurs membres c
 Autorisation | Explication du paramètre
 ---------- | ------------
 Les utilisateurs peuvent inscrire l’application | Définir cette option sur Non empêche les utilisateurs de créer des inscriptions d’applications. La capacité peut ensuite être redonnée à des personnes spécifiques en les ajoutant au rôle Développeur d’applications.
-Autoriser les utilisateurs à connecter un compte professionnel ou scolaire avec LinkedIn | Définir cette option sur Non empêche les utilisateurs de connecter leur compte professionnel ou scolaire avec leur compte LinkedIn. Pour plus d’informations, voir [Consentement et partage de données connexions de compte LinkedIn](../users-groups-roles/linkedin-user-consent.md).
-Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
-Possibilité de créer des groupes Microsoft 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Microsoft 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Microsoft 365. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes Microsoft 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
+Autoriser les utilisateurs à connecter un compte professionnel ou scolaire avec LinkedIn | Définir cette option sur Non empêche les utilisateurs de connecter leur compte professionnel ou scolaire avec leur compte LinkedIn. Pour plus d’informations, voir [Consentement et partage de données connexions de compte LinkedIn](../enterprise-users/linkedin-user-consent.md).
+Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md).
+Possibilité de créer des groupes Microsoft 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Microsoft 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Microsoft 365. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes Microsoft 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../enterprise-users/groups-settings-cmdlets.md).
 Limiter l’accès au portail d’administration Azure AD | L’attribution de la valeur Non à cette option permet aux non-administrateurs d’utiliser le portail d’administration Azure AD pour lire et gérer les ressources Azure AD. Oui, interdit à tous les non-administrateurs l’accès aux données Azure AD sur le portail d’administration.<p>**Remarque** : ce paramètre ne limite pas l’accès aux données d’Azure AD à l’aide de PowerShell ou d’autres clients tels que Visual Studio. Quand la valeur est définie sur Oui, pour accorder à un utilisateur non-administrateur spécifique la possibilité d’utiliser le portail d’administration Azure AD, attribuez un rôle d’administrateur tel que le rôle Lecteurs de répertoire.<p>Ce rôle permet de lire les informations de base relatives aux annuaires, ce dont les utilisateurs membres disposent par défaut (les invités et les principaux du service n’en bénéficient pas).
 Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir cet indicateur sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur dans le répertoire. Cet indicateur n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et définir cet indicateur sur $false n’est pas recommandé.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>Restreindre les autorisations par défaut des utilisateurs invités
 
 Vous pouvez restreindre les autorisations par défaut d’utilisateurs invités comme suit.
 
->[!NOTE] 
->Le paramètre de **restrictions d’accès d’utilisateur invités** a remplacé le paramètre **Les autorisations d’utilisateurs invités sont limitées** . Pour obtenir des conseils sur l’utilisation de cette fonctionnalité, consultez [Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>Le paramètre de restrictions d’accès d’utilisateur invités a remplacé le paramètre **Les autorisations d’utilisateurs invités sont limitées** . Pour obtenir des conseils sur l’utilisation de cette fonctionnalité, consultez [Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Autorisation | Explication du paramètre
 ---------- | ------------
@@ -143,7 +142,7 @@ Les utilisateurs peuvent effectuer les actions suivantes sur les groupes qu’il
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur le paramètre des restrictions d’accès des utilisateurs invités, consultez [Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* Pour en savoir plus sur le paramètre des restrictions d’accès des utilisateurs invités, consultez [Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Pour en savoir plus sur l’attribution des rôles d’administrateur Azure AD, consultez [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) (Attribution d’un utilisateur aux rôles d’administrateur dans Azure Active Directory).
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Pour plus d’informations sur l’association entre Azure Active Directory et votre abonnement Azure, consultez [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

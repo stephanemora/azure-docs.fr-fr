@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0f74f98adcc8a4e8aabc96f7f35c9c55ae277f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4778ce5efcd6145447c194eaab34bc230bcbe34c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371543"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approuver ou rejeter des demandes de rôles Azure AD dans Privileged Identity Management
 
@@ -31,8 +31,8 @@ Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vou
 
 Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
-1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
+1. Ouvrez **Azure AD Privileged Identity Management** . Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente** .
 
     [![Sélectionnez Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -46,13 +46,13 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
 
-1. Sélectionnez **Approuver les demandes**.
+1. Sélectionnez **Approuver les demandes** .
 
     ![Approuver les demandes : page montrant une demande de révision des rôles Azure AD](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
-    Dans la section **Demandes d’activations de rôles**, vous voyez la liste des demandes en attente d’approbation.
+    Dans la section **Demandes d’activations de rôles** , vous voyez la liste des demandes en attente d’approbation.
 
 ## <a name="approve-requests"></a>Approuver les demandes
 
@@ -60,9 +60,9 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Capture d’écran montrant la page « Approuver les demandes – Rôles Azure AD ».](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
-1. Dans la zone**Justification**, entrez la justification professionnelle.
+1. Dans la zone **Justification** , entrez la justification professionnelle.
 
-1. Sélectionnez **Approuver**. Vous allez recevoir une notification Azure de votre approbation.
+1. Sélectionnez **Approuver** . Vous allez recevoir une notification Azure de votre approbation.
 
     ![Notification d’approbation montrant que la demande a été approuvée](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
@@ -72,9 +72,9 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. Dans la zone**Justification**, entrez la justification professionnelle.
+1. Dans la zone **Justification** , entrez la justification professionnelle.
 
-1. Sélectionner **Rejeter**. Une notification s’affiche avec votre refus.
+1. Sélectionner **Rejeter** . Une notification s’affiche avec votre refus.
 
 ## <a name="workflow-notifications"></a>Notifications de flux de travail
 
@@ -96,11 +96,11 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
+1. Ouvrez **Azure AD Privileged Identity Management** .
 
-1. Cliquez sur **Rôles Azure AD**.
+1. Cliquez sur **Rôles Azure AD** .
 
-1. Cliquez sur **Approuver les demandes**.
+1. Cliquez sur **Approuver les demandes** .
 
     ![Rôles Azure AD - Approuver les demandes](./media/azure-ad-pim-approval-workflow/approve-requests.png)
 
@@ -112,11 +112,11 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Approuver la liste des demandes à l’aide de l’option Approuver mise en surbrillance](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-1. Dans la zone **Approuver le motif**, tapez une raison.
+1. Dans la zone **Approuver le motif** , tapez une raison.
 
     ![Volet Approuver des demandes sélectionnées avec option Approuver le motif](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
-1. Cliquez sur **Approuver**.
+1. Cliquez sur **Approuver** .
 
     Le symbole d’état sera actualisé avec votre approbation.
 
@@ -128,11 +128,11 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Liste Approuver les demandes avec option Refuser mise en surbrillance](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
-1. Dans la zone **Refuser le motif**, tapez une raison.
+1. Dans la zone **Refuser le motif** , tapez une raison.
 
     ![Volet Refuser des demandes sélectionnées avec motif de refus](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. Sélectionner **Rejeter**.
+1. Sélectionner **Rejeter** .
 
     Le symbole d’état sera actualisé avec votre refus.
 

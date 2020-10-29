@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783686"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362720"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
@@ -38,7 +38,7 @@ Il se peut également que vous utilisiez des [emplacements nommés](../condition
 
 ![Emplacements nommés dans l’accès conditionnel](./media/conditional-access-exclusion/named-locations.png)
 
-Malheureusement, certains utilisateurs peuvent avoir encore une raison valable de se connecter à partir de ces pays/régions bloqués. Par exemple, des utilisateurs en déplacement professionnel peuvent avoir besoin d’accéder aux ressources de l’entreprise. Dans ce cas, la stratégie d’accès conditionnel visant à bloquer ces pays/régions pourrait utiliser un groupe de sécurité cloud pour les utilisateurs exclus de la stratégie. Les utilisateurs qui nécessitent un accès dans le cadre de leurs déplacements peuvent alors s’ajouter à ce groupe à l’aide de la fonctionnalité de [gestion de groupes en libre-service Azure AD](../users-groups-roles/groups-self-service-management.md).
+Malheureusement, certains utilisateurs peuvent avoir encore une raison valable de se connecter à partir de ces pays/régions bloqués. Par exemple, des utilisateurs en déplacement professionnel peuvent avoir besoin d’accéder aux ressources de l’entreprise. Dans ce cas, la stratégie d’accès conditionnel visant à bloquer ces pays/régions pourrait utiliser un groupe de sécurité cloud pour les utilisateurs exclus de la stratégie. Les utilisateurs qui nécessitent un accès dans le cadre de leurs déplacements peuvent alors s’ajouter à ce groupe à l’aide de la fonctionnalité de [gestion de groupes en libre-service Azure AD](../enterprise-users/groups-self-service-management.md).
 
 Vous avez peut-être aussi une stratégie d’accès conditionnel qui [bloque l’authentification héritée pour la grande majorité de vos utilisateurs](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Cependant, si certains de vos utilisateurs doivent pouvoir utiliser des méthodes d’authentification héritées pour accéder à vos ressources par le biais de clients Office 2010 ou IMAP/SMTP/POP, vous pouvez les exclure de la stratégie bloquant les méthodes d’authentification héritées.
 
@@ -65,15 +65,15 @@ Suivez la procédure ci-après pour créer un groupe Azure AD et une stratégie 
 
 1. Connectez-vous au portail Azure.
 
-2. Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**, puis sur **Groupes**.
+2. Dans le volet de navigation gauche, cliquez sur **Azure Active Directory** , puis sur **Groupes** .
 
 3. Dans le menu supérieur, cliquez sur **Nouveau groupe** pour ouvrir le volet de groupe.
 
-4. Dans la liste **Type de groupe**, sélectionnez **Sécurité**. Spécifiez un nom et une description.
+4. Dans la liste **Type de groupe** , sélectionnez **Sécurité** . Spécifiez un nom et une description.
 
-5. Veillez à définir le type **Appartenance** sur **Attribuée**.
+5. Veillez à définir le type **Appartenance** sur **Attribuée** .
 
-6. Sélectionnez les utilisateurs qui doivent faire partie de ce groupe d’exclusions, puis cliquez sur **Créer**.
+6. Sélectionnez les utilisateurs qui doivent faire partie de ce groupe d’exclusions, puis cliquez sur **Créer** .
 
 ![Volet de nouveau groupe d’Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
@@ -81,17 +81,17 @@ Suivez la procédure ci-après pour créer un groupe Azure AD et une stratégie 
 
 Vous pouvez à présent créer une stratégie d’accès conditionnel qui utilise ce groupe d’exclusions.
 
-1. Dans le volet de navigation gauche, cliquez sur **Azure Active Directory**, puis cliquez sur **Accès conditionnel** pour ouvrir le panneau **Stratégies**.
+1. Dans le volet de navigation gauche, cliquez sur **Azure Active Directory** , puis cliquez sur **Accès conditionnel** pour ouvrir le panneau **Stratégies** .
 
-2. Cliquez sur **Nouvelle stratégie** pour ouvrir le volet **Nouveau**.
+2. Cliquez sur **Nouvelle stratégie** pour ouvrir le volet **Nouveau** .
 
 3. Spécifiez un nom.
 
-4. Sous Affectations, cliquez sur **Utilisateurs et groupes**.
+4. Sous Affectations, cliquez sur **Utilisateurs et groupes** .
 
-5. Dans l’onglet **Inclure**, sélectionnez **Tous les utilisateurs**.
+5. Dans l’onglet **Inclure** , sélectionnez **Tous les utilisateurs** .
 
-6. Sous l’onglet **Exclure**, cochez la case **Utilisateurs et groupes**, puis cliquez sur **Sélectionner les utilisateurs exclus**.
+6. Sous l’onglet **Exclure** , cochez la case **Utilisateurs et groupes** , puis cliquez sur **Sélectionner les utilisateurs exclus** .
 
 7. Sélectionnez le groupe d’exclusions que vous avez créé.
 
@@ -150,7 +150,7 @@ Supposons que vous disposez d’une stratégie d’accès conditionnel qui bloqu
 
 Une fois que vous avez mis en place tous les éléments requis (groupe, stratégie d’accès conditionnel et révisions d’accès), vous devez surveiller et suivre les résultats de ces révisions.
 
-1. Dans le portail Azure, ouvrez le panneau **Révisions d’accès**.
+1. Dans le portail Azure, ouvrez le panneau **Révisions d’accès** .
 
 2. Ouvrez le contrôle et le programme que vous avez créés pour gérer le groupe d’exclusions.
 

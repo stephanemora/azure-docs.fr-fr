@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e57e495d34a265b5e0691106996206029656c5a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799330"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371118"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -33,7 +33,7 @@ Si vous êtes administrateur général, il peut vous arriver de vouloir effectue
 
 ## <a name="how-does-elevated-access-work"></a>Comment fonctionne l’accès avec élévation de privilèges ?
 
-Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes [administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
+Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes [administrateur général](../active-directory/roles/permissions-reference.md#company-administrator-permissions) dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
 
 Quand vous élevez votre accès, le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) vous est attribué dans Azure au niveau de l’étendue racine (`/`). Ceci vous permet de voir toutes les ressources et d’attribuer des accès dans n’importe quel abonnement ou groupe d’administration de l’annuaire. Les attributions de rôles Administrateur de l’accès utilisateur peuvent être supprimées à l’aide d’Azure PowerShell, d’Azure CLI ou de l’API REST.
 
@@ -51,22 +51,22 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
     Si vous utilisez Azure AD Privileged Identity Management, [activez votre d’attribution de rôle Administrateur général](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
-1. Ouvrez **Azure Active Directory**.
+1. Ouvrez **Azure Active Directory** .
 
-1. Sous **Gérer**, sélectionnez **Propriétés**.
+1. Sous **Gérer** , sélectionnez **Propriétés** .
 
    ![Sélectionner des propriétés pour les propriétés Azure Active Directory - Capture d’écran](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
-1. Sous **Gestion de l’accès pour les ressources Azure**, définissez la bascule sur **Oui**.
+1. Sous **Gestion de l’accès pour les ressources Azure** , définissez la bascule sur **Oui** .
 
    ![Gestion des accès aux ressources Azure - capture d’écran](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Quand vous définissez la bascule sur **Oui**, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Cette bascule est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
+   Quand vous définissez la bascule sur **Oui** , le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Cette bascule est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
-   Quand vous définissez la bascule sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
+   Quand vous définissez la bascule sur **Non** , le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
     > [!NOTE]
-    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
+    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non** . Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
     
 1. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
@@ -90,9 +90,9 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
 
 1. Connectez-vous en tant qu’utilisateur avec celui utilisé pour élever l’accès.
 
-1. Dans la liste de navigation, cliquez sur **Azure Active Directory**, puis sur **Propriétés**.
+1. Dans la liste de navigation, cliquez sur **Azure Active Directory** , puis sur **Propriétés** .
 
-1. Définissez la bascule **Gestion de l’accès pour les ressources Azure** sur **Non**. Comme il s’agit d’un paramètre par utilisateur, vous devez être connecté sous le même utilisateur que celui utilisé pour élever l’accès.
+1. Définissez la bascule **Gestion de l’accès pour les ressources Azure** sur **Non** . Comme il s’agit d’un paramètre par utilisateur, vous devez être connecté sous le même utilisateur que celui utilisé pour élever l’accès.
 
     Si vous tentez de supprimer l’attribution de rôle Administrateur de l’accès utilisateur dans le volet de contrôle d’accès (IAM), le message suivant s’affiche. Pour supprimer l’attribution de rôle, vous devez rétablir la bascule sur **Non** ou utiliser Azure PowerShell, Azure CLI ou l’API REST.
 
@@ -103,7 +103,7 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
     Si vous utilisez Privileged Identity Management, désactivez votre attribution de rôle Administrateur général.
 
     > [!NOTE]
-    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
+    > Si vous utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle n’a pas pour effet de définir l’option **Gestion de l’accès pour les ressources Azure** sur **Non** . Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

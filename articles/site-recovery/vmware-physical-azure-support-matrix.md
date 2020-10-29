@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8983923a6ccc3b5462c3e9f00337763b225ed9ac
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330306"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369316"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -65,7 +65,7 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 **Composant** | **Détails**
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
-Charge de travail de machine | Site Recovery assure la réplication de toutes les charges de travail exécutées sur une machine prise en charge. [Plus d’informations](https://aka.ms/asr_workload)
+Charge de travail de machine | Site Recovery assure la réplication de toutes les charges de travail exécutées sur une machine prise en charge. [Plus d’informations](./site-recovery-workload.md)
 Nom de l'ordinateur | Vérifier que le nom d’affichage de la machine ne se trouve pas dans les [noms de ressources réservées Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Les noms de volume logique ne sont pas sensibles à la casse. Vérifiez que deux volumes sur un appareil ne portent pas le même nom. Exemple : Les volumes portant les noms « voLUME1 » et « volume1 » ne peuvent pas être protégés par Azure Site Recovery.
 
 ### <a name="for-windows"></a>Pour Windows
@@ -235,7 +235,7 @@ Invité/serveur - Exclure le disque | Oui
 Multipath invité/serveur (MPIO) | Non
 Partitions GPT invité/serveur | Cinq partitions sont prises en charge à partir du [Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) (version 9.25 de Mobility Service). Auparavant, elles étaient au nombre de quatre.
 ReFS | Resilient File System est pris en charge avec le service Mobility version 9.23 ou ultérieure
-Démarrage EFI/UEFI invité/serveur | - Pris en charge pour tous les [systèmes d'exploitation UEFI de la Place de marché Azure](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) avec l'agent de mobilité Site Recovery 9.30 et versions ultérieures. <br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. [En savoir plus.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Démarrage EFI/UEFI invité/serveur | - Pris en charge pour tous les [systèmes d'exploitation UEFI de la Place de marché Azure](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) avec l'agent de mobilité Site Recovery 9.30 et versions ultérieures. <br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. [En savoir plus.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canaux de réplication
 

@@ -3,19 +3,19 @@ title: Voir l’activité des fournisseurs de services
 description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974309"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371084"
 ---
 # <a name="view-service-provider-activity"></a>Voir l’activité des fournisseurs de services
 
 Les clients disposant d’abonnements délégués pour [Azure Lighthouse](../overview.md) peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) pour voir toutes les actions entreprises. Ils bénéficient ainsi d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md), ainsi que par les utilisateurs dans le locataire Azure Active Directory (Azure AD) du client.
 
 > [!TIP]
-> Nous fournissons également des définitions de stratégie intégrée Azure Policy pour [restreindre la délégation à des locataires gestionnaires spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) et [auditer la délégation d’étendues sur un locataire gestionnaire](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Pour plus d’informations, consultez [Auditer des délégations dans votre environnement](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Nous fournissons également des définitions de stratégie intégrée Azure Policy pour [restreindre la délégation à des locataires gestionnaires spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) et [auditer la délégation d’étendues sur un locataire gestionnaire](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Pour plus d’informations, consultez [Auditer des délégations dans votre environnement](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Voir les données du journal d’activité
 

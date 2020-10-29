@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107808"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364114"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -135,7 +135,7 @@ Un autre impact de la « violation supposée » est le besoin de réduire la p
 
 Activez Azure AD PIM, puis affichez les utilisateurs qui sont affectés à des rôles d’administration et supprimez les comptes inutiles dans ces rôles. Pour les autres utilisateurs privilégiés, déplacez-les de l’état permanent à l’état éligible. Enfin, établissez des stratégies appropriées pour vous assurer que lorsque ces utilisateurs ont besoin d’accéder à ces rôles privilégiés, ils peuvent le faire en toute sécurité, avec le contrôle nécessaire des modifications.
 
-Dans le cadre du déploiement de votre processus de compte privilégié, respectez les [meilleures pratiques pour créer au moins deux comptes d’urgence](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) afin d’être sûr de pouvoir toujours accéder à Azure AD si vous êtes bloqué.
+Dans le cadre du déploiement de votre processus de compte privilégié, respectez les [meilleures pratiques pour créer au moins deux comptes d’urgence](../../active-directory/roles/security-planning.md) afin d’être sûr de pouvoir toujours accéder à Azure AD si vous êtes bloqué.
 
 ## <a name="step-3---automate-threat-response"></a>Étape 3 - Automatiser la réponse aux menaces
 
@@ -193,7 +193,7 @@ La [réinitialisation de mot de passe en libre-service (SSPR)](../../active-dire
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implémenter l’accès en libre-service aux groupes et aux applications
 
-Azure AD permet aux utilisateurs autres que les administrateurs de gérer l'accès aux ressources, à l'aide de groupes de sécurité, de groupes Microsoft 365, de rôles d'application et de catalogues de packages d'accès.  La [gestion des groupes en libre-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permet aux propriétaires de groupes de gérer leurs propres groupes sans se voir attribuer de rôle d’administrateur. Les utilisateurs peuvent également créer et gérer des groupes Microsoft 365 sans dépendre d'administrateurs pour gérer leurs demandes, et les groupes inutilisés expirent automatiquement.  La [Gestion des droits d’utilisation Azure AD](../../active-directory/governance/entitlement-management-overview.md) permet une délégation et une visibilité supplémentaires, avec des flux de travail de demande d’accès complets et une expiration automatique.  Vous pouvez déléguer à des non-administrateurs la possibilité de configurer leurs propres packages d’accès pour les groupes, les équipes, les applications et les sites SharePoint Online qu’ils possèdent, avec des stratégies personnalisées pour les personnes qui doivent approuver l’accès, y compris la configuration de responsables des employés et de sponsors partenaires commerciaux en tant qu’approbateurs.
+Azure AD permet aux utilisateurs autres que les administrateurs de gérer l'accès aux ressources, à l'aide de groupes de sécurité, de groupes Microsoft 365, de rôles d'application et de catalogues de packages d'accès.  La [gestion des groupes en libre-service](../../active-directory/enterprise-users/groups-self-service-management.md) permet aux propriétaires de groupes de gérer leurs propres groupes sans se voir attribuer de rôle d’administrateur. Les utilisateurs peuvent également créer et gérer des groupes Microsoft 365 sans dépendre d'administrateurs pour gérer leurs demandes, et les groupes inutilisés expirent automatiquement.  La [Gestion des droits d’utilisation Azure AD](../../active-directory/governance/entitlement-management-overview.md) permet une délégation et une visibilité supplémentaires, avec des flux de travail de demande d’accès complets et une expiration automatique.  Vous pouvez déléguer à des non-administrateurs la possibilité de configurer leurs propres packages d’accès pour les groupes, les équipes, les applications et les sites SharePoint Online qu’ils possèdent, avec des stratégies personnalisées pour les personnes qui doivent approuver l’accès, y compris la configuration de responsables des employés et de sponsors partenaires commerciaux en tant qu’approbateurs.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Mettre en œuvre les révisions d’accès Azure AD
 

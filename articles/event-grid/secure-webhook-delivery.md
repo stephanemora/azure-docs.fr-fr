@@ -3,12 +3,12 @@ title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Eve
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.openlocfilehash: 0320e78e6b436f6ba1c0a6ca1bfec81eb974e106
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812197"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371662"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
@@ -26,7 +26,7 @@ Commencez par créer une application Azure AD pour votre point de terminaison pr
 Cette section explique comment activer Event Grid pour utiliser votre application Azure AD. 
 
 > [!NOTE]
-> Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+> Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/roles/permissions-reference.md#available-roles).
 
 ### <a name="connect-to-your-azure-tenant"></a>Se connecter au locataire Azure
 Tout d’abord, connectez-vous à votre locataire Azure à l’aide de la commande `Connect-AzureAD`. 
@@ -58,7 +58,7 @@ if ($eventGridSP -match "Microsoft.EventGrid")
 ```
 
 ### <a name="create-a-role-for-your-application"></a>Créer un rôle pour votre application   
-Exécutez le script suivant pour créer un rôle pour votre application Azure AD. Dans cet exemple, le nom du rôle est : **AzureEventGridSecureWebhook**. Modifiez le `$myTenantId` du script PowerShell pour utiliser votre ID de locataire Azure AD et `$myAzureADApplicationObjectId` avec l’ID d’objet de votre application Azure AD
+Exécutez le script suivant pour créer un rôle pour votre application Azure AD. Dans cet exemple, le nom du rôle est : **AzureEventGridSecureWebhook** . Modifiez le `$myTenantId` du script PowerShell pour utiliser votre ID de locataire Azure AD et `$myAzureADApplicationObjectId` avec l’ID d’objet de votre application Azure AD
 
 ```PowerShell
 # This is your Azure AD Application's ObjectId. 

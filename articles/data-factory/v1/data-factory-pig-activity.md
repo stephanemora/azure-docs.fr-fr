@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282576"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359898"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -26,8 +26,8 @@ ms.locfileid: "91282576"
 > * [Activité MapReduce](data-factory-map-reduce.md)
 > * [Activité de diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Activité Spark](data-factory-spark.md)
-> * [Activité d’exécution par lot Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Activité des ressources de mise à jour de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Activité Exécution par lots Azure Machine Learning studio (classique)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Activité Mettre à jour une ressource Azure Machine Learning studio (classique)](data-factory-azure-ml-update-resource-activity.md)
 > * [Activité de procédure stockée](data-factory-stored-proc-activity.md)
 > * [Activité U-SQL Data Lake Analytics](data-factory-usql-activity.md)
 > * [Activité personnalisée .NET](data-factory-use-custom-activities.md)
@@ -121,10 +121,10 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 Pour exécuter ce script pig dans un pipeline Data Factory, appliquez les étapes suivantes :
 
-1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié **HDInsightLinkedService**.
-2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié **StorageLinkedService**.
-3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d’entrée **PigSampleIn** et le jeu de données de sortie **PigSampleOut**.
-4. Copiez la requête Pig dans le fichier configuré par le stockage d’objets Blob Azure à l’étape #2. Si le stockage Azure qui héberge les données est différent de celui qui héberge le fichier de requête, créez un service de stockage Azure lié distinct. Consultez le service lié dans la configuration de l’activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de script pig et **scriptLinkedService**. 
+1. Créez un service lié pour inscrire [votre propre cluster de calcul HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurer un [cluster de calcul HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Appelons ce service lié **HDInsightLinkedService** .
+2. Créez un [service lié](data-factory-azure-blob-connector.md) pour configurer la connexion au stockage d'objets blob Azure qui héberge les données. Appelons ce service lié **StorageLinkedService** .
+3. Créez des [jeux de données](data-factory-create-datasets.md) pointant vers les données d'entrée et de sortie. Appelons le jeu de données d’entrée **PigSampleIn** et le jeu de données de sortie **PigSampleOut** .
+4. Copiez la requête Pig dans le fichier configuré par le stockage d’objets Blob Azure à l’étape #2. Si le stockage Azure qui héberge les données est différent de celui qui héberge le fichier de requête, créez un service de stockage Azure lié distinct. Consultez le service lié dans la configuration de l’activité. Utilisez **scriptPath** pour spécifier le chemin d’accès au fichier de script pig et **scriptLinkedService** . 
    
    > [!NOTE]
    > Vous pouvez également fournir le script en ligne pig dans la définition d’activité à l’aide de la propriété **script** . Cependant, cela n’est pas recommandé car tous les caractères spéciaux du script au sein du document JSON doivent être placés dans une séquence d’échappement, ce qui risque d’entraîner des problèmes de débogage. La meilleure pratique consiste à suivre l’étape 4.
@@ -172,7 +172,7 @@ Prenons l’exemple suivant : des journaux d’activité de jeux sont reçus quo
 
 Pour utiliser le script pig paramétré, procédez comme suit :
 
-* Définissez les paramètres dans **defines**.
+* Définissez les paramètres dans **defines** .
 
     ```JSON
     {
@@ -210,7 +210,7 @@ Pour utiliser le script pig paramétré, procédez comme suit :
       }
     }
     ```
-* Dans le script pig, reportez-vous aux paramètres à l'aide de ’ **$parameterName**’ comme indiqué dans l'exemple suivant :
+* Dans le script pig, reportez-vous aux paramètres à l'aide de ’ **$parameterName** ’ comme indiqué dans l'exemple suivant :
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

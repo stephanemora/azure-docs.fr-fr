@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387675"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363859"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gérer les stratégies personnalisées Azure AD B2C avec Azure PowerShell
 
@@ -29,7 +29,7 @@ Azure PowerShell fournit différentes cmdlet pour la gestion basée sur ligne de
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* [Locataire Azure AD B2C](tutorial-create-tenant.md) et informations d'identification d'un utilisateur de l'annuaire disposant du rôle [Administrateur de stratégies B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Locataire Azure AD B2C](tutorial-create-tenant.md) et informations d'identification d'un utilisateur de l'annuaire disposant du rôle [Administrateur de stratégies B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Stratégies personnalisées](custom-policy-get-started.md) téléchargées sur votre locataire
 * [Azure AD PowerShell pour Graph **- Module disponible en préversion**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell fournit différentes cmdlet pour la gestion basée sur ligne de
 
 Pour utiliser des stratégies personnalisées dans votre locataire Azure AD B2C, vous devez d'abord connecter votre session PowerShell au locataire à l'aide de la commande [Connect-AzureAD][Connect-AzureAD].
 
-Exécutez la commande suivante, en remplaçant `{b2c-tenant-name}` par le nom de votre locataire Azure AD B2C. Connectez-vous à l'aide d'un compte de l'annuaire auquel le rôle [Administrateur de stratégies B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) a été attribué.
+Exécutez la commande suivante, en remplaçant `{b2c-tenant-name}` par le nom de votre locataire Azure AD B2C. Connectez-vous à l'aide d'un compte de l'annuaire auquel le rôle [Administrateur de stratégies B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) a été attribué.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

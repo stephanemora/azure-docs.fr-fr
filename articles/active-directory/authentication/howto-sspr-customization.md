@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abca66dbe80cecec2320256d8a736408de20b64f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968291"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363706"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personnalisation de l’expérience utilisateur pour la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -50,14 +50,14 @@ L’e-mail de contact par défaut est envoyé aux destinataires dans l’ordre s
 
 Dans tous les cas, un maximum de 100 destinataires sont informés.
 
-Pour en savoir plus sur les différents rôles d’administrateur et sur la façon de les affecter, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Pour en savoir plus sur les différents rôles d’administrateur et sur la façon de les affecter, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Désactiver les e-mails « Contactez votre administrateur »
 
 Si votre organisation ne souhaite pas notifier les administrateurs au sujet des demandes de réinitialisation de mot de passe, les options de configuration suivantes peuvent être utilisées :
 
-* Personnalisez le lien du support technique pour fournir une URL web ou un lien mailto: que les utilisateurs peuvent utiliser pour obtenir une assistance. Cette option se trouve sous **Réinitialisation de mot de passe** > **Personnalisation** > **Adresse e-mail ou URL du support technique**.
-* Activez la réinitialisation de mot de passe en libre-service pour tous les utilisateurs. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés**. Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
+* Personnalisez le lien du support technique pour fournir une URL web ou un lien mailto: que les utilisateurs peuvent utiliser pour obtenir une assistance. Cette option se trouve sous **Réinitialisation de mot de passe** > **Personnalisation** > **Adresse e-mail ou URL du support technique** .
+* Activez la réinitialisation de mot de passe en libre-service pour tous les utilisateurs. Cette option se trouve sous **Réinitialisation de mot de passe** > **Propriétés** . Si vous ne voulez pas que les utilisateurs réinitialisent leurs propres mots de passe, vous pouvez étendre l’accès à un groupe vide. *Nous ne recommandons pas cette option.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personnalisation de la page de connexion et du volet d’accès
 
@@ -72,7 +72,7 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 ### <a name="directory-name"></a>Nom de l’annuaire
 
-Si vous souhaitez rendre l’apparence plus conviviale, vous pouvez modifier le nom de l’organisation sur le portail et dans les communications automatisées. Pour changer l’attribut de nom de répertoire sur le Portail Azure, accédez à **Azure Active Directory** > **Propriétés**. Cette option de nom convivial de l’organisation est particulièrement visible dans les e-mails automatisés, comme dans les exemples suivants :
+Si vous souhaitez rendre l’apparence plus conviviale, vous pouvez modifier le nom de l’organisation sur le portail et dans les communications automatisées. Pour changer l’attribut de nom de répertoire sur le Portail Azure, accédez à **Azure Active Directory** > **Propriétés** . Cette option de nom convivial de l’organisation est particulièrement visible dans les e-mails automatisés, comme dans les exemples suivants :
 
 * Le nom convivial dans l’e-mail, par exemple « *Microsoft pour le compte de la démonstration CONTOSO* »
 * La ligne d’objet dans l’e-mail, par exemple « *Code de vérification d’e-mail du compte de démonstration CONTOSO* »

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600794"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369775"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -156,7 +156,7 @@ L’attribution d’utilisateurs à des applications est plus précise à l’ai
 * Basé sur des attributs utilisant l’appartenance à un groupe dynamique
 * Délégation aux propriétaires d’application
 
-Azure AD fournit la possibilité de gérer l’accès aux ressources à l’aide de groupes de sécurité et de groupes Microsoft 365. Ces groupes peuvent être gérés par un propriétaire du groupe qui peut approuver ou refuser des requêtes d’appartenance et déléguer le contrôle de l’appartenance au groupe. Également appelée [gestion de groupes en libre-service](../users-groups-roles/groups-self-service-management.md), cette fonctionnalité permet de gagner du temps en permettant aux propriétaires de groupe qui n’ont pas un rôle d’administrateur de créer et gérer des groupes sans avoir à demander aux administrateurs de gérer leurs requêtes.
+Azure AD fournit la possibilité de gérer l’accès aux ressources à l’aide de groupes de sécurité et de groupes Microsoft 365. Ces groupes peuvent être gérés par un propriétaire du groupe qui peut approuver ou refuser des requêtes d’appartenance et déléguer le contrôle de l’appartenance au groupe. Également appelée [gestion de groupes en libre-service](../enterprise-users/groups-self-service-management.md), cette fonctionnalité permet de gagner du temps en permettant aux propriétaires de groupe qui n’ont pas un rôle d’administrateur de créer et gérer des groupes sans avoir à demander aux administrateurs de gérer leurs requêtes.
 
 ## <a name="step-4---operationalize-your-insights"></a>Étape 4 - Rendre vos informations opérationnelles
 
@@ -172,9 +172,9 @@ Les journaux d’activité et les rapports de sécurité vous fournissent un enr
 
 Dans votre approche des opérations, prenez en compte deux niveaux d’administration. Dans le premier niveau, les tâches fastidieuses d’administration sont confiées à votre ou vos administrateurs généraux. Toujours utiliser le rôle Administrateur général peut convenir aux petites entreprises. Mais pour les grandes organisations dans lesquelles le personnel du support technique et les administrateurs sont responsables de tâches spécifiques, l’attribution du rôle d’administrateur général peut poser un risque de sécurité car il permet à ces personnes de gérer des tâches au-dessus et au-delà de ce qu’ils sont capables de faire.
 
-Dans ce cas, vous devez envisager le niveau d’administration suivant. À l’aide d’Azure AD, vous pouvez désigner des utilisateurs finaux comme des « administrateurs limités » qui peuvent gérer des tâches dans des rôles moins privilégiés. Par exemple, vous pouvez attribuer à votre personnel du support technique le rôle [Lecteur Sécurité](../users-groups-roles/directory-assign-admin-roles.md#security-reader) pour lui permettre de gérer des fonctionnalités liées à la sécurité avec un accès en lecture seule. Il peut également être judicieux d’attribuer le rôle [Administrateur d’authentification](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) à des personnes pour leur permettre de réinitialiser des informations d’identification autres qu’un mot de passe, ou de consulter et de configurer Azure Service Health.
+Dans ce cas, vous devez envisager le niveau d’administration suivant. À l’aide d’Azure AD, vous pouvez désigner des utilisateurs finaux comme des « administrateurs limités » qui peuvent gérer des tâches dans des rôles moins privilégiés. Par exemple, vous pouvez attribuer à votre personnel du support technique le rôle [Lecteur Sécurité](../roles/permissions-reference.md#security-reader) pour lui permettre de gérer des fonctionnalités liées à la sécurité avec un accès en lecture seule. Il peut également être judicieux d’attribuer le rôle [Administrateur d’authentification](../roles/permissions-reference.md#authentication-administrator) à des personnes pour leur permettre de réinitialiser des informations d’identification autres qu’un mot de passe, ou de consulter et de configurer Azure Service Health.
 
-Pour en savoir plus, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Pour en savoir plus, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Surveiller des composants hybrides (synchronisation d’Azure AD Connect, AD FS) avec Azure AD Connect Health
 

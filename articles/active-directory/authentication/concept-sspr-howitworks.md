@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965095"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363672"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -41,7 +41,7 @@ Quand un utilisateur sélectionne le lien **Impossible d’accéder à votre com
 
 * Par défaut, les paramètres régionaux du navigateur sont utilisés pour afficher le portail SSPR dans la langue appropriée. L’expérience de réinitialisation de mot de passe est localisée dans les mêmes langues que celles [prises en charge par Microsoft 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Si vous souhaitez créer un lien vers le portail SSPR dans une langue localisée spécifique, ajoutez `?mkt=` à la fin de l’URL de réinitialisation de mot de passe avec les paramètres régionaux nécessaires.
-    * Par exemple, pour spécifier les paramètres régionaux de la langue espagnole *es-us*, utilisez `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+    * Par exemple, pour spécifier les paramètres régionaux de la langue espagnole *es-us* , utilisez `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 Une fois le portail SSPR affiché dans la langue appropriée, l’utilisateur est invité à entrer un identifiant utilisateur et à réussir un captcha. Azure AD vérifie ensuite que l’utilisateur peut utiliser la fonctionnalité SSPR en procédant aux vérifications suivantes :
 
@@ -94,9 +94,9 @@ Quand vous ne rendez pas l’inscription obligatoire, les utilisateurs ne sont p
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
 
-Si vous souhaitez vérifier que les méthodes d’authentification sont correctes quand elles sont nécessaires pour réinitialiser ou changer un mot de passe, vous pouvez demander aux utilisateurs de confirmer leurs informations inscrites après un certain temps. Cette option est disponible uniquement si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion**.
+Si vous souhaitez vérifier que les méthodes d’authentification sont correctes quand elles sont nécessaires pour réinitialiser ou changer un mot de passe, vous pouvez demander aux utilisateurs de confirmer leurs informations inscrites après un certain temps. Cette option est disponible uniquement si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion** .
 
-Les valeurs valides pour inviter un utilisateur à confirmer ses méthodes inscrites sont comprises entre *0* et *730* jours. L’affectation de la valeur *0* signifie que les utilisateurs ne sont jamais invités à confirmer leurs informations d’authentification.
+Les valeurs valides pour inviter un utilisateur à confirmer ses méthodes inscrites sont comprises entre *0* et *730*  jours. L’affectation de la valeur *0* signifie que les utilisateurs ne sont jamais invités à confirmer leurs informations d’authentification.
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 
@@ -120,7 +120,7 @@ Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont
 
 ### <a name="number-of-authentication-methods-required"></a>Nombre de méthodes d’authentification requises
 
-Vous pouvez configurer le nombre de méthodes d’authentification disponibles qu’un utilisateur doit fournir pour réinitialiser ou déverrouiller son mot de passe. Cette valeur peut être définie à *1* ou *2*.
+Vous pouvez configurer le nombre de méthodes d’authentification disponibles qu’un utilisateur doit fournir pour réinitialiser ou déverrouiller son mot de passe. Cette valeur peut être définie à *1* ou *2* .
 
 Les utilisateurs peuvent et doivent inscrire plusieurs méthodes d’authentification. Encore une fois, il est vivement recommandé aux utilisateurs d’inscrire au moins deux méthodes d’authentification pour disposer d’une plus grande flexibilité au cas où l’une des méthodes nécessaires ne serait pas accessible.
 
@@ -172,17 +172,17 @@ Pour améliorer l’accès aux événements relatifs aux mots de passe, SSPR vou
 
 ### <a name="notify-users-on-password-resets"></a>Notifier les utilisateurs lors des réinitialisations de mot de passe ?
 
-Si cette option a la valeur **Oui**, les utilisateurs qui réinitialisent leur mot de passe reçoivent une notification par e-mail les avertissant que leur mot de passe a été changé. L’e-mail est envoyé via le portail SSPR à leur adresse e-mail principale et leur adresse e-mail de secours stockées dans Azure AD. Personne d’autre n’est informé de l’événement de réinitialisation.
+Si cette option a la valeur **Oui** , les utilisateurs qui réinitialisent leur mot de passe reçoivent une notification par e-mail les avertissant que leur mot de passe a été changé. L’e-mail est envoyé via le portail SSPR à leur adresse e-mail principale et leur adresse e-mail de secours stockées dans Azure AD. Personne d’autre n’est informé de l’événement de réinitialisation.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe ?
 
-Si cette option a la valeur **Oui**, tous les autres administrateurs Azure reçoivent un e-mail à leur adresse e-mail principale stockée dans Azure AD. Cet e-mail les informe qu’un autre administrateur a changé son mot de passe à l’aide de SSPR.
+Si cette option a la valeur **Oui** , tous les autres administrateurs Azure reçoivent un e-mail à leur adresse e-mail principale stockée dans Azure AD. Cet e-mail les informe qu’un autre administrateur a changé son mot de passe à l’aide de SSPR.
 
 Examinez l’exemple de scénario suivant :
 
 * quatre administrateurs font partie d’un environnement.
 * L’administrateur *A* réinitialise leur mot de passe à l’aide de SSPR.
-* Les administrateurs *B*, *C* et *D* reçoivent un e-mail les informant de la réinitialisation de mot de passe.
+* Les administrateurs  *B* , *C* et *D* reçoivent un e-mail les informant de la réinitialisation de mot de passe.
 
 ## <a name="on-premises-integration"></a>Intégration locale
 
@@ -208,15 +208,15 @@ Pour bien démarrer avec la réécriture SSPR, suivez le tutoriel suivant :
 
 Vous pouvez activer la réécriture du mot de passe à l’aide du portail Azure. Vous pouvez également désactiver temporairement la réécriture du mot de passe sans avoir à reconfigurer Azure AD Connect.
 
-* Si l’option a la valeur **Oui**, la réécriture est activée. Les utilisateurs fédérés, ou ceux qui ont recours à l’authentification directe ou à la synchronisation du code de hachage de mot de passe peuvent réinitialiser leurs mots de passe.
-* Si l’option a la valeur **Non**, la réécriture est désactivée. Les utilisateurs fédérés, ou ceux qui ont recours à l’authentification directe ou à la synchronisation du code de hachage de mot de passe ne peuvent pas réinitialiser leurs mots de passe.
+* Si l’option a la valeur **Oui** , la réécriture est activée. Les utilisateurs fédérés, ou ceux qui ont recours à l’authentification directe ou à la synchronisation du code de hachage de mot de passe peuvent réinitialiser leurs mots de passe.
+* Si l’option a la valeur **Non** , la réécriture est désactivée. Les utilisateurs fédérés, ou ceux qui ont recours à l’authentification directe ou à la synchronisation du code de hachage de mot de passe ne peuvent pas réinitialiser leurs mots de passe.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe
 
 Par défaut, Azure AD déverrouille les comptes quand il effectue une réinitialisation de mot de passe. Pour plus de flexibilité, vous pouvez choisir d’autoriser les utilisateurs à déverrouiller leurs comptes locaux sans avoir à réinitialiser leur mot de passe. Utilisez ce paramètre pour séparer ces deux opérations.
 
-* Si la valeur est **Oui**, les utilisateurs peuvent réinitialiser leur mot de passe et déverrouiller leur compte. Ils peuvent également déverrouiller leur compte sans devoir réinitialiser le mot de passe.
-* Si la valeur est **Non**, les utilisateurs peuvent uniquement effectuer une opération combinée qui comprend la réinitialisation de mot de passe et le déverrouillage de compte.
+* Si la valeur est **Oui** , les utilisateurs peuvent réinitialiser leur mot de passe et déverrouiller leur compte. Ils peuvent également déverrouiller leur compte sans devoir réinitialiser le mot de passe.
+* Si la valeur est **Non** , les utilisateurs peuvent uniquement effectuer une opération combinée qui comprend la réinitialisation de mot de passe et le déverrouillage de compte.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtres de mot de passe Active Directory locaux
 
@@ -227,7 +227,7 @@ SSPR effectue l’équivalent d’une réinitialisation de mot de passe lancée 
 La réinitialisation et la modification du mot de passe sont totalement prises en charge sur toutes les configurations B2B. La réinitialisation du mot de passe utilisateur B2B est prise en charge dans les trois cas suivants :
 
 * **Utilisateurs d’une organisation partenaire disposant d’un locataire Azure AD** : si l’organisation avec laquelle vous avez un partenariat dispose d’un locataire Azure AD, nous respectons les stratégies de réinitialisation de mot de passe activées sur ce locataire. Pour que la réinitialisation de mot de passe fonctionne, l’organisation partenaire doit simplement vérifier qu’Azure AD SSPR est activé. Cela n’entraîne aucuns frais supplémentaires pour les clients Microsoft 365.
-* **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité d’[inscription en libre-service](../users-groups-roles/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
+* **Utilisateurs qui s’inscrivent par le biais de l’inscription en libre-service** : si l’organisation avec laquelle vous avez un partenariat a utilisé la fonctionnalité d’ [inscription en libre-service](../enterprise-users/directory-self-service-signup.md) pour accéder à un locataire, nous l’autorisons à réinitialiser le mot de passe en indiquant l’adresse e-mail qu’elle a utilisée pour l’inscription.
 * **Utilisateurs B2B** : tous les utilisateurs B2B créés à l’aide des nouvelles [fonctionnalités B2B d’Azure AD](../external-identities/what-is-b2b.md) peuvent également réinitialiser leur mot de passe à l’aide de l’adresse e-mail indiquée durant l’inscription.
 
 Pour tester ce scénario, accédez à https://passwordreset.microsoftonline.com avec l’un de ces utilisateurs partenaires. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.

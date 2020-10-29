@@ -13,16 +13,16 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321172"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370863"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 
-Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial, *\<domainname>.onmicrosoft.com*. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain\@contoso.com*.
+Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial, *\<domainname>.onmicrosoft.com* . Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain\@contoso.com* .
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -50,16 +50,16 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-1. Recherchez et sélectionnez *Azure Active Directory* à partir de n’importe quelle page. Ensuite, sélectionnez **Noms de domaine personnalisés** > **Ajouter un domaine personnalisé**.
+1. Recherchez et sélectionnez *Azure Active Directory* à partir de n’importe quelle page. Ensuite, sélectionnez **Noms de domaine personnalisés** > **Ajouter un domaine personnalisé** .
 
     ![Option Ajouter un domaine personnalisé affichée dans la page Noms de domaine personnalisés](media/add-custom-domain/add-custom-domain.png)
 
-1. Dans **Nom de domaine personnalisé**, entrez le nouveau nom de votre organisation, dans cet exemple, *contoso.com*. Sélectionnez **Ajouter un domaine**.
+1. Dans **Nom de domaine personnalisé** , entrez le nouveau nom de votre organisation, dans cet exemple, *contoso.com* . Sélectionnez **Ajouter un domaine** .
 
     ![Page Ajouter un domaine personnalisé affichée dans la page Noms de domaine personnalisés](media/add-custom-domain/add-custom-domain-blade.png)
 
     >[!IMPORTANT]
-    >Vous devez inclure *.com*, *.net* ou toute autre extension de niveau supérieur pour que le processus fonctionne correctement.
+    >Vous devez inclure *.com* , *.net* ou toute autre extension de niveau supérieur pour que le processus fonctionne correctement.
 
     Le domaine non vérifié est ajouté. La page **contoso.com** apparaît et affiche vos informations DNS. Enregistrez ces informations. Vous en aurez besoin ultérieurement pour créer un enregistrement TXT en vue de configurer DNS.
 
@@ -82,13 +82,13 @@ Pour vérifier votre nom de domaine personnalisé, suivez ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-1. Recherchez et sélectionnez *Azure Active Directory* à partir de n’importe quelle page, puis sélectionnez **Noms de domaine personnalisés**.
+1. Recherchez et sélectionnez *Azure Active Directory* à partir de n’importe quelle page, puis sélectionnez **Noms de domaine personnalisés** .
 
-1. Dans **Noms de domaine personnalisés**, sélectionnez le nom de domaine personnalisé. Dans cet exemple, sélectionnez **contoso.com**.
+1. Dans **Noms de domaine personnalisés** , sélectionnez le nom de domaine personnalisé. Dans cet exemple, sélectionnez **contoso.com** .
 
     ![Page Fabrikam - Noms de domaine personnalisés avec le nom de domaine contoso encadré](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-1. Sur la page **contoso.com**, sélectionnez **Vérifier** pour vous assurer que votre domaine personnalisé est enregistré correctement et qu’il est valide pour Azure AD.
+1. Sur la page **contoso.com** , sélectionnez **Vérifier** pour vous assurer que votre domaine personnalisé est enregistré correctement et qu’il est valide pour Azure AD.
 
     ![Page Contoso avec les informations d’entrée DNS et le bouton Vérifier](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
@@ -98,15 +98,15 @@ Une fois que vous avez vérifié votre nom de domaine personnalisé, vous pouvez
 
 Si Azure AD ne parvient pas à vérifier un nom de domaine personnalisé, suivez les suggestions ci-après :
 
-- **Attendez au moins une heure et essayez à nouveau**. Les enregistrements DNS doivent être propagés avant qu’Azure AD puisse vérifier le domaine. Cette opération peut prendre une heure ou davantage.
+- **Attendez au moins une heure et essayez à nouveau** . Les enregistrements DNS doivent être propagés avant qu’Azure AD puisse vérifier le domaine. Cette opération peut prendre une heure ou davantage.
 
 - **Vérifiez que l’enregistrement DNS est correct.** Revenez sur le site du bureau d’enregistrement de noms de domaine. Assurez-vous que l’entrée y figure et qu’elle correspond aux informations d’entrée DNS fournies par Azure AD.
 
   Si vous ne pouvez pas mettre à jour l’enregistrement sur le site du bureau d’enregistrement, partagez l’entrée avec une personne qui dispose des autorisations pour ajouter l’entrée et vérifier qu’elle est correcte.
 
-- **Assurez-vous que le nom de domaine n’est pas déjà en cours d’utilisation dans un autre annuaire.** Un nom de domaine ne peut être vérifié que dans un seul annuaire. Par conséquent, si votre nom de domaine est vérifié dans un autre annuaire, il ne peut pas être également vérifié dans le nouvel annuaire. Pour résoudre ce problème de duplication, vous devez supprimer le nom de domaine à partir de l’ancien annuaire. Pour plus d’informations sur la suppression de noms de domaine, voir [Gérer les noms de domaine personnalisés](../users-groups-roles/domains-manage.md).
+- **Assurez-vous que le nom de domaine n’est pas déjà en cours d’utilisation dans un autre annuaire.** Un nom de domaine ne peut être vérifié que dans un seul annuaire. Par conséquent, si votre nom de domaine est vérifié dans un autre annuaire, il ne peut pas être également vérifié dans le nouvel annuaire. Pour résoudre ce problème de duplication, vous devez supprimer le nom de domaine à partir de l’ancien annuaire. Pour plus d’informations sur la suppression de noms de domaine, voir [Gérer les noms de domaine personnalisés](../enterprise-users/domains-manage.md).
 
-- **Assurez-vous de n’avoir aucun locataire Power BI non managé.** Si vos utilisateurs ont activé Power BI via l’inscription libre-service et créé un locataire non managé pour votre organisation, vous devez reprendre la gestion en tant qu’administrateur interne ou externe à l’aide de PowerShell. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Assurez-vous de n’avoir aucun locataire Power BI non managé.** Si vos utilisateurs ont activé Power BI via l’inscription libre-service et créé un locataire non managé pour votre organisation, vous devez reprendre la gestion en tant qu’administrateur interne ou externe à l’aide de PowerShell. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -114,6 +114,6 @@ Si Azure AD ne parvient pas à vérifier un nom de domaine personnalisé, suivez
 
 - Ajoutez des utilisateurs à votre domaine. Pour plus d’informations, consultez [Guide pratique pour ajouter ou supprimer des utilisateurs](add-users-azure-active-directory.md).
 
-- Gérez vos informations de nom de domaine dans Azure AD. Pour plus d’informations, consultez [Gestion des noms de domaine personnalisés dans Azure Active Directory](../users-groups-roles/domains-manage.md).
+- Gérez vos informations de nom de domaine dans Azure AD. Pour plus d’informations, consultez [Gestion des noms de domaine personnalisés dans Azure Active Directory](../enterprise-users/domains-manage.md).
 
 - Si vous souhaitez utiliser des versions locales de Windows Server avec Azure Active Directory, consultez la rubrique [Intégrer des répertoires locaux à Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

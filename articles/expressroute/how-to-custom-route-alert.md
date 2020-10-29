@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371492"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurer des alertes personnalisées pour superviser les routes publiées
 
@@ -70,7 +70,7 @@ Créez un compte Automation avec des autorisations d’exécution. Pour obtenir 
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. Attribuer un rôle au compte d’identification
 
-Par défaut, le rôle **Contributeur** est attribué au principal de service utilisé par votre **compte d’identification** . Vous pouvez conserver le rôle par défaut attribué au principal du service, ou vous pouvez restreindre les autorisations en attribuant un [rôle intégré](../role-based-access-control/built-in-roles.md) (par exemple, Lecteur) ou un [rôle personnalisé](../active-directory/users-groups-roles/roles-create-custom.md).
+Par défaut, le rôle **Contributeur** est attribué au principal de service utilisé par votre **compte d’identification** . Vous pouvez conserver le rôle par défaut attribué au principal du service, ou vous pouvez restreindre les autorisations en attribuant un [rôle intégré](../role-based-access-control/built-in-roles.md) (par exemple, Lecteur) ou un [rôle personnalisé](../active-directory/roles/custom-create.md).
 
  Procédez comme suit pour déterminer le rôle attribué au principal de service utilisé par votre compte d’identification :
 

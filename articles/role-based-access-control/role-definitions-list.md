@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982490"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368245"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
 Une définition de rôle est une collection d’autorisations qui peuvent être effectuées, comme lire, écrire et supprimer. Elle est généralement simplement appelée « rôle ». Le [contrôle d’accès en fonction du rôle (RBAC) Azure](overview.md) compte plus de 120 [rôles intégrés](built-in-roles.md). Vous pouvez également créer vos propres rôles personnalisés. Cet article explique comment lister les rôles intégrés et personnalisés que vous pouvez utiliser pour accorder l’accès aux ressources Azure.
 
-Pour voir la liste des rôles d’administrateur pour Azure Active Directory, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Pour voir la liste des rôles d’administrateur pour Azure Active Directory, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -33,7 +33,7 @@ Pour voir la liste des rôles d’administrateur pour Azure Active Directory, co
 
 Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
-1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+1. Dans le portail Azure, cliquez sur **Tous les services** , puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration** , **Abonnements** , **Groupes de ressources** , ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
 
@@ -235,7 +235,7 @@ Pour lister les détails d’un rôle, utilisez [az role definition list](/cli/
 az role definition list --name {roleName}
 ```
 
-L’exemple suivant liste la définition de rôle *Contributeur* :
+L’exemple suivant liste la définition de rôle *Contributeur*  :
 
 ```azurecli
 az role definition list --name "Contributor"
@@ -275,7 +275,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-permissions-of-a-role-definition"></a>Lister les autorisations d’une définition de rôle
 
-L’exemple suivant liste simplement les *actions* et les *notActions* du rôle *Contributeur*.
+L’exemple suivant liste simplement les *actions* et les *notActions* du rôle *Contributeur* .
 
 ```azurecli
 az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
@@ -298,7 +298,7 @@ az role definition list --name "Contributor" --output json --query '[].{actions:
 ]
 ```
 
-L’exemple suivant liste simplement les actions du rôle *Contributeur de machines virtuelles*.
+L’exemple suivant liste simplement les actions du rôle *Contributeur de machines virtuelles* .
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
