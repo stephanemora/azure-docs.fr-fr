@@ -212,8 +212,6 @@
           href: log-query/get-started-portal.md
         - name: Étendue de requête
           href: log-query/scope.md
-        - name: Expérience simple des journaux
-          href: log-query/simple-logs.md
         - name: Interroger avec Azure Data Explorer
           href: platform/azure-data-explorer-monitor-proxy.md
         - name: Requêtes dans les journaux

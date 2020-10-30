@@ -74,6 +74,8 @@
       href: concepts/sdk-options.md
     - name: Modèle de tarification
       href: concepts/pricing.md
+    - name: Confidentialité
+      href: concepts/privacy.md
     - name: Authentification
       href: concepts/authentication.md
     - name: Gestion des événements
