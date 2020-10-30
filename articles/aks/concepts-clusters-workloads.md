@@ -23,7 +23,7 @@ Kubernetes est une plateforme évoluant rapidement qui gère les applications ba
 
 Vous pouvez générer et exécuter des applications modernes, portables et basées sur des microservices qui bénéficient de l’orchestration et de la gestion par Kubernetes de la disponibilité des composants d’application. Kubernetes prend en charge les applications sans état et avec état à mesure que les équipes adoptent les applications basées sur des microservices.
 
-En tant que plateforme ouverte, Kubernetes vous permet de créer des applications avec vos langage de programmation, système d’exploitation, bibliothèques ou bus de messagerie préférés. Les outils d’intégration et de livraison continues (CI/CD) existants peuvent s’intégrer à Kubernetes dans le cadre de la planification et du déploiement de versions.
+En tant que plateforme ouverte, Kubernetes vous permet de créer des applications avec vos langages de programmation, système d’exploitation, bibliothèques ou bus de messagerie préférés. Les outils d’intégration et de livraison continues (CI/CD) existants peuvent s’intégrer à Kubernetes dans le cadre de la planification et du déploiement de versions.
 
 AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Le plan de contrôle AKS est géré par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS repose sur le moteur open source Azure Kubernetes Service ([aks-engine][aks-engine]).
 
@@ -103,11 +103,11 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
     - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
     - 2 % de la mémoire au-dessus de 128 Go
 
-Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Du fait de ces règles d’allocation, le nœud signale moins de mémoire et de processeur allouables que s’il ne faisait pas partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
+Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Du fait de ces règles d’allocation, le nœud signale moins de mémoire et de processeurs allouables que s’il ne faisait pas partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 
-Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable incluant le seuil d’éviction dur de 750Mi.
+Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non-allouable incluant le seuil d’éviction dur de 750Mi.
 
-`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% réservé`
 
 En plus des réservations pour Kubernetes lui-même, le système d’exploitation du nœud sous-jacent réserve également une quantité de ressources de processeur et de mémoire pour gérer les fonctions du système d’exploitation.
 
@@ -151,7 +151,7 @@ Kubernetes Utilise des *pods* pour exécuter une instance de votre application. 
 
 Quand vous créez un pod, vous pouvez définir des *demandes de ressources* afin de demander une certaine quantité de ressources de processeur ou de mémoire. Le planificateur de Kubernetes essaie de planifier les pods afin qu’ils s’exécutent sur un nœud dont les ressources permettent de répondre à la demande. Vous pouvez également spécifier des limites de ressources maximales qui empêchent un pod donné de consommer trop de ressources de calcul à partir du nœud sous-jacent. Une bonne pratique consiste à inclure des limites de ressources pour tous les pods afin d'aider le Scheduler Kubernetes à identifier les ressources nécessaires et autorisées.
 
-Pour plus d’informations, consultez [Kubernetes pods][kubernetes-pods] (Pods Kubernetes) et [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (Cycle de vie des pods Kubernetes).
+Pour plus d’informations, consultez [Kubernetes pods][kubernetes-pods] (Pods Kubernetes) et [Kubernetes pod lifecycle][kubernetes-pod-lifecycle] (cycle de vie des pods Kubernetes).
 
 Un pod est une ressource logique, tandis que les conteneurs sont l’endroit où s’exécutent les charges de travail d’applications. Les pods sont en général des ressources éphémères jetables, et ceux planifiés individuellement ne bénéficient pas de toutes les fonctionnalités de haute disponibilité et de redondance fournies par Kubernetes. En effet, les pods sont déployés et gérés par des *contrôleurs* Kubernetes, comme le contrôleur de déploiement.
 
@@ -202,7 +202,7 @@ Pour plus d’informations, consultez la section [Déploiements Kubernetes][kube
 
 ### <a name="package-management-with-helm"></a>Gestion des packages avec Helm
 
-Dans Kubernetes, la gestion des applications fait souvent appel à [Helm][helm]. Vous pouvez créer et utiliser des *graphiques* Helm publics existants qui contiennent une version empaquetée d’un code d’application et de manifestes YAML Kubernetes pour le déploiement de ressources. Ces graphiques Helm peuvent être stockés localement, ou souvent dans un référentiel distant, tel qu’un [référentiel de graphiques Helm Azure Container Registry][acr-helm].
+Dans Kubernetes, la gestion des applications fait souvent appel à [Helm][helm]. Vous pouvez créer et utiliser des *graphiques* Helm (charts) publics existants qui contiennent une version empaquetée d’un code d’application et de manifestes YAML Kubernetes pour le déploiement de ressources. Ces graphiques Helm peuvent être stockés localement, ou souvent dans un référentiel distant, tel qu’un [référentiel de graphiques Helm Azure Container Registry][acr-helm].
 
 Pour utiliser Helm, installez le client Helm sur votre ordinateur, ou utilisez le client Helm dans [Azure Cloud Shell][azure-cloud-shell]. Vous pouvez rechercher ou créer des graphiques Helm avec le client, puis les installer sur votre cluster Kubernetes. Pour plus d’informations, consultez la section [Installer des applications existantes avec Helm dans AKS][aks-helm].
 
