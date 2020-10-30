@@ -14,6 +14,7 @@
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
     - name: Configurer les journaux de flux NSG avec un modèle ARM
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriels
   items:
