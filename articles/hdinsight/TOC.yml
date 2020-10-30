@@ -500,7 +500,7 @@
           items:
             - name: Utiliser MapReduce avec Apache Hadoop
               items:
-                - name: Vue d’ensemble de MapReduce
+                - name: Utiliser MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: Utiliser SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md

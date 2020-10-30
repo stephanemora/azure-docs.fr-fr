@@ -23,8 +23,6 @@
   items:
     - name: Modèles personnalisés
       href: concepts-models.md
-    - name: Conversion de modèles standard
-      href: concepts-convert-models.md
     - name: Jumeaux numériques et graphe de jumeaux
       href: concepts-twins-graph.md
     - name: Langage de requête
@@ -63,6 +61,8 @@
       items:
         - name: Gérer des modèles personnalisés
           href: how-to-manage-model.md
+        - name: Convertir des modèles standard
+          href: how-to-convert-models.md
         - name: Analyser et valider les modèles
           href: how-to-parse-models.md
         - name: Ajouter des étiquettes
@@ -176,11 +176,15 @@
             - name: Kit SDK Java - source
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: Kit SDK JavaScript - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: Kit SDK JavaScript - référence
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: Kit SDK JavaScript - source
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Kit SDK Python - PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Kit SDK Python - source
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Interface CLI Digital Twins
       items:
         - name: Informations de référence sur l’interface CLI Digital Twins
