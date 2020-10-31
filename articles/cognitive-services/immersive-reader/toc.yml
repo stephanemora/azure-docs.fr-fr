@@ -38,6 +38,8 @@
   items:
     - name: Kit de développement logiciel (SDK) JavaScript
       href: reference.md
+    - name: Notes de publication
+      href: release-notes.md
 - name: Ressources
   items:
     - name: Options d’aide et de support

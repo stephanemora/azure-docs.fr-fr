@@ -142,7 +142,7 @@
               href: create-sql-api-python.md
             - name: Application Xamarin
               href: create-sql-api-xamarin-dotnet.md
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: "1\_- Créer et gérer des données"
           items:
@@ -731,6 +731,10 @@
               items:
                 - name: Résoudre les problèmes du kit SDK Java v4
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: Résoudre les problèmes d’expiration de demande
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: Résoudre les problèmes de service indisponible
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: "Résoudre les problèmes du kit SDK Java asynchrone\_v2"
                   href: troubleshoot-java-async-sdk.md
         - name: Modifier le flux
@@ -877,8 +881,6 @@
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: Notes de publication de l’émulateur
-          href: local-emulator-release-notes.md
         - name: Éléments intégrés Azure Policy
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: Résolution des problèmes de l’émulateur
               href: troubleshoot-local-emulator.md
+            - name: Notes de publication de l’émulateur
+              href: local-emulator-release-notes.md
             - name: Extension de Visual Studio Code
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Configurez le pipeline CI/CD Azure DevOps

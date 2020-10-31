@@ -5,10 +5,6 @@
       items:
         - name: "Qu’est-ce qu’Azure Dev Spaces\_?"
           href: about.md
-    - name: Tutoriels
-      items:
-        - name: Bien démarrer avec Visual Studio
-          href: get-started-netcore-visualstudio.md
     - name: Concepts
       items:
         - name: Migrer vers Bridge to Kubernetes
