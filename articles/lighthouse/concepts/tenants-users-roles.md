@@ -3,12 +3,12 @@ title: Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399242"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424106"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 
@@ -18,11 +18,11 @@ Un *locataire* est une instance dédiée et approuvée d’Azure AD. En généra
 
 Pour atteindre cette projection logique, un abonnement (ou un ou plusieurs groupes de ressources au sein d’un abonnement) dans le locataire client doit être *intégré* à Azure Lighthouse. Ce processus d’intégration peut être effectué [par le biais de modèles Azure Resource Manager](../how-to/onboard-customer.md) ou par [la publication d’une offre publique ou privée sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
 
-Quelle que soit la méthode d’intégration choisie, vous devez définir des *autorisations*. Chaque autorisation spécifie un compte d’utilisateur dans le locataire gérant qui aura accès aux ressources déléguées, et un rôle intégré qui définit les autorisations dont chacun de ces utilisateurs aura besoin pour ces ressources.
+Quelle que soit la méthode d’intégration choisie, vous devez définir des *autorisations* . Chaque autorisation spécifie un compte d’utilisateur dans le locataire gérant qui aura accès aux ressources déléguées, et un rôle intégré qui définit les autorisations dont chacun de ces utilisateurs aura besoin pour ces ressources.
 
 ## <a name="role-support-for-azure-lighthouse"></a>Prise en charge des rôles pour Azure Lighthouse
 
-Lors de la définition d’une autorisation, chaque compte utilisateur doit recevoir un des [rôles de contrôle d'accès en fonction du rôle intégrés](../../role-based-access-control/built-in-roles.md). Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
+Lors de la définition d’une autorisation, chaque compte utilisateur doit recevoir un des [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
 
 Tous les [rôles intégrés](../../role-based-access-control/built-in-roles.md) sont actuellement pris en charge par Azure Lighthouse, avec les exceptions suivantes :
 
@@ -43,7 +43,7 @@ Lorsque vous créez vos autorisations, nous vous recommandons de suivre ces meil
 - Assurez-vous que tous les utilisateurs qui ont besoin [d’afficher la page Mes clients dans le portail Azure](../how-to/view-manage-customers.md) possèdent le rôle de [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
 
 > [!IMPORTANT]
-> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **type de groupe** doit être défini sur **Sécurité** . Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

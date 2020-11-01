@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996633"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534071"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -101,11 +101,11 @@ Vous pouvez examiner les cinq principaux événements de premier plan expirés, 
 
 Par exemple, dans le diagramme suivant, la synchronisation des fichiers journaux se trouve en haut. Cela indique le nombre d’attentes nécessaires pour que le LGWR écrive le tampon journal dans le fichier journal Redo. Ces résultats indiquent qu’un stockage ou des disques plus performants sont nécessaires. Le diagramme montre aussi le nombre de processeurs (cœurs) et la quantité de mémoire.
 
-![Capture d’écran de la page Rapport AWR](./media/oracle-design/cpu_memory_info.png)
+![Capture d’écran montrant la synchronisation des fichiers journaux en haut du tableau.](./media/oracle-design/cpu_memory_info.png)
 
 Le diagramme suivant montre le nombre total d’E/S de lecture et d’écriture. 59 Go ont été lus et 247,3 Go ont été écrits au moment de la création du rapport.
 
-![Capture d’écran de la page Rapport AWR](./media/oracle-design/io_info.png)
+![Capture d’écran montrant le nombre total d’E/S de lecture et d’écriture.](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Choisir une machine virtuelle
 
@@ -143,13 +143,13 @@ Selon vos besoins en bande passante réseau, vous pouvez choisir différents typ
 
 ### <a name="disk-types-and-configurations"></a>Types de disque et configurations
 
-- *Disques de système d'exploitation par défaut* : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
+- *Disques de système d'exploitation par défaut*  : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
 
-- *Disques non managés* : ces types de disques permettent de gérer les comptes de stockage qui stockent les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
+- *Disques non managés*  : ces types de disques permettent de gérer les comptes de stockage qui stockent les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
 
-- *Disques managés* : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
+- *Disques managés*  : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
 
-- *Disques de stockage Premium* : ces types de disques conviennent essentiellement aux charges de travail de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
+- *Disques de stockage Premium*  : ces types de disques conviennent essentiellement aux charges de travail de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
 
 Lorsque vous créez un disque managé dans le portail, vous pouvez choisir le **Type de compte** associé au type de disque que vous souhaitez utiliser. N’oubliez pas que les disques disponibles ne s’affichent pas tous dans le menu déroulant. Une fois que vous avez choisi une taille de machine virtuelle, le menu affiche uniquement les références SKU de stockage Premium disponibles qui sont associées à cette taille de machine virtuelle.
 
@@ -194,13 +194,13 @@ Il existe trois solutions pour la mise en cache de l’hôte :
 
 **Recommandations**
 
-Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule** ou **Aucun**. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
+Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule** ou **Aucun** . Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
 
-![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk02.png)
+![Capture d’écran de la page disque managé qui affiche les options ReadOnly et None.](./media/oracle-design/premium_disk02.png)
 
-- Pour les disques du système d’exploitation, utilisez la mise en cache par défaut **Lecture/Écriture**.
+- Pour les disques du système d’exploitation, utilisez la mise en cache par défaut **Lecture/Écriture** .
 - Pour SYSTEM, TEMP et UNDO, utilisez **Aucun** pour la mise en cache.
-- Pour DATA, utilisez **Aucun** pour la mise en cache. Toutefois, si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache **Lecture seule**.
+- Pour DATA, utilisez **Aucun** pour la mise en cache. Toutefois, si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache **Lecture seule** .
 
 Une fois que votre configuration de disque de données est enregistrée, vous ne pouvez pas modifier le paramètre de mise en cache de l’hôte, sauf si vous démontez le disque au niveau du système d’exploitation, puis le remontez après modification.
 
@@ -208,7 +208,7 @@ Une fois que votre configuration de disque de données est enregistrée, vous ne
 
 Une fois votre environnement Azure configuré, l’étape suivante consiste à sécuriser votre réseau. Voici quelques recommandations :
 
-- *Stratégie du groupe de sécurité réseau* : le groupe de sécurité réseau peut être défini par un sous-réseau ou une carte réseau. Il est plus simple de contrôler la sécurité de l’accès au niveau du sous-réseau et de forcer le routage pour les éléments tels que les pare-feu d’application.
+- *Stratégie du groupe de sécurité réseau*  : le groupe de sécurité réseau peut être défini par un sous-réseau ou une carte réseau. Il est plus simple de contrôler la sécurité de l’accès au niveau du sous-réseau et de forcer le routage pour les éléments tels que les pare-feu d’application.
 
 - *Serveur de rebond (jumpbox)*  : pour un accès plus sécurisé, les administrateurs ne doivent pas se connecter directement au service d'application ou à la base de données. Une jumpbox sert de média entre la machine de l’administrateur et les ressources Azure.
 ![Capture d’écran de la page relative à la topologie Jumpbox](./media/oracle-design/jumpbox.png)

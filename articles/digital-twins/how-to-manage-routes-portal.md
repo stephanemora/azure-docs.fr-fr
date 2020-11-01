@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ec23252883f928cfa6c1651afbfe88e413d55571
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339592"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461411"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -22,7 +22,7 @@ Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événeme
 
 Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires à l’aide du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide des [API EventRoutes](how-to-use-apis-sdks.md), du[Kit de développement logiciel (SDK) .NET [C#]](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
+Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[SDK .NET [C#]](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) ou de l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Pour obtenir une version de cet article qui utilise ces mécanismes plutôt que le portail, consultez [*Guide pratique : Gérer les points de terminaison et les itinéraires (API et CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

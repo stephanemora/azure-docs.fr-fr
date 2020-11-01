@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976251"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424765"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -41,16 +41,16 @@ La matrice de connectivité suivante résume les flux pris en charge dans ce sc�
 
 | Du             | Par :|   *Spokes NVA*|*Réseaux virtuels NVA*|*Réseaux virtuels non-NVA*|*Branches*|
 |---|---|---|---|---|---|
-| **Spokes NVA**   | &#8594; | UDR 0/0  |  Peering |   UDR 0/0    |  UDR 0/0  |
-| **Réseaux virtuels NVA**    | &#8594; |   statique |      X   |        X     |      X    |
-| **Réseaux virtuels non-NVA**| &#8594; |   statique |      X   |        X     |      X    |
-| **Branches**     | &#8594; |   statique |      X   |        X     |      X    |
+| **Spokes NVA**   | &#8594; | Sur le réseau virtuel NVA | Peering | Sur le réseau virtuel NVA | Sur le réseau virtuel NVA |
+| **Réseaux virtuels NVA**    | &#8594; | Appairage | Direct | Direct | Direct |
+| **Réseaux virtuels non-NVA**| &#8594; | Sur le réseau virtuel NVA | Direct | Direct | Direct |
+| **Branches**     | &#8594; | Sur le réseau virtuel NVA | Direct | Direct | Direct |
 
-Chacune des cellules de la matrice de connectivité indique si une connexion de Virtual WAN (côté « De » du flux, les en-têtes de lignes dans la table) apprend un préfixe de destination (côté « À » du flux, en-têtes de colonne en italique dans la table) pour un flux de trafic spécifique. Un « X » signifie que la connectivité est fournie en mode natif par Virtual WAN, et « Statique » signifie que la connectivité est assurée par Virtual WAN par le biais de routes statiques. Tenez compte des éléments suivants :
+Chacune des cellules de la matrice de connectivité indique comment un réseau virtuel ou une branche (côté « De » du flux, les en-têtes de lignes dans la table) communique avec u réseau virtuel ou une branche de destination (côté « À » du flux, en-têtes de colonne en italique dans la table). « Direct » signifie que la connectivité est fournie en mode natif par Virtual WAN, « Appairage » signifie que la connectivité est assurée par un itinéraire défini par l’utilisateur dans le réseau virtuel, « Sur le réseau virtuel NVA » signifie que la connectivité traverse les appliance virtuelle réseau (NVA) déployées dans le réseau virtuel NVA. Tenez compte des éléments suivants :
 
 * Les spokes NVA ne sont pas gérés par Virtual WAN. Par conséquent, les mécanismes avec lesquels ils communiquent avec d’autres réseaux virtuels ou branches sont gérés par l’utilisateur. La connectivité au réseau virtuel NVA est assurée par un appairage de réseaux virtuels, et un itinéraire par défaut vers 0.0.0.0/0 pointant vers la NVA en tant que tronçon suivant doit couvrir la connectivité à Internet, à d’autres spokes et à des branches
 * Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans le Tableau 1, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes tels que VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA
-* De même, les branches et les réseaux virtuels NVA ne connaissent aucun spoke NVA, étant donné que les spokes NVA ne sont pas connectés aux hubs VWAN. Par conséquent, les itinéraires statiques seront également nécessaires ici.
+* De même, les branches et les réseaux virtuels NVA ne connaissent aucun spoke NVA, étant donné que les spokes NVA ne sont pas connectés aux hubs Virtual WAN. Par conséquent, les itinéraires statiques seront également nécessaires ici.
 
 Compte tenu du fait que les spokes NVA ne sont pas gérés par Virtual WAN, toutes les autres lignes affichent le même modèle de connectivité. Par conséquent, une seule table de routage (celle par défaut) effectue les opérations suivantes :
 
@@ -61,7 +61,7 @@ Compte tenu du fait que les spokes NVA ne sont pas gérés par Virtual WAN, tout
   * Table de routage associée : **Par défaut**
   * Propagation aux tables de routage : **Par défaut**
 
-Toutefois, dans ce scénario, nous devons réfléchir aux itinéraires statiques à configurer. Chaque itinéraire statique a deux composants, l’un dans le hub Virtual WAN qui indique aux composants Virtual WAN la connexion à utiliser pour chaque spoke, et l’autre dans cette connexion spécifique qui pointe vers l’adresse IP concrète assignée à la NVA (ou à un équilibreur de charge devant plusieurs NVA), comme le montre la **Figure 1** :
+Toutefois, dans ce scénario, nous devons réfléchir aux itinéraires statiques à configurer. Chaque itinéraire statique a deux composants, l’un dans le hub Virtual WAN qui indique aux composants Virtual WAN la connexion à utiliser pour chaque spoke, et l’autre dans cette connexion spécifique qui pointe vers l’adresse IP concrète assignée à la NVA (ou à un équilibreur de charge devant plusieurs NVA), comme le montre la **Figure 1**  :
 
 **Figure 1**
 
@@ -87,13 +87,13 @@ Désormais, les réseaux virtuels NVA, les réseaux virtuels non-NVA et les bran
 
 ## <a name="architecture"></a><a name="architecture"></a>Architecture
 
-Dans la **Figure 2**, il y a deux hubs : **Hub1** et **Hub2**.
+Dans la **Figure 2** , il y a deux hubs : **Hub1** et **Hub2** .
 
-* **Hub1** et **Hub2** sont connectés directement aux réseaux virtuels NVA **VNet 2** et **VNet 4**.
+* **Hub1** et **Hub2** sont connectés directement aux réseaux virtuels NVA **VNet 2** et **VNet 4** .
 
-* **VNet 5** et **VNet 6** sont appairés avec **VNet 2**.
+* **VNet 5** et **VNet 6** sont appairés avec **VNet 2** .
 
-* **VNet 7** et **VNet 8** sont appairés avec **VNet 4**.
+* **VNet 7** et **VNet 8** sont appairés avec **VNet 4** .
 
 * Les **VNets 5, 6, 7 et 8** sont des spokes indirects, qui ne sont pas directement connectés à un hub virtuel.
 
@@ -105,7 +105,7 @@ Dans la **Figure 2**, il y a deux hubs : **Hub1** et **Hub2**.
 
 Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
-1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la **Figure 2**, il y a une **connexion VNet 2 (eastusconn)** et une **connexion VNet 4 (weconn)** .
+1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la **Figure 2** , il y a une **connexion VNet 2 (eastusconn)** et une **connexion VNet 4 (weconn)** .
 
    Vérifiez que des itinéraires définis par l’utilisateur (UDR) sont configurés :
    * De VNet 5 et VNet 6 à l’IP NVA de VNet 2

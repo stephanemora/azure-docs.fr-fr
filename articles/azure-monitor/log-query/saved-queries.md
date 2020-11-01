@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959840"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542605"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Requêtes enregistrées dans Azure Monitor Log Analytics
 
@@ -23,9 +23,9 @@ Si vous n’êtes pas familiarisé avec Log Analytics ou le langage de requête�
 
 La nouvelle expérience filtre et suggère des requêtes en contexte. En d’autres termes, le système affiche automatiquement uniquement les requêtes pertinentes pour l’étendue que vous avez sélectionnée.
 
-- Pour une **ressource unique** : les requêtes sont filtrées en fonction du type de ressource.
-- Pour un **groupe de ressources** : les requêtes sont filtrées en fonction des ressources présentes dans le groupe de ressources spécifique.
-- Pour un **espace de travail** : les requêtes sont filtrées en fonction des solutions installées sur l’espace de travail.
+- Pour une **ressource unique**  : les requêtes sont filtrées en fonction du type de ressource.
+- Pour un **groupe de ressources**  : les requêtes sont filtrées en fonction des ressources présentes dans le groupe de ressources spécifique.
+- Pour un **espace de travail**  : les requêtes sont filtrées en fonction des solutions installées sur l’espace de travail.
 
 Ce comportement est cohérent pour toutes les étendues de Log Analytics. Si vous ne voyez pas d’exemple de requête pour le type de ressource que vous souhaitez, cela peut être dû à des filtres induits par le contexte. Une section ultérieure explique comment supprimer l’étendue contextuelle afin de pouvoir visualiser toutes les requêtes possibles.
 
@@ -38,7 +38,7 @@ Vous pouvez accéder à des exemples de requêtes à partir de deux emplacements
 
 ### <a name="example-query-dialog"></a>Boîte de dialogue des exemples de requêtes
 
-Lorsque vous entrez pour la première fois dans l’expérience Log Analytics, la *boîte de dialogue Exemples de requêtes* s’affiche automatiquement.  Vous pouvez également y accéder en cliquant en haut à droite de l’écran sur **Exemples de requêtes**.
+Lorsque vous entrez pour la première fois dans l’expérience Log Analytics, la *boîte de dialogue Exemples de requêtes* s’affiche automatiquement.  Vous pouvez également y accéder en cliquant en haut à droite de l’écran sur **Exemples de requêtes** .
 
 ![Barre latérale](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Chaque exemple de requête est représenté par une carte. Vous pouvez rapidemen
 
 Toutes les fonctionnalités de l’expérience de la boîte de dialogue sont accessibles à partir du volet des requêtes dans la barre latérale gauche de Log Analytics. Vous pouvez pointer sur un nom de requête pour obtenir la description de la requête et des fonctionnalités supplémentaires.
 
-![Barre latérale](media/saved-queries/sidebar-3.png)
+![Capture d’écran montrant le volet Requêtes.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Recherche et filtrage des requêtes
 
@@ -73,16 +73,16 @@ Alors que la boîte de dialogue de requête utilise des filtres pour n’affiche
 
 ### <a name="group-by"></a>Regrouper par
 
-Modifiez le regroupement des requêtes en cliquant sur la liste déroulante *Regrouper par* :
+Modifiez le regroupement des requêtes en cliquant sur la liste déroulante *Regrouper par*  :
 
 ![Écran d’exemples de requêtes GroupBy](media/saved-queries/example-query-groupby.png)
 
 La boîte de dialogue prend en charge le regroupement par :
 
-- **Type de ressource** : ressource telle que définie dans Azure, comme une machine virtuelle. Pour une cartographie complète des tables Azure Monitor Logs/Log Analytics par type de ressource, consultez la [référence des tables Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype).  
-- **Catégorie** : type d’informations telles que *Sécurité* ou *Audit*. Les catégories sont identiques à celles définies dans le volet latéral Tables. Pour obtenir la liste complète des catégories, consultez la [référence des tables Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
-- **Solution** : solution Azure Monitor associée aux requêtes.
-- **Rubrique** : rubrique de l’exemple de requête, telle que *Journaux d’activité* ou *Journaux d’application*. La propriété Rubrique est unique aux exemples de requêtes et peut différer selon le type de ressource spécifique.
+- **Type de ressource**  : ressource telle que définie dans Azure, comme une machine virtuelle. Pour une cartographie complète des tables Azure Monitor Logs/Log Analytics par type de ressource, consultez la [référence des tables Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype).  
+- **Catégorie**  : type d’informations telles que *Sécurité* ou *Audit* . Les catégories sont identiques à celles définies dans le volet latéral Tables. Pour obtenir la liste complète des catégories, consultez la [référence des tables Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
+- **Solution**  : solution Azure Monitor associée aux requêtes.
+- **Rubrique**  : rubrique de l’exemple de requête, telle que *Journaux d’activité* ou *Journaux d’application* . La propriété Rubrique est unique aux exemples de requêtes et peut différer selon le type de ressource spécifique.
 
 Les valeurs de regroupement agissent également comme une table des matières active. Cliquez sur l’une des valeurs à gauche de l’écran pour faire défiler l’affichage des requêtes jusqu’à l’élément sur lequel vous avez cliqué.
 

@@ -4,12 +4,12 @@ description: Découvrez comment activer et afficher les journaux d’activité r
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076383"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899933"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -25,21 +25,23 @@ Pour faciliter la collecte et l’analyse des données provenant de plusieurs so
 
 Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
 
-1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup*. Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus*.
-1. Sur le côté gauche, choisissez **Paramètres de diagnostic**.
-1. Sélectionnez votre cluster AKS, par exemple *myAKSCluster*, puis choisissez **Ajouter un paramètre de diagnostic**.
-1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer à Log Analytics**.
+1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup* . Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus* .
+1. Sur le côté gauche, choisissez **Paramètres de diagnostic** .
+1. Sélectionnez votre cluster AKS, par exemple *myAKSCluster* , puis choisissez **Ajouter un paramètre de diagnostic** .
+1. Entrez un nom, par exemple *myAKSClusterLogs* , puis sélectionnez l’option pour **Envoyer à Log Analytics** .
 1. Sélectionnez un espace de travail existant ou créez-en un. Si vous créez un espace de travail, indiquez un nom d’espace de travail, un groupe de ressources et un emplacement.
-1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Pour cet exemple, activez les journaux *kube-audit* et *kube-audit-admin*. Les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
+1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Pour cet exemple, activez les journaux *kube-audit* et *kube-audit-admin* . Les journaux *kube-apiserver* , *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux d’activité sélectionnés.
 
 ## <a name="log-categories"></a>Catégories de journal
 
 En plus des entrées écrites par Kubernetes, les journaux d’audit de votre projet comportent également des entrées provenant d’AKS.
 
-Les journaux d’audit sont enregistrés dans deux catégories : *kube-audit-admin* et *kube-audit*. La catégorie *kube-audit* contient toutes les données du journal d’audit pour chaque événement d’audit, notamment *get*, *list*, *create*, *update*, *delete*, *patch* et *post*.
+Les journaux d’audit sont enregistrés dans trois catégories : *kube-audit* , *kube-audit-admin* et *guard* .
 
-La catégorie *kube-audit-admin* est un sous-ensemble de la catégorie de journal *kube-audit*. *kube-audit-admin* réduit considérablement le nombre de journaux en excluant les événements d’audit *get* et *list* du journal.
+- La catégorie *kube-audit* contient toutes les données du journal d’audit pour chaque événement d’audit, notamment *get* , *list* , *create* , *update* , *delete* , *patch* et *post* .
+- La catégorie *kube-audit-admin* est un sous-ensemble de la catégorie de journal *kube-audit* . *kube-audit-admin* réduit considérablement le nombre de journaux en excluant les événements d’audit *get* et *list* du journal.
+- La catégorie *guard* correspond aux audits managés Azure AD et RBAC. Pour Azure AD managé : jeton en entrée, informations utilisateur en sortie. Pour Azure RBAC : révisions d’accès en entrée et en sortie.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 
@@ -53,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -75,14 +77,14 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Afficher les journaux d’activité collectés
 
-L’activation et l’affichage des journaux de diagnostic peuvent nécessiter quelques minutes.
+L’activation et l’affichage des journaux de diagnostic peuvent prendre environ 10 minutes.
 
 > [!NOTE]
 > Si vous avez besoin de toutes les données du journal d’audit à des fins de conformité ou autres, collectez-les et stockez-les dans un stockage peu onéreux, tel que Stockage Blob. Utilisez la catégorie de journal *kube-audit-admin* pour collecter et enregistrer un ensemble significatif de données de journal d’audit à des fins de surveillance et d’alerte.
 
 Dans le portail Azure, accédez à votre cluster AKS, puis sélectionnez **Journaux** sur le côté gauche. Fermez la fenêtre *Exemples de requêtes* si elle s’affiche.
 
-Sur le côté gauche, choisissez **Journaux d’activité**. Pour afficher le journal *kube-audit*, entrez la requête suivante dans la zone de texte :
+Sur le côté gauche, choisissez **Journaux d’activité** . Pour afficher le journal *kube-audit* , entrez la requête suivante dans la zone de texte :
 
 ```
 AzureDiagnostics
@@ -90,7 +92,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-L’application vous renvoie alors probablement un grand nombre de journaux. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx*, comme indiqué dans l’exemple de requête suivant :
+L’application vous renvoie alors probablement un grand nombre de journaux. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx* , comme indiqué dans l’exemple de requête suivant :
 
 ```
 AzureDiagnostics
@@ -99,7 +101,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Pour afficher les journaux *kube-audit-admin*, entrez la requête suivante dans la zone de texte :
+Pour afficher les journaux *kube-audit-admin* , entrez la requête suivante dans la zone de texte :
 
 ```
 AzureDiagnostics
@@ -107,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Dans cet exemple, la requête affiche tous les travaux create dans *kube-audit-admin*. Il est probable que de nombreux résultats soient renvoyés. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx*, comme indiqué dans l’exemple de requête suivant.
+Dans cet exemple, la requête affiche tous les travaux create dans *kube-audit-admin* . Il est probable que de nombreux résultats soient renvoyés. Pour réduire l’étendue des résultats de la requête de façon à n’afficher que les journaux relatifs au pod NGINX créé à l’étape précédente, ajoutez une instruction *where* supplémentaire afin de rechercher *nginx* , comme indiqué dans l’exemple de requête suivant.
 
 ```
 AzureDiagnostics

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425795"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de traitement par lots pour des conteneurs Speech
 
@@ -75,9 +75,8 @@ Le client par lot peut détecter de manière dynamique si un point de terminaiso
 > [!NOTE] 
 > * Cet exemple utilise le même répertoire (`/my_nfs`) pour le fichier de configuration et les répertoires d’entrées, de sorties et de journaux. Vous pouvez utiliser des répertoires hébergés ou montés sur NFS pour ces dossiers.
 > * L’exécution du client avec `–h` répertorie les paramètres de ligne de commande disponibles et leurs valeurs par défaut. 
+> * Le conteneur de traitement par lots est uniquement pris en charge sur Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Utilisez la commande `run` de Docker pour exécuter le conteneur. Cela démarre un interpréteur de commandes interactif à l’intérieur du conteneur.
 
 ```Docker
@@ -95,17 +94,6 @@ Pour exécuter le client et le conteneur par lot dans une commande unique :
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Pour exécuter le client et le conteneur par lot dans une commande unique :
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 Le client commence à être exécuté. Si un fichier audio a déjà été transcrit dans une exécution précédente, le client ignore automatiquement le fichier. Les fichiers sont envoyés avec une nouvelle tentative automatique si des erreurs temporaires se produisent et vous pouvez différencier les erreurs pour lesquelles le client peut procéder à une nouvelle tentative et les autres. Dans le cas d’une erreur de transcription, le client continue la transcription et peut procéder à une nouvelle tentative sans perdre la progression.  

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150942"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425121"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
@@ -184,7 +184,7 @@ Tenez compte des différents modes d’interaction de votre expérience pour inc
 
 La divulgation peut être réalisée implicitement en définissant des attentes précises quant aux capacités de l’assistant numérique. Fournissez des exemples de commandes afin que les utilisateurs puissent apprendre à interagir avec l’assistant numérique et proposez une aide contextuelle pour en savoir plus sur la voix de synthèse dès les premières phases de l’expérience.
 
-![Signaux visuels et commentaires](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Exemple de réponses par défaut à une conversation que vous pouvez rédiger.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Transparence conversationnelle
 

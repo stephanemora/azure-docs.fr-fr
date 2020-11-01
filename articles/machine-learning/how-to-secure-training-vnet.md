@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629724"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425091"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -42,12 +42,12 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
 + Un réseau virtuel et un sous-réseau existants à utiliser avec vos ressources de calcul.
 
-+ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (RBAC) :
++ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (Azure RBAC) :
 
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters et instances de calcul 
@@ -63,7 +63,7 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > * Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms.
 
 > [!TIP]
-> La capacité de calcul ou le cluster Machine Learning alloue automatiquement des ressources réseau supplémentaires au __groupe de ressources qui contient le réseau virtuel__. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
+> La capacité de calcul ou le cluster Machine Learning alloue automatiquement des ressources réseau supplémentaires au __groupe de ressources qui contient le réseau virtuel__ . Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
 > 
 > * Un seul groupe de sécurité réseau
 > * Une seule adresse IP publique
@@ -79,7 +79,7 @@ Si vous envisagez de sécuriser le réseau virtuel en restreignant le trafic ré
 
 Le service Batch ajoute des groupes de sécurité réseau (NSG) au niveau des interfaces réseau (NIC) qui sont attachées aux machines virtuelles. Ces groupes de sécurité réseau configurent automatiquement des règles de trafic entrant et sortant pour autoriser le trafic suivant :
 
-- Trafic TCP entrant sur les ports 29876 et 29877 à partir d’une __balise de service__ de __BatchNodeManagement__.
+- Trafic TCP entrant sur les ports 29876 et 29877 à partir d’une __balise de service__ de __BatchNodeManagement__ .
 
     ![Règle de trafic entrant qui utilise la balise de service BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +89,7 @@ Le service Batch ajoute des groupes de sécurité réseau (NSG) au niveau des in
 
 - Le trafic sortant sur n’importe quel port vers internet.
 
-- Le trafic TCP entrant de l’instance de calcul sur le port 44224 à partir d’une __Balise de service__ __AzureMachineLearning__.
+- Le trafic TCP entrant de l’instance de calcul sur le port 44224 à partir d’une __Balise de service__ __AzureMachineLearning__ .
 
 > [!IMPORTANT]
 > Soyez prudent si vous modifiez ou ajoutez des règles de trafic entrant ou sortant dans des groupes de sécurité réseau configurés par Batch. Si un groupe de sécurité réseau bloque la communication vers les nœuds de calcul, le service Capacité de calcul définit l’état de ces nœuds sur « inutilisable ».
@@ -110,9 +110,9 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 
 - Refusez la connexion internet sortante à l’aide des règles NSG.
 
-- Pour une __instance de calcul__ ou un __cluster de calcul__, limitez le trafic sortant aux éléments suivants :
-   - Stockage Azure, en utilisant la __balise de service__ __Storage.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
-   - Azure Container Registry, en utilisant la __balise de service__ __AzureContainerRegistry.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
+- Pour une __instance de calcul__ ou un __cluster de calcul__ , limitez le trafic sortant aux éléments suivants :
+   - Stockage Azure, en utilisant la __balise de service__ __Storage.RegionName__ . Où `{RegionName}` est le nom d’une région Azure.
+   - Azure Container Registry, en utilisant la __balise de service__ __AzureContainerRegistry.RegionName__ . Où `{RegionName}` est le nom d’une région Azure.
    - Azure Machine Learning, à l’aide de la __balise du service__ de __AzureMachineLearning__
    - Azure Resource Manager, à l’aide de la __balise de service__ de __AzureResourceManager__
    - Azure Active Directory, à l’aide de la __balise de service__ de __AzureActiveDirectory__
@@ -176,7 +176,7 @@ Pour ce faire, il y a deux manières de procéder :
         > * [Plages d’adresses IP et étiquettes de service pour Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Plages d’adresses IP et étiquettes de service pour Azure Chine](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Lorsque vous ajoutez les UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez __Type de tronçon suivant__ sur __Internet__. L’illustration suivante propose un exemple de cet UDR dans le portail Azure :
+    Lorsque vous ajoutez les UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez __Type de tronçon suivant__ sur __Internet__ . L’illustration suivante propose un exemple de cet UDR dans le portail Azure :
 
     ![Exemple de UDR pour un préfixe d’adresse](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -198,13 +198,13 @@ Pour créer un cluster Capacité de calcul Machine Learning, effectuez les étap
 
 1. Sélectionnez __Clusters d'entraînement__ à partir du centre, puis sélectionnez __+__ .
 
-1. Dans la boîte de dialogue __Nouveau cluster d'entraînement__, développez la section __Paramètres avancés__.
+1. Dans la boîte de dialogue __Nouveau cluster d'entraînement__ , développez la section __Paramètres avancés__ .
 
-1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, effectuez les actions suivantes dans la section __Configurer le réseau virtuel__ :
+1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, effectuez les actions suivantes dans la section __Configurer le réseau virtuel__  :
 
-    1. Dans la liste déroulante __Groupe de ressources__, sélectionnez le groupe de ressources qui contient le réseau virtuel.
-    1. Dans la liste déroulante __Réseau virtuel__, sélectionnez le réseau virtuel qui contient le sous-réseau.
-    1. Dans la liste déroulante __Sous-réseau__, sélectionnez le sous-réseau à utiliser.
+    1. Dans la liste déroulante __Groupe de ressources__ , sélectionnez le groupe de ressources qui contient le réseau virtuel.
+    1. Dans la liste déroulante __Réseau virtuel__ , sélectionnez le réseau virtuel qui contient le sous-réseau.
+    1. Dans la liste déroulante __Sous-réseau__ , sélectionnez le sous-réseau à utiliser.
 
    ![Les paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -252,7 +252,7 @@ Une fois le processus de création terminé, vous pouvez entraîner votre modèl
 
 Si vous utilisez des notebooks sur une instance de capacité de calcul Azure, vous devez vérifier que votre notebook s’exécute sur une ressource de calcul derrière le même réseau virtuel et le même sous-réseau que vos données. 
 
-Vous devez configurer votre instance de capacité de calcul pour qu’elle se trouve sur le même réseau virtuel lors de la création sous **Paramètres avancés** > **Configurer le réseau virtuel**. Vous ne pouvez pas ajouter une instance de capacité de calcul existante à un réseau virtuel.
+Vous devez configurer votre instance de capacité de calcul pour qu’elle se trouve sur le même réseau virtuel lors de la création sous **Paramètres avancés** > **Configurer le réseau virtuel** . Vous ne pouvez pas ajouter une instance de capacité de calcul existante à un réseau virtuel.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +285,21 @@ Créez une machine virtuelle ou un cluster HDInsight à l’aide du portail Azur
 
 Autorisez Azure Machine Learning à communiquer avec le port SSH sur la machine virtuelle ou le cluster, configurez une entrée source pour le groupe de sécurité réseau. Le port SSH est généralement le port 22. Pour autoriser le trafic provenant de cette source, effectuez les actions suivantes :
 
-1. Dans la liste déroulante __Source__, sélectionnez __Balise de service__.
+1. Dans la liste déroulante __Source__ , sélectionnez __Balise de service__ .
 
-1. Dans la liste déroulante __Balise de service source__, sélectionnez __AzureMachineLearning__.
+1. Dans la liste déroulante __Balise de service source__ , sélectionnez __AzureMachineLearning__ .
 
     ![Règles de trafic entrant pour effectuer des expériences sur une machine virtuelle ou un cluster HDInsight à l’intérieur d’un réseau virtuel](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
-1. Dans la liste déroulante __Plages de port source__, sélectionnez __*__ .
+1. Dans la liste déroulante __Plages de port source__ , sélectionnez __*__ .
 
-1. Dans la liste déroulante __Destination__, sélectionnez __Tous__.
+1. Dans la liste déroulante __Destination__ , sélectionnez __Tous__ .
 
-1. Dans la liste déroulante __Plages de port de destination__, sélectionnez __22__.
+1. Dans la liste déroulante __Plages de port de destination__ , sélectionnez __22__ .
 
-1. Sous __Protocole__, sélectionnez __Tous__.
+1. Sous __Protocole__ , sélectionnez __Tous__ .
 
-1. Sous __Action__, sélectionnez __Autoriser__.
+1. Sous __Action__ , sélectionnez __Autoriser__ .
 
 Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 

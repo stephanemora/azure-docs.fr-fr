@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311678"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489011"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
 
@@ -34,7 +34,7 @@ Autrement, vous pouvez ouvrir le volet Cloud Shell dans le portail Azure et effe
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vue du portail Azure avec l’icône « Cloud Shell » mise en évidence, et l’éditeur Cloud Shell s’affichant dans la partie inférieure de la fenêtre du portail":::
 
-Une dernière solution consiste à [installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) sur votre ordinateur afin de pouvoir exécuter les commandes Azure CLI localement. L’interface CLI locale ne rencontre pas ce problème.
+Une dernière solution consiste à [installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) sur votre ordinateur afin de pouvoir exécuter les commandes Azure CLI localement. L’interface CLI locale ne rencontre pas ce problème.
 
 ### <a name="possible-causes"></a>Causes possibles
 
@@ -46,7 +46,9 @@ Cela n’affecte pas les commandes Azure Digital Twins des groupes de commandes 
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Attribution de rôle manquante après l’installation par script
 
-Certains utilisateurs peuvent rencontrer des problèmes dans la partie « Attribution des rôles » de [*Guide pratique : Configurer une instance et l’authentification (procédure scriptée)*](how-to-set-up-instance-scripted.md). Le script n’indique pas d’échec, mais le rôle *Propriétaire Azure Digital Twins (préversion)* n’est pas correctement attribué à l’utilisateur, et ce problème aura un impact sur la capacité à créer d’autres ressources ultérieurement.
+Certains utilisateurs peuvent rencontrer des problèmes dans la partie « Attribution des rôles » de [*Guide pratique : Configurer une instance et l’authentification (procédure scriptée)*](how-to-set-up-instance-scripted.md). Le script n’indique pas d’échec, mais le rôle *Propriétaire de données Azure Digital Twins* n’est pas correctement attribué à l’utilisateur, et ce problème aura un impact sur la capacité à créer d’autres ressources ultérieurement.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Pour déterminer si votre attribution de rôle a été correctement configurée après l’exécution du script, suivez les instructions de la section [*Vérifier l’attribution du rôle utilisateur*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) de l’article sur l’installation. Si votre utilisateur n’est pas associé à ce rôle, ce problème vous concerne.
 
@@ -64,7 +66,7 @@ Pour les utilisateurs connectés avec un [compte Microsoft (MSA)](https://accoun
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problème avec l’authentification interactive du navigateur
 
-Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins à l’aide de la version **1.2.0** de la bibliothèque **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)** , vous pouvez rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins à l’aide de la version **1.2.0** de la bibliothèque **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , vous pouvez rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 
 Il ne s’agit pas de la version la plus récente de la bibliothèque. La version la plus récente est **1.2.2** .
 

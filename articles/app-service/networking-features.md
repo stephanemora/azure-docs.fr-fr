@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207044"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628828"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -29,6 +29,7 @@ Azure App Service est un système distribué. Les rôles qui gèrent les requêt
 | Adresse attribuée par l’application | les connexions hybrides |
 | Restrictions d’accès | Intégration au réseau virtuel avec passerelle obligatoire |
 | Points de terminaison de service | Intégration au réseau virtuel |
+| Instances Private Endpoint ||
 
 Sauf indication contraire, toutes les fonctionnalités peuvent être utilisées ensemble. Vous pouvez combiner les fonctionnalités pour résoudre différents problèmes.
 
@@ -42,8 +43,8 @@ Pour tout cas d’usage, il peut y avoir plusieurs façons de résoudre le probl
 | Adresse entrante dédiée, non partagée pour votre application | adresse attribuée par l’application |
 | Restreindre l’accès à votre application à partir d’un ensemble d’adresses bien définies | Restrictions d’accès |
 | Restreindre l’accès à mon application à partir des ressources dans un réseau virtuel | Points de terminaison de service </br> ASE ILB </br> Instances Private Endpoint |
-| Exposer mon application sur une adresse IP privée dans mon réseau virtuel | ASE ILB </br> Instances Private Endpoint </br> adresse IP privée en entrée sur Application Gateway avec des points de terminaison de service |
-| Protéger mon application avec un Web Application Firewall (WAF) | Application Gateway + ASE ILB </br> Application Gateway avec des points de terminaison privés </br> Application Gateway avec des points de terminaison de service </br> Azure Front Door avec des restrictions d’accès |
+| Exposer mon application sur une adresse IP privée dans mon réseau virtuel | ASE ILB </br> Instances Private Endpoint </br> Adresse IP privée en entrée sur Application Gateway avec des points de terminaison de service |
+| Protéger mon application avec un Web Application Firewall (WAF) | Application Gateway + ASE ILB </br> Application Gateway avec des points de terminaison privés </br> Application Gateway avec des points de terminaison de service </br> Azure Front Door avec des restrictions d’accès |
 | Équilibrer la charge du trafic vers mes applications dans différentes régions | Azure Front Door avec des restrictions d’accès | 
 | Équilibrer la charge du trafic dans la même région | [Application Gateway avec des points de terminaison de service][appgwserviceendpoints] | 
 
@@ -89,20 +90,23 @@ Vous pouvez apprendre à définir une adresse sur votre application en suivant l
 
 ### <a name="access-restrictions"></a>Restrictions d’accès 
 
-La fonctionnalité Restrictions d’accès vous permet de filtrer les requêtes **entrantes** en fonction de l’adresse IP d’origine. L’action de filtrage a lieu sur les rôles front-end situés en amont des déploiements des rôles de travail où vos applications s’exécutent. Étant donné que les rôles frontend sont en amont des rôles de travail, la fonctionnalité Restrictions d’accès peut être considérée comme une protection de vos applications au niveau du réseau. La fonctionnalité vous permet de créer une liste de blocs d’adresses d’autorisation et de refus qui sont évalués par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau qui existe dans Mise en réseau Azure.  Vous pouvez utiliser cette fonctionnalité dans un ASE ou dans le service multilocataire. Lorsqu’elle est utilisée avec un ASE ILB, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
+La fonctionnalité Restrictions d’accès vous permet de filtrer les requêtes **entrantes** . L’action de filtrage a lieu sur les rôles front-end situés en amont des déploiements des rôles de travail où vos applications s’exécutent. Étant donné que les rôles frontend sont en amont des rôles de travail, la fonctionnalité Restrictions d’accès peut être considérée comme une protection de vos applications au niveau du réseau. La fonctionnalité vous permet de créer une liste de règles d’autorisation et de refus qui sont évaluées par ordre de priorité. Elle est similaire à la fonctionnalité de groupe de sécurité réseau qui existe dans Mise en réseau Azure.  Vous pouvez utiliser cette fonctionnalité dans un ASE ou dans le service multilocataire. Lorsqu’elle est utilisée avec un ASE ILB ou point de terminaison privé, vous pouvez restreindre l’accès à partir de blocs d’adresses privées.
+> [!NOTE]
+> Jusqu’à 512 règles de restrictions d’accès peuvent être configurées par application. 
 
 ![Restrictions d’accès](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Règles de restrictions d’accès basées sur l’adresse IP
 
-La fonctionnalité Restrictions d’accès est utile dans les scénarios dans lesquels vous souhaitez limiter les adresses IP qui peuvent être utilisées pour accéder à votre application. Cette fonctionnalité peut notamment être utilisée dans les cas suivants :
+La fonctionnalité Restrictions d’accès basées sur l’adresse IP est utile dans les scénarios dans lesquels vous souhaitez limiter les adresses IP qui peuvent être utilisées pour accéder à votre application. IPv4 et IPv6 sont pris en charge. Cette fonctionnalité peut notamment être utilisée dans les cas suivants :
 
 * Restreindre l’accès à votre application à partir d’un ensemble d’adresses bien définies 
-* Restreindre les accès provenant d’un service d’équilibrage de charge, tels qu’Azure Front Door. Si vous souhaitiez verrouiller votre trafic entrant vers Azure Front Door, créez des règles pour autoriser le trafic à partir de 147.243.0.0/16 et 2a01:111:2050::/44. 
+* Restreindre les accès provenant d’un service d’équilibrage de charge, tel qu’Azure Front Door
 
 ![Restrictions d’accès avec Front Door](media/networking-features/access-restrictions-afd.png)
 
-Si vous souhaitez verrouiller l’accès à votre application de sorte qu’elle soit uniquement accessible à partir de ressources dans votre réseau virtuel Azure, vous avez besoin d’une adresse publique statique à l’emplacement où se trouve votre source dans votre réseau virtuel. Si les ressources n’ont pas d’adresse publique, vous devez utiliser la fonctionnalité Points de terminaison de service à la place. Découvrez comment activer cette fonctionnalité avec le didacticiel sur la [configuration de la fonctionnalité Restrictions d’accès][iprestrictions].
+Découvrez comment activer cette fonctionnalité avec le didacticiel sur la [configuration de la fonctionnalité Restrictions d’accès][iprestrictions].
 
-### <a name="service-endpoints"></a>Points de terminaison de service
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Règles de restrictions d’accès basées sur le point de terminaison de service
 
 Les points de terminaison de service vous permettent de verrouiller l’accès **entrant** à votre application, de façon que l’adresse source doive provenir d’un ensemble de sous-réseaux que vous sélectionnez. Cette fonctionnalité fonctionne conjointement avec les restrictions d’accès d’adresse IP. Les points de terminaison de service ne sont pas compatibles avec le débogage à distance. Pour utiliser le débogage à distance avec votre application, votre client ne peut pas se trouver dans un sous-réseau dans lequel des points de terminaison de service sont activés. Les points de terminaison de service sont définis dans la même expérience utilisateur que les restrictions d’accès d’adresse IP. Vous pouvez créer une liste d’autorisation/de refus des règles d’accès qui inclut les adresses publiques, ainsi que des sous-réseaux dans vos réseaux virtuels. Cette fonctionnalité prend en charge des scénarios tels que :
 
@@ -113,12 +117,12 @@ Les points de terminaison de service vous permettent de verrouiller l’accès *
 
 ![points de terminaison de service avec application gateway](media/networking-features/service-endpoints-appgw.png)
 
-Vous trouverez plus d’informations sur la configuration des points de terminaison de service avec votre application dans le didacticiel sur la [configuration de la fonctionnalité Restrictions d’accès de point de terminaison de service][serviceendpoints]
+Vous trouverez plus d’informations sur la configuration des points de terminaison de service avec votre application dans le tutoriel sur la [configuration de la fonctionnalité Restrictions d’accès de point de terminaison de service][serviceendpoints]
 
-### <a name="private-endpoints"></a>Points de terminaison privés
+### <a name="private-endpoints"></a>Instances Private Endpoint
 
-Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application web Azure Private Link. Private Endpoint utilise une adresse IP privée de votre réseau virtuel, plaçant de fait l’application web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux **entrants** dans votre application web.
-[Utilisation de points de terminaison privés pour une application web Azure][privateendpoints]
+Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application Web Azure Private Link. Private Endpoint utilise une adresse IP privée de votre réseau virtuel, plaçant de fait l’application Web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux **entrants** dans votre application web.
+[Utilisation de points de terminaison privés pour une application Web Azure][privateendpoints]
 
 Les points de terminaison privés permettent des scénarios tels que :
 
@@ -246,11 +250,11 @@ Les compromis entre les deux techniques sont les suivants :
 * Avec des points de terminaison de service, vous n’avez qu’à sécuriser le trafic vers votre application API sur le sous-réseau d’intégration. Cela sécurise l’application API, mais vous pouvez toujours avoir une possibilité d’exfiltration de données de votre application frontale vers d’autres applications du plan App Service.
 * Avec des points de terminaison privés, vous avez deux sous-réseaux. Cela augmente la complexité. En outre, le point de terminaison privé est une ressource de niveau supérieur et ajoute un nouvel élément à gérer. L’avantage de l’utilisation de points de terminaison privés est que vous n’avez pas de possibilité d’exfiltration de données. 
 
-L’une ou l’autre technique fonctionne avec plusieurs serveurs frontaux. À petite échelle, les points de terminaison de service sont beaucoup plus faciles à utiliser, car il vous suffit d’activer les points de terminaison de service pour l’application API sur le sous-réseau d’intégration frontal. À mesure que vous ajoutez des applications frontales, vous devez ajuster chaque application API pour avoir des points de terminaison de service avec le sous-réseau d’intégration. Avec des points de terminaison privés, vous avez plus de complexité, mais vous n’avez pas rien à modifier sur vos applications API après avoir défini un point de terminaison privé. 
+L’une ou l’autre technique fonctionne avec plusieurs serveurs frontaux. À petite échelle, les points de terminaison de service sont beaucoup plus faciles à utiliser, car il vous suffit d’activer les points de terminaison de service pour l’application API sur le sous-réseau d’intégration frontal. À mesure que vous ajoutez des applications frontales, vous devez ajuster chaque application API pour avoir des points de terminaison de service avec le sous-réseau d’intégration. Avec des points de terminaison privés, vous avez plus de complexité, mais vous n’avez rien à modifier sur vos applications API après avoir défini un point de terminaison privé. 
 
 ### <a name="line-of-business-applications"></a>applications métier ;
 
-Les applications métiers sont des applications internes qui ne sont normalement pas exposées pour un accès depuis Internet. Ces applications sont appelées à partir de réseaux d’entreprise où l’accès peut être strictement contrôlé. Si vous utilisez un ASE ILB, il est facile d’héberger vos applications métiers. Si vous utilisez le service multilocataire, vous pouvez utiliser des points de terminaison privés ou des points de terminaison de service associés à une Application Gateway. Il existe deux raisons d’utiliser une Application Gateway avec des points de terminaison de service plutôt que des points de terminaison privés :
+Les applications métiers sont des applications internes qui ne sont normalement pas exposées pour un accès depuis Internet. Ces applications sont appelées à partir de réseaux d’entreprise où l’accès peut être strictement contrôlé. Si vous utilisez un ASE ILB, il est facile d’héberger vos applications métiers. Si vous utilisez le service multilocataire, vous pouvez utiliser des points de terminaison privés ou des points de terminaison de service associés à une Application Gateway. Il existe deux raisons d’utiliser une Application Gateway avec des points de terminaison de service plutôt que des points de terminaison privés :
 
 * Vous avez besoin d’une protection WAF sur vos applications métiers
 * Vous souhaitez équilibrer la charge sur plusieurs instances de vos applications métiers

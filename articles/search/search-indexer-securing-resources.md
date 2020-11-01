@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101254"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503485"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accès de l’indexeur au contenu protégé par les fonctionnalités de sécurité réseau Azure (Recherche cognitive Azure)
 
@@ -87,7 +87,7 @@ Cette fonctionnalité est réservée aux services de recherche facturables, avec
 
 Les clients doivent appeler l’opération de gestion de la recherche, l’ [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) sur une **ressource de liaison privée partagée** , afin de créer une connexion de point de terminaison privé à leur ressource sécurisée (par exemple, un compte de stockage). Le trafic qui transite via cette connexion de point de terminaison privé (sortant) provient uniquement du réseau virtuel situé dans l’environnement d’exécution de l’indexeur « privé » spécifique du service de recherche.
 
-Recherche cognitive Azure vérifie que les appelants de cette API disposent des autorisations RBAC pour approuver les demandes de connexion de point de terminaison privé à la ressource sécurisée. Par exemple, si vous demandez une connexion de point de terminaison privé à un compte de stockage avec des autorisations en lecture seule, cet appel sera rejeté.
+Recherche cognitive Azure vérifie que les appelants de cette API disposent des autorisations Azure RBAC pour approuver les demandes de connexion de point de terminaison privé à la ressource sécurisée. Par exemple, si vous demandez une connexion de point de terminaison privé à un compte de stockage avec des autorisations en lecture seule, cet appel sera rejeté.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Étape 2 : Approuver la connexion Private Endpoint
 

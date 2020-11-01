@@ -2,13 +2,13 @@
 title: Azure Lab Services – Guide de l’administrateur | Microsoft Docs
 description: Ce guide aide les administrateurs qui créent et gèrent des comptes Lab à l’aide d’Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444146"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425301"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs des technologies de l’information qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Une fois un compte lab configuré, les administrateurs ou enseignants créent des laboratoires de salle de classe dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -144,11 +144,11 @@ La localisation d’un labo de classe varie en fonction des facteurs suivants :
     > [!NOTE]
     > Quand un compte Lab est appairé à un réseau virtuel, le paramètre **Autoriser le créateur du lab à choisir l’emplacement du lab** est désactivé. Pour plus d’informations sur ce paramètre, consultez l’article suivant : [Autoriser le créateur du lab à choisir l’emplacement du lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Aucun réseau virtuel n’est appairé ***et***les créateurs de labo ne sont pas autorisés à choisir la localisation du labo**
+  - **Aucun réseau virtuel n’est appairé * *_et_* _ les créateurs de labo ne sont pas autorisés à choisir la localisation du labo_*
   
     Quand **aucun** réseau virtuel n’est appairé au compte Lab *et* que les [créateurs de labo ne sont **pas** autorisés à choisir la localisation du labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), les labos de classe sont automatiquement créés dans une région disposant d’une capacité de machine virtuelle.  Plus précisément, le service Azure Lab Services recherche la disponibilité dans des [régions qui se trouvent dans la même zone géographique que le compte lab](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **Aucun réseau virtuel n’est appairé ***et***les créateurs de labo sont autorisés à choisir la localisation du labo**
+  - **Aucun réseau virtuel n’est appairé * *_et_* _ les créateurs de labo sont autorisés à choisir la localisation du labo_*
        
     Quand il n’y a **aucun** réseau virtuel appairé et que [les créateurs de labo sont autorisés à choisir la localisation du labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), les localisations qui peuvent être sélectionnées par le créateur de labo sont basées sur la capacité disponible.
 
@@ -171,14 +171,14 @@ Au moment de créer un labo de classe, les administrateurs ou les créateurs de 
 | Moyenne | <ul><li>4 cœurs</li><li>7 Go de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. |
 | Moyenne (virtualisation imbriquée) | <ul><li>4 cœurs</li><li>16 Go de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse.
 | grand | <ul><li>8 cœurs</li><li>16 Go de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux.  Cette taille prend également en charge la virtualisation imbriquée. |
-| Grande (virtualisation imbriquée) | <ul><li>8 cœurs</li><li>16 Go de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. |
+| Grande (virtualisation imbriquée) | <ul><li>8 cœurs</li><li>32 Go de RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. |
 | GPU de petite taille (visualisation) | <ul><li>6 cœurs</li><li>56 Go de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
 | GPU de petite taille (calcul) | <ul><li>6 cœurs</li><li>56 Go de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle et le Deep Learning. |
 | GPU de taille moyenne (visualisation) | <ul><li>12 cœurs</li><li>112 Go de RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
 
 ## <a name="manage-identity"></a>Gérer l’identité
 
-Le [contrôle d’accès en fonction du rôle d’Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), permet d’attribuer les rôles suivants pour accorder l’accès à des comptes lab et à des laboratoires de salle de classe :
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), permet d’attribuer les rôles suivants pour accorder l’accès à des comptes lab et à des laboratoires de salle de classe :
 
 - **Propriétaire de compte de laboratoire**
 
@@ -198,7 +198,7 @@ Le [contrôle d’accès en fonction du rôle d’Azure](https://docs.microsoft.
 
 - **Créateur de laboratoire de salle de classe**
 
-    Pour créer des laboratoires de salle de classe au sein d’un compte lab, un enseignant doit être membre du rôle **Créateur de laboratoire**.  Quand un enseignant crée un laboratoire de salle de classe, il est automatiquement ajouté en tant que propriétaire du laboratoire.  Reportez-vous au tutoriel décrivant la façon d’[ajouter un utilisateur au rôle **Créateur de laboratoire**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    Pour créer des laboratoires de salle de classe au sein d’un compte lab, un enseignant doit être membre du rôle **Créateur de laboratoire** .  Quand un enseignant crée un laboratoire de salle de classe, il est automatiquement ajouté en tant que propriétaire du laboratoire.  Reportez-vous au tutoriel décrivant la façon d’ [ajouter un utilisateur au rôle **Créateur de laboratoire**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
 
 - **Propriétaire\contributeur de laboratoire de salle de classe**
   
@@ -206,7 +206,7 @@ Le [contrôle d’accès en fonction du rôle d’Azure](https://docs.microsoft.
 
     L’une des principales différences entre les rôles **Propriétaire** et **Contributeur** d’un laboratoire est qu’un contributeur *ne peut pas* accorder à d’autres utilisateurs l’accès nécessaire pour gérer le laboratoire. Seul un propriétaire le peut.
 
-    En outre, un enseignant *ne peut* créer de laboratoires de salle de classe que s’il a également le rôle **Créateur de laboratoire**.
+    En outre, un enseignant *ne peut* créer de laboratoires de salle de classe que s’il a également le rôle **Créateur de laboratoire** .
 
 - **Galerie d’images partagées**
 
@@ -214,7 +214,7 @@ Le [contrôle d’accès en fonction du rôle d’Azure](https://docs.microsoft.
 
 Voici quelques conseils pour vous aider à attribuer des rôles :
    - En règle générale, seuls les administrateurs doivent avoir le rôle **Propriétaire** ou **Contributeur** d’un compte lab, et il peut y avoir plusieurs propriétaires\contributeurs.
-   - Pour permettre à un enseignant de créer des laboratoires de salle de classe et gérer ceux-ci, il suffit de lui accorder l’accès au rôle **Créateur de laboratoire**.
+   - Pour permettre à un enseignant de créer des laboratoires de salle de classe et gérer ceux-ci, il suffit de lui accorder l’accès au rôle **Créateur de laboratoire** .
    - Pour permettre à un enseignant de gérer des laboratoires de salle de classe spécifiques, mais *pas* de créer des laboratoires, vous devez accorder l’accès au rôle **Propriétaire** ou **Contributeur** pour chacun des laboratoires de salle de classe qu’ils gèrent.  Par exemple, vous pouvez permettre qu’un professeur et un assistant soient copropriétaires d’un laboratoire de salle de classe.  Reportez-vous au guide décrivant comment [ajouter un utilisateur en tant que propriétaire à un laboratoire de salle de classe](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## <a name="pricing"></a>Tarifs
