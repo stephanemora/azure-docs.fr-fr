@@ -28,6 +28,8 @@
       href: deployment-overview.md
     - name: Fournisseurs de partenaire de sécurité
       href: trusted-security-partners.md
+    - name: Sécuriser les hubs avec Check Point Cloudguard Connect
+      href: check-point-overview.md
     - name: Groupes IP
       href: ip-groups.md
     - name: Logique de traitement des règles

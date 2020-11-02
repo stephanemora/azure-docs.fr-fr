@@ -101,7 +101,7 @@
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Envoyer des messages dans l’ordre - convoi séquentiel
           href: send-related-messages-sequential-convoy.md
-        - name: Créer des définitions JSON
+        - name: Créer des définitions de workflow en JSON
           href: logic-apps-author-definitions.md
         - name: Gérer les types de contenu
           href: logic-apps-content-type.md
@@ -109,6 +109,8 @@
           href: logic-apps-exception-handling.md
         - name: Gérer les messages volumineux
           href: logic-apps-handle-large-messages.md
+        - name: Gérer les procédures stockées longue durée pour le connecteur SQL
+          href: handle-long-running-stored-procedures-sql-connector.md
         - name: "Gérer les problèmes de limitation ou les erreurs\_429"
           href: handle-throttling-problems-429-errors.md
         - name: Développer des connecteurs personnalisés

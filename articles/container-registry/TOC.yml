@@ -159,7 +159,7 @@
 - name: Tâches
   expanded: true
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       expanded: false
       items:
         - name: À propos d’ACR Tasks
@@ -212,6 +212,8 @@
           href: container-registry-task-run-template.md
         - name: Exécuter une tâche sur un pool d’agents dédié (préversion)
           href: tasks-agent-pools.md
+        - name: Consommer et gérer le contenu public
+          href: tasks-consume-public-content.md
         - name: Créer une image avec Buildpacks (préversion)
           href: container-registry-tasks-pack-build.md
         - name: Afficher les journaux d’activité de tâches

@@ -1,51 +1,23 @@
 ### YamlMime:Landing
 title: Documentation Azure Dev Spaces
-summary: Azure Dev Spaces est déprécié et sera retiré le 31 octobre 2023.
+summary: Azure Dev Spaces est en cours de retrait et cessera de fonctionner le 31 octobre 2023.
 metadata:
   title: Documentation Azure Dev Spaces
-  description: Azure Dev Spaces est déprécié et sera retiré le 31 octobre 2023.
+  description: Azure Dev Spaces est en cours de retrait et cessera de fonctionner le 31 octobre 2023.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
   author: zr-msft
   ms.author: zarhoads
   manager: gwallace
-  ms.date: 10/12/2020
-  ms.openlocfilehash: 47cc21196875e09576b7a8e0a5a8233df294de7d
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.date: 10/29/2020
+  ms.openlocfilehash: a3b3ca8c87871b9ae8e1d6a3db32d9e2051215b6
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91965860"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93072029"
 landingContent:
-- title: À propos d’Azure Dev Spaces
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Qu’est-ce qu’Azure Dev Spaces ?
-      url: about.md
-  - linkListType: concept
-    links:
-    - text: Fonctionnement d’Azure Dev Spaces
-      url: how-dev-spaces-works.md
-  - linkListType: how-to-guide
-    links:
-    - text: Installation d’Azure Dev Spaces
-      url: how-to/install-dev-spaces.md
-- title: Scénarios avancés
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Utiliser un flux NuGet personnalisé
-      url: how-to/use-custom-nuget-feed.md
-    - text: Utiliser un référentiel Helm privé
-      url: how-to/use-private-helm-repo.md
-    - text: Interagir avec des conteneurs Windows
-      url: how-to/run-dev-spaces-windows-containers.md
-    - text: Utiliser traefik pour une entrée personnalisée et HTTPS
-      url: how-to/ingress-https-traefik.md
-    - text: Utiliser NGINX pour une entrée personnalisée et HTTPS
-      url: how-to/ingress-https-nginx.md
 - title: Bridge to Kubernetes
   linkLists:
   - linkListType: how-to-guide
@@ -56,3 +28,21 @@ landingContent:
       url: /visualstudio/containers/bridge-to-kubernetes
     - text: Migration vers la solution Bridge to Kubernetes
       url: migrate-to-bridge-to-kubernetes.md
+- title: À propos d’Azure Dev Spaces
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Dev Spaces ?
+      url: about.md
+  - linkListType: concept
+    links:
+    - text: Fonctionnement d’Azure Dev Spaces
+      url: how-dev-spaces-works.md
+- title: Dépanner
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Dépannage
+      url: troubleshooting.md
+    - text: Questions fréquentes (FAQ)
+      url: faq.md

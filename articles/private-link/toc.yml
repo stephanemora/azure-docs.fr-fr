@@ -37,6 +37,8 @@
       items:
         - name: Se connecter à un serveur SQL - Portail
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Se connecter à un serveur SQL - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Concepts
   items:
     - name: Point de terminaison privé

@@ -179,7 +179,7 @@
               href: storage-blob-rehydration.md
             - name: Niveaux de performances
               href: storage-blob-performance-tiers.md
-            - name: Gérer le cycle de vie du Stockage Blob Azure
+            - name: Automatiser le cycle de vie des niveaux d’accès
               href: storage-lifecycle-management-concepts.md
         - name: Reprise d’activité après sinistre et basculement
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -367,7 +367,7 @@
                       href: storage-blob-user-delegation-sas-create-cli.md
                     - name: .NET
                       href: storage-blob-user-delegation-sas-create-dotnet.md
-                - name: Créer une SAP de service (.NET)
+                - name: Créer une SAP de service
                   href: storage-blob-service-sas-create-dotnet.md
                 - name: Créer une SAP de compte (.NET)
                   href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

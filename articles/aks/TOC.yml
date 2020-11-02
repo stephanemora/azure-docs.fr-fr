@@ -142,7 +142,7 @@
           href: upgrade-cluster.md
         - name: Utiliser un SLA avec une durée de bon fonctionnement
           href: uptime-sla.md
-        - name: Utiliser des groupes de placements de proximité (préversion)
+        - name: Utiliser des groupes de placements de proximité
           href: reduce-latency-ppg.md
         - name: Mettre à niveau l’image de nœud
           href: node-image-upgrade.md
@@ -166,7 +166,7 @@
           items:
             - name: Utiliser des pools multinœuds
               href: use-multiple-node-pools.md
-            - name: Utiliser des pools de nœuds Spot (préversion)
+            - name: Utiliser des pools de nœuds Spot
               href: spot-node-pool.md
             - name: Utiliser des pools de nœuds système
               href: use-system-pools.md
