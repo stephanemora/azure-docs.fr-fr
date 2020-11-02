@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221420"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628675"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 
@@ -113,8 +113,8 @@ Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’ou
 
 Utilisez le mode focus pour développer votre affichage actuel afin de pouvoir vous concentrer sur vos onglets actifs. Le mode focus masque l’explorateur de fichiers Notebooks.
 
-1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. En fonction de la largeur de la fenêtre, il peut se trouver sous l’élément de menu **…** dans la barre d’outils.
-1. En mode focus, revenez à l’affichage standard en sélectionnant  **Affichage standard** .
+1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. En fonction de la largeur de la fenêtre, il peut se trouver sous l’élément de menu **…** dans la barre d’outils.
+1. En mode focus, revenez à l’affichage standard en sélectionnant **Affichage standard** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Créer un fichier":::
 
@@ -143,13 +143,13 @@ Le nouveau notebook contient uniquement des cellules de code, ainsi que toutes l
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Enregistrement et point de contrôle d’un bloc-notes
 
-Azure Machine Learning crée un fichier de point de contrôle lorsque vous créez un fichier  *ipynb* .
+Azure Machine Learning crée un fichier de point de contrôle lorsque vous créez un fichier *ipynb* .
 
 Dans la barre d’outils du bloc-notes, sélectionnez le menu, puis **Fichier&gt;Enregistrer et effectuer un point de contrôle** pour enregistrer manuellement le bloc-notes et ajouter un fichier de point de contrôle associé au bloc-notes.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Créer un fichier":::
 
-Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes.  L’enregistrement automatique met à jour uniquement le fichier  *ipynb*  initial, et non le fichier de point de contrôle.
+Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier *ipynb* initial, et non le fichier de point de contrôle.
  
 Sélectionnez **Points de contrôle** dans le menu du bloc-notes pour créer un point de contrôle nommé et restaurer le bloc-notes à un point de contrôle enregistré.
 
@@ -218,7 +218,7 @@ Le bloc-notes trouve automatiquement tous les noyaux Jupyter installés sur l’
 1. Dans la barre d’outils du bloc-notes, s²électionnez [**Ouvrir le terminal**](#terminal).
 1. Utilisez la fenêtre de terminal pour créer un environnement.  Par exemple, le code ci-dessous crée `newenv` :
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Active l’environnement.  Par exemple, après la création de `newenv` :
 
@@ -228,8 +228,8 @@ Le bloc-notes trouve automatiquement tous les noyaux Jupyter installés sur l’
 1. Installer pip et le package ipykernel dans le nouvel environnement et créer un noyau pour ce conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

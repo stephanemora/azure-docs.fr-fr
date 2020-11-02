@@ -3,13 +3,13 @@ title: Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment mettre à niveau un cluster Azure Kubernetes service (AKS) pour obtenir les fonctionnalités et mises à jour de sécurité les plus récentes.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050626"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461445"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -33,9 +33,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
+> Lors de la mise à niveau d’un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x* .
 >
-> Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
+> Pour opérer une mise à niveau *1.12.x* -> *1.14.x* , commencez par une mise à niveau *1.12.x* -> *1.13.x* , puis effectuez la mise à niveau *1.13.x* -> *1.14.x* .
 >
 > L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge --> une version *1.15.x* prise en charge peut être effectuée.
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
-Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster exécutant la version de Kubernetes indiquée, puis il [isole et draine][kubernetes-drain] précautionneusement l’un des anciens nœuds afin de perturber le moins possible les applications en cours d’exécution. Une fois que l’exécution des pods d’application par le nouveau nœud est confirmée, l’ancien nœud est supprimé. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau.
+Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud de tampon (ou autant de nœuds que ceux configurés dans [max-surge](#customize-node-surge-upgrade-preview)) au cluster qui exécute la version de Kubernetes spécifiée. Ensuite, il effectue l’[isolation et le drainage][kubernetes-drain] d’un des anciens nœuds pour minimiser l’interruption des applications en cours d’exécution (si vous utilisez max-surge, l’[isolation et le drainage][kubernetes-drain] seront effectués sur autant de nœuds que le nombre de nœuds de mémoire tampon spécifiés). Lorsque l’ancien nœud est entièrement drainé, il est réinitialisé pour recevoir la nouvelle version et devient le nœud de mémoire tampon pour le nœud suivant à mettre à niveau. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau. À la fin du processus, le dernier nœud drainé est supprimé, ce qui a pour effet de maintenir le nombre de nœuds d’agent existants.
 
 ```azurecli-interactive
 az aks upgrade \

@@ -3,12 +3,12 @@ title: Versions de cluster prises en charge dans Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: d0d53c704645fdeb1e68898c4cadf8429bcb5645
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4569b31f990687fb9658d2bf251045e27ecf91a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122430"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480954"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -44,12 +44,13 @@ Le tableau suivant répertorie les versions de Service Fabric et leurs dates de 
 | 7.0.470.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |31 janvier 2021  |
 | 7.0.472.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |31 janvier 2021  |
 | 7.0.478.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |31 janvier 2021  |
-| 7.1.409.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.1.417.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.1.428.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.1.456.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.1.458.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
-| 7.1.459.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |Version actuelle ; par conséquent, pas de date de fin |
+| 7.1.409.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.1.417.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.1.428.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.1.456.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.1.458.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.1.459.* | 7.0.466.* |Inférieure ou égale à la version 4.1 |31 mars 2021 |
+| 7.2.413.* | 7.0.470.* |Inférieure ou égale à la version 4.2 |Version actuelle ; par conséquent, pas de date de fin |
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -125,4 +126,5 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7.2 RTO | 7.2.413.9590 | NA |
 

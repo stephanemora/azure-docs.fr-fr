@@ -97,12 +97,10 @@
           items:
             - name: Guide pratique pour provisionner et gérer
               href: how-to-provision-manage.md
-            - name: Guide pratique pour diagnostiquer et résoudre les problèmes
-              href: how-to-diagnose-troubleshoot.md
-        - name: Entrée et stockage
-          items:
             - name: Guide pratique pour sélectionner un TSID
               href: how-to-select-tsid.md
+            - name: Guide pratique pour diagnostiquer et résoudre les problèmes
+              href: how-to-diagnose-troubleshoot.md
         - name: Modèle
           items:
             - name: Guide pratique pour modifier votre modèle
@@ -135,7 +133,7 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostiquer et résoudre les problèmes
           href: time-series-insights-diagnose-and-solve-problems.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Time Series Insights
       items:

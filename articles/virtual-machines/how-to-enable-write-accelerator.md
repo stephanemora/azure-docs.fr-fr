@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962324"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515710"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
 
@@ -33,7 +33,7 @@ L’Accélérateur des écritures fonctionne uniquement en association avec des 
 >
 > Si vous souhaitez activer l’Accélérateur des écritures sur un disque Azure existant qui ne fait PAS partie d’un volume constitué de plusieurs disques à l’aide des gestionnaires de disques ou de volumes Windows, des espaces de stockage Windows, de la fonctionnalité SOFS Windows, de LVM ou MDADM pour Linux, vous devez arrêter la charge de travail qui accède au disque Azure. Les applications de base de données qui utilisent le disque Azure DOIVENT également être arrêtées.
 >
-> Si vous souhaitez activer ou désactiver l’Accélérateur des écritures pour un volume existant constitué de plusieurs disques de stockage Azure Premium et agrégé par bandes à l’aide des gestionnaires de disques ou de volumes Windows, des espaces de stockage Windows, de la fonctionnalité SOFS Windows, de LVM ou MDADM pour Linux, vous devez l’activer ou le désactiver sur tous les disques du volume en effectuant plusieurs étapes distinctes. **Avant d’activer ou de désactiver l’Accélérateur des écritures Azure dans cette configuration, arrêtez la machine virtuelle Azure**.
+> Si vous souhaitez activer ou désactiver l’Accélérateur des écritures pour un volume existant constitué de plusieurs disques de stockage Azure Premium et agrégé par bandes à l’aide des gestionnaires de disques ou de volumes Windows, des espaces de stockage Windows, de la fonctionnalité SOFS Windows, de LVM ou MDADM pour Linux, vous devez l’activer ou le désactiver sur tous les disques du volume en effectuant plusieurs étapes distinctes. **Avant d’activer ou de désactiver l’Accélérateur des écritures Azure dans cette configuration, arrêtez la machine virtuelle Azure** .
 
 L’activation de l’Accélérateur des écritures sur les disques système n’est généralement pas nécessaire pour les configurations de machines virtuelles SAP.
 
@@ -57,7 +57,7 @@ L’Accélérateur des écritures prend en charge un nombre limité de disques d
 | M16ms, M16s | 2 | 2 500 |
 | M8ms, M8s | 1 | 1250 |
 
-Les limites d’IOPS s’entendent par machine virtuelle et *non* par disque. Tous les disques avec Accélérateur des écritures partagent la même limite d’IOPS par machine virtuelle.
+Les limites d’IOPS s’entendent par machine virtuelle et *non* par disque. Tous les disques avec Accélérateur des écritures partagent la même limite d’IOPS par machine virtuelle. Les disques attachés ne peuvent pas dépasser la limite d’IOPS d’accélérateur d’écriture pour une machine virtuelle. Par exemple, même si les disques attachés peuvent effectuer 30 000 IOPS, le système n’autorise pas les disques à aller au-delà de 20 000 IOPS pour M416ms_v2.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Activation de l’Accélérateur des écritures sur un disque spécifique
 

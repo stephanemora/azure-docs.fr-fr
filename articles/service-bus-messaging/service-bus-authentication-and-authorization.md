@@ -3,18 +3,18 @@ title: Configuration de l’authentification et de l’autorisation Service Bus
 description: Authentifiez des applications dans Service Bus avec l’authentification Signature d’accès partagé (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066859"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517278"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 Il existe deux façons d’authentifier et d’autoriser l’accès aux ressources Azure Service Bus : Azure Active Directory (Azure AD) et les signatures d’accès partagé (SAP). Cet article vous explique l’utilisation de ces deux types de mécanismes de sécurité. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-L’intégration Azure AD pour les ressources Service Bus fournit un contrôle d’accès en fonction du rôle (RBAC), qui permet un contrôle affiné de l’accès d’un client aux ressources. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une requête d’accès à une ressource Service Bus (file d’attente, rubrique, etc.).
+L’intégration Azure AD pour les ressources Service Bus fournit un contrôle d’accès en fonction du rôle Azure (Azure RBAC), qui permet un contrôle affiné de l’accès d’un client aux ressources. Vous pouvez utiliser Azure RBAC pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une requête d’accès à une ressource Service Bus (file d’attente, rubrique, etc.).
 
 Pour plus d’informations sur l’authentification avec Azure AD, consultez les articles suivants :
 
@@ -37,7 +37,7 @@ Pour utiliser SAS, vous pouvez configurer un objet [SharedAccessAuthorizationRul
 * *KeyName* : identifie la règle.
 * *PrimaryKey* : clé de chiffrement utilisée pour signer/valider les jetons SAS.
 * *SecondaryKey* : clé de chiffrement utilisée pour signer/valider les jetons SAS.
-* *Rights* : représente la collection des droits **Listen**, **Send** ou **Manage** accordés.
+* *Rights* : représente la collection des droits **Listen** , **Send** ou **Manage** accordés.
 
 Les règles d’autorisation configurées au niveau de l’espace de noms peuvent accorder l’accès à toutes les entités dans un espace de noms pour les clients avec des jetons signés à l’aide de la clé correspondante. Vous pouvez configurer jusqu’à 12 règles d’autorisation de ce type sur un espace de noms, une file d’attente ou une rubrique Service Bus. Par défaut, un élément [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) avec tous les droits est configuré pour chaque espace de noms dès sa mise en service initiale.
 

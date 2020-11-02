@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048022"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515727"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Superviser la charge de travail de votre pool SQL Azure Synapse Analytics à l’aide de vues de gestion dynamique
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser les vues de gestion dynamique (DMV) pour su
 
 ## <a name="permissions"></a>Autorisations
 
-Pour interroger les vues de gestion dynamique (DMV) de cet article, vous avez besoin de l’autorisation **VIEW DATABASE STATE** ou **CONTROL**. L’autorisation généralement accordée est **VIEW DATABASE STATE**, car elle est beaucoup plus restrictive.
+Pour interroger les vues de gestion dynamique (DMV) de cet article, vous avez besoin de l’autorisation **VIEW DATABASE STATE** ou **CONTROL** . L’autorisation généralement accordée est **VIEW DATABASE STATE** , car elle est beaucoup plus restrictive.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
@@ -102,8 +102,8 @@ Lorsqu’un plan DSQL prend plus de temps que prévu, la cause peut être un pla
 
 Pour examiner les détails d’une seule étape, vérifiez la colonne *operation_type* de l’étape de la requête longue et notez **l’index de l’étape** :
 
-* Passez à l’étape 3 pour les **opérations SQL** : OnOperation, RemoteOperation, ReturnOperation.
-* Passez à l’étape 4 pour les **opérations de déplacement des données** : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Passez à l’étape 3 pour les **opérations SQL**  : OnOperation, RemoteOperation, ReturnOperation.
+* Passez à l’étape 4 pour les **opérations de déplacement des données**  : ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>ÉTAPE 3 : examiner SQL dans les bases de données distribuées
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Vérifiez la colonne *total_elapsed_time* pour voir si une distribution particulière prend un temps significativement plus important que les autres pour le déplacement des données.
-* Pour la distribution longue, consultez la colonne *rows_processed* pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que les autres. Dans ce cas, cette recherche peut indiquer un décalage des données sous-jacentes.
+* Pour la distribution longue, consultez la colonne *rows_processed* pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que les autres. Dans ce cas, cette recherche peut indiquer un décalage des données sous-jacentes. L’une des causes de l’asymétrie des données est la distribution sur une colonne avec de nombreuses valeurs NULL (dont les lignes sont toutes placées dans la même distribution). Réduisez les requêtes lentes en évitant la distribution sur ces types de colonnes ou en filtrant votre requête pour éliminer les valeurs NULL lorsque cela est possible. 
 
 Si la requête est en cours d’exécution, vous pouvez utiliser [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer le plan estimé de SQL Server auprès du cache de plans SQL Serveur pour l’étape SQL en cours d’exécution dans une distribution particulière.
 
@@ -176,7 +176,7 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
+Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources** .  Si la requête possède toutes les ressources requises, l'état sera **Granted** .
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
 

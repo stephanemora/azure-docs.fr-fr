@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961474"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544747"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -109,8 +109,8 @@ La configuration ressemblerait à ceci :
 4. Créez des règles de groupe de sécurité réseau pour restreindre l’accès à des points de terminaison publics spécifiques. S’il existe un groupe de sécurité réseau, vous pouvez l’ajuster. L’exemple ci-dessous montre comment activer l’accès à l’API de gestion Azure : 
    1. Accéder au groupe de sécurité réseau
    1. Cliquez sur Règles de sécurité de trafic entrant
-   1. Ajoutez une règle pour **Refuser** tout accès sortant à **Internet**.
-   1. Ajoutez une règle à **Autoriser** l’accès à **AzureCloud**, avec une priorité inférieure à la priorité de la règle pour refuser tout accès à Internet.
+   1. Ajoutez une règle pour **Refuser** tout accès sortant à **Internet** .
+   1. Ajoutez une règle à **Autoriser** l’accès à **AzureCloud** , avec une priorité inférieure à la priorité de la règle pour refuser tout accès à Internet.
 
 
    Les règles de sécurité de trafic sortant ressembleraient alors à ceci : 
@@ -147,14 +147,14 @@ L’architecture ressemblerait à :
    1. Cliquez sur Ajouter un sous-réseau. Entrez **AzureFirewallSubnet** comme nom. Entrez la plage d’adresses appropriée. Enregistrez.  
 3. Créez un pare-feu Azure.  
    1. Dans le portail Azure, sélectionnez Toutes les ressources, cliquez sur Ajouter, Pare-feu, Créer. Sélectionnez Groupe de ressources (sélectionnez le même groupe de ressources que celui sur lequel se trouve le réseau virtuel).  
-   1. Entrez le nom de la ressource de pare-feu Azure. Par exemple, **MyAzureFirewall**.  
+   1. Entrez le nom de la ressource de pare-feu Azure. Par exemple, **MyAzureFirewall** .  
    1. Sélectionnez Région et sélectionnez au moins deux zones de disponibilité, alignées avec les zones de disponibilité dans lesquelles vos machines virtuelles sont déployées.  
    1. Sélectionnez votre réseau virtuel, dans lequel les machines virtuelles SAP et l’équilibreur de charge standard Azure sont déployés.  
-   1. Adresse IP publique : Cliquez sur Créer et entrez un nom. Par exemple **MyFirewallPublicIP**.  
+   1. Adresse IP publique : Cliquez sur Créer et entrez un nom. Par exemple **MyFirewallPublicIP** .  
 4. Créez une règle de pare-feu Azure pour autoriser la connectivité sortante vers les points de terminaison publics spécifiés. L’exemple montre comment autoriser l’accès au point de terminaison public de l’API de gestion Azure.  
    1. Sélectionnez Règles, Collection de règles de réseau, puis cliquez sur Ajouter une collection de règles de réseau.  
-   1. Nom : **MyOutboundRule**, entrez la Priorité, et sélectionnez l’action **Autoriser**.  
-   1. Service : Nom **ToAzureAPI**.  Protocole : Sélectionnez **N’importe laquelle**. Adresse source : entrez la plage de votre sous-réseau, où les machines virtuelles et les Standard Load Balancer sont déployés pour l’instance : **11.97.0.0/24**. Ports de destination : saisissez <b>*</b>.  
+   1. Nom : **MyOutboundRule** , entrez la Priorité, et sélectionnez l’action **Autoriser** .  
+   1. Service : Nom **ToAzureAPI** .  Protocole : Sélectionnez **N’importe laquelle** . Adresse source : entrez la plage de votre sous-réseau, où les machines virtuelles et les Standard Load Balancer sont déployés pour l’instance : **11.97.0.0/24** . Ports de destination : saisissez <b>*</b>.  
    1. Enregistrer
    1. Comme vous êtes toujours positionné sur le pare-feu Azure, sélectionnez Vue d’ensemble. Notez l’adresse IP privée du pare-feu Azure.  
 5. Créer un itinéraire vers le pare-feu Azure  
@@ -162,11 +162,11 @@ L’architecture ressemblerait à :
    1. Entrez le nom MyRouteTable, sélectionnez l’abonnement, le groupe de ressources et l’emplacement (correspondant à l’emplacement de votre réseau virtuel et de votre pare-feu).  
    1. Enregistrer  
 
-   La règle de pare-feu devrait ressembler à ceci : ![Connexion sortante avec le pare-feu Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   La règle de pare-feu devrait ressembler à ceci : ![Diagramme montrant à quoi ressemble le pare-feu.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. Créez un itinéraire défini par l’utilisateur à partir du sous-réseau de vos machines virtuelles vers l’adresse IP privée de **MyAzureFirewall**.
+6. Créez un itinéraire défini par l’utilisateur à partir du sous-réseau de vos machines virtuelles vers l’adresse IP privée de **MyAzureFirewall** .
    1. Comme vous êtes positionné sur la table de routage, cliquez sur Itinéraires. Sélectionnez Ajouter. 
-   1. Nom de l’itinéraire : ToMyAzureFirewall, préfixe d’adresse : **0.0.0.0/0**. Type de tronçon suivant : Sélectionnez Appliance virtuelle. Adresse du tronçon suivant : entrez l’adresse IP privée du pare-feu que vous avez configuré : **11.97.1.4**.  
+   1. Nom de l’itinéraire : ToMyAzureFirewall, préfixe d’adresse : **0.0.0.0/0** . Type de tronçon suivant : Sélectionnez Appliance virtuelle. Adresse du tronçon suivant : entrez l’adresse IP privée du pare-feu que vous avez configuré : **11.97.1.4** .  
    1. Enregistrer
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Utilisation du proxy pour les appels de Pacemaker à l’API de gestion Azure
@@ -185,7 +185,7 @@ Vous pouvez utiliser le proxy pour autoriser les appels de Pacemaker au point de
 
 ### <a name="pacemaker-configuration-with-proxy"></a>Configuration Pacemaker avec proxy 
 
-Il existe de nombreuses options de proxy disponibles dans le secteur. Les instructions pas à pas pour le déploiement du proxy n’entrent pas dans le cadre de ce document. Dans l’exemple ci-dessous, nous supposons que votre proxy répond à **MyProxyService** et qu’il écoute le port **MyProxyPort**.  
+Il existe de nombreuses options de proxy disponibles dans le secteur. Les instructions pas à pas pour le déploiement du proxy n’entrent pas dans le cadre de ce document. Dans l’exemple ci-dessous, nous supposons que votre proxy répond à **MyProxyService** et qu’il écoute le port **MyProxyPort** .  
 Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez comme suit sur tous les nœuds de cluster :  
 
 1. Modifiez le fichier de configuration de Pacemaker /etc/sysconfig/pacemaker et ajoutez les lignes suivantes (tous les nœuds de cluster) :

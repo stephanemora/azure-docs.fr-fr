@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055934"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637341"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -22,7 +22,7 @@ Une fois que l’exportation de données est configurée pour votre espace de tr
 
 ![Vue d’ensemble de l’exportation de données](media/logs-data-export/data-export-overview.png)
 
-Toutes les données des tables incluses sont exportées sans filtre. Par exemple, quand vous configurez une règle d’exportation de données pour table *SecurityEvent*, toutes les données envoyées à la table *SecurityEvent* sont exportées à compter de l’heure de configuration.
+Toutes les données des tables incluses sont exportées sans filtre. Par exemple, quand vous configurez une règle d’exportation de données pour table *SecurityEvent* , toutes les données envoyées à la table *SecurityEvent* sont exportées à compter de l’heure de configuration.
 
 
 ## <a name="other-export-options"></a>Autres options d’exportation
@@ -36,7 +36,8 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 ## <a name="current-limitations"></a>Limites actuelles
 
 - La configuration ne peut actuellement être effectuée qu’à l’aide d’une interface CLI ou de requêtes REST. Vous ne pouvez pas utiliser le Portail Azure ou PowerShell.
-- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section (#supported-tables) ci-dessous. Si la règle d’exportation de données comprend une table non prise en charge, l’opération échoue, mais aucune donnée n’est exportée pour cette table. Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur *La table <tableName> n’existe pas dans l’espace de travail.*
+- L’option ```--export-all-tables``` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
+- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. Si la règle d’exportation de données comprend une table non prise en charge, l’opération échoue, mais aucune donnée n’est exportée pour cette table. Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace.```
 - Votre espace de travail Log Analytics peut se trouver dans n’importe quelle région, à l’exception des suivantes :
   - Suisse Nord
   - Suisse Ouest
@@ -63,9 +64,9 @@ Il n’y a actuellement pas de frais supplémentaires pour la fonctionnalité d�
 ## <a name="export-destinations"></a>Destinations d’exportation
 
 ### <a name="storage-account"></a>Compte de stockage
-Les données sont envoyées aux comptes de stockage toutes les heures. La configuration de l’exportation de données crée un conteneur pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent*.
+Les données sont envoyées aux comptes de stockage toutes les heures. La configuration de l’exportation de données crée un conteneur pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent* .
 
-Le chemin d'accès à l’objet Blob du compte de stockage est *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Étant donné que les objets Blob d’ajout sont limités à 50 000 écritures dans le stockage, le nombre d’objets Blob exportés peut s’étendre si le nombre d’ajouts est élevé. Dans ce cas, le modèle d’affectation de noms pour les objets Blob serait PT1H_#.json, où # est le nombre d’objets Blob incrémenté.
+Le chemin d'accès à l’objet Blob du compte de stockage est *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json* . Étant donné que les objets Blob d’ajout sont limités à 50 000 écritures dans le stockage, le nombre d’objets Blob exportés peut s’étendre si le nombre d’ajouts est élevé. Dans ce cas, le modèle d’affectation de noms pour les objets Blob serait PT1H_#.json, où # est le nombre d’objets Blob incrémenté.
 
 Le format des données du compte de stockage est en [lignes JSON](diagnostic-logs-append-blobs.md). Cela signifie que chaque enregistrement est délimité par une nouvelle ligne, sans tableau d’enregistrements extérieurs ni virgule entre les enregistrements JSON. 
 
@@ -74,7 +75,7 @@ Le format des données du compte de stockage est en [lignes JSON](diagnostic-log
 L’exportation de données Log Analytics peut écrire des objets Blob d’ajout à des comptes de stockage immuables lorsque le paramètre *allowProtectedAppendWrites* est activé sur les stratégies de rétention temporelles. Cela permet l’écriture de nouveaux blocs dans un objet blob d’ajout tout en conservant la protection et la conformité de l’immuabilité. Consultez [Autoriser les écritures protégées d’objets blob d’ajout](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Event Hub
-Les données sont envoyées à votre Event Hub quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent*. Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les tables.
+Les données sont envoyées à votre Event Hub quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent* . Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les données pour les tables définies.
 
 Le volume des données exportées augmente souvent dans le temps, et la mise à l’échelle du Event Hub doit être augmentée pour gérer des taux de transfert plus importants et éviter les scénarios de limitation et de latence des données. Vous devez utiliser la fonctionnalité de majoration automatique d’Event Hubs pour augmenter ou diminuer automatiquement le nombre d’unités de débit pour répondre aux besoins d’utilisation. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md).
 
@@ -98,7 +99,7 @@ Le fournisseur de ressources Azure suivant doit être inscrit pour votre abonnem
 
 - Microsoft.Insights
 
-Ce fournisseur de ressources sera probablement déjà inscrit pour la plupart des utilisateurs Azure Monitor. Pour vérifier, accédez à **Abonnements** dans le Portail Azure. Sélectionnez votre abonnement, puis cliquez sur **Fournisseurs de ressources** dans la section **Paramètres** du menu. Recherchez **Microsoft.Insights**. Si son état est **Inscrit**, il est déjà inscrit. Si ce n’est pas le cas, cliquez sur **Inscrire** pour l’inscrire.
+Ce fournisseur de ressources sera probablement déjà inscrit pour la plupart des utilisateurs Azure Monitor. Pour vérifier, accédez à **Abonnements** dans le Portail Azure. Sélectionnez votre abonnement, puis cliquez sur **Fournisseurs de ressources** dans la section **Paramètres** du menu. Recherchez **Microsoft.Insights** . Si son état est **Inscrit** , il est déjà inscrit. Si ce n’est pas le cas, cliquez sur **Inscrire** pour l’inscrire.
 
 Vous pouvez également utiliser une des méthodes disponibles pour inscrire un fournisseur de ressources, comme décrit dans [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Voici un exemple de commande utilisant PowerShell :
 
@@ -107,13 +108,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Autoriser les services Microsoft approuvés
-Si vous avez configuré votre compte de stockage pour autoriser l’accès à partir de réseaux sélectionnés, vous devez ajouter une exception pour autoriser Azure Monitor à écrire dans le compte. À partir de **Pare-feux et réseaux virtuels** pour votre compte de stockage, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**.
+Si vous avez configuré votre compte de stockage pour autoriser l’accès à partir de réseaux sélectionnés, vous devez ajouter une exception pour autoriser Azure Monitor à écrire dans le compte. À partir de **Pare-feux et réseaux virtuels** pour votre compte de stockage, sélectionnez **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** .
 
 [![Pare-feux de compte de stockage et réseaux virtuels](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
 ### <a name="create-or-update-data-export-rule"></a>Créer ou mettre à jour une règle d’exportation de données
-Une règle d’exportation de données définit les données qui doivent être exportées à partir de toutes les tables ou d’un certain ensemble de tables vers une destination unique. Créez plusieurs règles si vous devez les envoyer à plusieurs destinations.
+Une règle d’exportation de données définit les données qui doivent être exportées pour un certain ensemble de tables vers une destination unique. Vous pouvez créer une règle pour chaque destination.
+
+Utilisez la commande CLI suivante pour afficher les tables dans votre espace de travail. Elle peut vous aider à copier les tables que vous souhaitez inclure dans la règle d’exportation de données.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Utilisez la commande suivante pour créer une règle d’exportation de données vers un compte de stockage à l’aide de l’interface CLI.
 
@@ -142,8 +148,8 @@ Le corps de la requête spécifie la destination des tables. Voici un exemple de
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ Voici un exemple de corps pour la requête REST pour Event Hub.
         "enable": true
     }
 }
-
 ```
 
+Voici un exemple de corps pour la requête REST pour Event Hub pour laquelle un nom d’Event Hub est fourni. Dans ce cas, toutes les données exportées sont envoyées à cet Event Hub.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Voir la configuration de l’exportation de données
 Utilisez la commande suivante pour afficher la configuration d’une règle d’exportation de données à l’aide de l’interface CLI.
@@ -239,7 +262,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tables non prises en charge
 Si la règle d’exportation de données comprend une table non prise en charge, la configuration échoue, mais aucune donnée n’est exportée pour cette table. Si la table est prise en charge par la suite, ses données seront exportées à ce moment-là.
 
-Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur *La table <tableName> n’existe pas dans l’espace de travail*.
+Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>Tables prises en charge

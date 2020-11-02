@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275096"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519586"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
 
@@ -31,7 +31,7 @@ Ces problèmes peuvent être résolus en configurant votre connexion à l’aide
 
 ## <a name="using-managed-identities"></a>Utilisation des identités managées
 
-[Identités managées](../active-directory/managed-identities-azure-resources/overview.md) est une fonctionnalité qui fournit aux services Azure une identité gérée automatiquement dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette fonctionnalité dans Recherche cognitive Azure pour créer un objet source de données doté d’une chaîne de connexion qui n’inclut aucune information d’identification. Au lieu de cela, votre service de recherche disposera de l’accès à la source de données via le contrôle d’accès en fonction du rôle (RBAC).
+[Identités managées](../active-directory/managed-identities-azure-resources/overview.md) est une fonctionnalité qui fournit aux services Azure une identité gérée automatiquement dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette fonctionnalité dans Recherche cognitive Azure pour créer un objet source de données doté d’une chaîne de connexion qui n’inclut aucune information d’identification. Au lieu de cela, votre service de recherche disposera de l’accès à la source de données via le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 
 En configurant une source de données à l’aide d’une identité managée, vous pouvez modifier vos informations d’identification de source de données le cas échéant : vos indexeurs pourront toujours se connecter à la source de données. Vous pouvez également créer des objets sources de données dans votre code sans avoir à inclure de clé de compte ni à utiliser Key Vault pour récupérer une clé de compte.
 

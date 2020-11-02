@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460867"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -23,7 +23,37 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 * Les clients titulaires d’un contrat de support Azure peuvent ouvrir une demande de support [sur le portail Azure](https://manage.windowsazure.com/?getsupport=true).
 * Diagnostiquez les problèmes liés à OMI avec le [Guide de dépannage pour OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Déposez un [problème GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux.  
+* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Outil de résolution des problèmes Log Analytics
+
+L’outil de résolution des problèmes de l’agent Log Analytics Linux est un script conçu pour faciliter la recherche et le diagnostic des problèmes liés à l’agent Log Analytics. Il est automatiquement inclus avec l’agent lors de l’installation. L’exécution de l’outil doit être la première étape du diagnostic d’un problème.
+
+### <a name="how-to-use"></a>Utilisation
+L’outil de dépannage peut être exécuté en collant la commande suivante dans une fenêtre de terminal sur un ordinateur avec l’agent Log Analytics : `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Installation manuelle
+L’outil de résolution des problèmes est inclus automatiquement lors de l’installation de l’agent Log Analytics. Toutefois, si l’installation échoue de quelque façon que ce soit, vous pouvez également l’installer manuellement en suivant les étapes ci-dessous.
+
+1. Copiez le pack de l’utilitaire de résolution des problèmes sur votre ordinateur : `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Décompressez le pack : `tar -xzvf omsagent_tst.tar.gz`
+3. Exécutez l’installation manuelle : `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Scénarios couverts
+Voici une liste de scénarios vérifiés par l’outil de résolution des problèmes :
+
+1. L’agent est défectueux, la pulsation ne fonctionne pas correctement
+2. L’agent ne démarre pas, impossible de se connecter aux services Log Analytics
+3. Le Syslog de l’agent ne fonctionne pas
+4. L’agent a une utilisation élevée du processeur/de la mémoire
+5. L’agent a des problèmes d’installation
+6. Les journaux personnalisés de l’agent ne fonctionnent pas
+7. Collecter les journaux de l’agent
+
+Pour plus d’informations, consultez notre [documentation GitHub](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Si vous rencontrez un problème, exécutez l’outil collecteur de journaux. Le fait d’avoir les journaux dès le départ permettra à notre équipe de support de résoudre plus rapidement votre problème.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Emplacement de journaux importants et outil collecteur de journaux
 
@@ -53,9 +83,9 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | NOT_DEFINED | Les dépendances nécessaires n’étant pas installées, le plug-in auoms auditd n’est pas installé. | L’installation d’auoms a échoué, installez le package auditd. |
 | 2 | Option non valide fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 3 | Aucune option fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
-| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
+| 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent- *rpm* .sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent - *deb* .sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
 | 5 | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
-| 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent- *x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Échec de l’installation du package OMS. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 19 | Échec de l’installation du package OMI. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 20 | Échec de l’installation du package SCX. Examinez le résultat de la commande pour déterminer l’échec de root. |
@@ -392,7 +422,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 
 2. Vérifiez que l’agent `omsconfig` peut communiquer avec Azure Monitor en exécutant la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Cette commande retourne la configuration que l’agent reçoit du service, dont les paramètres Syslog, les compteurs de performances Linux et les journaux d’activité personnalisés. Si cette commande échoue, exécutez la commande suivante : `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'`. Cette commande force l’agent omsconfig à parler à Azure Monitor pour récupérer la configuration la plus récente.
 
-**Contexte** : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
+**Contexte**  : au lieu que l’agent Log Analytics pour Linux opère en tant qu’utilisateur privilégié - `root`, l’agent opère en tant qu’utilisateur `omsagent`. Dans la plupart des cas, une autorisation explicite doit être accordée à cet utilisateur pour la lecture de certains fichiers. Pour accorder l’autorisation à l’utilisateur `omsagent`, exécutez les commandes suivantes :
 
 1. Ajoutez l’utilisateur `omsagent` à un groupe spécifique : `sudo usermod -a -G <GROUPNAME> <USERNAME>`
 2. Accordez l’accès en lecture universel au fichier requis : `sudo chmod -R ugo+rx <FILE DIRECTORY>`
@@ -424,7 +454,7 @@ Effectuez les étapes suivantes pour résoudre le problème.
 1. Supprimez l’extension du portail Azure.
 2. Installez l’agent en suivant les [instructions](../learn/quick-collect-linux-computer.md).
 3. Redémarrez l’agent en exécutant la commande suivante : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Patientez quelques minutes ; l’état du provisionnement passe alors à **Approvisionnement réussi**.
+* Patientez quelques minutes ; l’état du provisionnement passe alors à **Approvisionnement réussi** .
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problème : Mise à jour de l’agent Log Analytics à la demande

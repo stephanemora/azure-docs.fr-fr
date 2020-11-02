@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145261"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503808"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -37,7 +37,7 @@ La fréquence de connexion définit la durée à l’issue de laquelle un utilis
 
 La configuration par défaut d’Azure Active Directory (Azure AD) pour la fréquence de connexion utilisateur est une fenêtre cumulative de 90 jours. Demander des informations d’identification aux utilisateurs semble souvent une chose sensée à faire, mais celle-ci peut avoir l’effet inverse que celui prévu : les utilisateurs qui sont habitués à entrer leurs informations d’identification machinalement peuvent involontairement les fournir à une invite de demande d’informations d’identification malveillante.
 
-Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
+Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
 
 Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OAUTH2 ou OIDC conformément aux standards. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile, notamment les applications web suivantes, sont conformes au paramètre.
 
@@ -88,7 +88,7 @@ La valeur par défaut d’Azure AD pour la persistance de la session du navigate
 L’accès conditionnel est une fonctionnalité d’Azure AD Premium et nécessite une licence Premium. Pour plus d’informations sur l’accès conditionnel, voir [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md#license-requirements)
 
 > [!WARNING]
-> Si vous utilisez la fonctionnalité de [durée de vie de jeton configurable](../develop/active-directory-configurable-token-lifetimes.md) actuellement en préversion publique, veuillez noter que nous ne prenons pas en charge la création de deux stratégies différentes pour la même combinaison d’utilisateur ou d’application : une avec cette fonctionnalité, l’autre avec une fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service la fonctionnalité de durée de vie de jeton configurable le 1e mai 2020, et de la remplacer par la fonctionnalité de gestion de session d’authentification par accès conditionnel.  
+> Si vous utilisez la fonctionnalité de [durée de vie de jeton configurable](../develop/active-directory-configurable-token-lifetimes.md) actuellement en préversion publique, veuillez noter que nous ne prenons pas en charge la création de deux stratégies différentes pour la même combinaison d’utilisateur ou d’application : une avec cette fonctionnalité, l’autre avec une fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service la fonctionnalité de durée de vie de jeton configurable pour les jetons d’actualisation et de session le 30 janvier 2021, et de la remplacer par la fonctionnalité de gestion de session d’authentification par accès conditionnel.  
 >
 > Avant d’activer la fréquence de connexion, assurez-vous que les autres paramètres de réauthentification sont désactivés dans votre locataire. Si l’option « Se souvenir de l’authentification multifacteur sur les appareils de confiance » est activée, veillez à la désactiver avant d’utiliser la fréquence de connexion, car l’utilisation conjointe de ces deux paramètres peut entraîner des messages d’invite inattendus pour les utilisateurs. Pour en savoir plus sur les invites de réauthentification et la durée de vie d’une session, consultez l’article [Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions pour Azure Multi-Factor Authentication](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

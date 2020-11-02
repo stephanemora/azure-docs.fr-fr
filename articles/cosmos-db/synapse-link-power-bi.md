@@ -6,19 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480035"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Utiliser Power BI et un groupe Synapse SQL sans serveur pour analyser les données Azure Cosmos DB avec Synapse Link (version préliminaire) 
 
 Dans cet article, vous allez apprendre à créer un pool de base de données Synapse SQL sans serveur (précédemment appelé **base de données SQL à la demande** ) et des vues sur Synapse Link pour Azure Cosmos DB. Vous interrogerez les conteneurs Azure Cosmos, puis créer un modèle avec Power BI sur ces affichages pour refléter cette requête.
-
-> [!NOTE]
-> L’utilisation du magasin d’analyse Azure Cosmos DB avec un pool SQL sans serveur est actuellement sous la version préliminaire contrôlée. Pour demander l’accès, contactez l’équipe [Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 Dans ce scénario, vous allez utiliser des données factices sur les ventes de produits superficiels dans un magasin de vente au détail des partenaires. Vous allez analyser le revenu par magasin en fonction de la proximité des ménages importants et de l’impact de la publicité pour une semaine spécifique. Dans cet article, vous allez créer deux affichages, nommés **RetailSales** et **StoreDemographics** , et une requête entre eux. Vous pouvez récupérer les exemples de données de produit à partir de ce référentiel [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData).
 
@@ -144,5 +141,7 @@ Une fois ces options choisies, un graphique semblable à la capture d’écran s
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Ajouter un script SQL à l’espace de travail Synapse Analytics":::
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+[Utiliser T-SQL pour interroger des données d’Azure Cosmos DB à l’aide d’Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 Utilisez un pool de Synapse SQL sans serveur pour [analyser Azure Open Datasets et visualiser les résultats dans Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

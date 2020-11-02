@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514211"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460731"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -39,7 +39,7 @@ Vous devez respecter les consignes suivantes :
   * Générez un numéro de suivi pour le travail d’exportation.
   * Chaque travail doit avoir un numéro de suivi distinct. Plusieurs travaux portant le même numéro de suivi ne sont pas pris en charge.
   * Si vous n’avez pas de compte de transporteur, accédez à :
-    * [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou
+    * [Créer un compte FedEx](https://www.fedex.com/en-us/create-account.html), ou
     * [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
@@ -51,7 +51,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 1. Connectez vos lecteurs de disque au système Windows via des connecteurs SATA.
 2. Créez un seul volume NTFS sur chaque lecteur. Attribuez une lettre de lecteur au volume. N’utilisez pas de points de montage.
 3. Activez le chiffrement BitLocker sur le volume NTFS. Si vous utilisez un système Windows Server, suivez les instructions de [How to enable BitLocker sur Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Comment activer BitLocker sur Windows Server 2012 R2).
-4. Copiez des données sur le volume chiffré. Utilisez la fonction glisser-déplacer, Robocopy ou n’importe quel outil de copie de ce type. Un fichier journal ( *.jrn*) est créé dans le même dossier où vous avez exécuté l’outil.
+4. Copiez des données sur le volume chiffré. Utilisez la fonction glisser-déplacer, Robocopy ou n’importe quel outil de copie de ce type. Un fichier journal ( *.jrn* ) est créé dans le même dossier où vous avez exécuté l’outil.
 
    Si le lecteur est verrouillé et que vous devez le déverrouiller, les étapes de déverrouillage peuvent varier en fonction de votre cas d’utilisation.
 
@@ -95,20 +95,22 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
 
 ## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
 
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 
 1. Connectez-vous sur https://portal.azure.com/.
-2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation**.
+2. Accédez à **Tous les services > Stockage > Tâches d’importation/exportation** .
 
     ![Accéder à Tâches d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Cliquez sur **Créer une tâche d’importation/exportation**.
+3. Cliquez sur **Créer une tâche d’importation/exportation** .
 
     ![Cliquez sur Créer une tâche d’importation/exportation](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. Dans **De base** :
 
-   * Sélectionnez **Importer dans Azure**.
+   * Sélectionnez **Importer dans Azure** .
    * Indiquez un nom décrivant le travail d’importation. Utilisez le nom pour suivre la progression de vos tâches.
        * Le nom ne peut contenir que des lettres minuscules, des chiffres et des traits d’union.
        * Le nom doit commencer par une lettre et ne doit pas contenir d’espaces.
@@ -117,7 +119,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
      ![Créer une tâche d’importation - Étape 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. Dans **Détails de la tâche** :
+5. Dans **Détails de la tâche**  :
 
    * Chargez les fichiers journaux du lecteur que vous avez obtenus à l’étape de préparation de lecteur. Si vous avez utilisé `waimportexport.exe version1`, chargez un fichier pour chaque lecteur préparé. Si la taille du fichier journal dépasse 2 Mo, vous pouvez utiliser `<Journal file name>_DriveInfo_<Drive serial ID>.xml` également créé avec le fichier journal.
    * Sélectionnez le compte de stockage de destination des données.
@@ -125,7 +127,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
    ![Créer une tâche d’importation - Étape 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. Dans **Informations de réexpédition** :
+6. Dans **Informations de réexpédition**  :
 
    * Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un autre transporteur que FedEx/DHL, choisissez une option existante dans la liste déroulante. Contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com` pour lui indiquer le nom du transporteur auquel vous envisagez de faire appel.
    * Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
@@ -142,6 +144,85 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
    * Cliquez sur **OK** pour créer la tâche d’importation.
 
      ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Exécutez les étapes suivantes pour créer une tâche d’importation dans Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Créer un travail
+
+1. Utilisez la commande [az extension add](/cli/azure/extension#az_extension_add) pour ajouter l’extension [az import-export](/cli/azure/ext/import-export/import-export) :
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources :
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau. Pour créer un compte de stockage, exécutez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) :
+
+    ```azurecli
+    az storage account create --resource-group myierg --name myssdocsstorage --https-only
+    ```
+
+1. Pour obtenir la liste des emplacements vers lesquels vous pouvez expédier des disques, utilisez la commande [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Pour obtenir les emplacements de votre région, utilisez la commande [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) :
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Exécutez la commande [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) suivante pour créer un travail d’importation :
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Au lieu de spécifier une adresse de messagerie pour un seul utilisateur, fournissez une adresse de groupe. Cela garantit que vous recevrez des notifications même si un administrateur s’en va.
+
+1. Utilisez la commande [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) pour afficher toutes les tâches du groupe de ressources myierg :
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Pour mettre à jour votre travail ou l’annuler, exécutez la commande [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Étape 3 (facultative) : Configurer une clé gérée par le client
 

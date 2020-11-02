@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le Machine Learning (ML) automatisé / AutoML
+title: Qu’est-ce que le Machine Learning (ML) automatisé ? AutoML
 titleSuffix: Azure Machine Learning
 description: Découvrez comment Azure Machine Learning peut choisir automatiquement un algorithme pour vous et générer un modèle à partir de celui-ci pour vous permettre de gagner du temps en utilisant les paramètres et les critères que vous fournissez de façon à sélectionner le meilleur algorithme pour votre modèle.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760967"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367514"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -74,14 +74,14 @@ Pendant l’entraînement, Azure Machine Learning crée un certain nombre de pip
 
 1. **Identifier le problème de Machine Learning** à résoudre : classification, prévision ou régression.
 
-1. **Indiquez si vous souhaitez utiliser le SDK Python ou l’expérience web Studio** : apprenez-en davantage sur la parité entre le [SDK Python et l’expérience web Studio](#parity).
+1. **Indiquez si vous souhaitez utiliser le SDK Python ou l’expérience web Studio**  : apprenez-en davantage sur la parité entre le [SDK Python et l’expérience web Studio](#parity).
 
    * Si vous disposez d’une expérience limitée ou inexistante en programmation, essayez l’expérience web Azure Machine Learning Studio sur [https://ml.azure.com](https://ml.azure.com/).  
    * Pour les développeurs Python, consultez le [SDK Python Azure Machine Learning](how-to-configure-auto-train.md). 
     
-1. **Spécifier la source et le format des données d’apprentissage étiquetées** : tableaux NumPy ou cadre de données Pandas.
+1. **Spécifier la source et le format des données d’apprentissage étiquetées**  : tableaux NumPy ou cadre de données Pandas.
 
-1. **Configurer la cible de calcul pour l’apprentissage du modèle** : [ordinateur local, calculs Azure Machine Learning, machines virtuelles à distance ou Azure Databricks](how-to-set-up-training-targets.md).  Apprenez-en davantage sur l’apprentissage automatisé [sur une ressource distante](how-to-auto-train-remote.md).
+1. **Configurer la cible de calcul pour l’apprentissage du modèle**  : [ordinateur local, calculs Azure Machine Learning, machines virtuelles à distance ou Azure Databricks](how-to-set-up-training-targets.md).  Apprenez-en davantage sur l’apprentissage automatisé [sur une ressource distante](how-to-auto-train-remote.md).
 
 1. **Configurer les paramètres de Machine Learning automatisé** qui déterminent le nombre d’itérations sur les différents modèles, les réglages d’hyperparamètre, le prétraitement et la personnalisation avancés, ainsi que les métriques à examiner lors du choix du meilleur modèle.  
 1. **Lancer l’exécution de l’apprentissage.**
@@ -140,8 +140,8 @@ Activez ce paramètre avec :
 
 Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui sont activés par défaut. L’apprentissage ensembliste améliore les résultats de Machine Learning et les performances prédictives en combinant plusieurs modèles. Les itérations d’ensembles apparaissent comme les dernières itérations de votre exécution. Le Machine Learning automatisé utilise des méthodes ensemblistes de vote et d’empilement pour combiner les modèles :
 
-* **Vote** : prédictions basées sur la moyenne pondérée des probabilités de classe prédites (pour les tâches de classification) ou des cibles de régression prédites (pour les tâches de régression).
-* **Empilement** : l’empilement combine des modèles hétérogènes et entraîne un métamodèle basé sur la sortie de différents modèles. Actuellement, les métamodèles par défaut sont LogisticRegression pour les tâches de classification, et ElasticNet pour les tâches de régression et de prévision.
+* **Vote**  : prédictions basées sur la moyenne pondérée des probabilités de classe prédites (pour les tâches de classification) ou des cibles de régression prédites (pour les tâches de régression).
+* **Empilement**  : l’empilement combine des modèles hétérogènes et entraîne un métamodèle basé sur la sortie de différents modèles. Actuellement, les métamodèles par défaut sont LogisticRegression pour les tâches de classification, et ElasticNet pour les tâches de régression et de prévision.
 
 L’[algorithme de sélection d’ensemble Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf), avec initialisation des ensembles triés, est utilisé pour déterminer les modèles qui doivent être utilisés au sein de l’ensemble. Pour résumer, cet algorithme initialise l’ensemble avec un maximum de cinq modèles ayant obtenu les meilleurs scores, puis vérifie que ces scores se situent dans une marge de plus ou moins 5 % par rapport au meilleur score, afin d’éviter un ensemble de niveau médiocre. Ensuite, pour chaque itération d’ensemble, un nouveau modèle est ajouté à l’ensemble existant et le score est calculé. Si un nouveau modèle a amélioré le score existant de l’ensemble, l’ensemble est mis à jour pour inclure le nouveau modèle.
 
@@ -151,14 +151,14 @@ Pour savoir comment modifier les paramètres par défaut de l’ensemble au nive
 
 L’interface web pour le Machine Learning automatisé utilise toujours une [cible de calcul](concept-compute-target.md) distante.  Toutefois, lorsque vous utilisez le Kit de développement logiciel (SDK) Python, vous devez choisir une cible de calcul locale ou distante pour un apprentissage de Machine Learning automatisé.
 
-* **Calcul local** : l’apprentissage se produit sur votre ordinateur portable ou votre machine virtuelle locaux. 
-* **Calcul distant** : l’apprentissage se produit sur des clusters de calcul Machine Learning.  
+* **Calcul local**  : l’apprentissage se produit sur votre ordinateur portable ou votre machine virtuelle locaux. 
+* **Calcul distant**  : l’apprentissage se produit sur des clusters de calcul Machine Learning.  
 
 ### <a name="choose-compute-target"></a>Choisir une cible de calcul
 Lors du choix de votre cible de calcul, considérez les facteurs suivants :
 
- * **Choisir un calcul local** : si votre scénario concerne des explorations initiales ou des démonstrations utilisant des données de petite taille et des apprentissages courts (de quelques secondes à quelques minutes par exécution enfant), un apprentissage sur votre ordinateur local peut constituer un meilleur choix.  Il n’y a pas de temps de configuration. Les ressources d’infrastructure (votre PC ou votre machine virtuelle) sont directement disponibles.
- * **Choisir un cluster de calcul de Machine Learning distant** : si vous effectuez un apprentissage avec des jeux de données plus volumineux, tel un apprentissage de production créant des modèles nécessitant des apprentissages plus longs, un calcul distant offre des performances de temps de bout en bout bien meilleures, car `AutoML` parallélise les apprentissages dans les nœuds du cluster. Sur un calcul distant, le temps de démarrage de l’infrastructure interne ajoute environ 1,5 minute par exécution enfant, et des minutes supplémentaires pour l’infrastructure du cluster si les machines virtuelles ne sont pas encore opérationnelles.
+ * **Choisir un calcul local**  : si votre scénario concerne des explorations initiales ou des démonstrations utilisant des données de petite taille et des apprentissages courts (de quelques secondes à quelques minutes par exécution enfant), un apprentissage sur votre ordinateur local peut constituer un meilleur choix.  Il n’y a pas de temps de configuration. Les ressources d’infrastructure (votre PC ou votre machine virtuelle) sont directement disponibles.
+ * **Choisir un cluster de calcul de Machine Learning distant**  : si vous effectuez un apprentissage avec des jeux de données plus volumineux, tel un apprentissage de production créant des modèles nécessitant des apprentissages plus longs, un calcul distant offre des performances de temps de bout en bout bien meilleures, car `AutoML` parallélise les apprentissages dans les nœuds du cluster. Sur un calcul distant, le temps de démarrage de l’infrastructure interne ajoute environ 1,5 minute par exécution enfant, et des minutes supplémentaires pour l’infrastructure du cluster si les machines virtuelles ne sont pas encore opérationnelles.
 
 ### <a name="pros-and-cons"></a>Avantages et inconvénients
 Tenez compte des avantages et des inconvénients suivants lorsque au moment de choisir entre le calcul local ou distant.
@@ -219,7 +219,7 @@ Les paramètres suivants vous permettent de configurer votre expérience de mach
 |**Division des données en jeux d’entraînement/de validation**| ✓|✓
 |**Prise en charge des tâches de Machine Learning : classification, régression et prévision**| ✓| ✓
 |**Optimisation basée sur une métrique principale**| ✓| ✓
-|**Prise en charge du calcul AML en tant que cible de calcul** | ✓|✓
+|**Prise en charge du calcul Azure ML en tant que cible de calcul** | ✓|✓
 |**Configuration de l’horizon de prévision, des décalages de cibles et de la fenêtre dynamique**|✓|✓
 |**Définition des critères de sortie** |✓|✓ 
 |**Définition des itérations simultanées**| ✓|✓
@@ -271,9 +271,9 @@ Plusieurs ressources sont disponibles pour vous aider à utiliser AutoML.
 
 ### <a name="tutorials-how-tos"></a>Tutoriels et guides pratiques
 Les tutoriels sont des exemples illustrant de bout en bout des scénarios d’utilisation d’AutoML.
-+ **Pour une expérience Code First**, suivez le [Tutoriel : Entraîner automatiquement un modèle de régression avec le Kit de développement logiciel (SDK) Python Azure Machine Learning](tutorial-auto-train-models.md).
++ **Pour une expérience Code First** , suivez le [Tutoriel : Entraîner automatiquement un modèle de régression avec le Kit de développement logiciel (SDK) Python Azure Machine Learning](tutorial-auto-train-models.md).
 
- + **Pour une expérience avec peu de code ou sans code**, consultez le [Tutoriel : Créer des modèles de classification de ML automatisé avec Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
+ + **Pour une expérience avec peu de code ou sans code** , consultez le [Tutoriel : Créer des modèles de classification de ML automatisé avec Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
 Des articles de guide pratique fournissent des détails supplémentaires sur les fonctionnalités d’AutoML. Par exemple, 
 

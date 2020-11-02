@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fe358e35f2d68a3e55e9d9bb4ac57a13f42085e3
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340017"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629236"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Fonctionnement de l’accès aux machines virtuelles juste-à-temps (JAT)
 
@@ -66,6 +66,10 @@ Lorsque Security Center trouve une machine qui peut tirer parti de l’accès J
 ## <a name="faq---questions-about-just-in-time-virtual-machine-access"></a>FAQ : questions relatives à l’accès aux machines virtuelles juste-à-temps
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Quelles sont les autorisations nécessaires pour configurer et utiliser l’accès JAT ?
+
+JIT requiert qu’[Azure Defender pour serveurs](defender-for-servers-introduction.md) soit activé sur l’abonnement. 
+
+Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.
 
 Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec l’accès JAT, vous aurez besoin des détails du tableau ci-dessous.
 

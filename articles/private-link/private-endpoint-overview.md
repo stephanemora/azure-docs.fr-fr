@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277502"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508027"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -133,7 +133,7 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer un point de terminaison privé pour SQL Database à l’aide du Portail](create-private-endpoint-portal.md)
+- [Créer un point de terminaison privé pour SQL Database à l’aide du portail](create-private-endpoint-portal.md)
 - [Créer un point de terminaison privé pour SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
 - [Créer un point de terminaison privé pour SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
 - [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](create-private-endpoint-storage-portal.md)
@@ -145,3 +145,4 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 - [Créer votre propre liaison privée pour Azure Database pour MySQL à l’aide de l’interface CLI](../mysql/howto-configure-privatelink-cli.md)
 - [Créer votre propre liaison privée pour Azure Database for MariaDB à l’aide du portail](../mariadb/howto-configure-privatelink-portal.md)
 - [Créer votre propre liaison privée pour Azure Database for MariaDB à l’aide de l’interface CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Créer votre propre liaison privée pour Azure Key Vault à l’aide du portail et de l’interface CLI](../key-vault/general/private-link-service.md)

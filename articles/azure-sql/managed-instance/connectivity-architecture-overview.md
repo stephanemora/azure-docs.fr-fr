@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283375"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461717"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -307,14 +307,14 @@ Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalis�
 
 ### <a name="networking-constraints"></a>Contraintes de mise en réseau
 
-**TLS 1.2 est appliqué aux connexions sortantes** : En janvier 2020, Microsoft a appliqué TLS 1.2 pour le trafic intra-service dans tous les services Azure. Pour Azure SQL Managed Instance, cela a eu pour effet que TLS 1.2 était appliqué aux connexions sortantes utilisées pour la réplication et aux connexions de serveur lié à SQL Server. Si vous utilisez des versions de SQL Server antérieures à 2016 avec SQL Managed Instance, vérifiez que les [mises à jour spécifiques de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) ont été appliquées.
+**TLS 1.2 est appliqué aux connexions sortantes**  : En janvier 2020, Microsoft a appliqué TLS 1.2 pour le trafic intra-service dans tous les services Azure. Pour Azure SQL Managed Instance, cela a eu pour effet que TLS 1.2 était appliqué aux connexions sortantes utilisées pour la réplication et aux connexions de serveur lié à SQL Server. Si vous utilisez des versions de SQL Server antérieures à 2016 avec SQL Managed Instance, vérifiez que les [mises à jour spécifiques de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) ont été appliquées.
 
 Les fonctionnalités de réseau virtuel suivantes ne sont actuellement pas prises en charge avec SQL Managed Instance :
 
-- **Homologation Microsoft** : l’activation du [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute appairés, directement ou transitivement, avec un réseau virtuel sur lequel SQL Managed Instance réside, affecte le flux de trafic entre les composants SQL Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de SQL Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
-- **Homologation de réseau virtuel mondial** : la connectivité de [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour SQL Managed Instance en raison de [contraintes d’équilibreur de charge documentées](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-- **AzurePlatformDNS** : L’utilisation de l’[étiquette de service](../../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait SQL Managed Instance indisponible. Même si SQL Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur du moteur, il existe une dépendance envers le système DNS de plateforme pour les opérations de plateforme.
-- **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
+- **Homologation Microsoft**  : l’activation du [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute appairés, directement ou transitivement, avec un réseau virtuel sur lequel SQL Managed Instance réside, affecte le flux de trafic entre les composants SQL Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de SQL Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
+- **Homologation de réseau virtuel mondial**  : La connectivité de [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour les instances SQL Managed Instance placées dans des sous-réseaux créés avant le 22/9/2020.
+- **AzurePlatformDNS**  : L’utilisation de l’ [étiquette de service](../../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait SQL Managed Instance indisponible. Même si SQL Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur du moteur, il existe une dépendance envers le système DNS de plateforme pour les opérations de plateforme.
+- **Passerelle NAT**  : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Déconseillé] Configuration réseau requise sans la configuration de sous-réseau assistée par le service
 

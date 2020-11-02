@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652075"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458049"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -85,13 +85,13 @@ Quand vous activez la synchronisation de hachage de mot de passe, les stratégie
 
 #### <a name="password-expiration-policy"></a>Stratégie d’expiration de mot de passe
 
-Si un utilisateur est concerné par la synchronisation de hachage de mot de passe, par défaut le mot de passe de compte cloud est défini sur *Ne jamais expirer*.
+Si un utilisateur est concerné par la synchronisation de hachage de mot de passe, par défaut le mot de passe de compte cloud est défini sur *Ne jamais expirer* .
 
 Vous pouvez continuer à vous connecter aux services cloud à l’aide d’un mot de passe synchronisé qui a expiré dans votre environnement local. Votre mot de passe cloud est mis à jour la prochaine fois que vous modifiez le mot de passe dans l’environnement local.
 
 ##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
-S’il existe des utilisateurs synchronisés qui interagissent uniquement avec des services intégrés Azure AD et doivent également respecter une stratégie d’expiration de mot de passe, vous pouvez les forcer à respecter votre stratégie d’expiration de mot de passe Azure AD en activant la fonctionnalité *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+S’il existe des utilisateurs synchronisés qui interagissent uniquement avec des services intégrés Azure AD et doivent également respecter une stratégie d’expiration de mot de passe, vous pouvez les forcer à respecter votre stratégie d’expiration de mot de passe Azure AD en activant la fonctionnalité *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
 Quand *EnforceCloudPasswordPolicyForPasswordSyncedUsers* est désactivée (ce qui est le paramètre par défaut), Azure AD Connect affecte la valeur « DisablePasswordExpiration » à l’attribut PasswordPolicies. Cette action est effectuée chaque fois que le mot de passe d’un utilisateur est synchronisé, et indique à Azure AD qu’il faut ignorer la stratégie d’expiration du mot de passe cloud pour cet utilisateur. Vous pouvez vérifier la valeur de l’attribut à l’aide du module Azure AD PowerShell à l’aide de la commande suivante :
 
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Une fois la fonctionnalité activée, Azure AD n’accède pas à chaque utilisateur synchronisé pour supprimer la valeur `DisablePasswordExpiration` de l’attribut PasswordPolicies. Au lieu de cela, la valeur est définie sur `None` lors de la synchronisation de mot de passe suivante pour chaque utilisateur la prochaine fois qu’il change son mot de passe dans l’annuaire Active Directory local.  
+Une fois la fonctionnalité activée, Azure AD n’accède pas à chaque utilisateur synchronisé pour supprimer la valeur `DisablePasswordExpiration` de l’attribut PasswordPolicies. Au lieu de cela, la valeur `DisablePasswordExpiration` est supprimée de PasswordPolicies lors de la synchronisation de hachage de mot de passe suivante pour chaque utilisateur, lors de modification de mot de passe suivante dans l’annuaire Active Directory local.
 
 Nous vous recommandons d’activer EnforceCloudPasswordPolicyForPasswordSyncedUsers avant d’activer la synchronisation du hachage de mot de passe, afin que la synchronisation initiale du hachage de mot de passe n’ajoute pas la valeur `DisablePasswordExpiration` à l’attribut PasswordPolicies pour les utilisateurs.
 
@@ -178,7 +178,7 @@ Si vous utilisez Azure AD Domain Services pour fournir une authentification hér
 1. Pour chaque utilisateur dont le mot de passe a changé, Azure AD Connect effectue les étapes suivantes :
     * Génère une clé symétrique AES 256 bits aléatoire.
     * Génère un vecteur d’initialisation aléatoire requis pour le premier cycle de chiffrement.
-    * Extrait les hachages de mot de passe Kerberos à partir des attributs *supplementalCredentials*.
+    * Extrait les hachages de mot de passe Kerberos à partir des attributs *supplementalCredentials* .
     * Vérifie le paramètre *SyncNtlmPassword* de configuration de sécurité Azure AD Domain Services.
         * Si ce paramètre est désactivé, génère un hachage NTLM aléatoire à forte entropie (différent du mot de passe de l’utilisateur). Ce hachage est ensuite combiné avec les hachages de mot de passe Kerberos exacts de l'attribut *supplementalCredentials* dans une structure de données.
         * S’il est activé, combine la valeur de l’attribut *unicodePwd* avec les hachages de mot de passe Kerberos extraits de l’attribut *supplementalCredentials* dans une structure de données.
@@ -199,7 +199,7 @@ Si vous utilisez Azure AD Domain Services pour fournir une authentification hér
 >[!IMPORTANT]
 >Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers la synchronisation de hachage du mot de passe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://aka.ms/adfstophsdpdownload).
 
-La synchronisation de hachage de mot de passe est activée automatiquement si vous installez Azure AD Connect avec la **configuration rapide**. Pour plus d’informations, voir [Bien démarrer avec Azure AD Connect à l’aide de paramètres rapides](how-to-connect-install-express.md).
+La synchronisation de hachage de mot de passe est activée automatiquement si vous installez Azure AD Connect avec la **configuration rapide** . Pour plus d’informations, voir [Bien démarrer avec Azure AD Connect à l’aide de paramètres rapides](how-to-connect-install-express.md).
 
 Si vous utilisez des paramètres personnalisés lors de l’installation d’Azure AD Connect, la synchronisation de hachage de mot de passe est disponible dans la page de connexion utilisateur. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md).
 

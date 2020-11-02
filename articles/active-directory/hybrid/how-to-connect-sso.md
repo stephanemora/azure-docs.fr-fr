@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658360"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457989"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -36,7 +36,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 ![Authentification unique transparente](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->L’authentification unique transparente a besoin uniquement que l’appareil de l’utilisateur soit **joint au domaine**, mais elle n’est pas utilisée sur des appareils [joints à Azure AD](../devices/concept-azure-ad-join.md) ou [joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d’Azure AD opère en fonction du [jeton d’actualisation principal](../devices/concept-primary-refresh-token.md).
+>L’authentification unique transparente a besoin uniquement que l’appareil de l’utilisateur soit **joint au domaine** , mais elle n’est pas utilisée sur des appareils [joints à Azure AD](../devices/concept-azure-ad-join.md) ou [joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d’Azure AD opère en fonction du [jeton d’actualisation principal](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Principaux avantages
 
@@ -64,18 +64,20 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 | Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Oui\*|Oui|Oui|Oui\*\*\*|N/A
-|Windows 8.1|Oui\*|N/A|Oui|Oui\*\*\*|N/A
+|Windows 8.1|Oui\*|Oui*\*\*\*|Oui|Oui\*\*\*|N/A
 |Windows 8|Oui\*|N/A|Oui|Oui\*\*\*|N/A
 |Windows 7|Oui\*|N/A|Oui|Oui\*\*\*|N/A
 |Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|Oui|Oui\*\*\*|N/A
 |Mac OS X|N/A|N/A|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
 
 
-\*Requiert Internet Explorer version 10 ou ultérieure
+\*Requiert Internet Explorer version 10 ou ultérieure.
 
-\*\*Requiert Internet Explorer version 10 ou ultérieure. Désactiver le mode protégé amélioré
+\*\*Requiert Internet Explorer version 10 ou ultérieure. Désactivez le mode protégé amélioré.
 
-\*\*\*Requiert une [configuration supplémentaire](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Nécessite une [configuration supplémentaire](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Nécessite Microsoft Edge version 77 ou une version ultérieure.
 
 >[!NOTE]
 >Concernant Windows 10, il est recommandé d’utiliser [Azure AD Join](../devices/concept-azure-ad-join.md) pour une expérience optimale d’authentification unique dans Azure AD.
@@ -85,6 +87,6 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
 - [**Plan de déploiement**](https://aka.ms/deploymentplans/sso) : plan de déploiement étape par étape.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)** ](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

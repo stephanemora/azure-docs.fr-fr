@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0ef5c0cb0ffca5cc156d64074ebe241cebbcfb8e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 633cfe64e5978b1802a7c4b6c1f7842872ab665a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277272"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475207"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB
 
@@ -31,7 +31,7 @@ ms.locfileid: "92277272"
 > Ces conseils en matière de performances concernent uniquement le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB. Pour plus d’informations, consultez les [notes de publication](sql-api-sdk-java.md) et le [référentiel Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) du Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB.
 >
 
-Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API. Pour en savoir plus, voir [Approvisionner le débit d’un conteneur](how-to-provision-container-throughput.md) ou [Approvisionner le débit d’une base de données](how-to-provision-database-throughput.md). Toutefois, étant donné qu’Azure Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB](documentdb-sdk-java.md).
+Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API. Pour en savoir plus, voir [Approvisionner le débit d’un conteneur](how-to-provision-container-throughput.md) ou [Approvisionner le débit d’une base de données](how-to-provision-database-throughput.md). Toutefois, étant donné qu’Azure Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB](./sql-api-sdk-java.md).
 
 Si vous vous demandez comment améliorer les performances de votre base de données, lisez ce qui suit :
 
@@ -40,10 +40,10 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 1. **Mode de connexion : Utiliser DirectHttps**
 
-    La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe un paramètre de configuration clé disponible pour configurer la stratégie de connexion ([ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy)) du client : le mode de connexion [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Les deux modes de connexion disponibles sont les suivants :
+    La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe un paramètre de configuration clé disponible pour configurer la stratégie de connexion ([ConnectionPolicy](/java/api/com.microsoft.azure.documentdb.connectionpolicy)) du client : le mode de connexion [ConnectionMode](/java/api/com.microsoft.azure.documentdb.connectionmode).  Les deux modes de connexion disponibles sont les suivants :
 
-   1. [Passerelle (par défaut)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
-   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
+   1. [Passerelle (par défaut)](/java/api/com.microsoft.azure.documentdb.connectionmode)
+   2. [DirectHttps](/java/api/com.microsoft.azure.documentdb.connectionmode)
 
       Le mode passerelle est pris en charge sur toutes les plateformes de SDK et est l’option configurée par défaut.  Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, la passerelle est la meilleure option, car elle utilise le port HTTPS standard et un seul point de terminaison. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Étant donné que le mode DirectHttps implique moins de tronçons réseaux, les performances sont meilleures. 
 
@@ -77,31 +77,31 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 ## <a name="sdk-usage"></a>Utilisation du kit de développement logiciel (SDK)
 1. **Installation du kit de développement logiciel (SDK) le plus récent**
 
-    Les SDK Azure Cosmos DB sont constamment améliorés pour fournir des performances optimales. Consultez les pages du [SDK Azure Cosmos DB](documentdb-sdk-java.md) pour déterminer quel est le SDK le plus récent et passer en revue les améliorations.
+    Les SDK Azure Cosmos DB sont constamment améliorés pour fournir des performances optimales. Consultez les pages du [SDK Azure Cosmos DB](./sql-api-sdk-java.md) pour déterminer quel est le SDK le plus récent et passer en revue les améliorations.
 2. **Utiliser un client Azure Cosmos DB singleton pour la durée de vie de votre application**
 
-    Chaque instance de [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) est thread-safe et effectue une gestion des connexions efficace et une mise en cache d’adresses quand le mode direct est sélectionné. Pour permettre une gestion des connexions efficace et améliorer les performances par DocumentClient, nous vous recommandons d’utiliser une seule instance de DocumentClient par AppDomain pour la durée de vie de l’application.
+    Chaque instance de [DocumentClient](/java/api/com.microsoft.azure.documentdb.documentclient) est thread-safe et effectue une gestion des connexions efficace et une mise en cache d’adresses quand le mode direct est sélectionné. Pour permettre une gestion des connexions efficace et améliorer les performances par DocumentClient, nous vous recommandons d’utiliser une seule instance de DocumentClient par AppDomain pour la durée de vie de l’application.
 
    <a id="max-connection"></a>
 3. **Augmentation de MaxPoolSize par hôte quand le mode passerelle est utilisé**
 
-    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxPoolSize sur une valeur plus élevée (200 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB, la valeur par défaut de [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) est 100. Utilisez [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) pour changer la valeur.
+    Les requêtes Azure Cosmos DB sont effectuées par le biais de HTTPS/REST durant l’utilisation du mode passerelle et sont soumises aux limites de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir MaxPoolSize sur une valeur plus élevée (200 à 1000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB, la valeur par défaut de [ConnectionPolicy.getMaxPoolSize](/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) est 100. Utilisez [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) pour changer la valeur.
 
 4. **Paramétrage des requêtes parallèles pour les collections partitionnées**
 
     Le Kit de développement logiciel (SDK) Java synchrone v2 pour Azure Cosmos DB (version 1.9.0 et ultérieures) prend en charge les requêtes parallèles, qui permettent d’interroger une collection partitionnée en parallèle. Pour plus d’informations, voir les [exemples de code](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) concernant l’utilisation des kits SDK. Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série.
 
-    (a) Les requêtes parallèles ***Tuning setMaxDegreeOfParallelism\:*** interrogent plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. Utilisez donc le paramètre [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) pour définir le nombre de partitions qui augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez utiliser le paramètre setMaxDegreeOfParallelism pour définir un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme degré maximal de parallélisme. 
+    (a) Les requêtes parallèles * *_Tuning setMaxDegreeOfParallelism\:_* _ interrogent plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. Utilisez donc le paramètre [setMaxDegreeOfParallelism](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) pour définir le nombre de partitions qui augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez utiliser le paramètre setMaxDegreeOfParallelism pour définir un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme degré maximal de parallélisme. 
 
     Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-    (b) La requête parallèle ***Tuning setMaxBufferedItemCount\:*** pré-extrait les résultats tandis que le lot de résultats courant est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Définir le paramètre [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) sur le nombre de résultats attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
+    (b) La requête parallèle _*_Tuning setMaxBufferedItemCount\:_*_ pré-extrait les résultats tandis que le lot de résultats courant est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Définir le paramètre [setMaxBufferedItemCount](/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) sur le nombre de résultats attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
 
     La pré-extraction fonctionne de la même façon, quel que soit le paramètre MaxDegreeOfParallelism, et il existe une seule mémoire tampon pour les données de toutes les partitions.  
 
-5. **Implémentation de l’interruption à intervalles définis par getRetryAfterInMilliseconds**
+5. _ *Implémentation de l’inter**
 
-    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelles tentatives est incluse dans les versions 1.8.0 et ultérieures du [Kit de développement logiciel (SDK) Java synchrone pour Azure Cosmos DB](documentdb-sdk-java.md). Pour plus d’informations, consultez la section [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelles tentatives est incluse dans les versions 1.8.0 et ultérieures du [Kit de développement logiciel (SDK) Java synchrone pour Azure Cosmos DB](./sql-api-sdk-java.md). Pour plus d’informations, consultez la section [getRetryAfterInMilliseconds](/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **Effectuer un scale-out de votre charge de travail cliente**
 
@@ -114,17 +114,17 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
    <a id="tune-page-size"></a>
 8. **Réglage de la taille de la page des flux de lecture/requêtes pour de meilleures performances**
 
-    Pendant une lecture groupée de documents à l'aide de la fonctionnalité de flux de lecture (par exemple, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) ou l'émission d'une requête SQL, les résultats sont retournés de façon segmentée si le jeu de résultats est trop volumineux. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
+    Pendant une lecture groupée de documents à l'aide de la fonctionnalité de flux de lecture (par exemple, [readDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) ou l'émission d'une requête SQL, les résultats sont retournés de façon segmentée si le jeu de résultats est trop volumineux. Par défaut, les résultats sont retournés dans des segments de 100 éléments ou de 1 Mo, selon la limite atteinte en premier.
 
     Afin de réduire le nombre de boucles réseau nécessaires pour récupérer tous les résultats applicables, vous pouvez augmenter la taille de la page à 1000 résultats à l’aide de l’en-tête de requête [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Si vous avez besoin d’afficher uniquement quelques résultats, (par exemple, si votre interface utilisateur ou API d’application retourne seulement 10 résultats à la fois), vous pouvez également réduire la taille de la page à 10 résultats, afin de baisser le débit consommé pour les lectures et requêtes.
 
-    Vous pouvez également définir la taille de la page à l’aide de la [méthode setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
+    Vous pouvez également définir la taille de la page à l’aide de la [méthode setPageSize](/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
 ## <a name="indexing-policy"></a>Stratégie d’indexation
  
 1. **Exclusion des chemins d’accès inutilisés de l’indexation pour des écritures plus rapides**
 
-    La stratégie d’indexation d’Azure Cosmos DB vous permet de spécifier les chemins d’accès de document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) et [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés.  Par exemple, le code suivant montre comment exclure une section entière (appelée sous-arborescence) des documents de l’indexation à l’aide du caractère générique « * ».
+    La stratégie d’indexation d’Azure Cosmos DB vous permet de spécifier les chemins d’accès de document à inclure ou exclure de l’indexation en tirant parti des chemins d’accès d’indexation ([setIncludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) et [setExcludedPaths](/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). L’utilisation des chemins d’accès d’indexation peut offrir des performances d’écriture améliorées et réduire le stockage d’index pour les scénarios dans lesquels les modèles de requête sont connus d’avance, puisque les coûts d’indexation sont directement liés au nombre de chemins d’accès uniques indexés.  Par exemple, le code suivant montre comment exclure une section entière (appelée sous-arborescence) des documents de l’indexation à l’aide du caractère générique « * ».
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-indexing"></a>Kit de développement logiciel (SDK) Java synchrone v2 (Maven com.microsoft.azure::azure-documentdb)
@@ -139,7 +139,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](indexing-policies.md).
+    Pour plus d’informations, consultez [Stratégies d’indexation d’Azure Cosmos DB](/azure/cosmos-db/index-policy).
 
 ## <a name="throughput"></a>Débit
 <a id="measure-rus"></a>
@@ -152,7 +152,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données sources ont tous une influence sur le coût des opérations de requête.
 
-    Pour mesurer les frais de l’opération (création, mise à jour ou suppression), inspectez l’en-tête [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou la propriété RequestCharge équivalente dans [ResourceResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse)) afin de déterminer le nombre d’unités de requête consommées par ces opérations.
+    Pour mesurer les frais de l’opération (création, mise à jour ou suppression), inspectez l’en-tête [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou la propriété RequestCharge équivalente dans [ResourceResponse\<T>](/java/api/com.microsoft.azure.documentdb.resourceresponse) ou [FeedResponse\<T>](/java/api/com.microsoft.azure.documentdb.feedresponse)) afin de déterminer le nombre d’unités de requête consommées par ces opérations.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Kit de développement logiciel (SDK) Java synchrone v2 (Maven com.microsoft.azure::azure-documentdb)
@@ -176,7 +176,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     ```
     Les kits de développement logiciel (SDK) interceptent tous implicitement cette réponse, respectent l’en-tête retry-after spécifiée par le serveur, puis relancent la requête. La tentative suivante réussira toujours, sauf si plusieurs clients accèdent simultanément à votre compte.
 
-    Si plusieurs clients opèrent simultanément au-delà du taux de requête, le nombre de nouvelles tentatives par défaut actuellement défini sur 9 en interne par le client peut ne pas suffire. Dans ce cas, le client envoie une exception [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) avec le code d’état 429 à l’application. Vous pouvez changer le nombre de nouvelles tentatives par défaut en utilisant [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) sur l’instance [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy). Par défaut, la DocumentClientException avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur.
+    Si plusieurs clients opèrent simultanément au-delà du taux de requête, le nombre de nouvelles tentatives par défaut actuellement défini sur 9 en interne par le client peut ne pas suffire. Dans ce cas, le client envoie une exception [DocumentClientException](/java/api/com.microsoft.azure.documentdb.documentclientexception) avec le code d’état 429 à l’application. Vous pouvez changer le nombre de nouvelles tentatives par défaut en utilisant [setRetryOptions](/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) sur l’instance [ConnectionPolicy](/java/api/com.microsoft.azure.documentdb.connectionpolicy). Par défaut, la DocumentClientException avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur.
 
     Alors que le comportement de nouvelle tentative automatique permet d’améliorer la résilience et la facilité d’utilisation pour la plupart des applications, il peut se révéler contradictoire lors de l’exécution de tests de performances, en particulier lors de la mesure de la latence.  La latence client observée atteindra un pic si l’expérience atteint la limite de serveur et oblige le kit de développement logiciel (SDK) client à effectuer une nouvelle tentative en silence. Pour éviter des pics de latence lors des expériences de performances, mesurez la charge renvoyée par chaque opération et assurez-vous que les requêtes fonctionnent en dessous du taux de requête réservé. Pour plus d’informations, consultez [Unités de requête](request-units.md).
 3. **Conception de documents plus petits pour un débit plus élevé**

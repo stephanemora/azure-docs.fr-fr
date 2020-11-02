@@ -1,20 +1,23 @@
 ---
-title: Journaux d’activité IIS dans Azure Monitor | Microsoft Docs
+title: Collecter les journaux IIS avec l’agent Log Analytics dans Azure Monitor
 description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor.  Cet article décrit comment configurer la collecte des journaux d’activité IIS et des détails des enregistrements qu’ils créent dans Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008181"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461190"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
-Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-platform.md).
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux IIS avec l’agent Log Analytics dans Azure Monitor
+Internet Information Services (IIS) enregistre l’activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par l’agent Log Analytics et stockés dans les [journaux d’Azure Monitor](data-platform.md).
+
+> [!IMPORTANT]
+> Cet article traite de la collecte des journaux IIS avec l’[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
 
 ![Journaux d’activité IIS](media/data-sources-iis-logs/overview.png)
 
@@ -23,11 +26,11 @@ Azure Monitor regroupe des entrées des fichiers journaux créés par IIS. Vous 
 
 Azure Monitor prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging. Il ne collecte pas les journaux d’activité au format natif NCSA ou IIS.
 
-Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu des paramètres avancés](agent-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
+Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu des paramètres avancés](agent-data-sources.md#configuring-data-sources) pour l’agent Log Analytics.  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C** .
 
 
 ## <a name="data-collection"></a>Collecte de données
-Azure Monitor collecte les entrées de journal IIS de chaque agent à chaque fois que l’horodateur du journal est modifié. Le journal est lu toutes les **5 minutes**. Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution lors de la création d’un nouveau fichier, les entrées sont collectées après la création du nouveau fichier. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si le paramètre est **Toutes les heures**, Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
+Azure Monitor collecte les entrées de journal IIS de chaque agent à chaque fois que l’horodateur du journal est modifié. Le journal est lu toutes les **5 minutes** . Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution lors de la création d’un nouveau fichier, les entrées sont collectées après la création du nouveau fichier. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si le paramètre est **Toutes les heures** , Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien** , Azure Monitor collecte le journal toutes les 24 heures.
 
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS

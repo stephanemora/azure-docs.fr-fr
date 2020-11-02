@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151697"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479916"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Répertorier les attributions de rôles Azure à l’aide du portail Azure
 
@@ -126,7 +126,7 @@ Vous pouvez répertorier les attributions de rôles pour les identités gérées
 
     Vous voyez une liste de rôles affectés à l’identité gérée affectée à l’utilisateur sélectionnée à différentes étendues, telles que groupe d’administration, abonnement, groupe de ressources ou ressource. Cette liste inclut toutes les attributions de rôles que vous êtes autorisé à lire.
 
-    ![Attributions de rôles pour une identité gérée affectée par le système](./media/shared/role-assignments-user-assigned.png)
+    ![Capture d’écran montrant les attributions de rôles pour une identité gérée affectée par l’utilisateur.](./media/shared/role-assignments-user-assigned.png)
 
 1. Pour changer d’abonnement, cliquez sur la liste **Abonnement** .
 
@@ -178,7 +178,7 @@ Procédez comme suit pour télécharger les attributions de rôles sur une éten
 
     ![Télécharger les attributions de rôles au format CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Télécharger les attributions de rôles au format CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Capture d’écran des attributions de rôle téléchargées au format JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

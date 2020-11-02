@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201679"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427907"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -27,15 +27,17 @@ L’extension de machine virtuelle Key Vault prend en charge les versions ci-des
 - Windows Server 2016
 - Windows Server 2012
 
+L’extension de machine virtuelle Key Vault est également prise en charge sur les machines virtuelles locales personnalisées qui sont téléchargées et converties en une image spécialisée pour une utilisation dans Azure à l’aide de l’installation de Windows Server 2019 Core.
+
 ### <a name="supported-certificate-content-types"></a>Types de contenu de certificat pris en charge
 
-- PKCS #12
+- PKCS#12
 - PEM
 
 ## <a name="prerequisities"></a>Conditions préalables
-  - Une instance Key Vault avec certificat. Voir [Créer un coffre de clés](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-  - Une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) doit être attribuée à la machine virtuelle ou au groupe de machines virtuelles identiques.
-  - La stratégie d’accès à Key Vault doit être définie avec des secrets `get` et l’autorisation `list` pour l’identité managée de machine virtuelle ou de groupe de machines virtuelles identiques afin de récupérer une partie de certificat d’un secret. Consultez [Comment s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-cli).
+  - Instance Key Vault avec un certificat. Consultez [Créer un Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - Une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) doit être attribuée à la machine virtuelle/VMSS
+  - La stratégie d’accès à Key Vault doit être définie avec des secrets `get` et l’autorisation `list` pour l’identité managée de machine virtuelle/VMSS afin de récupérer la partie du secret d’un certificat. Consultez [Comment s’authentifier auprès de Key Vault](/azure/key-vault/general/authentication) et [Attribuer une stratégie d’accès Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -59,7 +61,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -108,7 +110,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 La configuration JSON d’une extension de machine virtuelle doit être imbriquée dans le fragment de la ressource de machine virtuelle du modèle, plus précisément dans l’objet `"resources": []` de la machine virtuelle et, dans le cas d’un groupe de machines virtuelles identiques, sous l’objet `"virtualMachineProfile":"extensionProfile":{"extensions" :[]`.
 
  > [!NOTE]
-> L’extension de machine virtuelle nécessite l’attribution d’une identité managée par le système ou l’utilisateur pour s’authentifier auprès du coffre de clés.  Consultez [Comment s’authentifier auprès de Key Vault et attribuer une stratégie d’accès Key Vault](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm).
+> L’extension de machine virtuelle nécessite l’attribution d’une identité managée par le système ou l’utilisateur pour s’authentifier auprès du coffre de clés.  Consultez [Comment s’authentifier auprès de Key Vault et attribuer une stratégie d’accès Key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 > 
 
 ```json
@@ -194,9 +196,9 @@ L’interface de ligne de commande Azure permet de déployer l’extension de ma
     
     ```azurecli
        # Start the deployment
-         az vm extension set -n "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
@@ -226,7 +228,7 @@ Vous pouvez récupérer des données sur l’état des déploiements des extensi
 ### <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
 * Le nombre de observedCertificates que vous pouvez configurer est-il limité ?
-  Non, l’extension de VM Key Vault n’a pas de limite sur le nombre de observedCertificates.
+  Non, l'extension de machine virtuelle Key Vault ne limite pas le nombre de observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

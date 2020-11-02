@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298995"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427065"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtenir une clé de signature à partir de la stratégie existante
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-L’un des principes de conception clés de l’API v3 est de renforcer la sécurité de l’API. Les API v3 ne retournent pas de secrets ou d’informations d’identification lors des opérations **Get** ou **List**. Consultez l’explication détaillée ici : Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle (RBAC) et comptes Media Services](rbac-overview.md).
+L’un des principes de conception clés de l’API v3 est de renforcer la sécurité de l’API. Les API v3 ne retournent pas de secrets ou d’informations d’identification lors des opérations **Get** ou **List** . Consultez l’explication détaillée ici : Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) et comptes Media Services](rbac-overview.md)
 
 L'exemple présenté dans cet article explique comment utiliser .NET pour obtenir une clé de signature à partir de la stratégie existante. 
  
@@ -39,7 +39,7 @@ L'exemple de stratégie ContentKeyPolicy contenant les secrets se trouve dans le
 
 ## <a name="get-contentkeypolicy-with-secrets"></a>Obtenir la stratégie ContentKeyPolicy contenant les secrets 
 
-Pour accéder à la clé, utilisez **GetPolicyPropertiesWithSecretsAsync**, comme indiqué dans l'exemple ci-dessous.
+Pour accéder à la clé, utilisez **GetPolicyPropertiesWithSecretsAsync** , comme indiqué dans l'exemple ci-dessous.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 

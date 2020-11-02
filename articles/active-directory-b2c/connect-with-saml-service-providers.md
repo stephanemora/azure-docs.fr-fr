@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998110"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628845"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -51,7 +51,7 @@ Résumé des deux scénarios de base non exclusifs avec SAML :
 
 Trois composants principaux sont requis pour ce scénario :
 
-* Le **fournisseur de services** SAML avec la possibilité d’envoyer des demandes SAML, et de recevoir et de décoder des assertions SAML, et d’y répondre, à partir d’Azure AD B2C. On parle également de la partie de confiance.
+* Le **fournisseur de services** SAML avec la possibilité d’envoyer des demandes SAML, et de recevoir et de décoder des assertions SAML, et d’y répondre, à partir d’Azure AD B2C. Le fournisseur de services est également appelé application par partie de confiance.
 * Le **point de terminaison de métadonnées** SAML disponible publiquement pour votre fournisseur de services.
 * [Locataire Azure AD B2C](tutorial-create-tenant.md)
 
@@ -99,13 +99,13 @@ Si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat au
 Ensuite, chargez le certificat de signature d’assertion et de réponse SAML sur Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à votre locataire Azure AD B2C.
-1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**, puis **Clés de stratégie**.
-1. Sélectionnez **Ajouter**, puis sélectionnez **Options**  > **Télécharger**.
-1. Entrez un **Nom**, par exemple *SamlIdpCert*. Le préfixe *B2C_1A_* est ajouté automatiquement au nom de votre clé.
+1. Sous **Stratégies** , sélectionnez **Identity Experience Framework** , puis **Clés de stratégie** .
+1. Sélectionnez **Ajouter** , puis sélectionnez **Options**  > **Télécharger** .
+1. Entrez un **Nom** , par exemple *SamlIdpCert* . Le préfixe *B2C_1A_* est ajouté automatiquement au nom de votre clé.
 1. Téléchargez votre certificat à l’aide du contrôle de chargement de fichier.
 1. Entrez le mot de passe du certificat.
 1. Sélectionnez **Create** (Créer).
-1. Vérifiez que la clé s’affiche comme prévu. Par exemple, *B2C_1A_SamlIdpCert*.
+1. Vérifiez que la clé s’affiche comme prévu. Par exemple, *B2C_1A_SamlIdpCert* .
 
 ## <a name="2-prepare-your-policy"></a>2. Préparer votre stratégie
 
@@ -159,7 +159,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3.1 Créer une stratégie d’inscription ou de connexion
 
-1. Créez une copie du fichier *SignUpOrSignin.xml* dans le répertoire de travail de votre pack de démarrage, puis enregistrez-le sous un nouveau nom. Par exemple, *SignUpOrSigninSAML.xml*. Il s’agit de votre fichier de stratégie de partie de confiance.
+1. Créez une copie du fichier *SignUpOrSignin.xml* dans le répertoire de travail de votre pack de démarrage, puis enregistrez-le sous un nouveau nom. Par exemple, *SignUpOrSigninSAML.xml* . Il s’agit de votre fichier de stratégie de partie de confiance.
 
 1. Ouvrez le fichier *SignUpOrSigninSAML.xml* dans votre éditeur préféré.
 
@@ -176,7 +176,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Ajoutez l’extrait de code XML suivant juste avant l’élément `<RelyingParty>`. Ce code XML remplace l’étape d’orchestration numéro 7 du parcours utilisateur _SignUpOrSignIn_. Si vous avez démarré à partir d’un autre dossier du pack de démarrage, ou si vous avez personnalisé votre parcours utilisateur en ajoutant ou en supprimant des étapes d’orchestration, vérifiez que le nombre (dans l’élément `order`) est aligné avec celui spécifié dans le parcours utilisateur pour l’étape émetteur du jeton (par exemple, dans les autres dossiers du pack de démarrage, il s’agit du numéro d’étape 4 pour `LocalAccounts`, 6 pour `SocialAccounts` et 9 pour `SocialAndLocalAccountsWithMfa`).
+1. Ajoutez l’extrait de code XML suivant juste avant l’élément `<RelyingParty>`. Ce code XML remplace l’étape d’orchestration numéro 7 du parcours utilisateur _SignUpOrSignIn_ . Si vous avez démarré à partir d’un autre dossier du pack de démarrage, ou si vous avez personnalisé votre parcours utilisateur en ajoutant ou en supprimant des étapes d’orchestration, vérifiez que le nombre (dans l’élément `order`) est aligné avec celui spécifié dans le parcours utilisateur pour l’étape émetteur du jeton (par exemple, dans les autres dossiers du pack de démarrage, il s’agit du numéro d’étape 4 pour `LocalAccounts`, 6 pour `SocialAccounts` et 9 pour `SocialAndLocalAccountsWithMfa`).
 
     ```xml
     <UserJourneys>
@@ -208,7 +208,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
 
 1. Mettez à jour `tenant-name` avec le nom de votre locataire Azure AD B2C.
 
-Votre fichier de stratégie de partie de confiance final doit ressembler à ce qui suit :
+Votre fichier de stratégie de partie de confiance final doit ressembler au code XML qui suit :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -272,23 +272,23 @@ Votre stratégie personnalisée et votre locataire Azure AD B2C sont maintenant 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
-1. Entrez un **Nom** pour l’application. Par exemple, *SAMLApp1*.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire d’organisation uniquement**.
-1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://localhost`. Vous modifiez cette valeur plus tard dans le manifeste de l’inscription de l’application.
-1. Sélectionnez **Inscription**.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C** . Ou sélectionnez **Tous les services** , puis recherchez et sélectionnez **Azure AD B2C** .
+1. Sélectionnez **Inscriptions d’applications** , puis **Nouvelle inscription** .
+1. Entrez un **Nom** pour l’application. Par exemple, *SAMLApp1* .
+1. Sous **Types de comptes pris en charge** , sélectionnez **Comptes dans cet annuaire d’organisation uniquement** .
+1. Sous **URI de redirection** , sélectionnez **Web** , puis entrez `https://localhost`. Vous modifiez cette valeur plus tard dans le manifeste de l’inscription de l’application.
+1. Sélectionnez **Inscription** .
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Mettre à jour le manifeste d’application
 
 Pour les applications SAML, vous devez configurer plusieurs propriétés dans le manifeste de l’inscription de l’application.
 
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à l’inscription de l’application que vous avez créée dans la section précédente.
-1. Sous **Gérer**, sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste. Vous pouvez modifier plusieurs propriétés dans les sections suivantes.
+1. Sous **Gérer** , sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste. Vous pouvez modifier plusieurs propriétés dans les sections suivantes.
 
 #### <a name="identifieruris"></a>identifierUris
 
-Le `identifierUris` est une collection de chaînes contenant un ou plusieurs URI définis par l’utilisateur qui identifient de façon unique une application web au sein de son locataire Azure AD B2C. Votre fournisseur de services doit définir cette valeur dans l’élément `Issuer` d’une demande SAML.
+Le `identifierUris` est une collection de chaînes contenant un ou plusieurs URI définis par l’utilisateur qui identifient de façon unique une application web au sein de son locataire Azure AD B2C. L’URI doit correspondre au nom `Issuer` de la requête SAML. L’URI défini par l’utilisateur est généralement la même valeur que la métadonnée `entityID` du fournisseur de services.
 
 #### <a name="samlmetadataurl"></a>samlMetadataUrl
 
@@ -296,7 +296,7 @@ Cette propriété représente l’URL des métadonnées disponibles publiquement
 
 Les métadonnées sont des informations utilisées dans le protocole SAML pour exposer la configuration d’un tiers SAML, tel qu’un fournisseur de services. Elles définissent l’emplacement des services tels que la connexion et la déconnexion, les certificats, la méthode de connexion et bien plus encore. Azure AD B2C lit les métadonnées du fournisseur de services et agit en conséquence. Les métadonnées ne sont pas requises. Vous pouvez également spécifier certains attributs, tels que l’URI de réponse et l’URI de déconnexion, directement dans le manifeste de l’application.
 
-Si des propriétés sont spécifiées *à la fois* dans l’URL des métadonnées SAML et dans le manifeste de l’inscription de l’application, elles sont **fusionnées**. Les propriétés spécifiées dans l’URL des métadonnées sont traitées en premier et sont prioritaires.
+Si des propriétés sont spécifiées *à la fois* dans l’URL des métadonnées SAML et dans le manifeste de l’inscription de l’application, elles sont **fusionnées** . Les propriétés spécifiées dans l’URL des métadonnées sont traitées en premier et sont prioritaires.
 
 Pour ce didacticiel qui utilise l’application de test SAML, utilisez la valeur suivante pour `samlMetadataUrl` :
 
@@ -335,17 +335,19 @@ Pour ce didacticiel qui utilise l’application de test SAML, laissez `logoutUrl
 
 La dernière étape consiste à activer Azure AD B2C en tant qu’IdP SAML dans votre application par partie de confiance SAML. Chaque application est différente et les étapes à suivre varient. Pour plus d’informations, consultez la documentation de votre application.
 
+Les métadonnées peuvent être configurées dans votre fournisseur de services en tant que « Métadonnées statiques » ou « Métadonnées dynamiques ». En mode statique, vous copiez tout ou partie des métadonnées à partir des métadonnées de la stratégie Azure AD B2C. En mode dynamique, vous définissez l’URL sur les métadonnées et laissez l’application lire les métadonnées dynamiquement.
+
 Quelques-uns ou l’ensemble des éléments suivants sont généralement requis :
 
-* **Métadonnées** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Émetteur** :   Utilisez entityID dans le fichier de métadonnées
-* **URL de connexion/point de terminaison SAML/URL SAML** : Vérifiez la valeur dans le fichier de métadonnées
-* **Certificat** : C’est *B2C_1A_SamlIdpCert*, mais sans la clé privée. Pour obtenir la clé publique du certificat :
+* **Métadonnées**  : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Émetteur**  :  La valeur `issuer` de la requête SAML doit correspondre à l’un des URI configurés dans l’élément `identifierUris` du manifeste d’inscription de l’application. Si le nom `issuer` de la requête SAML n’existe pas dans l’élément `identifierUris`, [ajoutez-le au manifeste d’inscription de l’application](#identifieruris). Par exemple : `https://contoso.onmicrosoft.com/app-name`. 
+* **URL de connexion/point de terminaison SAML/URL SAML**  : Vérifier la valeur dans le fichier de métadonnées de la stratégie SAML d’Azure AD B2C pour l’élément XML `<SingleSignOnService>`
+* **Certificat** : C’est *B2C_1A_SamlIdpCert* , mais sans la clé privée. Pour obtenir la clé publique du certificat :
 
     1. Accédez à l’URL des métadonnées spécifiée ci-dessus.
     1. Copiez la valeur dans l’élément `<X509Certificate>`.
     1. Collez-la dans un fichier texte.
-    1. Enregistrez le fichier texte sous la forme d’un fichier *.cer*.
+    1. Enregistrez le fichier texte sous la forme d’un fichier *.cer* .
 
 ### <a name="51-test-with-the-saml-test-app-optional"></a>5.1 Tester avec l’application de test SAML (facultatif)
 
@@ -353,15 +355,15 @@ Pour suivre ce didacticiel à l’aide de notre [application SAML test][samltest
 
 * Mettez à jour le nom du locataire
 * Mettez à jour le nom de la stratégie, par exemple *B2C_1A_signup_signin_saml*
-* Spécifiez cet URI d’émetteur : `https://contoso.onmicrosoft.com/app-name`
+* Spécifiez cet URI d’émetteur. Utilisez un des URI trouvés dans l’élément `identifierUris` dans le manifeste d’inscription de l’application, par exemple `https://contoso.onmicrosoft.com/app-name`.
 
-Sélectionnez **Connexion**. Un écran de connexion utilisateur doit s’afficher. Lors de la connexion, une assertion SAML est renvoyée à l’exemple d’application.
+Sélectionnez **Connexion** . Un écran de connexion utilisateur doit s’afficher. Lors de la connexion, une assertion SAML est renvoyée à l’exemple d’application.
 
 ## <a name="enable-encrypted-assertions-optional"></a>Activer les assertions chiffrées (facultatif)
 
 Pour chiffrer les assertions SAML renvoyées au fournisseur de services, Azure AD B2C utilise le certificat de clé publique de fournisseurs de services. La clé publique doit exister dans les métadonnées SAML décrites dans la [samlMetadataUrl](#samlmetadataurl) ci-dessus en tant que KeyDescriptor avec une utilisation de « Chiffrement ».
 
-Voici un exemple du KeyDescriptor de métadonnées SAML avec une utilisation définie sur Chiffrement :
+Voici un exemple de code XML du KeyDescriptor de métadonnées SAML avec une utilisation définie sur Chiffrement :
 
 ```xml
 <KeyDescriptor use="encryption">
@@ -391,7 +393,9 @@ Pour permettre à Azure AD B2C d’envoyer des assertions chiffrées, affectez l
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Activer le flux lancé par le fournisseur d’identité (facultatif)
 
-Dans le flux lancé par le fournisseur d’identité, le processus de connexion est lancé par le fournisseur d’identité (Azure AD B2C), qui envoie une réponse SAML non sollicitée au fournisseur de services (votre application par partie de confiance). Pour activer le workflow lancé par le fournisseur d’identité, définissez l’élément de métadonnées **IdpInitiatedProfileEnabled** sur `true` dans le [profil technique de la partie de confiance](relyingparty.md#technicalprofile).
+Dans le flux lancé par le fournisseur d’identité, le processus de connexion est lancé par le fournisseur d’identité (Azure AD B2C), qui envoie une réponse SAML non sollicitée au fournisseur de services (votre application par partie de confiance). Actuellement, nous ne prenons pas en charge les scénarios où le fournisseur d’identité initiateur est un fournisseur d’identité externe, par exemple [AD-FS](identity-provider-adfs2016-custom.md) ou [Salesforce](identity-provider-salesforce-custom.md).
+
+Pour activer le workflow lancé par le fournisseur d’identité (Azure AD B2C), définissez l’élément de métadonnées **IdpInitiatedProfileEnabled** sur `true` dans le [profil technique de la partie de confiance](relyingparty.md#technicalprofile).
 
 ```xml
 <RelyingParty>
@@ -410,14 +414,14 @@ Dans le flux lancé par le fournisseur d’identité, le processus de connexion 
 Pour vous connecter ou inscrire un utilisateur par le biais d’un flux lancé par le fournisseur d’identité, utilisez l’URL suivante :
 
 ```
-https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login?EntityId=app-identifier-uri 
 ```
 
 Remplacez les valeurs suivantes :
 
 * **tenant-name** par le nom de votre locataire
 * **policy-name** par le nom de votre stratégie de partie de confiance SAML.
-
+* **app-identifier-uri** avec `identifierUris` dans le fichier de métadonnées, par exemple `https://contoso.onmicrosoft.com/app-name`
 ## <a name="sample-policy"></a>Exemple de stratégie
 
 Nous fournissons un exemple complet de stratégie que vous pouvez utiliser à des fins de test avec l’application de test SAML.
@@ -435,22 +439,19 @@ Les scénarios de la partie de confiance SAML suivants sont pris en charge via v
 * Spécifiez la clé de chiffrement de jeton dans l’objet principal du service ou de l’application.
 * Authentification initiée par le fournisseur d’identité, où le fournisseur d’identité est Azure AD B2C.
 
-Les scénarios suivants de partie de confiance SAML ne sont pas pris en charge actuellement :
-* Authentification initiée par le fournisseur d’identité, où le fournisseur d’identité est un fournisseur externe, par exemple ADFS.
-
 ## <a name="saml-token"></a>jeton SAML
 
 Un jeton SAML est un jeton de sécurité émis par Azure AD B2C après une connexion réussie. Il contient des informations sur l’utilisateur, le fournisseur de services pour lequel le jeton est prévu, la signature et la durée de validité. Le tableau suivant énumère les revendications et les propriétés auxquelles vous pouvez vous attendre avec un jeton SAML émis par Azure AD B2C.
 
-|Élément  |Propriété  |Notes  |
+|Élément  |Propriété  |Notes  |
 |---------|---------|---------|
 |`<Response>`| `ID` | Identificateur unique de la réponse généré automatiquement. | 
 |`<Response>`| `InResponseTo` | ID de la requête SAML à laquelle ce message répond. | 
-|`<Response>` | `IssueInstant` | Heure d’émission de la réponse. La valeur d’heure est encodée au format UTC.  Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. | 
+|`<Response>` | `IssueInstant` | Heure d’émission de la réponse. La valeur d’heure est encodée au format UTC.    Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. | 
 |`<Response>` | `Destination`| Informations de référence d’URI indiquant l’adresse à laquelle cette réponse a été envoyée. La valeur est identique à `AssertionConsumerServiceURL` de la requête SAML. | 
-|`<Response>` `<Issuer>` | |Identifie l’émetteur du jeton. Il s’agit d’un URI arbitraire défini par les `IssuerUri` [métadonnées](saml-issuer-technical-profile.md#metadata)     de l’émetteur du jeton SAML. |
-|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Principal sur lequel portent les assertions d’informations du jeton, comme l’ID d’objet de l’utilisateur. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire.|
-|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Informations de référence d’URI représentant la classification des informations d’identificateur basées sur une chaîne. Par défaut, cette propriété est omise. Vous pouvez définir la partie de confiance [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) pour spécifier le format `NameID`, tel que `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
+|`<Response>` `<Issuer>` | |Identifie l’émetteur du jeton. Il s’agit d’un URI arbitraire défini par les `IssuerUri` [métadonnées](saml-issuer-technical-profile.md#metadata) de l’émetteur du jeton SAML.     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Principal sur lequel portent les assertions d’informations du jeton, comme l’ID d’objet de l’utilisateur. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Informations de référence d’URI représentant la classification des informations d’identificateur basées sur une chaîne. Par défaut, cette propriété est omise. Vous pouvez définir la partie de confiance [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) pour spécifier le format `NameID`, tel que `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Heure à laquelle le jeton devient non valide. La valeur d’heure est encodée au format UTC. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. Pour modifier les paramètres de durées de vie de vos jetons, définissez les `TokenNotBeforeSkewInSeconds` [métadonnées](saml-issuer-technical-profile.md#metadata) du profil technique de l’émetteur du jeton SAML. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Heure à laquelle le jeton devient non valide. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. La valeur est de 15 minutes après `NotBefore` et ne peut pas être modifiée.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Informations de référence d’URI identifiant le public visé. Elles identifient le destinataire du jeton. La valeur est identique à `AssertionConsumerServiceURL` de la requête SAML.|

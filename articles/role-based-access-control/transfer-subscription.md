@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819715"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545342"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -75,7 +75,8 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Azure Files | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure File Sync | Oui | Oui |  |  |
 | Azure Disques managés | Oui | Oui |  |  Si vous utilisez des jeux de chiffrement de disque pour chiffrer les disques managés avec des clés gérées par le client, vous devez désactiver et réactiver les identités affectées par le système associées aux jeux de chiffrement du disque. De plus, vous devez recréer les attributions de rôles, c’est-à-dire accorder à nouveau les autorisations requises sur les jeux de chiffrement de disque dans les coffres de clés. |
-| Azure Container Service pour Kubernetes | Oui | Oui |  |  |
+| Azure Kubernetes Service | Oui | Oui |  |  |
+| Azure Policy | Oui | Non | Tous les objets Azure Policy, y compris les définitions personnalisées, les affectations, les exemptions et les données de conformité. | Vous devez [exporter](../governance/policy/how-to/export-resources.md), importer et réaffecter les définitions. Créez ensuite de nouvelles affectations de stratégie et toutes les [exemptions de stratégie](../governance/policy/concepts/exemption-structure.md) nécessaires. |
 | Azure Active Directory Domain Services | Oui | Non |  |  |
 | Inscriptions des applications | Oui | Oui |  |  |
 
@@ -108,9 +109,9 @@ Pour effectuer cette procédure, vous avez besoin de :
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>Installer l’extension resource-graph
+### <a name="install-the-azure-resource-graph-extension"></a>Installer l’extension Azure Resource Graph
 
- L’extension resource-graph vous permet d’utiliser la commande [az graph](/cli/azure/ext/resource-graph/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
+ L’extension Azure CLI pour [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph* , vous permet d’utiliser la commande [az graph](/cli/azure/ext/resource-graph/graph) pour interroger les ressources gérées par Azure Resource Manager. Vous utiliserez cette commande dans les étapes ultérieures.
 
 1. Utilisez [az extension list](/cli/azure/extension#az_extension_list) pour voir si l’extension *resource-graph* est installée.
 
@@ -118,7 +119,7 @@ Pour effectuer cette procédure, vous avez besoin de :
     az extension list
     ```
 
-1. Si ce n’est pas le cas, installez l’extension *resource-graph*.
+1. Si ce n’est pas le cas, installez l’extension *resource-graph* .
 
     ```azurecli
     az extension add --name resource-graph
@@ -269,7 +270,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
 1. Transférer l’abonnement vers un autre annuaire.
 
     - Si vous voulez conserver la propriété de facturation actuelle, effectuez les étapes décrites dans [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-    - Si vous souhaitez également transférer la propriété de facturation, effectuez les étapes indiquées dans [Transférer la propriété de facturation d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md). Pour transférer l’abonnement vers un autre annuaire, vous devez cocher la case **Locataire Azure AD de l’abonnement**.
+    - Si vous souhaitez également transférer la propriété de facturation, effectuez les étapes indiquées dans [Transférer la propriété de facturation d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md). Pour transférer l’abonnement vers un autre annuaire, vous devez cocher la case **Locataire Azure AD de l’abonnement** .
 
 1. Une fois que vous avez terminé le transfert de l’abonnement, revenez à cet article pour recréer les ressources dans l’annuaire cible.
 

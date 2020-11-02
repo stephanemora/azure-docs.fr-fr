@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206031"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461802"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -169,6 +169,19 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Réseau virtuel - Journaux de flux NSG | Non | Oui | Non |  |
 |Passerelle VPN | Oui | Oui | Non |  |
 |Windows Virtual Desktop | Non | Non | Non |  |
+
+## <a name="virtual-machine-agents"></a>Agents de machine virtuelle
+Le tableau suivant répertorie les agents qui peuvent collecter des données à partir du système d’exploitation invité des machines virtuelles et envoyer des données à Monitor. Chaque agent peut collecter des données différentes et les envoyer à des métriques ou des journaux dans Azure Monitor. 
+
+Pour plus d’informations sur les données que chaque agent peut collecter, consultez [Vue d’ensemble des agents Azure Monitor](platform/agents-overview.md).
+
+| Agent |  Mesures | Journaux d’activité |
+|:---|:---|:---|:---|
+| [Agent Azure Monitor (préversion)](platform/azure-monitor-agent-overview.md) | Oui | Oui |
+| [Agent Log Analytics](platform/log-analytics-agent.md) | Non | Oui|
+| [Extension de diagnostic](platform/diagnostics-extension-overview.md) | Oui | Non |
+| [Agent Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Oui | Non |
+| [Agent de dépendances](insights/vminsights-enable-overview.md) | Non | Oui |
 
 
 ## <a name="product-integrations"></a>Intégrations de produit

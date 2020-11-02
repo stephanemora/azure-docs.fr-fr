@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976829"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367599"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Intégration d’Azure Key Vault avec Azure Stack Edge 
 
@@ -22,7 +22,7 @@ Azure Key Vault est intégré à la ressource Azure Stack Edge pour la gestion d
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>À propos de Key Vault et Azure Stack Edge
 
-Le service cloud Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés d’API et autres secrets, et en contrôler étroitement l’accès. Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. 
+Le service cloud Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés d’API et autres secrets, et en contrôler étroitement l’accès. Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. Pour plus d’informations sur les transactions autorisées et les frais correspondants, consultez [Tarification pour Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 Pour le service Azure Stack Edge, l’un des secrets utilisés est la clé d’intégrité de canal (CIK). Cette clé vous permet de chiffrer vos secrets. Avec l’intégration du coffre de clés, le CIK est stocké en toute sécurité dans le coffre de clés. Pour plus d’informations, consultez la rubrique [Stocker en toute sécurité les secrets et clés](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -31,7 +31,7 @@ Pour le service Azure Stack Edge, l’un des secrets utilisés est la clé d’i
 
 Un coffre de clés est créé pour la ressource Azure Stack Edge pendant le processus de génération de clé d’activation. 
 
-- Lorsque vous créez une ressource Azure Stack Edge, vous devez inscrire le fournisseur de ressources *Microsoft.KeyVault*. Le fournisseur de ressources est automatiquement inscrit si vous disposez d’un accès propriétaire ou contributeur à l’abonnement. Le coffre de clés est créé dans le même abonnement et le même groupe de ressources que la ressource Azure Stack Edge. 
+- Lorsque vous créez une ressource Azure Stack Edge, vous devez inscrire le fournisseur de ressources *Microsoft.KeyVault* . Le fournisseur de ressources est automatiquement inscrit si vous disposez d’un accès propriétaire ou contributeur à l’abonnement. Le coffre de clés est créé dans le même abonnement et le même groupe de ressources que la ressource Azure Stack Edge. 
 
 - Lorsque vous créez une ressource Azure Stack Edge, une identité du service géré Managed Service Identity (MSI) est également créé, qui persiste pendant la durée de vie de la ressource et communique avec le fournisseur de ressources sur le Cloud. 
 
@@ -44,6 +44,8 @@ Un coffre de clés est créé pour la ressource Azure Stack Edge pendant le proc
 - Vous pouvez choisir d’accepter le nom de clé par défaut ou spécifier un nom personnalisé pour le coffre de clés. Le nom du coffre de clés doit comprendre entre 3 et 24 caractères. Vous ne pouvez pas utiliser un coffre de clés qui est déjà en cours d’utilisation. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI créée lors de la création de la ressource de Azure Stack Edge](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Pour accéder au coffre de clés Azure, accédez aux **Propriétés** dans votre ressource Azure Stack Edge, puis sélectionnez le nom du coffre de clés. 
 
 - Pour éviter toute suppression accidentelle, un verrou de ressource est activé sur le coffre de clés. Une suppression réversible est également activée sur le coffre de clés, ce qui permet la restauration du coffre de clés dans un délai de 90 jours en cas de suppression accidentelle. Pour plus d’informations, consulter [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 

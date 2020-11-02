@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562007"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371169"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 
@@ -56,7 +56,7 @@ Activités de transformation des données | Environnement de calcul
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Activités Machine Learning : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) | Azure VM
+[Activités Azure Machine Learning Studio (classique) : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) | Azure VM
 [Procédure stockée](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anciennement SQL Data Warehouse) ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Service Analytique Azure Data Lake
 [Activité personnalisée](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -146,7 +146,7 @@ Tag | Description | Obligatoire
 name | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », \" | Oui</li></ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | Oui
 type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-flow-activities) pour en savoir plus sur les différents types d’activités. | Oui
-linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité de calcul de score du lot Azure Machine Learning et l’activité de procédure stockée. <br/><br/>Non pour toutes les autres
+linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité de calcul de score du lot Azure Machine Learning Studio (classique) et l’activité de procédure stockée. <br/><br/>Non pour toutes les autres
 typeProperties | Les propriétés de la section typeProperties dépendent de chaque type d’activité. Pour afficher les propriétés de type d’une activité, cliquez sur les liens vers l’activité dans la section précédente. | Non
 policy | Stratégies affectant le comportement d’exécution de l’activité. Cette propriété inclut un comportement de délai d'expiration et de nouvelle tentative. Si aucune valeur n'est spécifiée, les valeurs par défaut sont utilisées. Pour plus d’informations, consultez la section [Stratégie d’activité](#activity-policy). | Non
 dependsOn | Cette propriété est utilisée pour définir des dépendances des activités, et la manière dont les activités suivantes dépendent des activités précédentes. Pour plus d’informations, consultez l’article [Dépendance des activités](#activity-dependency) | Non
@@ -221,10 +221,10 @@ Les différentes conditions de dépendance sont : Réussite, Échec, Ignoré, T
 
 Par exemple, si un pipeline contient Activité A -> Activité B, les différents scénarios qui peuvent se produire sont les suivants :
 
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Réussite** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Réussite.
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Échec** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Échec.
-- L’Activité B a une condition de dépendance envers l’Activité A avec **Terminé** : L’Activité B s’exécute si l’Activité A présente l’état final Réussite ou Échec.
-- L'Activité B a une condition de dépendance envers l'Activité A avec **Ignoré** : L’Activité B s’exécute si l’Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l'Activité X échoue, l'Activité Y prend l'état « Ignoré » car elle ne s'exécute jamais. De même, l'Activité Z présente également l'état « Ignoré ».
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Réussite**  : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Réussite.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Échec**  : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Échec.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Terminé**  : L’Activité B s’exécute si l’Activité A présente l’état final Réussite ou Échec.
+- L'Activité B a une condition de dépendance envers l'Activité A avec **Ignoré**  : L’Activité B s’exécute si l’Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l'Activité X échoue, l'Activité Y prend l'état « Ignoré » car elle ne s'exécute jamais. De même, l'Activité Z présente également l'état « Ignoré ».
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemple : L’Activité 2 dépend de la réussite de l’Activité 1
 
@@ -310,9 +310,9 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** i
 ```
 Notez les points suivants :
 
-- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**.
-- L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
-- Dans la section **typeProperties**, **BlobSource** est spécifié en tant que type de source et **SqlSink**, en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
+- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy** .
+- L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset** . Consultez l’article [Jeux de données](concepts-datasets-linked-services.md) pour en savoir plus sur la définition de jeux de données dans JSON.
+- Dans la section **typeProperties** , **BlobSource** est spécifié en tant que type de source et **SqlSink** , en tant que type de récepteur. Dans la section [Activités de déplacement des données](#data-movement-activities), cliquez sur le magasin de données que vous souhaitez utiliser comme source ou récepteur pour en savoir plus sur le déplacement des données vers/depuis ce magasin de données.
 
 Pour obtenir une description complète de la création de ce pipeline, consultez l’article [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md).
 
@@ -357,8 +357,8 @@ Dans l’exemple de pipeline suivant, il existe une activité de type **HDInsigh
 ```
 Notez les points suivants :
 
-- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive**.
-- Le fichier de script Hive, **partitionweblogs.hql**, est stocké sur le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé AzureStorageLinkedService) et dans le dossier de scripts du conteneur `adfgetstarted`.
+- Dans la section des activités, il existe une seule activité dont le **type** a la valeur **HDInsightHive** .
+- Le fichier de script Hive, **partitionweblogs.hql** , est stocké sur le compte de stockage Azure (spécifié par le service scriptLinkedService, appelé AzureStorageLinkedService) et dans le dossier de scripts du conteneur `adfgetstarted`.
 - La section `defines` est utilisée pour spécifier les paramètres d’exécution transmis au script Hive comme valeurs de configuration Hive (p. ex. $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La section **typeProperties** est différente pour chaque activité de transformation. Pour en savoir plus sur les propriétés de type prises en charge pour une activité de transformation, cliquez sur l’activité de transformation dans la table [Activités de transformation des données](#data-transformation-activities).

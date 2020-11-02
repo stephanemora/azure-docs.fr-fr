@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205544"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495020"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurer une instance Azure Digital Twins et l’authentification (procédure scriptée)
 
@@ -43,7 +43,7 @@ Cet article utilise un exemple de code Azure Digital Twins pour déployer de fa�
 
 Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud Shell.
 1. Accédez à une fenêtre [Azure Cloud Shell](https://shell.azure.com/) dans votre navigateur. Connectez-vous à l’aide de cette commande :
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fait et charge une page de connexion Azure par la même occasion. Sinon, ouvrez une page de navigateur à l’adresse *https://aka.ms/devicelogin* et entrez le code d’autorisation affiché dans votre terminal.
@@ -60,11 +60,11 @@ Voici les étapes à suivre pour exécuter le script de déploiement dans Cloud 
 
 4. Exécutez le script en envoyant la commande `./deploy.ps1` dans la fenêtre Cloud Shell. Vous pouvez copier la commande ci-dessous. (Pour rappel, vous pouvez utiliser **Ctrl+Maj+V** sur Windows et Linux ou **Cmd+Maj+V** sur macOS pour coller dans Cloud Shell. Vous avez également la possibilité de vous servir du menu contextuel.)
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    Le script créera une instance Azure Digital Twins et attribuera à votre utilisateur Azure le rôle *Propriétaire Azure Digital Twins (préversion)* sur l’instance.
+    Le script créera une instance Azure Digital Twins et attribuera à votre utilisateur Azure le rôle *Propriétaire de données Azure Digital Twins* sur l’instance.
 
     Lorsque le script exécute les étapes de configuration automatisée, vous êtes invité à transmettre les valeurs suivantes :
     * Pour l’instance : l’ *ID d’abonnement* de votre abonnement Azure à utiliser
@@ -79,10 +79,10 @@ Voici un extrait du journal de sortie du script :
 Si le script s’exécute correctement, l’affichage final indique `Deployment completed successfully`. Sinon, traitez le message d’erreur et réexécutez le script. Cela permet de contourner les étapes que vous avez déjà effectuées et de demander une nouvelle entrée au stade où vous vous étiez arrêté.
 
 > [!NOTE]
-> Le script attribue actuellement le rôle de gestion requis dans Azure Digital Twins ( *Propriétaire Azure Digital Twins (préversion)* ) au même utilisateur qui exécute ce script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire via le portail Azure ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou l’interface CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Le script attribue actuellement le rôle de gestion requis dans Azure Digital Twins ( *Propriétaire de données Azure Digital Twins* ) au même utilisateur qui exécute ce script à partir de Cloud Shell. Si vous devez attribuer ce rôle à une autre personne chargée de gérer cette instance, vous pouvez le faire via le portail Azure ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou l’interface CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Il existe actuellement un **problème connu** avec l’installation par script, qui a pour effet que certains utilisateurs (en particulier, des utilisateurs de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnel) peuvent découvrir que l’ **attribution de rôle au _Propriétaire d’Azure Digital Twins (préversion)_ n’a pas été créée** .
+>Il existe actuellement un **problème connu** avec l’installation par script, qui a pour effet que certains utilisateurs (en particulier, des utilisateurs de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnel) peuvent découvrir que l’ **attribution de rôle au _Propriétaire de données Azure Digital Twins_ n’a pas été créée** .
 >
 >Vous pourrez vérifier l’attribution de rôle à l’aide de la section [*Vérifier l’attribution du rôle utilisateur*](#verify-user-role-assignment) plus loin dans cet article et, si nécessaire, configurer manuellement l’attribution de rôle à l’aide du [portail Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou de [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >

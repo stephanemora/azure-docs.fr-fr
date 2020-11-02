@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202206"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631272"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -40,9 +40,10 @@ Pour plus d'informations sur la tarification, consultez la page [Tarification](h
 
 Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez votre fournisseur de services. Toutefois, votre connexion à Azure est limitée à la bande passante du circuit ExpressRoute que vous achetez.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si j’achète un circuit ExpressRoute présentant une bande passante donnée, puis-je augmenter sa vitesse en cas de nécessité ?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, puis-je utiliser plus que la bande passante fournie ?
 
-Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu’à deux fois la limite de la bande passante obtenue sans frais supplémentaire. Consultez votre fournisseur de services pour savoir si cette capacité est prise en charge. Ça n’est pas valable pour une période prolongée et n’est pas garanti.  Si le trafic transite par une passerelle ExpressRoute, la bande passante de la référence est fixe et non modulable.
+Oui, vous pouvez utiliser jusqu’à deux fois la limite de bande passante que vous avez achetée à l’aide de la bande passante disponible sur la connexion secondaire de votre circuit ExpressRoute. La redondance intégrée de votre circuit est configurée à l’aide de connexions principales et secondaires, chacune des bandes passantes fournies, sur deux routeurs Microsoft Enterprise Edge (MSEE). La bande passante disponible par le biais de votre connexion secondaire peut être utilisée pour le trafic supplémentaire, si nécessaire. Étant donné que la connexion secondaire est destinée à être redondante, elle n’est pas garantie et ne doit pas être utilisée pour le trafic supplémentaire pendant une période prolongée. Pour en savoir plus sur l’utilisation des deux connexions pour transmettre le trafic, consultez [ceci](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Si vous envisagez d’utiliser uniquement votre connexion principale pour transmettre le trafic, la bande passante de la connexion est fixe et toute tentative de sur-souscription entraînera l’augmentation des abandons de paquets. Si le trafic transite par une passerelle ExpressRoute, la bande passante de la référence est fixe et non modulable.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929813"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532643"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Sauvegarder et restaurer dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -28,7 +28,7 @@ Si la base de données est configurée avec une haute disponibilité, les instan
 > [!IMPORTANT]
 >Les sauvegardes ne sont pas effectuées sur les serveurs arrêtés. Toutefois, elles sont reprises lorsque la base de données est démarrée automatiquement après sept jours ou démarrée par l’utilisateur.
 
-Les sauvegardes sont utilisables uniquement pour les opérations de restauration sur le serveur flexible. Si vous souhaitez exporter ou importer des données vers le serveur flexible, vous devez utiliser la méthodologie  [vidage et restauration](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore).
+Les sauvegardes sont utilisables uniquement pour les opérations de restauration sur le serveur flexible. Si vous souhaitez exporter ou importer des données vers le serveur flexible, vous devez utiliser la méthodologie [vidage et restauration](../howto-migrate-using-dump-and-restore.md).
 
 
 ### <a name="backup-retention"></a>Rétention des sauvegardes
@@ -40,9 +40,9 @@ La période de conservation de sauvegarde détermine jusqu’à quelle date une 
 
 ### <a name="backup-storage-cost"></a>Coût du stockage de sauvegarde
 
-Le serveur flexible fournit jusqu’à 100 % du stockage de votre serveur provisionné en stockage de sauvegarde sans coût supplémentaire. Tous les stockages de sauvegarde supplémentaires utilisés sont facturés en Go par mois. Par exemple, si vous avez configuré un serveur avec 250 Gio de stockage, vous avez une capacité de stockage de sauvegarde de 250 Gio sans coût supplémentaire. Si l’utilisation quotidienne de la sauvegarde est de 25 Gio, vous pouvez avoir jusqu’à 10 jours de stockage de sauvegarde gratuit. La consommation de stockage de sauvegarde supérieure à 250 Gio est facturée selon le [modèle tarifaire](https://azure.microsoft.com/pricing/details/postgresql/).
+Le serveur flexible fournit jusqu’à 100 % du stockage de votre serveur provisionné en stockage de sauvegarde sans coût supplémentaire. Tous les stockages de sauvegarde supplémentaires utilisés sont facturés en Go par mois. Par exemple, si vous avez configuré un serveur avec 250 Gio de stockage, vous avez une capacité de stockage de sauvegarde de 250 Gio sans coût supplémentaire. Si l’utilisation quotidienne de la sauvegarde est de 25 Gio, vous pouvez avoir jusqu’à 10 jours de stockage de sauvegarde gratuit. La consommation de stockage de sauvegarde supérieure à 250 Gio est facturée selon le [modèle tarifaire](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Vous pouvez utiliser la métrique  [Stockage de sauvegarde utilisé](https://docs.microsoft.com/azure/postgresql/concepts-monitoring) dans le portail Azure afin de superviser le stockage de sauvegarde consommé par un serveur. La métrique « Stockage de sauvegarde utilisé » représente le total du stockage consommé par l’ensemble des sauvegardes de base de données et des sauvegardes de journaux qui sont conservées en fonction de la période de conservation des sauvegardes qui est définie pour le serveur.  Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données.
+Vous pouvez utiliser la métrique [Stockage de sauvegarde utilisé](../concepts-monitoring.md) sur le portail Azure afin de superviser le stockage de sauvegarde qui est consommé par un serveur. La métrique « Stockage de sauvegarde utilisé » représente le total du stockage consommé par l’ensemble des sauvegardes de base de données et des sauvegardes de journaux qui sont conservées en fonction de la période de conservation des sauvegardes qui est définie pour le serveur.  Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données.
 
 Le principal moyen de contrôler le coût fu stockage de sauvegarde consiste à définir la période de rétention de sauvegarde appropriée et à choisir les options de redondance de sauvegarde appropriées pour atteindre les objectifs de récupération souhaités.
 
@@ -71,15 +71,15 @@ La restauration à un point dans le temps est utile dans plusieurs scénarios. P
 
 Vous pouvez choisir entre le point de restauration le plus ancien et un point de restauration personnalisé.
 
--   **Point de restauration le plus ancien** : en fonction de votre période de conservation, il s’agira de l’heure la plus ancienne à laquelle vous pouvez restaurer. L’heure de sauvegarde la plus ancienne sera automatiquement sélectionnée et affichée dans le portail. C’est utile si vous souhaitez procéder à une investigation ou à des tests à partir de cet instant dans le passé.
+-   **Point de restauration le plus ancien**  : en fonction de votre période de conservation, il s’agira de l’heure la plus ancienne à laquelle vous pouvez restaurer. L’heure de sauvegarde la plus ancienne sera automatiquement sélectionnée et affichée dans le portail. C’est utile si vous souhaitez procéder à une investigation ou à des tests à partir de cet instant dans le passé.
 
--   **Point de restauration personnalisé** : cette option vous permet de choisir n’importe quel instant dans le passé au cours de la période de conservation définie pour ce serveur flexible. Par défaut, l’heure UTC la plus récente est sélectionnée automatiquement. C’est utile si vous souhaitez restaurer jusqu’à la dernière transaction validée à des fins de test. Vous pouvez éventuellement choisir d’autres jours et heures. 
+-   **Point de restauration personnalisé**  : cette option vous permet de choisir n’importe quel instant dans le passé au cours de la période de conservation définie pour ce serveur flexible. Par défaut, l’heure UTC la plus récente est sélectionnée automatiquement. C’est utile si vous souhaitez restaurer jusqu’à la dernière transaction validée à des fins de test. Vous pouvez éventuellement choisir d’autres jours et heures. 
 
 La durée de récupération estimée dépend de plusieurs facteurs, notamment la taille des bases de données, le volume des journaux des transactions à traiter, la bande passante réseau et le nombre total de bases de données à récupérer dans la même région au même moment. La durée de récupération globale est généralement comprise entre quelques minutes et quelques heures.
 
 
 > [!IMPORTANT]
-> Les serveurs supprimés **ne peuvent pas** être restaurés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l’issue du déploiement, pour protéger les ressources du serveur contre toute suppression accidentelle ou changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 
@@ -101,6 +101,5 @@ Après la restauration de la base de données, vous pouvez effectuer les tâches
 ## <a name="next-steps"></a>Étapes suivantes
 
 -   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
--   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
+-   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
 -   Découvrir [comment effectuer une restauration](./how-to-restore-server-portal.md)
-

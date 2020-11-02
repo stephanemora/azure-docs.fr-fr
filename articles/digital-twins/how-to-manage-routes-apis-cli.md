@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c0ee775ec1405fa76424e6b0ad57436d2d233e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340102"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494819"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92340102"
 
 Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
-Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API EventRoutes](how-to-use-apis-sdks.md), du[Kit de développement logiciel (SDK) C# .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
+Vous pouvez gérer les points de terminaison et les itinéraires à l’aide des [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), du[Kit de développement logiciel (SDK) C# .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), ou de la [CLI Azure Digital Twins](how-to-use-cli.md). Cet article vous guide tout au long du processus de création de points de terminaison et d’itinéraires via ces mécanismes.
 
 Vous pouvez également les gérer via le [portail Azure](https://portal.azure.com). Pour obtenir une version de cet article qui utilise le portail à la place, consultez le [Tutoriel  *: Gérer les points de terminaison et les itinéraires (portail)*](how-to-manage-routes-portal.md).
 
@@ -48,19 +48,19 @@ L’exemple suivant montre comment créer un point de terminaison de type rubriq
 
 Premièrement, créez une rubrique Event Grid. Vous pouvez utiliser la commande suivante ou afficher les étapes plus en détail en visitant [la section *Créer une rubrique personnalisée*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) du démarrage rapide *Événements personnalisés* Event Grid.
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
 
 > [!TIP]
 > Pour obtenir la liste des noms de régions Azure qui peuvent être transmis à des commandes dans Azure CLI, exécutez la commande suivante :
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins avec la [commande d’interface de ligne de commande Azure Digital Twins](how-to-use-cli.md) suivante :
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -77,12 +77,12 @@ Tout d’abord, créez vos ressources que vous utiliserez comme point de termina
 Utilisez ensuite les commandes suivantes pour créer les points de terminaison dans Azure Digital Twins : 
 
 * Ajouter un point de terminaison de rubrique Service Bus (nécessite une ressource Service Bus créée au préalable)
-```azurecli 
+```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Ajouter un point de terminaison Event Hub (nécessite une ressource Event Hubs créée au préalable)
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -154,7 +154,7 @@ Voici un exemple de message mis en file d’attente de lettres mortes pour une [
 
 Pour envoyer concrètement des données d’Azure Digital Twins à un point de terminaison, vous devez définir un **itinéraire d’événement** . Les **API EventRoutes** d’Azure Digital Twins permettent aux développeurs de lier le flux d’événements au sein du système et aux services en aval. Pour en savoir plus sur les itinéraires d’événements, consultez [*Concepts : routage des événements Azure Digital Twins*](concepts-route-events.md).
 
-Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
+Les exemples fournis dans cet article utilisent le [Kit de développement logiciel (SDK) C#](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
 **Condition préalable**  : Vous devez créer des points de terminaison comme décrit précédemment dans cet article avant de pouvoir passer à la création d’un itinéraire. Une fois que vos points de terminaison sont configurés, vous pouvez passer à la création d’un itinéraire d’événements.
 
@@ -242,8 +242,6 @@ Voici les filtres d’itinéraire pris en charge. Utilisez les détails de la co
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gérer les points de terminaison et les itinéraires avec l’interface de ligne de commande
 
 Vous pouvez également gérer les points de terminaison et les itinéraires à l’aide de l’interface de commande d’Azure Digital Twins. Pour plus d’informations sur l’utilisation de l’interface CLI et sur les commandes disponibles, consultez le [*Tutoriel : utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

@@ -1,20 +1,23 @@
 ---
-title: Collecter et analyser les messages Syslog dans Azure Monitor | Microsoft Docs
+title: Collecter les sources de données Syslog avec l’agent Log Analytics dans Azure Monitor
 description: Syslog est un protocole de journalisation d’événements commun à Linux. Cet article décrit comment configurer la collecte de messages Syslog dans Log Analytics, et les détails des enregistrements qu’ils créent.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322310"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440618"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Sources de données Syslog dans Azure Monitor
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Collecter les sources de données Syslog avec l’agent Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux. Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog. Lorsque l’agent Log Analytics pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent. L’agent envoie ensuite le message à Azure Monitor, où un enregistrement correspondant est créé.  
+
+> [!IMPORTANT]
+> Cet article traite de la collecte d’événements Syslog avec l’[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
 
 > [!NOTE]
 > Azure Monitor prend en charge la collecte de messages envoyés par rsyslog ou syslog-ng, sachant que rsyslog est le démon par défaut. Le démon syslog par défaut sur la version 5 de Red Hat Enterprise Linux, CentOS et Oracle Linux (sysklog) ne prend pas en charge la collecte des événements syslog. Pour collecter les données syslog avec cette version de ces distributions, le [démon rsyslog](http://rsyslog.com) doit être installé et configuré à la place de syslog.
@@ -45,13 +48,13 @@ Pour toute autre fonctionnalité, [configurez une source de données Journaux d'
 L’agent Log Analytics pour Linux collecte uniquement les événements avec les installations et les niveaux de gravité spécifiés dans sa configuration. Vous pouvez configurer Syslog avec le portail Azure ou en gérant les fichiers de configuration sur vos agents Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurer Syslog dans le portail Azure
-Configurez Syslog à partir du [menu Données dans Paramètres avancés](agent-data-sources.md#configuring-data-sources). Cette configuration est remise au fichier de configuration sur chaque agent Linux.
+Configurez Syslog à partir du [menu Données dans les paramètres avancés](agent-data-sources.md#configuring-data-sources) de l’espace de travail Log Analytics. Cette configuration est remise au fichier de configuration sur chaque agent Linux.
 
-Vous pouvez ajouter une fonctionnalité en commençant par sélectionner l’option **Appliquer la configuration ci-dessous à mes machines**, puis en tapant son nom et en cliquant sur **+** . Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
+Vous pouvez ajouter une fonctionnalité en commençant par sélectionner l’option **Appliquer la configuration ci-dessous à mes machines** , puis en tapant son nom et en cliquant sur **+** . Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
 
 ![Configurer les messages Syslog](media/data-sources-syslog/configure.png)
 
-Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Si vous souhaitez configurer Syslog manuellement sur chaque agent Linux, désactivez la case *Appliquer la configuration ci-dessous à mes machines*.
+Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Si vous souhaitez configurer Syslog manuellement sur chaque agent Linux, désactivez la case *Appliquer la configuration ci-dessous à mes machines* .
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurer l’agent Syslog sur Linux
 Lorsque [l’agent Log Analytics est installé sur un client Linux](../learn/quick-collect-linux-computer.md), il installe un fichier de configuration syslog par défaut qui définit l’installation et le niveau de gravité des messages qui sont collectés. Vous pouvez modifier ce fichier pour changer la configuration. Le fichier de configuration est différent selon le démon Syslog installé par le client.
@@ -62,7 +65,7 @@ Lorsque [l’agent Log Analytics est installé sur un client Linux](../learn/qui
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Le fichier de configuration de rsyslog se trouve dans **/etc/rsyslog.d/95-omsagent.conf**. Voici son contenu par défaut. Collecte les messages syslog envoyés à partir de l’agent local pour toutes les installations avec un niveau Avertissement ou supérieur.
+Le fichier de configuration de rsyslog se trouve dans **/etc/rsyslog.d/95-omsagent.conf** . Voici son contenu par défaut. Collecte les messages syslog envoyés à partir de l’agent local pour toutes les installations avec un niveau Avertissement ou supérieur.
 
 ```config
 kern.warning       @127.0.0.1:25224
@@ -91,7 +94,7 @@ user.error    @127.0.0.1:25224
 ```
 
 #### <a name="syslog-ng"></a>syslog-ng
-Le fichier de configuration de syslog-ng est situé dans **/etc/syslog-ng/syslog-ng.conf**.  Voici son contenu par défaut. Collecte les messages syslog envoyés à partir de l’agent local pour toutes les installations et tous les niveaux de gravité.   
+Le fichier de configuration de syslog-ng est situé dans **/etc/syslog-ng/syslog-ng.conf** .  Voici son contenu par défaut. Collecte les messages syslog envoyés à partir de l’agent local pour toutes les installations et tous les niveaux de gravité.   
 
 ```config
 #
@@ -188,7 +191,7 @@ Vous pouvez modifier le numéro de port en créant deux fichiers de configuratio
     auth.warning              @127.0.0.1:%SYSLOG_PORT%
     ```
 
-* La configuration syslog-ng doit être modifiée en copiant l’exemple de configuration indiqué ci-dessous et en ajoutant les paramètres modifiés personnalisés à la fin du fichier de configuration syslog-ng.conf situé dans `/etc/syslog-ng/`. N’utilisez **pas** l’étiquette par défaut **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS**, mais définissez une étiquette personnalisée pour mieux distinguer vos modifications.  
+* La configuration syslog-ng doit être modifiée en copiant l’exemple de configuration indiqué ci-dessous et en ajoutant les paramètres modifiés personnalisés à la fin du fichier de configuration syslog-ng.conf situé dans `/etc/syslog-ng/`. N’utilisez **pas** l’étiquette par défaut **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS** , mais définissez une étiquette personnalisée pour mieux distinguer vos modifications.  
 
     > [!NOTE]
     > Si vous modifiez les valeurs par défaut dans le fichier de configuration, elles sont remplacées quand l’agent applique une configuration par défaut.

@@ -4,18 +4,18 @@ description: Cet article informe les utilisateurs sur la migration des adresses 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004270"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427099"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,8 @@ Vous risquez d’être impacté si :
 
 - Vous avez codé en dur l’adresse IP d’une passerelle particulière dans votre pare-feu local
 - Vous avez des sous-réseaux qui utilisent Microsoft.SQL comme point de terminaison de service, mais vous ne pouvez pas communiquer avec les adresses IP de passerelle
-- Vous utilisez la [configuration de zone redondante](high-availability-sla.md#zone-redundant-configuration) pour votre base de données
+- Vous utilisez la [configuration de zone redondante pour le niveau Usage général](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Utilisez la [configuration de zone redondante pour les niveaux Premium et Critiques pour l’entreprise](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Vous n’êtes pas impacté dans les cas suivants :
  

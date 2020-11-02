@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402515"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487775"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Qu’est-ce que la transcription de conversation dans les réunions (préversion) ?
 
-La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
+La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_ ) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
 
 ## <a name="key-features"></a>Fonctionnalités clés
 
@@ -34,9 +34,11 @@ La transcription de conversation est une solution de [reconnaissance vocale](spe
 > [!NOTE]
 > Bien que la transcription de conversation ne limite pas le nombre d’orateurs dans la pièce, elle est optimisée pour 2-10 orateurs par session.
 
-## <a name="use-cases"></a>Cas d'utilisation
+## <a name="get-started"></a>Bien démarrer
 
-### <a name="inclusive-meetings"></a>Réunions inclusives
+Consultez le [Démarrage rapide](how-to-use-conversation-transcription.md) sur la transcription de conversation en temps réel pour commencer.
+
+## <a name="use-cases"></a>Cas d'utilisation
 
 Pour inclure tout le monde dans les réunions, comme les participants sourds et malentendants, il est important de disposer d’une transcription en temps réel. La transcription de conversation en temps réel prend en compte l’audio et détermine qui dit quoi, permettant ainsi à tous les participants à la réunion de suivre la transcription et de participer sans délai à la réunion.
 
@@ -54,6 +56,10 @@ Il s’agit d’une vue d’ensemble détaillée du fonctionnement de la transcr
 
 - **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](https://aka.ms/cts/microphone). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](https://aka.ms/cts/getsdk).
 - **Exemples de voix utilisateur** : la transcription de conversation a besoin de profils utilisateur avant la conversation. Vous devrez collecter des enregistrements audio de chaque utilisateur puis envoyer les enregistrements au [service de génération de signatures](https://aka.ms/cts/signaturegenservice) pour valider le contenu audio et générer des profils utilisateur.
+
+> [!NOTE]
+> Les échantillons vocaux de l’utilisateur sont facultatifs. Sans cette entrée, la transcription affiche des intervenants différents, mais sous la forme « Speaker1 », « Speaker2 », etc. au lieu de reconnaître les noms de conférenciers spécifiques préinscrits.
+
 
 ## <a name="real-time-vs-asynchronous"></a>Comparaison entre temps réel et asynchrone
 
@@ -73,9 +79,9 @@ Les données audio sont traitées en direct pour retourner l’identificateur de
 
 ## <a name="language-support"></a>Support multilingue
 
-La transcription de conversation prend actuellement en charge les langues « en-US » et « zh-CN » dans les régions suivantes :  *centralus* et  *eastasia*. Si vous avez besoin d’une prise en charge de paramètres régionaux supplémentaires, contactez l’[équipe de la fonctionnalité de transcription de conversation](mailto:CTSFeatureCrew@microsoft.com).
+La transcription de conversation prend actuellement en charge [toutes les langues de reconnaissance vocale](language-support.md#speech-to-text) dans les régions suivantes :  `centralus`, `eastasia`, `eastus` et `westeurope`. Si vous avez besoin d’une prise en charge de paramètres régionaux supplémentaires, contactez l’[équipe de la fonctionnalité de transcription de conversation](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Transcrire des conversations en temps réel](how-to-use-conversation-transcription-service.md)
+> [Transcrire des conversations en temps réel](how-to-use-conversation-transcription.md)

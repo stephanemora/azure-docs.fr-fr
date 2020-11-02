@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760867"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371730"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -29,20 +29,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 ## <a name="primary-keys"></a>Clés primaires
 
-Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Elles présentent les caractéristiques suivantes :
-
-- Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
-- Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
-- Sont créées lors de la création d’un compte.
-- Peuvent être régénérées à tout moment.
-
-Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données.
-
-Outre les deux clés primaires du compte Azure Cosmos DB, il existe deux clés en lecture seule. Ces clés en lecture seule autorisent uniquement les opérations de lecture sur le compte. Les clés en lecture seule ne permettent pas de lire les ressources d’autorisation.
-
-Les clés primaire, secondaire, en lecture seule, et en lecture et en écriture peuvent être récupérées et régénérées à l’aide du Portail Azure. Pour connaître la procédure, consultez [Affichage, copie et régénération des clés d’accès](manage-with-cli.md#regenerate-account-key).
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL":::
+Les clés primaires donnent accès à toutes les ressources administratives du compte de base de données. Chaque compte comporte deux clés primaires : une clé primaire et une clé secondaire. L’objectif de ces paires de clés est de pouvoir régénérer ou restaurer des clés tout en fournissant un accès permanent à votre compte et à vos données. Pour en savoir plus sur les clés primaires, consultez l’article [Sécurité des bases de données](database-security.md#primary-keys).
 
 ### <a name="key-rotation"></a>Rotation des clés<a id="key-rotation"></a>
 
@@ -54,7 +41,7 @@ Le processus de renouvellement de la clé primaire est simple.
 4. Vérifiez que la nouvelle clé primaire fonctionne sur toutes les ressources. Le processus de rotation des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
 5. Remplacez la clé secondaire par la nouvelle clé primaire.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Renouvellement de clé primaire sur le Portail Azure – Démonstration de la sécurité de la base de données NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Exemple de code utilisant une clé primaire
 
@@ -102,7 +89,7 @@ Voici un modèle de conception standard dans le cadre duquel des jetons de resso
 7. Cette dernière peut continuer à utiliser le jeton de ressource pour accéder directement aux ressources Azure Cosmos DB avec les autorisations définies et pendant l’intervalle autorisé.
 8. À expiration du jeton de ressource, les demandes suivantes reçoivent une exception non autorisée 401.  L'application du téléphone établit alors de nouveau l'identité de l'utilisateur et demande un nouveau jeton de ressource.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Renouvellement de clé primaire sur le Portail Azure – Démonstration de la sécurité de la base de données NoSQL" border="false":::
 
 La gestion et la génération des jetons de ressource sont prises en charge par les bibliothèques clientes natives Azure Cosmos DB. Toutefois, si vous utilisez REST, vous devez créer les en-têtes de demande/d’authentification. Pour plus d’informations sur la création d’en-têtes d’authentification pour REST, consultez [Contrôle d’accès aux ressources Azure Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou le code source de notre [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) ou [Kit de développement logiciel (SDK) Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
@@ -163,12 +150,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d’utilisateur, demandez à un propriétaire d’abonnement d’effectuer les étapes suivantes dans le portail Azure.
 
 1. Ouvrez le portail Azure, puis sélectionnez votre compte Azure Cosmos DB.
-2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**.
-3. Dans le volet **Ajouter une attribution de rôle**, dans la zone **Rôle**, sélectionnez **Rôle de lecteur de compte Cosmos DB**.
-4. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
+2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle** .
+3. Dans le volet **Ajouter une attribution de rôle** , dans la zone **Rôle** , sélectionnez **Rôle de lecteur de compte Cosmos DB** .
+4. Dans la zone **Attribuer l’accès à** , sélectionnez **Utilisateur, groupe ou application Azure AD** .
 5. Dans votre annuaire, sélectionnez l’utilisateur, le groupe ou l’application qui doit recevoir l’accès.  Dans l’annuaire, vous pouvez rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet.
     L’utilisateur, le groupe ou l’application s’affiche alors dans la liste des membres sélectionnés.
-6. Cliquez sur **Enregistrer**.
+6. Cliquez sur **Enregistrer** .
 
 L’entité peut désormais lire les ressources Azure Cosmos DB.
 

@@ -4,15 +4,15 @@ description: Découvrez plus d’informations sur la configuration et l’optimi
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: a1bfb5988169ba79a6e3e8416804d7d4c896c758
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994814"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516848"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurer et optimiser les machines virtuelles
 
@@ -36,11 +36,24 @@ Pour [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-
   Pour [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) sans SR-IOV, [CentOS-HPC version 7.6 ou une version ultérieure](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), dans la place de marché, sont compatibles. Ces images de machine virtuelle sont optimisées et préchargées avec les pilotes OFED pour RDMA ainsi que les diverses bibliothèques MPI et packages de calcul scientifique couramment utilisés. elles constituent le moyen le plus simple de commencer.
 
   Exemples de scripts utilisés lors de la création des images de machine virtuelle CentOS-HPC version 7,6 et ultérieures à partir d’une image de base CentOS du Marketplace se trouvent sur le [repository azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE] 
+  > Les images de la Place de marché Azure HPC les plus récentes ont des cartes Mellanox OFED 5.1 et ultérieures, qui ne prennent pas en charge les cartes InfiniBand ConnectX3-Pro. Les tailles de machines virtuelles de série N compatibles SR-IOV avec FDR InfiniBand (p. ex. NCv3) peuvent utiliser les versions suivantes d’image de machine virtuelle CentOS-HPC et leurs versions antérieures :
+  >- OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+  >- OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+  >- OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+  >- OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+  >- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+  >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>Images de machine virtuelle RHEL/CentOS
 Les images de machine virtuelle non HPC basées sur RHEL ou CentOS sur la place de marché peuvent être configurées pour une utilisation sur [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) avec SR-IOV. En savoir plus sur [l’activation d’InfiniBand](enable-infiniband.md) et la [configuration des MPI](setup-mpi.md) sur les machines virtuelles.
 
   Exemples de scripts utilisés lors de la création des images de machine virtuelle CentOS-HPC version 7.6 et ultérieures à partir d’une image de base CentOS du Marketplace se trouvent sur le [repository azhpc-images](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE]
+  > Mellanox OFED 5.1 et versions ultérieures ne prennent pas en charge les cartes InfiniBand ConnectX3-Pro sur les machines virtuelles de série N compatibles SR-IOV avec FDR InfiniBand (p. ex. NCv3). Utilisez la version LTS de Mellanox OFED 4.9-0.1.7.0 ou une version ultérieure sur les machines virtuelles de la série N avec des cartes ConnectX3-Pro. Vous trouverez plus de détails [ici](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### <a name="ubuntu-vm-images"></a>Images de machine virtuelle Ubuntu
 Les images de machine virtuelle Ubuntu Server 16.04 LTS, 18.04 LTS et 20.04 LTS dans la place de marché sont prises en charge par [les machines virtuelles compatibles RDMA](../../sizes-hpc.md#rdma-capable-instances) avec et sans SR-IOV. En savoir plus sur [l’activation d’InfiniBand](enable-infiniband.md) et la [configuration dee MPI](setup-mpi.md) sur les machines virtuelles.

@@ -79,8 +79,6 @@
   items:
     - name: Guide de publication par Type d’offre
       href: publisher-guide-by-offer-type.md
-    - name: Activer l’authentification des offres avec Azure AD
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Offres d’application Azure
       items:
         - name: Planifier une offre de modèle de solution
@@ -275,7 +273,7 @@
       href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
     - name: Conditions de la Place de Marché Azure
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
-- name: Informations de référence
+- name: Référence
   items:
     - name: Informations de référence sur l’API CPP
       items:

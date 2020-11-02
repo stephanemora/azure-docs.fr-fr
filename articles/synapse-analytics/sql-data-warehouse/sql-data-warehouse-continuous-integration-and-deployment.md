@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061be5addd0c236db5d982e6103e3cf455b9c361
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462324"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480528"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Intégration et déploiement continus pour l’entreposage de données
 
@@ -60,7 +60,7 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorer l’[architecture MPP du pool SQL Synapse](massively-parallel-processing-mpp-architecture.md)
+- Explorer l’[architecture du pool SQL Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Créer rapidement un pool SQL](create-data-warehouse-portal.md)
 - [Charger des exemples de données](load-data-from-azure-blob-storage-using-polybase.md)
 - Explorer les [vidéos](sql-data-warehouse-videos.md)

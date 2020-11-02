@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277218"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475156"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
 
@@ -42,7 +42,7 @@ Le kit SDK [.NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) est sorti.
 
 Nous recommandons les processus hôte Windows 64 bits pour améliorer les performances. Le Kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. Les types d’applications suivants utilisent les processus hôte 32 bits par défaut. Pour modifier les processus hôte en traitement 64 bits, procédez comme suit, selon le type de votre application :
 
-- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer** .
+- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer** .
 
 - Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test** .
 
@@ -56,7 +56,7 @@ Nous recommandons les processus hôte Windows 64 bits pour améliorer les perfo
     
 **Activer garbage collection (GC) côté serveur**
 
-Réduire la fréquence de garbage collection peut aider dans certains cas. Dans .NET, définissez [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) sur `true`.
+Réduire la fréquence de garbage collection peut aider dans certains cas. Dans .NET, définissez [gcServer](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element) sur `true`.
 
 **Effectuer une montée en charge de votre charge de travail cliente**
 
@@ -90,8 +90,8 @@ En cas d’exécution sur le protocole TCP, le client optimise la latence en uti
 
 Dans les scénarios où vous disposez de peu d’accès et que vous remarquez un nombre de connexions supérieur par rapport au mode de passerelle, vous pouvez :
 
-* Configurez la propriété [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) sur `PrivatePortPool` (effective avec la version du framework > = 4.6.1 et la version .NET Core > = 2,0) : Cette propriété permet au kit SDK d’utiliser un petit pool de ports éphémères pour différents points de terminaison de destination Azure Cosmos DB.
-* Configurez la propriété [ConnectionPolicy.Idleconnectiontimeout,](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) afin qu’elle soit supérieure ou égale à 10 minutes. Les valeurs recommandées sont comprises entre 20 minutes et 24 heures.
+* Configurez la propriété [ConnectionPolicy.PortReuseMode](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) sur `PrivatePortPool` (effective avec la version du framework > = 4.6.1 et la version .NET Core > = 2,0) : Cette propriété permet au kit SDK d’utiliser un petit pool de ports éphémères pour différents points de terminaison de destination Azure Cosmos DB.
+* Configurez la propriété [ConnectionPolicy.Idleconnectiontimeout,](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) afin qu’elle soit supérieure ou égale à 10 minutes. Les valeurs recommandées sont comprises entre 20 minutes et 24 heures.
 
 **Appel d’OpenAsync pour éviter la latence de démarrage lors de la première requête**
 
@@ -109,7 +109,7 @@ Dans la mesure du possible, placez toutes les applications qui appellent Azure C
 **Augmenter le nombre de threads/tâches**
 <a id="increase-threads"></a>
 
-Étant donné que les appels à Azure Cosmos DB sont effectués sur le réseau, vous devrez peut-être modifier le degré de parallélisme de vos requêtes, afin que l’application cliente attende un temps minimal entre les requêtes. Par exemple, si vous utilisez la [bibliothèque parallèle de tâches](https://msdn.microsoft.com//library/dd460717.aspx) .NET, créez des centaines de tâches de lecture ou d’écriture dans Azure Cosmos DB.
+Étant donné que les appels à Azure Cosmos DB sont effectués sur le réseau, vous devrez peut-être modifier le degré de parallélisme de vos requêtes, afin que l’application cliente attende un temps minimal entre les requêtes. Par exemple, si vous utilisez la [bibliothèque parallèle de tâches](/dotnet/standard/parallel-programming/task-parallel-library-tpl) .NET, créez des centaines de tâches de lecture ou d’écriture dans Azure Cosmos DB.
 
 **Activer la mise en réseau accélérée**
  
@@ -127,7 +127,7 @@ Chaque instance de `DocumentClient` est thread-safe et effectue une gestion des 
 
 **Augmentation de System.Net MaxConnections par hôte lors de l’utilisation du mode passerelle**
 
-Les requêtes d’Azure Cosmos DB sont effectuées via le protocole HTTPS/REST lorsque vous utilisez le mode passerelle. Elles sont soumises à la limite de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir `MaxConnections` sur une valeur plus élevée (100 à 1 000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET 1.8.0 et versions ultérieures, la valeur par défaut de [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) est 50. Pour modifier cette valeur, vous pouvez définir [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) sur une valeur supérieure.
+Les requêtes d’Azure Cosmos DB sont effectuées via le protocole HTTPS/REST lorsque vous utilisez le mode passerelle. Elles sont soumises à la limite de connexion par défaut par nom d’hôte ou adresse IP. Vous devrez peut-être définir `MaxConnections` sur une valeur plus élevée (100 à 1 000) afin que la bibliothèque cliente puisse utiliser plusieurs connexions simultanées à Azure Cosmos DB. Dans le Kit de développement logiciel (SDK) .NET 1.8.0 et versions ultérieures, la valeur par défaut de [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) est 50. Pour modifier cette valeur, vous pouvez définir [Documents.Client.ConnectionPolicy.MaxConnectionLimit](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) sur une valeur supérieure.
 
 **Paramétrer des requêtes parallèles pour les collections partitionnées**
 
@@ -135,19 +135,19 @@ Le Kit de développement logiciel (SDK) SQL .NET version 1.9.0 et ultérieure p
 - `MaxDegreeOfParallelism` contrôle le nombre maximal de partitions qui peuvent être interrogées en parallèle. 
 - `MaxBufferedItemCount` contrôle le nombre de résultats pré-récupérés.
 
-***Ajustement du degré de parallélisme***
+**_Ajustement du degré de parallélisme_* _
 
 La requête parallèle fonctionne en interrogeant plusieurs partitions en parallèle. Mais, les données d’une partition individuelle sont extraites en série dans le cadre de la requête. La définition de `MaxDegreeOfParallelism` dans [SDK V2](sql-api-sdk-dotnet.md) sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez définir le degré de parallélisme sur un nombre élevé. Le système choisit la valeur minimale (nombre de partitions, entrée fournie par l’utilisateur) comme degré de parallélisme.
 
 Les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de sorte que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), ces partitions vont limiter les performances de la requête.
 
-***Tuning MaxBufferedItemCount***
+_*_Tuning MaxBufferedItemCount_*_
     
 Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. Cette pré-récupération permet d’améliorer la latence globale d’une requête. Le paramètre `MaxBufferedItemCount` limite le nombre de résultats pré-récupérés (fetch). Définissez `MaxBufferedItemCount` sur le nombre attendu de résultats retournés (ou un nombre plus élevé) pour permettre à la requête de recevoir le maximum d’avantages de la pré-récupération (fetch).
 
 La pré-récupération (fetch) fonctionne de la même façon, quel que soit le degré de parallélisme, et il existe une seule mémoire tampon pour les données de toutes les partitions.  
 
-**Implémentation d’interruption à des intervalles de RetryAfter**
+_ *Implémentation d’interruption à des intervalles de RetryAfter**
 
 Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. Si les requêtes sont limitées, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur. Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. 
 
@@ -156,7 +156,7 @@ La prise en charge des stratégies de nouvelle tentative est incluse dans ces Ki
 - Versions 1.9.0 et ultérieures du [Kit de développement logiciel (SDK) Node.js pour SQL](sql-api-sdk-node.md) et le [Kit de développement logiciel (SDK) Python pour SQL](sql-api-sdk-python.md)
 - Toutes les versions prises en charge des Kits de développement logiciel (SDK) [.NET Core](sql-api-sdk-dotnet-core.md) 
 
-Pour plus d’informations, consultez la page [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+Pour plus d’informations, consultez la page [RetryAfter](/dotnet/api/microsoft.azure.documents.documentclientexception.retryafter).
     
 Dans la version 1.19 ou version ultérieure du Kit de développement logiciel (SDK) .NET, un mécanisme permet de consigner des informations de diagnostic supplémentaires et de résoudre les problèmes de latence, comme indiqué dans l’exemple suivant. Vous pouvez consigner la chaîne de diagnostic de requêtes ayant une latence de lecture supérieure. La chaîne de diagnostic capturée vous permet de connaître le nombre de fois où vous avez reçu des erreurs 429 pour une requête donnée.
 

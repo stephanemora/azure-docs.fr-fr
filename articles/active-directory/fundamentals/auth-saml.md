@@ -1,6 +1,6 @@
 ---
 title: Authentification SAML avec Azure Active Directory
-description: Guide architectural pour atteindre ce modèle d’authentification
+description: Guide architectural sur l’implémentation de l’authentification SAML avec Azure Active Directory
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b13e04db8e83a8a10c2d7fe0aea202dfa3b69c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92113943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441213"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Authentification SAML avec Azure Active Directory
 
@@ -37,7 +37,7 @@ Il est nécessaire de fournir une expérience d’authentification unique (SSO) 
 
 Bien que SSO soit l’un des cas d’usage les plus importants pris en charge par SAML, notamment par l’extension de l’authentification unique entre les domaines de sécurité, il existe également d’autres cas d’usage (appelés profils). 
 
-![diagramme architectural](./media/authentication-patterns/saml-auth.png)
+![diagramme architectural pour SAML](./media/authentication-patterns/saml-auth.png)
 
 ## <a name="components-of-system"></a>Composants du système
 

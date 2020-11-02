@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067152"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515744"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrer des applications JMS (Java Message Service) 2.0 existantes d’Apache ActiveMQ vers Azure Service Bus
 
@@ -62,7 +62,7 @@ Dans le cadre de la migration et de la modification de vos applications clientes
 
 #### <a name="authentication-and-authorization"></a>Authentification et autorisation
 
-Le contrôle d’accès en fonction du rôle (RBAC) soutenu par Azure Active Directory est le mécanisme d’authentification à privilégier pour Service Bus. Toutefois, étant donné que RBAC, ou l’authentification basée sur les revendications, n’est pas pris en charge par Apache QPID JMS, vous devez utiliser des clés SAS pour l’authentification.
+Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) soutenu par Azure Active Directory est le mécanisme d’authentification à privilégier pour Service Bus. Toutefois, étant donné qu’Azure RBAC, ou l’authentification basée sur les revendications, n’est pas pris en charge par Apache QPID JMS, vous devez utiliser des clés SAS pour l’authentification.
 
 ## <a name="pre-migration"></a>Prémigration
 

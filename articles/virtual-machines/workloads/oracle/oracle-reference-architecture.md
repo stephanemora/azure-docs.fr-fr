@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993573"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480426"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -72,7 +72,7 @@ Avec Oracle Database 12.2 et versions ultérieures, il est également possible d
 
 Le diagramme suivant illustre une architecture recommandée pour utiliser Oracle Data Guard sur Azure avec des zones de disponibilité. Cette architecture vous permet de bénéficier d'un contrat de niveau de service (SLA) garantissant un temps d'activité de 99,99 %.
 
-![Instance d'Oracle Database utilisant des zones de disponibilité avec Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagramme montrant une architecture recommandée pour utiliser Oracle Data Guard sur Azure avec des zones de disponibilité.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 Dans le diagramme précédent, le système du client accède à une application personnalisée avec back-end Oracle via le web. Le front-end web est configuré dans un équilibreur de charge. Le front-end web appelle le serveur d'applications approprié pour gérer le travail. Le serveur d'applications interroge la base de données primaire Oracle. La base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la haute disponibilité.
 
@@ -108,7 +108,7 @@ Le diagramme suivant illustre une architecture qui utilise Oracle Data Guard FSF
 
 GoldenGate permet l'échange et la manipulation de données au niveau des transactions entre différentes plateformes hétérogènes de l'entreprise. Il déplace les transactions validées en garantissant l'intégrité des transactions et en minimisant les frais généraux sur votre infrastructure existante. Son architecture modulaire vous donne la possibilité d'extraire et de répliquer les enregistrements de données sélectionnés, les modifications relatives aux transactions et les modifications apportées au langage de définition de données (DDL) à travers une variété de topologies.
 
-Oracle GoldenGate vous permet de configurer votre base de données pour la haute disponibilité en fournissant une réplication bidirectionnelle. Vous pouvez ainsi mettre en place une **configuration multimaître** ou **active/active**. Le diagramme suivant illustre une architecture recommandée pour une configuration active/active d'Oracle GoldenGate sur Azure. Dans l'architecture suivante, la base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la disponibilité.
+Oracle GoldenGate vous permet de configurer votre base de données pour la haute disponibilité en fournissant une réplication bidirectionnelle. Vous pouvez ainsi mettre en place une **configuration multimaître** ou **active/active** . Le diagramme suivant illustre une architecture recommandée pour une configuration active/active d'Oracle GoldenGate sur Azure. Dans l'architecture suivante, la base de données Oracle a été configurée à l'aide d'une [machine virtuelle à mémoire optimisée](../../sizes-memory.md) « hyperthreadée » avec des [processeurs virtuels à cœur restreint](../../../virtual-machines/constrained-vcpu.md) pour économiser sur les coûts de licence et optimiser les performances. Différents disques Premium ou Ultra (Disques managés) sont utilisés pour les performances et la disponibilité.
 
 ![Instance d'Oracle Database utilisant des zones de disponibilité avec Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -127,7 +127,7 @@ La couche Application peut être configurée dans son propre sous-réseau et la 
 
 Sharding (partitionnement) est un modèle de la couche Données qui a été introduit dans Oracle 12.2. Il vous permet de partitionner horizontalement vos données et de les mettre à l'échelle dans des bases de données indépendantes. Il s'agit d'une architecture sans partage où chaque base de données est hébergée sur une machine virtuelle dédiée, ce qui offre un débit de lecture et d'écriture élevé en plus d'améliorer la résilience et la disponibilité. Ce modèle élimine les points de défaillance uniques, isole les défaillances et permet des mises à niveau propagées sans temps d'arrêt. Les temps d'arrêt d'une partition ou les défaillances au niveau du centre de données n'affectent pas les performances ou la disponibilité des autres partitions dans les autres centres de données. 
 
-Le partitionnement convient aux applications OLTP à débit élevé qui ne peuvent se permettre aucun temps d'arrêt. Toutes les lignes contenant la même clé de sharding ont la garantie d'être toujours sur la même partition, ce qui améliore les performances tout en offrant une cohérence élevée. Les applications qui utilisent le partitionnement doivent disposer d'un modèle de données et d'une stratégie de répartition des données bien définis (hachage, plage, liste ou composite cohérents) qui accèdent principalement aux données à l'aide d'une clé de sharding (par exemple, *customerId* ou *accountNum*). Le partitionnement vous permet également de stocker des ensembles particuliers de données plus près des clients finaux, ce qui aide à satisfaire les exigences de performances et de conformité.
+Le partitionnement convient aux applications OLTP à débit élevé qui ne peuvent se permettre aucun temps d'arrêt. Toutes les lignes contenant la même clé de sharding ont la garantie d'être toujours sur la même partition, ce qui améliore les performances tout en offrant une cohérence élevée. Les applications qui utilisent le partitionnement doivent disposer d'un modèle de données et d'une stratégie de répartition des données bien définis (hachage, plage, liste ou composite cohérents) qui accèdent principalement aux données à l'aide d'une clé de sharding (par exemple, *customerId* ou *accountNum* ). Le partitionnement vous permet également de stocker des ensembles particuliers de données plus près des clients finaux, ce qui aide à satisfaire les exigences de performances et de conformité.
 
 Nous vous recommandons de répliquer vos partitions pour bénéficier de la haute disponibilité et de la récupération d'urgence. Cette configuration peut être effectuée à l'aide de technologies Oracle telles qu'Oracle Data Guard ou Oracle GoldenGate. Une unité de réplication peut être une partition, une partie d'une partition ou un groupe de partitions. La disponibilité d'une base de données partitionnée n'est pas affectée en cas de défaillance ou de ralentissement d'une ou plusieurs partitions. Pour la haute disponibilité, les partitions de secours peuvent être placées dans la même zone de disponibilité que les partitions primaires. Pour la récupération d'urgence, les partitions de secours peuvent se trouver dans une autre région. Vous pouvez également déployer des partitions dans différentes régions pour gérer le trafic de ces régions. Pour plus d'informations sur la configuration de la haute disponibilité et de la réplication de votre base de données partitionnée, consultez la [documentation Oracle Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-high-availability.html).
 
@@ -168,7 +168,7 @@ Les tables dupliquées sont stockées sur toutes les partitions, tandis que les 
 
 Oracle Data Guard peut être utilisé pour le partitionnement avec les méthodes de partitionnement managé par le système, de partitionnement défini par l'utilisateur et de partitionnement composite.
 
-Le diagramme suivant illustre une architecture de référence concernant Oracle Sharding avec utilisation d'Oracle Data Guard pour la haute disponibilité de chaque partition. Le diagramme d'architecture présente une _méthode de partitionnement composite_. Le diagramme d'architecture sera probablement différent pour les applications dont les exigences diffèrent en matière de localisation des données, d'équilibrage de charge, de haute disponibilité, de récupération d'urgence ou autre, et il utilisera peut-être une autre méthode de partitionnement. Oracle Sharding vous permet de répondre à ces exigences et d'évoluer horizontalement et efficacement grâce à ces options. Une architecture similaire peut même être déployée à l'aide d'Oracle GoldenGate.
+Le diagramme suivant illustre une architecture de référence concernant Oracle Sharding avec utilisation d'Oracle Data Guard pour la haute disponibilité de chaque partition. Le diagramme d'architecture présente une _méthode de partitionnement composite_ . Le diagramme d'architecture sera probablement différent pour les applications dont les exigences diffèrent en matière de localisation des données, d'équilibrage de charge, de haute disponibilité, de récupération d'urgence ou autre, et il utilisera peut-être une autre méthode de partitionnement. Oracle Sharding vous permet de répondre à ces exigences et d'évoluer horizontalement et efficacement grâce à ces options. Une architecture similaire peut même être déployée à l'aide d'Oracle GoldenGate.
 
 ![Partitionnement d'Oracle Database utilisant des zones de disponibilité avec Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_sh_az.png)
 

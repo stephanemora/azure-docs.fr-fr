@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988254"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547127"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Mise à niveau de vos visualisations de tableau de bord Log Analytics
 
@@ -32,22 +32,22 @@ Pour plus d’informations, consultez [Tableaux de bord Azure](../../azure-porta
 
 La nouvelle technologie de visualisation résout certains problèmes courants liés à l’ancienne implémentation et introduit de nouvelles capacités permettant d’épingler des mosaïques Log Analytics : 
 
-- **Mêmes types disponibles** : tous les types de visualisation disponibles dans Log Analytics sont disponibles sous forme de mosaïques épinglées sur les tableaux de bord.
+- **Mêmes types disponibles**  : tous les types de visualisation disponibles dans Log Analytics sont disponibles sous forme de mosaïques épinglées sur les tableaux de bord.
 
-- **Apparence cohérente** : l’apparence visuelle des mosaïques épinglées est désormais presque identique à celle de Log Analytics. Les différences sont dues à des optimisations qui nécessitent des différences subtiles dans le contenu des données du contrôle. Pour plus d’informations sur ces différences, consultez la section Considérations de ce document.
+- **Apparence cohérente**  : l’apparence visuelle des mosaïques épinglées est désormais presque identique à celle de Log Analytics. Les différences sont dues à des optimisations qui nécessitent des différences subtiles dans le contenu des données du contrôle. Pour plus d’informations sur ces différences, consultez la section Considérations de ce document.
 
-- **Info-bulles et étiquettes** : les nouvelles visualisations Log Analytics épinglées prennent en charge les info-bulles. Les graphiques à secteurs et en anneau prennent désormais en charge les étiquettes.
+- **Info-bulles et étiquettes**  : les nouvelles visualisations Log Analytics épinglées prennent en charge les info-bulles. Les graphiques à secteurs et en anneau prennent désormais en charge les étiquettes.
 
-- **Légendes interactives** : cliquer sur la légende de visualisation permet d’ajouter ou de supprimer des dimensions du contrôle épinglé comme dans Log Analytics.
+- **Légendes interactives**  : cliquer sur la légende de visualisation permet d’ajouter ou de supprimer des dimensions du contrôle épinglé comme dans Log Analytics.
 
 ## <a name="stage-1---opt-in-upgrade-message"></a>Étape 1 : Accepter le message de mise à niveau
 
-Lorsqu’une mosaïque épinglée Log Analytics peut être mise à niveau, une nouvelle notification d’*acceptation* s’affiche sur cette mosaïque dans les tableaux de bord, ce qui permet aux utilisateurs de mettre à niveau leur visualisation. Pour faire l’expérience des nouvelles visualisations, il est nécessaire de les mettre à niveau sur le tableau de bord.
+Lorsqu’une mosaïque épinglée Log Analytics peut être mise à niveau, une nouvelle notification d’ *acceptation* s’affiche sur cette mosaïque dans les tableaux de bord, ce qui permet aux utilisateurs de mettre à niveau leur visualisation. Pour faire l’expérience des nouvelles visualisations, il est nécessaire de les mettre à niveau sur le tableau de bord.
 
  
 ![Barre latérale](media/dashboard-upgrade/update-message-1.png)
  
-![Barre latérale](media/dashboard-upgrade/update-message-2.png)
+![Capture d’écran montrant comment mettre à jour la visualisation des vignettes.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Une fois le tableau de bord publié, la mise à niveau est irréversible. Toutefois, les modifications sont abandonnées si vous quittez le tableau de bord sans le republier.  
@@ -56,7 +56,7 @@ Une fois que vous cliquez dessus, la visualisation est mise à jour vers la nouv
 
 Une fois les visualisations mises à niveau, vous devez republier votre tableau de bord pour que la modification prenne effet.
 
-![Barre latérale](media/dashboard-upgrade/update-message-3.png)
+![Capture d’écran montrant les visualisations mises à niveau.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Étape 2 : Migrer tous les tableaux de bord
 
@@ -74,7 +74,7 @@ Comme les tableaux de bord peuvent contenir plusieurs visualisations provenant d
 
 Les tableaux de bord peuvent être visuellement denses et complexes. Afin de réduire la charge cognitive lors de la consultation d’un tableau de bord, nous optimisons les visualisations en limitant l’affichage à 25 types de données différents. Lorsqu’il y en a plus de 25, Log Analytics optimise les données. Il affiche individuellement les 25 types en distinguant la plupart des données, puis regroupe les valeurs restantes dans une valeur « autre ». Le tableau suivant en est l’illustration.  
 
-![Barre latérale](media/dashboard-upgrade/values-25-limit.png)
+![Capture d’écran montrant un tableau de bord avec 25 types de données différents.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Actualisation du tableau de bord lors du chargement
 

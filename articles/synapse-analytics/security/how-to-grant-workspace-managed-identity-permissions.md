@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487192"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Octroyer des autorisations pour l'identité managée dans l'espace de travail (préversion)
 
@@ -26,7 +26,7 @@ Cet article vous explique comment octroyer des autorisations pour l’identité 
 
 L’identité managée octroie des autorisations aux pools SQL de l’espace de travail. Une fois les autorisations octroyées, vous pouvez orchestrer des pipelines qui effectuent des activités en lien avec les pools SQL. Lorsque vous créez un espace de travail Azure Synapse à l’aide du portail Azure, vous pouvez accorder les autorisations CONTROL d'identité managée sur les pools SQL.
 
-Sélectionnez **Sécurité + réseau** lors de la création de votre espace de travail Azure Synapse. Sélectionnez ensuite **Octroyer l'autorisation CONTROL à l'identité managée de l'espace de travail sur les pools SQL**.
+Sélectionnez **Sécurité + réseau** lors de la création de votre espace de travail Azure Synapse. Sélectionnez ensuite **Octroyer l'autorisation CONTROL à l'identité managée de l'espace de travail sur les pools SQL** .
 
 ![Autorisation CONTROL sur les pools SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
@@ -36,11 +36,11 @@ Un compte de stockage ADLS Gen2 est nécessaire pour créer un espace de travail
 
 ### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Octroyer des autorisations pour l'identité managée lors de la création de l'espace de travail
 
-Azure Synapse tente d'octroyer le rôle Contributeur aux données Blob du stockage à l’identité managée une fois l'espace de travail Azure Synapse créé à l’aide du portail Azure. Vous fournissez les détails du compte de stockage ADLS Gen2 dans l’onglet **Informations de base**.
+Azure Synapse tente d'octroyer le rôle Contributeur aux données Blob du stockage à l’identité managée une fois l'espace de travail Azure Synapse créé à l’aide du portail Azure. Vous fournissez les détails du compte de stockage ADLS Gen2 dans l’onglet **Informations de base** .
 
 ![Onglet Informations de base du flux de création de l'espace de travail](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-Sélectionnez le compte de stockage ADLS Gen2 et le système de fichiers dans **Nom du compte** et **Nom du système de fichiers**.
+Sélectionnez le compte de stockage ADLS Gen2 et le système de fichiers dans **Nom du compte** et **Nom du système de fichiers** .
 
 ![Détails d'un compte de stockage ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
@@ -60,7 +60,7 @@ Lors de la création de l’espace de travail, si vous n’affectez pas le rôle
 
 #### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Étape 1 : Accéder au compte de stockage ADLS Gen2 dans le Portail Azure
 
-Dans le Portail Microsoft Azure, ouvrez le compte de stockage ADLS Gen2 et sélectionnez **Vue d’ensemble** dans le volet de navigation gauche. Vous devez affecter le rôle *Contributeur aux données Blob du stockage* au niveau du conteneur ou du système de fichiers. Sélectionnez **Conteneurs**.  
+Dans le Portail Microsoft Azure, ouvrez le compte de stockage ADLS Gen2 et sélectionnez **Vue d’ensemble** dans le volet de navigation gauche. Vous devez affecter le rôle *Contributeur aux données Blob du stockage* au niveau du conteneur ou du système de fichiers. Sélectionnez **Conteneurs** .  
 ![Vue d'ensemble du compte de stockage ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>Étape 2 : Sélection du conteneur
@@ -70,7 +70,7 @@ L’identité managée doit pouvoir accéder aux données du conteneur (système
 
 
 Sélectionnez le même conteneur ou système de fichiers pour octroyer le rôle *Contributeur aux données Blob du stockage* à l'identité managée.
-![Sélection du conteneur de comptes de stockage ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Capture d’écran montrant le conteneur ou système de fichiers que vous devez sélectionner.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Étape 3 : Accéder au contrôle d’accès
 
@@ -80,37 +80,37 @@ Sélectionnez **Contrôle d’accès (IAM)** .
 
 #### <a name="step-4-add-a-new-role-assignment"></a>Étape 4 : Ajouter une attribution de rôle
 
-Sélectionnez **Ajouter**.
+Sélectionnez **Ajouter** .
 
 ![Ajouter une attribution de rôle](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
 #### <a name="step-5-select-the-azure-role"></a>Étape 5 : Sélectionner le rôle Azure
 
-Sélectionnez le rôle **Contributeur aux données Blob du stockage**.
+Sélectionnez le rôle **Contributeur aux données Blob du stockage** .
 
 ![Sélectionner le rôle Azure](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>Étape 6 : Sélectionner le principal de sécurité Azure AD
 
-Sélectionnez **Utilisateur, groupe ou principal de service Azure AD** dans la liste déroulante **Attribuer l'accès à**.
+Sélectionnez **Utilisateur, groupe ou principal de service Azure AD** dans la liste déroulante **Attribuer l'accès à** .
 
 ![Sélectionner le principal de sécurité AAD](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
 
 #### <a name="step-7-search-for-the-managed-identity"></a>Étape 7 : Rechercher l’identité managée
 
-Le nom de l’identité managée correspond également au nom de l’espace de travail. Recherchez votre identité managée en entrant le nom de l’espace de travail Azure Synapse dans **Sélectionner**. L'identité managée doit y être répertoriée.
+Le nom de l’identité managée correspond également au nom de l’espace de travail. Recherchez votre identité managée en entrant le nom de l’espace de travail Azure Synapse dans **Sélectionner** . L'identité managée doit y être répertoriée.
 
 ![Rechercher l’identité managée](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
 
 #### <a name="step-8-select-the-managed-identity"></a>Étape 8 : Sélectionner l’identité managée
 
-Sélectionnez l’identité managée pour **Membres sélectionnés**. Sélectionnez **Enregistrer** pour ajouter l’attribution de rôle.
+Sélectionnez l’identité managée pour **Membres sélectionnés** . Sélectionnez **Enregistrer** pour ajouter l’attribution de rôle.
 
 ![Sélectionner l’identité managée](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
 
 #### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Étape 9 : Vérifiez que le rôle Contributeur aux données Blob du stockage est attribué à l’identité managée.
 
-Sélectionnez **Contrôle d’accès (IAM)** , puis **Attributions de rôle**.
+Sélectionnez **Contrôle d’accès (IAM)** , puis **Attributions de rôle** .
 
 ![Vérifier l'attribution de rôle](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 

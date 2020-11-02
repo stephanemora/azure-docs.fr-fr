@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676119"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Octobre 2020
+
+| Améliorations du service | Détails |
+| --- | --- |
+|**Fonctions table inlined de T-SQL (préversion)**|Avec cette version, vous pouvez désormais créer des fonctions table inlined avec Transact-SQL et interroger leurs résultats comme vous le feriez pour une table. Cette fonctionnalité est actuellement disponible en préversion et sera prise en charge dans les outils en disponibilité générale. Pour plus d’informations, consultez [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**Commande MERGE (préversion)**|Vous pouvez maintenant exécuter des opérations d’insertion, de mise à jour ou de suppression sur une table cible à partir des résultats d’une jointure avec une table source. Par exemple, vous pouvez synchroniser deux tables en insérant, mettant à jour ou supprimant des lignes dans une seule table selon les différences trouvées dans l'autre table.  Pour plus d’informations, consultez [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current).|
 
 ## <a name="aug-2020"></a>Août 2020
 

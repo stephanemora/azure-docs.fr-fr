@@ -1,14 +1,14 @@
 ---
-title: Remise d’événement avec une identité de service managé
+title: Remise d’événement, identité de service géré et liaison privée
 description: Cet article explique comment activer une identité de service managé pour une rubrique Azure Event Grid. Utilisez-la pour transférer des événements vers des destinations prises en charge.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534241"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460918"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Remise d’événement avec une identité managée
 Cet article explique comment activer une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour des rubriques ou des domaines Azure Event Grid. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
@@ -18,11 +18,14 @@ Les étapes décrites en détail dans cet article sont les suivantes :
 1. Ajouter l’identité à un rôle approprié (par exemple, expéditeur de données Service Bus) sur la destination (par exemple, une file d’attente Service Bus).
 1. Lors de la création d’abonnements à des événements, activer l’utilisation de l’identité pour remettre des événements à la destination. 
 
+> [!NOTE]
+> Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Pour plus d’informations, consultez la section [Points de terminaison privés](#private-endpoints) à la fin de cet article. 
+
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Créer une rubrique ou un domaine avec une identité
 Tout d’abord, voyons comment créer une rubrique ou un domaine avec une identité managée par le système.
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
-Il est possible d’activer une identité affectée par le système pour une rubrique ou un domaine lors de sa création sur le Portail Azure. L’image suivante montre comment activer une identité managée par le système pour une rubrique. Fondamentalement, dans la page **Avancée** de l’Assistant Création de rubrique, vous sélectionnez l’option **Activer l’identité attribuée par le système**. Cette option apparaît également sur la page **Avancé** de l’Assistant Création de domaine. 
+Il est possible d’activer une identité affectée par le système pour une rubrique ou un domaine lors de sa création sur le Portail Azure. L’image suivante montre comment activer une identité managée par le système pour une rubrique. Fondamentalement, dans la page **Avancée** de l’Assistant Création de rubrique, vous sélectionnez l’option **Activer l’identité attribuée par le système** . Cette option apparaît également sur la page **Avancé** de l’Assistant Création de domaine. 
 
 ![Activer une identité lors de la création d’une rubrique](./media/managed-service-identity/create-topic-identity.png)
 
@@ -43,9 +46,9 @@ Dans la section précédente, vous avez appris à activer une identité managée
 La procédure suivante vous montre comment activer une identité managée par le système pour une rubrique. Les étapes d’activation d’une identité pour un domaine sont similaires. 
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Dans la barre de recherche en haut, recherchez **Rubriques Event Grid**.
+2. Dans la barre de recherche en haut, recherchez **Rubriques Event Grid** .
 3. Sélectionnez la **rubrique** pour laquelle vous souhaitez activer l’identité managée. 
-4. Basculez vers l’onglet **Identité**. 
+4. Basculez vers l’onglet **Identité** . 
 5. **Activez** le commutateur pour activer l’identité. 
 1. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer le paramètre. 
 
@@ -85,10 +88,10 @@ L’exemple suivant ajoute une identité managée pour une rubrique Event Grid n
 
 1. Accédez à votre **espace de noms Service Bus** sur le [Portail Azure](https://portal.azure.com). 
 1. Sélectionnez **Contrôle d’accès** dans le volet gauche. 
-1. Dans la section **Ajouter une attribution de rôle**, sélectionnez **Ajouter**. 
-1. Dans la page **Ajouter une attribution de rôle**, effectuez les étapes suivantes :
-    1. Sélectionnez le rôle. Dans ce cas, il s’agit du rôle **Expéditeur de données Azure Service Bus**. 
-    1. Sélectionnez l’**identité** pour votre rubrique ou domaine. 
+1. Dans la section **Ajouter une attribution de rôle** , sélectionnez **Ajouter** . 
+1. Dans la page **Ajouter une attribution de rôle** , effectuez les étapes suivantes :
+    1. Sélectionnez le rôle. Dans ce cas, il s’agit du rôle **Expéditeur de données Azure Service Bus** . 
+    1. Sélectionnez l’ **identité** pour votre rubrique ou domaine. 
     1. Sélectionnez **Enregistrer** pour enregistrer la configuration.
 
 Les étapes sont similaires pour l’ajout d’une identité à d’autres rôles mentionnés dans le tableau. 
@@ -138,16 +141,16 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 Maintenant que vous disposez d’une rubrique ou d’un domaine avec une identité affectée par le système et que vous avez ajouté l’identité au rôle approprié sur la destination, vous pouvez créer des abonnements qui utilisent l’identité. 
 
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
-Lors de la création d’un abonnement à des événements, une option permet d’activer l’utilisation d’une identité affectée par le système pour un point de terminaison dans la section **DÉTAILS DES POINTS DE TERMINAISON**. 
+Lors de la création d’un abonnement à des événements, une option permet d’activer l’utilisation d’une identité affectée par le système pour un point de terminaison dans la section **DÉTAILS DES POINTS DE TERMINAISON** . 
 
 ![Activer une identité lors de la création d’un abonnement à des événements pour une file d’attente Service Bus](./media/managed-service-identity/service-bus-queue-subscription-identity.png)
 
-Vous pouvez également activer l’utilisation d’une identité affectée par le système pour la mise en file d’attente de lettres mortes sous l’onglet **Fonctionnalités supplémentaires**. 
+Vous pouvez également activer l’utilisation d’une identité affectée par le système pour la mise en file d’attente de lettres mortes sous l’onglet **Fonctionnalités supplémentaires** . 
 
 ![Activer une identité attribuée par le système pour la mise en file d'attente de lettres mortes](./media/managed-service-identity/enable-deadletter-identity.png)
 
 ### <a name="use-the-azure-cli---service-bus-queue"></a>Utilisation d’Azure CLI – File d’attente Service Bus 
-Cette section explique comment utiliser Azure CLI afin d’activer l’utilisation d’une identité affectée par le système pour remettre des événements à une file d’attente Service Bus. L’identité doit être un membre du rôle **Expéditeur de données Azure Service Bus**. Elle doit également être membre du rôle **Contributeur aux données Blob du stockage** sur le compte de stockage utilisé pour la mise en file d'attente de lettres mortes. 
+Cette section explique comment utiliser Azure CLI afin d’activer l’utilisation d’une identité affectée par le système pour remettre des événements à une file d’attente Service Bus. L’identité doit être un membre du rôle **Expéditeur de données Azure Service Bus** . Elle doit également être membre du rôle **Contributeur aux données Blob du stockage** sur le compte de stockage utilisé pour la mise en file d'attente de lettres mortes. 
 
 #### <a name="define-variables"></a>Définir des variables
 Tout d’abord, spécifiez des valeurs pour les variables suivantes à utiliser dans la commande CLI. 
@@ -163,7 +166,7 @@ sb_esname = "<Specify a name for the event subscription>"
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Créer un abonnement à des événements en utilisant une identité managée pour la remise 
-Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **File d’attente Service Bus**. 
+Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **File d’attente Service Bus** . 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -175,7 +178,7 @@ az eventgrid event-subscription create
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery-and-dead-lettering"></a>Créer un abonnement à des événements en utilisant une identité managée pour la remise et la mise en file d’attente de lettres mortes
-Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **File d’attente Service Bus**. Il spécifie également que l’identité managée par le système doit être utilisée pour la mise en file d’attente de lettres mortes. 
+Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **File d’attente Service Bus** . Il spécifie également que l’identité managée par le système doit être utilisée pour la mise en file d’attente de lettres mortes. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -192,7 +195,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---event-hubs"></a>Utilisation d’Azure CLI – Event Hubs 
-Cette section explique comment utiliser Azure CLI afin d’activer l’utilisation d’une identité affectée par le système pour remettre des événements à un hub d’événements. L’identité doit être un membre du rôle **Expéditeur de données Azure Event Hubs**. Elle doit également être membre du rôle **Contributeur aux données Blob du stockage** sur le compte de stockage utilisé pour la mise en file d'attente de lettres mortes. 
+Cette section explique comment utiliser Azure CLI afin d’activer l’utilisation d’une identité affectée par le système pour remettre des événements à un hub d’événements. L’identité doit être un membre du rôle **Expéditeur de données Azure Event Hubs** . Elle doit également être membre du rôle **Contributeur aux données Blob du stockage** sur le compte de stockage utilisé pour la mise en file d'attente de lettres mortes. 
 
 #### <a name="define-variables"></a>Définir des variables
 ```azurecli-interactive
@@ -205,7 +208,7 @@ eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>"
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery"></a>Créer un abonnement à des événements en utilisant une identité managée pour la remise 
-Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **Event Hubs**. 
+Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **Event Hubs** . 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -217,7 +220,7 @@ az eventgrid event-subscription create
 ```
 
 #### <a name="create-an-event-subscription-by-using-a-managed-identity-for-delivery--deadletter"></a>Créer un abonnement à des événements en utilisant une identité managée pour la remise et la mise en file d’attente de lettres mortes 
-Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **Event Hubs**. Il spécifie également que l’identité managée par le système doit être utilisée pour la mise en file d’attente de lettres mortes. 
+Cet exemple de commande crée un abonnement à des événements pour une rubrique Event Grid dont le type de point de terminaison est défini sur **Event Hubs** . Il spécifie également que l’identité managée par le système doit être utilisée pour la mise en file d’attente de lettres mortes. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>Instances Private Endpoint
+Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Autrement dit, il n’y a pas de prise en charge si vous avez des exigences strictes en matière d’isolement réseau lorsque le trafic des événements remis ne doit pas sortir de l’espace IP privé. 
+
+Toutefois, si vos exigences comprennent une méthode sécurisée pour envoyer les événements à l’aide d’un canal chiffré et une identité connue de l’expéditeur (dans ce cas, Event Grid) à l’aide d’un espace IP public, vous pouvez remettre des événements à Event Hubs, Service Bus ou au service de stockage Azure à l’aide d’une rubrique Azure Event Grid ou d’un domaine avec une identité gérée par le système comme présenté dans cet article. Ensuite, vous pouvez utiliser une liaison privée configurée dans Azure Functions ou votre webhook déployé sur votre réseau virtuel pour extraire des événements. Voir l’exemple : [Connectez-vous à des points de terminaison privés avec Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Notez que, dans cette configuration, le trafic passe par l’adresse IP publique/Internet d’Event Grid vers Event Hubs, Service Bus ou le stockage Azure, mais que le canal peut être chiffré et qu’une identité gérée Event Grid est utilisée. Si vous configurez votre Azure Functions ou webhook déployé sur votre réseau virtuel pour utiliser un stockage Event Hubs, Service Bus ou stockage Azure via une liaison privée, cette section du trafic restera évidemment dans Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

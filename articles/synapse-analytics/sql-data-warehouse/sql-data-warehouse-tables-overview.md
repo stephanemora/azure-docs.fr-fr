@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486937"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Concevoir des tables dans un pool SQL Synapse
 
@@ -79,7 +79,7 @@ Le pool SQL prend en charge les types de données les plus couramment utilisés.
 
 ## <a name="distributed-tables"></a>Tables distribuées
 
-Une fonctionnalité essentielle du pool SQL est la manière dont il peut stocker et utiliser des tables sur les [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  Le pool SQL prend en charge trois méthodes de distribution de données : par tourniquet (par défaut), hachage et réplication.
+Une fonctionnalité essentielle de Synapse SQL est la manière dont il peut stocker et utiliser des tables sur des [distributions](massively-parallel-processing-mpp-architecture.md#distributions). Synapse SQL prend en charge trois méthodes de distribution de données : par tourniquet (par défaut), hachage et réplication.
 
 ### <a name="hash-distributed-tables"></a>Tables distribuées par hachage
 

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282364"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487379"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 
@@ -40,7 +40,10 @@ Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez c
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Index composés (serveur MongoDB version 3.6)
 
-L’API d’Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole Wire filaire 3.6. Vous pouvez ajouter jusqu’à huit champs dans un index composé. **Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois.** Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé.
+L’API d’Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole Wire filaire 3.6. Vous pouvez ajouter jusqu’à huit champs dans un index composé. Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois. Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé. 
+
+> [!NOTE]
+> Vous ne pouvez pas créer d’index composés sur des tableaux ou des propriétés imbriqués.
 
 La commande suivante crée un index composé sur les champs `name` et `age` :
 
@@ -59,7 +62,7 @@ Toutefois, la séquence des chemins dans l’index composé doit correspondre ex
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Vous ne pouvez pas créer d’index composés sur des tableaux ou des propriétés imbriqués.
+> Les index composés sont utilisés uniquement dans les requêtes qui trient des résultats. Pour les requêtes qui ont plusieurs filtres qui n’ont pas besoin d’être triés, créez plusieurs index de champs uniques.
 
 ### <a name="multikey-indexes"></a>Index multiclés
 
@@ -75,7 +78,7 @@ Voici un exemple de création d’index géospatial sur le champ `location` :
 
 ### <a name="text-indexes"></a>Index de texte
 
-L’API d’Azure Cosmos DB pour MongoDB ne prend pas en charge les index de texte actuellement. Pour les requêtes de recherche de texte sur les chaînes, vous devez utiliser l’intégration de la [recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) à Azure Cosmos DB.
+L’API d’Azure Cosmos DB pour MongoDB ne prend pas en charge les index de texte actuellement. Pour les requêtes de recherche de texte sur les chaînes, vous devez utiliser l’intégration de la [recherche cognitive Azure](../search/search-howto-index-cosmosdb.md) à Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Index génériques
 
@@ -131,7 +134,10 @@ Voici comment vous pouvez créer un index de caractères génériques sur tous l
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Lors du démarrage du développement, il peut être utile de créer un index générique sur tous les champs. À mesure que d’autres propriétés sont indexées dans un document, les frais d’unité de requête (RU) pour l’écriture et la mise à jour du document augmentent. Par conséquent, si vous avez une charge de travail avec d’importantes opérations d’écriture, vous devez opter pour des chemins d’index individuels au lieu d’utiliser des index génériques.
+> [!NOTE]
+> Si vous commencez à développer, nous vous recommandons **fortement** de commencer avec un index générique sur tous les champs. Cela peut simplifier le développement et faciliter l’optimisation des requêtes.
+
+Les documents contenant de nombreux champs peuvent avoir un coût d’unités de requête (RU) élevé pour les écritures et les mises à jour. Par conséquent, si vous avez une charge de travail avec d’importantes opérations d’écriture, vous devez opter pour des chemins d’index individuels au lieu d’utiliser des index génériques.
 
 ### <a name="limitations"></a>Limites
 
@@ -335,7 +341,7 @@ Actuellement, vous pouvez uniquement créer des index uniques lorsque la collect
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexation pour MongoDB version 3.2
 
-Les fonctionnalités d’indexation disponibles et les valeurs par défaut sont différentes pour les comptes Azure Cosmos compatibles avec la version 3.2 du protocole filaire MongoDB. Vous pouvez [vérifier la version de votre compte](mongodb-feature-support-36.md#protocol-support). Vous pouvez effectuer la mise à niveau vers la version 3.6 en envoyant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Les fonctionnalités d’indexation disponibles et les valeurs par défaut sont différentes pour les comptes Azure Cosmos compatibles avec la version 3.2 du protocole filaire MongoDB. Vous pouvez [vérifier la version de votre compte](mongodb-feature-support-36.md#protocol-support) et [mettre à niveau vers la version 3.6](mongodb-version-upgrade.md).
 
 Si vous utilisez la version 3.2, cette section décrit les principales différences avec la version 3.6.
 
@@ -352,11 +358,11 @@ Après la suppression des index par défaut, vous pouvez ajouter d’autres inde
 
 ### <a name="compound-indexes-version-32"></a>Index composés (version 3.2)
 
-Les index composés comportent des références à plusieurs champs d’un document. Si vous souhaitez créer un index composé, effectuez une mise à niveau vers la version 3.6 en envoyant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Les index composés comportent des références à plusieurs champs d’un document. Si vous souhaitez créer un index composé, [mettez à niveau vers la version 3.6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Index génériques (version 3.2)
 
-Si vous souhaitez créer un index générique, effectuez une mise à niveau vers la version 3.6 en déposant une [demande de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si vous souhaitez créer un index générique, [mettez à niveau vers la version 3.6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

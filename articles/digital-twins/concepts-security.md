@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331751"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503315"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -20,7 +20,7 @@ Pour assurer la sécurité, Azure Digital Twins permet un contrôle d’accès p
 
 Azure Digital Twins prend également en charge le chiffrement des données au repos.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Accorder des autorisations avec le contrôle d’accès en fonction du rôle (RBAC) Azure
+## <a name="roles-and-permissions-with-azure-rbac"></a>Rôles et autorisations avec le contrôle d’accès en fonction du rôle (RBAC) Azure
 
 Azure RBAC est fourni à Azure Digital Twins via l’intégration à [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -47,20 +47,32 @@ Avec les identités managées, la plateforme Azure gère cette identité d’ex�
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorisation : Rôles Azure pour Azure Digital Twins
 
-Azure fournit les rôles intégrés Azure ci-dessous pour autoriser l’accès à une ressource Azure Digital Twins :
-* *Propriétaire Azure Digital Twins (préversion)*  : utilisez ce rôle pour accorder un accès total aux ressources Azure Digital Twins.
-* *Lecteur Azure Digital Twins (préversion)*  : utilisez ce rôle pour accorder un accès en lecture seule aux ressources Azure Digital Twins.
+Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux [API de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis) d’Azure Digital Twins. Vous pouvez faire référence aux rôles par nom ou par ID :
 
-> [!TIP]
-> Le rôle de *lecteur Azure Digital Twins (préversion)* prend désormais également en charge les relations de navigation.
+| Rôle intégré | Description | id | 
+| --- | --- | --- |
+| Propriétaire des données Azure Digital Twins | Octroie un accès total aux ressources Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Lecteur des données Azure Digital Twins | Octroie un accès en lecture seule aux ressources Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
-Pour plus d’informations sur la définition des rôles intégrés, consultez [*Comprendre les définitions de rôles*](../role-based-access-control/role-definitions.md) dans la documentation RBAC Azure. Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [*Rôles personnalisés Azure*](../role-based-access-control/custom-roles.md).
+>[!NOTE]
+> Ces rôles ont été récemment renommés à partir de leurs anciens noms dans la préversion :
+> * *Propriétaire des données Azure Digital Twins* était anciennement *Propriétaire Azure Digital Twins (préversion)* .
+> * *Lecteur des données Azure Digital Twins* était anciennement *Lecteur Azure Digital Twins (préversion)* .
 
 Vous pouvez attribuer des rôles de deux manières :
 * Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
 
 Pour plus d’informations sur la procédure à suivre, testez le [*tutoriel Azure Digital Twins : Connecter une solution de bout en bout*](tutorial-end-to-end.md).
+
+Pour plus d’informations sur la définition des rôles intégrés, consultez [*Comprendre les définitions de rôles*](../role-based-access-control/role-definitions.md) dans la documentation RBAC Azure. Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [*Rôles personnalisés Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatisation des rôles
+
+Lorsque vous faites référence à des rôles dans des scénarios automatisés, il est recommandé d’y faire référence par leurs **ID** plutôt que par leurs noms. Les noms peuvent changer d’une version à l’autre, mais pas les ID, ce qui en fait une référence plus stable pour l’automatisation.
+
+> [!TIP]
+> Si vous affectez des rôles à l’aide d’une applet de commande, comme `New-AzRoleAssignment` ([référence](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), vous pouvez utiliser le paramètre `-RoleDefinitionId` au lieu de `-RoleDefinitionName` pour passer un ID à la place d’un nom pour le rôle.
 
 ### <a name="permission-scopes"></a>Étendues d’autorisation
 

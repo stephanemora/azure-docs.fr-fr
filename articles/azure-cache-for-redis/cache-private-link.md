@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122702"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546277"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache pour Redis avec Azure Private Link (Préversion publique)
 Dans cet article, vous allez apprendre à créer un réseau virtuel et une instance Azure Cache pour Redis avec un point de terminaison privé à l’aide du portail Azure. Vous apprendrez également à ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante.
@@ -19,7 +19,7 @@ Dans cet article, vous allez apprendre à créer un réseau virtuel et une insta
 Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à Azure Cache pour Redis optimisé par Azure Private Link. 
 
 ## <a name="prerequisites"></a>Prérequis
-* Abonnement Azure -  [créez-en un gratuitement](https://azure.microsoft.com/free/)
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
 > Pour utiliser des points de terminaison privés, votre instance Azure Cache pour Redis doit avoir été créée après le 28 juillet 2020.
@@ -104,11 +104,11 @@ Pour créer une instance de cache, procédez comme suit.
 
 1. Si vous le voulez, sous l’onglet **Étiquettes** , entrez le nom et la valeur si vous souhaitez catégoriser la ressource. 
 
-1. Sélectionnez **Vérifier + créer** . Vous êtes redirigé vers l’onglet Vérifier + créer où Azure valide votre configuration.
+1. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers l’onglet Vérifier + créer où Azure valide votre configuration.
 
 1. Une fois que le message vert Validation réussie s’affiche, sélectionnez **Créer** .
 
-La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** d’Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution** , le cache est prêt pour utilisation. 
+La création du cache prend un certain temps. Vous pouvez surveiller la progression dans la page **Vue d’ensemble** du Azure Cache pour Redis. Lorsque **État** indique **En cours d’exécution** , le cache est prêt pour utilisation. 
     
 > [!IMPORTANT]
 > 
@@ -201,12 +201,11 @@ Pour créer un point de terminaison privé, procédez comme suit.
 
 11. Si vous le voulez, sous l’onglet **Étiquettes** , entrez le nom et la valeur si vous souhaitez catégoriser la ressource.
 
-12. Sélectionnez **Vérifier + créer** . Vous êtes redirigé vers l’onglet  **Vérifier + créer** où Azure valide votre configuration.
+12. Sélectionnez **Revoir + créer** . Vous êtes redirigé vers l’onglet **Vérifier + créer** où Azure valide votre configuration.
 
 13. Une fois que le message vert **Validation réussie** s’affiche, sélectionnez **Créer** .
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Azure Private Link, consultez la [documentation d’Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+Pour en savoir plus sur Azure Private Link, consultez la [documentation d’Azure Private Link](../private-link/private-link-overview.md).

@@ -1,25 +1,28 @@
 ---
-title: Configurer des sources de données d’agent dans Azure Monitor | Microsoft Docs
+title: Sources de données d’agent Log Analytics dans Azure Monitor
 description: Les sources de données définissent les données de journal qu’Azure Monitor collecte auprès des agents et d’autres sources connectées.  Cet article décrit la façon dont Azure Monitor utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073696"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460799"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Sources de données d’agent dans Azure Monitor
-Les données collectées par Azure Monitor à partir des agents dépendent des sources de données que vous configurez.  Les données provenant des agents sont stockées en tant que [données de journal](data-platform-logs.md) avec un ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Sources de données d’agent Log Analytics dans Azure Monitor
+Les données qu’Azure Monitor collecte à partir des machines virtuelles avec l’[agent Log Analytics](log-analytics-agent.md) sont définies par les sources de données que vous configurez dans l’[espace de travail Log Analytics](data-platform-logs.md).   Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
+
+> [!IMPORTANT]
+> Cet article traite des sources de données pour l’[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D’autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et les données qu’ils peuvent collecter, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
 
 ![Collecte de données de journal](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
-Le tableau suivant répertorie les sources de données d’agent actuellement disponibles dans Azure Monitor.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.   Il fournit également des informations sur leur méthode et leur fréquence de collecte. 
+Le tableau suivant répertorie les sources de données des agents actuellement disponibles avec l’agent Log Analytics.  Chacune de ces sources comporte un lien vers un article distinct qui fournit des détails sur cette source de données.   Il fournit également des informations sur leur méthode et leur fréquence de collecte. 
 
 
 | Source de données | Plateforme | Agent Log Analytics | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
@@ -27,21 +30,19 @@ Le tableau suivant répertorie les sources de données d’agent actuellement di
 | [Journaux d’activité personnalisés](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | à l'arrivée |
 | [Journaux d’activité personnalisés](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | à l'arrivée |
 | [Journaux d’activité IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Dépend du paramètre Substitution de fichier journal |
-| [Compteurs de performances](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |comme prévu, minimum de 10 secondes |
-| [Compteurs de performances](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |comme prévu, minimum de 10 secondes |
+| [Compteurs de performance](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |comme prévu, minimum de 10 secondes |
+| [Compteurs de performance](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |comme prévu, minimum de 10 secondes |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |depuis le stockage Azure : 10 minutes ; à partir de l’agent : à l’arrivée |
 | [Journaux d’événements Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | à l'arrivée |
 
 
 ## <a name="configuring-data-sources"></a>Configuration des sources de données
-Vous configurez des sources de données à partir du menu **Données** dans **Paramètres avancés** pour l’espace de travail.  Toutes les configurations sont remises à toutes les sources connectées dans votre espace de travail.  Nous ne pouvez actuellement exclure aucun agents de cette configuration.
+Pour configurer des sources de données pour les agents Log Analytics, accédez au menu **Espaces de travail Log Analytics** dans le portail Azure et sélectionnez un espace de travail. Cliquez sur **Paramètres avancés** puis sur **Données** . Sélectionnez la source de données à configurer. Vous pouvez suivre le lien dans le tableau ci-dessus vers la documentation de chaque source de données pour plus d’informations sur leur configuration.
+
+Toutes les configurations sont remises à tous les agents connectés à cet espace de travail.  Nous ne pouvez exclure aucun agent connecté de cette configuration.
 
 ![Configurer les événements Windows](media/agent-data-sources/configure-events.png)
 
-1. Dans le portail Azure, sélectionnez **Espaces de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
-2. Sélectionnez **Données**.
-3. Cliquez sur la source de données à configurer.
-4. Suivez le lien vers la documentation de chaque source de données dans le tableau ci-dessus pour plus d'informations sur leur configuration.
 
 
 ## <a name="data-collection"></a>Collecte de données

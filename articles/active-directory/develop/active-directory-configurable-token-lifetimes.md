@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948621"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503774"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
 Vous pouvez spécifier la durée de vie d’un jeton émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> En réponse aux retours des clients au cours de la préversion, nous avons implémenté des [fonctionnalités de gestion des sessions d’authentification](../conditional-access/howto-conditional-access-session-lifetime.md) dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. Après le 30 mai 2020, aucun locataire ne pourra plus utiliser la stratégie configurable de durée de vie des jetons pour configurer les jetons de session et d’actualisation. La dépréciation se produira dans un délai de plusieurs mois après cela, ce qui signifie que nous cesserons de prendre en compte les stratégies de session et d’actualisation des jetons existantes. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.
+> Après le 30 janvier 2021, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session, et Azure Active Directory cessera d’honorer la configuration existante des jetons d’actualisation et de session dans les stratégies après cette date. Vous pourrez toujours configurer la durée de vie des jetons d’accès après la mise hors service.
+> Nous avons implémenté les  [capacités de gestion des sessions d’authentification](../conditional-access/howto-conditional-access-session-lifetime.md)  dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. L’accès conditionnel est une fonctionnalité Azure AD Premium P1 qui vous permet de déterminer si la version Premium est adaptée à votre organisation sur la [page de tarification Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> Pour les locataires qui n’utilisent pas la gestion des sessions d’authentification dans l’accès conditionnel après la date de mise hors service, ils peuvent s’attendre à ce qu’Azure AD honore la configuration par défaut décrite dans la section suivante.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriétés des durées de vie des jetons configurables après la mise hors service
+La configuration des jetons d’actualisation et de session est affectée par les propriétés suivantes et leurs valeurs définies respectives. Après la mise hors service de la configuration des jetons d’actualisation et de session, Azure AD honorera uniquement la valeur par défaut décrite ci-dessous, que les stratégies aient des valeurs personnalisées configurées ou non.  
+
+|Propriété   |Chaîne de propriété de stratégie    |Éléments affectés |Default |
+|----------|-----------|------------|------------|
+|Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime  |Jetons d’actualisation |90 jours  |
+|Âge maximal de jeton d’actualisation à facteur unique  |MaxAgeSingleFactor  |Jetons d’actualisation (pour tous les utilisateurs)  |Jusqu’à révocation  |
+|Âge maximal de jeton d’actualisation multifacteur  |MaxAgeMultiFactor  |Jetons d’actualisation (pour tous les utilisateurs) |180 jours  |
+|Âge maximal de jeton de session à facteur unique  |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants)  |Jusqu’à révocation |
+|Âge maximal de jeton de session multifacteur  |MaxAgeSessionMultiFactor  |Jetons de session (persistants et non persistants)  |180 jours |
+
+Vous pouvez utiliser l’applet de commande [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) pour identifier les stratégies de durée de vie des jetons dont les valeurs de propriété diffèrent de celles par défaut d’Azure AD.
+
+Pour mieux comprendre comment vos stratégies sont utilisées dans votre locataire, vous pouvez utiliser l’applet de commande [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) pour identifier les applications et les principaux de service liés à vos stratégies. 
+
+Si votre locataire a des stratégies qui définissent des valeurs personnalisées pour les propriétés de configuration des jetons d’actualisation et de session, Microsoft vous recommande de mettre à jour ces stratégies dans l’étendue avec des valeurs qui reflètent les valeurs par défaut décrites ci-dessus. Si aucune modification n’est apportée, Azure AD honorera automatiquement les valeurs par défaut.  
+
+## <a name="overview"></a>Vue d'ensemble
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 

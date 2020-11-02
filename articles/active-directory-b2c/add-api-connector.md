@@ -5,19 +5,22 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102270"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504109"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Ajouter un connecteur d’API à un flux d’utilisateur d’inscription (version préliminaire)
+
+> [!IMPORTANT]
+> Les connecteurs d’API pour l’inscription sont une fonctionnalité en préversion publique d’Azure AD B2C. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d’abord créer le connecteur d’API, puis l’activer dans un workflow utilisateur.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,7 +83,7 @@ De plus, la revendication **Paramètres régionaux de l’interface utilisateur 
 > Si une revendication n’a pas de valeur au moment où le point de terminaison de l’API est appelé, la revendication n’est pas envoyée à l’API. Votre API doit être conçue pour vérifier et gérer explicitement le cas où une revendication ne figure pas dans la requête.
 
 > [!TIP] 
-> Les revendications [**identités (« identities »)**](https://docs.microsoft.com/graph/api/resources/objectidentity) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. La revendication « identities » (identités) est envoyée quand un utilisateur s’authentifie avec un fournisseur d’identité tel que Google ou Facebook. « email » est toujours envoyé.
+> Les revendications [**identités (« identities »)**](https://docs.microsoft.com/graph/api/resources/objectidentity) et **Adresse e-mail (« email »)** peuvent être utilisées par votre API pour identifier un utilisateur avant qu’il n’ait un compte dans votre locataire. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Activer le connecteur d’API dans un workflow utilisateur
 
@@ -100,7 +103,7 @@ Procédez comme suit pour ajouter un connecteur d’API à un workflow d’utili
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>après la connexion avec un fournisseur d’identité
 
-Un connecteur d’API à cette étape du processus d’inscription est appelé immédiatement après que l’utilisateur s’est authentifié auprès d’un fournisseur d’identité (comme Google, Facebook et Azure AD). Cette étape précède la ***page de collection d’attributs*** , qui est le formulaire présenté à l’utilisateur pour collecter des attributs utilisateur. Cette étape n’est pas appelée si un utilisateur s’inscrit auprès d’un compte local.
+Un connecteur d’API à cette étape du processus d’inscription est appelé immédiatement après que l’utilisateur s’est authentifié auprès d’un fournisseur d’identité (comme Google, Facebook et Azure AD). Cette étape précède la * *_page de collection d’attributs_* _, qui est le formulaire présenté à l’utilisateur pour collecter des attributs utilisateur. Cette étape n’est pas appelée si un utilisateur s’inscrit auprès d’un compte local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemple de demande envoyée à l’API à cette étape
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -238,7 +241,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Oui      | Version de l’API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Oui      | La valeur doit être `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que **Revendication d’application** .                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que _*Revendication d’application**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. Elles peuvent également être retournées dans le jeton si elles sont sélectionnées en tant que **Revendication d’application** .  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemple de réponse de blocage
@@ -288,7 +291,8 @@ Content-type: application/json
 | status      | Integer | Oui      | La valeur doit être `400` pour une réponse ValidationError.                        |
 | userMessage | String  | Oui      | Message à afficher à l’utilisateur.                                            |
 
-*Remarque :* Le code d’état HTTP doit être « 400 » en plus de la valeur « Status » dans le corps de la réponse.
+> [!NOTE]
+> Le code d’état HTTP doit être « 400 » en plus de la valeur « Status » dans le corps de la réponse.
 
 **Expérience de l’utilisateur final avec une réponse d’erreur de validation**
 
@@ -318,4 +322,4 @@ En général, il est judicieux d’utiliser les outils de journalisation activé
 
 ## <a name="next-steps"></a>Étapes suivantes
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Prise en main de nos [exemples de démarrage rapide d’Azure Function](code-samples.md#api-connectors).
+- Bien commencer avec nos [exemples](code-samples.md#api-connectors).
