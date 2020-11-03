@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123889"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426252"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,11 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
     ![Obtenir les informations d’identification des partages SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Sélectionnez **OK**.
+2. Dans la boîte de dialogue Access share and copy data (Accéder au partage et copier les données), copiez les valeurs **Nom d’utilisateur** et **Mot de passe** correspondant au partage. Si le mot de passe comporte des caractères spéciaux, ajoutez des guillemets doubles avant et après celui-ci. Sélectionnez ensuite **OK**.
     
     ![Obtenir le nom d’utilisateur et le mot de passe d’un partage](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Pour accéder aux partages associés à votre compte de stockage (*utsac1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
+3. Pour accéder aux partages associés à votre compte de stockage ( *utsac1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -95,7 +95,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
     The command completed successfully.
     ```
 
-4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
+4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter** , spécifiez `\\<device IP address>`. Sélectionnez **OK** pour ouvrir l’Explorateur de fichiers.
     
     ![Se connecter au partage à l’aide de l’Explorateur de fichiers](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 

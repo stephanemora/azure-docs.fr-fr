@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126324"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461139"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Bien démarrer avec l’exemple de bannière d’appel de groupe
 
@@ -25,16 +25,16 @@ ms.locfileid: "92126324"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
-L’**exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
+> [!IMPORTANT]
+> [Cet exemple est disponible sur GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
+L’ **exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
-> [!IMPORTANT]
-> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
-
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’ **application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
 
 Voici à quoi ressemble l’exemple :
 
@@ -42,17 +42,17 @@ Voici à quoi ressemble l’exemple :
 
 Lorsque vous appuyez sur le bouton « Start a call » (Démarrer un appel), l’application web récupère un jeton d’accès utilisateur à partir de l’application côté serveur. Ce jeton est ensuite utilisé pour connecter l’application cliente à Azure Communication Services. Une fois le jeton récupéré, vous êtes invité à spécifier la caméra et le microphone que vous souhaitez utiliser. Vous pouvez désactiver/activer vos appareils avec des bascules :
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Capture d’écran montrant l’écran de pré-appel de l’exemple d’application.":::
 
 Une fois que vous avez configuré votre nom d’affichage et vos appareils, vous pouvez rejoindre la session d’appel. Vous voyez à présent le canevas d’appel principal où réside l’expérience d’appel de base.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Capture d’écran montrant l’écran principal de l’exemple d’application.":::
 
 Composants de l’écran principal d’appel :
 
-1. **Galerie multimédia** : scène principale montrant les participants. Si une caméra est activée pour un participant, son flux vidéo est affiché ici. Chaque participant a une vignette individuelle qui comporte son nom d’affichage et son flux vidéo (le cas échéant).
-2. **En-tête**: il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
-3. **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
+1. **Galerie multimédia**  : scène principale montrant les participants. Si une caméra est activée pour un participant, son flux vidéo est affiché ici. Chaque participant a une vignette individuelle qui comporte son nom d’affichage et son flux vidéo (le cas échéant).
+2. **En-tête** : il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
+3. **Barre latérale**  : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -108,7 +108,6 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 Pour plus d’informations, consultez les articles suivants :
 
 - Familiarisez-vous avec la [bibliothèque de client d’appel](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Apprenez-en davantage sur les [fonctionnalités de la bibliothèque de client d’appel](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Documentation supplémentaire

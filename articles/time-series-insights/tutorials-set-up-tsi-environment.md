@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597669"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521286"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights Gen2
 
@@ -38,7 +38,7 @@ Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si v
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Au minimum, vous devez disposer du rôle **Contributeur** pour l’abonnement Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide d’un contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+* Au minimum, vous devez disposer du rôle **Contributeur** pour l’abonnement Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Créer une simulation d’appareil
 
@@ -68,7 +68,7 @@ Dans cette section, vous allez créer trois appareils simulés qui envoient des 
 
    [![Provisionnement de la solution de simulation d’appareil terminé.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
-1. Observons à présent les ressources nouvellement créées dans le portail Azure. Sur la page **Groupes de ressources**, vous remarquerez qu’un nouveau groupe de ressources a été créé à l’aide du **nom de la solution** indiqué à la dernière étape. Prenez note des ressources qui ont été créées pour la simulation d’appareil.
+1. Observons à présent les ressources nouvellement créées dans le portail Azure. Sur la page **Groupes de ressources** , vous remarquerez qu’un nouveau groupe de ressources a été créé à l’aide du **nom de la solution** indiqué à la dernière étape. Prenez note des ressources qui ont été créées pour la simulation d’appareil.
 
    [![Ressources de la simulation d’appareil](media/v2-update-provision/tsi-device-sim-solution-resources.png)](media/v2-update-provision/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -78,11 +78,11 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre compte d’abonnement Azure.
 1. Cliquez sur **+ Créer une ressource** dans le coin supérieur gauche.
-1. Sélectionnez la catégorie **Internet des objets**, puis **Time Series Insights**.
+1. Sélectionnez la catégorie **Internet des objets** , puis **Time Series Insights**.
 
    [![Sélectionner la ressource d’environnement Time Series Insights](media/v2-update-provision/tsi-create-new-environment.png)](media/v2-update-provision/tsi-create-new-environment.png#lightbox)
 
-1. Dans le volet **Créer un environnement Time Series Insights**, dans l’onglet **De base**, définissez les paramètres suivants :
+1. Dans le volet **Créer un environnement Time Series Insights** , dans l’onglet **De base** , définissez les paramètres suivants :
 
     | Paramètre | Action |
     | --- | ---|
@@ -91,8 +91,8 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
     | **Groupe de ressources** | Sélectionnez un groupe de ressources existant, ou créez-en un pour la ressource d’environnement Azure Time Series Insights Gen2. Un groupe de ressources est un conteneur pour les ressources Azure. Une bonne pratique consiste à utiliser le même groupe de ressources que pour les autres ressources IoT créées par le simulateur d’appareil. |
     | **Lieu** | Sélectionnez une région de centre de données pour votre environnement Azure Time Series Insights Gen2. Pour éviter toute latence supplémentaire, il est préférable de créer votre environnement Azure Time Series Insights Gen2 dans la même région que le hub IoT créé par le simulateur d’appareil. |
     | **Niveau** |  Sélectionnez **Gen2(L1)** . Il s’agit de la référence SKU du produit Azure Time Series Insights Gen2. |
-    | **Nom de propriété d’ID Time Series** | Entrez le nom d’une propriété qui contient des valeurs qui identifient de façon unique les instances de la série chronologique. La valeur que vous entrez dans la zone **Nom de la propriété** en tant qu’ID Time Series ne peut pas être modifiée ultérieurement. Pour ce tutoriel, utilisez l’identificateur ***iothub-connection-device-id***. Pour en savoir plus sur l’ID Time Series, notamment sur l’ID Time Series composite, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). |
-    | **Nom du compte de stockage** | Entrez un nom global unique pour le nouveau compte de stockage.|
+    | **Nom de propriété d’ID Time Series** | Entrez le nom d’une propriété qui contient des valeurs qui identifient de façon unique les instances de la série chronologique. La valeur que vous entrez dans la zone **Nom de la propriété** en tant qu’ID Time Series ne peut pas être modifiée ultérieurement. Pour ce tutoriel, utilisez l’identificateur * *_iothub-connection-device-id_* _. Pour en savoir plus sur l’ID Time Series, notamment sur l’ID Time Series composite, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). |
+    | _ *Nom du compte de stockage** | Entrez un nom global unique pour le nouveau compte de stockage.|
     | **Type de compte de stockage** | Sélectionnez le type de stockage pour un nouveau compte de stockage. Nous vous recommandons StorageV2.|
     | **Réplication de compte de stockage** | Sélectionnez le type de stockage pour un nouveau compte de stockage. En fonction de l’emplacement sélectionné, vous pouvez choisir parmi LRS, GRS et ZRS. Pour ce tutoriel, vous pouvez sélectionner LRS.|
     | **Espace de noms hiérarchique** |Cette option peut être sélectionnée, une fois que vous avez sélectionné le type de stockage StorageV2r. Elle est désactivée par défaut. Pour ce tutoriel, vous pouvez la conserver dans son état par défaut *désactivé*.|
@@ -105,7 +105,7 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
 
    [![Configurez l’ID de la série chronologique de l’environnement](media/v2-update-provision/tsi-time-series-id-selection.png)](media/v2-update-provision/tsi-time-series-id-selection.png#lightbox)
 
-1. Dans l’onglet **Source de l'événement**, définissez les paramètres suivants :
+1. Dans l’onglet **Source de l'événement** , définissez les paramètres suivants :
 
    | Paramètre | Action |
    | --- | --- |
@@ -116,8 +116,8 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
    | **Abonnement** | Sélectionnez l’abonnement que vous avez utilisé pour le simulateur d’appareil. |
    | **Nom du hub IoT** | Entrez le nom du hub IoT que vous avez créé pour le simulateur d’appareil. |
    | **Stratégie d'accès IoT Hub** | sélectionnez **iothubowner**. |
-   | **Groupe de consommateurs IoT Hub** | Sélectionnez **Nouveau**, entrez un nom unique, puis sélectionnez **+ Ajouter**. Le groupe de consommateurs doit représenter une valeur unique dans Azure Time Series Insights Gen2. |
-   | **Propriété timestamp** | Cette valeur utilisée pour identifier la propriété d'**horodatage** dans vos données de télémétrie entrantes. Pour ce didacticiel, laissez cette zone vide. Ce simulateur utilise le timestamp entrant du hub IoT auquel Azure Time Series Insights Gen2 est associé par défaut. |
+   | **Groupe de consommateurs IoT Hub** | Sélectionnez **Nouveau** , entrez un nom unique, puis sélectionnez **+ Ajouter**. Le groupe de consommateurs doit représenter une valeur unique dans Azure Time Series Insights Gen2. |
+   | **Propriété timestamp** | Cette valeur utilisée pour identifier la propriété d' **horodatage** dans vos données de télémétrie entrantes. Pour ce didacticiel, laissez cette zone vide. Ce simulateur utilise le timestamp entrant du hub IoT auquel Azure Time Series Insights Gen2 est associé par défaut. |
 
 1. Sélectionnez **Vérifier + créer**.
 
@@ -137,7 +137,7 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
 
       [![Sélectionner et afficher l’environnement](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
-   1. Dans la page Azure Time Series Insights Gen2, sélectionnez **Stratégies d’accès aux données** :
+   1. Dans la page Azure Time Series Insights Gen2, sélectionnez **Stratégies d’accès aux données**  :
 
       [![Vérifier les stratégies d’accès aux données](media/v2-update-provision/tsi-data-access-panel.png)](media/v2-update-provision/tsi-data-access-panel.png#lightbox)
 
@@ -166,7 +166,7 @@ Maintenant que vous avez déployé votre environnement Azure Time Series Insight
         | **Nom** | Entrez un nom unique pour le simulateur. |
         | **Description** | Entrez une définition. |
         | **Durée de la simulation** | Définissez ce paramètre sur **Run indefinitely** (Exécuter indéfiniment). |
-        | **Modèle de l’appareil** | Cliquez sur + **Ajouter un type d’appareil** <br />**Name** : Entrez **Ascenseur**. <br />**Quantité** : Entrez **3**. <br /> Conservez les valeurs par défaut restantes |
+        | **Modèle de l’appareil** | Cliquez sur + **Ajouter un type d’appareil** <br />**Name**  : Entrez **Ascenseur**. <br />**Quantité**  : Entrez **3**. <br /> Conservez les valeurs par défaut restantes |
         | **IoT Hub cible** | Définissez ce paramètre sur **Use pre-provisioned IoT Hub** (Utiliser le hub IoT préprovisionné). |
 
         [![Configurer les paramètres et lancer la simulation](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
@@ -193,7 +193,7 @@ Dans cette section, vous procédez à l’analyse de base de vos données de sé
 
     [![Instance de série chronologique sélectionnée avec la commande de menu pour afficher la température moyenne](media/v2-update-provision/select-instance-and-temperature.png)](media/v2-update-provision/select-instance-and-temperature.png#lightbox)
 
-    Un graphique des séries chronologiques apparaît. Modifiez l'**Intervalle** sur **30s**.
+    Un graphique des séries chronologiques apparaît. Modifiez l' **Intervalle** sur **30s**.
 
 1. Répétez l’étape précédente avec les deux autres instances de séries chronologiques pour afficher les trois, comme indiqué dans le graphique suivant :
 
@@ -209,11 +209,11 @@ Dans cette section, vous procédez à l’analyse de base de vos données de sé
 
 Dans cette section, vous appliquez un modèle pour structurer vos données. Pour finaliser le modèle, vous définissez les types, les hiérarchies et les instances. Pour en savoir plus sur la modélisation des données, consultez [Modèle Time Series](./concepts-model-overview.md).
 
-1. Dans l’explorateur, sélectionnez l’onglet **Modèle** :
+1. Dans l’explorateur, sélectionnez l’onglet **Modèle**  :
 
    [![Afficher l’onglet Modèle dans l’Explorateur](media/v2-update-provision/tsi-select-model-view.png)](media/v2-update-provision/tsi-select-model-view.png#lightbox).
 
-   Sous l’onglet **Types**, sélectionnez **+ Ajouter**.
+   Sous l’onglet **Types** , sélectionnez **+ Ajouter**.
 
 1. Entrez les paramètres suivants :
 
@@ -233,7 +233,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
         | **Valeur** | Sélectionner à partir d'une présélection : Sélectionnez **Température (Double)** . <br /> Remarque : Le remplissage automatique du champ **Valeur** peut prendre plusieurs minutes après qu’Azure Time Series Insights Gen2 a commencé à recevoir des événements.|
         | **Opération d'agrégation** | Développez **Options avancées**. <br /> Sélectionnez **AVG**. |
 
-    1. Sélectionnez **Appliquer**. Ensuite, sélectionnez à nouveau **+ Ajouter une variable**, puis définissez les valeurs suivantes :
+    1. Sélectionnez **Appliquer**. Ensuite, sélectionnez à nouveau **+ Ajouter une variable** , puis définissez les valeurs suivantes :
 
         | Paramètre | Action |
         | --- | --- |
@@ -242,7 +242,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
         | **Valeur** | Sélectionner à partir d'une présélection : Sélectionnez **vibration (double)** . <br /> Remarque : Le remplissage automatique du champ **Valeur** peut prendre plusieurs minutes après qu’Azure Time Series Insights Gen2 a commencé à recevoir des événements.|
         | **Opération d'agrégation** | Développez **Options avancées**. <br /> Sélectionnez **AVG**. |
 
-    1. Sélectionnez **Appliquer**. Ensuite, sélectionnez à nouveau **+ Ajouter une variable**, puis définissez les valeurs suivantes pour la troisième et dernière variable :
+    1. Sélectionnez **Appliquer**. Ensuite, sélectionnez à nouveau **+ Ajouter une variable** , puis définissez les valeurs suivantes pour la troisième et dernière variable :
 
         | Paramètre | Action |
         | --- | --- |
@@ -261,7 +261,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
 
 1. Sélectionnez l’onglet **Hiérarchies**. Sélectionnez ensuite **+ Ajouter**.
 
-   1. Dans le volet **Modifier la hiérarchie**, définissez les paramètres suivants :
+   1. Dans le volet **Modifier la hiérarchie** , définissez les paramètres suivants :
 
         | Paramètre | Action |
         | --- | ---|
@@ -295,7 +295,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
 
 1. Répétez l’étape précédente pour les deux autres instances en utilisant les valeurs suivantes :
 
-    **Pour l’ascenseur 2** :
+    **Pour l’ascenseur 2**  :
 
     | Paramètre | Action |
     | --- | --- |
@@ -307,7 +307,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
     | **Ville** | Entrez **Seattle** |
     | **Immeuble** | Entrez **Pacific Science Center** |
 
-    **Pour l’ascenseur 3** :
+    **Pour l’ascenseur 3**  :
 
     | Paramètre | Action |
     | --- | --- |
@@ -325,9 +325,9 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
 
     [![Afficher toutes les hiérarchies dans la vue Graphique](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png)](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
-1. Sous **Pacific Science Center**, sélectionnez l’instance de série chronologique **Ascenseur 2**, puis **Afficher la température moyenne**.
+1. Sous **Pacific Science Center** , sélectionnez l’instance de série chronologique **Ascenseur 2** , puis **Afficher la température moyenne**.
 
-1. Pour la même instance, **Ascenseur 2**, sélectionnez **Afficher l'étage**.
+1. Pour la même instance, **Ascenseur 2** , sélectionnez **Afficher l'étage**.
 
     Avec votre variable par catégorie, vous pouvez déterminer le temps que passe l'ascenseur aux étages inférieurs, supérieurs et intermédiaires.
 
@@ -337,7 +337,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
 
 Maintenant que vous avez terminé le didacticiel, nettoyez les ressources que vous avez créées :
 
-1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis recherchez votre groupe de ressources Azure Time Series Insights Gen2.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources** , puis recherchez votre groupe de ressources Azure Time Series Insights Gen2.
 1. Vous pouvez supprimer l’intégralité du groupe de ressources (et toutes les ressources qu’il contient) en sélectionnant **Supprimer** ou supprimer chaque ressource individuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes

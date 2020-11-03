@@ -9,22 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873877"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503553"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Tutoriel – Migrer une application Android à partir de Google Maps
 
-Le kit Android SDK Azure Maps dispose d’une interface d’API qui est similaire au SDK web. Si vous avez effectué le développement avec l’un de ces SDK, un grand nombre des mêmes concepts, bonnes pratiques et architectures s’appliquent.
+Le kit Android SDK Azure Maps dispose d’une interface d’API qui est similaire au SDK web. Si vous avez effectué le développement avec l’un de ces SDK, un grand nombre des mêmes concepts, bonnes pratiques et architectures s’appliquent. Dans ce didacticiel, vous apprendrez à :
+
+> [!div class="checklist"]
+> * Charger une carte
+> * Localiser une carte
+> * Ajouter des marqueurs, des polylignes et des polygones
+> * Superposer une couche de mosaïques
+> * Afficher les données du trafic
 
 Android SDK Azure Maps prend en charge une version Android minimale de l’API 21 : Android 5.0.0 (Lollipop).
 
 Tous les exemples sont fournis en Java ; toutefois, vous pouvez également utiliser Kotlin avec le kit Android SDK Azure Maps.
 
 Pour plus d’informations sur le développement avec le kit Android SDK fourni par Azure Maps, consultez les [guides pratiques relatifs au kit Android SDK Azure Maps](how-to-use-android-map-control-library.md).
+
+## <a name="prerequisites"></a>Prérequis 
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+2. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="load-a-map"></a>Charger une carte
 
@@ -52,7 +65,7 @@ Pour afficher une carte à l’aide du SDK Google Maps pour Android, il est néc
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-3. Ajoutez une clé API Google Maps à l’intérieur de la section application du fichier **google\_maps\_api.xml** :
+3. Ajoutez une clé API Google Maps à l’intérieur de la section application du fichier **google\_maps\_api.xml**  :
 
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -67,7 +80,7 @@ Pour afficher une carte à l’aide du SDK Google Maps pour Android, il est néc
             android:layout_height="match_parent"/>
     ```
 
-5. Dans le fichier **MainActivity.java**, vous devez importer le SDK Google Maps. Transférez toutes les méthodes de cycle de vie de l’activité contenant la vue cartographique aux éléments correspondants dans la classe map. Récupérez une instance de `MapView` à partir du fragment de carte à l’aide de la méthode `getMapAsync(OnMapReadyCallback)`. `MapView` initialise automatiquement le système maps et l’affichage. Modifiez le fichier **MainActivity.java** comme suit :
+5. Dans le fichier **MainActivity.java** , vous devez importer le SDK Google Maps. Transférez toutes les méthodes de cycle de vie de l’activité contenant la vue cartographique aux éléments correspondants dans la classe map. Récupérez une instance de `MapView` à partir du fragment de carte à l’aide de la méthode `getMapAsync(OnMapReadyCallback)`. `MapView` initialise automatiquement le système maps et l’affichage. Modifiez le fichier **MainActivity.java** comme suit :
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -201,7 +214,7 @@ Pour afficher une carte à l’aide du SDK Azure Maps pour Android, il est néce
     </FrameLayout>
     ```
 
-4. Dans le fichier **MainActivity.java**, vous devez :
+4. Dans le fichier **MainActivity.java** , vous devez :
 
     * Importer le SDK Azure Maps.
     * Définir vos informations d’authentification Azure Maps.
@@ -745,6 +758,18 @@ mapControl.onReady(map -> {
 
 ![Trafic Azure Maps](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
-Découvrez-en plus sur Android SDK Azure Maps.
+## <a name="next-steps"></a>Étapes suivantes
 
-[Guide pratique pour utiliser le contrôle de carte Android](how-to-use-android-map-control-library.md)
+Découvrez-en plus sur Android SDK Azure Maps :
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour utiliser le contrôle de carte Android](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md) (Ajouter une couche de symboles à une carte Android)
+
+> [!div class="nextstepaction"]
+> [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles) (Modifier les styles de carte dans les cartes Android)

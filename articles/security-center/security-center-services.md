@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342295"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425150"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -30,7 +30,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 |**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines compatibles avec Azure Arc**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
-|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
+|[Intégration de Microsoft Defender for Endpoint](security-center-wdatp.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
 |[Analytique comportementale des machines virtuelles (et alertes de sécurité)](alerts-reference.md)|✔|✔|✔|Oui|
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|Oui|
 |[Alertes de sécurité réseau](other-threat-protections.md#network-layer)|✔|✔|-|Oui|
@@ -54,7 +54,7 @@ Les deux tableaux ci-dessous montrent les fonctionnalités d’Azure Security Ce
 
 |**Fonctionnalité**|**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines compatibles avec Azure Arc**|**Azure Defender requis**
 |----|:----:|:----:|:----:|:----:|
-|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Oui|
+|[Intégration de Microsoft Defender for Endpoint](security-center-wdatp.md)|-|-|-|Oui|
 |[Analytique comportementale des machines virtuelles (et alertes de sécurité)](./azure-defender.md)|✔</br>(sur les versions prises en charge)|✔</br>(sur les versions prises en charge)|✔|Oui|
 |[Alertes de sécurité sans fichier](alerts-reference.md#alerts-windows)|-|-|-|Oui|
 |[Alertes de sécurité réseau](other-threat-protections.md#network-layer)|✔|✔|-|Oui|

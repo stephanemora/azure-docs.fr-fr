@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105122"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519688"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction dans Azure à l’aide de Visual Studio Code
 
@@ -65,7 +65,7 @@ Avant de commencer, veillez à disposer des éléments suivants :
 - [.NET Core 3.1](https://www.microsoft.com/net/download) et [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8.
+- [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) version 8 ou 11.
 
 - [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 ::: zone-end
@@ -89,7 +89,7 @@ Avant de commencer, veillez à disposer des éléments suivants :
 
 Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure Functions local dans le langage de votre choix. Plus loin dans cet article, vous allez publier votre code de fonction sur Azure. 
 
-1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, sélectionnez l’icône **Créer un projet**.
+1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions** , sélectionnez l’icône **Créer un projet**.
 
     ![Choisir Créer un projet](media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -101,50 +101,50 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
     ::: zone pivot="programming-language-csharp"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `C#`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `C#`.
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `JavaScript`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `JavaScript`.
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `TypeScript`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `TypeScript`.
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `PowerShell`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `PowerShell`.
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `Python`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `Python`.
 
-    - **Sélectionner un alias Python pour créer un environnement virtuel** : Choisissez l’emplacement de votre interpréteur Python. Si l’emplacement n’est pas affiché, tapez le chemin complet de votre fichier binaire Python.
+    - **Sélectionner un alias Python pour créer un environnement virtuel**  : Choisissez l’emplacement de votre interpréteur Python. Si l’emplacement n’est pas affiché, tapez le chemin complet de votre fichier binaire Python.
     ::: zone-end
 
     ::: zone pivot="programming-language-java"
-    - **Sélectionner un langage pour votre projet de fonction** : Choisissez `Java`.
+    - **Sélectionner un langage pour votre projet de fonction**  : Choisissez `Java`.
 
-    - **Sélectionnez une version de Java** : Choisissez `Java 8` ou `Java 11 (preview)`, sur laquelle vos fonctions s’exécutent dans Azure. Choisissez une version de Java que vous avez vérifiée localement.
+    - **Sélectionnez une version de Java**  : Choisissez `Java 8` ou `Java 11`, sur laquelle vos fonctions s’exécutent dans Azure. Choisissez une version de Java que vous avez vérifiée localement.
 
-    - **Fournir un ID de groupe** : Choisissez `com.function`.
+    - **Fournir un ID de groupe**  : Choisissez `com.function`.
 
-    - **Fournir un ID d’artefact** : Choisissez `myFunction`.
+    - **Fournir un ID d’artefact**  : Choisissez `myFunction`.
 
-    - **Fournir une version** : Choisissez `1.0-SNAPSHOT`.
+    - **Fournir une version**  : Choisissez `1.0-SNAPSHOT`.
 
-    - **Fournir un nom de package** : Choisissez `com.function`.
+    - **Fournir un nom de package**  : Choisissez `com.function`.
 
-    - **Fournir un nom d’application** : Choisissez `myFunction-12345`.
+    - **Fournir un nom d’application**  : Choisissez `myFunction-12345`.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **Sélectionner un modèle pour la première fonction de votre projet** : Choisissez `HTTP trigger`.
+    - **Sélectionner un modèle pour la première fonction de votre projet**  : Choisissez `HTTP trigger`.
   
-    - **Fournir un nom de fonction** : Tapez `HttpExample`.
+    - **Fournir un nom de fonction**  : Tapez `HttpExample`.
     ::: zone-end
     ::: zone pivot="programming-language-csharp"
-    - **Fournir un espace de noms** : Tapez `My.Functions`.
+    - **Fournir un espace de noms**  : Tapez `My.Functions`.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    - **Niveau d’autorisation** : Choisissez l’option `Anonymous`, qui permet à quiconque d’appeler le point de terminaison de votre fonction. Pour en savoir plus sur le niveau d’autorisation, consultez [Clés d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    - **Niveau d’autorisation**  : Choisissez l’option `Anonymous`, qui permet à quiconque d’appeler le point de terminaison de votre fonction. Pour en savoir plus sur le niveau d’autorisation, consultez [Clés d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys).
     ::: zone-end
-    - **Sélectionner la façon dont vous souhaitez ouvrir votre projet** : Choisissez `Add to workspace`.
+    - **Sélectionner la façon dont vous souhaitez ouvrir votre projet**  : Choisissez `Add to workspace`.
 
 1. À l’aide de ces informations, Visual Studio Code génère un projet Azure Functions avec un déclencheur HTTP. Vous pouvez voir les fichiers de projet locaux dans l’Explorateur. Pour en savoir plus sur les fichiers créés, consultez [Fichiers projet générés](functions-develop-vs-code.md#generated-project-files). 
 
@@ -168,7 +168,7 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 ## <a name="run-the-function-in-azure"></a>Exécuter la fonction dans Azure
 
-1. Dans la zone **Azure : Fonctions** de la barre latérale, développez la nouvelle application de fonction sous votre abonnement. Développez **Fonctions**, cliquez avec le bouton droit (Windows) ou appuyez sur <kbd>Ctrl -</kbd> clic (macOS) sur **HttpExample**, puis sélectionnez **Copier l’URL de la fonction**.
+1. Dans la zone **Azure : Fonctions** de la barre latérale, développez la nouvelle application de fonction sous votre abonnement. Développez **Fonctions** , cliquez avec le bouton droit (Windows) ou appuyez sur <kbd>Ctrl -</kbd> clic (macOS) sur **HttpExample** , puis sélectionnez **Copier l’URL de la fonction**.
 
     ![Copier l'URL de fonction du nouveau déclencheur HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 

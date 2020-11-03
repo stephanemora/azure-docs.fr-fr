@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313143"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460969"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutoriel : Migrer Azure Database pour PostgreSQL – Serveur unique vers Azure Database pour PostgreSQL – Serveur unique en ligne utilisant DMS via le portail Azure
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutoriel : Migrer/Mettre à niveau Azure Database pour PostgreSQL – Serveur unique vers Azure Database pour PostgreSQL – Serveur unique en ligne utilisant DMS via le portail Azure
 
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance [Azure Database pour PostgreSQL – Serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) vers une version identique ou différente d’une instance Azure Database pour PostgreSQL – Serveur unique ou vers Azure Database pour PostgreSQL – Serveur flexible moyennant un temps d’arrêt minimal. Dans ce tutoriel, vous allez migrer l’exemple de base de données **DVD Rental** à partir d’une instance Azure Database pour PostgreSQL v10 vers Azure Database pour PostgreSQL – Serveur unique à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
 
@@ -47,7 +47,7 @@ Dans ce tutoriel, vous allez apprendre à :
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Vérifier [État des scénarios de migration pris en charge par Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) pour connaître les combinaisons de migration et de versions prises en charge. 
-* Une instance [Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 et ultérieure existante avec la base de données **DVD Rental** . Azure Database Migration Service ne prend pas en charge la migration à partir d’Azure Database pour PostgreSQL 9.5 ou 9.6.
+* Une instance [Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 et ultérieure existante avec la base de données **DVD Rental**. 
 
     Notez également que la version cible d'Azure Database pour PostgreSQL doit être égale ou ultérieure à la version PostgreSQL locale. Par exemple, PostgreSQL 10 peut migrer vers Azure Database pour PostgreSQL 10 ou 11, et non vers Azure Database pour PostgreSQL 9.6.
 
@@ -92,7 +92,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
     Pour plus d’informations sur la création et la connexion d’une base de données, consultez l’article [Créer un serveur Azure Database pour PostgreSQL dans le Portail Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) ou [Créer un serveur Azure Database pour PostgreSQL – Hyperscale (Citus) dans le Portail Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 
     > [!NOTE]
-    > Une instance Azure Database pour PostgreSQL – Hyperscale (Citus) dispose uniquement d’une base de données unique : **citus** .
+    > Une instance Azure Database pour PostgreSQL – Hyperscale (Citus) dispose uniquement d’une base de données unique : **citus**.
 
 3. Importez le schéma dans la base de données cible que vous avez créée en restaurant le fichier de vidage du schéma.
 
@@ -157,15 +157,15 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
 
-1. Connectez-vous au portail Azure, sélectionnez **Tous les services** , puis **Abonnements** .
+1. Connectez-vous au portail Azure, sélectionnez **Tous les services** , puis **Abonnements**.
 
    ![Afficher les abonnements au portail](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
 
-2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources** .
+2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
 
     ![Afficher les fournisseurs de ressources](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
 
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration** , sélectionnez **Inscrire** .
+3. Recherchez migration, puis à droite de **Microsoft.DataMigration** , sélectionnez **Inscrire**.
 
     ![S’inscrire auprès du fournisseur de ressources](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
 
@@ -175,7 +175,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
     ![Place de marché Azure](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-marketplace.png)
 
-2. Dans l’écran **Azure Database Migration Service** , sélectionnez **Créer** .
+2. Dans l’écran **Azure Database Migration Service** , sélectionnez **Créer**.
 
     ![Créer une instance Azure Database Migration Service](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create1.png)
   
@@ -201,24 +201,24 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
 Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis créez un projet de migration.
 
-1. Dans le portail Azure, sélectionnez **Tous les services** , recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Services** .
+1. Dans le portail Azure, sélectionnez **Tous les services** , recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Services**.
 
       ![Localiser toutes les instances Azure Database Migration Service](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-search.png)
 
-2. Dans l’écran **Azure Database Migration Services** , recherchez le nom de l’instance Azure Database Migration Service que vous avez créée et sélectionnez l’instance, puis **+ Nouveau projet de migration** .
+2. Dans l’écran **Azure Database Migration Services** , recherchez le nom de l’instance Azure Database Migration Service que vous avez créée et sélectionnez l’instance, puis **+ Nouveau projet de migration**.
 
-3. Dans l’écran **Nouveau projet de migration** , spécifiez un nom pour le projet, dans la zone de texte **Type de serveur source** , sélectionnez **PostgreSQL** et, dans la zone de texte **Type de serveur cible** , sélectionnez **Azure Database pour PostgreSQL** .
+3. Dans l’écran **Nouveau projet de migration** , spécifiez un nom pour le projet, dans la zone de texte **Type de serveur source** , sélectionnez **PostgreSQL** et, dans la zone de texte **Type de serveur cible** , sélectionnez **Azure Database pour PostgreSQL**.
     > [!NOTE]
-    > Choisissez **PostgreSQL** dans **Type de serveur source** même si le serveur source est une instance **Azure Database pour PostgreSQL** .  
+    > Choisissez **PostgreSQL** dans **Type de serveur source** même si le serveur source est une instance **Azure Database pour PostgreSQL**.  
 
-4. Dans la section **Choisir un type d’activité** , sélectionnez **Migration de données en ligne** .
+4. Dans la section **Choisir un type d’activité** , sélectionnez **Migration de données en ligne**.
 
     ![Créer un projet Azure Database Migration Service](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create-project.png)
 
     > [!NOTE]
     > Une autre possibilité consiste à choisir **Créer un projet uniquement** pour créer le projet de migration à ce stade et exécuter la migration ultérieurement.
 
-5. Sélectionnez **Enregistrer** , notez les conditions requises pour pouvoir utiliser Azure Database Migration Service pour migrer des données, puis sélectionnez **Créer et exécuter une activité** .
+5. Sélectionnez **Enregistrer** , notez les conditions requises pour pouvoir utiliser Azure Database Migration Service pour migrer des données, puis sélectionnez **Créer et exécuter une activité**.
 
 ## <a name="specify-source-details"></a>Spécifier les détails de la source
 
@@ -227,9 +227,9 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     ![Écran Ajouter les détails de la source](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-add-source-details.png)
 
     > [!NOTE]
-    > Vous pouvez trouver des détails tels que « Nom du serveur », « Port du serveur », « Nom de la base de données », etc., dans le portail **Azure Database pour PostgreSQL** .
+    > Vous pouvez trouver des détails tels que « Nom du serveur », « Port du serveur », « Nom de la base de données », etc., dans le portail **Azure Database pour PostgreSQL**.
 
-2. Sélectionnez **Enregistrer** .
+2. Sélectionnez **Enregistrer**.
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
 
@@ -256,9 +256,9 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ## <a name="run-the-migration"></a>Exécuter la migration
 
-* Sélectionnez **Exécuter la migration** .
+* Sélectionnez **Exécuter la migration**.
 
-La fenêtre d’activité de migration s’affiche, et l’ **état** de l’activité doit se mettre à jour pour indiquer **Sauvegarde en cours** . Vous pouvez rencontrer l’erreur suivante lors de la mise à niveau à partir d’Azure DB pour PostgreSQL 9.5 ou 9.6 :
+La fenêtre d’activité de migration s’affiche, et l’ **état** de l’activité doit se mettre à jour pour indiquer **Sauvegarde en cours**. Vous pouvez rencontrer l’erreur suivante lors de la mise à niveau à partir d’Azure DB pour PostgreSQL 9.5 ou 9.6 :
 
 **Un scénario a signalé une erreur inconnue. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"**
 
@@ -273,7 +273,7 @@ Cela est dû au fait que PostgreSQL ne dispose pas des privilèges exigés pour 
 
 ## <a name="monitor-the-migration"></a>Surveiller la migration
 
-1. Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à voir **l’état** de la migration s’afficher comme **Terminé** .
+1. Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à voir **l’état** de la migration s’afficher comme **Terminé**.
 
      ![Processus Surveiller la migration](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
 
@@ -288,11 +288,11 @@ Cela est dû au fait que PostgreSQL ne dispose pas des privilèges exigés pour 
 
 ## <a name="perform-migration-cutover"></a>Effectuer le basculement de la migration
 
-Une fois le chargement complet initial effectué, les bases de données identifiées par le libellé **Prêt pour le basculement** .
+Une fois le chargement complet initial effectué, les bases de données identifiées par le libellé **Prêt pour le basculement**.
 
-1. Lorsque vous êtes prêt à effectuer la migration de base de données, sélectionnez **Démarrer le basculement** .
+1. Lorsque vous êtes prêt à effectuer la migration de base de données, sélectionnez **Démarrer le basculement**.
 
-2. Attendez que le compteur **Modifications en attente** affiche **0** pour vous assurer que toutes les transactions entrantes dans la base de données source sont arrêtées, activez la case à cocher **Confirmer** , puis sélectionnez **Appliquer** .
+2. Attendez que le compteur **Modifications en attente** affiche **0** pour vous assurer que toutes les transactions entrantes dans la base de données source sont arrêtées, activez la case à cocher **Confirmer** , puis sélectionnez **Appliquer**.
 
     ![Écran de basculement terminé](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 

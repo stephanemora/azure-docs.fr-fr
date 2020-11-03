@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585931"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440516"
 ---
 # <a name="azure-key-vault-backup"></a>Sauvegarde Azure Key Vault
 
@@ -30,6 +30,9 @@ Key Vault assure la disponibilité dans les scénarios de sinistre et bascule au
 Si vous voulez une protection contre la suppression accidentelle ou malveillante de vos secrets, configurez les fonctionnalités de suppression réversible et de protection contre le vidage sur votre coffre de clés. Pour plus d’informations, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limites
+
+> [!IMPORTANT]
+> Key Vault ne prend pas en charge la possibilité de sauvegarder plus de 500 versions antérieures d’un objet de clé, de secret ou de certificat. Toute tentative de sauvegarde d’un objet de clé, de secret ou de certificat peut entraîner une erreur. Il est impossible de supprimer les versions précédentes d’une clé, d’un secret ou d’un certificat.
 
 Key Vault ne propose pour l’instant aucun moyen de sauvegarder l’ensemble d’un coffre de clés en une seule opération. Toute tentative d’utiliser les commandes listées dans ce document pour effectuer une sauvegarde automatisée d’un coffre de clés peut entraîner des erreurs et n’est pas prise en charge par Microsoft ni l’équipe Azure Key Vault. 
 

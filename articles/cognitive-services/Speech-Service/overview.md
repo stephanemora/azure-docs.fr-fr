@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630200"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521507"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
 Le service Speech réunit la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un même abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services [CLI Speech](spx-overview.md), [SDK Speech](speech-sdk-reference.md), [SDK Speech Devices](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/) ou les [API REST](rest-apis.md).
 
 > [!IMPORTANT]
-> Le service Speech remplace l’API Reconnaissance vocale Bing et Traduction de conversation Translator Speech. Pour obtenir des instructions de migration, voir _Guides pratiques > Migration_.
+> Le service Speech remplace l’API Reconnaissance vocale Bing et Traduction de conversation Translator Speech. Pour obtenir des instructions de migration, consultez la section _Migration_.
 
 Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plus sur les cas d’utilisation courants de chaque fonctionnalité, utilisez les liens figurant dans ce tableau, ou parcourez la référence de l’API.
 
@@ -61,15 +61,15 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en utilisant votre compte Microsoft.
 
-1. Sélectionnez **Créer une ressource** en haut à gauche du portail. Si vous ne voyez pas l’option **Créer une ressource**, vous pouvez y accéder en sélectionnant le menu réduit situé en haut à gauche de l’écran :
+1. Sélectionnez **Créer une ressource** en haut à gauche du portail. Si vous ne voyez pas l’option **Créer une ressource** , vous pouvez y accéder en sélectionnant le menu réduit situé en haut à gauche de l’écran :
 
-1. Dans la fenêtre **Nouveau**, saisissez « speech » dans la zone de recherche et appuyez sur ENTRÉE.
+1. Dans la fenêtre **Nouveau** , saisissez « speech » dans la zone de recherche et appuyez sur ENTRÉE.
 
 1. Dans les résultats de la recherche, sélectionnez **Speech**.
 
    ![résultats de la recherche speech](media/index/speech-search.png)
 
-1. Sélectionnez **Créer**, puis :
+1. Sélectionnez **Créer** , puis :
 
    - Donnez un nom unique à votre nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements liés au même service.
    - Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
@@ -81,7 +81,21 @@ Pour ajouter une ressource de service Speech (niveau gratuit ou payant) à votre
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** et, dans le volet de navigation gauche, sélectionnez **Clés** pour afficher vos clés d’abonnement au service Speech. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Pour copier-coller rapidement une clé dans votre éditeur de code ou dans un autre emplacement, cliquez sur le bouton Copier à côté de chaque clé, puis changez de fenêtre pour coller le contenu du Presse-papiers à l’emplacement souhaité.
+Le déploiement de votre nouvelle ressource Speech prend quelques instants. 
+
+### <a name="find-keys-and-region"></a>Rechercher les clés et la région
+
+Pour rechercher les clés et la région d’un déploiement terminé, effectuez les étapes suivantes :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en utilisant votre compte Microsoft.
+
+2. Sélectionnez **Toutes les ressources** , puis le nom de votre ressource Cognitive Services.
+
+3. Dans le volet gauche, sous **GESTION DES RESSOURCES** , sélectionnez **Clés et point de terminaison**.
+
+Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Pour copier-coller une clé dans votre éditeur de code ou dans un autre emplacement, cliquez sur le bouton Copier à côté de chaque clé, puis changez de fenêtre pour coller le contenu du Presse-papiers à l’emplacement souhaité.
+
+Copiez aussi la valeur `LOCATION`, qui correspond à votre ID de région (par exemple, `westus`, `westeurope`) pour les appels des SDK.
 
 > [!IMPORTANT]
 > Ces clés d’abonnement sont utilisées pour accéder à votre API Cognitive Service. Ne partagez pas vos clés. Stockez-les en toute sécurité, par exemple, à l’aide d’Azure Key Vault. Nous vous recommandons également de régénérer ces clés régulièrement. Une seule clé est nécessaire pour effectuer un appel d’API. Lors de la régénération de la première clé, vous pouvez utiliser la deuxième clé pour un accès continu au service.
@@ -115,7 +129,7 @@ Un exemple de code est disponible sur GitHub pour le service Speech. Ces exemple
 
 Le service Speech fonctionne bien avec les modèles intégrés. Cependant, vous pouvez personnaliser et optimiser l’expérience pour votre produit ou environnement. Les options de personnalisation vont de l’ajustement du modèle acoustique aux polices de voix uniques pour votre marque.
 
-D’autres produits proposent des modèles vocaux adaptés à des fins spécifiques, telles que la santé ou l’assurance, mais sont disponibles pour tous les publics. Dans Azure Speech, la personnalisation constitue *votre avantage concurrentiel*, qui n’est pas celui des autres utilisateurs ou clients. En d’autres termes, vos modèles sont privés et adaptés à votre cas d’utilisation.
+D’autres produits proposent des modèles vocaux adaptés à des fins spécifiques, telles que la santé ou l’assurance, mais sont disponibles pour tous les publics. Dans Azure Speech, la personnalisation constitue *votre avantage concurrentiel* , qui n’est pas celui des autres utilisateurs ou clients. En d’autres termes, vos modèles sont privés et adaptés à votre cas d’utilisation.
 
 | Speech Service | Plateforme | Description |
 | -------------- | -------- | ----------- |

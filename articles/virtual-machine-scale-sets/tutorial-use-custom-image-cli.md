@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: dd0cf450ca63349d29aba3d65f3c76f40a44be2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503631"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518710"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -55,7 +55,7 @@ az vm create \
 ```
 
 > [!IMPORTANT]
-> L’**ID** de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
+> L’ **ID** de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
 
 L’adresse IP publique de votre machine virtuelle est également affichée dans la sortie de la commande [az vm create](/cli/azure/vm). La connexion SSH à l’adresse IP publique de votre machine virtuelle se présente comme suit :
 
@@ -111,14 +111,14 @@ az sig image-definition create \
 ```
 
 > [!IMPORTANT]
-> L’**ID** de votre définition d’image est indiqué dans la sortie de la commande. Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
+> L’ **ID** de votre définition d’image est indiqué dans la sortie de la commande. Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
 
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
 Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*. *MinorVersion*. *Patch*.
 
 Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer un réplica dans la région *USA Centre Sud* et un réplica dans la région *USA Est 2*. Les régions de réplication doivent inclure la région dans laquelle se trouve la machine virtuelle source.
 
@@ -197,7 +197,7 @@ Entrez l’adresse IP publique dans votre navigateur web. La page web NGINX par 
 
 ## <a name="share-the-gallery"></a>Partager la galerie
 
-Vous pouvez partager des images entre abonnements à l’aide du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez partager des images au niveau de la galerie, de la définition d’image ou de la version d’image. Tout utilisateur disposant d’autorisations de lecture sur une version d’image, même dans plusieurs abonnements, peut déployer une machine virtuelle à partir de la version d’image.
+Vous pouvez partager des images entre abonnements à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Vous pouvez partager des images au niveau de la galerie, de la définition d’image ou de la version d’image. Tout utilisateur disposant d’autorisations de lecture sur une version d’image, même dans plusieurs abonnements, peut déployer une machine virtuelle à partir de la version d’image.
 
 Nous vous recommandons de partager l’accès avec d’autres utilisateurs au niveau de la galerie. Pour obtenir l’ID d’objet de votre galerie, utilisez [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Pour plus d’informations sur le partage de ressources à l’aide de RBAC, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../role-based-access-control/role-assignments-cli.md).
+Pour plus d’informations sur la façon de partager des ressources à l’aide d’Azure RBAC, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

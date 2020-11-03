@@ -7,20 +7,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7b57bfbd09cd2b528b5a879acdb41b4716289aa6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147320"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372002"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Comment la remise de réservation s’applique à Azure Cache pour Redis
 
-Quand vous achetez une capacité de réserve Azure Cache pour Redis, la remise de réservation s’applique automatiquement aux instances de cache qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre instance Azure Cache pour Redis. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux. La capacité de réserve est disponible uniquement pour les caches de [niveau Premium](//azure/azure-cache-for-redis/quickstart-create-redis).
+Quand vous achetez une capacité de réserve Azure Cache pour Redis, la remise de réservation s’applique automatiquement aux instances de cache qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre instance Azure Cache pour Redis. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux. La capacité de réserve est disponible uniquement pour les caches de [niveau Premium](/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue***. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
+Une remise de réservation repose sur le principe de * **capacité utilisée ou perdue** _. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
 Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n’est trouvée dans l’étendue spécifiée, les heures réservées sont perdues.
 
@@ -30,15 +30,15 @@ La remise de capacité de réserve Azure Cache pour Redis s’applique à vos ca
 
 Les exemples suivants montrent comment la remise de capacité de réserve Azure Cache pour Redis s’applique en fonction du nombre de caches que vous avez achetés et du moment où ils s’exécutent.
 
-**Exemple 1** : Vous achetez une capacité de réserve Azure Cache pour Redis pour un cache de 6 Go. Si vous exécutez un cache de 13 Go qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 7 Go d’utilisation de la capacité de calcul de votre instance Azure Cache pour Redis et vous bénéficiez de la remise de réservation pour une heure d’utilisation de la capacité de calcul du cache de 6 Go.
+_ **Exemple 1**  : Vous achetez une capacité de réserve Azure Cache pour Redis pour un cache de 6 Go. Si vous exécutez un cache de 13 Go qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 7 Go d’utilisation de la capacité de calcul de votre instance Azure Cache pour Redis et vous bénéficiez de la remise de réservation pour une heure d’utilisation de la capacité de calcul du cache de 6 Go.
 
 Pour le reste de ces exemples, nous partons du principe que la capacité de réserve Azure Cache pour Redis que vous achetez est destinée à un cache de 26 Go et que les autres attributs de réservation correspondent au cache en cours d’exécution.
 
 * **Exemple 2 :** Vous exécutez deux caches de 13 Go pendant une heure. La remise de réservation de 26 Go s’applique à l’utilisation de la capacité de calcul des deux caches.
 
-* **Exemple 3** : Vous exécutez un cache de 26 Go de 13h00 à 13h30. Vous exécutez un autre cache de 26 Go de 13h30 à 14h00. Les deux sont couvertes par la remise de réservation.
+* **Exemple 3**  : Vous exécutez un cache de 26 Go de 13h00 à 13h30. Vous exécutez un autre cache de 26 Go de 13h30 à 14h00. Les deux sont couvertes par la remise de réservation.
 
-* **Exemple 4** : Vous exécutez un cache de 26 Go de 13h00 à 13h45. Vous exécutez un autre cache de 26 Go de 13h30 à 14h00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
+* **Exemple 4**  : Vous exécutez un cache de 26 Go de 13h00 à 13h45. Vous exécutez un autre cache de 26 Go de 13h30 à 14h00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](./understand-reserved-instance-usage-ea.md).
 

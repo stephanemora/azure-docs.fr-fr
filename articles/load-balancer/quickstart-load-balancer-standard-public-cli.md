@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2020
+ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: d78b67cbd811ae0f3b7cea8aec119d05464c124a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 454dc3ddd03be319c23df67231ea2ab08b95c52b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047792"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544917"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI
 
@@ -42,12 +42,12 @@ Un groupe de ressources Azure est un conteneur logique dans lequel les ressource
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) :
 
-* Nommé **myResourceGroupLB**. 
+* Nommé **CreatePubLBQS-rg**. 
 * Dans l’emplacement **eastus**.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupLB \
+    --name CreatePubLBQS-rg \
     --location eastus
 ```
 ---
@@ -69,12 +69,12 @@ Créez un réseau virtuel avec la commande [az network vnet create](https://docs
 * Préfixe d’adresse **10.1.0.0/16**.
 * Sous-réseau nommé **myBackendSubnet**.
 * Préfixe du sous-réseau **10.1.0.0/24**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -89,11 +89,11 @@ Pour un équilibreur de charge standard, les machines virtuelles à l’adresse 
 Créez un Groupe de sécurité réseau avec la commande [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) :
 
 * Nommé **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNSG
 ```
 
@@ -103,7 +103,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 * Nommé **myNSGRuleHTTP**.
 * Dans le groupe de sécurité réseau que vous avez créé à l’étape précédente, **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Protocole **(*)** .
 * Direction **entrante**.
 * Source **(*)** .
@@ -114,7 +114,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -134,7 +134,7 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm1"></a>MV1
 
 * Nommée **myNicVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
@@ -142,7 +142,7 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -151,13 +151,13 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm2"></a>MV2
 
 * Nommé **myNicVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -166,14 +166,14 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm3"></a>MV3
 
 * Nommée **myNicVM3**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM3 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -240,7 +240,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm1"></a>MV1
 * Nommée **myVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM1**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -248,7 +248,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -260,7 +260,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 ```
 #### <a name="vm2"></a>MV2
 * Nommée **myVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM2**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -268,7 +268,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -280,7 +280,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm3"></a>MV3
 * Nommée **myVM3**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM3**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -288,7 +288,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
    az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM3 \
     --nics myNicVM3 \
     --image UbuntuLTS \
@@ -306,11 +306,11 @@ Pour accéder à votre application web sur Internet, vous avez besoin d’une ad
 Utilisez la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) pour effectuer les opérations suivantes :
 
 * Créer une adresse IP publique redondante dans une zone standard nommée **myPublicIP**.
-* Dans **myResourceGroupLB**.
+* Dans **CreatePubLBQS.rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Standard
 ```
@@ -319,7 +319,7 @@ Pour créer une adresse IP publique redondante zonale dans la Zone 1, procédez
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Standard \
     --zone 1
@@ -345,7 +345,7 @@ Créez un équilibreur de charge public avec la commande [az network lb create](
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myLoadBalancer \
     --sku Standard \
     --public-ip-address myPublicIP \
@@ -368,7 +368,7 @@ Créez une sonde d’intégrité avec la commande [az network lb probe create](h
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -390,11 +390,13 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
 * Envoyant le trafic réseau dont la charge est équilibrée au pool d’adresses principal **myBackEndPool** à l’aide du **Port 80**. 
 * Utilisant la sonde d’intégrité **myHealthProbe**.
 * Protocole **TCP**.
-* Activez la traduction d’adresses réseau source (SNAT) sortante à l’aide de l’adresse IP frontale.
+* Délai d’inactivité de **15 minutes**.
+* Activez la réinitialisation TCP.
+
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -403,7 +405,10 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true 
+    --disable-outbound-snat true \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
+
 ```
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends de l’équilibreur de charge
 
@@ -411,7 +416,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 
 #### <a name="vm1"></a>MV1
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM1** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -420,13 +425,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm2"></a>MV2
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM2** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -435,13 +440,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm3"></a>MV3
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM3** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -450,7 +455,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -470,11 +475,11 @@ Pour plus d’informations sur la mise à l’échelle d’une traduction d’ad
 #### <a name="public-ip"></a>Adresse IP publique
 
 * Nommée **myPublicIPOutbound**.
-* Dans **myResourceGroupLB**.
+* Dans **CreatePubLBQS.rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPOutbound \
     --sku Standard
 ```
@@ -483,7 +488,7 @@ Pour créer une adresse IP publique redondante zonale dans la Zone 1, procédez
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPOutbound \
     --sku Standard \
     --zone 1
@@ -491,12 +496,12 @@ Pour créer une adresse IP publique redondante zonale dans la Zone 1, procédez
 #### <a name="public-ip-prefix"></a>Préfixe d’adresse IP publique
 
 * Nommé **myPublicIPPrefixOutbound**.
-* Dans **myResourceGroupLB**.
+* Dans **CreatePubLBQS.rg**.
 * Longueur de préfixe de **28**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPPrefixOutbound \
     --length 28
 ```
@@ -504,7 +509,7 @@ Pour créer un préfixe d’adresse IP publique redondante zonale dans la Zone 1
 
 ```azurecli-interactive
   az network public-ip prefix create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIPPrefixOutbound \
     --length 28 \
     --zone 1
@@ -519,13 +524,13 @@ Sélectionnez les commandes d’adresse IP publique ou de préfixe d’adresse I
 #### <a name="public-ip"></a>Adresse IP publique
 
 * Nommée **myFrontEndOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associé à une adresse IP publique **myPublicIPOutbound**.
 * Associée avec l’équilibreur de charge **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
@@ -534,13 +539,13 @@ Sélectionnez les commandes d’adresse IP publique ou de préfixe d’adresse I
 #### <a name="public-ip-prefix"></a>Préfixe d’adresse IP publique
 
 * Nommée **myFrontEndOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée avec le préfixe d’adresse IP publique **myPublicIPPrefixOutbound**.
 * Associée avec l’équilibreur de charge **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-prefix myPublicIPPrefixOutbound 
@@ -551,12 +556,12 @@ Sélectionnez les commandes d’adresse IP publique ou de préfixe d’adresse I
 Créez un pool sortant avec la commande [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) :
 
 * Nommé **myBackendPoolOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée avec l’équilibreur de charge **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb address-pool create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myBackendPoolOutbound
 ```
@@ -565,7 +570,7 @@ Créez un pool sortant avec la commande [az network lb address-pool create](http
 Créez une règle de trafic sortant pour le pool principal sortant avec la commande [az network lb outbound-rule create](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create) :
 
 * Nommée **myOutboundRule**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 * Associée au serveur frontal **myFrontEndOutbound**.
 * Protocole **Tous**.
@@ -575,7 +580,7 @@ Créez une règle de trafic sortant pour le pool principal sortant avec la comma
 
 ```azurecli-interactive
   az network lb outbound-rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myOutboundRule \
     --frontend-ip-configs myFrontEndOutbound \
@@ -591,7 +596,7 @@ Ajoutez les machines virtuelles au pool sortant avec la commande [az network nic
 
 #### <a name="vm1"></a>MV1
 * Dans le pool d’adresses principal **myBackEndPoolOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM1** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -600,13 +605,13 @@ Ajoutez les machines virtuelles au pool sortant avec la commande [az network nic
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm2"></a>MV2
 * Dans le pool d’adresses principal **myBackEndPoolOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM2** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -615,13 +620,13 @@ Ajoutez les machines virtuelles au pool sortant avec la commande [az network nic
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm3"></a>MV3
 * Dans le pool d’adresses principal **myBackEndPoolOutbound**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM3** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -630,7 +635,7 @@ Ajoutez les machines virtuelles au pool sortant avec la commande [az network nic
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -651,12 +656,12 @@ Créez un réseau virtuel avec la commande [az network vnet create](https://docs
 * Préfixe d’adresse **10.1.0.0/16**.
 * Sous-réseau nommé **myBackendSubnet**.
 * Préfixe du sous-réseau **10.1.0.0/24**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -671,11 +676,11 @@ Pour un équilibreur de charge standard, les machines virtuelles à l’adresse 
 Créez un Groupe de sécurité réseau avec la commande [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) :
 
 * Nommé **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNSG
 ```
 
@@ -685,7 +690,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 * Nommé **myNSGRuleHTTP**.
 * Dans le groupe de sécurité réseau que vous avez créé à l’étape précédente, **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Protocole **(*)** .
 * Direction **entrante**.
 * Source **(*)** .
@@ -696,7 +701,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -716,7 +721,7 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm1"></a>MV1
 
 * Nommée **myNicVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
@@ -724,7 +729,7 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -733,14 +738,14 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm2"></a>MV2
 
 * Nommé **myNicVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -749,14 +754,14 @@ Créez les interfaces réseau avec la commande [az network nic create](https://d
 #### <a name="vm3"></a>MV3
 
 * Nommée **myNicVM3**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myNicVM3 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -826,13 +831,13 @@ runcmd:
 Créez le groupe à haute disponibilité avec la commande [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) :
 
 * Nommé **myAvSet**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az vm availability-set create \
     --name myAvSet \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --location eastus 
     
 ```
@@ -843,7 +848,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm1"></a>MV1
 * Nommée **myVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM1**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -851,7 +856,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -862,7 +867,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 ```
 #### <a name="vm2"></a>MV2
 * Nommée **myVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM2**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -870,7 +875,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -882,7 +887,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm3"></a>MV3
 * Nommée **myVM3**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM3**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -890,7 +895,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
    az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myVM3 \
     --nics myNicVM3 \
     --image UbuntuLTS \
@@ -909,11 +914,11 @@ Pour accéder à votre application web sur Internet, vous avez besoin d’une ad
 Utilisez la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) pour effectuer les opérations suivantes :
 
 * Créer une adresse IP publique redondante dans une zone standard nommée **myPublicIP**.
-* Dans **myResourceGroupLB**.
+* Dans **CreatePubLBQS.rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --sku Basic
 ```
@@ -938,7 +943,7 @@ Créez un équilibreur de charge public avec la commande [az network lb create](
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myLoadBalancer \
     --sku Basic \
     --public-ip-address myPublicIP \
@@ -961,7 +966,7 @@ Créez une sonde d’intégrité avec la commande [az network lb probe create](h
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -983,10 +988,11 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
 * Envoyant le trafic réseau dont la charge est équilibrée au pool d’adresses principal **myBackEndPool** à l’aide du **Port 80**. 
 * Utilisant la sonde d’intégrité **myHealthProbe**.
 * Protocole **TCP**.
+* Délai d’inactivité de **15 minutes**.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -994,7 +1000,8 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
+    --probe-name myHealthProbe \
+    --idle-timeout 15
 ```
 
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends de l’équilibreur de charge
@@ -1004,7 +1011,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 
 #### <a name="vm1"></a>MV1
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM1** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -1013,13 +1020,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm2"></a>MV2
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM2** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -1028,13 +1035,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm3"></a>MV3
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreatePubLBQS-rg**.
 * Associée à l’interface réseau **myNicVM3** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -1043,7 +1050,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM3 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreatePubLBQS-rg \
    --lb-name myLoadBalancer
 ```
 ---
@@ -1056,7 +1063,7 @@ Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de vot
 
 ```azurecli-interactive
   az network public-ip show \
-    --resource-group myResourceGroupLB \
+    --resource-group CreatePubLBQS-rg \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -1069,7 +1076,7 @@ Lorsque vous n’en avez plus besoin, utilisez la commande [az group delete](htt
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroupLB
+    --name CreatePubLBQS-rg
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

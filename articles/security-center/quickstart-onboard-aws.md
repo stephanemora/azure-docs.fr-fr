@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449038"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428112"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -66,23 +66,23 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les comptes AWS affiché
 
 Il y a deux façons de permettre à Security Center de s’authentifier auprès d’AWS :
 
-- **Créer un rôle IAM pour Security Center** : c’est la méthode la plus sécurisée et elle est recommandée
-- **Utilisateur AWS pour Security Center** : une option moins sécurisée si IAM n’est pas activé
+- **Créer un rôle IAM pour Security Center**  : c’est la méthode la plus sécurisée et elle est recommandée
+- **Utilisateur AWS pour Security Center**  : une option moins sécurisée si IAM n’est pas activé
 
 #### <a name="create-an-iam-role-for-security-center"></a>Créer un rôle IAM pour Security Center
 1. Depuis votre console Amazon Web Services, sous **Security, Identity & Compliance** (Sécurité, identité et conformité), sélectionnez **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Services AWS":::
 
 1. Sélectionnez **Rôles** et **Créer un rôle**.
 1. Sélectionnez **Another AWS account** (Autre compte AWS).
 1. Entrez les informations suivantes :
 
-    - **ID de compte** : entrez l’ID de compte Microsoft (**158177204117**) comme indiqué sur la page du connecteur AWS dans Security Center.
-    - **Exiger un ID externe** : doit être sélectionné
-    - **ID externe** : entrez l’ID d’abonnement comme indiqué sur la page du connecteur AWS dans Security Center 
+    - **ID de compte**  : entrez l’ID de compte Microsoft ( **158177204117** ) comme indiqué sur la page du connecteur AWS dans Security Center.
+    - **Exiger un ID externe**  : doit être sélectionné
+    - **ID externe**  : entrez l’ID d’abonnement comme indiqué sur la page du connecteur AWS dans Security Center 
 
 1. Sélectionnez **Suivant**.
-1. Dans la section **Attacher des stratégies d’autorisation**, sélectionnez les stratégies suivantes :
+1. Dans la section **Attacher des stratégies d’autorisation** , sélectionnez les stratégies suivantes :
 
     - SecurityAudit
     - AmazonSSMAutomationRole
@@ -96,8 +96,8 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
 1. Enregistrez le Nom de ressource Amazon (ARN) pour plus tard. 
 
 #### <a name="create-an-aws-user-for-security-center"></a>Créer un utilisateur AWS pour Security Center 
-1. Ouvrez l’onglet **Utilisateurs**, puis sélectionnez **Ajouter un utilisateur**.
-1. Dans l’étape **Détails**, entrez un nom d’utilisateur pour Security Center et veillez à sélectionner **Accès programmatique**  pour le type d’accès AWS. 
+1. Ouvrez l’onglet **Utilisateurs** , puis sélectionnez **Ajouter un utilisateur**.
+1. Dans l’étape **Détails** , entrez un nom d’utilisateur pour Security Center et veillez à sélectionner **Accès programmatique**  pour le type d’accès AWS. 
 1. Sélectionnez **Next: Permissions** (Suivant : Autorisations).
 1. Sélectionnez **Attacher directement des stratégies existantes** et appliquez les stratégies suivantes :
     - SecurityAudit
@@ -106,7 +106,7 @@ Il y a deux façons de permettre à Security Center de s’authentifier auprès 
     
 1. Sélectionnez **Suivant : Balises**. Ajoutez des étiquettes si vous le souhaitez. L’ajout d’étiquettes à l’utilisateur n’affecte pas la connexion.
 1. Sélectionnez **Révision**.
-1. Enregistrez l’**ID de clé d’accès** généré automatiquement et le fichier CSV de la **clé d’accès secrète** pour plus tard.
+1. Enregistrez l’ **ID de clé d’accès** généré automatiquement et le fichier CSV de la **clé d’accès secrète** pour plus tard.
 1. Révisez le résumé, puis cliquez sur **Créer un utilisateur**.
 
 
@@ -118,35 +118,39 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
 - [Installation et configuration de l’agent SSM sur les instances Amazon EC2 Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>Étape 4. Créer un principal de service pour une intégration à grande échelle
+### <a name="step-4-complete-azure-arc-prerequisites"></a>Étape 4. Satisfaire les prérequis Azure Arc
+1. Vérifiez que les [fournisseurs de ressources Azure](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) appropriés sont enregistrés :
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-En tant que **propriétaire** de l’abonnement que vous souhaitez utiliser pour l’intégration, créez un principal de service pour l’intégration d’Azure Arc, comme décrit dans [Créer un principal de service pour l’intégration à l’échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+1. Créez un principal de service pour une intégration à grande échelle. En tant que **propriétaire** de l’abonnement que vous souhaitez utiliser pour l’intégration, créez un principal de service pour l’intégration d’Azure Arc, comme décrit dans [Créer un principal de service pour une intégration à grande échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Étape 5. Connecter AWS à Security Center
 
 1. Dans le menu de Security Center, sélectionnez **Connecteurs cloud multiples**.
 1. Sélectionnez **Ajouter un compte AWS**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
-1. Configurez les options dans l’onglet **Authentification AWS** :
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Ajouter un compte AWS sur la page connecteurs multicloud de Security Center":::
+1. Configurez les options dans l’onglet **Authentification AWS**  :
     1. Entrez un **nom d’affichage** pour le connecteur.
     1. Confirmez que l’abonnement est correct. Il s’agit de l’abonnement qui inclura les recommandations relatives au connecteur et à AWS Security Hub.
     1. Selon l’option d’authentification que vous avez choisie dans l’[étape 2. Configurez l’authentification pour Security Center dans AWS](#step-2-set-up-authentication-for-security-center-in-aws) :
-        - Sélectionnez **Envisager un rôle** et collez l’ARN à partir de [Créer un rôle IAM pour Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
+        - Sélectionnez **Prendre le rôle** et collez l’ARN obtenu à partir de [Créer un rôle IAM pour Security Center](#create-an-iam-role-for-security-center).
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Collage du fichier ARN dans le champ approprié de l’Assistant de connexion AWS dans le portail Azure":::
 
             OR
 
         - Sélectionnez **Informations d’identification** et collez la **clé d’accès** et la **clé secrète** à partir du fichier .csv que vous avez enregistré dans [Créer un utilisateur AWS pour Security Center](#create-an-aws-user-for-security-center).
 1. Sélectionnez **Suivant**.
-1. Configurez les options dans l’onglet **Configuration d’Azure Arc** :
+1. Configurez les options dans l’onglet **Configuration d’Azure Arc**  :
 
     Security Center Découvre les instances EC2 dans le compte AWS connecté et utilise SSM pour les intégrer à Azure Arc. 
 
     > [!TIP]
-    > La liste des systèmes d’exploitation pris en charge est indiquée dans le FAQ ci-dessous.
+    > Pour obtenir la liste des systèmes d’exploitation pris en charge, consultez [Quels sont les systèmes d’exploitation pris en charge pour mes instances EC2 ?](#what-operating-systems-for-my-ec2-instances-are-supported) dans le forum aux questions.
 
     1. Sélectionnez le **groupe de ressources** et la **région Azure** à laquelle les services AWS EC2 découverts seront intégrés dans l’abonnement sélectionné.
-    1. Entrez l’**ID du principal du service** et la **clé secrète du client du principal du service** pour Azure Arc, comme décrit dans [Créer un principal de service pour l’intégration à l’échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+    1. Entrez l’ **ID du principal du service** et la **clé secrète du client du principal du service** pour Azure Arc, comme décrit dans [Créer un principal de service pour l’intégration à l’échelle](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
     1. Si la machine se connecte à Internet via un serveur proxy, spécifiez l’adresse IP du serveur proxy ou le nom et le numéro de port que la machine utilise pour communiquer avec le serveur proxy. Saisissez la valeur au format ```http://<proxyURL>:<proxyport>```
     1. Sélectionnez **Revoir + créer**.
 
@@ -164,7 +168,7 @@ Lorsque le connecteur est correctement créé et qu’AWS Security Hub a été c
 - Le service ASC analyse les nouvelles instances AWS EC2 toutes les 6 heures et les intègre en fonction de la configuration.
 - La norme AWS CIS s’affiche dans le tableau de bord de conformité réglementaire de Security Center.
 - Si la stratégie Security Hub est activée, des recommandations s’affichent dans le portail Security Center et le tableau de bord de conformité aux réglementations 5-10 minutes après la fin de l’intégration.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Ressources AWS et recommandations sur la page Recommandations de Security Center":::
 
 
 
@@ -174,7 +178,7 @@ Comme indiqué ci-dessus, la page Recommandations de sécurité d’Azure Securi
 
 Pour afficher toutes les recommandations actives pour vos ressources par type de ressource, utilisez la page d’inventaire des ressources de Security Center et filtrez sur le type de ressource AWS qui vous intéresse :
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtre de type de ressource de la page d’inventaire des ressources avec les options AWS"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS dans le FAQ de Security Center

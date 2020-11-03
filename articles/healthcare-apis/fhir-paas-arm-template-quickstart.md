@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Déployer l’API Azure pour FHIR en utilisant un modèle ARM'
-description: Dans ce guide de démarrage rapide, découvrez comment déployer l’API Azure pour Fast Healthcare Interoperability Resources (FHIR®) en utilisant un modèle Azure Resource Manager.
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment déployer l’API Azure pour Fast Healthcare Interoperability Resources (FHIR®) en utilisant un modèle Azure Resource Manager (modèle ARM).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772734"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521439"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Démarrage rapide : Utiliser un modèle ARM pour déployer l’API Azure pour FHIR
 
@@ -69,19 +69,19 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Sélectionnez le lien suivant afin de déployer l’API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure :
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant un modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
-Dans la page **Déployer l’API Azure pour FHIR** :
+Dans la page **Déployer l’API Azure pour FHIR**  :
 
 1. Si vous le souhaitez, remplacez la valeur par défaut de **Abonnement** par un autre abonnement.
 
-2. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
+2. Pour **Groupe de ressources** , sélectionnez **Créer** , entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
 
 3. Si vous avez créé un groupe de ressources, sélectionnez une **Région** pour le groupe de ressources.
 
-4. Entrez un nouveau **Nom du service** et choisissez l’**Emplacement** de l’API Azure pour FHIR. L’emplacement peut être identique ou différent de la région du groupe de ressources.
+4. Entrez un nouveau **Nom du service** et choisissez l’ **Emplacement** de l’API Azure pour FHIR. L’emplacement peut être identique ou différent de la région du groupe de ressources.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Déployer sur Azure un service API Azure pour FHIR en utilisant un modèle ARM dans le portail Azure.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Déployez l’API Azure pour FHIR en utilisant le modèle ARM dans le portail Azure.":::
 
 5. Sélectionnez **Revoir + créer**.
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+Pour obtenir un tutoriel pas à pas expliquant comment créer un modèle ARM, consultez le [tutoriel sur la création et le déploiement de votre premier modèle ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir un tutoriel pas à pas expliquant comment créer un modèle ARM, consultez :
+Dans ce guide de démarrage rapide, vous avez déployé l’API Azure pour FHIR sur votre abonnement. Pour définir des paramètres supplémentaires dans votre API Azure pour FHIR, consultez le guide pratique relatif aux paramètres supplémentaires. Si vous êtes prêt à commencer à utiliser l’API Azure pour FHIR, découvrez plus en détail comment inscrire des applications.
 
-> [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Paramètres supplémentaires dans l’API Azure pour FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Présentation de l’inscription d’applications](fhir-app-registration.md)

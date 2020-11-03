@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320836"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470791"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -107,7 +107,8 @@ Par exemple, sur Windows, cette commande définit votre clé :
 
 ## <a name="create-subscription-config"></a>Création d’une configuration d’abonnement
 
-Pour pouvoir utiliser l’interface CLI Speech, vous devez entrer les informations relatives à votre clé d’abonnement et à votre région Speech. Consultez la page de [prise en charge des régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) pour rechercher l’identificateur de votre région. Une fois que vous avez récupéré votre clé d’abonnement et votre identificateur de la région (par exemple, `eastus`, `westus`), exécutez les commandes suivantes.
+Pour pouvoir utiliser l’interface CLI Speech, vous devez entrer votre clé d’abonnement et votre identificateur de région Speech. Pour obtenir ces informations d’identification, suivez les étapes indiquées dans [Essayer le service Speech gratuitement](../overview.md#try-the-speech-service-for-free).
+Une fois que vous avez récupéré votre clé d’abonnement et votre identificateur de la région (par exemple, `eastus`, `westus`), exécutez les commandes suivantes.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

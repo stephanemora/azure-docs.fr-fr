@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275970"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558633"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -41,7 +41,7 @@ Il existe trois déclencheurs pour une analyse d’image :
 
 - **Recently pulled** (extraites récemment) : étant donné que de nouvelles vulnérabilités sont découvertes chaque jour, **Azure Defender pour les registres de conteneurs** analyse également les images extraites au cours des 30 derniers jours. Aucuns frais supplémentaires ne sont facturés pour une nouvelle analyse. Comme indiqué ci-dessus, vous êtes facturé une fois par image.
 
-- **Lors de l’importation** : Azure Container Registry inclut des outils d’importation pour importer des images dans votre registre à partir de Dockr Hub, d’un registre de conteneurs Microsoft ou d’un autre registre de conteneurs Azure. **Azure Defender pour les registres de conteneurs** analyse toutes les images prises en charge que vous importez. Pour plus d’informations, consultez [Importation d’images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md).
+- **Lors de l’importation**  : Azure Container Registry inclut des outils d’importation pour importer des images dans votre registre à partir de Dockr Hub, d’un registre de conteneurs Microsoft ou d’un autre registre de conteneurs Azure. **Azure Defender pour les registres de conteneurs** analyse toutes les images prises en charge que vous importez. Pour plus d’informations, consultez [Importation d’images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md).
  
 L’analyse se termine généralement dans un délai de 2 minutes, mais elle peut prendre jusqu’à 15 minutes. Les résultats sont mis à disposition en tant que recommandations du Security Center, par exemple :
 
@@ -71,6 +71,12 @@ Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/se
 Pour une liste des types de registres de conteneurs pris en charge par Azure Defender pour les registres de conteneurs, consultez [Disponibilité](defender-for-container-registries-usage.md#availability).
 
 Si vous connectez des registres non pris en charge à votre abonnement Azure, ils ne seront pas analysés et ne vous seront pas facturés.
+
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Puis-je personnaliser les résultats de l’analyseur de vulnérabilités ?
+Oui. Si votre organisation préfère ignorer un résultat, plutôt que de le corriger, vous pouvez éventuellement désactiver cette fonction. Les résultats désactivés n’ont pas d’impact sur votre Niveau de sécurité ni ne génèrent de bruit indésirable.
+
+[Découvrir la création de règles pour désactiver les résultats à partir de l’outil d’évaluation des vulnérabilités intégré](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

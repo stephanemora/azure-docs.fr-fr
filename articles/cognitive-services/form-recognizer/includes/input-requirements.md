@@ -5,17 +5,17 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276938"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548129"
 ---
 Form Recognizer fonctionne sur les documents d’entrée qui répondent aux critères suivants :
 
 * Format JPG, PNG, PDF (texte ou numérisé) ou TIFF. Les PDF englobant du texte sont préférables, car il n’existe aucun risque d’erreur au niveau de l’extraction et de l’emplacement des caractères.
-* La taille du fichier doit être inférieure à 20 Mo.
+* La taille du fichier doit être inférieure à 50 Mo.
 * Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels.
 * Les dimensions des PDF ne doivent pas dépasser 17 x 17 pouces, ce qui correspond aux formats de papier Legal ou A3, et plus petits.
 * Pour PDF et TIFF, seules les 200 premières pages sont traitées (avec un abonnement gratuit, seules les deux premières pages sont traitées).

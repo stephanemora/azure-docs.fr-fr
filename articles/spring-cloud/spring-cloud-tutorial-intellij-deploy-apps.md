@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088769"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426726"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Utiliser IntelliJ pour déployer des applications Azure Spring Cloud
 
@@ -25,10 +25,10 @@ Avant d’exécuter cet exemple, vous pouvez essayer le [démarrage rapide de ba
 ## <a name="prerequisites"></a>Prérequis
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 (ou version supérieure)](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, édition Community/Ultimate, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, édition Community/Ultimate, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installer le plug-in
-Vous pouvez ajouter Azure Toolkit for IntelliJ IDEA 3.35.0 à partir de l’interface utilisateur **Plugins** d’IntelliJ.
+Vous pouvez ajouter Azure Toolkit for IntelliJ IDEA 3.43.0 à partir de l’interface utilisateur **Plugins** d’IntelliJ.
 
 1. Démarrez IntelliJ.  Si un projet est déjà ouvert, fermez-le pour afficher la boîte de dialogue d’accueil. Sélectionnez **Configure** en bas à droite, cliquez sur **Plugins** pour ouvrir la boîte de dialogue de configuration de plug-ins, puis sélectionnez **Install Plugins from disk** (Installer des plug-ins à partir du disque).
 
@@ -64,12 +64,12 @@ Pour déployer sur Azure, vous devez vous connecter avec votre compte Azure et c
     ![Déployer sur Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
 1. Acceptez le nom de l’application dans le champ **Name**. **Name** fait référence à la configuration, pas au nom de l’application. Les utilisateurs n’ont généralement pas besoin de le changer.
-1. Acceptez l’identificateur du projet pour l’**Artifact**.
+1. Acceptez l’identificateur du projet pour l’ **Artifact**.
 1. Sélectionnez **App:** , puis cliquez sur **Create app...** (Créer une application).
 
     ![Déployer sur Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
-1. Entrez le nom de l’application dans le champ **App name**, puis cliquez sur **OK**.
+1. Entrez le nom de l’application dans le champ **App name** , puis cliquez sur **OK**.
 
     ![Déployer sur Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
 
@@ -89,7 +89,7 @@ Pour déployer sur Azure, vous devez vous connecter avec votre compte Azure et c
 
 ## <a name="show-streaming-logs"></a>Afficher les journaux de streaming
 Pour obtenir les journaux
-1. Sélectionnez **Azure Explorer**, puis **Spring Cloud**.
+1. Sélectionnez **Azure Explorer** , puis **Spring Cloud**.
 1. Cliquez avec le bouton droit sur l’application en cours d’exécution.
 1. Sélectionnez **Journaux de streaming** dans la liste déroulante.
 

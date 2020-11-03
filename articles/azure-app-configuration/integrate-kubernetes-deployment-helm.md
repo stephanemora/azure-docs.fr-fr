@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426715"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Intégrer au déploiement Kubernetes en utilisant Helm
 
@@ -56,11 +56,11 @@ Ce tutoriel suppose une compréhension de base de la gestion de Kubernetes avec 
 
 3. Sélectionnez **Explorateur de configuration**.
 
-4. Sélectionnez **+ Créer** > **Référence Key Vault**, puis choisissez les valeurs suivantes :
-    - **Clé** : Sélectionnez **secrets.password**.
-    - **Étiquette** : Laissez cette valeur vide.
-    - **Abonnement**, **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant à ces éléments dans le coffre de clés que vous avez créé dans la section précédente.
-    - **Secret** : Sélectionnez le secret nommé **Password** que vous avez créé dans la section précédente.
+4. Sélectionnez **+ Créer** > **Référence Key Vault** , puis choisissez les valeurs suivantes :
+    - **Clé**  : Sélectionnez **secrets.password**.
+    - **Étiquette**  : Laissez cette valeur vide.
+    - **Abonnement** , **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant à ces éléments dans le coffre de clés que vous avez créé dans la section précédente.
+    - **Secret**  : Sélectionnez le secret nommé **Password** que vous avez créé dans la section précédente.
 
 ## <a name="create-helm-chart"></a>Créer un chart Helm ##
 Tout d’abord, créez un exemple de chart Helm avec la commande suivante.
@@ -229,9 +229,9 @@ Vérifiez que les configurations et les secrets ont été définis correctement 
 
 ![Démarrage rapide du lancement d’application local](./media/kubernetes-dashboard-env-variables.png)
 
-Un secret, **password**, stocké en tant que référence Key Vault dans App Configuration, a également été ajouté aux secrets Kubernetes. 
+Un secret, **password** , stocké en tant que référence Key Vault dans App Configuration, a également été ajouté aux secrets Kubernetes. 
 
-![Démarrage rapide du lancement d’application local](./media/kubernetes-dashboard-secrets.png)
+![Capture d’écran mettant en évidence le mot de passe dans la section Data.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87503920"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480545"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Règles de pare-feu IP Azure Synapse Analytics (préversion)
 
@@ -27,7 +27,7 @@ Les règles de pare-feu IP octroient ou refusent l’accès à votre espace de t
 
 Il existe deux façons d’ajouter des règles de pare-feu IP à un espace de travail Synapse. Pour ajouter un pare-feu IP à votre espace de travail, sélectionnez **Sécurité + réseau** et cochez **Autoriser les connexions de toutes les adresses IP** lors de la création de l’espace de travail.
 
-![Configuration IP de l’espace de travail Synapse dans le portail Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+![Capture d’écran avec mise en évidence du bouton Sécurité + réseau.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
 
 ![Configuration IP de l’espace de travail Synapse dans le portail Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
 

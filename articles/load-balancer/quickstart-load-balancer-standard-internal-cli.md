@@ -6,22 +6,21 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-tags: azure-resource-manager
 Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: df1db5467dadcd127141708fa33147769f1f50a7
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 75e37c91b9b3161d7396d94fb086c4dc567a18c1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047856"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546991"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI
 
@@ -42,12 +41,12 @@ Un groupe de ressources Azure est un conteneur logique dans lequel les ressource
 
 Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) :
 
-* Nommé **myResourceGroupLB**. 
+* Nommé **CreateIntLBQS-rg**. 
 * Dans l’emplacement **eastus**.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupLB \
+    --name CreateIntLBQS-rg \
     --location eastus
 ```
 ---
@@ -69,12 +68,12 @@ Créez un réseau virtuel avec la commande [az network vnet create](https://docs
 * Préfixe d’adresse **10.1.0.0/16**.
 * Sous-réseau nommé **myBackendSubnet**.
 * Préfixe du sous-réseau **10.1.0.0/24**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -88,11 +87,11 @@ Pour un équilibreur de charge standard, les machines virtuelles à l’adresse 
 Créez un Groupe de sécurité réseau avec la commande [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) :
 
 * Nommé **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNSG
 ```
 
@@ -102,7 +101,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 * Nommé **myNSGRuleHTTP**.
 * Dans le groupe de sécurité réseau que vous avez créé à l’étape précédente, **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Protocole **(*)** .
 * Direction **entrante**.
 * Source **(*)** .
@@ -113,7 +112,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -133,14 +132,14 @@ Créez deux interfaces réseau avec la commande [az network nic create](https://
 #### <a name="vm1"></a>MV1
 
 * Nommée **myNicVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -149,14 +148,14 @@ Créez deux interfaces réseau avec la commande [az network nic create](https://
 #### <a name="vm2"></a>MV2
 
 * Nommé **myNicVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -223,7 +222,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm1"></a>MV1
 * Nommée **myVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM1**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -231,7 +230,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -244,7 +243,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 ```
 #### <a name="vm2"></a>MV2
 * Nommée **myVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM2**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -252,7 +251,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -286,7 +285,7 @@ Créez un équilibreur de charge public avec la commande [az network lb create](
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
     --sku Standard \
     --vnet-name myVnet \
@@ -310,7 +309,7 @@ Créez une sonde d’intégrité avec la commande [az network lb probe create](h
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -332,11 +331,12 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
 * Envoyant le trafic réseau dont la charge est équilibrée au pool d’adresses principal **myBackEndPool** à l’aide du **Port 80**. 
 * Utilisant la sonde d’intégrité **myHealthProbe**.
 * Protocole **TCP**.
-* Activez la traduction d’adresses réseau source (SNAT) sortante à l’aide de l’adresse IP frontale.
+* Délai d’inactivité de **15 minutes**.
+* Activez la réinitialisation TCP.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -345,7 +345,9 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true 
+    --disable-outbound-snat true \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
 >[!NOTE]
 >Avec cette configuration, les machines virtuelles du pool principal ne disposent pas d’une connectivité Internet sortante. </br> Pour plus d’informations sur la façon de fournir une connectivité sortante, consultez : </br> **[Connexions sortantes dans Azure](load-balancer-outbound-connections.md)**</br> Options pour fournir la connectivité : </br> **[Configuration de l’équilibreur de charge en sortie uniquement](egress-only.md)** </br> **[Qu’est-ce que le service NAT de Réseau virtuel ?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
@@ -357,7 +359,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 
 #### <a name="vm1"></a>MV1
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Associée à l’interface réseau **myNicVM1** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -366,13 +368,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm2"></a>MV2
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Associée à l’interface réseau **myNicVM2** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -381,7 +383,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -402,12 +404,12 @@ Créez un réseau virtuel avec la commande [az network vnet create](https://docs
 * Préfixe d’adresse **10.1.0.0/16**.
 * Sous-réseau nommé **myBackendSubnet**.
 * Préfixe du sous-réseau **10.1.0.0/24**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
@@ -421,11 +423,11 @@ Pour un équilibreur de charge standard, les machines virtuelles à l’adresse 
 Créez un Groupe de sécurité réseau avec la commande [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) :
 
 * Nommé **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNSG
 ```
 
@@ -435,7 +437,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 * Nommé **myNSGRuleHTTP**.
 * Dans le groupe de sécurité réseau que vous avez créé à l’étape précédente, **myNSG**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Protocole **(*)** .
 * Direction **entrante**.
 * Source **(*)** .
@@ -446,7 +448,7 @@ Créez une règle de groupe de sécurité réseau avec la commande [az network n
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
     --protocol '*' \
@@ -466,7 +468,7 @@ Créez deux interfaces réseau avec la commande [az network nic create](https://
 #### <a name="vm1"></a>MV1
 
 * Nommée **myNicVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
@@ -474,7 +476,7 @@ Créez deux interfaces réseau avec la commande [az network nic create](https://
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -483,13 +485,13 @@ Créez deux interfaces réseau avec la commande [az network nic create](https://
 #### <a name="vm2"></a>MV2
 
 * Nommé **myNicVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
@@ -559,13 +561,13 @@ runcmd:
 Créez le groupe à haute disponibilité avec la commande [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) :
 
 * Nommé **myAvSet**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Emplacement **eastus**.
 
 ```azurecli-interactive
   az vm availability-set create \
     --name myAvSet \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --location eastus 
     
 ```
@@ -576,7 +578,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 #### <a name="vm1"></a>MV1
 * Nommée **myVM1**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM1**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -584,7 +586,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myVM1 \
     --nics myNicVM1 \
     --image UbuntuLTS \
@@ -597,7 +599,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 ```
 #### <a name="vm2"></a>MV2
 * Nommée **myVM2**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Attachée à l’interface réseau **myNicVM2**.
 * Image de machine virtuelle **UbuntuLTS**.
 * Fichier de configuration **cloud-init.txt** que vous avez créé à l’étape précédente.
@@ -605,7 +607,7 @@ Créez les machines virtuelles avec la commande [az vm create](https://docs.micr
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myVM2 \
     --nics myNicVM2 \
     --image UbuntuLTS \
@@ -639,7 +641,7 @@ Créez un équilibreur de charge public avec la commande [az network lb create](
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myLoadBalancer \
     --sku Basic \
     --vnet-name myVNet \
@@ -663,7 +665,7 @@ Créez une sonde d’intégrité avec la commande [az network lb probe create](h
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -685,10 +687,11 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
 * Envoyant le trafic réseau dont la charge est équilibrée au pool d’adresses principal **myBackEndPool** à l’aide du **Port 80**. 
 * Utilisant la sonde d’intégrité **myHealthProbe**.
 * Protocole **TCP**.
+* Délai d’inactivité de **15 minutes**.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -696,7 +699,8 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
+    --probe-name myHealthProbe \
+    --idle-timeout 15 
 ```
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends de l’équilibreur de charge
 
@@ -705,7 +709,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 
 #### <a name="vm1"></a>MV1
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Associée à l’interface réseau **myNicVM1** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -714,13 +718,13 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM1 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
 #### <a name="vm2"></a>MV2
 * Dans le pool d’adresses de back-end **myBackEndPool**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Associée à l’interface réseau **myNicVM2** et **ipconfig1**.
 * Associée à l’équilibreur de charge **myLoadBalancer**.
 
@@ -729,7 +733,7 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
    --address-pool myBackendPool \
    --ip-config-name ipconfig1 \
    --nic-name myNicVM2 \
-   --resource-group myResourceGroupLB \
+   --resource-group CreateIntLBQS-rg \
    --lb-name myLoadBalancer
 ```
 
@@ -742,11 +746,11 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 Utilisez [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) pour créer une adresse IP publique pour l’hôte bastion :
 
 * Créez une adresse IP publique redondante de zone standard nommée **myBastionIP**.
-* Dans **myResourceGroupLB**.
+* Dans **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myBastionIP \
     --sku Standard
 ```
@@ -758,11 +762,11 @@ Utilisez [az network vnet subnet create](https://docs.microsoft.com/cli/azure/ne
 * Nommé **AzureBastionSubnet**.
 * Préfixe d’adresse **10.1.1.0/24**.
 * Dans le réseau virtuel **myVNet**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 
 ```azurecli-interactive
   az network vnet subnet create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
     --address-prefixes 10.1.1.0/24
@@ -772,14 +776,14 @@ Utilisez [az network vnet subnet create](https://docs.microsoft.com/cli/azure/ne
 Utilisez [az network bastion create](https://docs.microsoft.com/cli/azure/network/bastion?view=azure-cli-latest#az-network-bastion-create) pour créer un hôte bastion :
 
 * Nommé **myBastionHost**
-* Dans **myResourceGroupLB**.
+* Dans **CreateIntLBQS-rg**
 * Associé à l’adresse IP publique **myBastionIP**.
 * Associé au réseau virtuel **myVNet**.
 * À l’emplacement **eastus**.
 
 ```azurecli-interactive
   az network bastion create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
@@ -792,14 +796,14 @@ Le déploiement de l’hôte bastion va prendre quelques minutes.
 Créez l’interface réseau avec la commande [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) :
 
 * Nommée **myNicTestVM**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Dans le réseau virtuel **myVNet**.
 * Dans le sous-réseau **myBackendSubnet**.
 * Dans le groupe de sécurité réseau **myNSG**.
 
 ```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myNicTestVM \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
@@ -808,7 +812,7 @@ Créez l’interface réseau avec la commande [az network nic create](https://do
 Créez la machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) :
 
 * Nommé **myTestVM**.
-* Dans le groupe de ressources **myResourceGroupLB**.
+* Dans le groupe de ressources **CreateIntLBQS-rg**.
 * Attachée à l’interface réseau **myNicTestVM**.
 * Image de machine virtuelle **Win2019Datacenter**.
 * Choisissez des valeurs pour **\<adminpass>** et **\<adminuser>** .
@@ -816,7 +820,7 @@ Créez la machine virtuelle avec la commande [az vm create](https://docs.microso
 
 ```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group CreateIntLBQS-rg \
     --name myTestVM \
     --nics myNicTestVM \
     --image Win2019Datacenter \
@@ -830,13 +834,13 @@ Le déploiement de la machine virtuelle peut prendre quelques minutes.
 
 1. [Connectez-vous](https://portal.azure.com) au portail Azure.
 
-1. Recherchez l’adresse IP privée de l’équilibreur de charge sur l’écran **Vue d’ensemble**. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis sélectionnez **myLoadBalancer**.
+1. Recherchez l’adresse IP privée de l’équilibreur de charge sur l’écran **Vue d’ensemble**. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources** , puis sélectionnez **myLoadBalancer**.
 
 2. Notez ou copiez l’adresse en regard de **Adresse IP privée** dans la **Vue d’ensemble** de **myLoadBalancer**.
 
-3. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources** puis, dans la liste des ressources, sélectionnez **myTestVM** qui se trouve dans le groupe de ressources **myResourceGroupLB**.
+3. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources** puis, dans la liste des ressources, sélectionnez **myTestVM** qui se trouve dans le groupe de ressources **CreateIntLBQS-rg**.
 
-4. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
+4. Dans la page **Vue d’ensemble** , sélectionnez **Se connecter** , puis **Bastion**.
 
 6. Entrez le nom d’utilisateur et le mot de passe saisis pendant la création de la machine virtuelle.
 
@@ -854,7 +858,7 @@ Lorsque vous n’en avez plus besoin, utilisez la commande [az group delete](htt
 
 ```azurecli-interactive
   az group delete \
-    --name myResourceGroupLB
+    --name CreateIntLBQS-rg
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

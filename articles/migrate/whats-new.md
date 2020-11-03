@@ -4,12 +4,12 @@ description: Découvrez les nouveautés et les mises à jour récentes du servic
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314573"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545172"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
@@ -22,6 +22,7 @@ ms.locfileid: "92314573"
 - L’analyse des dépendances (sans agent) peut désormais être exécutée simultanément sur 1 000 machines virtuelles.
 - L’analyse des dépendances (sans agent) peut désormais être activée ou désactivée à grande échelle en utilisant des scripts PowerShell. [En savoir plus.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualisez les connexions réseau dans Power BI en utilisant les données collectées via l’analyse des dépendances (sans agent) [En savoir plus.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- La migration des machines virtuelles VMware avec un disque de données d’une taille maximale de 32 To est désormais prise en charge à l’aide de la méthode de migration VMware sans agent Azure Migrate: Server Migration. 
 
 ## <a name="update-august-2020"></a>Mise à jour (août 2020)
 
@@ -64,8 +65,8 @@ Une installation basée sur un script est désormais disponible pour configurer 
 
 Un certain nombre de nouvelles fonctionnalités ont été ajoutées à Azure Migrate :
 
-- **Évaluation des serveurs physiques** . L’évaluation des serveurs physiques locaux est désormais prise en charge, en plus de la migration du serveur physique qui est déjà prise en charge.
-- **Évaluation basée sur l’importation** . L’évaluation des machines à l’aide des métadonnées et des données de performances fournies dans un fichier CSV est désormais prise en charge.
+- **Évaluation des serveurs physiques**. L’évaluation des serveurs physiques locaux est désormais prise en charge, en plus de la migration du serveur physique qui est déjà prise en charge.
+- **Évaluation basée sur l’importation**. L’évaluation des machines à l’aide des métadonnées et des données de performances fournies dans un fichier CSV est désormais prise en charge.
 - **Découverte des applications**  : Azure Migrate prend désormais en charge la découverte au niveau de l’application des applications, des rôles et des fonctionnalités à l’aide de l’appliance Azure Migrate. Ceci est actuellement pris en charge pour les machines virtuelles VMware uniquement et est limité à la détection uniquement (l’évaluation n’est pas actuellement prise en charge). [En savoir plus](how-to-discover-applications.md)
 - **Visualisation des dépendances sans agent**  : Vous n’avez plus besoin d’installer explicitement des agents pour la visualisation des dépendances. La visualisation sans agent et basée sur l’agent sont désormais prises en charge.
 - **Bureau virtuel**  : Utilisez les outils ISV pour évaluer et migrer une infrastructure de bureau virtuel locale (VDI) vers Windows Virtual Desktop dans Azure.
@@ -96,7 +97,7 @@ La version actuelle d’Azure Migrate (publiée en juillet 2019) propose un cer
 
 ## <a name="azure-migrate-previous-version"></a>Version précédente d’Azure Migrate
 
-Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services** , recherchez **Azure Migrate** . Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
+Si vous utilisez la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge), vous devez désormais utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ou d’effectuer de nouvelles découvertes. Vous pouvez toujours accéder aux projets existants. Pour ce faire, dans le portail Azure > **Tous les services** , recherchez **Azure Migrate**. Les notifications Azure Migrate contiennent un lien permettant d’accéder aux anciens projets Azure Migrate.
 
 
 

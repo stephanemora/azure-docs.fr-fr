@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525039"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419930"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sauvegarder des machines virtuelles de charge de travail sur le cloud privé CloudSimple à l’aide de Veeam B&R
 
@@ -56,7 +56,7 @@ Pour les environnements dont la sauvegarde est inférieure à 30 to, CloudSimpl
 * Un référentiel de sauvegarde principal basé sur Linux dans Azure configuré comme cible pour les travaux de sauvegarde.
 * `azcopy` utilisé pour copier les données du référentiel de sauvegarde principal vers un conteneur d’objets blob Azure répliqué dans une autre région.
 
-![Scénarios de déploiement basique](media/veeam-basicdeployment.png)
+![Diagramme montrant les scénarios de déploiement de base de Veeam.](media/veeam-basicdeployment.png)
 
 **Déploiement avancé**
 

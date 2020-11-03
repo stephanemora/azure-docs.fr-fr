@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 652566efda4d4f274dc5700d35bcf45c1ebfb9e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761967"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92347273"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Azure Communication Services Calling pour Javascript.
 
@@ -47,11 +47,19 @@ npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
+Les versions suivantes de webpack sont recommandées pour ce guide de démarrage rapide :
+
+```console
+"webpack": "^4.42.0",
+"webpack-cli": "^3.3.11",
+"webpack-dev-server": "^3.10.3"
+```
+
 L’option `--save` liste la bibliothèque comme dépendance dans votre fichier **package.json**.
 
 ### <a name="set-up-the-app-framework"></a>Configurer le framework d’application
 
-Ce guide de démarrage rapide utilise webpack pour regrouper les ressources de l’application. Exécutez la commande suivante pour installer les packages npm webpack, webpack-cli et webpack-dev-server, puis listez-les comme dépendances de développement dans votre fichier **package.json** :
+Ce guide de démarrage rapide utilise webpack pour regrouper les ressources de l’application. Exécutez la commande suivante pour installer les packages npm webpack, webpack-cli et webpack-dev-server, puis listez-les comme dépendances de développement dans votre fichier **package.json**  :
 
 ```console
 npm install webpack webpack-cli webpack-dev-server --save-dev
@@ -97,11 +105,10 @@ import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from '@azure/communication-common';
 
 let call;
+let callAgent;
 const calleeInput = document.getElementById("callee-id-input");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
-
-// quickstart code goes here
 ```
 
 ## <a name="object-model"></a>Modèle objet
@@ -110,22 +117,23 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 | Nom                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Appel.                                                                       |
+| CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Calling.                                                                       |
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
 | AzureCommunicationUserCredential | La classe AzureCommunicationUserCredential implémente l’interface CommunicationUserCredential qui est utilisée pour instancier CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Vous devez remplacer `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur valide pour votre ressource. Consultez la documentation sur les [jetons d’accès utilisateur](../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationUserCredential` qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant à **client.js** :
+Vous devez remplacer `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur valide pour votre ressource. Consultez la documentation sur les [jetons d’accès utilisateur](../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationUserCredential` qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant à **client.js**  :
 
 ```javascript
-const callClient = new CallClient();
-const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-let callAgent;
-
-callAgent = await callClient.createCallAgent(tokenCredential);
-callButton.disabled = false;
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    callButton.disabled = false;
+}
+init();
 ```
 
 ## <a name="start-a-call"></a>Démarrer un appel

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743258"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426988"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro avec GPU 
 
@@ -113,7 +113,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     ![Créer une ressource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge Pro**, choisissez **Azure Stack Edge Pro avec GPU**, puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
+4. Sélectionnez le type d'appareil. Sous **Azure Stack Edge Pro** , choisissez **Azure Stack Edge Pro avec GPU** , puis **Sélectionner**. Si vous rencontrez des problèmes ou si vous ne parvenez pas à sélectionner le type d'appareil, accédez à [Résoudre les problèmes de commandes](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Créer une ressource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -121,7 +121,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     ![Créer une ressource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
+6. Sous l’onglet **Bases** , entrez ou sélectionnez les **détails du projet** suivants.
     
     |Paramètre  |Valeur  |
     |---------|---------|
@@ -137,7 +137,6 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     ![Créer une ressource 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. Sélectionnez **Suivant : Adresse de livraison**.
 
     - Si vous disposez déjà d'un appareil, cochez la case **J'ai un appareil Azure Stack Edge Pro**.
@@ -150,7 +149,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 9. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
 
-10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
+10. Sous l’onglet **Vérifier + créer** , passez en revue les **Détails de la tarification** , les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
     ![Créer une ressource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -168,17 +167,20 @@ Une fois la commande passée, Microsoft l’examine et vous communique (par e-ma
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
 
+> [!NOTE]
+>Si vous souhaitez créer plusieurs commandes à la fois ou cloner une commande existante, vous pouvez utiliser les [scripts dans les exemples Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Pour plus d’informations, consultez le fichier README.
+
 Si vous rencontrez des problèmes pendant le processus de commande, consultez [Résoudre les problèmes de commande](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obtenir la clé d'activation
 
 Une fois que la ressource Azure Stack Edge est active et en cours d’exécution, vous devez obtenir la clé d’activation. Cette clé sert à activer votre appareil Azure Stack Edge Pro et à le connecter à la ressource. Vous pouvez obtenir cette clé maintenant, lorsque vous vous trouvez dans le Portail Azure.
 
-1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble**, puis **Configuration de l’appareil**.
+1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble** , puis **Configuration de l’appareil**.
 
     ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
+2. Sur la vignette **Activer** , attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
 
     Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés. 
 

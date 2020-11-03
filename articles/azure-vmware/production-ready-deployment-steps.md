@@ -3,16 +3,16 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147989"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517359"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
-Dans cet article, nous vous proposons le processus de planification permettant d’identifier et de collecter les données utilisées pendant le déploiement. À mesure que vous planifiez votre déploiement, veillez à documenter les informations que vous collectez pour les référencer facilement pendant le déploiement.
+Cet article vous présente le processus de planification permettant d’identifier et de collecter les données utilisées pendant le déploiement. À mesure que vous planifiez votre déploiement, veillez à documenter les informations que vous collectez pour les référencer facilement pendant le déploiement.
 
 Les processus de ce démarrage rapide génèrent un environnement prêt pour la production en vue de la création de machines virtuelles et de la migration. 
 
@@ -73,13 +73,13 @@ Pour plus d’informations, consultez la [Liste de contrôle de planification du
 
 Identifiez un segment IP pour créer votre premier réseau (segment NSX) dans votre cloud privé.  En d’autres termes, vous souhaitez créer un segment réseau dans Azure VMware Solution afin de pouvoir déployer des machines virtuelles sur Azure VMware Solution.   
 
-Même si vous envisagez uniquement d’étendre des réseaux L2, créez un segment réseau qui sera utile pour la validation de l’environnement.
+Même si vous envisagez seulement d’étendre des réseaux L2, créez un segment réseau qui validera l’environnement.
 
 N’oubliez pas que tous les segments IP créés doivent être uniques dans votre espace Azure et votre empreinte locale.  
 
 **Exemple :** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identifier : segment d’adresse IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identifier : segment d’adresse IP pour les charges de travail des machines virtuelles" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(Facultatif) Étendre des réseaux
 
@@ -92,11 +92,11 @@ N’oubliez pas les points suivants :
 
 ## <a name="expressroute-global-reach-peering-network"></a>Réseau de Peering ExpressRoute Global Reach
 
-Identifiez un bloc d’adresses réseau CIDR `/29`, requis pour le Peering ExpressRoute Global Reach. N’oubliez pas que tous les segments IP créés doivent être uniques dans l’ensemble d’Azure VMware Solution et votre empreinte locale. Les adresses IP de ce segment sont utilisées à chaque extrémité de la connexion ExpressRoute Global Reach pour connecter le circuit ExpressRoute Azure VMware Solution au circuit ExpressRoute local. 
+Identifiez un bloc d’adresses réseau CIDR `/29` nécessaire au Peering ExpressRoute Global Reach. N’oubliez pas que tous les segments IP créés doivent être uniques dans l’ensemble d’Azure VMware Solution et votre empreinte locale. Les adresses IP de ce segment sont utilisées à chaque extrémité de la connexion ExpressRoute Global Reach pour connecter le circuit ExpressRoute Azure VMware Solution au circuit ExpressRoute local. 
 
 **Exemple :** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifier : segment d’adresse IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifier : réseau de Peering ExpressRoute Global Reach" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Réseau virtuel Azure pour joindre Azure VMware Solution
 
@@ -119,7 +119,7 @@ Dans les deux cas, documentez ce que vous souhaitez faire au cours de cette éta
 >[!NOTE]
 >Ce réseau virtuel est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identifier : segment d’adresse IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identité : réseau virtuel Azure pour joindre Azure VMware Solution" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segments réseau VMware HCX
 

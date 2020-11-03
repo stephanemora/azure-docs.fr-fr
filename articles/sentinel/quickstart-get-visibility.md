@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208224"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516951"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
@@ -54,7 +54,7 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent Azure AD, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/platform/workbooks-overview.md).
 
-1. Sous **Paramètres** , sélectionnez **Classeurs** . Sous **Installés** , vous pouvez voir tous vos classeurs installés. Sous **Tous** , vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
+1. Sous **Paramètres** , sélectionnez **Classeurs**. Sous **Installés** , vous pouvez voir tous vos classeurs installés. Sous **Tous** , vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
 2. Recherchez un classeur spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces classeurs propose. 
 3. En supposant que vous utilisiez Azure AD, pour être opérationnel avec Azure Sentinel, nous vous recommandons d’installer au moins les classeurs suivants :
    - **Azure AD**  : Utilisez une ou plusieurs des actions suivantes :
@@ -79,11 +79,11 @@ Si vous souhaitez ajouter une nouvelle vignette, vous pouvez l’ajouter à un c
 ## <a name="create-new-workbooks"></a>Créer des classeurs
 Vous pouvez créer un classeur de toutes pièces ou utiliser un classeur intégré comme point de départ de votre nouveau classeur.
 
-1. Pour créer un classeur de toutes pièces, sélectionnez **Classeurs** , puis **+Nouveau classeur** .
-2. Sélectionnez l’abonnement dans lequel le classeur est créé, puis donnez-lui un nom descriptif. Chaque classeur est une ressource Azure comme n’importe quelle autre, et vous pouvez lui affecter des rôles (RBAC) pour en définir et en limiter l’accès. 
-3. Pour lui permettre de s’afficher dans vos classeurs dans lesquels épingler des visualisations, vous devez le partager. Cliquez sur **Partager** , puis sur **Gérer les utilisateurs** . 
+1. Pour créer un classeur de toutes pièces, sélectionnez **Classeurs** , puis **+Nouveau classeur**.
+2. Sélectionnez l’abonnement dans lequel le classeur est créé, puis donnez-lui un nom descriptif. Chaque classeur est une ressource Azure comme n’importe quelle autre, et vous pouvez lui affecter des rôles (Azure RBAC) pour en définir et limiter l’accès. 
+3. Pour lui permettre de s’afficher dans vos classeurs dans lesquels épingler des visualisations, vous devez le partager. Cliquez sur **Partager** , puis sur **Gérer les utilisateurs**. 
  
-1. Utilisez les options **Vérifier l’accès** et **Attributions de rôles** comme vous le feriez pour toute autre ressource Azure. Pour plus d’informations, consultez [Partager des classeurs Azure avec le contrôle d’accès en fonction du rôle (RBAC)](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Utilisez les options **Vérifier l’accès** et **Attributions de rôles** comme vous le feriez pour toute autre ressource Azure. Pour plus d’informations, consultez [Partager des classeurs Azure en utilisant Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Nouveaux exemples de classeurs
@@ -119,7 +119,7 @@ Générez des détections sur les [sources de données que vous avez connectées
 
 Quand vous créez une détection, tirez parti des détections intégrées élaborées par les chercheurs en sécurité de Microsoft qui sont adaptées aux sources de données que vous avez connectées.
 
-Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique** , puis à **Modèles de règle** . Cet onglet contient toutes les règles intégrées Azure Sentinel.
+Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique** , puis à **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
 
    ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

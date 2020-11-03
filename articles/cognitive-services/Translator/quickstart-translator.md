@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, service de traduction, traduire du texte, translittérer du texte, détection de la langue
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318838"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517036"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Démarrage rapide : Bien démarrer avec Translator
 
@@ -59,7 +59,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 # <a name="java"></a>[Java](#tab/java)
 
 * Créez un répertoire de travail pour votre projet. Par exemple : `mkdir sample-project`.
-* Initialisez votre projet avec Gradle : `gradle init --type basic`. Quand vous êtes invité à choisir un **DSL**, sélectionnez **Kotlin**.
+* Initialisez votre projet avec Gradle : `gradle init --type basic`. Quand vous êtes invité à choisir un **DSL** , sélectionnez **Kotlin**.
 * Mettez à jour `build.gradle.kts`. N’oubliez pas que vous avez besoin de mettre à jour votre `mainClassName` en fonction de l’exemple.
   ```java
   plugins {
@@ -123,7 +123,7 @@ Quand vous appelez le service Translator par le biais de REST, vous devez vérif
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Clés et points de terminaison)
 
-Les exemples de cette page utilisent des clés et points de terminaison codés en dur pour des raisons de simplicité. N’oubliez pas de **supprimer la clé de votre code une fois que vous avez terminé**, et **ne la postez jamais publiquement**. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+Les exemples de cette page utilisent des clés et points de terminaison codés en dur pour des raisons de simplicité. N’oubliez pas de **supprimer la clé de votre code une fois que vous avez terminé** , et **ne la postez jamais publiquement**. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
 
 ## <a name="translate-text"></a>Traduire le texte 
 
@@ -2440,6 +2440,12 @@ Quand l’appel aboutit, vous devez voir la réponse suivante. Pour plus d’inf
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="java-users"></a>Utilisateurs de Java
+
+Si vous rencontrez des problèmes de connexion, il est possible que votre certificat SSL ait expiré. Pour résoudre ce problème, installez [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) dans votre magasin privé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

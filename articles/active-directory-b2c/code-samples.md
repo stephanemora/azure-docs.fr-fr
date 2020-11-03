@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214938"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503842"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -60,10 +60,23 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 
 Les tableaux suivants fournissent des liens vers des exemples de code pour tirer parti des API web dans vos flux utilisateur avec des [connecteurs d’API](api-connectors-overview.md).
 
-## <a name="api-connector-azure-function-quickstarts"></a>Guides de démarrage rapide sur les fonctions Azure et les connecteurs d’API
+### <a name="azure-function-quickstarts"></a>Démarrages rapides Azure Function
 
 | Exemple                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Cet exemple de fonction Azure .NET Core montre comment limiter les connexions à des domaines de messagerie spécifiques et valider les informations fournies par l’utilisateur. |
 | [Node.JS](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Cet exemple de fonction Azure Node.js montre comment limiter les connexions à des domaines de messagerie spécifiques et valider les informations fournies par l’utilisateur.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Cet exemple de fonction Azure Python montre comment limiter les connexions à des domaines de messagerie spécifiques et valider les informations fournies par l’utilisateur.    |
+
+### <a name="identity-verification-with-api-connectors"></a>Vérification d’identité à l’aide de connecteurs d’API
+
+| Exemple                                                                                                            | Description                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Cet exemple montre comment vérifier une identité d’utilisateur dans le cadre de votre inscription en libre-service à l’aide d’un connecteur d’API pour l’intégration à IDology. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Cet exemple montre comment vérifier une identité d’utilisateur dans le cadre de votre inscription en libre-service à l’aide d’un connecteur d’API pour l’intégration avec Experian. |
+
+### <a name="community-samples"></a>Exemples de la communauté
+
+| Exemple                                                                                                            | Description                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Connecteurs d’API – Exemples de la communauté](https://github.com/azure-ad-b2c/api-connector-samples) | Ce dépôt contient des exemples gérés par la communauté qui portent sur des scénarios activés par des connecteurs d’API.|

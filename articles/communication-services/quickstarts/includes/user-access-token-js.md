@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: marobert
-ms.openlocfilehash: 77b1e9ab245f668ab81741451a5e032f37bc3625
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 22cfe369561eab1ca334c7ff2450162dfae3e761
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944594"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92347293"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -127,6 +127,15 @@ await identityClient.revokeTokens(userResponse);
 console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
 ```
 
+## <a name="refresh-user-access-tokens"></a>Actualiser des jetons d’accès utilisateur
+
+Pour actualiser un jeton, utilisez l’objet `CommunicationUser` pour émettre à nouveau :
+
+```javascript  
+let userResponse = new CommunicationUser(existingUserId);
+let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+```
+
 ## <a name="delete-a-user"></a>Supprimer un utilisateur
 
 Quand vous supprimez un utilisateur, vous supprimez aussi tous les jetons actifs et vous ne pouvez plus ensuite émettre de jetons pour les identités. De plus, tout le contenu persistant associé à l’utilisateur est également supprimé.
@@ -138,7 +147,7 @@ console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-À partir d’une invite de console, accédez au répertoire contenant le fichier *issue-token.js*, puis exécutez la commande `node` suivante pour exécuter l’application.
+À partir d’une invite de console, accédez au répertoire contenant le fichier *issue-token.js* , puis exécutez la commande `node` suivante pour exécuter l’application.
 
 ```console
 node ./issue-token.js

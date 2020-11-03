@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289019"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474782"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
 
@@ -127,7 +127,7 @@ L’élément unstructured_data_path qui établit un chemin d’accès aux donn�
  Spécifie un chemin au sein de votre stockage qui pointe vers le dossier ou le fichier que vous souhaitez lire. Si le chemin pointe vers un conteneur ou un dossier, tous les fichiers sont lus à partir de ce conteneur ou dossier particulier. Les fichiers des sous-dossiers ne sont pas inclus. 
 
  Vous pouvez utiliser des caractères génériques pour cibler plusieurs fichiers ou dossiers. L’utilisation de plusieurs caractères génériques non consécutifs est autorisée.
-Dans l’exemple ci-dessous, tous les fichiers *csv* sont lus en débutant par *population* à partir de tous les dossiers en débutant par */csv/population* :  
+Dans l’exemple ci-dessous, tous les fichiers *csv* sont lus en débutant par *population* à partir de tous les dossiers en débutant par */csv/population*  :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Si vous spécifiez l’élément unstructured_data_path comme dossier, une requête SQL à la demande récupère les fichiers de ce dossier. 
@@ -192,9 +192,9 @@ Spécifie un caractère qui sera utilisé comme caractère de guillemet dans le 
 
 DATA_COMPRESSION = ’data_compression_method’
 
-Spécifie la méthode de compression. La méthode de compression suivante est prise en charge :
+Spécifie la méthode de compression. Pris en charge seulement dans PARSER_VERSION = '1.0'. La méthode de compression suivante est prise en charge :
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = ’parser_version’
 

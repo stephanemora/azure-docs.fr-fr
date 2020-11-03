@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122172"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341904"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Démarrage rapide : Déployer un cluster AKS (Azure Kubernetes Service) avec des nœuds d’informatique confidentielle à l’aide d’Azure CLI (préversion)
 
@@ -27,11 +27,11 @@ Dans ce guide de démarrage rapide, vous allez apprendre à déployer un cluster
 ### <a name="deployment-pre-requisites"></a>Conditions préalables au déploiement
 
 1. Avoir un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer
-1. Avoir la version 2.0.64 ou une version ultérieure d’Azure CLI installée et configurée sur votre machine de déploiement (exécutez `az --version` pour connaître la version). Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Avoir la version 2.0.64 ou ultérieure d’Azure CLI installée et configurée sur votre machine de déploiement (exécutez`az --version` pour connaître la version). Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli).
 1. Avoir l’[extension aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) version 0.4.62 ou ultérieure 
-1. Avoir au moins six cœurs DCSv2 disponibles dans votre abonnement. Par défaut, le quota de cœurs de machine virtuelle pour l’informatique confidentielle est de 8 cœurs par abonnement Azure. Si vous envisagez de provisionner un cluster qui nécessite plus de 8 cœurs, suivez [ces instructions](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) pour créer un ticket de demande d’augmentation du quota
+1. Avoir au moins six cœurs **DC<x>s-v2** disponibles dans votre abonnement. Par défaut, le quota de cœurs de machine virtuelle pour l’informatique confidentielle est de 8 cœurs par abonnement Azure. Si vous envisagez de provisionner un cluster qui nécessite plus de 8 cœurs, suivez [ces instructions](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) pour créer un ticket de demande d’augmentation du quota
 
-### <a name="confidential-computing-node-features"></a>Fonctionnalités des nœuds d’informatique confidentielle
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Fonctionnalités des nœuds d’informatique confidentielle (DC<x>s-v2)
 
 1. Nœuds Worker Linux prenant en charge les conteneurs Linux uniquement
 1. Machines virtuelles Ubuntu 18.04 de deuxième génération
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-La commande ci-dessus doit provisionner un nouveau cluster AKS avec des pools de nœuds DCSv2 et installer automatiquement deux ensembles de démons ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+La commande ci-dessus doit provisionner un nouveau cluster AKS avec des pools de nœuds **DC<x>s-v2** et installer automatiquement deux ensembles de démons ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote)).
 
 Récupérez les informations d’identification de votre cluster AKS avec la commande az aks get-credentials :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Vérifiez que les nœuds sont correctement créés et que les ensembles de démons SGX s’exécutent sur les pools de nœuds DCSv2, en utilisant la commande kubectl get pods et nodes comme indiqué ci-dessous :
+Vérifiez que les nœuds sont correctement créés et que les ensembles de démons SGX s’exécutent sur des pools de nœuds **DC<x>s-v2** , en utilisant la commande kubectl get pods et nodes comme indiqué ci-dessous :
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ Tout d’abord, activez les modules complémentaires AKS pour l’informatique c
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Ajoutez maintenant un pool de nœuds DCSv2 au cluster :
-
-```azurecli-interactive
+Ajoutez maintenant un pool de nœuds **DC<x>s-v2** au cluster.
+    
+> [!NOTE]
+> Pour utiliser la fonctionnalité d’informatique confidentielle, il faut que votre cluster AKS dispose au minimum d’un pool de nœuds basés sur la référence SKU de machine virtuelle **DC<x>s-v2**. Pour en savoir plus sur les référence SKU de machine virtuelle DCsv2 d’informatique confidentielle, consultez [Références SKU disponibles et régions prises en charge](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

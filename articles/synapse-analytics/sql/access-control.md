@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289478"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503281"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gérer l’accès aux espaces de travail, aux données et aux pipelines
 
 Découvrez comment gérer le contrôle d’accès aux espaces de travail, aux données et aux pipelines dans un espace de travail Azure Synapse Analytics (préversion).
 
 > [!NOTE]
-> Dans la version en disponibilité générale, RBAC sera plus développé via l’introduction de rôles Azure spécifiques à Synapse
+> Dans la version en disponibilité générale, Azure RBAC sera plus développé via l’introduction de rôles Azure spécifiques à Synapse
 
 ## <a name="access-control-for-workspace"></a>Contrôle d’accès pour les espaces de travail
 
@@ -62,9 +62,9 @@ Quand vous provisionniez votre espace de travail, vous deviez choisir un compte 
 
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Étape 3 : Configurer la liste des administrateurs de l’espace de travail
 
-1. Accédez à l’[**interface utilisateur web d’Azure Synapse**](https://web.azuresynapse.net).
+1. Accédez à l’ [**interface utilisateur web d’Azure Synapse**](https://web.azuresynapse.net).
 2. Accédez à **Gérer**  > **Sécurité** > **Contrôle d’accès**.
-3. Sélectionnez **Ajouter un administrateur**, puis sélectionnez `Synapse_WORKSPACENAME_Admins`.
+3. Sélectionnez **Ajouter un administrateur** , puis sélectionnez `Synapse_WORKSPACENAME_Admins`.
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Étape 4 : Configurer l’accès administrateur SQL pour l’espace de travail
 
@@ -108,7 +108,7 @@ Cette section illustre, à l’aide de différents exemples, comment accorder à
 
 #### <a name="database-level-permission"></a>Autorisation au niveau base de données
 
-Pour accorder à un utilisateur l’accès à une base de données SQL à la demande **unique**, suivez les étapes de cet exemple :
+Pour accorder à un utilisateur l’accès à une base de données SQL à la demande **unique** , suivez les étapes de cet exemple :
 
 1. Créer des informations de connexion (LOGIN)
 
@@ -144,12 +144,12 @@ Pour accorder à un utilisateur l’accès complet à **toutes** les bases de do
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>Pools SQL
 
-Pour accorder à un utilisateur l’accès à une base de données SQL **unique**, effectuez les étapes suivantes :
+Pour accorder à un utilisateur l’accès à une base de données SQL **unique** , effectuez les étapes suivantes :
 
 1. Créez l’utilisateur dans la base de données en exécutant la commande suivante qui cible la base de données souhaitée dans le sélecteur de contexte (liste déroulante permettant de sélectionner des bases de données) :
 

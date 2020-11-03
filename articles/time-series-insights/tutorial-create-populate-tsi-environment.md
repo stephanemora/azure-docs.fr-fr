@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620203"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518107"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutoriel : Créer un environnement Azure Time Series Insights Génération 1
 
@@ -36,7 +36,7 @@ Ce tutoriel vous guide tout au long du processus de création d’un environneme
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Votre compte de connexion Azure doit également être membre du rôle **Propriétaire** de l’abonnement. Pour plus d’informations, consultez [Gérer l’accès à l’aide d’un contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+* Votre compte de connexion Azure doit également être membre du rôle **Propriétaire** de l’abonnement. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Regarder la vidéo
 
@@ -83,7 +83,7 @@ Pour commencer, créez la solution de simulation d’appareil, qui va générer 
 
    [![Provisionnement de la solution de simulation d’appareil terminé](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. Observons à présent les ressources nouvellement créées dans le portail Azure. Sur la page **Groupes de ressources**, vous remarquerez qu’un nouveau groupe de ressources a été créé à l’aide du **nom de la solution** indiqué à la dernière étape. Prenez note des ressources qui ont été créées pour la simulation d’appareil.
+1. Observons à présent les ressources nouvellement créées dans le portail Azure. Sur la page **Groupes de ressources** , vous remarquerez qu’un nouveau groupe de ressources a été créé à l’aide du **nom de la solution** indiqué à la dernière étape. Prenez note des ressources qui ont été créées pour la simulation d’appareil.
 
    [![Ressources de la solution d’appareil](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -93,11 +93,11 @@ Ensuite, créez un environnement Azure Time Series Insights dans votre abonnemen
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre compte d’abonnement Azure.
 1. Cliquez sur **+ Créer une ressource** dans le coin supérieur gauche.
-1. Sélectionnez la catégorie **Internet des objets**, puis **Time Series Insights**.
+1. Sélectionnez la catégorie **Internet des objets** , puis **Time Series Insights**.
 
    [![Sélectionner la ressource d’environnement Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
-1. Sur la page **Environnement Time Series Insights**, renseignez les paramètres requis.
+1. Sur la page **Environnement Time Series Insights** , renseignez les paramètres requis.
 
    Paramètre|Description
    ---|---
@@ -162,7 +162,7 @@ Dans cette dernière section, vous vérifiez que les données de télémétrie o
 
    [![Groupe de ressources et environnement Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. Dans la page **Vue d’ensemble** de l’environnement Azure Time Series Insights, sélectionnez l’**URL de l’explorateur Time Series Insights** pour ouvrir l’explorateur Azure Time Series Insights.
+1. Dans la page **Vue d’ensemble** de l’environnement Azure Time Series Insights, sélectionnez l’ **URL de l’explorateur Time Series Insights** pour ouvrir l’explorateur Azure Time Series Insights.
 
    [![Explorateur Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
@@ -184,9 +184,9 @@ Ce tutoriel crée plusieurs services Azure en cours d’exécution, pour prendre
 
 Dans le menu de gauche du portail Azure :
 
-1. Sélectionnez l’icône **Groupes de ressources**. Ensuite, choisissez le groupe de ressources que vous avez créé pour l’environnement Azure Time Series Insights. En haut de la page, sélectionnez **Supprimer le groupe de ressources**, entrez le nom du groupe de ressources, puis choisissez **Supprimer**.
+1. Sélectionnez l’icône **Groupes de ressources**. Ensuite, choisissez le groupe de ressources que vous avez créé pour l’environnement Azure Time Series Insights. En haut de la page, sélectionnez **Supprimer le groupe de ressources** , entrez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
-1. Sélectionnez l’icône **Groupes de ressources**. Puis choisissez le groupe de ressources créé par l’accélérateur de la solution de simulation d’appareil. En haut de la page, sélectionnez **Supprimer le groupe de ressources**, entrez le nom du groupe de ressources, puis choisissez **Supprimer**.
+1. Sélectionnez l’icône **Groupes de ressources**. Puis choisissez le groupe de ressources créé par l’accélérateur de la solution de simulation d’appareil. En haut de la page, sélectionnez **Supprimer le groupe de ressources** , entrez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

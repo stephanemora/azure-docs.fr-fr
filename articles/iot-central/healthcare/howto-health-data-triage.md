@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127078"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542418"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
 
@@ -139,7 +139,7 @@ L'étape suivante consistera à analyser les données provenant de votre hub d'�
 }
 ```
 
-2. Maintenant que vous avez inspecté vos charges utiles JSON, revenez à votre Concepteur d'applications logiques et sélectionnez **+ Nouvelle étape**. Recherchez et ajoutez **Initialiser la variable**, puis entrez les paramètres suivants :
+2. Maintenant que vous avez inspecté vos charges utiles JSON, revenez à votre Concepteur d'applications logiques et sélectionnez **+ Nouvelle étape**. Recherchez et ajoutez **Initialiser la variable** , puis entrez les paramètres suivants :
 
     |Paramètre|Valeur|
     |---|---|
@@ -164,28 +164,28 @@ L'étape suivante consistera à analyser les données provenant de votre hub d'�
     >[!div class="mx-imgBorder"] 
     >![Contrôle Fractionner](media/split-by-interface.png)
 
-8. Dans le cas du dispositif **Smart Vitals Patch**, ajoutez une action **Analyser JSON**. Pour le contenu, choisissez le **Contenu** provenant du hub d'événements. Copiez et collez les exemples de charge utile du dispositif Smart Vitals Patch précédent pour générer le schéma.
+8. Dans le cas du dispositif **Smart Vitals Patch** , ajoutez une action **Analyser JSON**. Pour le contenu, choisissez le **Contenu** provenant du hub d'événements. Copiez et collez les exemples de charge utile du dispositif Smart Vitals Patch précédent pour générer le schéma.
 
 9. Ajoutez une action **Définir la variable** et mettez à jour la variable **Corps** avec la variable **Corps** du JSON analysé à l'étape 7.
 
-10. Ajoutez un contrôle **Condition** en guise d'action suivante, et définissez la condition sur **Corps**, **contient**, **RythmeCardiaque**. Vous saurez ainsi que vous disposez du bon jeu de données du dispositif Smart Vitals Patch avant de renseigner le jeu de données Power BI. Les étapes 7 à 9 se présentent comme suit :
+10. Ajoutez un contrôle **Condition** en guise d'action suivante, et définissez la condition sur **Corps** , **contient** , **RythmeCardiaque**. Vous saurez ainsi que vous disposez du bon jeu de données du dispositif Smart Vitals Patch avant de renseigner le jeu de données Power BI. Les étapes 7 à 9 se présentent comme suit :
 
     >[!div class="mx-imgBorder"] 
     >![Condition d'ajout de Smart Vitals](media/smart-vitals-pbi.png)
 
 11. Pour le cas **Vrai** de la condition, ajoutez une action qui appelle la fonctionnalité Power BI **Ajouter des lignes à un jeu de données**. Pour ce faire, vous devez vous connecter à Power BI. Votre cas **Faux** peut à nouveau utiliser le contrôle **Terminer**.
 
-12. Choisissez l'**espace de travail**, le **jeu de données** et la **table** appropriés. Mappez les paramètres que vous avez spécifiés lors de la création de votre jeu de données de streaming dans Power BI avec les valeurs JSON analysées provenant de votre hub d'événements. Vos actions complétées doivent se présenter comme suit :
+12. Choisissez l' **espace de travail** , le **jeu de données** et la **table** appropriés. Mappez les paramètres que vous avez spécifiés lors de la création de votre jeu de données de streaming dans Power BI avec les valeurs JSON analysées provenant de votre hub d'événements. Vos actions complétées doivent se présenter comme suit :
 
     >[!div class="mx-imgBorder"] 
     >![Ajouter des lignes à Power BI](media/add-rows-yesenia.png)
 
-13. Pour le cas du commutateur **Smart Knee Brace**, ajoutez une action **Analyser JSON** pour analyser le contenu, comme à l'étape 7. Ensuite, **ajoutez des lignes à un jeu de données** pour mettre à jour votre jeu de données Teddy Silvers dans Power BI.
+13. Pour le cas du commutateur **Smart Knee Brace** , ajoutez une action **Analyser JSON** pour analyser le contenu, comme à l'étape 7. Ensuite, **ajoutez des lignes à un jeu de données** pour mettre à jour votre jeu de données Teddy Silvers dans Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Condition d'ajout de Smart Vitals](media/knee-brace-pbi.png)
+    >![Capture d’écran qui montre comment ajouter des lignes à un jeu de données.](media/knee-brace-pbi.png)
 
-14. Appuyez sur **Enregistrer**, puis exécutez votre application logique.
+14. Appuyez sur **Enregistrer** , puis exécutez votre application logique.
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Créer un tableau de bord en temps réel pour les données vitales des patients
 Revenez maintenant à Power BI et sélectionnez **+ Créer** pour créer un nouveau **Tableau de bord**. Nommez votre tableau de bord et appuyez sur **Créer**.

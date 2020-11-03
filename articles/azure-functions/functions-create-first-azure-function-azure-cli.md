@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89145550"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519671"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Démarrage rapide : Créer une fonction dans Azure qui répond à des requêtes HTTP
 
@@ -82,7 +82,11 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-Dans un dossier vide, exécutez la commande suivante pour générer le projet Functions à partir d’un [archétype Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Utilisez `-DjavaVersion=11` si vous voulez exécuter vos fonctions sur Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
+Dans un dossier vide, exécutez la commande suivante pour générer le projet Functions à partir d’un [archétype Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
+
+> [!IMPORTANT]
+> + Utilisez `-DjavaVersion=11` si vous voulez exécuter vos fonctions sur Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
+> + La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du JDK pour que vous puissiez suivre cet article.
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -110,7 +114,7 @@ Fournissez les valeurs suivantes à l’invite :
 
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
-Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifactId_, qui est `fabrikam-functions` dans cet exemple. 
+Maven crée les fichiers projet dans un nouveau dossier avec le nom d’ _artifactId_ , qui est `fabrikam-functions` dans cet exemple. 
 
 ::: zone-end  
 Accédez au dossier du projet :
@@ -145,7 +149,7 @@ L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 ::: zone pivot="programming-language-java"
 #### <a name="functionjava"></a>Function.java
-*Function.java* contient une méthode `run` qui reçoit des données de requête dans la variable `request` d’un objet [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage), doté de l’annotation[HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) qui définit le comportement du déclencheur. 
+*Function.java* contient une méthode `run` qui reçoit des données de requête dans la variable `request` d’un objet [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage), doté de l’annotation [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) qui définit le comportement du déclencheur. 
 
 :::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
@@ -159,8 +163,6 @@ Les paramètres des ressources Azure créées pour héberger votre application s
 
 Vous pouvez modifier ces paramètres pour contrôler la façon dont les ressources sont créées dans Azure, par exemple en modifiant `runtime.os` pour passer de `windows` à `linux` avant le déploiement initial. Pour obtenir la liste complète des paramètres pris en charge par le plug-in Maven, consultez les [détails de la configuration](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
-Si vous souhaitez exécuter votre application de fonction sur Java 11 au lieu de Java 8, vous devez mettre à jour manuellement le fichier pom.xml avec les valeurs Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). En cas d’exécution sur Java 11, assurez-vous que  
-
 #### <a name="functiontestjava"></a>FunctionTest.java
 
 L’archétype génère également un test unitaire pour votre fonction. Lorsque vous modifiez votre fonction pour ajouter des liaisons ou de nouvelles fonctions au projet, vous devez également modifier les tests dans le fichier *FunctionTest.java*.
@@ -172,7 +174,7 @@ L’archétype génère également un test unitaire pour votre fonction. Lorsque
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req`, tel que cela est défini dans *function.json*. `req` est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). L’objet retourné, défini comme `$return` dans *function.json*, est une instance de la [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=python).
+Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req`, tel que cela est défini dans *function.json*. `req` est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). L’objet retourné, défini comme `$return` dans *function.json* , est une instance de la [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -182,7 +184,7 @@ Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la 
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req`, tel que cela est défini dans *function.json*. L’objet retourné, défini comme `$return` dans *function.json*, est la réponse. Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
+Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req`, tel que cela est défini dans *function.json*. L’objet retourné, défini comme `$return` dans *function.json* , est la réponse. Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
@@ -192,7 +194,7 @@ Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la 
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req` de type **HttpRequest**, tel que cela est défini dans *function.json*. L’objet retourné, défini comme `$return` dans *function.json*, est la réponse. 
+Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req` de type **HttpRequest** , tel que cela est défini dans *function.json*. L’objet retourné, défini comme `$return` dans *function.json* , est la réponse. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
@@ -202,7 +204,7 @@ Pour un déclencheur HTTP, la fonction reçoit les données de requête dans la 
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Pour un déclencheur HTTP, la fonction reçoit les données de requête passées au paramètre `$Request`, tel que cela est défini dans *function.json*. L’objet retourné, défini comme `Response` dans *function.json*, est passé à l’applet de commande `Push-OutputBinding` comme réponse. 
+Pour un déclencheur HTTP, la fonction reçoit les données de requête passées au paramètre `$Request`, tel que cela est défini dans *function.json*. L’objet retourné, défini comme `Response` dans *function.json* , est passé à l’applet de commande `Push-OutputBinding` comme réponse. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
@@ -381,14 +383,14 @@ Dans la mesure où votre fonction utilise un déclencheur HTTP, vous l’appelez
 
 # <a name="browser"></a>[Browser](#tab/browser)
 
-Copiez l’**URL d’appel** complète affichée au sein de la sortie de la commande de publication dans la barre d’adresse d’un navigateur, en ajoutant le paramètre de requête `&name=Functions`. Le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
+Copiez l’ **URL d’appel** complète affichée au sein de la sortie de la commande de publication dans la barre d’adresse d’un navigateur, en ajoutant le paramètre de requête `&name=Functions`. Le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
 
 ![Sortie de la fonction exécutée sur Azure dans un navigateur](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-browser.png)
 
 
 # <a name="curl"></a>[curl](#tab/curl)
 
-Exécutez [`curl`](https://curl.haxx.se/) avec l’**URL d’appel**, en ajoutant le paramètre `&name=Functions`. La sortie de la commande doit correspondre au texte « Hello Functions ».
+Exécutez [`curl`](https://curl.haxx.se/) avec l’ **URL d’appel** , en ajoutant le paramètre `&name=Functions`. La sortie de la commande doit correspondre au texte « Hello Functions ».
 
 ![Sortie de la fonction exécutée sur Azure à l’aide de curl](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 

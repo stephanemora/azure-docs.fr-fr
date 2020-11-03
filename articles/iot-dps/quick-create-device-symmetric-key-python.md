@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90528588"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426370"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Provisionner un appareil Python avec des clés symétriques
 
-Dans ce guide de démarrage rapide, vous allez apprendre à provisionner un ordinateur de développement Windows comme un appareil sur un hub IoT à l’aide de Python. Cet appareil utilise une clé symétrique pour s’authentifier auprès d’une instance du service DPS (Device Provisioning Service) afin d’être attribué à un hub IoT. L’appareil authentifié est reconnu par le service DPS en fonction d’une inscription individuelle, puis attribué à un hub IoT. L’exemple de code issu du [SDK Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) est utilisé pour provisionner l’appareil. 
+Dans ce guide de démarrage rapide, vous allez apprendre à provisionner un ordinateur de développement Windows comme un appareil sur un hub IoT à l’aide de Python. Cet appareil utilise une clé symétrique et une inscription individuelle pour s’authentifier auprès d’une instance du service Device Provisioning afin d’être attribué à un hub IoT. L’exemple de code issu du [SDK Azure IoT Python](https://github.com/Azure/azure-iot-sdk-python) est utilisé pour provisionner l’appareil. 
 
 Bien que cet article illustre le provisionnement avec une seule inscription, vous pouvez aussi utiliser des groupes d’inscription. Il existe cependant quelques différences lorsque vous utilisez des groupes d’inscription. Par exemple, vous devez utiliser une clé d’appareil dérivée avec un ID d’inscription unique pour l’appareil. Bien que les groupes d’inscription avec des clés symétriques ne soient pas limités aux appareils d’ancienne génération, le [Guide pratique pour provisionner des appareils d’ancienne génération à l’aide d’une attestation de clé symétrique](how-to-legacy-device-symm-key.md) fournit un exemple de groupe d’inscription. Pour plus d’informations, consultez [Inscriptions de groupe pour l’attestation de clé symétrique](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -42,7 +42,7 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 
 ## <a name="prepare-the-python-sdk-environment"></a>Préparer l’environnement du SDK Python 
 
-1. Assurez-vous que Git est installé sur votre machine et ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash**, l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
+1. Assurez-vous que Git est installé sur votre machine et ajouté aux variables d’environnement accessibles à la fenêtre de commande. Consultez la section relative aux [outils clients de Software Freedom Conservancy](https://git-scm.com/download/) pour accéder à la dernière version des outils `git` à installer, qui inclut **Git Bash** , l’application de ligne de commande que vous pouvez utiliser pour interagir avec votre référentiel Git local. 
 
 2. Ouvrez une invite de commandes. Clonez le dépôt GitHub pour le SDK Azure IoT Python :
     
@@ -65,9 +65,9 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance de service Device Provisioning (DPS).
 
-2. Sélectionnez l’onglet **Gérer les inscriptions**, puis le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
+2. Sélectionnez l’onglet **Gérer les inscriptions** , puis le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
-3. Dans le volet **Ajouter une inscription**, entrez les informations suivantes, puis appuyez sur le bouton **Enregistrer**.
+3. Dans le volet **Ajouter une inscription** , entrez les informations suivantes, puis appuyez sur le bouton **Enregistrer**.
 
    - **Mécanisme** : sélectionnez **Clé symétrique** comme *mécanisme* d’attestation d’identité.
 
@@ -81,7 +81,7 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 
 4. Une fois que vous avez enregistré votre inscription, la **Clé primaire** et la **Clé secondaire** sont générées et ajoutées à l’entrée d’inscription. Votre inscription d’appareil à clé symétrique apparaît sous le nom **symm-key-python-device-008** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 
-5. Ouvrez l’inscription et copiez la valeur de votre **Clé primaire** générée. Vous allez utiliser cette valeur de clé et l’**ID d’inscription** plus tard quand vous ajouterez des variables d’environnement à utiliser avec l’exemple de code de provisionnement des appareils.
+5. Ouvrez l’inscription et copiez la valeur de votre **Clé primaire** générée. Vous allez utiliser cette valeur de clé et l’ **ID d’inscription** plus tard quand vous ajouterez des variables d’environnement à utiliser avec l’exemple de code de provisionnement des appareils.
 
 
 
@@ -165,12 +165,12 @@ Le code de provisionnement contacte l’instance du service DPS en fonction de c
     done sending message #5
     ```
     
-6. Dans le portail Azure, accédez au hub IoT lié à votre service de provisionnement et ouvrez le panneau **Appareils IoT**. Une fois l’appareil à clé symétrique correctement configuré dans le hub, l’ID de l’appareil apparaît avec l’*ÉTAT* **activé**. Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple de code de l’appareil. 
+6. Dans le portail Azure, accédez au hub IoT lié à votre service de provisionnement et ouvrez le panneau **Appareils IoT**. Une fois l’appareil à clé symétrique correctement configuré dans le hub, l’ID de l’appareil apparaît avec l’ *ÉTAT* **activé**. Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple de code de l’appareil. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/quick-create-device-symm-key-python/hub-registration-python.png) 
 
 > [!NOTE]
-> Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+> Si vous avez modifié la valeur par défaut de l’ *état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 >
 
 
@@ -178,8 +178,8 @@ Le code de provisionnement contacte l’instance du service DPS en fonction de c
 
 Si vous envisagez de manipuler et d’explorer davantage l’exemple de client d’appareil, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources créées par ce guide.
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis votre service Device Provisioning. Ouvrez **Gérer les inscriptions** pour votre service, puis sélectionnez l’onglet **Inscriptions individuelles**. Cochez la case à côté de l’*ID D’INSCRIPTION* de l’appareil que vous avez inscrit dans ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet. 
-1. À partir du menu de gauche, dans le portail Azure, sélectionnez **Toutes les ressources**, puis votre hub IoT. Ouvrez **Appareils IoT** pour votre hub, cochez la case en regard de l’*ID D’APPAREIL* de l’appareil que vous avez inscrit dans ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources** , puis votre service Device Provisioning. Ouvrez **Gérer les inscriptions** pour votre service, puis sélectionnez l’onglet **Inscriptions individuelles**. Cochez la case à côté de l’ *ID D’INSCRIPTION* de l’appareil que vous avez inscrit dans ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet. 
+1. À partir du menu de gauche, dans le portail Azure, sélectionnez **Toutes les ressources** , puis votre hub IoT. Ouvrez **Appareils IoT** pour votre hub, cochez la case en regard de l’ *ID D’APPAREIL* de l’appareil que vous avez inscrit dans ce guide de démarrage rapide, puis appuyez sur le bouton **Supprimer** dans la partie supérieure du volet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

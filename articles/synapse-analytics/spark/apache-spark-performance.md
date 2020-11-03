@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249465"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368602"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimiser les travaux Apache Spark (préversion) dans Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Les versions antérieures de Spark utilisent des RDD pour abstraire des données
 
 Spark prend en charge de nombreux formats, tels que csv, json, xml, parquet, orc et avro. Spark peut être étendu pour prendre en charge de nombreux autres formats avec des sources de données externes. Pour plus d’informations, consultez [Packages Apache Spark](https://spark-packages.org).
 
-Le meilleur format du point de vue des performances est parquet avec *compression Snappy*, qui est l’option par défaut dans Spark 2.x. Parquet stocke les données sous forme de colonnes et il est fortement optimisé dans Spark. De plus, si *compression Snappy* peut générer des fichiers plus volumineux que la compression gzip (par exemple), du fait de la nature divisible de ces fichiers, ils seront décompressés plus rapidement.
+Le meilleur format du point de vue des performances est parquet avec *compression Snappy* , qui est l’option par défaut dans Spark 2.x. Parquet stocke les données sous forme de colonnes et il est fortement optimisé dans Spark. De plus, si *compression Snappy* peut générer des fichiers plus volumineux que la compression gzip (par exemple), du fait de la nature divisible de ces fichiers, ils seront décompressés plus rapidement.
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 
@@ -77,7 +77,7 @@ Apache Spark dans Azure Synapse utilise YARN ([Apache Hadoop YARN](https://hadoo
 Pour éviter les messages « Mémoire insuffisante », essayez les solutions suivantes :
 
 * Passez en revue les lectures aléatoires de gestion DAG. Réduisez par la réduction côté mappage, prépartitionnez (ou compartimentez) les données sources, optimisez les lectures aléatoires uniques, et réduisez la quantité de données envoyées.
-* Privilégiez `ReduceByKey` (avec sa limite de mémoire fixe) à `GroupByKey`, qui fournit des agrégations, le fenêtrage et d’autres fonctions, mais qui n’a pas de limite de mémoire.
+* Privilégiez `ReduceByKey` avec sa limite de mémoire fixe à `GroupByKey`, qui fournit des agrégations, le fenêtrage et d’autres fonctions, mais qui n’a pas de limite de mémoire.
 * Privilégiez `TreeReduce`, qui effectue plus de travail sur les partitions ou les exécuteurs, à `Reduce`, qui effectue tout le travail sur le pilote.
 * Tirez parti des DataFrames plutôt que des objets RDD de niveau inférieur.
 * Créez des ComplexTypes qui encapsulent des actions, telles que « N premiers », différentes agrégations ou opérations de fenêtrage.
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Optimisation d’Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+- [Optimisation d’Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [Guide pratique pour paramétrer vos travaux Apache Spark afin qu’ils fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Sérialisation Kryo](https://github.com/EsotericSoftware/kryo)

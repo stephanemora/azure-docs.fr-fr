@@ -6,23 +6,22 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
-ms.date: 09/22/2020
-ms.openlocfilehash: 18366069fd7273afe33b538d2bd69ac8a99689c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/23/2020
+ms.openlocfilehash: 3f32d3d7cc498126d0fbdb709aaf0424d335793f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944555"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534122"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Démarrage rapide : Utiliser un modèle Resource Manager pour créer une instance d'Azure Database pour MySQL - Serveur flexible (préversion)
 
+> [!IMPORTANT]
+> Azure Database pour MySQL - Serveur flexible est actuellement en préversion publique.
 
-> [!IMPORTANT] 
-> Azure Database pour MySQL - Serveur flexible est actuellement disponible en préversion publique.
+Azure Database pour MySQL - Serveur flexible (préversion) est un service géré qui vous permet d'exécuter, de gérer et de mettre à l'échelle des bases de données MySQL hautement disponibles dans le cloud. Vous pouvez utiliser des modèles Azure Resource Manager (modèles ARM) pour provisionner un serveur flexible afin de déployer plusieurs serveurs ou bases de données sur un serveur.
 
-Azure Database pour MySQL - Serveur flexible (préversion) est un service géré qui vous permet d'exécuter, de gérer et de mettre à l'échelle des bases de données MySQL hautement disponibles dans le cloud. Vous pouvez utiliser des modèles Resource Manager pour approvisionner un serveur flexible afin de déployer plusieurs serveurs ou plusieurs bases de données sur un serveur.
-
-Un [modèle ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer.
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,137 +29,137 @@ Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Une instance d'Azure Database pour MySQL - Serveur flexible est la ressource parente d'une ou plusieurs bases de données au sein d'une région. Elle fournit l'étendue des stratégies de gestion qui s'appliquent à ses bases de données : connexions, pare-feu, utilisateurs, rôles, configurations, etc.
+Un serveur flexible Azure Database pour MySQL est la ressource parente d’une ou plusieurs bases de données au sein d’une région. Il fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexion, pare-feu, utilisateurs, rôles, configurations.
+
+Créez un fichier _mysql-flexible-server-template.json_ et copiez-y ce script JSON.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "administratorLogin": {
+      "type": "String"
+    },
+    "administratorLoginPassword": {
+      "type": "SecureString"
+    },
+    "location": {
+      "type": "String"
+    },
+    "serverName": {
+      "type": "String"
+    },
+    "serverEdition": {
+      "type": "String"
+    },
+    "vCores": {
+      "type": "Int"
+    },
+    "storageSizeMB": {
+      "type": "Int"
+    },
+    "standbyCount": {
+      "type": "Int"
+    },
+    "availabilityZone": {
+      "type": "String"
+    },
+    "version": {
+      "type": "String"
+    },
+    "tags": {
+      "defaultValue": {},
+      "type": "Object"
+    },
+    "firewallRules": {
+      "defaultValue": {},
+      "type": "Object"
+    },
+    "vnetData": {
+      "defaultValue": {},
+      "type": "Object"
+    },
+    "backupRetentionDays": {
+      "type": "Int"
+    }
+  },
+  "variables": {
+    "api": "2020-02-14-privatepreview",
+    "firewallRules": "[parameters('firewallRules').rules]",
+    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
+    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
+    "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DBforMySQL/flexibleServers",
+      "apiVersion": "[variables('api')]",
+      "name": "[parameters('serverName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_D4ds_v4",
+        "tier": "[parameters('serverEdition')]",
+        "capacity": "[parameters('vCores')]"
+      },
+      "tags": "[parameters('tags')]",
+      "properties": {
+        "version": "[parameters('version')]",
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
+        "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
+        "standbyCount": "[parameters('standbyCount')]",
+        "storageProfile": {
+          "storageMB": "[parameters('storageSizeMB')]",
+          "backupRetentionDays": "[parameters('backupRetentionDays')]"
+        },
+        "availabilityZone": "[parameters('availabilityZone')]"
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-08-01",
+      "name": "[concat('firewallRules-', copyIndex())]",
+      "dependsOn": [
+        "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
+              "apiVersion": "[variables('api')]",
+              "properties": {
+                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
+                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
+              }
+            }
+          ]
+        }
+      },
+      "copy": {
+        "name": "firewallRulesIterator",
+        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
+        "mode": "Serial"
+      },
+      "condition": "[greater(length(variables('firewallRules')), 0)]"
+    }
+  ]
+}
+```
 
 Ces ressources Azure sont définies dans le modèle :
 
 - Microsoft.DBforMySQL/flexibleServers
 
-Créez un fichier ```mysql-flexible-server-template.json``` et copiez-y ce script ```json```.
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "administratorLogin": {
-            "type": "String"
-        },
-        "administratorLoginPassword": {
-            "type": "SecureString"
-        },
-        "location": {
-            "type": "String"
-        },
-        "serverName": {
-            "type": "String"
-        },
-        "serverEdition": {
-            "type": "String"
-        },
-        "vCores": {
-            "type": "Int"
-        },
-        "storageSizeMB": {
-            "type": "Int"
-        },
-        "standbyCount": {
-            "type": "Int"
-        },
-        "availabilityZone": {
-            "type": "String"
-        },
-        "version": {
-            "type": "String"
-        },
-        "tags": {
-            "defaultValue": {},
-            "type": "Object"
-        },
-        "firewallRules": {
-            "defaultValue": {},
-            "type": "Object"
-        },
-        "vnetData": {
-            "defaultValue": {},
-            "type": "Object"
-        },
-        "backupRetentionDays": {
-            "type": "Int"
-        }
-    },
-    "variables": {
-        "api": "2020-02-14-privatepreview",
-        "firewallRules": "[parameters('firewallRules').rules]",
-        "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-        "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"vnetId\": \"\", \"vnetName\": \"\", \"vnetResourceGroup\": \"\", \"subnetName\": \"\" }'), parameters('vnetData'))]",
-        "finalVnetData": "[json(concat('{ \"DelegatedVnetID\": \"', variables('vnetDataSet').vnetId, '\", \"DelegatedVnetName\": \"', variables('vnetDataSet').vnetName, '\", \"DelegatedVnetResourceGroup\": \"', variables('vnetDataSet').vnetResourceGroup, '\", \"DelegatedSubnetName\": \"', variables('vnetDataSet').subnetName, '\"}'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.DBforMySQL/flexibleServers",
-            "apiVersion": "[variables('api')]",
-            "name": "[parameters('serverName')]",
-            "location": "[parameters('location')]",
-            "tags": "[parameters('tags')]",
-            "sku": {
-                "name": "Standard_D4ds_v4",
-                "tier": "[parameters('serverEdition')]",
-                "capacity": "[parameters('vCores')]"
-            },
-            "properties": {
-                "version": "[parameters('version')]",
-                "administratorLogin": "[parameters('administratorLogin')]",
-                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-                "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-                "VnetInjArgs": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-                "standbyCount": "[parameters('standbyCount')]",
-                "storageProfile": {
-                    "storageMB": "[parameters('storageSizeMB')]",
-                    "backupRetentionDays": "[parameters('backupRetentionDays')]"
-                },
-                "availabilityZone": "[parameters('availabilityZone')]"
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-08-01",
-            "name": "[concat('firewallRules-', copyIndex())]",
-            "dependsOn": [
-                "[concat('Microsoft.DBforMySQL/flexibleServers/', parameters('serverName'))]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "resources": [
-                        {
-                            "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-                            "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-                            "apiVersion": "[variables('api')]",
-                            "properties": {
-                                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-                            }
-                        }
-                    ]
-                }
-            },
-            "copy": {
-                "name": "firewallRulesIterator",
-                "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-                "mode": "Serial"
-            },
-            "condition": "[greater(length(variables('firewallRules')), 0)]"
-        }
-    ]
-}
-```
-
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Sélectionnez **Essayer** à partir du bloc de code PowerShell suivant pour ouvrir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Sélectionnez **Essayer** à partir du bloc de code PowerShell suivant pour ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
@@ -179,19 +178,18 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-## <a name="view-the-deployed-resources"></a>Afficher les ressources déployées
+## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 Procédez comme suit pour vérifier que votre serveur a été créé dans Azure.
 
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com), cherchez et sélectionnez **Serveurs Azure Database pour MySQL**.
-
-2. Dans la liste des bases de données, sélectionnez votre nouveau serveur. La page **Vue d’ensemble** de votre nouveau serveur Azure Database pour MySQL s’affiche.
+1. Dans la liste des bases de données, sélectionnez votre nouveau serveur. La page **Vue d’ensemble** de votre nouveau serveur Azure Database pour MySQL s’affiche.
 
 ### <a name="powershell"></a>PowerShell
 
-Vous devrez entrer le nom du nouveau serveur pour voir les détails de votre instance d'Azure Database pour MySQL - Serveur flexible.
+Vous devrez entrer le nom du nouveau serveur pour voir les détails de votre serveur flexible Azure Database pour MySQL.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
@@ -199,9 +197,9 @@ Get-AzResource -ResourceType "Microsoft.DBforMySQL/flexibleServers" -Name $serve
 Write-Host "Press [ENTER] to continue..."
 ```
 
-### <a name="cli"></a>CLI
+### <a name="cli"></a>Interface de ligne de commande
 
-Vous devrez entrer le nom et le groupe de ressources du nouveau serveur pour voir les détails de votre instance d'Azure Database pour MySQL - Serveur flexible.
+Vous devrez entrer le nom et le groupe de ressources du nouveau serveur pour voir les détails de votre serveur flexible Azure Database pour MySQL.
 
 ```azurecli-interactive
 echo "Enter your Azure Database for MySQL server name:" &&
@@ -220,12 +218,9 @@ Pour supprimer le groupe de ressources :
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Groupes de ressources**.
-
-2. Dans la liste des groupes de ressources, choisissez le nom de votre groupe de ressources.
-
-3. Dans la page **Vue d’ensemble** de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
-
-4. Dans la boîte de dialogue de confirmation, entrez le nom de votre groupe de ressources, puis sélectionnez **Supprimer**.
+1. Dans la liste des groupes de ressources, choisissez le nom de votre groupe de ressources.
+1. Dans la page **Vue d’ensemble** de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**.
+1. Dans la boîte de dialogue de confirmation, entrez le nom de votre groupe de ressources, puis sélectionnez **Supprimer**.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -250,7 +245,7 @@ echo "Press [ENTER] to continue ..."
 Pour obtenir un tutoriel pas à pas expliquant comment créer un modèle ARM, consultez :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> Créer et déployer votre premier modèle Resource Manager[
 
 Pour accéder à un tutoriel pas à pas sur la création d'une application avec App Service à l'aide de MySQL, consultez :
 

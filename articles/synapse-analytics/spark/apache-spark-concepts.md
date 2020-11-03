@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260136"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480477"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark dans Azure Synapse Analytics - Concepts clés
 
@@ -60,7 +60,40 @@ Lorsque vous soumettez un deuxième travail, s’il y a la capacité dans le poo
 - Un autre utilisateur, U2, soumet un travail, J3, qui utilise 10 nœuds. Une nouvelle instance Spark, SI2, est créée pour traiter le travail.
 - Vous soumettez à présent un autre travail, J2, qui utilise 10 nœuds, car il y a encore de la capacité dans le pool, et l’instance J2 est traitée par SI1.
 
+## <a name="quotas-and-resource-constraints-in-apache-spark-for-azure-synapse"></a>Quotas et contraintes de ressources dans Apache Spark pour Azure Synapse
+
+### <a name="workspace-level"></a>Niveau Espace de travail
+
+Chaque espace de travail Azure Synapse est fourni avec un quota par défaut de vCores qui peuvent être utilisés pour Spark. Le quota est divisé entre le quota « utilisateur » et le quota « flux de données » : aucun modèle d’utilisation n’utilise donc tous les vCores dans l’espace de travail. Le quota est différent selon le type de votre abonnement, mais il est symétrique entre « utilisateur » et « flux de données ». Cependant, si vous demandez plus de vCores que ceux qui restent dans l’espace de travail, vous obtenez l’erreur suivante :
+
+```console
+Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
+Your Spark job requested 480 vcores.
+However, the workspace only has xxx vcores available out of quota of yyy vcores.
+Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+```
+
+Le lien présent dans le message pointe vers cet article.
+
+L’article suivant décrit comment demander une augmentation du quota de vCores de l’espace de travail.
+
+- Sélectionnez « Azure Synapse Analytics » comme type de service.
+- Dans la fenêtre Détails du quota, sélectionnez Apache Spark (vCore) par espace de travail.
+
+[Demander une augmentation de capacité via le portail Azure](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+
+### <a name="spark-pool-level"></a>Niveau Pool Spark
+
+Quand vous définissez un pool Spark, vous définissez en fait un quota par utilisateur pour ce pool : si vous exécutez plusieurs notebooks ou plusieurs travaux, ou une combinaison des deux, il est possible que le quota du pool soit épuisé. Dans ce cas, un message d’erreur semblable au suivant est généré.
+
+```console
+Failed to start session: Your Spark job requested xx vcores.
+However, the pool is consuming yy vcores out of available zz vcores.Try ending the running job(s) in the pool, reducing the numbers of vcores requested, increasing the pool maximum size or using another pool
+```
+
+Pour résoudre ce problème, vous devez réduire l’utilisation des ressources du pool avant de soumettre une nouvelle demande de ressource en exécutant un notebook ou un travail.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Documentation Apache Spark](https://spark.apache.org/docs/2.4.4/)
+- [Documentation Apache Spark](https://spark.apache.org/docs/2.4.5/)

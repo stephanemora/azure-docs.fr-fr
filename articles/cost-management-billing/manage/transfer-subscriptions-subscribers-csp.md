@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132361"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460680"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
 Cet article présente les étapes principales utilisées pour transférer des abonnements Azure vers et à partir des partenaires fournisseurs de solutions cloud (CSP) et leurs clients. Les informations fournies ici sont destinées à l’abonné Azure pour l’aider à se coordonner avec son partenaire. Les informations que les partenaires Microsoft utilisent pour le processus de transfert figurent dans la section [Découvrez comment transférer les abonnements Azure d’un client à un autre partenaire](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Avant de commencer une demande de transfert, vous devez télécharger ou exporter toutes les informations de facturation et de coût que vous voulez conserver. Les informations de facturation et d’utilisation ne sont pas transférées avec l’abonnement. Pour plus d’informations sur l’exportation des données de gestion des coûts, consultez [Créer et gérer des données exportées](../costs/tutorial-export-acm-data.md). Pour plus d’informations sur le téléchargement de vos données de facturation et d’utilisation, consultez [Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne](download-azure-invoice-daily-usage-date.md).
+
+Si vous avez des réservations existantes, celles-ci cessent de s’appliquer après le transfert d’un abonnement. Veillez à [annuler les réservations et à les rembourser](../reservations/exchange-and-refund-azure-reservations.md) avant de transférer un abonnement.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transférer des abonnements EA à un partenaire CSP
 

@@ -3,17 +3,17 @@ title: Configurer l’intégration de AWS avec Azure Cost Management
 description: Cet article vous guide tout au long de la configuration de l'intégration des rapports de coûts et d'utilisation AWS avec Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266076"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517342"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
@@ -39,16 +39,14 @@ Utilisez la page **Cost & Usage Reports** (Rapports sur les coûts et l'utilisat
 6. Pour **Data refresh settings** (Paramètres d’actualisation des données), indiquez si vous voulez actualiser le rapport sur les coûts et l’utilisation AWS si AWS applique des remboursements, des crédits ou des frais de support à votre compte une fois votre facture finalisée. À chaque actualisation d’un rapport, un nouveau rapport est chargé sur Amazon S3. Nous vous recommandons de conserver le paramètre sélectionné.
 7. Sélectionnez **Suivant**.
 8. Pour **S3 bucket** (Compartiment S3), choisissez **Configure** (Configurer).
-9. Dans la boîte de dialogue Configure S3 Bucket (Configuration du compartiment S3), effectuez l’une des tâches suivantes :
-    1. Sélectionnez un compartiment existant dans la liste déroulante puis choisissez **Next** (Suivant).
-    2. Entrez un nom de compartiment et la région où vous voulez créer un compartiment, puis choisissez **Next** (Suivant).
-10.    Sélectionnez **I have confirmed that this policy is correct** (Je confirme que cette stratégie est correcte), puis cliquez sur **Save** (Enregistrer).
-11.    (Facultatif) Pour le préfixe Report path (Chemin du rapport), entrez le préfixe du chemin du rapport que vous voulez ajouter au nom de votre rapport.
+9. Dans la boîte de dialogue Configure S3 Bucket (Configurer le compartiment S3), entrez un nom de compartiment et la région où vous souhaitez créer un compartiment, puis choisissez **Next** (Suivant).
+10. Sélectionnez **I have confirmed that this policy is correct** (Je confirme que cette stratégie est correcte), puis cliquez sur **Save** (Enregistrer).
+11. (Facultatif) Pour le préfixe Report path (Chemin du rapport), entrez le préfixe du chemin du rapport que vous voulez ajouter au nom de votre rapport.
 Si vous ne spécifiez pas de préfixe, le préfixe par défaut est le nom que vous avez spécifié pour le rapport. La plage de dates a le format `/report-name/date-range/`.
-12. Pour **Unité de temps**, choisissez **Toutes les heures**.
-13.    Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou si vous voulez de nouveaux rapports supplémentaires.
+12. Pour **Unité de temps** , choisissez **Toutes les heures**.
+13. Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou si vous voulez de nouveaux rapports supplémentaires.
 14. Pour **Enable data integration for** (Activer l'intégration des données pour), aucune sélection n'est nécessaire.
-15. Pour **Compression**, sélectionnez **GZIP**.
+15. Pour **Compression** , sélectionnez **GZIP**.
 16. Sélectionnez **Suivant**.
 17. Après avoir vérifié les paramètres de votre rapport, sélectionnez **Review and Complete** (Vérifier et finaliser).
 
@@ -66,11 +64,11 @@ Utilisez l'Assistant Créer un rôle :
 
 1. Connectez-vous à votre console AWS, puis sélectionnez **Services** (Services).
 2. Dans la liste des services, sélectionnez **IAM**.
-3. Sélectionnez **Rôles**, puis sélectionnez **Créer un rôle**.
+3. Sélectionnez **Rôles** , puis sélectionnez **Créer un rôle**.
 4. Sur la page suivante, **Another AWS account** (Autre compte AWS).
-5. Dans **ID de compte**, entrez **432263259397**.
-6. Dans **Options**, sélectionnez **Require external ID (Best practice when a third party will assume this role)** (Nécessite un ID externe (il est recommandé qu’un tiers occupe ce rôle)).
-7. Dans **ID externe**, entrez l’ID externe, qui est un code secret partagé entre le rôle AWS et Azure Cost Management. Le même ID externe est également utilisé sur la page **Nouveau connecteur** dans Cost Management. Microsoft vous recommande d’utiliser une stratégie de code secret sécurisé lors de la saisie de l’ID externe.
+5. Dans **ID de compte** , entrez **432263259397**.
+6. Dans **Options** , sélectionnez **Require external ID (Best practice when a third party will assume this role)** (Nécessite un ID externe (il est recommandé qu’un tiers occupe ce rôle)).
+7. Dans **ID externe** , entrez l’ID externe, qui est un code secret partagé entre le rôle AWS et Azure Cost Management. Le même ID externe est également utilisé sur la page **Nouveau connecteur** dans Cost Management. Microsoft vous recommande d’utiliser une stratégie de code secret sécurisé lors de la saisie de l’ID externe.
     > [!NOTE]
     > Ne modifiez pas la sélection pour **Exiger une authentification multifacteur**. Elle doit rester désactivée.
 8. Sélectionnez **Suivant : Autorisations**.
@@ -110,7 +108,7 @@ Ajoutez l’autorisation pour les organisations AWS :
 2. Sélectionnez **Niveau d’accès** > **Liste** > **ListAccounts**. Cette action obtient les noms des comptes.
 3. Dans **Review Policy** (Stratégie de vérification), entrez le nom de la nouvelle stratégie. Vérifiez que vous avez entré les informations correctes, puis sélectionnez **Créer une stratégie**.
 4. Revenez à l’onglet précédent et actualisez la page web de votre navigateur. Sur la barre de recherche, recherchez votre nouvelle stratégie.
-5. Sélectionnez **Suivant : Vérification**).
+5. Sélectionnez **Suivant : Vérification** ).
 6. Entrez un nom pour le nouveau rôle. Vérifiez que vous avez entré les informations correctes, puis sélectionnez **Créer un rôle**.
 
     Notez le rôle ARN et l’ID externe utilisés dans les étapes précédentes lorsque vous avez créé le rôle. Vous allez les utiliser ultérieurement pour configurer le connecteur Azure Cost Management.
@@ -153,17 +151,17 @@ Utilisez les informations suivantes pour créer un connecteur AWS et démarrer l
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à **Gestion des coûts + facturation** > **Gestion des coûts**.
-3. Sous **Paramètres**, sélectionnez **Connecteurs pour AWS**.  
+3. Sous **Paramètres** , sélectionnez **Connecteurs pour AWS**.  
 4. Sélectionnez **+Ajouter** en haut de la page pour créer un connecteur.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Exemple montrant le paramètre Connecteurs pour AWS" :::
-1. Dans la page **Créer un connecteur**, dans **Nom d’affichage**, entrez un nom pour votre connecteur.  
+1. Dans la page **Créer un connecteur** , dans **Nom d’affichage** , entrez un nom pour votre connecteur.  
     :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Exemple de page pour la création d’un connecteur AWS" :::
 1. Vous pouvez également sélectionner le groupe d'administration par défaut. Il stockera tous les comptes liés découverts. Vous pouvez configurer ce paramètre ultérieurement.
-1. Dans la section **Facturation**, définissez **Renouvellement automatiquement** sur **Oui** si vous voulez garantir un fonctionnement continu. Si vous sélectionnez l’option automatique, vous devez sélectionner un abonnement de facturation.
+1. Dans la section **Facturation** , définissez **Renouvellement automatiquement** sur **Oui** si vous voulez garantir un fonctionnement continu. Si vous sélectionnez l’option automatique, vous devez sélectionner un abonnement de facturation.
 1. Pour **Role ARN** (Rôle ARN), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
 1. Pour **External ID** (ID externe), entrez la valeur que vous avez utilisée pour configurer le rôle dans AWS.
-1. Pour **Nom du rapport**, entrez le nom que vous avez créé dans AWS.
-1. Sélectionnez **Suivant**, puis **Créer**.
+1. Pour **Nom du rapport** , entrez le nom que vous avez créé dans AWS.
+1. Sélectionnez **Suivant** , puis **Créer**.
 
 Il faudra peut-être quelques heures avant qu’apparaissent les nouvelles étendues AWS, le compte AWS consolidé, les comptes AWS liés et leurs données de coûts.
 
@@ -175,14 +173,14 @@ Attribuez des autorisations de connecteur aux utilisateurs si la découverte n'a
 
 - Le cas échéant, [configurez des groupes d’administration](../../governance/management-groups/overview.md#initial-setup-of-management-groups).
 - Vérifiez que les nouvelles étendues sont ajoutées à votre sélecteur d’étendue. Sélectionnez **Actualiser** pour afficher les données les plus récentes.
-- Sur la page **Connecteurs cloud**, sélectionnez votre connecteur, puis choisissez **Accéder au compte de facturation** pour attribuer le compte lié à des groupes d’administration.
+- Sur la page **Connecteurs cloud** , sélectionnez votre connecteur, puis choisissez **Accéder au compte de facturation** pour attribuer le compte lié à des groupes d’administration.
 
 > [!NOTE]
-> Les groupes d’administration ne sont actuellement pas pris en charge pour les clients avec un Contrat client Microsoft (MCA). Les clients MCA peuvent créer le connecteur et visualiser leurs données AWS. Cependant, les clients MCA ne peuvent pas voir leurs coûts Azure et leurs coûts AWS ensemble dans un groupe d’administration.
+> Les groupes d’administration ne sont actuellement pas pris en charge pour les clients avec un Contrat client Microsoft (MCA). Ces clients peuvent créer le connecteur et visualiser leurs données AWS. Cependant, les clients MCA ne peuvent pas voir leurs coûts Azure et leurs coûts AWS ensemble dans un groupe d’administration.
 
 ## <a name="manage-aws-connectors"></a>Gérer les connecteurs AWS
 
-Quand vous sélectionnez un connecteur dans la page **Connecteurs pour AWS**, vous pouvez :
+Quand vous sélectionnez un connecteur dans la page **Connecteurs pour AWS** , vous pouvez :
 
 - Sélectionner **Accéder au compte de facturation** pour afficher les informations relatives au compte AWS consolidé.
 - Sélectionner **Contrôle d'accès** pour gérer l'attribution de rôle pour le connecteur.

@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268823"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428383"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutoriel : Envoyer des notifications Push à des appareils Android à l’aide du SDK Firebase version 0.6
 
@@ -92,7 +92,7 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 2. Sélectionnez la version cible du Kit de développement logiciel (SDK) Android qui est utilisé dans votre projet. Puis sélectionnez **Afficher les détails du package**. 
 
     ![Android SDK Manager - sélectionner la version cible](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Sélectionnez **API Google**, si elles ne sont pas déjà installées.
+3. Sélectionnez **API Google** , si elles ne sont pas déjà installées.
 
     ![Android SDK Manager - API Google sélectionnées](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
 4. Basculez vers l’onglet **SDK Tools**. Si vous n’avez pas déjà installé un service Google Play, sélectionnez **Google Play Services** comme indiqué dans l’image suivante. Sélectionnez ensuite **Appliquer** pour procéder à l’installation. Notez le chemin du Kit de développement logiciel (SDK). Vous l’utiliserez à une étape suivante.
@@ -171,7 +171,7 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
 ### <a name="add-code"></a>Ajout de code
 
-1. Dans la vue du projet, développez **app** > **src** > **main** > **java**. Cliquez avec le bouton droit sur le dossier de votre package sous **java**, sélectionnez **Nouveau**, puis **Classe Java**. Entrez **NotificationSettings** pour le nom, puis sélectionnez **OK**.
+1. Dans la vue du projet, développez **app** > **src** > **main** > **java**. Cliquez avec le bouton droit sur le dossier de votre package sous **java** , sélectionnez **Nouveau** , puis **Classe Java**. Entrez **NotificationSettings** pour le nom, puis sélectionnez **OK**.
 
     Veillez à mettre à jour ces trois espaces réservés dans le code suivant pour la classe `NotificationSettings` :
 
@@ -405,13 +405,13 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
     }
     ```
 
-9. La méthode `ToastNotify` utilise le contrôle *« Hello World »* `TextView` pour afficher en permanence un rapport d’état et des notifications dans l’application. Dans votre disposition **res** > **layout** > **activity_main.xml**, ajoutez l’ID suivant pour ce contrôle.
+9. La méthode `ToastNotify` utilise le contrôle *« Hello World »* `TextView` pour afficher en permanence un rapport d’état et des notifications dans l’application. Dans votre disposition **res** > **layout** > **activity_main.xml** , ajoutez l’ID suivant pour ce contrôle.
 
     ```java
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs - Test d’envoi](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![Capture d’écran qui montre l’ID android:id="@+id/text_hello" appliqué au contrôle TextView.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. Ajoutez ensuite une sous-classe pour le destinataire que vous avez défini dans le fichier AndroidManifest.xml. Ajoutez à votre projet une autre nouvelle classe nommée `FirebaseService`.
 
@@ -540,8 +540,8 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
 Vous pouvez envoyer des notifications Push à partir du [Azure portal] en procédant comme suit :
 
-1. Sur le portail Azure, dans la page Hub de notification de votre hub, dans la section **Dépannage**, sélectionnez **Envoi de test**.
-3. Pour les **plateformes**, sélectionnez **Android**.
+1. Sur le portail Azure, dans la page Hub de notification de votre hub, dans la section **Dépannage** , sélectionnez **Envoi de test**.
+3. Pour les **plateformes** , sélectionnez **Android**.
 4. Sélectionnez **Envoyer**.  Vous ne voyez pas encore de notification sur l’appareil Android parce que vous n’avez pas exécuté l’application mobile sur celui-ci. Après avoir exécuté l’application mobile, sélectionnez de nouveau le bouton **Envoyer** pour voir le message de notification.
 5. Consultez le résultat de l’opération dans la liste en bas.
 
