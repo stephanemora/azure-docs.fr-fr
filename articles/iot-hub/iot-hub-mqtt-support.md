@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150786"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899095"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -44,7 +44,7 @@ Le port MQTT (8883) est bloqué dans de nombreux environnements réseau professi
 
 ## <a name="using-the-device-sdks"></a>Utilisation des Kits device SDK
 
-Les [SDK d’appareil](https://github.com/Azure/azure-iot-sdks) qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C, C# et Python. Les Kits device SDK utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un IoT Hub. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Vous pouvez également spécifier MQTT sur Web Sockets dans le paramètre de protocole client. Par défaut, les Kits device SDK se connectent à un IoT Hub avec l’indicateur **CleanSession** défini sur **0**, et utilisent **QoS 1** pour l’échange de messages avec l’IoT Hub. Bien qu’il soit possible de configurer **QoS 0** pour accélérer l’échange de messages, il faut noter que la remise n’est ni garantie, ni reconnue par accusé de réception. C’est pourquoi la solution **QoS 0** est souvent appelée « fire and forget » (tire et oublie).
+Les [SDK d’appareil](https://github.com/Azure/azure-iot-sdks) qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C, C# et Python. Les Kits device SDK utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un IoT Hub. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Vous pouvez également spécifier MQTT sur Web Sockets dans le paramètre de protocole client. Par défaut, les Kits device SDK se connectent à un IoT Hub avec l’indicateur **CleanSession** défini sur **0** , et utilisent **QoS 1** pour l’échange de messages avec l’IoT Hub. Bien qu’il soit possible de configurer **QoS 0** pour accélérer l’échange de messages, il faut noter que la remise n’est ni garantie, ni reconnue par accusé de réception. C’est pourquoi la solution **QoS 0** est souvent appelée « fire and forget » (tire et oublie).
 
 Quand un appareil est connecté à un hub IoT, les SDK d’appareils fournissent des méthodes qui permettent à l’appareil d’échanger des messages avec un hub IoT.
 
@@ -137,17 +137,17 @@ Ce dossier contient deux exemples de commandes utilisées avec l’utilitaire mo
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Utilisation directe du protocole MQTT (en tant qu’appareil)
 
-Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT sur le port 8883. Dans le paquet **CONNECT**, l’appareil doit utiliser les valeurs suivantes :
+Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT sur le port 8883. Dans le paquet **CONNECT** , l’appareil doit utiliser les valeurs suivantes :
 
-* Pour le champ **ClientId**, utilisez le **deviceId**.
+* Pour le champ **ClientId** , utilisez le **deviceId**.
 
-* Dans le champ **Username**, utilisez `{iothubhostname}/{device_id}/?api-version=2018-06-30`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
+* Dans le champ **Username** , utilisez `{iothubhostname}/{device_id}/?api-version=2018-06-30`, où `{iothubhostname}` est l’enregistrement CName complet du hub IoT.
 
-    Par exemple, si le nom de votre hub IoT est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ **Username** complet doit contenir :
+    Par exemple, si le nom de votre hub IoT est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01** , le champ **Username** complet doit contenir :
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
-* Dans le champ **Password**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :
+* Dans le champ **Password** , utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
@@ -178,7 +178,7 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
 Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événement sur le canal **Surveillance des opérations** . Cet événement comporte des informations supplémentaires qui peuvent vous aider à résoudre les problèmes de connectivité.
 
-L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType**, à laquelle une valeur de **Will** est affectée.
+L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType** , à laquelle une valeur de **Will** est affectée.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilisation directe du protocole MQTT (en tant que module)
 
@@ -294,9 +294,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Voici une liste de comportements spécifiques à l’implémentation d’IoT Hub :
 
-* IoT Hub ne prend pas en charge les messages QoS 2. Si un client d’appareil publie un message avec **QoS 2**, IoT Hub interrompt la connexion réseau.
+* IoT Hub ne prend pas en charge les messages QoS 2. Si un client d’appareil publie un message avec **QoS 2** , IoT Hub interrompt la connexion réseau.
 
-* IoT Hub ne conserve pas les messages Retain. Si un appareil envoie un message avec l’indicateur **RETAIN** défini sur 1, IoT Hub ajoute la propriété d’application **x-opt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
+* IoT Hub ne conserve pas les messages Retain. Si un appareil envoie un message avec l’indicateur **RETAIN** défini sur 1, IoT Hub ajoute la propriété d’application **mqtt-retain** au message. Dans ce cas, IoT Hub ne conserve pas le message, mais le transmet à l’application principale.
 
 * IoT Hub ne prend en charge qu’une seule connexion MQTT active par appareil. Toute nouvelle connexion MQTT au nom du même ID d’appareil entraîne l’interruption de la connexion existante par IoT Hub.
 
@@ -306,9 +306,9 @@ Pour plus d’informations, consultez le [Guide du développeur - Messages](iot-
 
 Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisant un `devices/{device_id}/messages/devicebound/#` en tant que **Filtre de rubrique**. Le caractère générique à plusieurs niveaux `#` dans le Filtre de rubrique est utilisé uniquement pour autoriser l’appareil à recevoir des propriétés supplémentaires dans le nom de la rubrique. IoT Hub n’autorise pas l’utilisation des caractères génériques `#` ou `?` pour filtrer les sous-rubriques. IoT Hub n’étant pas un broker de messagerie pub-sub à usage général, il prend uniquement en charge les noms de rubriques et les filtres de rubriques documentés.
 
-L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné avec succès à son point de terminaison spécifique de l’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois qu’un abonnement a été établi, l’appareil reçoit les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0**, l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois que l’appareil se connecte avec **CleanSession 0**, il reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1**, il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
+L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné avec succès à son point de terminaison spécifique de l’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois qu’un abonnement a été établi, l’appareil reçoit les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0** , l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois que l’appareil se connecte avec **CleanSession 0** , il reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1** , il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
 
-IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` lorsqu'il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$** , tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe. Pour plus d’informations sur le format du conteneur des propriétés, consultez [Envoi de messages appareil-à-cloud](#sending-device-to-cloud-messages).
+IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` lorsqu'il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId** ) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$** , tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe. Pour plus d’informations sur le format du conteneur des propriétés, consultez [Envoi de messages appareil-à-cloud](#sending-device-to-cloud-messages).
 
 Dans les messages cloud-à-appareil, les valeurs du conteneur de propriétés sont représentées comme dans le tableau suivant :
 
@@ -318,13 +318,13 @@ Dans les messages cloud-à-appareil, les valeurs du conteneur de propriétés so
 | chaîne vide | `key=` | Clé suivie d’un signe égal sans valeur |
 | valeur non Null, non vide | `key=value` | Clé suivie d’un signe égal et de la valeur |
 
-L’exemple suivant montre un conteneur de propriétés qui contient trois propriétés d’application : **prop1** avec une valeur `null`; **prop2**, une chaîne vide ("") ; et **prop3** avec la valeur « a string ».
+L’exemple suivant montre un conteneur de propriétés qui contient trois propriétés d’application : **prop1** avec une valeur `null`; **prop2** , une chaîne vide ("") ; et **prop3** avec la valeur « a string ».
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string
 ```
 
-Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**. Après cela, IoT Hub remet les messages à l’appareil à l’aide de QoS 1.
+Quand une application d’appareil s’abonne à une rubrique avec **QoS 2** , IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**. Après cela, IoT Hub remet les messages à l’appareil à l’aide de QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Récupération des propriétés d’un jumeau d’appareil
 

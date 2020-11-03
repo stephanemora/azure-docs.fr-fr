@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 79f979b55366d29ca8cf22a1e65ebdcc557ef594
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316123"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899492"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -118,6 +118,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Le hub IoT est-il opérationnel ?</li></ul>|
+
+## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>Microsoft.DigitalTwins/DigitalTwinsInstances
+|Vérifications exécutées|
+|---|
+|<ul><li>L’instance Azure Digital Twins est-elle opérationnelle ?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Vérifications exécutées|

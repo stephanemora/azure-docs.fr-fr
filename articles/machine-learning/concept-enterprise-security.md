@@ -1,5 +1,5 @@
 ---
-title: Sécurité d’entreprise
+title: Sécurité et gouvernance en entreprise
 titleSuffix: Azure Machine Learning
 description: 'Utilisez de manière sécurisée Azure Machine Learning : authentification, autorisation, sécurité réseau, chiffrement des données et supervision.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207935"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899328"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sécurité et gouvernance de l’entreprise pour Azure Machine Learning
 
 Dans cet article, vous allez découvrir les fonctionnalités de sécurité disponibles pour Azure Machine Learning.
 
-Quand vous utilisez un service cloud, une bonne pratique consiste à limiter l’accès aux seuls utilisateurs qui en ont besoin. Commencez par comprendre le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau ou joindre de manière sécurisée des ressources de votre réseau local au cloud. Le chiffrement des données est également essentiel, aussi bien au repos et pendant le déplacement de données entre les services. Enfin, vous devez pouvoir superviser le service et produire un journal d’audit de toutes les activités.
+Quand vous utilisez un service cloud, une bonne pratique consiste à limiter l’accès aux seuls utilisateurs qui en ont besoin. Commencez par comprendre le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau ou joindre de manière sécurisée des ressources de votre réseau local au cloud. Le chiffrement des données est également essentiel, aussi bien au repos et pendant le déplacement de données entre les services. Vous pouvez également créer des stratégies pour appliquer certaines configurations ou consigner dans le journal les configurations non conformes créées. Enfin, vous devez pouvoir superviser le service et produire un journal d’audit de toutes les activités.
 
 > [!NOTE]
 > Les informations contenues dans cet article fonctionnent avec le kit de développement logiciel (SDK) Python Azure Machine Learning 1.0.83.1 ou version ultérieure.
@@ -111,7 +111,7 @@ Vous pouvez également activer le service Liaison privée Azure pour votre espac
 ## <a name="data-encryption"></a>Chiffrement des données
 
 > [!IMPORTANT]
-> Pour le chiffrement de niveau production au cours de __l’apprentissage__, Microsoft recommande d’utiliser le cluster de calcul Azure Machine Learning. Pour le chiffrement de niveau production au cours de __l’inférence__, Microsoft recommande d’utiliser Azure Kubernetes Service.
+> Pour le chiffrement de niveau production au cours de __l’apprentissage__ , Microsoft recommande d’utiliser le cluster de calcul Azure Machine Learning. Pour le chiffrement de niveau production au cours de __l’inférence__ , Microsoft recommande d’utiliser Azure Kubernetes Service.
 >
 > L’instance de calcul Azure Machine Learning constitue un environnement de dev/test. Lorsque vous l’utilisez, nous vous recommandons de stocker vos fichiers, notamment les notebooks et les scripts, dans un partage de fichiers. Vos données doivent être stockées dans un magasin de données.
 
@@ -158,12 +158,7 @@ Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abon
         > [!NOTE]
         > Cette instance de coffre de clés peut être différente du coffre de clés créé par Azure Machine Learning lorsque vous configurez l’espace de travail. Si vous voulez utiliser la même instance de coffre de clés pour l’espace de travail, passez le même coffre de clés pendant la configuration de l’espace de travail en utilisant le [paramètre key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Cette instance de Cosmos DB est créée dans un groupe de ressources managées par Microsoft dans votre abonnement, avec toutes les ressources nécessaires. Le groupe de ressources managée est nommé au format `<AML Workspace Resource Group Name><GUID>`. Si votre espace de travail Azure Machine Learning utilise un point de terminaison privé, un réseau virtuel est également créé pour l’instance Cosmos DB. Ce réseau virtuel est utilisé pour sécuriser la communication entre Cosmos DB et Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Ne supprimez pas le groupe de ressources qui contient cette instance de Cosmos DB, ni les ressources créées automatiquement dans ce groupe. Si vous avez besoin de supprimer le groupe de ressources, l’instance de Cosmos DB, etc., vous devez supprimer l’espace de travail Azure Machine Learning qui l’utilise. Le groupe de ressources, l’instance de Cosmos DB et d’autres ressources créées automatiquement sont supprimés lors de la suppression de l’espace de travail associé.
-> * La valeur [__Unités de requête__](../cosmos-db/request-units.md) par défaut pour ce compte Cosmos DB est définie sur __8000__. La modification de cette valeur n’est pas prise en charge.
-> * Vous ne pouvez pas fournir votre propre réseau virtuel pour une utilisation avec l’instance de Cosmos DB créée. Vous ne pouvez pas non plus modifier le réseau virtuel. Par exemple, vous ne pouvez pas modifier la plage d’adresses IP qu’elle utilise.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Si vous devez opérer une __rotation ou révocation__ de votre clé, vous pouvez le faire à tout moment. Lors de la rotation d’une clé, Cosmos DB commence à utiliser la nouvelle clé (dernière version) pour chiffrer les données au repos. Lors de la révocation (désactivation) d’une clé, Cosmos DB se charge des demandes qui échouent. La prise d’effet de la rotation ou de la révocation nécessite généralement une heure.
 
@@ -183,6 +178,7 @@ Pour utiliser vos propres clés (gérées par le client) pour chiffrer votre Azu
 Pour un exemple de création d’un espace de travail en utilisant un Azure Container Registry existant, consultez les articles suivants :
 
 * [Créer un espace de travail pour Azure Machine Learning avec Azure CLI](how-to-manage-workspace-cli.md).
+* [Créer un espace de travail avec kit de développement logiciel (SDK) Python](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Azure Container Instance
@@ -260,7 +256,7 @@ Vous pouvez aussi chiffrer des [informations de diagnostic enregistrées à part
 
 ### <a name="metrics"></a>Mesures
 
-Vous pouvez utiliser des métriques Azure Monitor pour voir et superviser les métriques de votre espace de travail Azure Machine Learning. À partir du [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail, puis sélectionnez **Métriques** :
+Vous pouvez utiliser des métriques Azure Monitor pour voir et superviser les métriques de votre espace de travail Azure Machine Learning. À partir du [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail, puis sélectionnez **Métriques**  :
 
 [![Capture d’écran montrant des exemples de métriques pour un espace de travail](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -370,8 +366,8 @@ Voici les détails :
 
 [Azure Policy](/azure/governance/policy) est un outil de gouvernance qui vous permet de vous assurer que les ressources Azure sont conformes à vos stratégies. Avec Azure Machine Learning, vous pouvez attribuer les stratégies suivantes :
 
-* **Clé gérée par le client** : auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client.
-* **Liaison privée** : Auditer si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel.
+* **Clé gérée par le client**  : auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client.
+* **Liaison privée**  : Auditer si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel.
 
 Pour plus d’informations sur Azure Policy, consultez la [documentation relative à Azure Policy](/azure/governance/policy/overview).
 

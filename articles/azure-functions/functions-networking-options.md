@@ -1,15 +1,16 @@
 ---
 title: Options de mise en réseau d’Azure Functions
 description: Vue d’ensemble de toutes les options de mise en réseau disponibles dans Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530084"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897073"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -66,11 +67,30 @@ Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un n
 
 Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restreindre votre compte de stockage à un réseau virtuel
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restreindre votre compte de stockage à un réseau virtuel (préversion)
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Actuellement, vous ne pouvez pas utiliser de restrictions de réseau virtuel sur ce compte. La configuration d’un point de terminaison de service de réseau virtuel sur le compte de stockage que vous utilisez pour votre application de fonction entraîne l’arrêt de votre application.
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type.  Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé.  Cette fonctionnalité d'évaluation n’est actuellement compatible qu’avec les plans Windows Premium dans la région Europe Ouest.  Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
 
-Pour plus d’informations, consultez [Exigences pour le compte de stockage](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> La restriction du compte de stockage ne fonctionne actuellement que pour les fonctions Premium utilisant Windows dans la région Europe Ouest
+
+1. Créez une fonction avec un compte de stockage pour lequel les points de terminaison de service ne sont pas activés.
+1. Configurez la fonction pour qu’elle se connecte à votre réseau virtuel.
+1. Créez ou configurez un autre compte de stockage.  Il s’agit du compte de stockage que nous sécurisons avec les points de terminaison de service et auquel nous connectons notre fonction.
+1. [Créez un partage de fichiers](../storage/files/storage-how-to-create-file-share.md#create-file-share) dans le compte de stockage sécurisé.
+1. Activez les points de terminaison de service ou le point de terminaison privé pour le compte de stockage.  
+    * Veillez à activer le sous-réseau dédié à vos applications de fonction si vous utilisez un point de terminaison de service.
+    * Veillez à créer un enregistrement DNS et à configurer votre application de manière à ce qu’elle [fonctionne avec des points de terminaison de point de terminaison privé](#azure-dns-private-zones) si vous utilisez un point de terminaison privé.  Le compte de stockage a besoin d’un point de terminaison privé pour les sous-ressources `file` et `blob`.  Si vous utilisez certaines fonctionnalités, telles que Durable Functions, `queue` et `table` doivent également être accessibles par le biais d’une connexion à un point de terminaison privé.
+1. (Facultatif) Copiez le fichier et le contenu de l’objet blob à partir du compte de stockage de l’application de fonction vers le compte de stockage sécurisé et le partage de fichiers.
+1. Copiez la chaîne de connexion pour ce compte de stockage.
+1. Mettez à jour les **Paramètres de l’application** sous **Configuration** pour l’application de fonction comme suit :
+    - Remplacez `AzureWebJobsStorage` par la chaîne de connexion du compte de stockage sécurisé.
+    - Remplacez `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` par la chaîne de connexion du compte de stockage sécurisé.
+    - Remplacez `WEBSITE_CONTENTSHARE` par le nom du partage de fichiers créé dans le compte de stockage sécurisé.
+    - Créez un nouveau paramètre portant le nom `WEBSITE_CONTENTOVERVNET` et défini sur la valeur `1`.
+1. Enregistrez les paramètres de l’application.  
+
+L’application de fonction redémarre et est maintenant connectée à un compte de stockage sécurisé.
 
 ## <a name="use-key-vault-references"></a>Utiliser des références Key Vault
 
@@ -137,7 +157,7 @@ Lorsque vous intégrez une application de fonction à un réseau virtuel dans le
 Les API suivantes vous permettent de gérer par programmation les intégrations de réseaux virtuels régionaux :
 
 + **Azure CLI** : utilisez les commandes [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) pour ajouter, répertorier ou supprimer des intégrations de réseaux virtuels régionaux.  
-+ **Modèles ARM** : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Modèles ARM**  : l’intégration d’un réseau virtuel régional peut être activée à l’aide d’un modèle Azure Resource Manager. Pour un exemple complet, consultez [ce modèle de démarrage rapide de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Dépannage
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280456"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896532"
 ---
 # <a name="managed-application-metered-billing"></a>Facturation des applications managées basée sur des mesures 
 
@@ -56,11 +56,11 @@ Un client Azure s’abonnant au service CoA peut analyser et générer des rappo
 
 Les dimensions de facturation sont utilisées pour indiquer au client comment il sera facturé pour l’utilisation du logiciel.  Ces dimensions sont également utilisées pour signaler des événements d’utilisation à Microsoft. Elles sont définies comme suit :
 
-* **Identificateur de dimension** : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
-* **Nom de la dimension** : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
-* **Unité de mesure** : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
-* **Prix unitaire** : prix pour une unité de la dimension.
-* **Quantité incluse pour l’échéance mensuelle** : quantité de la dimension incluse par mois pour les clients qui paient les coûts mensuels récurrents ; il doit s’agir d’un entier.
+* **Identificateur de dimension**  : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
+* **Nom de la dimension**  : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
+* **Unité de mesure**  : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
+* **Prix unitaire**  : prix pour une unité de la dimension.
+* **Quantité incluse pour l’échéance mensuelle**  : quantité de la dimension incluse par mois pour les clients qui paient les coûts mensuels récurrents ; il doit s’agir d’un entier.
 
 Les dimensions de facturation sont partagées entre tous les plans d’une offre. Certains attributs s’appliquent à la dimension dans tous les plans, et les autres attributs sont spécifiques à un plan.
 
@@ -107,7 +107,7 @@ Une fois qu’un plan est publié, les détails au niveau du plan ne peuvent plu
 
 ### <a name="upper-limits"></a>Limites supérieures
 
-Le nombre maximal de dimensions pouvant être configurées pour une même offre est de 18 dimensions uniques.
+Le nombre maximal de dimensions pouvant être configurées pour une même offre est de 30 dimensions uniques.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

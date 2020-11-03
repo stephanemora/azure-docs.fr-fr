@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094005"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900279"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -39,6 +39,9 @@ La sécurité et la confidentialité figurent parmi les principales priorités p
 
 USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest 2, Europe Ouest, Europe Nord, Royaume-Uni Sud, Asie Sud-Est et Australie Est.
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Les données client sont-elles stockées en dehors de la région spécifiée ?
+
+Azure Spring Cloud est un service régional. Toutes les données client dans Azure Spring Cloud sont stockées dans plusieurs régions au sein de la même zone géographique de la région spécifiée à des fins de redondance. Pour en savoir plus sur la zone géographique et la région, consultez [Résidence des données dans Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quelles sont les limitations connues d’Azure Spring Cloud ?
 
@@ -106,7 +109,7 @@ Vous pouvez supprimer les paramètres de diagnostic du Cloud Spring à l’aide 
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Quelles sont les versions du runtime Java prises en charge dans Azure Spring Cloud ?
 
-Azure Spring Cloud prend en charge les versions Java LTS avec les builds les plus récentes (actuellement juin 2020) : Java 8 build 252 et Java 11 build 7 sont pris en charge. Consulter [Installer le JDK pour Azure et Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud prend en charge les versions Java LTS avec les builds les plus récentes (actuellement juin 2020) ; Java 8 et Java 11 sont pris en charge. Consulter [Installer le JDK pour Azure et Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Qui a créé ces runtimes Java ?
 
@@ -163,7 +166,7 @@ Oui. Pour plus d’informations, consultez [Lancer votre application Spring Clou
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud prend-il en charge la mise à l’échelle automatique dans les instances d’application ?
 
-Non.
+Oui.  Pour plus d’informations, consultez [Configuration de la mise à l’échelle automatique](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quelles sont les bonnes pratiques pour la migration de microservices Spring Cloud existants vers Azure Spring Cloud ?

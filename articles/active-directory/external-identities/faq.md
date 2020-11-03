@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f92b95e38dea6555ca881d56ccf1cf2d68783e53
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274042"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896087"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
 Cette foire aux questions (FAQ) sur la collaboration interentreprises (B2B) Azure Active Directory (Azure AD) est régulièrement complétée par de nouvelles rubriques.
 
    > [!IMPORTANT]
-   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > **À compter du 31 mars 2021** , Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Peut-on personnaliser sa page de connexion afin qu’elle soit plus intuitive pour les utilisateurs invités B2B Collaboration ?
 Absolument ! Consultez notre [billet de blog sur cette fonctionnalité](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Pour plus d’informations sur la personnalisation de la page de connexion d’une organisation, consultez la page [Ajouter la personnalisation de l’entreprise aux pages de connexion et du volet d’accès](../fundamentals/customize-branding.md).
@@ -51,7 +51,7 @@ Cette fonctionnalité n’est pas prise en charge pour l’instant. Si l’accè
 Une organisation peut souhaiter ajouter des utilisateurs B2B Collaboration et les approvisionner pour les applications au fil des besoins, avant d'envoyer des invitations. Vous pouvez utiliser l’API d’invitation B2B Collaboration pour personnaliser le workflow d’intégration.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Puis-je rendre les utilisateurs invités visibles dans la liste d’adresses globale Exchange ?
-Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale (GAL) de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez [Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale (GAL) de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez [Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Peut-on faire d’un utilisateur invité un administrateur limité ?
 Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à un rôle](add-guest-to-role.md).
@@ -65,31 +65,31 @@ Oui. Vous pouvez créer une stratégie d’accès conditionnel qui empêche tous
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur de sécurité ou administrateur de l’accès conditionnel.
 2. Dans le portail Azure, sélectionnez **Azure Active Directory**. 
-3. Dans **Gérer**, sélectionnez **Sécurité**.
-4. Sous **Sécurité**, sélectionnez **Accès conditionnel**. Sélectionnez **Nouvelle stratégie**.
-5. Sur la page **Nouveau**, donnez un nom à la stratégie (par exemple, « Empêcher les invités d’accéder au portail ») dans la zone de texte **Nom**.
-6. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
-7. Dans l’onglet **Inclure**, choisissez **Sélectionner des utilisateurs et groupes**, puis **Tous les utilisateurs invités et externes (préversion)** .
+3. Dans **Gérer** , sélectionnez **Sécurité**.
+4. Sous **Sécurité** , sélectionnez **Accès conditionnel**. Sélectionnez **Nouvelle stratégie**.
+5. Sur la page **Nouveau** , donnez un nom à la stratégie (par exemple, « Empêcher les invités d’accéder au portail ») dans la zone de texte **Nom**.
+6. Sous **Affectations** , sélectionnez **Utilisateurs et groupes**.
+7. Dans l’onglet **Inclure** , choisissez **Sélectionner des utilisateurs et groupes** , puis **Tous les utilisateurs invités et externes (préversion)** .
 9. Sélectionnez **Terminé**.
-10. Sur la page **Nouveau**, sélectionnez **Applications cloud ou actions** dans la section **Affectations**.
-11. Sur la page **Applications cloud ou actions**, choisissez **Sélectionner des applications**, puis **Sélectionner**.
-12. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis **Sélectionner**.
-13. Sur la page **Applications cloud ou actions**, sélectionnez **Terminé**.
+10. Sur la page **Nouveau** , sélectionnez **Applications cloud ou actions** dans la section **Affectations**.
+11. Sur la page **Applications cloud ou actions** , choisissez **Sélectionner des applications** , puis **Sélectionner**.
+12. Dans la page **Sélectionner** , choisissez **Gestion Microsoft Azure** , puis **Sélectionner**.
+13. Sur la page **Applications cloud ou actions** , sélectionnez **Terminé**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B Collaboration prend-il en charge l’authentification multifacteur et les comptes de messagerie grand public ?
 Oui. Les comptes de messagerie grand public et l’authentification multifacteur sont tous deux pris en charge par Azure AD B2B Collaboration.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Prenez-vous en charge la réinitialisation de mot de passe pour les utilisateurs Azure AD B2B Collaboration ?
-Si votre locataire Azure AD est le répertoire de base d’un utilisateur, vous pouvez [réinitialiser le mot de passe de l’utilisateur](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) à partir du portail Azure. Mais vous ne pouvez pas directement réinitialiser le mot de passe d’un utilisateur invité qui se connecte avec un compte géré par un autre répertoire Azure AD ou fournisseur d'identité externe. Seul l’utilisateur invité ou un administrateur dans le répertoire de base de l’utilisateur peut réinitialiser le mot de passe. Voici quelques exemples de la façon dont le mot de passe réinitialisé fonctionne pour les utilisateurs invités :
+Si votre locataire Azure AD est le répertoire de base d’un utilisateur, vous pouvez [réinitialiser le mot de passe de l’utilisateur](../fundamentals/active-directory-users-reset-password-azure-portal.md) à partir du portail Azure. Mais vous ne pouvez pas directement réinitialiser le mot de passe d’un utilisateur invité qui se connecte avec un compte géré par un autre répertoire Azure AD ou fournisseur d'identité externe. Seul l’utilisateur invité ou un administrateur dans le répertoire de base de l’utilisateur peut réinitialiser le mot de passe. Voici quelques exemples de la façon dont le mot de passe réinitialisé fonctionne pour les utilisateurs invités :
  
 * Les utilisateurs invités qui se connectent avec un compte Microsoft (par exemple guestuser@live.com) peuvent réinitialiser leur mot de passe à l’aide de la méthode Self-service Password Reset (SSPR) du compte Microsoft. Consultez [Réinitialisation du mot de passe de votre compte Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Les utilisateurs invités qui se connectent avec un compte Google ou un autre fournisseur d’identité externe peuvent réinitialiser leur mot de passe à l’aide de la méthode SSPR de leur fournisseur d’identité. Par exemple, un utilisateur invité avec le compte Google guestuser@gmail.com peut réinitialiser son mot de passe en suivant les instructions de la section [Modifier ou réinitialiser votre mot de passe](https://support.google.com/accounts/answer/41078).
-* Si le locataire de l’identité est de locataire de type juste-à-temps (JIT) ou « viral » (un client Azure distinct et non managé), seul l’utilisateur invité peut réinitialiser son mot de passe. Parfois, une organisation [reprend la gestion des locataires viraux](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) qui sont créés lorsque des employés utilisent leur adresse e-mail professionnelle pour s'inscrire à des services. Dès lors que l'organisation adopte un locataire viral, seul un administrateur de cette organisation peut réinitialiser le mot de passe de l'utilisateur ou activer la réinitialisation de mot de passe en libre-service. Le cas échéant, en tant qu'organisation à l'origine de l'invitation, vous pouvez supprimer le compte d'utilisateur invité de votre annuaire et renvoyer une invitation.
+* Si le locataire de l’identité est de locataire de type juste-à-temps (JIT) ou « viral » (un client Azure distinct et non managé), seul l’utilisateur invité peut réinitialiser son mot de passe. Parfois, une organisation [reprend la gestion des locataires viraux](../users-groups-roles/domains-admin-takeover.md) qui sont créés lorsque des employés utilisent leur adresse e-mail professionnelle pour s'inscrire à des services. Dès lors que l'organisation adopte un locataire viral, seul un administrateur de cette organisation peut réinitialiser le mot de passe de l'utilisateur ou activer la réinitialisation de mot de passe en libre-service. Le cas échéant, en tant qu'organisation à l'origine de l'invitation, vous pouvez supprimer le compte d'utilisateur invité de votre annuaire et renvoyer une invitation.
 
 * Si le répertoire de base de l’utilisateur invité est votre client Azure AD, vous pouvez réinitialiser le mot de passe. Par exemple, vous avez peut-être créé un utilisateur ou synchronisé un utilisateur à partir de votre annuaire Active Directory local et défini sa valeur UserType sur invité. Comme cet utilisateur est hébergé dans votre annuaire, vous pouvez réinitialiser son mot de passe à partir du portail Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 fournit-il un support en ligne pour Azure AD B2B Collaboration ?
-Oui, Dynamics 365 (en ligne) prend en charge Azure AD B2B Collaboration. Pour plus d’informations, consultez l’article Dynamics 365 [Inviter des utilisateurs avec Azure Active Directory B2B Collaboration](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Oui, Dynamics 365 (en ligne) prend en charge Azure AD B2B Collaboration. Pour plus d’informations, consultez l’article Dynamics 365 [Inviter des utilisateurs avec Azure Active Directory B2B Collaboration](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Quelle est la durée de vie d’un mot de passe initial pour un utilisateur B2B Collaboration nouvellement créé ?
 Azure AD dispose d’un ensemble fixe d'exigences en matière de nombre de caractères, de force du mot de passe et de verrouillage de compte qui s’appliquent à tous les comptes d’utilisateur cloud Azure AD. Les comptes d’utilisateur cloud sont des comptes qui ne sont pas fédérés avec un autre fournisseur d’identité, comme 
@@ -130,9 +130,8 @@ Oui. Pour plus d’informations, voir [Accès conditionnel pour les utilisateurs
 Oui. Azure AD B2B Collaboration prend en charge les listes autorisées et refusées. 
 
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Quelles licences faut-il avoir pour utiliser Azure AD B2B ?
-Pour plus d’informations sur les licences dont votre organisation a besoin pour utiliser Azure AD B2B, consultez la page [Aide sur les licences Azure Active Directory B2B Collaboration](licensing-guidance.md).
+Pour plus d’informations sur les licences dont votre organisation a besoin pour utiliser Azure AD B2B, consultez [Prix des identités externes](external-identities-pricing.md).
 
 ### <a name="next-steps"></a>Étapes suivantes
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-

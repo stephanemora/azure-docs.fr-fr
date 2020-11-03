@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8b79cea8d502222d08dd3f1f0fb40d1982f565d
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c532758ce29646ba32530269233759551117968b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107740"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901638"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Managed Instance à l’aide d’Azure Data Factory
 
@@ -40,7 +40,7 @@ Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge le
 - En tant que récepteur, la création automatique de la table de destination si elle n’existe pas, en fonction du schéma source, l’ajout de données à une table ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie.
 
 >[!NOTE]
-> SQL Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) n’est actuellement pas pris en charge par ce connecteur. Pour contourner ce problème, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md) et un pilote SQL Server ODBC via un runtime d’intégration auto-hébergé. Pour en savoir plus, consultez la section [Utilisation d’Always Encrypted](#using-always-encrypted). 
+> SQL Managed Instance [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) n’est actuellement pas pris en charge par ce connecteur. Pour contourner ce problème, vous pouvez utiliser un [connecteur ODBC générique](connector-odbc.md) et un pilote SQL Server ODBC via un runtime d’intégration auto-hébergé. Pour en savoir plus, consultez la section [Utilisation d’Always Encrypted](#using-always-encrypted). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -60,12 +60,12 @@ Les propriétés prises en charge pour le service lié SQL Managed Instance sont
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **AzureSqlMI** . | Oui |
+| type | La propriété type doit être définie sur **AzureSqlMI**. | Oui |
 | connectionString |Cette propriété spécifie les informations **connectionString** nécessaires pour se connecter à l’instance managée SQL avec l’authentification SQL. Pour plus d'informations, consultez les exemples suivants. <br/>Le port par défaut est 1433. Si vous utilisez SQL Managed Instance avec un point de terminaison public, spécifiez explicitement le port 3342.<br> Vous pouvez également placer un mot de passe dans Azure Key Vault. En cas d’authentification SQL, extrayez la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Azure Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant | Spécifiez les informations de locataire, comme le nom de domaine ou l’ID de locataire, dans lequel votre application se trouve. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic** , **AzureChina** , **AzureUsGovernment** et **AzureGermany** . Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic** , **AzureChina** , **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
 | connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser un runtime d'intégration auto-hébergé ou un runtime d'intégration Azure si votre instance managée possède un terminal public et autorise Azure Data Factory à y accéder. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Oui |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
@@ -132,7 +132,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     - Clé de l'application
     - ID client
 
-3. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql) pour le l’identité managée Azure Data Factory. Dans SSMS (SQL Server Management Studio), connectez-vous à votre instance managée à l’aide d’un compte SQL Server **administrateur système** . Dans la base de données de **référence** , exécutez le code T-SQL suivant :
+3. [Créez des connexions](/sql/t-sql/statements/create-login-transact-sql) pour le l’identité managée Azure Data Factory. Dans SSMS (SQL Server Management Studio), connectez-vous à votre instance managée à l’aide d’un compte SQL Server **administrateur système**. Dans la base de données de **référence** , exécutez le code T-SQL suivant :
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
@@ -144,7 +144,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
+5. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
@@ -184,7 +184,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
 
 1. Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Active Directory pour votre instance managée](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Créez des connexions](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql) pour le l’identité managée Azure Data Factory. Dans SSMS (SQL Server Management Studio), connectez-vous à votre instance managée à l’aide d’un compte SQL Server **administrateur système** . Dans la base de données de **référence** , exécutez le code T-SQL suivant :
+2. [Créez des connexions](/sql/t-sql/statements/create-login-transact-sql) pour le l’identité managée Azure Data Factory. Dans SSMS (SQL Server Management Studio), connectez-vous à votre instance managée à l’aide d’un compte SQL Server **administrateur système**. Dans la base de données de **référence** , exécutez le code T-SQL suivant :
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
@@ -196,7 +196,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-4. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
+4. Accordez les autorisations requises par l’identité managée Data Factory comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant. Pour plus d’options, consultez [ce document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
@@ -230,7 +230,7 @@ Les propriétés suivantes sont prises en charge pour la copie de données vers 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **AzureSqlMITable** . | Oui |
+| type | La propriété type du jeu de données doit être définie sur **AzureSqlMITable**. | Oui |
 | schéma | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
 | table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
 | tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
@@ -269,15 +269,15 @@ Pour la copie de données à partir de l’instance managée SQL, les propriét�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **SqlMISource** . | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur **SqlMISource**. | Oui |
 | sqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. par exemple `select * from MyTable`. |Non |
 | sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
 | storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
-| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** , **ReadUncommitted** , **RepeatableRead** , **Serializable** , **Snapshot** . S’il n’est pas spécifié, le niveau d’isolation par défaut de la base de données est utilisé. Pour plus d’informations, consultez [ce document](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel). | Non |
-| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de SQL MI. <br>Les valeurs autorisées sont les suivantes : **None** (valeur par défaut), **PhysicalPartitionsOfTable** et **DynamicRange** .<br>Lorsqu’une option de partition est activée (donc, autre que `None`), le degré de parallélisme pour charger simultanément des données à partir de SQL MI est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. | Non |
+| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** , **ReadUncommitted** , **RepeatableRead** , **Serializable** , **Snapshot**. S’il n’est pas spécifié, le niveau d’isolation par défaut de la base de données est utilisé. Pour plus d’informations, consultez [ce document](/dotnet/api/system.data.isolationlevel). | Non |
+| partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de SQL MI. <br>Les valeurs autorisées sont les suivantes : **None** (valeur par défaut), **PhysicalPartitionsOfTable** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (donc, autre que `None`), le degré de parallélisme pour charger simultanément des données à partir de SQL MI est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
-| ***Sous `partitionSettings`:*** | | |
-| partitionColumnName | Spécifiez le nom de la colonne source **en type entier ou date/DateHeure** qu’utilisera le partitionnement par plages de valeurs pour la copie en parallèle. S’il n’est pas spécifié, l’index ou la clé primaire de la table seront automatiquement détectés et utilisés en tant que colonne de partition.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfDynamicRangePartitionCondition ` dans la clause WHERE. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-sql-mi). | Non |
+| **_Sous `partitionSettings`:_* _ | | |
+| partitionColumnName | Spécifiez le nom de la colonne source _ *en type entier ou date/DateHeure* * (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) qu’utilisera le partitionnement par plages de valeurs pour la copie en parallèle. S’il n’est pas spécifié, l’index ou la clé primaire de la table seront automatiquement détectés et utilisés en tant que colonne de partition.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfDynamicRangePartitionCondition ` dans la clause WHERE. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-sql-mi). | Non |
 | partitionUpperBound | Valeur maximale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.  <br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-sql-mi). | Non |
 | partitionLowerBound | Valeur minimale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-sql-mi). | Non |
 
@@ -382,14 +382,14 @@ Pour la copie de données vers une instance managée SQL, les propriétés suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlMISink** . | Oui |
+| type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlMISink**. | Oui |
 | preCopyScript |Cette propriété spécifie une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans l’instance managée SQL. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
 | tableOption | Spécifie si [la table du récepteur doit être créée automatiquement](copy-activity-overview.md#auto-create-sink-tables) si elle n’existe pas en fonction du schéma source. La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
-| sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot* . Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`.<br>Voir l’exemple dans la section [Appel d’une procédure stockée à partir d’un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Non |
+| sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot*. Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`.<br>Voir l’exemple dans la section [Appel d’une procédure stockée à partir d’un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Non |
 | storedProcedureTableTypeParameterName |Nom du paramètre du type de table spécifié dans la procédure stockée.  |Non |
 | sqlWriterTableType |Nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms et de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
-| writeBatchSize |Nombre de lignes à insérer dans la table SQL *par lot* .<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne.  |Non |
+| writeBatchSize |Nombre de lignes à insérer dans la table SQL *par lot*.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne.  |Non |
 | writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment un intervalle de temps. Par exemple, « 00:30:00 » (30 minutes). |Non |
 
 **Exemple 1 : Ajout de données**
@@ -485,7 +485,7 @@ Il vous est recommandé d’activer la copie en parallèle avec partitionnement 
 Meilleures pratiques pour charger des données avec l’option de partition :
 
 1. Choisissez une colonne distinctive comme colonne de partition (p. ex. : clé primaire ou clé unique) pour éviter l’asymétrie des données. 
-2. Si la table possède une partition intégrée, utilisez l’option de partition « Partitions physiques de la table » pour obtenir de meilleures performances.  
+2. Si la table possède une partition intégrée, utilisez l’option de partition « Partitions physiques de la table » pour obtenir de meilleures performances.    
 3. Si vous utilisez Azure Integration Runtime pour copier des données, vous pouvez définir des « [unités d’intégration de données (DIU)](copy-activity-performance-features.md#data-integration-units) » plus grandes (>4) pour utiliser davantage de ressources de calcul. Vérifiez les scénarios applicables ici.
 4. Le « [degré de parallélisme de copie](copy-activity-performance-features.md#parallel-copy) » contrôle le nombre de partitions : un nombre trop élevé nuit parfois aux performances. Il est recommandé de définir ce nombre selon (DIU ou nombre de nœuds d'IR auto-hébergé) * (2 à 4).
 
@@ -549,15 +549,15 @@ L’ajout de données est le comportement par défaut de ce connecteur de récep
 
 ### <a name="upsert-data"></a>Effectuer un upsert de données
 
-**Option 1 :** Lorsque vous avez une grande quantité de données à copier, vous pouvez charger en masse tous les enregistrements dans une table de mise en lots à l’aide de l’activité de copie, puis exécuter une activité de procédure stockée pour appliquer une instruction [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql) ou INSERT/UPDATE en une seule fois. 
+**Option 1 :** Lorsque vous avez une grande quantité de données à copier, vous pouvez charger en masse tous les enregistrements dans une table de mise en lots à l’aide de l’activité de copie, puis exécuter une activité de procédure stockée pour appliquer une instruction [MERGE](/sql/t-sql/statements/merge-transact-sql) ou INSERT/UPDATE en une seule fois. 
 
 Actuellement, l’activité de copie ne prend pas en charge en mode natif le chargement des données dans une table temporaire de base de données. Il existe une méthode avancée pour le mettre en place en combinant plusieurs activités. Pour en savoir plus à ce sujet, consultez [Optimize Azure SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert) (Optimisation des scénarios d’upsert en masse Azure SQL Database). Vous trouverez ci-dessous un exemple d’utilisation d’une table permanente comme mise en lots.
 
-Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée** . La première activité copie des données de votre magasin source vers une table de mise en lots Azure SQL Managed Instance, par exemple **UpsertStagingTable** , comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table de mise en lots dans la table cible et nettoyer la table de mise en lots.
+Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée**. La première activité copie des données de votre magasin source vers une table de mise en lots Azure SQL Managed Instance, par exemple **UpsertStagingTable** , comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table de mise en lots dans la table cible et nettoyer la table de mise en lots.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Dans votre base de données, définissez une procédure stockée avec la logique MERGE, comme dans l’exemple suivant, qui est pointée à partir de l’activité de procédure stockée précédente. Supposons que la cible est la table **Marketing** comportant trois colonnes : **ProfileID** , **State** et **Category** . Effectuez l’opération d’upsert sur la colonne **ProfileID** .
+Dans votre base de données, définissez une procédure stockée avec la logique MERGE, comme dans l’exemple suivant, qui est pointée à partir de l’activité de procédure stockée précédente. Supposons que la cible est la table **Marketing** comportant trois colonnes : **ProfileID** , **State** et **Category**. Effectuez l’opération d’upsert sur la colonne **ProfileID**.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -588,13 +588,13 @@ Les étapes permettant d’écrire des données à l’aide d’une logique pers
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
 
-Quand vous copiez des données dans une instance managée SQL, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires sur chaque lot de la table source. La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
+Quand vous copiez des données dans une instance managée SQL, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires sur chaque lot de la table source. La fonction de procédure stockée tire parti des [paramètres table](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Par exemple, quand vous souhaitez appliquer un traitement supplémentaire avant l’insertion finale de données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de la base de données SQL Server. Supposons que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID** , **State** et **Category** . Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique appelée « ProductA ».
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de la base de données SQL Server. Supposons que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID** , **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique appelée « ProductA ».
 
-1. Dans votre base de données, définissez le type de table avec le même nom que **sqlWriterTableType** . Le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
+1. Dans votre base de données, définissez le type de table avec le même nom que **sqlWriterTableType**. Le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -604,7 +604,7 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
     )
     ```
 
-2. Dans votre base de données, définissez la procédure stockée portant le même nom que **sqlWriterStoredProcedureName** . Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table de la procédure stockée doit être identique au **tableName** défini dans le jeu de données.
+2. Dans votre base de données, définissez la procédure stockée portant le même nom que **sqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table de la procédure stockée doit être identique au **tableName** défini dans le jeu de données.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -646,7 +646,7 @@ Lors de la transformation de données dans le flux de données de mappage, vous 
 
 ### <a name="source-transformation"></a>Transformation de la source
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par une source Azure SQL Managed Instance. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source** .
+Le tableau ci-dessous répertorie les propriétés prises en charge par une source Azure SQL Managed Instance. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**.
 
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -669,7 +669,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-transformation"></a>Transformation du récepteur
 
-Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur Azure SQL Managed Instance. Vous pouvez modifier ces propriétés sous l’onglet **Options du récepteur** .
+Le tableau ci-dessous répertorie les propriétés prises en charge par un récepteur Azure SQL Managed Instance. Vous pouvez modifier ces propriétés sous l’onglet **Options du récepteur**.
 
 | Name | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -749,13 +749,13 @@ Quand des données sont copiées vers et depuis SQL Managed Instance à l’aide
 
 ## <a name="using-always-encrypted"></a>Utilisation d’Always Encrypted
 
-Quand vous copiez des données vers ou à partir d’une instance managée SQL Azure avec [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine), utilisez le [connecteur ODBC générique](connector-odbc.md) et le pilote ODBC SQL Server avec le runtime d’intégration auto-hébergé. Ce connecteur Azure SQL Managed Instance ne prend pas en charge Always Encrypted pour le moment. 
+Quand vous copiez des données vers ou à partir d’une instance managée SQL Azure avec [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), utilisez le [connecteur ODBC générique](connector-odbc.md) et le pilote ODBC SQL Server avec le runtime d’intégration auto-hébergé. Ce connecteur Azure SQL Managed Instance ne prend pas en charge Always Encrypted pour le moment. 
 
 Plus précisément :
 
 1. Configurez un runtime d’intégration auto-hébergé si vous n’en avez pas. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 
-2. Téléchargez le pilote ODBC 64 bits pour SQL Server [ici](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server) et installez-le sur l’ordinateur du runtime d’intégration. Pour en savoir plus sur le fonctionnement de ce pilote, consultez [Utilisation d’Always Encrypted avec le pilote ODBC pour SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
+2. Téléchargez le pilote ODBC 64 bits pour SQL Server [ici](/sql/connect/odbc/download-odbc-driver-for-sql-server) et installez-le sur l’ordinateur du runtime d’intégration. Pour en savoir plus sur le fonctionnement de ce pilote, consultez [Utilisation d’Always Encrypted avec le pilote ODBC pour SQL Server](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
 
 3. Créez un service lié avec un type ODBC pour vous connecter à votre base de données SQL en vous référant aux exemples suivants :
 

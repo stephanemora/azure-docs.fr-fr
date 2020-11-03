@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165234"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896070"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service
 
@@ -29,33 +29,33 @@ Cet article fournit un exemple d’intégration à un système d’approbation. 
 
 ## <a name="register-an-application-for-your-approval-system"></a>Inscrire une application pour votre système d’approbation
 
-Vous devez inscrire votre système d’approbation en tant qu’application dans votre locataire Azure AD pour qu’il puisse s’authentifier auprès de Azure AD et avoir l’autorisation de créer des utilisateurs. En savoir plus sur les [notions de base de l’authentification et des autorisations pour Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+Vous devez inscrire votre système d’approbation en tant qu’application dans votre locataire Azure AD pour qu’il puisse s’authentifier auprès de Azure AD et avoir l’autorisation de créer des utilisateurs. En savoir plus sur les [notions de base de l’authentification et des autorisations pour Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur Azure AD.
-2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
-3. Dans le menu de gauche, sélectionnez **Inscriptions d’applications**, puis sélectionnez **Nouvelle inscription**.
+2. Sous **Services Azure** , sélectionnez **Azure Active Directory**.
+3. Dans le menu de gauche, sélectionnez **Inscriptions d’applications** , puis sélectionnez **Nouvelle inscription**.
 4. Entrez un **Nom** pour l’application, par exemple, _Approbations d’inscription_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
 5. Sélectionnez **Inscription**. Vous pouvez conserver les valeurs par défaut des autres champs.
 
-   ![Page Inscription d’une application](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Capture d’écran mettant en évidence le bouton Inscription.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. Sous **Gérer** dans le menu de gauche, sélectionnez **Autorisations de l’API**, puis sélectionnez **Ajouter une autorisation**.
-7. Dans la page **Demander des autorisations d’API**, sélectionnez **Microsoft Graph**, puis **Autorisations d’application**.
-8. Sous **Sélectionner autorisations**, développez **Utilisateur**, puis activez la case à cocher **User.ReadWrite.All (Utilisateur.LireDroite.Tous)** . Cette autorisation permet au système d’approbation de créer l’utilisateur lors de l’approbation. Sélectionnez ensuite **Ajouter des autorisations**.
+6. Sous **Gérer** dans le menu de gauche, sélectionnez **Autorisations de l’API** , puis sélectionnez **Ajouter une autorisation**.
+7. Dans la page **Demander des autorisations d’API** , sélectionnez **Microsoft Graph** , puis **Autorisations d’application**.
+8. Sous **Sélectionner autorisations** , développez **Utilisateur** , puis activez la case à cocher **User.ReadWrite.All (Utilisateur.LireDroite.Tous)** . Cette autorisation permet au système d’approbation de créer l’utilisateur lors de l’approbation. Sélectionnez ensuite **Ajouter des autorisations**.
 
    ![Page Inscription d’une application](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. Dans la page **Autorisations de l’API**, sélectionnez **Accorder le consentement administrateur pour (nom de votre locataire)** , puis **Oui**.
-10. Sous **Gérer** dans le menu de gauche, sélectionnez **Certificats et secrets**, puis **Nouvelle clé secrète client**.
-11. Entrez une **Description** pour la clé secrète, par exemple _Approbations client secrètes_, puis sélectionnez le délai d’**Expiration** de la clé secrète client. Sélectionnez ensuite **Ajouter**.
+9. Dans la page **Autorisations de l’API** , sélectionnez **Accorder le consentement administrateur pour (nom de votre locataire)** , puis **Oui**.
+10. Sous **Gérer** dans le menu de gauche, sélectionnez **Certificats et secrets** , puis **Nouvelle clé secrète client**.
+11. Entrez une **Description** pour la clé secrète, par exemple _Approbations client secrètes_ , puis sélectionnez le délai d’ **Expiration** de la clé secrète client. Sélectionnez ensuite **Ajouter**.
 12. Copiez la valeur de la clé secrète client.
 
     ![Copiez la clé secrète client pour l’utiliser dans le système d’approbation](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
 
-13. Configurez votre système d’approbation pour utiliser l’**ID d’application** en tant qu’ID client et la **clé secrète client** que vous avez générée pour vous authentifier avec Azure AD.
+13. Configurez votre système d’approbation pour utiliser l’ **ID d’application** en tant qu’ID client et la **clé secrète client** que vous avez générée pour vous authentifier avec Azure AD.
 
 ## <a name="create-the-api-connectors"></a>Créer les connecteurs d’API
 
@@ -76,13 +76,13 @@ Pour créer ces connecteurs, suivez les étapes dans [créer un connecteur d’A
 À présent, vous allez ajouter les connecteurs d’API à un workflow utilisateur d’inscription en libre-service en procédant comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur Azure AD.
-2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
+2. Sous **Services Azure** , sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
 4. Sélectionnez **flux d’utilisateurs (préversion)** , puis sélectionnez le flux d’utilisateurs pour lequel vous souhaitez activer le connecteur d’API.
-5. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
+5. Sélectionnez **Connecteurs d’API** , puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
 
-   - **Après vous être connecté avec un fournisseur d’identité**: Sélectionnez votre connecteur d’API d’état d’approbation, par exemple _Vérifier l’état d’approbation_.
-   - **Avant de créer l’utilisateur** : Sélectionnez votre connecteur d’API de requête d’approbation, par exemple _Approbation de demande_.
+   - **Après vous être connecté avec un fournisseur d’identité** : Sélectionnez votre connecteur d’API d’état d’approbation, par exemple _Vérifier l’état d’approbation_.
+   - **Avant de créer l’utilisateur**  : Sélectionnez votre connecteur d’API de requête d’approbation, par exemple _Approbation de demande_.
 
    ![Ajouter des API au workflow de l’utilisateur](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -120,7 +120,7 @@ Les revendications exactes envoyées à l’API dépendent des informations four
 
 #### <a name="continuation-response-for-check-approval-status"></a>Réponse de continuation pour « Vérifier l’état d’approbation »
 
-Le point de terminaison de l’API **Vérifier l’état d’approbation**doit renvoyer une réponse de continuation si :
+Le point de terminaison de l’API **Vérifier l’état d’approbation** doit renvoyer une réponse de continuation si :
 
 - L’utilisateur n’a pas demandé d’approbation précédemment.
 
@@ -138,7 +138,7 @@ Content-type: application/json
 
 #### <a name="blocking-response-for-check-approval-status"></a>Réponse de blocage pour « Vérifier l’état d’approbation »
 
-Le point de terminaison de l’API **Vérifier l’état d’approbation**doit renvoyer une réponse de blocage si :
+Le point de terminaison de l’API **Vérifier l’état d’approbation** doit renvoyer une réponse de blocage si :
 
 - L’approbation de l’utilisateur est en attente.
 - L’utilisateur a été refusé et ne doit pas être autorisé à demander de nouveau l’approbation.
@@ -263,14 +263,14 @@ La `userMessage` dans la réponse est présentée à l’utilisateur, par exempl
 
 ## <a name="user-account-creation-after-manual-approval"></a>Création d’un compte d’utilisateur après une approbation manuelle
 
-Après avoir obtenu une approbation manuelle, le système d’approbation personnalisé crée un compte d’[utilisateur](https://docs.microsoft.com/graph/azuread-users-concept-overview) à l’aide de [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). La façon dont votre système d’approbation approvisionne le compte d’utilisateur dépend du fournisseur d’identité utilisé par l’utilisateur.
+Après avoir obtenu une approbation manuelle, le système d’approbation personnalisé crée un compte d’[utilisateur](/graph/azuread-users-concept-overview) à l’aide de [Microsoft Graph](/graph/use-the-api). La façon dont votre système d’approbation approvisionne le compte d’utilisateur dépend du fournisseur d’identité utilisé par l’utilisateur.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>Pour un utilisateur Google ou Facebook fédéré
 
 > [!IMPORTANT]
 > Le système d’approbation doit vérifier explicitement que `identities`, `identities[0]` et `identities[0].issuer` sont présents et que `identities[0].issuer` est égal à « facebook » ou « google » pour utiliser cette méthode.
 
-Si votre utilisateur s’est connecté avec un compte Google ou Facebook, vous pouvez utiliser l’[API de création d’utilisateur](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+Si votre utilisateur s’est connecté avec un compte Google ou Facebook, vous pouvez utiliser l’[API de création d’utilisateur](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
 
 1. L’utilisateur du système d’approbation reçoit la requête HTTP du workflow de l’utilisateur.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Pour un utilisateur Azure Active Directory fédéré
 
-Si un utilisateur se connecte avec un compte Azure Active Directory fédéré, vous devez utiliser l’[API d’invitation](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) pour créer l’utilisateur, puis éventuellement l’[API de mise à jour de l’utilisateur](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) pour affecter plus d’attributs à l’utilisateur.
+Si un utilisateur se connecte avec un compte Azure Active Directory fédéré, vous devez utiliser l’[API d’invitation](/graph/api/invitation-post?view=graph-rest-1.0) pour créer l’utilisateur, puis éventuellement l’[API de mise à jour de l’utilisateur](/graph/api/user-update?view=graph-rest-1.0) pour affecter plus d’attributs à l’utilisateur.
 
 1. Le système d’approbation reçoit la requête HTTP du workflow de l’utilisateur.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Prise en main de nos [exemples de démarrage rapide d’Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Vérifiez l’[inscription en libre-service pour les utilisateurs invités avec l’exemple d’approbation manuelle](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Vérifiez l’[inscription en libre-service pour les utilisateurs invités avec l’exemple d’approbation manuelle](code-samples-self-service-sign-up.md#custom-approval-workflows).

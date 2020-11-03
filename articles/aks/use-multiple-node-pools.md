@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074513"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900091"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est en cours de *mise à niveau* (état Upgrading) vers *KUBERNETES_VERSION* :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est en cours de *mise à niveau* (état Upgrading) vers *KUBERNETES_VERSION*  :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Mettre à niveau un plan de contrôle de cluster avec plusieurs pools de nœuds
 
 > [!NOTE]
-> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et le pool de nœuds initial sont définis lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle.
+> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z* , où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6* , 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et le pool de nœuds initial sont définis lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle.
 
 Un cluster AKS possède deux objets de ressource de cluster avec des versions Kubernetes associées.
 
@@ -249,7 +249,7 @@ Lorsque vos exigences de charge de travail d’application changent, vous pouvez
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Pour mettre à l’échelle le nombre de nœuds dans un pool de nœuds, utilisez la commande [az aks node pool scale][az-aks-nodepool-scale]. L’exemple suivant met à l’échelle le nombre de nœuds dans *mynodepool* sur *5* :
+Pour mettre à l’échelle le nombre de nœuds dans un pool de nœuds, utilisez la commande [az aks node pool scale][az-aks-nodepool-scale]. L’exemple suivant met à l’échelle le nombre de nœuds dans *mynodepool* sur *5*  :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -260,7 +260,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* avec une nouvelle valeur de *5* nœuds :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* avec une nouvelle valeur de *5*  nœuds :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -351,11 +351,11 @@ La suppression des nœuds et du pool de nœuds prend quelques minutes.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Spécifier une taille de machine virtuelle pour un pool de nœuds
 
-Dans les exemples précédents de création d’un pool de nœuds, une taille de machine virtuelle par défaut a été utilisée pour les nœuds créés dans le cluster. Un scénario plus courant consiste à créer des pools de nœuds avec des fonctionnalités et des tailles de machine virtuelle différentes. Par exemple, vous pouvez créer un pool de nœuds contenant des nœuds avec de grandes quantités de mémoire ou de processeur, ou un pool de nœuds fournissant une prise en charge GPU. Dans l’étape suivante, vous allez [utiliser des teintes et des tolérances](#schedule-pods-using-taints-and-tolerations) pour indiquer au planificateur Kubernetes comment limiter l’accès aux pods qui peuvent s’exécuter sur ces nœuds.
+Dans les exemples précédents de création d’un pool de nœuds, une taille de machine virtuelle par défaut a été utilisée pour les nœuds créés dans le cluster. Un scénario plus courant consiste à créer des pools de nœuds avec des fonctionnalités et des tailles de machine virtuelle différentes. Par exemple, vous pouvez créer un pool de nœuds contenant des nœuds avec de grandes quantités de mémoire ou de processeur, ou un pool de nœuds fournissant une prise en charge GPU. Dans l’étape suivante, vous allez [utiliser des teintes et des tolérances](#setting-nodepool-taints) pour indiquer au planificateur Kubernetes comment limiter l’accès aux pods qui peuvent s’exécuter sur ces nœuds.
 
 Dans l’exemple suivant, créez un pool de nœuds basé sur GPU qui utilise la taille de machine virtuelle *Standard_NC6*. Ces machines virtuelles sont alimentées par la carte NVIDIA Tesla K80. Pour obtenir des informations sur les tailles de machine virtuelle disponibles, consultez [Tailles des machines virtuelles Linux dans Azure][vm-sizes].
 
-Créez un pool de nœuds de nouveau à l’aide de la commande [az aks node pool add][az-aks-nodepool-add]. Cette fois, spécifiez le nom *gpunodepool* et utilisez le paramètre `--node-vm-size` pour spécifier la taille *Standard_NC6* :
+Créez un pool de nœuds de nouveau à l’aide de la commande [az aks node pool add][az-aks-nodepool-add]. Cette fois, spécifiez le nom *gpunodepool* et utilisez le paramètre `--node-vm-size` pour spécifier la taille *Standard_NC6*  :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *gpunodepool* crée (*Creating*) des nœuds avec la taille *VmSize* spécifiée :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *gpunodepool* crée ( *Creating* ) des nœuds avec la taille *VmSize* spécifiée :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Il faut quelques minutes pour que *gpunodepool* soit créé avec succès.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Planifier des pods à l’aide de teintes et de tolérances
-
-Vous avez maintenant deux pools de nœuds dans votre cluster, le pool de nœuds par défaut initialement créé et le pool de nœuds basé sur GPU. Utilisez la commande [kubectl get nodes][kubectl-get] pour voir les nœuds figurant dans votre cluster. L'exemple de sortie suivant montre les nœuds :
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour restreindre les charges de travail qui peuvent s’exécuter sur des nœuds.
-
-* Quand une **teinte** est appliquée à un nœud, seuls des pods spécifiques peuvent être planifiés sur le nœud.
-* Une **tolérance** est ensuite appliquée à un pod pour lui permettre de *tolérer* la teinte d’un nœud.
-
-Pour plus d’informations sur la façon d’utiliser les fonctionnalités de Kubernetes planifiées avancées, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][taints-tolerations].
-
-Dans cet exemple, appliquez une teinte à votre nœud basé sur GPU à l’aide de la commande --node-taints. Spécifiez le nom de votre nœud basé sur GPU à partir de la sortie de la commande `kubectl get nodes` précédente. La teinte est appliquée en tant que paire *key=value*, puis comme option de planification. L’exemple suivant utilise la paire *sku=gpu* et définit des pods qui ont la capacité *NoSchedule* :
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-L’exemple de manifeste YAML de base suivant utilise une tolérance pour autoriser le planificateur Kubernetes à exécuter un pod NGINX sur le nœud basé sur GPU. Pour obtenir un exemple plus approprié mais long d’exécution d’une tâche Tensorflow par rapport au jeu de données MNIST, consultez [Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur AKS][gpu-cluster].
-
-Créez un fichier nommé `gpu-toleration.yaml` et copiez-y l’exemple de code YAML suivant :
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Planifiez le pod à l’aide de la commande `kubectl apply -f gpu-toleration.yaml` :
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Il faut quelques secondes pour planifier le pod et extraire l’image NGINX. Utilisez la commande [kubectl describe pod][kubectl-describe] pour voir l’état du pod. L’exemple de sortie condensée suivant montre que la tolérance *sku=gpu:NoSchedule* est appliquée. Dans la section des événements, le planificateur a affecté le pod au nœud basé sur GPU *aks-gpunodepool-28993262-vmss000000* :
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Seuls les pods auxquels cette tolérance est appliquée peuvent être planifiés sur les nœuds du pool *gpunodepool*. N’importe quel autre pod sera planifié dans le pool de nœuds *nodepool1*. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser des teintes et des tolérances supplémentaires pour limiter les pods qui peuvent être planifiés sur ces ressources de nœud.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds
 
 ### <a name="setting-nodepool-taints"></a>Définition de teintes de pool de nœud
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Une teinte ne peut être définie pour un pool de nœuds que pendant la création de celui-ci.
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée (*Creating*) des nœuds avec les teintes (*nodeTaints*) spécifiées :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *taintnp* crée ( *Creating* ) des nœuds avec les teintes ( *nodeTaints* ) spécifiées :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-Les informations concernant la teinte sont visibles dans Kubernetes pour la gestion des règles de planification des nœuds.
+Les informations concernant la teinte sont visibles dans Kubernetes pour la gestion des règles de planification des nœuds. Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour restreindre les charges de travail qui peuvent s’exécuter sur des nœuds.
+
+* Quand une **teinte** est appliquée à un nœud, seuls des pods spécifiques peuvent être planifiés sur le nœud.
+* Une **tolérance** est ensuite appliquée à un pod pour lui permettre de *tolérer* la teinte d’un nœud.
+
+Pour plus d’informations sur la façon d’utiliser les fonctionnalités de Kubernetes planifiées avancées, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][taints-tolerations].
+
+À l’étape précédente, vous avez appliqué la teinte *sku=gpu:NoSchedule* lorsque vous avez créé votre pool de nœuds. L’exemple de manifeste YAML de base suivant utilise une tolérance pour autoriser le planificateur Kubernetes à exécuter un pod NGINX sur un nœud de ce pool de nœuds.
+
+Créez un fichier nommé `nginx-toleration.yaml` et copiez-y l’exemple de code YAML suivant :
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Planifiez le pod à l’aide de la commande `kubectl apply -f nginx-toleration.yaml` :
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Il faut quelques secondes pour planifier le pod et extraire l’image NGINX. Utilisez la commande [kubectl describe pod][kubectl-describe] pour voir l’état du pod. L’exemple de sortie condensée suivant montre que la tolérance *sku=gpu:NoSchedule* est appliquée. Dans la section des événements, le planificateur a affecté le pod au nœud *aks-taintnp-28993262-vmss000000*  :
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Seuls les pods auxquels cette tolérance est appliquée peuvent être planifiés sur les nœuds dans *taintnp*. N’importe quel autre pod sera planifié dans le pool de nœuds *nodepool1*. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser des teintes et des tolérances supplémentaires pour limiter les pods qui peuvent être planifiés sur ces ressources de nœud.
 
 ### <a name="setting-nodepool-labels"></a>Définition d’étiquettes de pool de nœuds
 
@@ -553,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > L’intitulé d’un pool de nœuds ne peut être défini que pendant la création de celui-ci. Les intitulés doivent également constituer une paire clé/valeur et avoir une [syntaxe valide][kubernetes-label-syntax].
 
-L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *labelnp* crée (*Creating*) des nœuds avec les intitulés (*nodeLabels*) spécifiés :
+L’exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *labelnp* crée ( *Creating* ) des nœuds avec les intitulés ( *nodeLabels* ) spécifiés :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -586,7 +564,7 @@ Les balises Azure ont des clés qui ne sont respectent pas la casse pour des op�
 
 Dans AKS, si plusieurs balises sont définies avec des clés identiques, mais une casse différente, la balise utilisée est la première dans l’ordre alphabétique. Par exemple, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` entraîne la définition de `Key1` et de `val1`.
 
-Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
+Créez un pool de nœuds à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool* , et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Vous pouvez également utiliser le paramètre `--tags` lors de l'utilisation de la commande [az aks nodepool update][az-aks-nodepool-update] ainsi que lors de la création du cluster. Lors de la création du cluster, le paramètre `--tags` applique la balise au pool de nœuds initial créé avec le cluster. Tous les noms de balise doivent respecter les limites présentées dans l'article [Utiliser des balises pour organiser vos ressources Azure][tag-limitation]. La mise à jour d'un pool de nœuds à l'aide du paramètre `--tags` entraîne la mise à jour de toutes les valeurs de balise existantes et l'ajout de toutes les nouvelles balises. Par exemple, si vous remplacez les valeurs de balise *dept=IT* et *costcenter=9999* d'un pool de nœuds par *team=dev* et *costcenter=111*, les valeurs de balise du pool de nœuds seront les suivantes : *dept=IT*, *costcenter=111* et *team=dev*.
+> Vous pouvez également utiliser le paramètre `--tags` lors de l'utilisation de la commande [az aks nodepool update][az-aks-nodepool-update] ainsi que lors de la création du cluster. Lors de la création du cluster, le paramètre `--tags` applique la balise au pool de nœuds initial créé avec le cluster. Tous les noms de balise doivent respecter les limites présentées dans l'article [Utiliser des balises pour organiser vos ressources Azure][tag-limitation]. La mise à jour d'un pool de nœuds à l'aide du paramètre `--tags` entraîne la mise à jour de toutes les valeurs de balise existantes et l'ajout de toutes les nouvelles balises. Par exemple, si vous remplacez les valeurs de balise *dept=IT* et *costcenter=9999* d'un pool de nœuds par *team=dev* et *costcenter=111* , les valeurs de balise du pool de nœuds seront les suivantes : *dept=IT* , *costcenter=111* et *team=dev*.
 
-L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée (*Creating*) des nœuds avec la balise (*tag*) spécifiée :
+L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée ( *Creating* ) des nœuds avec la balise ( *tag* ) spécifiée :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -635,7 +613,7 @@ Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer de
 Créez un modèle tel que `aks-agentpools.json` et collez l’exemple de manifeste suivant. Cet exemple de modèle configure les paramètres suivants :
 
 * Met à jour le pool de nœuds *Linux* nommé *myagentpool* pour exécuter trois nœuds.
-* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version *1.15.7*.
+* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version  *1.15.7*.
 * Définit la taille de nœud en tant que *Standard_DS2_v2*.
 
 Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou supprimer des pools de nœuds :

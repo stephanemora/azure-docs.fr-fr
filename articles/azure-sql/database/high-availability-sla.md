@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
-ms.date: 08/12/2020
-ms.openlocfilehash: fd470180e17bd64990c1e657a6614fc2e0ef71d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335022"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901305"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Deux modèles d'architecture à haute disponibilité sont disponibles :
 
 Comme SQL Database et SQL Managed Instance s'exécutent tous les deux sur la dernière version stable du moteur de base de données SQL Server et du système d'exploitation Windows, la plupart des utilisateurs ne se rendent pas compte des mises à niveau qui sont effectuées en continu.
 
-## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilité des niveaux de service De base, Standard et Usage général
+## <a name="basic-standard-and-general-purpose-service-tier-locally-redundant-availability"></a>Disponibilité de redondance locale des niveaux de service De base, Standard et Usage général
 
 Les niveaux de service de base, standard et d’usage général tirent parti de l’architecture de disponibilité standard pour le calcul provisionné et serverless. L’illustration suivante montre quatre nœuds distincts, avec les couches de calcul et de stockage séparées.
 
@@ -46,15 +46,51 @@ Le modèle de disponibilité Standard comprend deux couches :
 
 Dès que le moteur de base de données ou que le système d'exploitation est mis à niveau, ou qu'une défaillance est détectée, Azure Service Fabric déplace le processus `sqlservr.exe` sans état vers un autre nœud de calcul sans état disposant d'une capacité disponible suffisante. Les données conservées dans le stockage Blob Azure ne sont pas affectées par le déplacement, et les fichiers de données ou de journaux sont joints au processus `sqlservr.exe` nouvellement initialisé. Ce processus garantit une disponibilité de 99,99 %, mais une charge de travail lourde peut accuser une baisse de performances pendant la transition, car le nouveau processus `sqlservr.exe` démarre avec le cache à froid.
 
-## <a name="premium-and-business-critical-service-tier-availability"></a>Disponibilité des niveaux de service Premium et Critique pour l’entreprise
+## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilité redondante interzone du niveau de service Usage général (préversion)
+
+La configuration redondante interzone pour le niveau de service Usage général utilise [Zones de disponibilité Azure](../../availability-zones/az-overview.md)  pour répliquer les bases de données sur plusieurs emplacements physiques au sein d’une région Azure. En sélectionnant la redondance dans une zone, vous pouvez rendre vos bases de données uniques à usage général et vos pools élastiques nouveaux et existants résistants à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application.
+
+La configuration redondante interzone pour le niveau Usage général contient deux couches :  
+
+- Une couche de données avec état, comprenant les fichiers de base de données (.mdf/.ldf) stockés dans le [partage de fichiers du stockage](../../storage/files/storage-how-to-create-premium-fileshare.md) redondant interzone (ZRS PFS). Avec le [stockage redondant interzone](../../storage/common/storage-redundancy.md), les fichiers de données et les fichiers journaux sont copiés de façon synchrone sur trois zones de disponibilité Azure physiquement isolées.
+- Une couche de calcul sans état, qui exécute le processus sqlservr.exe et contient uniquement des données transitoires et mises en cache comme TempDB, les bases de données model sur le SSD attaché, ainsi que le cache du plan, le pool de mémoires tampons et le pool columnstore en mémoire. Ce nœud sans état est géré par Azure Service Fabric qui initialise sqlservr.exe, contrôle l’intégrité du nœud et effectue le basculement vers un autre nœud si nécessaire. Pour les bases de données redondantes interzones à usage général, les nœuds avec une capacité de rechange sont facilement disponibles dans d’autres zones de disponibilité pour le basculement.
+
+La version redondante interzone de l’architecture de haute disponibilité pour le niveau de service à usage général est illustrée dans le diagramme suivant :
+
+![Configuration redondante interzone pour le niveau Usage général](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
+
+> [!IMPORTANT]
+> Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md). La configuration redondante interzone n’est disponible que lorsque le matériel de calcul Gen5 est sélectionné. Cette fonctionnalité n'est pas disponible dans SQL Managed Instance.
+
+> [!NOTE]
+> Les bases de données à usage général dont la taille est de 80 vcore peuvent subir une altération des performances avec une configuration redondante interzone. En outre, les opérations telles que la sauvegarde, la restauration, la copie de base de données et la configuration de relations de récupération d’urgence de zone géographique peuvent connaître un ralentissement des performances pour toutes les bases de données uniques de plus de 1 To. 
+
+## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Disponibilité redondante locale des niveaux de service Premium et Critique pour l’entreprise
 
 Les niveaux de service Premium et Critique pour l'entreprise tirent parti du modèle de disponibilité Premium, qui intègre des ressources de calcul (processus `sqlservr.exe`) et du stockage (SSD attaché localement) sur un seul nœud. La haute disponibilité est obtenue en répliquant calcul et stockage sur des nœuds supplémentaires pour la création d’un cluster à trois ou quatre nœuds.
 
 ![Cluster de nœuds de moteur de base de données](./media/high-availability-sla/business-critical-service-tier.png)
 
-Les fichiers de base de données sous-jacents (.mdf/.ldf) sont placés sur le stockage SSD attaché, afin de fournir une latence des E/S très faible à votre charge de travail. La haute disponibilité est implémentée au moyen d'une technologie semblable à celles des [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server. Le cluster comprend un seul réplica principal qui est accessible pour les charges de travail en lecture-écriture des clients, et un maximum de trois réplicas secondaires (de calcul et de stockage) contenant les copies des données. Le nœud principal envoie (push) régulièrement et dans l’ordre des modifications sur les nœuds secondaires, et s’assure que les données sont synchronisées sur au moins un réplica secondaire avant de valider chaque transaction. Ce processus garantit qu’en cas de plantage du nœud principal pour une quelconque raison, il existe toujours un nœud entièrement synchronisé vers lequel basculer. Le basculement est initié par Azure Service Fabric. Lorsque le réplica secondaire devient le nouveau nœud principal, un autre réplica secondaire est créé pour garantir que le cluster dispose de suffisamment de nœuds (ensemble du quorum). Une fois le basculement terminé, les connexions Azure SQL sont automatiquement redirigées vers le nouveau nœud principal.
+Les fichiers de base de données sous-jacents (.mdf/.ldf) sont placés sur le stockage SSD attaché, afin de fournir une latence des E/S très faible à votre charge de travail. La haute disponibilité est implémentée au moyen d'une technologie semblable à celles des [groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server. Le cluster comprend un seul réplica principal qui est accessible pour les charges de travail en lecture-écriture des clients, et un maximum de trois réplicas secondaires (de calcul et de stockage) contenant les copies des données. Le nœud principal envoie (push) régulièrement et dans l’ordre des modifications sur les nœuds secondaires, et s’assure que les données sont synchronisées sur au moins un réplica secondaire avant de valider chaque transaction. Ce processus garantit qu’en cas de plantage du nœud principal pour une quelconque raison, il existe toujours un nœud entièrement synchronisé vers lequel basculer. Le basculement est initié par Azure Service Fabric. Lorsque le réplica secondaire devient le nouveau nœud principal, un autre réplica secondaire est créé pour garantir que le cluster dispose de suffisamment de nœuds (ensemble du quorum). Une fois le basculement terminé, les connexions Azure SQL sont automatiquement redirigées vers le nouveau nœud principal.
 
 Autre avantage, le modèle de disponibilité Premium permet de rediriger les connexions Azure SQL en lecture seule vers un des réplicas secondaires. Cette fonctionnalité est appelée [Scale-out en lecture](read-scale-out.md). Elle fournit 100 % de capacité de calcul, sans frais supplémentaires, pour décharger depuis le réplica principal des opérations en lecture seule, telles que les charges de travail analytiques.
+
+## <a name="premium-and-business-critical-service-tier-zone-redundant-availability"></a>Disponibilité redondante interzone des niveaux de service Premium et Critique pour l’entreprise 
+
+Par défaut, le cluster de nœuds pour le modèle de disponibilité Premium est créé dans le même centre de données. Avec l’introduction des [Zones de disponibilité Azure](../../availability-zones/az-overview.md), SQL Database peut placer différents réplicas de la base de données Critique pour l’entreprise dans des zones de disponibilité distinctes au sein de la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration redondante interzone dans les niveaux de service Premium ou Critique pour l’entreprise ne crée pas de redondance de base de données supplémentaire, vous pouvez l’activer sans frais supplémentaires. En sélectionnant une configuration redondante dans une zone, vous rendez vos bases de données Premium ou Critique pour l’entreprise résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification à la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise en configuration avec redondance dans une zone.
+
+Les bases de données de redondance de zone, ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus est une opération en ligne, semblable à la mise à niveau des niveaux de service ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
+
+> [!IMPORTANT]
+> Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md).
+
+> [!NOTE]
+> Cette fonctionnalité n'est pas disponible dans SQL Managed Instance.
+
+La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :
+
+![architecture haute disponibilité avec redondance de zone](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
+
 
 ## <a name="hyperscale-service-tier-availability"></a>Disponibilité du niveau de service Hyperscale
 
@@ -73,21 +109,6 @@ Dans toutes les couches Hyperscale, les nœuds de calcul s’exécutent sur Azur
 
 Pour plus d’informations sur la haute disponibilité dans Hyperscale, consultez [Haute disponibilité de la base de données dans Hyperscale ](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
 
-## <a name="zone-redundant-configuration"></a>Configuration de zone redondante
-
-Par défaut, le cluster de nœuds pour le modèle de disponibilité Premium est créé dans le même centre de données. Avec l’introduction des [Zones de disponibilité Azure](../../availability-zones/az-overview.md), SQL Database peut placer différents réplicas de la base de données Critique pour l’entreprise dans des zones de disponibilité distinctes au sein de la même région. Pour éliminer un point de défaillance unique, l’anneau de contrôle est également dupliqué sur plusieurs fuseaux horaires sous forme de trois anneaux de passerelle (GW). Le routage vers un anneau de passerelle spécifique est contrôlé par [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Étant donné que la configuration redondante interzone dans les niveaux de service Premium ou Critique pour l’entreprise ne crée pas de redondance de base de données supplémentaire, vous pouvez l’activer sans frais supplémentaires. En sélectionnant une configuration redondante dans une zone, vous rendez vos bases de données Premium ou Critique pour l’entreprise résistantes à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification à la logique d’application. Vous pouvez également convertir vos bases de données ou pools Premium ou Critique pour l’entreprise en configuration avec redondance dans une zone.
-
-Les bases de données de redondance de zone, ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus est une opération en ligne, semblable à la mise à niveau des niveaux de service ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
-
-> [!IMPORTANT]
-> Les bases de données avec redondance de zone et les pools élastiques ne sont actuellement pris en charge que dans les niveaux de service Premium et Critique pour l’entreprise, dans les régions sélectionnées. Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> Cette fonctionnalité n'est pas disponible dans SQL Managed Instance.
-
-La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :
-
-![architecture haute disponibilité avec redondance de zone](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 ## <a name="accelerated-database-recovery-adr"></a>Récupération de base de données accélérée (ADR)
 
@@ -95,15 +116,15 @@ La [récupération de base de données accélérée](../accelerated-database-rec
 
 ## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 
-La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Toutefois, nous avons conscience que vous souhaitez peut-être tester, avant le déploiement en production, la manière dont les opérations de basculement automatique initiées pendant les événements, planifiés ou non, impacteraient une application. Vous pouvez déclencher manuellement un basculement en appelant une API spéciale pour redémarrer une base de données, un pool élastique ou une instance gérée. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, un seul appel de basculement est autorisé toutes les 30 minutes pour chaque base de données, pool élastique ou instance gérée.
+La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Toutefois, nous avons conscience que vous souhaitez peut-être tester, avant le déploiement en production, la manière dont les opérations de basculement automatique initiées pendant les événements, planifiés ou non, impacteraient une application. Vous pouvez déclencher manuellement un basculement en appelant une API spéciale pour redémarrer une base de données, un pool élastique ou une instance gérée. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, un seul appel de basculement est autorisé toutes les 15 minutes pour chaque base de données, pool élastique ou instance gérée.
 
 Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou d’Azure CLI :
 
 |Type de déploiement|PowerShell|API REST| Azure CLI|
 |:---|:---|:---|:---|
-|Base de données|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Pool élastique|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
-|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Base de données|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Basculement de base de données](/rest/api/sql/databases(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Pool élastique|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Basculement de pool élastique](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) peut permettre d’invoquer un appel d’API REST à partir d’Azure CLI|
+|Instance gérée|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instances gérées - Basculement](/rest/api/sql/managed%20instances%20-%20failover/failover)|[Basculement az sql mi](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > La commande de basculement n’est pas disponible pour les réplicas secondaires accessibles en lecture des bases de données Hyperscale.
