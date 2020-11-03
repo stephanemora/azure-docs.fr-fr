@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652163"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676792"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -37,13 +37,13 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Activer la journalisation et les métriques
 
-Dans le menu de gauche, sélectionnez **Groupes de ressources**, **myResourceGroup**, puis votre compte de stockage dans la liste des ressources.
+Dans le menu de gauche, sélectionnez **Groupes de ressources** , **myResourceGroup** , puis votre compte de stockage dans la liste des ressources.
 
-Sous les **paramètres de Diagnostics (classique)** , définissez l’**État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
+Sous les **paramètres de Diagnostics (classique)** , définissez l’ **État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
 
 Quand vous avez terminé, cliquez sur **Enregistrer**
 
-![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Capture d’écran qui met en évidence la section qui contient les paramètres de configuration permettant d’activer la journalisation et les métriques.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Activer les alertes
 
@@ -51,9 +51,9 @@ Les alertes sont un moyen d’envoyer par e-mail aux administrateurs ou de décl
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Accédez à votre compte de stockage dans le Portail Azure
 
-Sous la section **Surveillance**, sélectionnez **Alertes (classique)** .
+Sous la section **Surveillance** , sélectionnez **Alertes (classique)** .
 
-Sélectionnez **Ajouter une alerte métrique (classique)** et terminez le formulaire **Ajouter une règle** en renseignant les informations requises. À partir de la liste déroulante **Métrique**, sélectionnez `SASClientOtherError`. Pour autoriser le déclenchement de votre alerte lors de la première erreur, à partir de la liste déroulante **Condition** sélectionnez **Supérieur ou égal à**.
+Sélectionnez **Ajouter une alerte métrique (classique)** et terminez le formulaire **Ajouter une règle** en renseignant les informations requises. À partir de la liste déroulante **Métrique** , sélectionnez `SASClientOtherError`. Pour autoriser le déclenchement de votre alerte lors de la première erreur, à partir de la liste déroulante **Condition** sélectionnez **Supérieur ou égal à**.
 
 ![Volet Diagnostics](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -91,21 +91,21 @@ Téléchargez [Microsoft Message Analyzer](https://docs.microsoft.com/message-an
 
 Lancez l’application et choisissez **Fichier** > **Ouvrir** > **À partir d’autres sources de fichiers**.
 
-Dans la boîte de dialogue **Sélecteur de fichiers**, sélectionnez **+ Ajouter une connexion Azure**. Entrez le **nom du compte de stockage** et la **clé de compte**, puis cliquez sur **OK**.
+Dans la boîte de dialogue **Sélecteur de fichiers** , sélectionnez **+ Ajouter une connexion Azure**. Entrez le **nom du compte de stockage** et la **clé de compte** , puis cliquez sur **OK**.
 
 ![Boîte de dialogue Microsoft Message Analyzer - Ajouter une connexion de stockage Azure](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
 Une fois que vous êtes connecté, développez les conteneurs dans l’arborescence de stockage pour afficher les objets blob de journal. Sélectionnez le dernier journal et cliquez sur **OK**.
 
-![Boîte de dialogue Microsoft Message Analyzer - Ajouter une connexion de stockage Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Capture d’écran qui montre Microsoft Message Analyzer et met en évidence le fichier journal sélectionné.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Dans la boîte de dialogue **Nouvelle session**, cliquez sur **Démarrer** pour afficher le journal.
+Dans la boîte de dialogue **Nouvelle session** , cliquez sur **Démarrer** pour afficher le journal.
 
 Une fois le journal ouvert, vous pouvez consulter les événements de stockage. Comme vous pouvez le voir dans l’image suivante, un événement `SASClientOtherError` a été déclenché sur le compte de stockage. Pour plus d’informations sur la journalisation du stockage, visitez [Storage Analytics](../common/storage-analytics.md).
 
 ![Microsoft Message Analyzer - Affichage des événements](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux d’activité qu’il contient.
+L’ [Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux d’activité qu’il contient.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

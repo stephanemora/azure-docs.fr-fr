@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088922"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896053"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Démarrage rapide : Créer un service Front Door à l’aide d’un modèle Resource Manager
 
@@ -40,7 +40,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-Dans ce guide de démarrage rapide, vous allez créer une configuration Front Door avec un seul back-end et un seul chemin par défaut correspondant à « /* ». 
+Dans ce guide de démarrage rapide, vous allez créer une configuration Front Door avec un seul back-end et un seul chemin par défaut correspondant à `/*`.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ Une seule ressource Azure est définie dans le modèle :
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-1. Sélectionnez **Essayer** à partir du bloc de code suivant pour ouvrir Azure Cloud Shell, puis suivez les instructions pour vous connecter à Azure. 
+1. Sélectionnez **Essayer** à partir du bloc de code suivant pour ouvrir Azure Cloud Shell, puis suivez les instructions pour vous connecter à Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -73,7 +73,7 @@ Une seule ressource Azure est définie dans le modèle :
 
 1. Entrez les valeurs.
 
-    Le déploiement du modèle crée un service Front Door avec un seul back-end. Dans cet exemple, *<span>microsoft.</span>com* est utilisé comme **backendAddress**.
+    Le déploiement du modèle crée un service Front Door avec un seul back-end. Dans cet exemple, `microsoft.com` est utilisé comme **backendAddress**.
 
     Le nom du groupe de ressources est le nom du projet avec **rg** ajouté.
 
@@ -96,7 +96,7 @@ Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell,
 
 1. Sélectionnez le service Front Door que vous avez créé précédemment et cliquez sur le lien **Hôte front-end**. Le lien ouvre un navigateur web qui vous redirige vers le nom de domaine complet de votre back-end que vous avez défini lors de la création.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager Front Door":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Vue d’ensemble du portail Front Door":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez créé les éléments suivants :
-* Front Door
+Dans ce guide de démarrage rapide, vous avez créé un service Front Door.
 
 Pour savoir comment ajouter un domaine personnalisé à votre service Front Door, passez aux tutoriels Front Door.
 

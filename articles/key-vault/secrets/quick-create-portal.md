@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962443"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735160"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
 Azure Key Vault est un service cloud qui fonctionne comme un magasin sécurisé contenant des secrets. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Vous pouvez créer et gérer des coffres de clés Azure grâce au portail Azure. Dans ce démarrage rapide, vous créez un coffre de clés, puis l’utilisez pour stocker un secret. Pour plus d’informations sur Key Vault, consultez la [présentation](../general/overview.md).
 
-Pour plus d’informations sur les secrets, consultez (about-secrets.md).
+Pour plus d’informations sur les secrets, consultez [À propos des secrets](about-secrets.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,25 +34,26 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
-1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil** , sélectionnez **Créer une ressource**.
 2. Dans la zone de recherche, entrez **Key Vault**.
 3. Dans la liste des résultats, choisissez **Key Vault**.
 4. Dans la section Key Vault, choisissez **Créer**.
-5. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :
-    - **Name** : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
-    - **Abonnement**: Choisissez un abonnement.
-    - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
-    - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
+5. Dans la section **Créer un coffre de clés** , renseignez les informations suivantes :
+    - **Name**  : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
+    - **Abonnement** : Choisissez un abonnement.
+    - Sous **Groupe de ressources** , choisissez **Créer** et entrez le nom du groupe de ressources.
+    - Dans le menu déroulant **Emplacement** , choisissez un emplacement.
     - Conservez les valeurs par défaut des autres options.
 6. Après avoir renseigné les informations ci-dessus, sélectionnez **Créer**.
 
 Notez les deux propriétés ci-dessous :
 
-* **Nom du coffre** : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
-* **URI du coffre** : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **Nom du coffre**  : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
+* **URI du coffre**  : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
-Vous pouvez également créer un coffre de clés avec Azure CLI et PowerShell : [Créer un coffre de clés à l’aide de PowerShell](../general/quick-create-powershell.md)
-[Créer un coffre de clés à l’aide d’Azure CLI](../general/quick-create-cli.md)
+Vous pouvez également créer un coffre de clés avec Azure CLI et PowerShell :
+- [Créer un coffre de clés à l’aide de PowerShell](../general/quick-create-powershell.md)
+- [Créer un coffre de clés à l’aide d’Azure CLI](../general/quick-create-cli.md)
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
@@ -65,9 +66,9 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
 1. Dans les pages des propriétés Key Vault, sélectionnez **Secrets**.
 2. Cliquez sur **Generate/Import (Générer/Importer)** .
 3. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
-    - **Options de chargement** : Manuel.
-    - **Name** : ExamplePassword.
-    - **Valeur** : hVFkk965BuUv
+    - **Options de chargement**  : Manuel.
+    - **Name**  : ExamplePassword.
+    - **Valeur**  : hVFkk965BuUv
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
 Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. 

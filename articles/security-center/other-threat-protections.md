@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900393"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Protections supplémentaires contre les menaces dans Azure Security Center
 En plus des [protections Azure Defender](azure-defender.md) intégrées, Azure Security Center offre les fonctionnalités de protection contre les menaces suivantes.
@@ -32,7 +32,6 @@ L’analytique de la couche réseau de Security Center est basée sur des exempl
 Certaines configurations réseau peuvent empêcher Security Center de générer des alertes sur une activité réseau suspecte. Pour que Security Center génère des alertes réseau, assurez-vous que :
 - Votre machine virtuelle a une adresse IP publique (ou se trouve sur un équilibreur de charge avec une adresse IP publique).
 - Le trafic de sortie réseau de votre machine virtuelle n’est pas bloqué par une solution IDS externe.
-- La même adresse IP a été attribuée à votre machine virtuelle pendant toute l’heure pendant laquelle la communication suspecte s’est produite. Cela s’applique également aux machines virtuelles créées dans le cadre d’un service managé (par exemple AKS, Databricks).
 
 Pour obtenir la liste des alertes de la couche réseau Azure, consultez le [Tableau de référence des alertes](alerts-reference.md#alerts-azurenetlayer).
 
@@ -59,7 +58,7 @@ Pour obtenir la liste des alertes Azure Resource Manager (préversion), consulte
 
 1. Définissez l’espace de travail sur lequel vous installez l’agent. Assurez-vous que l’espace de travail est dans le même abonnement que vous utilisez dans Security Center et que vous disposez d’autorisations en lecture/écriture sur l’espace de travail.
 
-1. Activez **Azure Defender**, puis sélectionnez **Enregistrer**.
+1. Activez **Azure Defender** , puis sélectionnez **Enregistrer**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protection contre les menaces pour Azure Cosmos DB (préversion)<a name="cosmos-db"></a>
@@ -68,7 +67,7 @@ Les alertes Azure Cosmos DB sont générées en cas de détection de tentatives 
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Advanced Threat Protection pour Azure Cosmos DB (préversion)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Protection avancée contre les menaces pour Azure Cosmos DB (préversion)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [Liste des alertes de protection contre les menaces pour Azure Cosmos DB (préversion)](alerts-reference.md#alerts-azurecosmos)
 
 
@@ -101,4 +100,4 @@ Pour en savoir plus sur les alertes de sécurité provenant de ces fonctionnalit
 * [Tableau de référence pour toutes les alertes Azure Security Center](alerts-reference.md)
 * [Alertes de sécurité dans le Centre de sécurité Azure](security-center-alerts-overview.md)
 * [Gérer et répondre aux alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Exporter les alertes et recommandations de sécurité (préversion)](continuous-export.md)
+* [Exporter en continu les données Security Center](continuous-export.md)

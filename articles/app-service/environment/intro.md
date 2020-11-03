@@ -7,15 +7,14 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 4e9ea34317951ecd9d3b6649ce42ffcf2f476d03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149227"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631136"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
- 
 ## <a name="overview"></a>Vue d’ensemble ##
 
 L’environnement Azure App Service est une fonctionnalité d’Azure App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle. Cette fonctionnalité peut héberger vos :
@@ -32,7 +31,7 @@ Les environnements App Service (ASE) conviennent aux charges de travail d’app
 * Une isolation et un accès réseau sécurisé.
 * Une utilisation élevée de la mémoire.
 
-Les clients peuvent créer plusieurs environnements App Service au sein d’une même région Azure ou dans plusieurs régions Azure. Grâce à cette souplesse, les environnements ASE sont parfaits pour l’évolution horizontale des niveaux d’application sans état pour la prise en charge de lourdes charges de travail RPS.
+Les clients peuvent créer plusieurs environnements App Service au sein d’une même région Azure ou dans plusieurs régions Azure. Grâce à cette souplesse, les environnements ASE sont parfaits pour la mise à l’échelle horizontale des niveaux d’application sans état pour la prise en charge des charges de travail présentant un niveau élevé de requêtes par seconde.
 
 Les environnements ASE hébergent des applications d’un seul client, et le font sur l’un de leurs réseaux virtuels. Les clients peuvent contrôler précisément le trafic réseau entrant et sortant des applications. Les applications peuvent établir des connexions sécurisées à haute vitesse aux ressources d’entreprise locales par le biais de réseaux privés virtuels.
 

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449079"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791917"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -30,7 +30,7 @@ La détection des menaces au niveau de l’hôte sur les nœuds AKS Linux est di
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour Kubernetes** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
-|Rôles et autorisations obligatoires :|L’**administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
+|Rôles et autorisations obligatoires :|L’ **administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
@@ -49,7 +49,7 @@ Security Center offre une protection contre les menaces à différents niveaux 
     >[!IMPORTANT]
     > Si vous choisissez de ne pas installer les agents sur vos machines hôtes, vous ne recevrez qu’une partie des avantages et alertes de sécurité relatifs à la protection contre les menaces. Vous recevrez toujours les alertes liées à l’analyse réseau et aux communications avec des serveurs malveillants.
 
-- **Niveau de cluster AKS (fourni par Azure Defender pour Kubernetes)** : au niveau du cluster, la protection contre les menaces est basée sur l’analyse des journaux d’audit Kubernetes. Pour activer cette analyse **sans agent**, activez Azure Defender. Pour générer des alertes à ce niveau, Security Center supervise vos services managés par AKS à l’aide des journaux collectés par AKS. Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements à ce niveau.
+- **Niveau de cluster AKS (fourni par Azure Defender pour Kubernetes)** : au niveau du cluster, la protection contre les menaces est basée sur l’analyse des journaux d’audit Kubernetes. Pour activer cette analyse **sans agent** , activez Azure Defender. Pour générer des alertes à ce niveau, Security Center supervise vos services managés par AKS à l’aide des journaux collectés par AKS. Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements à ce niveau.
 
     Pour obtenir la liste des alertes au niveau du cluster AKS, consultez la [table de référence des alertes](alerts-reference.md#alerts-akscluster).
 
@@ -72,7 +72,7 @@ Comme vous pouvez le constater, les éléments reçus et analysés par Security 
 - Journaux d’audit provenant du serveur d’API
 - Événements de sécurité bruts provenant de l’agent Log Analytics
 - Informations de configuration du cluster provenant du cluster AKS
-- Configuration des charges de travail provenant d’Azure Policy (par le biais du module complémentaire **Azure Policy pour Kubernetes**). [En savoir plus sur les meilleures pratiques de protection de charge de travail à l’aide du contrôle d’admission Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- Configuration des charges de travail provenant d’Azure Policy (par le biais du module complémentaire **Azure Policy pour Kubernetes** ). [En savoir plus sur les meilleures pratiques de protection de charge de travail à l’aide du contrôle d’admission Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architecture générale de l’interaction entre Azure Security Center, Azure Kubernetes Service et Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -90,6 +90,23 @@ Nous vous recommandons de déployer les deux pour bénéficier de la protection 
 Si vous choisissez de ne pas installer l’agent sur vos hôtes, vous ne bénéficiez que d’une partie de la protection contre les menaces et des alertes de sécurité. Vous recevrez toujours les alertes liées à l’analyse réseau et aux communications avec des serveurs malveillants.
 
 
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>Est-ce qu’AKS m’autorise à installer des extensions de machine virtuelle personnalisées sur mes nœuds AKS ?
+
+Pour qu’Azure Defender supervise vos nœuds AKS, ceux-ci doivent exécuter l’agent Log Analytics. 
+
+AKS est un service managé et, l’agent Log Analytics étant une extension managée par Microsoft, il est également pris en charge sur les clusters AKS.
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Si mon cluster exécute déjà un agent Azure Monitor pour conteneurs, ai-je besoin de l’agent Log Analytics ?
+
+Pour qu’Azure Defender supervise vos nœuds AKS, ceux-ci doivent exécuter l’agent Log Analytics.
+
+Si vos clusters exécutent déjà l’agent Azure Monitor pour conteneurs, vous pouvez également installer l’agent Log Analytics, et les deux agents peuvent fonctionner conjointement sans aucun problème.
+
+[En savoir plus sur l’agent Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-manage-agent.md).
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez découvert la protection Kubernetes de Security Center, notamment Azure Defender pour Kubernetes. 
@@ -97,5 +114,5 @@ Dans cet article, vous avez découvert la protection Kubernetes de Security Cent
 Pour des informations connexes, consultez les articles suivants : 
 
 - [Activation d’Azure Defender](security-center-pricing.md)
-- [Exportation d’alertes vers Azure Sentinel ou une solution SIEM tierce](continuous-export.md)
+- [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md)
 - [Table de référence des alertes](alerts-reference.md)

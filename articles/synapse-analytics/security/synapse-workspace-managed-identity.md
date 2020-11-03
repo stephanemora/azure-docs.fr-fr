@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249448"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738302"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Identité managée de l’espace de travail Azure Synapse (préversion)
 
@@ -32,7 +32,7 @@ Une identité managée affectée par le système est créée pour votre espace d
 >[!NOTE]
 >Cette identité managée de l’espace de travail sera appelée « identité managée » dans le reste de ce document.
 
-Azure Synapse utilise l’identité managée pour orchestrer les pipelines. Le cycle de vie de l’identité managée est directement lié à l’espace de travail Azure Synapse. Si vous supprimez l’espace de travail Azure Synapse, l’identité managée est également nettoyée.
+Azure Synapse utilise l’identité managée pour intégrer les pipelines. Le cycle de vie de l’identité managée est directement lié à l’espace de travail Azure Synapse. Si vous supprimez l’espace de travail Azure Synapse, l’identité managée est également nettoyée.
 
 L’identité managée de l’espace de travail a besoin d’autorisations pour effectuer des opérations dans les pipelines. Vous pouvez utiliser l’ID d’objet ou le nom de votre espace de travail Azure Synapse pour rechercher l’identité managée lors de l’octroi d’autorisations.
 
@@ -48,11 +48,11 @@ Lancez **Azure Synapse Studio** et sélectionnez l’onglet **Gérer** dans le v
 
 ![Création de service lié 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-Dans la fenêtre **Nouveau service lié**, tapez *Azure Data Lake Storage Gen2*. Sélectionnez le type de ressource **Azure Data Lake Storage Gen2** dans la liste ci-dessous, puis choisissez **Continuer**.
+Dans la fenêtre **Nouveau service lié** , tapez *Azure Data Lake Storage Gen2*. Sélectionnez le type de ressource **Azure Data Lake Storage Gen2** dans la liste ci-dessous, puis choisissez **Continuer**.
 
 ![Création de service lié 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-Dans la fenêtre suivante, choisissez **Identité managée** comme **Méthode d’authentification**. Vous verrez le **Nom** et l’**ID d’objet** de l’identité managée.
+Dans la fenêtre suivante, choisissez **Identité managée** comme **Méthode d’authentification**. Vous verrez le **Nom** et l’ **ID d’objet** de l’identité managée.
 
 ![Création de service lié 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

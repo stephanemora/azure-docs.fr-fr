@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677417"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Bien démarrer avec l’exemple de bannière de conversation de groupe
 
@@ -25,16 +25,18 @@ ms.locfileid: "92124583"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
-L’**exemple de bannière de conversation de groupe** Azure Communication Services illustre comment la bibliothèque de client web Conversation Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
+> [!IMPORTANT]
+> [Cet exemple est disponible sur GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
+L’ **exemple de bannière de conversation de groupe** Azure Communication Services illustre comment la bibliothèque de client web Conversation Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
-> [!IMPORTANT]
-> [Télécharger l’exemple à partir de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’exemple comporte à la fois une application côté client et une application côté serveur. L’**application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
+L’exemple comporte à la fois une application côté client et une application côté serveur. L’ **application côté client** est une application web React/Redux qui utilise le framework d’interface utilisateur Fluent de Microsoft. Cette application envoie des requêtes à une **application côté serveur** ASP.NET Core qui aide l’application côté client à se connecter à Azure. 
 
 Voici à quoi ressemble l’exemple :
 
@@ -42,17 +44,17 @@ Voici à quoi ressemble l’exemple :
 
 Lorsque vous appuyez sur le bouton « Start a Chat » (Démarrer une conversation), l’application web récupère un jeton d’accès utilisateur à partir de l’application côté serveur. Ce jeton est ensuite utilisé pour connecter l’application cliente à Azure Communication Services. Une fois le jeton récupéré, vous êtes invité à spécifier votre nom et l’emoji qui vous représentera durant la conversation. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Capture d’écran montrant l’écran de préconversation de l’application.":::
 
 Une fois que vous avez configuré votre nom d’affichage et l’emoji, vous pouvez rejoindre la session de conversation. Vous voyez à présent le canevas de conversation principal où réside l’expérience de conversation de base.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Capture d’écran montrant la page d’arrivée de l’exemple d’application.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Capture d’écran montrant l’écran principal de l’exemple d’application.":::
 
 Composants de l’écran principal de conversation :
 
-- **Zone de conversation principale** : il s’agit de l’expérience de conversation de base où les utilisateurs peuvent envoyer et recevoir des messages. Pour envoyer des messages, vous pouvez utiliser la zone d’entrée et appuyer sur Entrée (ou utiliser le bouton d’envoi). Les messages de conversation reçus sont catégorisés par l’expéditeur avec le nom et l’emoji corrects. Deux types de notifications s’affichent dans la zone de conversation : 1) notifications de frappe lorsqu’un utilisateur frappe au clavier et 2) notifications d’envoi et de lecture pour les messages.
-- **En-tête**: c’est ici que l’utilisateur verra le titre du fil de conversation et les commandes permettant de choisir entre les barres latérales des participants et des paramètres. Y figure également un bouton permettant de quitter la session de conversation.
-- **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation. 
+- **Zone de conversation principale**  : il s’agit de l’expérience de conversation de base où les utilisateurs peuvent envoyer et recevoir des messages. Pour envoyer des messages, vous pouvez utiliser la zone d’entrée et appuyer sur Entrée (ou utiliser le bouton d’envoi). Les messages de conversation reçus sont catégorisés par l’expéditeur avec le nom et l’emoji corrects. Deux types de notifications s’affichent dans la zone de conversation : 1) notifications de frappe lorsqu’un utilisateur frappe au clavier et 2) notifications d’envoi et de lecture pour les messages.
+- **En-tête** : c’est ici que l’utilisateur verra le titre du fil de conversation et les commandes permettant de choisir entre les barres latérales des participants et des paramètres. Y figure également un bouton permettant de quitter la session de conversation.
+- **Barre latérale**  : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. La barre latérale des participants contient une liste des participants à la conversation et un lien pour inviter des participants à la session de conversation. La barre latérale des paramètres vous permet de configurer le titre du fil de conversation. 
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -75,7 +77,7 @@ Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navig
 ## <a name="before-running-the-sample-for-the-first-time"></a>Avant d’exécuter l’exemple pour la première fois
 
 1. Ouvrez une instance de PowerShell, de Terminal Windows, une invite de commandes ou équivalent, puis accédez au répertoire dans lequel vous souhaitez cloner l’exemple.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Obtenez la `Connection String` à partir du portail Azure. Pour plus d’informations sur les chaînes de connexion, consultez [Créer des ressources Azure Communication Services](../quickstarts/create-communication-resource.md).
 4. Une fois la `Connection String` obtenue, ajoutez la chaîne de connexion au fichier **Chat/appsettings.json** qui se trouve dans le dossier Chat. Entrez votre chaîne de connexion dans la variable : `ResourceConnectionString`.
 

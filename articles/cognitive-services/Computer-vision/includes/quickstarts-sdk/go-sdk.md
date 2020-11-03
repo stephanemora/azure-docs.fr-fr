@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d0e677377037203a6a67150d985efb30e09af86e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e415e0979e7f45531093993b0524a1bb556d339b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321843"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886552"
 ---
 <a name="HOLTop"></a>
 
@@ -43,9 +43,9 @@ cd my-app
 
 Votre espace de travail contiendra trois dossiers :
 
-* **src** : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce répertoire.
-* **pkg** : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
-* **bin** : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
+* **src**  : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce répertoire.
+* **pkg**  : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
+* **bin**  : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
 
 > [!TIP]
 > Pour plus d’informations sur la structure d’un espace de travail Go, consultez la [documentation du langage Go](https://golang.org/doc/code.html#Workspaces). Ce guide comprend des informations pour configurer `$GOPATH` et `$GOROOT`.
@@ -66,7 +66,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Créer une application Go
 
-Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src** :
+Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src**  :
 
 ```bash
 cd src
@@ -121,8 +121,8 @@ Enregistrez d’abord une référence à l’URL de l’image que vous souhaitez
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
-> [!NOTE]
-> Vous pouvez également analyser une image locale. Consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) pour obtenir des scénarios impliquant des images locales.
+> [!TIP]
+> Vous pouvez également analyser une image locale. Consultez les méthodes [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), telles que **DescribeImageInStream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="specify-visual-features"></a>Spécifier les caractéristiques visuelles
 
@@ -210,8 +210,8 @@ Ajoutez la référence et l’appel de fonction de l’exemple d’image dans vo
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
-> [!NOTE]
-> Vous pouvez également extraire du texte d’une image locale. Consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) pour obtenir des scénarios impliquant des images locales.
+> [!TIP]
+> Vous pouvez également extraire du texte d’une image locale. Consultez les méthodes [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), telles que **BatchReadFileInStream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) pour obtenir des scénarios impliquant des images locales.
 
 ### <a name="call-the-read-api"></a>Appeler l’API Lire
 
@@ -221,7 +221,7 @@ Définissez la nouvelle fonction de lecture du texte (`RecognizeTextReadAPIRemot
 
 ### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 
-Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **BatchReadFile**, puis utilisez la méthode **GetReadOperationResult** pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
+Récupérez ensuite l’ID d’opération retourné à partir de l’appel de **BatchReadFile** , puis utilisez la méthode **GetReadOperationResult** pour interroger le service et obtenir les résultats de l’opération. Le code suivant vérifie l’opération par intervalles d’une seconde jusqu’à ce que les résultats soient retournés. Il affiche ensuite les données textuelles extraites sur la console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
 

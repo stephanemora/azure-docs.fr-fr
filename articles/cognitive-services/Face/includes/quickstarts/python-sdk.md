@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d2935cfac7ca095c918826c47dbf3f1dd2d8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859192"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886555"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -30,35 +30,40 @@ Utilisez la bibliothèque de client Visage pour Python pour :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Python 3.x](https://www.python.org/)
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="créez une ressource Visage"  target="_blank">créer une ressource Visage <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le Portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Visage. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* Une fois que vous avez obtenu une clé et un point de terminaison, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour ces derniers, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
+
 
 ## <a name="setting-up"></a>Configuration
  
+### <a name="install-the-client-library"></a>Installer la bibliothèque de client
+
+Après avoir installé Python, vous pouvez installer la bibliothèque de client avec :
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-face
+```
+
 ### <a name="create-a-new-python-application"></a>Créer une application Python
 
-Créez un script Python&mdash;*quickstart-file.py*, par exemple. Puis, ouvrez-le dans votre éditeur ou IDE habituel et importez les bibliothèques suivantes.
+Créez un script Python&mdash;*quickstart-file.py* , par exemple. Puis, ouvrez-le dans votre éditeur ou IDE habituel et importez les bibliothèques suivantes.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
+
+> [!TIP]
+> Vous voulez voir l’intégralité du fichier de code de démarrage rapide à la fois ? Vous le trouverez sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py), qui contient les exemples de code utilisés dans ce guide de démarrage rapide.
 
 Ensuite, créez des variables pour le point de terminaison et la clé Azure de votre ressource.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
-> [!NOTE]
-> Si vous avez créé la variable d’environnement après avoir lancé l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou le shell qui l’exécute pour accéder à la variable.
-
-### <a name="install-the-client-library"></a>Installer la bibliothèque de client
-
-Vous pouvez installer la bibliothèque de client avec :
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-face
-```
+> [!IMPORTANT]
+> Accédez au portail Azure. Si la ressource [nom du produit] que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
+>
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -87,9 +92,6 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-> [!NOTE]
-> Ce guide de démarrage rapide part du principe que vous avez [créé une variable d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour votre clé Visage, nommée `FACE_SUBSCRIPTION_KEY`.
-
 Instanciez un client avec votre point de terminaison et la clé. Créez un objet [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
@@ -100,7 +102,8 @@ Le code suivant détecte un visage dans une image distante. Il affiche l’ID du
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
-Pour consulter d’autres scénarios de détection, reportez-vous à l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
+> [!TIP]
+> Vous pouvez également détecter les visages dans une image locale. Consultez les méthodes [FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python) comme **detect_with_stream**.
 
 ### <a name="display-and-frame-faces"></a>Afficher et encadrer des visages
 
@@ -154,6 +157,9 @@ Le code suivant trie vos images en fonction de leur préfixe, détecte les visag
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_assign)]
 
+> [!TIP]
+> Vous pouvez également créer un **PersonGroup** à partir d’images distantes référencées par URL. Consultez les méthodes [PersonGroupPersonOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations?view=azure-python) comme **add_face_from_url**.
+
 ### <a name="train-persongroup"></a>Entraîner le PersonGroup
 
 Une fois que vous avez attribué des visages, vous devez entraîner le **PersonGroup** pour qu’il puisse identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge le résultat en affichant l’état sur la console.
@@ -162,26 +168,26 @@ Une fois que vous avez attribué des visages, vous devez entraîner le **PersonG
 
 ## <a name="identify-a-face"></a>Identifier un visage
 
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup** , une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
 > [!IMPORTANT]
 > Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni à la section [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group).
 
 ### <a name="get-a-test-image"></a>Obtenir une image de test
 
-Le code suivant recherche une image _test-image-person-group.jpg_ à la racine du projet et détecte les visages dans l’image. Vous pouvez trouver cette image avec les images utilisées pour la gestion de **PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Le code suivant recherche une image _test-image-person-group.jpg_ à la racine du projet et détecte les visages dans l’image. Vous pouvez trouver cette image avec les images utilisées pour la gestion de **PersonGroup**  : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
 ### <a name="identify-faces"></a>Identifier des visages
 
-La méthode **identify** compare un groupe de visages détectés à un **PersonGroup**. Si un visage détecté correspond à un objet **Person**, elle enregistre le résultat. Ce code affiche les résultats de correspondance détaillés sur la console.
+La méthode **identify** compare un groupe de visages détectés à un **PersonGroup**. Si un visage détecté correspond à un objet **Person** , elle enregistre le résultat. Ce code affiche les résultats de correspondance détaillés sur la console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
 ## <a name="verify-faces"></a>Vérifier les visages
 
-L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne.
+L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person** , et détermine s’ils appartiennent à la même personne.
 
 Le code suivant détecte des visages dans deux images sources, puis les compare à un visage détecté à partir d’une image cible.
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aad1be52ae05573d565d960d914dafdf824a4de9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989617"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886556"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -46,7 +46,7 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
-Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.Face`. Sélectionnez la version `2.6.0-preview.1`, puis **Installer**. 
+Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’ **Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** , cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.Vision.Face`. Sélectionnez la version `2.6.0-preview.1`, puis **Installer**. 
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
@@ -135,11 +135,11 @@ Dans une nouvelle méthode, instanciez un client avec votre point de terminaison
 
 ### <a name="declare-helper-fields"></a>Déclarer des champs d’assistance
 
-Les champs suivants sont nécessaires pour plusieurs des opérations de Visage que vous ajouterez ultérieurement. À la racine de votre classe **Program**, définissez la chaîne d’URL suivante. Cette URL pointe vers un dossier d’exemples d’images.
+Les champs suivants sont nécessaires pour plusieurs des opérations de Visage que vous ajouterez ultérieurement. À la racine de votre classe **Program** , définissez la chaîne d’URL suivante. Cette URL pointe vers un dossier d’exemples d’images.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
-Dans votre méthode **Main**, définissez des chaînes pointant vers les différents types de modèles de reconnaissance. Plus tard, vous pourrez spécifier le modèle de reconnaissance que vous souhaitez utiliser pour la détection des visages. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md).
+Dans votre méthode **Main** , définissez des chaînes pointant vers les différents types de modèles de reconnaissance. Plus tard, vous pourrez spécifier le modèle de reconnaissance que vous souhaitez utiliser pour la détection des visages. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
@@ -150,6 +150,9 @@ Dans votre méthode **Main**, définissez des chaînes pointant vers les différ
 Créez une méthode pour détecter les visages. La méthode `DetectFaceExtract` traite trois des images à l’URL donnée, puis crée une liste d’objets **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** dans la mémoire du programme. La liste des valeurs **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** spécifie les fonctionnalités à extraire. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
+
+> [!TIP]
+> Vous pouvez également détecter les visages dans une image locale. Consultez les méthodes [IFaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) comme **DetectWithStreamAsync**.
 
 ### <a name="display-detected-face-data"></a>Afficher les données de visage détectées
 
@@ -181,7 +184,7 @@ Le code suivant affiche les détails relatifs aux correspondances sur la console
 
 ## <a name="identify-a-face"></a>Identifier un visage
 
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues. Pour effectuer l’opération d’identification, vous devez d’abord créer et entraîner un **PersonGroup**.
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup** , une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues. Pour effectuer l’opération d’identification, vous devez d’abord créer et entraîner un **PersonGroup**.
 
 ### <a name="create-a-person-group"></a>Créer un groupe de personnes
 
@@ -201,9 +204,12 @@ Ajoutez ensuite le code suivant pour créer un objet **Person** pour chaque pers
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
+> [!TIP]
+> Vous pouvez également créer un **PersonGroup** à partir d’images locales. Consultez les méthodes [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) comme **AddFaceFromStreamAsync**.
+
 ### <a name="train-the-persongroup"></a>Entraîner le PersonGroup
 
-Une fois que vous avez extrait les données de visage de vos images et que vous les avez triées dans des objets**Person** distincts, vous devez entraîner le **PersonGroup** à identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge les résultats, en affichant l’état sur la console.
+Une fois que vous avez extrait les données de visage de vos images et que vous les avez triées dans des objets **Person** distincts, vous devez entraîner le **PersonGroup** à identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge les résultats, en affichant l’état sur la console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
 

@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735994"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Démarrage rapide : Interagir avec un appareil IoT Plug-and-Play connecté à votre solution (Node.js)
 
@@ -69,8 +69,8 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de thermostat écri
 
 Dans [Configurer votre environnement pour les guides de démarrage rapide et tutoriels IoT Plug-and-Play](set-up-environment.md), vous avez créé deux variables d’environnement pour configurer l’exemple afin qu’il se connecte à votre hub IoT et à votre appareil :
 
-* **IOTHUB_CONNECTION_STRING** : la chaîne de connexion de hub IoT que vous avez notée précédemment.
-* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING**  : la chaîne de connexion de hub IoT que vous avez notée précédemment.
+* **IOTHUB_DEVICE_ID**  : `"my-pnp-device"`.
 
 Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en Node.js pour interagir avec l’exemple d’appareil que vous venez de configurer.
 
@@ -84,7 +84,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en 
 
 ### <a name="read-a-property"></a>Lire une propriété
 
-1. Lorsque vous avez exécuté l’exemple de thermostat dans le terminal de l’**​​appareil**, vous avez vu les messages suivants indiquant son état en ligne :
+1. Lorsque vous avez exécuté l’exemple de thermostat dans le terminal de l’ **​​appareil** , vous avez vu les messages suivants indiquant son état en ligne :
 
     ```cmd/sh
     properties have been reported for component
@@ -97,7 +97,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de solution IoT en 
     node twin.js
     ```
 
-1. Dans la sortie de terminal du **service**, notez la réponse du jumeau d’appareil. Vous voyez l’ID de modèle d’appareil et les propriétés associées signalées :
+1. Dans la sortie de terminal du **service** , notez la réponse du jumeau d’appareil. Vous voyez l’ID de modèle d’appareil et les propriétés associées signalées :
 
     ```json
     Model Id: dtmi:com:example:Thermostat;1
@@ -187,13 +187,13 @@ Dans ce scénario, il génère la sortie suivante : `Model Id: dtmi:com:example
 
     La propriété `targetTemperature` est définie en tant que propriété accessible en écriture dans le modèle d’appareil à thermostat.
 
-1. Dans le terminal du **service**, utilisez la commande suivante pour exécuter l’exemple de mise à jour de la propriété :
+1. Dans le terminal du **service** , utilisez la commande suivante pour exécuter l’exemple de mise à jour de la propriété :
 
     ```cmd/sh
     node twin.js
     ```
 
-1. Dans votre terminal d’**appareil**, vous voyez que l’appareil a reçu la mise à jour :
+1. Dans votre terminal d’ **appareil** , vous voyez que l’appareil a reçu la mise à jour :
 
     ```cmd/sh
     The following properties will be updated for the default component:
@@ -208,13 +208,13 @@ Dans ce scénario, il génère la sortie suivante : `Model Id: dtmi:com:example
     updated the property
     ```
 
-1. Dans votre terminal de **service**, exécutez la commande suivante pour confirmer la mise à jour de la propriété :
+1. Dans votre terminal de **service** , exécutez la commande suivante pour confirmer la mise à jour de la propriété :
 
     ```cmd/sh
     node twin.js
     ```
 
-1. Dans la sortie de terminal du **service**, dans la section des propriétés signalées (-reported), vous voyez la température de la cible mise à jour signalée. L’appareil peut prendre un certain temps pour terminer la mise à jour. Répétez cette étape jusqu’à ce que l’appareil ait traité la mise à jour de propriété.
+1. Dans la sortie de terminal du **service** , dans la section des propriétés `reported`, vous voyez la température de la cible mise à jour signalée. L’appareil peut prendre un certain temps pour terminer la mise à jour. Répétez cette étape jusqu’à ce que l’appareil ait traité la mise à jour de propriété.
 
     ```json
     "reported": {
@@ -257,7 +257,7 @@ Dans ce scénario, il génère la sortie suivante : `Model Id: dtmi:com:example
     }
     ```
 
-1. Dans le terminal de l’**appareil**, vous voyez que la commande a été reconnue :
+1. Dans le terminal de l’ **appareil** , vous voyez que la commande a été reconnue :
 
     ```cmd/sh
     MaxMinReport commandpayload

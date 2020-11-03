@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602667"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790880"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Pour Azure SQL Database et Azure Synapse Analytics, le protecteur TDE est défi
 > Pour ceux qui utilisent le TDE géré par le service et qui souhaitent commencer à utiliser le TDE géré par le client, les données restent chiffrées pendant le processus de basculement et il n’y a pas de temps d’arrêt ni de rechiffrement des fichiers de base de données. Le basculement d’une clé managée par le service à une clé managée par le client nécessite uniquement de rechiffrement de la clé de chiffrement (DEK), une opération rapide et en ligne.
 
 > [!NOTE]
-> Pour fournir aux clients Azure SQL deux couches de chiffrement des données au repos, le chiffrement de l’infrastructure (à l’aide de l’algorithme de chiffrement AES-256) avec des clés gérées par la plateforme est déployé. Cela fournit une couche supplémentaire de chiffrement au repos, ainsi que le TDE avec des clés gérées par le client, ce qui est déjà disponible. À ce stade, les clients doivent demander l’accès à cette fonctionnalité. Si cette fonctionnalité vous intéresse, contactez AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
+> <a id="doubleencryption"></a>Pour fournir aux clients Azure SQL deux couches de chiffrement des données au repos, le chiffrement de l’infrastructure (à l’aide de l’algorithme de chiffrement AES-256) avec des clés gérées par la plateforme est déployé. Cela fournit une couche supplémentaire de chiffrement au repos, ainsi que le TDE avec des clés gérées par le client, ce qui est déjà disponible. Pour Azure SQL Database et Managed Instance, toutes les bases de données, y compris la base de données master et les autres bases de données système, sont chiffrées lorsque le chiffrement de l’infrastructure est activé. À ce stade, les clients doivent demander l’accès à cette fonctionnalité. Si cette fonctionnalité vous intéresse, contactez AzureSQLDoubleEncryptionAtRest@service.microsoft.com.
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Avantages de TDE managé par le client
 
@@ -56,11 +56,11 @@ Le TDE managé par le client offre les avantages suivants au client :
 
 Pour que le serveur puisse utiliser le protecteur TDE stocké dans AKV pour le chiffrement de la clé de chiffrement, l’administrateur du coffre de clés doit accorder les droits d’accès suivants au serveur à l’aide de son identité Azure Active Directory (Azure AD) unique :
 
-- **obtenir** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
+- **obtenir**  : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
 
-- **wrapKey** : pour pouvoir protéger (chiffrer) la clé de chiffrement
+- **wrapKey**  : pour pouvoir protéger (chiffrer) la clé de chiffrement
 
-- **unwrapKey** : pour pouvoir ôter la protection (déchiffrer) la clé de chiffrement
+- **unwrapKey**  : pour pouvoir ôter la protection (déchiffrer) la clé de chiffrement
 
 L’administrateur du coffre de clés peut également [activer la journalisation des événements d’audit de coffre de clés](../../azure-monitor/insights/key-vault-insights-overview.md), afin qu’ils puissent être audités ultérieurement.
 
@@ -95,7 +95,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 - Si vous importez une clé existante dans le coffre de clés, veillez à la fournir dans les formats de fichiers pris en charge (.pfx, .byok ou .backup).
 
 > [!NOTE]
-> Azure SQL prend désormais en charge l’utilisation d’une clé RSA stockée dans un HSM géré en tant que protecteur TDE. Cette fonctionnalité est disponible en **préversion publique**. Azure Key Vault HSM géré est un service cloud entièrement géré, à haut niveau de disponibilité et à un seul locataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de modules de sécurité matériels certifiés FIPS 140-2 de niveau 3. En savoir plus sur les [HSM managés](https://aka.ms/mhsm).
+> Azure SQL prend désormais en charge l’utilisation d’une clé RSA stockée dans un HSM géré en tant que protecteur TDE. Cette fonctionnalité est disponible en **préversion publique**. Azure Key Vault HSM géré est un service cloud entièrement géré, à haut niveau de disponibilité et à un seul locataire, qui vous permet de protéger les clés de chiffrement de vos applications cloud à l’aide de modules de sécurité matériels certifiés FIPS 140-2 de niveau 3. En savoir plus sur les [HSM managés](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Suggestions lors de la configuration de TDE managé par le client
@@ -106,7 +106,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 - Définissez un verrou de ressource sur le coffre de clés pour contrôler les utilisateurs pouvant supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée. En savoir plus sur les [verrous de ressource](../../azure-resource-manager/management/lock-resources.md).
 
-- Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Le coffre de clés fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) est un exemple de service déjà intégré.
+- Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Le coffre de clés fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) est un exemple de service déjà intégré.
 
 - Reliez chaque serveur à deux coffres de clés résidant dans des régions différentes et détenant le même matériau clé pour garantir la haute disponibilité des bases de données chiffrées. Marquez uniquement la clé du coffre de clés dans la même région qu’un protecteur TDE. Le système bascule automatiquement vers le coffre de clés dans la région distante en cas de panne affectant le coffre situé dans la même région.
 
@@ -146,7 +146,7 @@ Vous trouverez ci-dessous une vue des étapes supplémentaires requises sur le p
 
 Il peut arriver qu’une personne disposant de droits d’accès suffisants au coffre de clés désactive accidentellement l’accès du serveur à la clé en :
 
-- révoquant les autorisations *get*, *wrapKey*, *unwrapKey* du coffre de clés à partir du serveur
+- révoquant les autorisations *get* , *wrapKey* , *unwrapKey* du coffre de clés à partir du serveur
 
 - supprimant la clé
 
@@ -163,7 +163,7 @@ En savoir plus sur [les causes courantes pour que la base de données devienne i
 Pour surveiller l’état de la base de données et activer l’alerte pour la perte d’accès au protecteur TDE, configurez les fonctionnalités Azure suivantes :
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Une base de données inaccessible qui a perdu l’accès au protecteur TDE apparaît comme « Non disponible » après le refus de la première connexion à la base de données.
-- [Journal d’activité](../../service-health/alerts-activity-log-service-notifications.md) : lorsque l’accès au protecteur TDE dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au Journal d’activité.  La création d’alertes pour ces événements vous permet de rétablir l’accès dès que possible.
+- [Journal d’activité](../../service-health/alerts-activity-log-service-notifications-portal.md) : lorsque l’accès au protecteur TDE dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au Journal d’activité.  La création d’alertes pour ces événements vous permet de rétablir l’accès dès que possible.
 - [Les groupes d’actions](../../azure-monitor/platform/action-groups.md) peuvent être définis de manière à vous envoyer des notifications et des alertes en fonction de vos préférences, par exemple par e-mail/SMS/envoi (push)/notification vocale, application logique, webhook, ITSM ou Runbook Automation.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Sauvegarde et restauration de la base de données avec TDE managé par le client

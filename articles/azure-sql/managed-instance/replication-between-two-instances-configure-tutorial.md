@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058214"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900457"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutoriel : Configurer la réplication entre deux instances managées
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > - Configurer une instance gérée en tant que base de données du serveur de publication et base de données du serveur de distribution de réplication
-> - Configurer une instance managée en tant que serveur de distribution de réplication
+> - Configurer une instance managée en tant qu’abonné de réplication
 
 ![Répliquer entre deux instances managées](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -68,7 +68,7 @@ Vous devrez également [configurer une machine virtuelle Azure pour qu’elle se
 
 ## <a name="3---create-an-azure-storage-account"></a>3 - Créer un compte de stockage Azure
 
-[Créez un compte de stockage Azure](/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail, puis créez un [partage de fichiers](../../storage/files/storage-how-to-create-file-share.md) au sein du compte de stockage. 
+[Créez un compte de stockage Azure](../../storage/common/storage-account-create.md#create-a-storage-account) pour le répertoire de travail, puis créez un [partage de fichiers](../../storage/files/storage-how-to-create-file-share.md) au sein du compte de stockage. 
 
 Copiez le chemin d’accès au partage de fichier au format : `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -326,4 +326,4 @@ Vous pouvez nettoyer vos ressources Azure en [supprimant les ressources SQL Mana
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également obtenir plus d’informations sur la [réplication transactionnelle avec Azure SQL Managed Instance](replication-transactional-overview.md) ou découvrir comment configurer la réplication entre une [base de données du serveur de publication/distribution SQL Managed Instance et un abonné SQL sur Machine virtuelle Azure](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Vous pouvez également obtenir plus d’informations sur la [réplication transactionnelle avec Azure SQL Managed Instance](replication-transactional-overview.md) ou découvrir comment configurer la réplication entre une [base de données du serveur de publication/distribution SQL Managed Instance et un abonné SQL sur Machine virtuelle Azure](replication-two-instances-and-sql-server-configure-tutorial.md).

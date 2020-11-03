@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951976"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901604"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) à l’aide d’Azure Data Factory
 
@@ -68,7 +68,7 @@ Les propriétés prises en charge pour le service lié Azure Synapse Analytics s
 | servicePrincipalId  | Spécifiez l’ID client de l’application.                         | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic**, **AzureChina**, **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
+| azureCloudType | Pour l'authentification du principal de service, spécifiez le type d'environnement cloud Azure auquel votre application Azure AD est inscrite. <br/> Les valeurs autorisées sont **AzurePublic** , **AzureChina** , **AzureUsGovernment** et **AzureGermany**. Par défaut, l’environnement cloud de la fabrique de données est utilisé. | Non |
 | connectVia          | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé (si votre magasin de données se trouve sur un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                                           |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
@@ -144,7 +144,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si vous souhaitez utiliser PolyBase pour charger les données, consultez l’[autorisation de base de données requise](#required-database-permission).
+4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si vous souhaitez utiliser PolyBase pour charger les données, consultez l’[autorisation de base de données requise](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -190,7 +190,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Accordez les autorisations requises par l’identité managée Data Factory** comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si vous souhaitez utiliser PolyBase pour charger les données, consultez l’[autorisation de base de données requise](#required-database-permission).
+3. **Accordez les autorisations requises par l’identité managée Data Factory** comme vous le feriez d’habitude pour des utilisateurs SQL et autres. Exécutez le code suivant, ou consultez davantage d’options [ici](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Si vous souhaitez utiliser PolyBase pour charger les données, consultez l’[autorisation de base de données requise](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -267,11 +267,11 @@ Pour copier des données depuis Azure Synapse Analytics, affectez la valeur **Sq
 | sqlReaderQuery               | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non       |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non       |
 | storedProcedureParameters    | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non       |
-| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. S’il n’est pas spécifié, le niveau d’isolation par défaut de la base de données est utilisé. Pour plus d’informations, consultez [ce document](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel). | Non |
+| isolationLevel | Spécifie le comportement de verrouillage des transactions pour la source SQL. Les valeurs autorisées sont les suivantes : **ReadCommitted** , **ReadUncommitted** , **RepeatableRead** , **Serializable** , **Snapshot**. S’il n’est pas spécifié, le niveau d’isolation par défaut de la base de données est utilisé. Pour plus d’informations, consultez [ce document](/dotnet/api/system.data.isolationlevel). | Non |
 | partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir d’Azure Synapse Analytics. <br>Les valeurs autorisées sont les suivantes : **None** (valeur par défaut), **PhysicalPartitionsOfTable** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir d’une instance Azure Synapse Analytics est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
-| ***Sous `partitionSettings`:*** | | |
-| partitionColumnName | Spécifiez le nom de la colonne source **en type entier ou date/DateHeure** qu’utilisera le partitionnement par plages de valeurs pour la copie en parallèle. S’il n’est pas spécifié, l’index ou la clé primaire de la table seront automatiquement détectés et utilisés en tant que colonne de partition.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfDynamicRangePartitionCondition ` dans la clause WHERE. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-synapse-analytics). | Non |
+| **_Sous `partitionSettings`:_* _ | | |
+| partitionColumnName | Spécifiez le nom de la colonne source _ *en type entier ou date/DateHeure* * (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) qu’utilisera le partitionnement par plages de valeurs pour la copie en parallèle. S’il n’est pas spécifié, l’index ou la clé primaire de la table seront automatiquement détectés et utilisés en tant que colonne de partition.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfDynamicRangePartitionCondition ` dans la clause WHERE. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-synapse-analytics). | Non |
 | partitionUpperBound | Valeur maximale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.  <br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-synapse-analytics). | Non |
 | partitionLowerBound | Valeur minimale de la colonne de partition pour le fractionnement de la plage de partition. Cette valeur est utilisée pour décider du stride de la partition, et non pour filtrer les lignes de la table. Toutes les lignes de la table ou du résultat de la requête seront partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br>S’applique lorsque l’option de partitionnement est `DynamicRange`. Pour obtenir un exemple, consultez la section [Copier en parallèle à partir de la base de données SQL](#parallel-copy-from-synapse-analytics). | Non |
 
@@ -372,7 +372,7 @@ Azure Data Factory prend en charge trois manières de charger des données dans 
 - [Utiliser l’instruction COPY (préversion)](#use-copy-statement)
 - Utiliser l’insertion en bloc
 
-La méthode la plus rapide et la plus scalable pour charger des données consiste à utiliser [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ou [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (préversion).
+La méthode la plus rapide et la plus scalable pour charger des données consiste à utiliser [PolyBase](/sql/relational-databases/polybase/polybase-guide) ou [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql) (préversion).
 
 Pour copier des données vers Azure Synapse Analytics, définissez **SqlDWSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
 
@@ -381,7 +381,7 @@ Pour copier des données vers Azure Synapse Analytics, définissez **SqlDWSink**
 | type              | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlDWSink**. | Oui                                           |
 | allowPolyBase     | Indique s’il faut utiliser PolyBase pour charger des données dans Azure Synapse Analytics. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br/>Appliquer lors de l’utilisation de PolyBase.     |
 | polyBaseSettings  | Groupe de propriétés pouvant être spécifié lorsque la propriété `allowPolybase` est définie sur **true**. | Non.<br/>Appliquer lors de l’utilisation de PolyBase. |
-| allowCopyCommand | Indique s’il faut utiliser [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (préversion) pour charger des données dans Azure Synapse Analytics. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser l’instruction COPY pour charger des données dans Azure Synapse Analytics](#use-copy-statement) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br>Appliquer lors de l’utilisation de l’instruction COPY. |
+| allowCopyCommand | Indique s’il faut utiliser [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql) (préversion) pour charger des données dans Azure Synapse Analytics. `allowCopyCommand` et `allowPolyBase` ne peuvent pas avoir tous les deux la valeur True. <br/><br/>Reportez-vous à la section [Utiliser l’instruction COPY pour charger des données dans Azure Synapse Analytics](#use-copy-statement) pour connaître les contraintes et les détails.<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non.<br>Appliquer lors de l’utilisation de l’instruction COPY. |
 | copyCommandSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété `allowCopyCommand` est définie sur TRUE. | Non.<br/>Appliquer lors de l’utilisation de l’instruction COPY. |
 | writeBatchSize    | Nombre de lignes à insérer dans le tableau SQL **par lot**.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.     |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/><br/>La valeur autorisée est **timespan**. Exemple : « 00:30:00 » (30 minutes). | Non.<br/>Appliquer lors de l’utilisation de l’insertion en bloc.        |
@@ -417,9 +417,9 @@ Il vous est recommandé d’activer la copie en parallèle avec partitionnement 
 
 | Scénario                                                     | Paramètres suggérés                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Chargement complet à partir d’une table volumineuse, avec des partitions physiques.        | **Option de partition** : Partitions physiques de la table. <br><br/>Lors de l’exécution, Data Factory détecte automatiquement les partitions physiques et copie les données par partitions. <br><br/>Pour vérifier si votre table possède, ou non, une partition physique, vous pouvez vous reporter à [cette requête](#sample-query-to-check-physical-partition). |
-| Chargement complet d’une table volumineuse, sans partitions physiques, avec une colonne d’entiers ou DateHeure pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Colonne de partition** (facultatif) : Spécifiez la colonne utilisée pour partitionner les données. Si la valeur n’est pas spécifiée, la colonne de l’index ou de la clé primaire est utilisée.<br/>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes de la table sont partitionnées et copiées. Si les valeurs ne sont pas spécifiées, l’activité de copie les détecte automatiquement.<br><br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, Data Factory récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. |
-| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, sans partitions physiques, et avec une colonne d’entiers ou de date/DateHeure pour le partitionnement des données. | **Options de partition** : Partition dynamique par spécification de plages de valeurs.<br>**Requête**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonne de partition** : Spécifiez la colonne utilisée pour partitionner les données.<br>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes du résultat de la requête sont partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br><br>Lors de l’exécution, Data Factory remplace `?AdfRangePartitionColumnName` par le nom réel de la colonne et les plages de valeurs de chaque partition, et les envoie à Azure Synapse Analytics. <br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, Data Factory récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. <br><br>Voici d’autres exemples de requêtes pour différents scénarios :<br> 1. Interroger l’ensemble de la table : <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Interroger une table avec une sélection de colonnes et des filtres de la clause WHERE supplémentaires : <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Effectuer une requête avec des sous-requêtes : <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Effectuer une requête avec une partition dans une sous-requête : <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Chargement complet à partir d’une table volumineuse, avec des partitions physiques.        | **Option de partition**  : Partitions physiques de la table. <br><br/>Lors de l’exécution, Data Factory détecte automatiquement les partitions physiques et copie les données par partitions. <br><br/>Pour vérifier si votre table possède, ou non, une partition physique, vous pouvez vous reporter à [cette requête](#sample-query-to-check-physical-partition). |
+| Chargement complet d’une table volumineuse, sans partitions physiques, avec une colonne d’entiers ou DateHeure pour le partitionnement des données. | **Options de partition**  : Partition dynamique par spécification de plages de valeurs.<br>**Colonne de partition** (facultatif) : Spécifiez la colonne utilisée pour partitionner les données. Si la valeur n’est pas spécifiée, la colonne de l’index ou de la clé primaire est utilisée.<br/>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes de la table sont partitionnées et copiées. Si les valeurs ne sont pas spécifiées, l’activité de copie les détecte automatiquement.<br><br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, Data Factory récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. |
+| Chargement d’une grande quantité de données à l’aide d’une requête personnalisée, sans partitions physiques, et avec une colonne d’entiers ou de date/DateHeure pour le partitionnement des données. | **Options de partition**  : Partition dynamique par spécification de plages de valeurs.<br>**Requête** : `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Colonne de partition**  : Spécifiez la colonne utilisée pour partitionner les données.<br>**Limite supérieure de partition** et **limite inférieure de partition** (facultatif) : Spécifiez si vous souhaitez déterminer le stride de la partition. Cela ne permet pas de filtrer les lignes de la table ; toutes les lignes du résultat de la requête sont partitionnées et copiées. Si la valeur n’est pas spécifiée, l’activité de copie la détecte automatiquement.<br><br>Lors de l’exécution, Data Factory remplace `?AdfRangePartitionColumnName` par le nom réel de la colonne et les plages de valeurs de chaque partition, et les envoie à Azure Synapse Analytics. <br>Par exemple, si les valeurs de la colonne de partition « ID » sont comprises entre 1 et 100, et que vous définissez la limite inférieure à 20 et la limite supérieure à 80, avec la copie parallèle sur 4, Data Factory récupère des données par 4 partitions, les ID dans la plage <=20, [21, 50], [51, 80] et >=81, respectivement. <br><br>Voici d’autres exemples de requêtes pour différents scénarios :<br> 1. Interroger l’ensemble de la table : <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Interroger une table avec une sélection de colonnes et des filtres de la clause WHERE supplémentaires : <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Effectuer une requête avec des sous-requêtes : <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Effectuer une requête avec une partition dans une sous-requête : <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Meilleures pratiques pour charger des données avec l’option de partition :
@@ -472,29 +472,29 @@ Si la table possède une partition physique, vous voyez « HasPartition » ave
 
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Utiliser PolyBase pour charger des données dans Azure Synapse Analytics
 
-L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure Synapse Analytics avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Charger 1 To dans Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
+L’utilisation de [PolyBase](/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure Synapse Analytics avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Charger 1 To dans Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
-- Si vos données sources se trouvent dans **Stockage Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2** et que **le format est compatible avec PolyBase**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure Synapse Analytics d’extraire les données de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
+- Si vos données sources se trouvent dans **Stockage Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2** et que **le format est compatible avec PolyBase** , vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure Synapse Analytics d’extraire les données de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
 - Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase, stocke les données dans Stockage Blob Azure, puis appelle PolyBase pour charger les données dans Azure Synapse Analytics.
 
 > [!TIP]
-> Apprenez-en plus sur les [Bonnes pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase).
+> Apprenez-en plus sur les [Bonnes pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase). Lors de l’utilisation de PolyBase avec Azure Integration Runtime, le nombre réel d’unités d’intégration de données est toujours 2. La modification de ce nombre n’a aucun impact sur les performances, étant donné que le chargement de données à partir du stockage est alimenté par le moteur Synapse.
 
 Les paramètres PolyBase suivants sont pris en charge sous `polyBaseSettings` dans l’activité de copie :
 
 | Propriété          | Description                                                  | Obligatoire                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Découvrez-en plus sur les options de rejet de PolyBase dans la section Arguments de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Les valeurs autorisées sont : 0 (par défaut), 1, 2, et ainsi de suite. | Non                                            |
+| rejectValue       | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Découvrez-en plus sur les options de rejet de PolyBase dans la section Arguments de [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql). <br/><br/>Les valeurs autorisées sont : 0 (par défaut), 1, 2, et ainsi de suite. | Non                                            |
 | rejectType        | Indique si l’option **rejectValue** est une valeur littérale ou un pourcentage.<br/><br/>Les valeurs autorisées sont **Value** (par défaut) et **Percentage**. | Non                                            |
 | rejectSampleValue | Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées.<br/><br/>Les valeurs autorisées sont 1, 2, et ainsi de suite. | Oui, si **rejectType** est **percentage** |
-| useTypeDefault    | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimité lorsque PolyBase récupère les données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br> | Non                                            |
+| useTypeDefault    | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimité lorsque PolyBase récupère les données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br> | Non                                            |
 
 ### <a name="direct-copy-by-using-polybase"></a>Copie directe à l’aide de PolyBase
 
 Azure Synapse Analytics PolyBase prend directement en charge Stockage Blob Azure, Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2. Si vos données sources répondent aux critères décrits dans cette section, utilisez PolyBase pour copier directement à partir du magasin de données source vers Azure Synapse Analytics. Sinon, utilisez la méthode [Copie intermédiaire à l’aide de PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Pour copier des données efficacement vers Azure Synapse Analytics, consultez [Azure Data Factory facilite et rend plus pratique la découverte d’insights à partir de données lors de l’utilisation de Data Lake Store avec Azure Synapse Analytics](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Pour copier des données efficacement vers Azure Synapse Analytics, consultez [Azure Data Factory facilite et rend plus pratique la découverte d’insights à partir de données lors de l’utilisation de Data Lake Store avec Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
 
 Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètres et rétablit automatiquement le mécanisme BULKINSERT pour le déplacement des données.
 
@@ -509,22 +509,22 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
     >[!IMPORTANT]
     >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory dans les sections [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity) et [Azure Data Lake Storage Gen2 - authentification de l’identité gérée](connector-azure-data-lake-storage.md#managed-identity).
 
-2. Le **format de données source** est **Parquet**, **ORC**, ou **Texte délimité**, avec les configurations suivantes :
+2. Le **format de données source** est **Parquet** , **ORC** , ou **Texte délimité** , avec les configurations suivantes :
 
    1. Le chemin du dossier ne contient pas de filtre de caractères génériques.
    2. Le nom de fichier est vide ou pointe vers un fichier unique. Si vous spécifiez un nom de fichier avec caractères génériques dans l’activité de copie, les seuls caractères autorisés sont `*` et `*.*`.
-   3. `rowDelimiter` peut être **\n**, **\r\n** ou **\r** ou conserver sa valeur **par défaut**.
+   3. `rowDelimiter` peut être **\n** , **\r\n** ou **\r** ou conserver sa valeur **par défaut**.
    4. `nullValue` est défini sur **une chaîne vide** («») ou conserve sa valeur par défaut, et `treatEmptyAsNull` conserve sa valeur par défaut ou est défini sur true.
    5. `encodingName` conserve sa valeur par défaut ou est défini sur **utf-8**.
    6. `quoteChar`, `escapeChar` et `skipLineCount` ne sont pas spécifiés. PolyBase est capable d’ignorer la ligne d’en-tête. Cela peut être paramétré en tant que `firstRowAsHeader` dans ADF.
-   7. `compression` peut être **aucune compression**, **GZip** ou **Deflate**.
+   7. `compression` peut être **aucune compression** , **GZip** ou **Deflate**.
 
 3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true.
 
 4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd`, `prefix`, `enablePartitionDiscovery` et `additionalColumns` ne sont pas spécifiés.
 
 >[!NOTE]
->Si votre source est un dossier, notez que PolyBase récupère les fichiers du dossier et de tous ses sous-dossiers, mais qu’il ne récupère pas les données des fichiers dont le nom commence par un trait de soulignement (_) ou un point (.), comme indiqué [ici - argument LOCATION](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql#arguments-2).
+>Si votre source est un dossier, notez que PolyBase récupère les fichiers du dossier et de tous ses sous-dossiers, mais qu’il ne récupère pas les données des fichiers dont le nom commence par un trait de soulignement (_) ou un point (.), comme indiqué [ici - argument LOCATION](/sql/t-sql/statements/create-external-table-transact-sql#arguments-2).
 
 ```json
 "activities":[
@@ -612,7 +612,7 @@ Les sections suivantes contiennent des bonnes pratiques qui s’ajoutent à cell
 
 #### <a name="required-database-permission"></a>Autorisation de base de données requise
 
-Pour utiliser PolyBase, l’utilisateur qui charge des données dans Azure Synapse Analytics doit disposer de [l’autorisation « CONTROL »](https://msdn.microsoft.com/library/ms191291.aspx) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [vue d’ensemble d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+Pour utiliser PolyBase, l’utilisateur qui charge des données dans Azure Synapse Analytics doit disposer de [l’autorisation « CONTROL »](/sql/relational-databases/security/permissions-database-engine) sur la base de données cible. Vous pouvez pour cela l’ajouter en tant que membre du rôle **db_owner**. Découvrez comment procéder dans la [vue d’ensemble d’Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 #### <a name="row-size-and-data-type-limits"></a>Limitations en matière de taille de ligne et de type de données
 
@@ -636,7 +636,7 @@ Si votre source de données est au format texte ou dans d’autres magasins non 
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-La solution consiste à désélectionner l’option « **Utiliser l’option de type par défaut** » (false) dans Récepteur d’activité de copie -> Paramètres de PolyBase. « [USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql#arguments) » est une configuration native PolyBase qui spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités quand PolyBase extrait des données à partir du fichier texte.
+La solution consiste à désélectionner l’option « **Utiliser l’option de type par défaut** » (false) dans Récepteur d’activité de copie -> Paramètres de PolyBase. « [USE_TYPE_DEFAULT](/sql/t-sql/statements/create-external-file-format-transact-sql#arguments) » est une configuration native PolyBase qui spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités quand PolyBase extrait des données à partir du fichier texte.
 
 **`tableName` dans Azure Synapse Analytics**
 
@@ -667,10 +667,13 @@ La valeur NULL est une forme spéciale de la valeur par défaut. Si la colonne e
 
 ## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> Utiliser l’instruction COPY pour charger des données dans Azure Synapse Analytics (préversion)
 
-[L’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) d’Azure Synapse Analytics (préversion) prend directement en charge le chargement de données à partir **de Stockage Blob Azure et d’Azure Data Lake Storage Gen2**. Si vos données sources répondent aux critères décrits dans cette section, vous pouvez choisir d’utiliser l’instruction COPY dans ADF pour charger des données dans Azure Synapse Analytics. Azure Data Factory vérifie les paramètres et fait échouer l’exécution de l’activité de copie si les critères ne sont pas satisfaits.
+[L’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql) d’Azure Synapse Analytics (préversion) prend directement en charge le chargement de données à partir **de Stockage Blob Azure et d’Azure Data Lake Storage Gen2**. Si vos données sources répondent aux critères décrits dans cette section, vous pouvez choisir d’utiliser l’instruction COPY dans ADF pour charger des données dans Azure Synapse Analytics. Azure Data Factory vérifie les paramètres et fait échouer l’exécution de l’activité de copie si les critères ne sont pas satisfaits.
 
 >[!NOTE]
 >Actuellement, Data Factory prend uniquement en charge la copie à partir des sources compatibles avec l’instruction COPY mentionnées ci-dessous.
+
+>[!TIP]
+>Lors de l’utilisation de l’instruction COPY avec Azure Integration Runtime, le nombre réel d’unités d’intégration de données est toujours 2. La modification de ce nombre n’a aucun impact sur les performances, étant donné que le chargement de données à partir du stockage est alimenté par le moteur Synapse.
 
 L’utilisation de l’instruction COPY prend en charge la configuration suivante :
 
@@ -688,8 +691,8 @@ L’utilisation de l’instruction COPY prend en charge la configuration suivant
 
 2. Les paramètres du format sont comme suit :
 
-   1. Pour **Parquet** : `compression` peut être **sans compression**, **Snappy** ou **GZip**.
-   2. Pour **ORC** : `compression` peut être **sans compression**, **```zlib```** ou **Snappy**.
+   1. Pour **Parquet**  : `compression` peut être **sans compression** , **Snappy** ou **GZip**.
+   2. Pour **ORC** : `compression` peut être **sans compression** , **```zlib```** ou **Snappy**.
    3. Pour **Texte délimité** :
       1. `rowDelimiter` est explicitement défini comme **caractère unique** ou « **\r\n** », la valeur par défaut n’est pas prise en charge.
       2. `nullValue` conserve sa valeur par défaut ou est défini sur **chaîne vide** ("").
@@ -707,7 +710,7 @@ Les paramètres de l’instruction COPY suivants sont pris en charge sous `allow
 | Propriété          | Description                                                  | Obligatoire                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Spécifie les valeurs par défaut de chaque colonne cible dans Azure Synapse Analytics.  Les valeurs par défaut de la propriété remplacent le jeu de contraintes DEFAULT défini dans l’entrepôt de données, et la colonne d’identité ne peut pas avoir de valeur par défaut. | Non |
-| additionalOptions | Options supplémentaires qui seront passées à l’instruction COPY d’Azure Synapse Analytics directement dans la clause « With » dans [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql). Citez la valeur en fonction des besoins pour l’aligner sur les spécifications de l’instruction COPY. | Non |
+| additionalOptions | Options supplémentaires qui seront passées à l’instruction COPY d’Azure Synapse Analytics directement dans la clause « With » dans [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql). Citez la valeur en fonction des besoins pour l’aligner sur les spécifications de l’instruction COPY. | Non |
 
 ```json
 "activities":[
@@ -774,7 +777,7 @@ Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 
 
 **Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données. Dans les flux de données, ADF utilise ce paramètre pour définir la mise en cache en colonnes Spark. Il s’agit d’un champ facultatif qui utilise les valeurs par défaut de Spark s’il est laissé vide.
 
-**Niveaux d’isolement** : La valeur par défaut pour les sources SQL dans le flux de données de mappage est Lecture non validée. Vous pouvez remplacer ici le niveau d’isolement par l’une des valeurs suivantes :
+**Niveaux d’isolement**  : La valeur par défaut pour les sources SQL dans le flux de données de mappage est Lecture non validée. Vous pouvez remplacer ici le niveau d’isolement par l’une des valeurs suivantes :
 
 - Lecture validée
 - Lecture non validée
@@ -795,11 +798,11 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 - Recréer : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.
 - Tronquer : Toutes les lignes de la table cible seront supprimées.
 
-**Activer le mode intermédiaire :** Détermine s’il faut ou non utiliser [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) lors de l’écriture dans Azure Synapse Analytics
+**Activer le mode intermédiaire :** Détermine s’il faut ou non utiliser [PolyBase](/sql/relational-databases/polybase/polybase-guide) lors de l’écriture dans Azure Synapse Analytics
 
 **Taille du lot** : contrôle le nombre de lignes écrites dans chaque compartiment. Les plus grandes tailles de lot améliorent la compression et l’optimisation de la mémoire, mais risquent de lever des exceptions de type mémoire insuffisante lors de la mise en cache des données.
 
-**Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
+**Pré et post-scripts SQL**  : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
 ![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
 

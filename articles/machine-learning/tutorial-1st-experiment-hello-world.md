@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895883"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutoriel : Exécuter un script Python « Hello World! » (partie 2 sur 4)
 
@@ -142,6 +142,9 @@ Exécutez votre script de contrôle, qui exécute à son tout `hello.py` sur le 
 ```bash
 python 03-run-hello.py
 ```
+
+> [!TIP]
+> Si l’exécution de ce code génère une erreur indiquant que vous n’avez pas accès à l’abonnement, consultez [Se connecter à un espace de travail](how-to-manage-workspace.md?tab=python#connect-multi-tenant) pour obtenir plus d’informations sur les options d’authentification.
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Surveiller votre code dans le cloud en utilisant Studio
 

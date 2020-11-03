@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896427"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide d’un modèle Resource Manager
 
@@ -36,7 +36,7 @@ Pour effectuer ce qui est décrit dans cet article :
 
 * Le modèle requiert votre ID objet utilisateur Azure AD pour la configuration des autorisations. La procédure suivante permet d’obtenir l’ID de l’objet (GUID).
 
-    1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer**, puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
+    1. Exécutez la commande Azure PowerShell ou Azure CLI ci-dessous en sélectionnant **Essayer** , puis collez le script dans le volet de l’interpréteur de commandes. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
 
         # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
         ```azurecli-interactive
@@ -83,14 +83,14 @@ Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de
     Sauf si elle est spécifiée, utilisez la valeur par défaut pour créer le coffre de clés et un secret.
 
     * **Abonnement** : sélectionnez un abonnement Azure.
-    * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
+    * **Groupe de ressources**  : sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
     * **Emplacement** : sélectionnez un emplacement. Par exemple, **USA Centre**.
-    * **Nom du coffre de clé** : entrez un nom pour le coffre de clés, qui doit être globalement unique dans l’espace de noms vault.azure.net. Vous avez besoin du nom dans la section suivante quand vous validez le déploiement.
-    * **ID de locataire** : la fonction de modèle récupère automatiquement votre ID de locataire. Ne modifiez pas la valeur par défaut.
-    * **ID d’utilisateur Azure Active Directory** : entrez votre ID d’objet utilisateur Azure AD que vous avez récupéré dans [Prérequis](#prerequisites).
-    * **Nom du secret** : entrez le nom du secret que vous stocké dans le coffre de clés. Par exemple, **adminpassword**.
-    * **Valeur du secret** : entrez la valeur du secret. Si vous stockez un mot de passe, il est recommandé d’utiliser le mot de passe généré que vous avez créé dans Prérequis.
-    * **J’accepte les termes et conditions mentionnés ci-dessus** : cochez la case.
+    * **Nom du coffre de clé**  : entrez un nom pour le coffre de clés, qui doit être globalement unique dans l’espace de noms vault.azure.net. Vous avez besoin du nom dans la section suivante quand vous validez le déploiement.
+    * **ID de locataire**  : la fonction de modèle récupère automatiquement votre ID de locataire. Ne modifiez pas la valeur par défaut.
+    * **ID d’utilisateur Azure Active Directory**  : entrez votre ID d’objet utilisateur Azure AD que vous avez récupéré dans [Prérequis](#prerequisites).
+    * **Nom du secret**  : entrez le nom du secret que vous stocké dans le coffre de clés. Par exemple, **adminpassword**.
+    * **Valeur du secret**  : entrez la valeur du secret. Si vous stockez un mot de passe, il est recommandé d’utiliser le mot de passe généré que vous avez créé dans Prérequis.
+    * **J’accepte les termes et conditions mentionnés ci-dessus**  : cochez la case.
 3. Sélectionnez **Achat**. Une fois que le coffre de clés a été déployé avec succès, vous recevez une notification :
 
     ![Modèle Resource Manager, intégration de Key Vault, notification du portail de déploiement](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -124,7 +124,7 @@ Le résultat est similaire à ceci :
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 
-![Modèle Resource Manager, intégration de Key Vault, résultat de la validation du portail de déploiement](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Capture d’écran qui montre la sortie de la validation du portail de déploiement dans l’interface CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906955"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892483"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutoriel : Utiliser PowerShell pour inviter en bloc des utilisateurs Azure AD B2B Collaboration
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 Le script envoie une invitation aux adresses e-mail du fichier Invitations.csv. Vous devez voir une sortie similaire à ceci pour chaque utilisateur :
 
-![Sortie de PowerShell montrant l’acceptation d’un utilisateur en attente](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Capture d’écran montrant la sortie PowerShell qui comprend l’acceptation d’un utilisateur en attente.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Vérifier que les utilisateurs existent dans l’annuaire
 
@@ -126,7 +126,7 @@ Pour vérifier que les utilisateurs invités ont été ajoutés à Azure AD, ex�
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Vous devez y voir figurer les utilisateurs que vous avez invités, avec un nom d’utilisateur principal (UPN) au format *adresse_e-mail*#EXT#\@*domaine*. Par exemple, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, où contoso.onmicrosoft.com est l’organisation à partir de laquelle vous avez envoyé les invitations.
+Vous devez y voir figurer les utilisateurs que vous avez invités, avec un nom d’utilisateur principal (UPN) au format *adresse_e-mail* #EXT#\@*domaine*. Par exemple, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* , où contoso.onmicrosoft.com est l’organisation à partir de laquelle vous avez envoyé les invitations.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

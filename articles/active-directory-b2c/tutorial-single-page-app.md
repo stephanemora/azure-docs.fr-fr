@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216523"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670038"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
@@ -57,22 +57,22 @@ Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouv
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C** . Ou sélectionnez **Tous les services** , puis recherchez et sélectionnez **Azure AD B2C** .
-1. Sélectionnez **Inscriptions d’applications** , sélectionnez l’onglet **Applications détenues** , puis l’application *webapp1* .
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services** , puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Inscriptions d’applications** , sélectionnez l’onglet **Applications détenues** , puis l’application *webapp1*.
 1. Sous **Web** , sélectionnez le lien **Ajouter un URI** , puis entrez `http://localhost:6420`.
-1. Sous **Octroi implicite** , cochez les cases **Jetons d’accès** et **Jetons d’ID** si elles ne sont pas déjà sélectionnées, puis sélectionnez **Enregistrer** .
-1. Sélectionnez **Vue d’ensemble** .
+1. Sous **Octroi implicite** , cochez les cases **Jetons d’accès** et **Jetons d’ID** si elles ne sont pas déjà sélectionnées, puis sélectionnez **Enregistrer**.
+1. Sélectionnez **Vue d’ensemble**.
 1. Notez l’ **ID de l’application** pour l’utiliser plus tard, quand vous mettrez à jour le code dans l’application web monopage.
 
 #### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-1. Sélectionnez **Tous les services** en haut à gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-1. Sélectionnez **Applications (héritées)** , puis l’application *webapp1* .
+1. Sélectionnez **Tous les services** en haut à gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Applications (héritées)** , puis l’application *webapp1*.
 1. Sous **URL de réponse** , ajoutez `http://localhost:6420`.
-1. Sélectionnez **Enregistrer** .
-1. Dans la page de propriétés, enregistrez l’ **ID d’application** . Vous allez utiliser l’ID de l’application au cours d’une prochaine étape quand vous mettrez à jour le code dans l’application web monopage.
+1. Sélectionnez **Enregistrer**.
+1. Dans la page de propriétés, enregistrez l’ **ID d’application**. Vous allez utiliser l’ID de l’application au cours d’une prochaine étape quand vous mettrez à jour le code dans l’application web monopage.
 
 * * *
 
@@ -90,7 +90,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de votre nom de locataire Azure AD B2C et de l’ID d’application que vous avez enregistré au cours d’une étape précédente.
 
-1. Ouvrez le fichier *authConfig.js* dans le dossier *JavaScriptSPA* .
+1. Ouvrez le fichier *authConfig.js* dans le dossier *JavaScriptSPA*.
 1. Dans l’objet `msalConfig`, mettez à jour :
     * `clientId` avec la valeur de l’ **ID d’application (client)** que vous avez noté dans une étape précédente
     * L’URI de `authority` avec le nom du locataire Azure AD B2C et le nom du flux utilisateur d’inscription/connexion créé dans le cadre des prérequis (par exemple *B2C_1_signupsignin1* ).
@@ -116,6 +116,72 @@ Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de
       scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
     };
     ```
+
+1. Ouvrez le fichier *authConfig.js* dans le dossier *JavaScriptSPA*.
+1. Dans l’objet `msalConfig`, mettez à jour :
+    * `clientId` avec l’ **ID d’application (client)** que vous avez enregistré dans une étape précédente.
+    * L’URI de `authority` avec le nom du locataire Azure AD B2C et le nom du flux utilisateur d’inscription/connexion créé dans le cadre des prérequis (par exemple *B2C_1_signupsignin1* ).
+1. Ouvrez le fichier *policies.js*.
+1. Recherchez les entrées pour `names` et `authorities`, puis remplacez-les si nécessaire par les noms des stratégies que vous avez créées à l’étape 2. Remplacez `fabrikamb2c.onmicrosoft.com` par le nom de votre locataire Azure AD B2C, par exemple `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
+1. Ouvrez le fichier *apiConfig.js*.
+1. Recherchez l’affectation pour les étendues `b2cScopes` et remplacez l’URL par l’URL d’étendue que vous avez créée pour l’API web, par exemple `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
+1. Recherchez l’affectation de l’URL d’API `webApi` et remplacez l’URL actuelle par l’URL où vous avez déployé votre API web à l’étape 4, par exemple `webApi: http://localhost:5000/hello`.
+
+Le code obtenu doit se présenter comme suit :
+
+### <a name="authconfigjs"></a>authConfig.js
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    validateAuthority: false
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+### <a name="policiesjs"></a>policies.js
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+        },
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+        }
+    },
+}
+```
+### <a name="apiconfigjs"></a>authConfig.js
+
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
@@ -145,18 +211,18 @@ Une fois que vous avez obtenu l’exemple, mettez à jour le code à l’aide de
 Cet exemple d’application prend en charge l’inscription, la connexion et la réinitialisation du mot de passe. Dans ce tutoriel, vous vous inscrivez en utilisant une adresse e-mail.
 
 1. Sélectionnez **Se connecter** pour démarrer le flux utilisateur *B2C_1_signupsignin1* que vous avez spécifié lors d’une étape précédente.
-1. Azure AD B2C présente une page de connexion qui inclut un lien d’inscription. Étant donné que vous n’avez pas encore de compte, sélectionnez le lien **Inscrivez-vous maintenant** .
+1. Azure AD B2C présente une page de connexion qui inclut un lien d’inscription. Étant donné que vous n’avez pas encore de compte, sélectionnez le lien **Inscrivez-vous maintenant**.
 1. Le flux de travail d’inscription présente une page pour collecter et vérifier l’identité de l’utilisateur avec une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe de l’utilisateur et les attributs demandés qui sont définis dans le flux utilisateur.
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Navigateur web montrant l’application monopage s’exécutant localement":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Page d’inscription affichée par le flux utilisateur Azure AD B2C":::
 
 1. Sélectionnez **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
 Quand vous sélectionnez **Créer** , l’application affiche le nom de l’utilisateur connecté.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navigateur web montrant l’application monopage s’exécutant localement":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Navigateur web montrant l’application monopage avec l’utilisateur connecté":::
 
 Si vous voulez tester la connexion, sélectionnez le bouton **Se déconnecter** , puis sélectionnez **Se connecter** , et connectez-vous avec l’adresse e-mail et le mot de passe que vous avez entrés lors de votre inscription.
 

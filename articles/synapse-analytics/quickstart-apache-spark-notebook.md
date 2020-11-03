@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651715"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742572"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark dans Azure Synapse Analytics avec des outils web
 
@@ -42,11 +42,12 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Un notebook est un environnement interactif qui prend en charge divers langages de programmation. Le notebook vous permet d’interagir avec vos données, de combiner du code avec du Markdown, du texte, et d’effectuer des visualisations simples.
 
 1. Dans la vue du portail Azure de l’espace de travail Azure Synapse que vous voulez utiliser, sélectionnez **Lancer Synapse Studio**.
-2. Une fois que Synapse Studio a été lancé, sélectionnez **Développer**. Ensuite, pointez sur l’entrée **Notebooks**. Sélectionnez les points de suspension ( **...** ).
-3. À partir de là, sélectionnez **Nouveau notebook**. Un notebook est créé et ouvert avec un nom généré automatiquement.
-  ![Nouveau notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nouveau notebook")
+2. Une fois que Synapse Studio a été lancé, sélectionnez **Développer**. Ensuite, sélectionnez l’icône «  **+**  » pour ajouter une nouvelle ressource.
+3. À partir de là, sélectionnez **Notebook**. Un notebook est créé et ouvert avec un nom généré automatiquement.
+ 
+     ![Nouveau notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nouveau notebook")
 
-4. Dans la fenêtre **Propriétés**, spécifiez un nom pour le notebook.
+4. Dans la fenêtre **Propriétés** , spécifiez un nom pour le notebook.
 5. Dans la barre d’outils, cliquez sur **Publier**.
 6. S’il n’existe qu’un seul pool Apache Spark dans votre espace de travail, il est sélectionné par défaut. Utilisez la liste déroulante pour sélectionner le pool Apache Spark approprié si aucun n’est sélectionné.
 7. Cliquez sur **Ajouter du code**. Le langage par défaut est `Pyspark`, ce qui convient très bien puisque vous allez utiliser une combinaison de Pyspark et de SQL Spark. Les autres langages pris en charge sont Scala et .NET pour Spark.
@@ -64,11 +65,11 @@ Un notebook est un environnement interactif qui prend en charge divers langages 
    - Sélectionnez l’icône de lecture bleue à gauche de la cellule
    - Sélectionnez le bouton **Exécuter tout** dans la barre d’outils
 
-   ![Créer un objet de trame de données](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Sortie du travail Spark")
+       ![Créer un objet de trame de données](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Si l’instance du pool Apache Spark n’est pas en cours d’exécution, elle est démarrée automatiquement. Vous pouvez voir l’état de l’instance du pool Apache Spark sous la cellule que vous exécutez ainsi que dans le panneau d’état au bas du notebook. En fonction de la taille du pool, le démarrage doit prendre de deux à cinq minutes. Une fois l’exécution du code terminée, les informations sous la cellule affichent le temps nécessaire à l’exécution. La sortie s’affiche dans la cellule de sortie.
 
-    ![Sortie de l’exécution d’une cellule](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Sortie du travail Spark")
+    ![Sortie de l’exécution d’une cellule](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. Les données existent maintenant dans un DataFrame. À partir de là, vous pouvez utiliser les données de plusieurs façons différentes. Vous en aurez besoin dans différents formats pour le reste de ce guide de démarrage rapide.
 12. Entrez le code ci-dessous dans une autre cellule, puis exécutez-le pour créer une table Spark, un fichier CSV et un fichier Parquet, tous avec des copies des données :
@@ -113,12 +114,12 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
     ![Sortie de requête dans Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Sortie de requête dans Azure Synapse Spark")
 
-3. Dans le sélecteur de **Vue**, sélectionnez **Graphique**.
+3. Dans le sélecteur de **Vue** , sélectionnez **Graphique**.
 4. Sélectionnez l’icône **Options d’affichage** qui se trouve tout à droite.
-5. Dans le champ **Type de graphique**, sélectionnez « graphique à barres ».
+5. Dans le champ **Type de graphique** , sélectionnez « graphique à barres ».
 6. Dans le champ de colonne de l’axe X, sélectionnez « state ».
 7. Dans le champ de colonne de l’axe Y, sélectionnez « salary ».
-8. Dans le champ **Agrégation**, sélectionnez « AVG ».
+8. Dans le champ **Agrégation** , sélectionnez « AVG ».
 9. Sélectionnez **Appliquer**.
 
    ![Sortie de graphique dans Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Sortie de graphique dans Azure Synapse Spark")

@@ -1,7 +1,7 @@
 ---
 title: Gérer les rôles dans un espace de travail
 titleSuffix: Azure Machine Learning
-description: Découvrez comment accéder à un espace de travail Azure Machine Learning à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+description: Découvrez comment accéder à un espace de travail Azure Machine Learning à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736606"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -34,9 +34,9 @@ Un espace de travail Azure Machine Learning est une ressource Azure. Comme toute
 | **Rôle personnalisé** | Vous permet de personnaliser l’accès à des opérations de contrôle ou de plan de données spécifiques au sein d’un espace de travail. Par exemple, l’envoi d’une exécution, la création d’un calcul, le déploiement d’un modèle ou l’inscription d’un jeu de données. |
 
 > [!IMPORTANT]
-> L'accès en fonction du rôle peut être limité à plusieurs niveaux dans Azure. Par exemple, un utilisateur disposant d’un accès propriétaire à un espace de travail peut ne pas disposer d'un accès propriétaire à un groupe de ressources contenu dans cet espace de travail. Pour plus d’informations, consultez [Fonctionnement du le contrôle d’accès en fonction du rôle (RBAC)](/azure/role-based-access-control/overview#how-rbac-works).
+> L'accès en fonction du rôle peut être limité à plusieurs niveaux dans Azure. Par exemple, un utilisateur disposant d’un accès propriétaire à un espace de travail peut ne pas disposer d'un accès propriétaire à un groupe de ressources contenu dans cet espace de travail. Pour plus d’informations, consultez [Fonctionnement du contrôle d’accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-Pour plus d’informations sur les rôles intégrés spécifiques, consultez [Rôles intégrés pour Azure](/azure/role-based-access-control/built-in-roles).
+Pour plus d’informations sur les rôles intégrés spécifiques, consultez [Rôles intégrés Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Gérer les accès à l’espace de travail
 
@@ -173,7 +173,7 @@ Nous ne publions pas actuellement de [rôles intégrés Azure](/azure/role-based
 
 Oui. Voici quelques scénarios courants avec des définitions de rôle proposées personnalisées que vous pouvez utiliser comme base pour définir vos propres rôles personnalisés :
 
-* __Data Scientist Custom__ : Permet à un scientifique des données d’effectuer toutes les opérations à l’intérieur d’un espace de travail, **sauf** :
+* __Data Scientist Custom__  : Permet à un scientifique des données d’effectuer toutes les opérations à l’intérieur d’un espace de travail, **sauf**  :
 
     * Création de calculs
     * Déploiement de modèles sur un cluster AKS de production
@@ -209,7 +209,7 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
     }
     ```
 
-* __Data Scientist Restricted Custom__ : Définition de rôle plus restreinte sans caractères génériques dans les actions autorisées. Peut effectuer toutes les opérations à l’intérieur d’un espace de travail, **sauf** :
+* __Data Scientist Restricted Custom__  : Définition de rôle plus restreinte sans caractères génériques dans les actions autorisées. Peut effectuer toutes les opérations à l’intérieur d’un espace de travail, **sauf**  :
 
     * Création de calculs
     * Déploiement de modèles sur un cluster AKS de production
@@ -270,7 +270,7 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
     }
     ```
      
-* __MLflow Data Scientist Custom__ : permet à un scientifique des données d’effectuer toutes les opérations MLflow AzureML prises en charge **sauf** :
+* __MLflow Data Scientist Custom__  : permet à un scientifique des données d’effectuer toutes les opérations MLflow AzureML prises en charge **sauf**  :
 
    * Création de calculs
    * Déploiement de modèles sur un cluster AKS de production
@@ -310,7 +310,7 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
     }
     ```   
 
-* __MLOps Custom__ : Vous permet d’attribuer un rôle à un principal de service et de l’utiliser pour automatiser vos pipelines MLOps. Par exemple, pour envoyer des exécutions sur un pipeline déjà publié :
+* __MLOps Custom__  : Vous permet d’attribuer un rôle à un principal de service et de l’utiliser pour automatiser vos pipelines MLOps. Par exemple, pour envoyer des exécutions sur un pipeline déjà publié :
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
     }
     ```
 
-* __Administrateur de l’espace de service__ : Vous permet d’effectuer toutes les opérations dans l’étendue d’un espace de travail, **sauf** :
+* __Administrateur de l’espace de service__  : Vous permet d’effectuer toutes les opérations dans l’étendue d’un espace de travail, **sauf**  :
 
     * Créer un espace de travail
     * Attribution de quotas au niveau d’un d’abonnement ou d’un espace de travail
@@ -381,7 +381,7 @@ Oui. Voici quelques scénarios courants avec des définitions de rôle proposée
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__ : Vous permet de définir un rôle dédié uniquement à l’étiquetage des données :
+* __Labeler Custom__  : Vous permet de définir un rôle dédié uniquement à l’étiquetage des données :
 
     `labeler_custom_role.json` :
     ```json
@@ -432,13 +432,13 @@ Voici quelques éléments à prendre en compte lorsque vous utilisez le contrôl
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
     
-    Pour plus d’informations sur RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
 
 - Il peut s’écouler parfois jusqu’à 1 heure avant que vos nouvelles attributions de rôles ne soient appliquées auxx autorisations mises en cache dans la pile.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. De quelles autorisations ai-je besoin pour utiliser une identité managée affectée par l’utilisateur avec mes clusters Amlcompute ?
 
-Pour attribuer une identité affectée à l’utilisateur sur des clusters Amlcompute, vous devez disposer d’autorisations en écriture pour créer des calculs et d’un [rôle d’opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Pour plus d’informations sur RBAC avec des identités managées, consultez [Comment gérer une identité attribuée par l’utilisateur](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Pour attribuer une identité affectée à l’utilisateur sur des clusters Amlcompute, vous devez disposer d’autorisations en écriture pour créer des calculs et d’un [rôle d’opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Pour plus d’informations sur Azure RBAC avec des identités managées, consultez [Comment gérer une identité attribuée par l’utilisateur](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. Le contrôle d’accès en fonction du rôle est-il pris en charge sur le portail Studio ?

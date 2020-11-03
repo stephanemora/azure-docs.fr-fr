@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978035"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788806"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -153,6 +153,10 @@ Chaque événement est planifié à un moment donné dans le futur (délai minim
 
 > [!NOTE] 
 > Dans certains cas, Azure est en mesure de prédire une défaillance de l’hôte en raison d’un matériel détérioré, et tente d’atténuer l’interruption du service en planifiant une migration. Les machines virtuelles affectées recevront un événement planifié avec une valeur de temps `NotBefore` généralement définie sur quelques jours dans le futur. La valeur de temps réelle varie en fonction de l’évaluation du risque de la défaillance prédite. Autant que possible, Azure tente de donner un préavis de 7 jours, mais le temps réel varie et peut être inférieur si la prédiction indique qu’il y a de fortes chances que la défaillance du matériel soit imminente. Pour minimiser les risques auxquels votre service serait exposé en cas de défaillance du matériel avant la migration lancée par le système, nous vous recommandons d’auto-redéployer votre machine virtuelle dès que possible.
+
+### <a name="polling-frequency"></a>Fréquence d’interrogation
+
+Vous pouvez rechercher des mises à jour sur le point de terminaison à la fréquence de votre choix. Toutefois, plus l’intervalle entre deux requêtes est long, plus vous perdez potentiellement du temps pour réagir à un événement à venir. La plupart des événements préviennent de 5 à 15 minutes à l’avance, bien que dans certains cas, 30 secondes suffisent. Pour être sûr de disposer du maximum de temps pour prendre des mesures d’atténuation, nous vous recommandons d’interroger le service une fois pas seconde.
 
 ### <a name="start-an-event"></a>Démarrer un événement 
 

@@ -13,32 +13,31 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789792"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Exécuter une machine virtuelle SQL Server sur un hôte Azure Dedicated Host 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Cet article détaille les spécificités de l’utilisation d’une machine virtuelle SQL Server avec [Azure Dedicated Host](/azure/virtual-machines/windows/dedicated-hosts). Des informations complémentaires sur Azure Dedicated Host sont disponibles dans le billet de blog [Présentation des hôtes dédiés Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+Cet article détaille les spécificités de l’utilisation d’une machine virtuelle SQL Server avec [Azure Dedicated Host](../../../virtual-machines/dedicated-hosts.md). Des informations complémentaires sur Azure Dedicated Host sont disponibles dans le billet de blog [Présentation des hôtes dédiés Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Vue d’ensemble
-Un [hôte dédié Azure](/azure/virtual-machines/windows/dedicated-hosts) est un service qui fournit des serveurs physiques (capables d’héberger une ou plusieurs machines virtuelles) dédiés à un abonnement Azure. Les hôtes dédiés sont les mêmes serveurs physiques que ceux utilisés dans les centres de données de Microsoft, fournis en tant que ressources. Vous pouvez approvisionner des hôtes dédiés au sein d’une région, d’une zone de disponibilité et d’un domaine d’erreur. Ensuite, vous pouvez placer des machines virtuelles directement dans vos hôtes approvisionnés, dans la configuration qui répond le mieux à vos besoins.
+Un [hôte dédié Azure](../../../virtual-machines/dedicated-hosts.md) est un service qui fournit des serveurs physiques (capables d’héberger une ou plusieurs machines virtuelles) dédiés à un abonnement Azure. Les hôtes dédiés sont les mêmes serveurs physiques que ceux utilisés dans les centres de données de Microsoft, fournis en tant que ressources. Vous pouvez approvisionner des hôtes dédiés au sein d’une région, d’une zone de disponibilité et d’un domaine d’erreur. Ensuite, vous pouvez placer des machines virtuelles directement dans vos hôtes approvisionnés, dans la configuration qui répond le mieux à vos besoins.
 
 ## <a name="limitations"></a>Limites
 
-- Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- Les séries de machines virtuelles suivantes sont prises en charge : DSv3 et ESv3. 
+- Toutes les séries de machines virtuelles ne sont pas prises en charge sur des hôtes dédiés, et la disponibilité des séries de machines virtuelles varie selon les régions. Pour plus d’informations, consultez la [présentation détaillée des hôtes dédiés Azure](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Licence
 
 Vous avez le choix entre deux options de licence quand vous installez votre machine virtuelle SQL Server sur un hôte Azure Dedicated Host. 
 
-  - **Gestion des licences de machines virtuelles SQL** : Il s’agit de l’option existante de gestion des licences, où vous payez pour chaque licence de machine virtuelle SQL Server. 
-  - **Gestion des licences d’hôtes dédiés** : Nouveau modèle de licence disponible pour l’hôte dédié Azure, où les licences SQL Server sont regroupées en bundle et payées au niveau de l’hôte. 
+  - **Gestion des licences de machines virtuelles SQL**  : Il s’agit de l’option existante de gestion des licences, où vous payez pour chaque licence de machine virtuelle SQL Server. 
+  - **Gestion des licences d’hôtes dédiés**  : Nouveau modèle de licence disponible pour l’hôte dédié Azure, où les licences SQL Server sont regroupées en bundle et payées au niveau de l’hôte. 
 
 
 Options au niveau de l’hôte pour l’utilisation des licences SQL Server existantes : 
@@ -55,7 +54,7 @@ Options au niveau de l’hôte pour l’utilisation des licences SQL Server exis
 
 
 ## <a name="provisioning"></a>Approvisionnement  
-L’approvisionnement d’une machine virtuelle SQL Server sur l’hôte dédié n’est pas différent de celui d’une autre machine virtuelle Azure. Vous pouvez utiliser [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), le [Portail Azure](../../../virtual-machines/windows/dedicated-hosts-portal.md) et [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+L’approvisionnement d’une machine virtuelle SQL Server sur l’hôte dédié n’est pas différent de celui d’une autre machine virtuelle Azure. Vous pouvez utiliser [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), le [Portail Azure](../../../virtual-machines/dedicated-hosts-portal.md) et [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 Le processus d’ajout d’une machine virtuelle SQL Server existante à l’hôte dédié nécessite un temps d’arrêt. Toutefois, cela n’a pas d’impact sur les données et n’entraîne aucune perte de ces dernières. Néanmoins, toutes les bases de données, notamment les bases de données système, doivent être sauvegardées avant le déplacement.
 
@@ -79,5 +78,3 @@ Pour plus d’informations, consultez les articles suivants :
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.md)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
 * [Notes de publication pour SQL Server sur une machine virtuelle Windows](doc-changes-updates-release-notes.md)
-
-

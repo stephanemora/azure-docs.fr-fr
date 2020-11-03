@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859331"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886554"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Go. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -49,9 +49,9 @@ cd my-app
 
 Votre espace de travail contiendra trois dossiers :
 
-* **src** : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce dossier.
-* **pkg** : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
-* **bin** : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
+* **src**  : ce répertoire contient le code source et les packages. Tous les packages installés à l’aide de la commande `go get` se trouvent dans ce dossier.
+* **pkg**  : ce répertoire contient les objets de package Go compilés. Ces fichiers ont tous une extension `.a`.
+* **bin**  : ce répertoire contient les fichiers exécutables binaires créés lors de l’exécution de `go install`.
 
 > [!TIP]
 > Pour plus d’informations sur la structure d’un espace de travail Go, consultez la [documentation du langage Go](https://golang.org/doc/code.html#Workspaces). Ce guide comprend des informations pour configurer `$GOPATH` et `$GOROOT`.
@@ -72,7 +72,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Créer une application Go
 
-Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src** :
+Ensuite, créez un fichier nommé `sample-app.go` dans le répertoire **src**  :
 
 ```bash
 cd src
@@ -124,6 +124,9 @@ Créez une fonction **main** et ajoutez-lui le code suivant pour instancier un c
 Ajoutez le code suivant à la méthode **main**. Ce code définit un exemple d’image distante et spécifie les fonctionnalités de visage à extraire de l’image. Il définit également le modèle IA à utiliser pour extraire des données du ou des visages détectés. Pour plus d’informations sur ces options, consultez [Spécifier un modèle de reconnaissance](../../Face-API-How-to-Topics/specify-recognition-model.md). Enfin, la méthode **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** effectue l’opération de détection de visage sur l’image et enregistre les résultats dans la mémoire du programme.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
+
+> [!TIP]
+> Vous pouvez également détecter les visages dans une image locale. Consultez les méthodes [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client) comme **DetectWithStream**.
 
 ### <a name="display-detected-face-data"></a>Afficher les données de visage détectées
 
@@ -182,6 +185,9 @@ Le code suivant trie les images en fonction de leur préfixe, détecte les visag
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
+> [!TIP]
+> Vous pouvez également créer un **PersonGroup** à partir d’images distantes référencées par URL. Consultez les méthodes [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient) comme **AddFaceFromURL**.
+
 ### <a name="train-persongroup"></a>Entraîner le PersonGroup
 
 Une fois que vous avez attribué les visages, vous entraînez le **PersonGroup** pour qu’il puisse identifier les caractéristiques visuelles associées à chacun de ses objets **Person**. Le code suivant appelle la méthode **train** asynchrone et interroge le résultat en affichant l’état sur la console.
@@ -190,7 +196,7 @@ Une fois que vous avez attribué les visages, vous entraînez le **PersonGroup**
 
 ## <a name="identify-a-face"></a>Identifier un visage
 
-L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
+L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup** , une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
 > [!IMPORTANT]
 > Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni à la section [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group).
@@ -220,7 +226,7 @@ Ce code affiche ensuite les résultats de correspondance détaillés sur la cons
 
 ## <a name="verify-faces"></a>Vérifier les visages
 
-L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person**, et détermine s’ils appartiennent à la même personne.
+L’opération Vérifier accepte un ID de visage et soit un autre ID de visage, soit un objet **Person** , et détermine s’ils appartiennent à la même personne.
 
 Le code suivant détecte les visages dans deux images sources, puis il compare chaque visage détecté à un visage détecté dans une image cible.
 

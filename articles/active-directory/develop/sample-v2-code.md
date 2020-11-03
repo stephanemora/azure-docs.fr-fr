@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 49bba8054065123d7409f26b61d1dfc2580ef720
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327652"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636049"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -41,10 +41,12 @@ Ces exemples montrent comment écrire une application monopage sécurisée avec 
 | ![Cette image montre le logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | L’application à page unique (SPA) appelle Microsoft Graph |[javascript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Cette image montre le logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | L’application à page unique (SPA) appelle Microsoft Graph en utilisant un flux de code d’authentification avec PKCE |[JavaScript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
 | ![Cette image montre le logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | L’application à page unique (SPA) appelle B2C |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![Cette image montre le logo Angular](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| L’application à page unique (SPA) appelle Microsoft Graph  | [active-directory-javascript-singlepageapp-angular](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
+| ![Cette image montre le logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | L’application monopage appelle B2C en utilisant un flux de code d’authentification avec PKCE |[b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) |
+| ![Cette image montre le logo Angular](media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| L’application à page unique (SPA) appelle Microsoft Graph  | [active-directory-javascript-singlepageapp-angular](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
 | ![Cette image montre le logo Angular](media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| L’application à page unique (SPA) appelle une API web personnalisée | [ms-identity-javascript-angular-spa-aspnetcore-webapi](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![Cette image montre le logo Angular](media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | L’application à page unique (SPA) appelle B2C |[active-directory-b2c-javascript-angular-spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 | ![Cette image montre le logo React](media/sample-v2-code/logo_react.png) [React (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| L’application à page unique (SPA) appelle une API web qui, à son tour, appelle Microsoft Graph  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
+| ![Cette image montre le logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | L’application monopage appelle une API web qui, à son tour, appelle Microsoft Graph  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
 | ![Cette image montre le logo Angular](media/sample-v2-code/logo_angular.png) [Angular (MSAL-Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | L’application à page unique (SPA) appelle une API web personnalisée avec des rôles d’application et des groupes de sécurité |[ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
 
 ## <a name="web-applications"></a>Applications web
@@ -61,7 +63,7 @@ Les exemples suivants illustrent des applications web qui connectent les utilisa
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Applications clientes publiques mobiles et de bureau
 
-Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Outre l’exemple *Desktop (console) avec WAM*, toutes ces applications clientes utilisent la bibliothèque d’authentification Microsoft (MSAL).
+Les exemples suivants illustrent des applications clientes publiques (applications de bureau ou mobiles) qui accèdent à l’API Graph ou à votre API web pour le compte d’un utilisateur. Outre l’exemple *Desktop (console) avec WAM* , toutes ces applications clientes utilisent la bibliothèque d’authentification Microsoft (MSAL).
 
 | Application cliente | Plateforme | Flux/octroi | Appelle Microsoft Graph | Appelle une API web ASP.NET Core |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
@@ -101,7 +103,7 @@ L’exemple suivant présente une application cliente publique qui s’exécute 
 
 ## <a name="multi-tenant-saas-applications"></a>Applications SaaS multilocataires
 
-Les exemples suivants montrent comment configurer votre application de façon à lui faire accepter les connexions de n’importe quel locataire Azure Active Directory (Azure AD). En configurant votre application comme étant *multilocataire*, vous pouvez proposer une application **SaaS** (Software as a Service) à de nombreuses organisations, permettant ainsi à leurs utilisateurs de se connecter à votre application après avoir consenti à utiliser leur compte.
+Les exemples suivants montrent comment configurer votre application de façon à lui faire accepter les connexions de n’importe quel locataire Azure Active Directory (Azure AD). En configurant votre application comme étant *multilocataire* , vous pouvez proposer une application **SaaS** (Software as a Service) à de nombreuses organisations, permettant ainsi à leurs utilisateurs de se connecter à votre application après avoir consenti à utiliser leur compte.
 
 | Plateforme | Description | Lien |
 | -------- | --------------------- | -------- |
@@ -129,8 +131,8 @@ Les exemples suivants montrent comment protéger une fonction Azure en utilisant
 | Plateforme | Exemple |
 | -------- | ------------------- |
 | ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | Fonction Azure avec API web ASP.NET Core (service) de [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
-| ![Cette image affiche le logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API web (service) de [NodeJS and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png)</p>Python | API web (service) de [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Cette image affiche le logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | API web (service) de [Node.js and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Cette image affiche le logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API web (service) de [NodeJS and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## <a name="other-microsoft-graph-samples"></a>Autres exemples Microsoft Graph

@@ -1,18 +1,17 @@
 ---
 title: Fichier include
-description: Fichier include
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116701"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897815"
 ---
 Shared Image Gallery est un service qui vous permet de structurer et d’organiser vos images. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -46,7 +45,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 Une définition d’image est un regroupement logique des versions d’une image. La définition d’image contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et d’autres informations sur l’utilisation de l’image. Une définition d’image est similaire à un plan, qui inclut l’ensemble des détails concernant la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition d’image, mais à partir des versions de l’image créées sur la base de la définition.
 
-Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher** , **Offre** et **SKU** . Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
+Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher** , **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
 |Définition de l’image|Serveur de publication|Offre|Sku|
 |---|---|---|---|
@@ -155,8 +154,11 @@ Les images peuvent également être partagées à grande échelle, même entre l
 
 ## <a name="billing"></a>Facturation
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
-- Coûts de stockage des versions d’Image partagée. Ils dépendent du nombre de réplicas de la version d’image et du nombre de régions dans lesquelles la version est répliquée. Par exemple, si vous avez deux images et qu’elles sont toutes deux répliquées dans trois régions, vous serez facturé pour six disques managés, en fonction de leur taille. Pour plus d’informations, consultez [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Coûts de sortie de réseau pour la réplication de la première version d’image de la région source vers les régions répliquées. Les réplicas suivants sont gérés au sein de la région, donc aucun coût supplémentaire n’est prévu. 
+-   Coûts du stockage de chaque réplica. Le coût de stockage est facturé en tant qu’instantané et calculé sur la base de la taille occupée par la version de l’image, du nombre de réplicas de la version de l’image et du nombre de régions dans lesquelles la version est répliquée. 
+-   Coûts de sortie de réseau pour la réplication de la première version d’image de la région source vers les régions répliquées. Les réplicas suivants sont gérés au sein de la région, donc aucun coût supplémentaire n’est prévu. 
+
+Par exemple, imaginez que vous ayez une image d’un disque de système d’exploitation de 127 Go, qui occupe seulement 10 Go de stockage, et un disque de données vide de 32 Go. La taille occupée par chaque image est seulement de 10 Go. L’image est répliquée dans trois régions et chaque région a deux réplicas. Il y aura six instantanés au total, chacun utilisant 10 Go. Le coût de stockage de chaque instantané vous sera facturé conformément à la taille occupée de 10 Go. Vous paierez des frais de sortie du réseau pour la copie du premier réplica vers les deux régions supplémentaires. Pour plus d’informations sur les tarifs des instantanés dans chaque région, consultez [Tarifs des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). Pour plus d’informations sur la sortie du réseau, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Mise à jour des ressources
 
@@ -220,9 +222,9 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 Pour lister toutes les ressources de galerie d’images partagées de différents abonnements auxquels vous avez accès sur le portail Azure, suivez les étapes ci-dessous :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources** .
+1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources**.
 1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
-1. Recherchez des ressources de type **Galerie d’images partagée** .
+1. Recherchez des ressources de type **Galerie d’images partagée**.
   
 Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
 

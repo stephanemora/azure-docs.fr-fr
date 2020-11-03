@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906715"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913260"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous allez utiliser des images de chats et de chiens.  Comme c
 
 Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le service.
 
-Vous créez un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
+Il existe de nombreuses [façons de créer un espace de travail](how-to-manage-workspace.md). Dans ce tutoriel, vous allez créer un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -67,7 +67,7 @@ Les magasins de données Azure Machine Learning permettent de stocker les inform
     Champ|Description 
     ---|---
     Nom du magasin de données | Donnez un nom au magasin de données.  Ici, nous utilisons **labeling_tutorial**.
-    Type de magasin de données | Sélectionnez le type de stockage.  Ici, nous utilisons **Stockage Blob Azure**, le stockage préféré pour les images.
+    Type de magasin de données | Sélectionnez le type de stockage.  Ici, nous utilisons **Stockage Blob Azure** , le stockage préféré pour les images.
     Méthode de sélection du compte | Sélectionnez **Entrer manuellement**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Type d'authentification | Sélectionnez **Jeton SAS**.
@@ -87,7 +87,7 @@ Maintenant que vous disposez de l’accès aux données à étiqueter, créez vo
 
 ### <a name="project-details"></a>Détails du projet
 
-1. Utilisez l’entrée suivante pour le formulaire **Détails du projet** :
+1. Utilisez l’entrée suivante pour le formulaire **Détails du projet**  :
 
     Champ|Description 
     ---|---
@@ -98,13 +98,13 @@ Maintenant que vous disposez de l’accès aux données à étiqueter, créez vo
 
 ### <a name="select-or-create-a-dataset"></a>Sélectionner ou créer un jeu de données
 
-1.   Dans le formulaire **Sélectionner ou créer un jeu de données**, sélectionnez le deuxième choix, **Créer un jeu de données**, puis le lien **Du magasin de données**.
+1.   Dans le formulaire **Sélectionner ou créer un jeu de données** , sélectionnez le deuxième choix, **Créer un jeu de données** , puis le lien **Du magasin de données**.
 
-1. Utilisez l’entrée suivante pour le formulaire **Créer un jeu de données à partir d’un magasin de données** :
+1. Utilisez l’entrée suivante pour le formulaire **Créer un jeu de données à partir d’un magasin de données**  :
 
-    1. Dans le formulaire **Informations de base**, ajoutez un nom ; ici, nous allons utiliser **images-for-tutorial**.  Ajoutez la description de votre choix.  Sélectionnez ensuite **Suivant**.
-    1. Dans le formulaire **Sélection d’un magasin de données**, utilisez la liste déroulante pour sélectionner votre **Magasin de données créé précédemment**, par exemple **tutorial_images (Stockage Blob Azure)**
-    1. Ensuite, toujours dans le formulaire **Sélection d’un magasin de données**, sélectionnez **Parcourir**, puis **MultiClass - DogsCats**.  Sélectionnez **Enregistrer** pour utiliser **/MultiClass - DogsCats** comme chemin.
+    1. Dans le formulaire **Informations de base** , ajoutez un nom ; ici, nous allons utiliser **images-for-tutorial**.  Ajoutez la description de votre choix.  Sélectionnez ensuite **Suivant**.
+    1. Dans le formulaire **Sélection d’un magasin de données** , utilisez la liste déroulante pour sélectionner votre **Magasin de données créé précédemment** , par exemple **tutorial_images (Stockage Blob Azure)**
+    1. Ensuite, toujours dans le formulaire **Sélection d’un magasin de données** , sélectionnez **Parcourir** , puis **MultiClass - DogsCats**.  Sélectionnez **Enregistrer** pour utiliser **/MultiClass - DogsCats** comme chemin.
     1. Sélectionnez **Suivant** pour confirmer les détails, puis **Créer** pour créer le jeu de données.
     1. Sélectionnez le cercle en regard du nom du jeu de données dans la liste, par exemple **images-for-tutorial**.
 
@@ -118,19 +118,19 @@ Sélectionnez **Suivant** pour continuer.
 
 ### <a name="label-classes"></a>Classes d’étiquettes
 
-1. Dans le formulaire **Classes d’étiquettes**, tapez un nom d’étiquette, puis sélectionnez **+ Ajouter une étiquette** pour taper l’étiquette suivante.  Pour ce projet, les étiquettes sont **Cat**, **Dog** et **Uncertain**.
+1. Dans le formulaire **Classes d’étiquettes** , tapez un nom d’étiquette, puis sélectionnez **+ Ajouter une étiquette** pour taper l’étiquette suivante.  Pour ce projet, les étiquettes sont **Cat** , **Dog** et **Uncertain**.
 
 1. Sélectionnez **Suivant** quand vous avez ajouté toutes les étiquettes.
 
 ### <a name="labeling-instructions"></a>Instructions d’étiquetage
 
-1. Dans le formulaire **Instructions d’étiquetage**, vous pouvez indiquer un lien vers un site web qui fournit des instructions détaillées pour vos étiqueteurs.  Nous allons laisser cette valeur vide pour ce tutoriel.
+1. Dans le formulaire **Instructions d’étiquetage** , vous pouvez indiquer un lien vers un site web qui fournit des instructions détaillées pour vos étiqueteurs.  Nous allons laisser cette valeur vide pour ce tutoriel.
 
 1. Vous pouvez également ajouter une brève description de la tâche directement dans le formulaire.  Tapez **Tutoriel d’étiquetage - Chats & Chiens**.
 
 1. Sélectionnez **Suivant**.
 
-1. Dans la section **Étiquetage assisté par ML**, laissez la case décochée. L’étiquetage assisté par ML requiert plus de données que ce que vous allez utiliser dans ce tutoriel.
+1. Dans la section **Étiquetage assisté par ML** , laissez la case décochée. L’étiquetage assisté par ML requiert plus de données que ce que vous allez utiliser dans ce tutoriel.
 
 1. Sélectionnez **Créer un projet**.
 
@@ -142,7 +142,7 @@ Vous avez maintenant configuré vos ressources Azure et un projet d’étiquetag
 
 ### <a name="tag-the-images"></a>Baliser les images
 
-Dans cette partie du tutoriel, vous allez passer du rôle d’*administrateur de projet* à celui d’*étiqueteur*.  Toute personne disposant d’un accès Contributeur à votre espace de travail peut devenir un étiqueteur.
+Dans cette partie du tutoriel, vous allez passer du rôle d’ *administrateur de projet* à celui d’ *étiqueteur*.  Toute personne disposant d’un accès Contributeur à votre espace de travail peut devenir un étiqueteur.
 
 1. Dans [Machine Learning Studio](https://ml.azure.com), sélectionnez **Étiquetage des données** sur le côté gauche pour rechercher votre projet.  
 
@@ -166,7 +166,7 @@ Dans cette partie du tutoriel, vous allez passer du rôle d’*administrateur de
 
 ## <a name="complete-the-project"></a>Terminer le projet
 
-À présent, vous allez reprendre le rôle d’*administrateur de projet* pour le projet d’étiquetage.
+À présent, vous allez reprendre le rôle d’ *administrateur de projet* pour le projet d’étiquetage.
 
 En tant que responsable, vous souhaiterez peut-être examiner le travail de votre étiqueteur.  
 

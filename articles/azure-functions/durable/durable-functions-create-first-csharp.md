@@ -6,22 +6,22 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88055460"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890273"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
-*Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+*Durable Functions* est une extension d’ [Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
 ::: zone pivot="code-editor-vscode"
 
 Cet article explique comment utiliser Visual Studio Code pour créer et tester en local une fonction durable « Hello world ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de l’[extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) de VS Code.
 
-![Exécution d’une fonction durable dans Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![La capture d’écran montre une fenêtre Visual Studio Code avec une fonction durable.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -86,9 +86,9 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
     | Sélectionner un groupe de ressources | *nom unique* | Nom du groupe de ressources à créer |
     | Sélectionner un emplacement | *region* | Sélectionner une région proche de vous |
 
-Une classe contenant les nouvelles fonctions est ajoutée au projet. VS Code ajoute également la chaîne de connexion du compte de stockage à *local.settings.json*, et une référence au package NuGet [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans le fichier de projet *.csproj*.
+Une classe contenant les nouvelles fonctions est ajoutée au projet. VS Code ajoute également la chaîne de connexion du compte de stockage à *local.settings.json* , et une référence au package NuGet [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans le fichier de projet *.csproj*.
 
-Ouvrez le nouveau fichier *HelloOrchestration.cs* pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
+Ouvrez le nouveau fichier  *HelloOrchestration.cs* pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
 
 | Méthode | FunctionName | Description |
 | -----  | ------------ | ----------- |
@@ -107,7 +107,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
     > [!NOTE]
     > Pour plus d’informations sur le débogage, consultez [Diagnostics Durable Functions](durable-functions-diagnostics.md#debugging).
 
-1. Dans le panneau **Terminal**, copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
+1. Dans le panneau **Terminal** , copiez le point de terminaison de l’URL de votre fonction déclenchée via HTTP.
 
     ![Sortie Azure locale](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
@@ -165,7 +165,7 @@ Vous avez utilisé Visual Studio Code pour créer et publier une application de 
 
 Cet article explique comment utiliser Visual Studio 2019 pour créer et tester en local une fonction durable « Hello world ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2019.
 
-![Exécution d’une fonction durable dans Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![La capture d’écran montre une fenêtre Visual Studio 2019 avec une fonction durable.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -183,13 +183,13 @@ Le modèle Azure Functions crée un projet qui peut être publié dans une appli
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu **Fichier**.
 
-1. Dans la boîte de dialogue **Créer un projet**, recherchez `functions`, choisissez le modèle **Azure Functions**, puis sélectionnez **Suivant**. 
+1. Dans la boîte de dialogue **Créer un projet** , recherchez `functions`, choisissez le modèle **Azure Functions** , puis sélectionnez **Suivant**. 
 
     ![Boîte de dialogue Nouveau projet pour créer une fonction dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. Entrez un **Nom du projet**, puis sélectionnez **OK**. Le nom de projet devant être valide en tant qu’espace de noms C#, n’utilisez ni traits d’union, ni traits de soulignement, ni aucun autre caractère non alphanumérique.
+1. Entrez un **Nom du projet** , puis sélectionnez **OK**. Le nom de projet devant être valide en tant qu’espace de noms C#, n’utilisez ni traits d’union, ni traits de soulignement, ni aucun autre caractère non alphanumérique.
 
-1. Dans **Créer une application Azure Functions**, utilisez les paramètres spécifiés dans le tableau sous l’image.
+1. Dans **Créer une application Azure Functions** , utilisez les paramètres spécifiés dans le tableau sous l’image.
 
     ![Boîte de dialogue Créer une application Azure Functions dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
@@ -209,9 +209,9 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
 
     ![Ajouter une nouvelle fonction](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. Vérifiez qu’**Azure Function** est sélectionné dans le menu Ajouter, tapez un nom pour votre fichier C#, puis sélectionnez **Ajouter**.
+1. Vérifiez qu’ **Azure Function** est sélectionné dans le menu Ajouter, tapez un nom pour votre fichier C#, puis sélectionnez **Ajouter**.
 
-1. Sélectionnez le modèle **Orchestration Durable Functions**, puis sélectionnez **OK**.
+1. Sélectionnez le modèle **Orchestration Durable Functions** , puis sélectionnez **OK**.
 
     ![Sélectionner un modèle durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 
@@ -237,7 +237,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
 
 3. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et exécutez la requête. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET :
 
-    ![Réponse de la fonction localhost dans le navigateur](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![La capture d’écran montre une fenêtre de navigateur avec statusQueryGetUri appelé.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     La réponse est le résultat initial de la fonction HTTP, qui nous indique que l’orchestration durable a bien été démarrée.  Il ne s’agit pas encore du résultat final de l’orchestration.  La réponse contient plusieurs URL utiles.  Pour le moment, demandons l’état de l’orchestration.
 

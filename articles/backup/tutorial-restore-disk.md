@@ -3,13 +3,13 @@ title: Tutoriel - Restaurer une machine virtuelle avec Azure CLI
 description: Découvrez comment restaurer un disque et créer une machine virtuelle récupérée dans Azure avec le service Sauvegarde et Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324982"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746746"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurer une machine virtuelle avec Azure CLI
 
@@ -74,7 +74,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
         --sku Standard_LRS
     ```
 
-2. Restaurez le disque à partir de votre point de récupération avec [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) précédente. ***Spécifiez également un groupe de ressources cible dans lequel restaurer les disques managés***.
+2. Restaurez le disque à partir de votre point de récupération avec [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Remplacez *mystorageaccount* par le nom du compte de stockage que vous avez créé à l’aide de la commande précédente. Remplacez *myRecoveryPointName* par le nom du point de récupération que vous avez obtenu dans la sortie de la commande [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) précédente. ***Spécifiez également un groupe de ressources cible dans lequel restaurer les disques managés** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Si la machine virtuelle sauvegardée contient des disques managés et si l’obj
     ```
 
     > [!WARNING]
-    > Si **target-resource-group** n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk**, comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
+    > Si _ *target-resource-group* * n’est pas spécifié, les disques managés sont restaurés en tant que disques non managés dans le compte de stockage donné. Cela aura des conséquences importantes sur la durée de restauration, car le temps nécessaire à la restauration des disques dépend entièrement du compte de stockage donné. Vous bénéficiez de la restauration instantanée seulement si le paramètre target-resource-group est donné. Si l’objectif est de restaurer des disques managés en disques non managés, ne fournissez pas le paramètre **target-resource-group** mais plutôt le paramètre **restore-as-unmanaged-disk** , comme indiqué ci-dessous. Ce paramètre est disponible à partir de az 3.4.0.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -164,7 +164,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quand l’*État* du travail de restauration indique *Terminé*, les informations nécessaires (configuration de la machine virtuelle et modèle de déploiement) ont été restaurées dans le compte de stockage.
+Quand l’ *État* du travail de restauration indique *Terminé* , les informations nécessaires (configuration de la machine virtuelle et modèle de déploiement) ont été restaurées dans le compte de stockage.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Créer une machine virtuelle à partir du disque restauré
 

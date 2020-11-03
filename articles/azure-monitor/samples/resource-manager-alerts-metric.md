@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322293"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893979"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les règles d’alerte de métrique dans Azure Monitor
 
@@ -502,7 +502,7 @@ Les contraintes suivantes s’appliquent lors de l’utilisation de dimensions d
 - Vous ne pouvez sélectionner qu’une seule valeur par dimension au sein de chaque critère.
 - Vous ne pouvez pas utiliser « \* » comme valeur de dimension.
 - Quand des métriques configurées dans différents critères prennent en charge la même dimension, une valeur de dimension configurée doit être explicitement définie de la même façon pour toutes ces métriques dans les critères appropriés.
-    - Dans l’exemple ci-dessous, dans la mesure où les métriques **Transactions** et **SuccessE2ELatency** ont une dimension **ApiName** et que *criterion1* spécifie la valeur *"GetBlob"* pour la dimension **ApiName**, *criterion2* doit également définir une valeur *"GetBlob"* pour la dimension **ApiName**.
+    - Dans l’exemple ci-dessous, dans la mesure où les métriques **Transactions** et **SuccessE2ELatency** ont une dimension **ApiName** et que *criterion1* spécifie la valeur *"GetBlob"* pour la dimension **ApiName** , *criterion2* doit également définir une valeur *"GetBlob"* pour la dimension **ApiName**.
 
 ### <a name="template-file"></a>Fichier de modèle
 
@@ -707,15 +707,15 @@ Les contraintes suivantes s’appliquent lors de l’utilisation de dimensions d
 ## <a name="multiple-dimensions-static-threshold"></a>Plusieurs dimensions, seuil statique
 Une règle d’alerte unique peut superviser plusieurs séries chronologiques de métrique à la fois, ce qui réduit le nombre de règles d’alerte à gérer. L’exemple suivant crée une règle d’alerte de métrique statique sur des métriques dimensionnelles.
 
-Dans cet exemple, la règle d’alerte supervise les combinaisons de valeurs des dimensions **ResponseType** et **ApiName** pour la métrique **Transactions** :
-1. **ResponsType** : l’utilisation du caractère générique « \* » signifie que, pour chaque valeur de la dimension **ResponseType**, y compris ses futures valeurs, une série chronologique différente est supervisée individuellement.
-2. **ApiName** : une série chronologique différente est supervisée uniquement pour les valeurs de dimension **GetBlob** et **PutBlob**.
+Dans cet exemple, la règle d’alerte supervise les combinaisons de valeurs des dimensions **ResponseType** et **ApiName** pour la métrique **Transactions**  :
+1. **ResponsType**  : l’utilisation du caractère générique « \* » signifie que, pour chaque valeur de la dimension **ResponseType** , y compris ses futures valeurs, une série chronologique différente est supervisée individuellement.
+2. **ApiName**  : une série chronologique différente est supervisée uniquement pour les valeurs de dimension **GetBlob** et **PutBlob**.
 
 Voici par exemple quelques-unes des séries chronologiques potentielles supervisées par cette règle d’alerte :
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Fichier de modèle
 
@@ -898,15 +898,15 @@ Voici par exemple quelques-unes des séries chronologiques potentielles supervis
 Une règle d’alerte de seuil dynamique unique permet de créer simultanément des seuils adaptés à des centaines de séries chronologiques de métriques (même de différents types), ce qui permet d’avoir moins de règles d’alerte à gérer. L’exemple suivant crée une règle d’alerte de métrique de seuil dynamique sur des métriques dimensionnelles.
 
 
-Dans cet exemple, la règle d’alerte supervise les combinaisons de valeurs des dimensions **ResponseType** et **ApiName** pour la métrique **Transactions** :
-1. **ResponsType** : pour chaque valeur de la dimension **ResponseType**, y compris ses futures valeurs, une série chronologique différente est supervisée individuellement.
-2. **ApiName** : une série chronologique différente est supervisée uniquement pour les valeurs de dimension **GetBlob** et **PutBlob**.
+Dans cet exemple, la règle d’alerte supervise les combinaisons de valeurs des dimensions **ResponseType** et **ApiName** pour la métrique **Transactions**  :
+1. **ResponsType**  : pour chaque valeur de la dimension **ResponseType** , y compris ses futures valeurs, une série chronologique différente est supervisée individuellement.
+2. **ApiName**  : une série chronologique différente est supervisée uniquement pour les valeurs de dimension **GetBlob** et **PutBlob**.
 
 Voici par exemple quelques-unes des séries chronologiques potentielles supervisées par cette règle d’alerte :
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 >[!NOTE]
 > Plusieurs critères ne sont actuellement pas pris en charge pour les règles d’alerte de métrique qui utilisent des seuils dynamiques.
@@ -3132,7 +3132,7 @@ Les [tests de disponibilité d’Application Insights](../app/monitor-web-app-av
 > [!NOTE]
 > `&amp` ; référence d’entité HTML pour &. Les paramètres d’URL restent séparés par une perluète (&) mais, si vous mentionnez l’URL en HTML, vous devez l’encoder. Par conséquent, si vous avez une perluète « & » dans la valeur de votre paramètre pingURL, vous devez la faire précéder du caractère d’échappement « `&amp`; ».
 
-### <a name="parameter-file"></a>Fichier de paramètres
+### <a name="template-file"></a>Fichier de modèle
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Les [tests de disponibilité d’Application Insights](../app/monitor-web-app-av
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Fichier de paramètres
 
 ```json
@@ -3254,12 +3252,53 @@ Les [tests de disponibilité d’Application Insights](../app/monitor-web-app-av
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+La configuration supplémentaire du paramètre `pingText` de correspondance de contenu est contrôlée dans la partie `Configuration/Webtest` du fichier de modèle. Plus précisément, la section ci-dessous :
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Emplacements du test
+
+|Id                  | Région           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Europe Ouest      |
+| `us-ca-sjc-azr`    | USA Ouest          |
+| `emea-ru-msa-edge` | Sud du Royaume-Uni         |
+| `emea-se-sto-edge` | Ouest du Royaume-Uni          |
+| `apac-sg-sin-azr`  | Asie Sud-Est   |
+| `us-tx-sn1-azr`    | États-Unis - partie centrale méridionale |
+| `us-il-ch1-azr`    | Centre-Nord des États-Unis |
+| `emea-gb-db3-azr`  | Europe Nord     |
+| `apac-jp-kaw-edge` | Japon Est       |
+| `emea-fr-pra-edge` | France Centre   |
+| `emea-ch-zrh-edge` | France Sud     |
+| `us-va-ash-azr`    | USA Est          |
+| `apac-hk-hkn-azr`  | Asie Est        |
+| `us-fl-mia-edge`   | USA Centre       |
+| `latam-br-gru-edge`| Brésil Sud      |
+| `emea-au-syd-edge` | Australie Est   |
+
+### <a name="us-government-test-locations"></a>Emplacements de test US Government
+
+|Id                    | Région           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

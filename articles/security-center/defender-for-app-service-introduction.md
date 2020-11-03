@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789061"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Présentation d’Azure Defender pour App Service
 
@@ -45,7 +45,7 @@ Pour protéger votre plan Azure App Service avec Azure Defender pour App Service
 
 - Vérifiez que vous disposez d’un plan App Service pris en charge et associé aux ordinateurs dédiés. Les plans pris en charge sont répertoriés ci-dessus dans la section [Disponibilité](#availability).
 
-- Activez **Azure Defender** dans votre abonnement (vous pouvez éventuellement activer uniquement le plan **Azure Defender pour App Service**), comme décrit dans [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md)
+- Activez **Azure Defender** dans votre abonnement (vous pouvez éventuellement activer uniquement le plan **Azure Defender pour App Service** ), comme décrit dans [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md)
 
 Security Center étant intégré en mode natif avec App Service, aucun déploiement ou intégration ne sont nécessaires. L’intégration est transparente.
 
@@ -64,7 +64,7 @@ Dans cet article, vous avez découvert Azure Defender pour App Service.
 
 Pour des informations connexes, consultez les articles suivants : 
 
-- Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers SIEM](continuous-export.md).
+- Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions fournies dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
 - Pour obtenir la liste des alertes Azure App Service, consultez la [table de référence des alertes](alerts-reference.md#alerts-azureappserv).
 - Pour plus d’informations sur les plans App Service, consultez [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 - > [!div class="nextstepaction"]

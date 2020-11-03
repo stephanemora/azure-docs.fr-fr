@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968855"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896002"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant des appels d’API REST
 
@@ -33,13 +33,13 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
 - Activer et désactiver l’identité managée affectée par le système sur une machine virtuelle Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure
 
+Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#managed-identity-types)** .
-- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
-- Vous pouvez exécuter toutes les commandes de cet article dans le cloud ou localement :
-    - Pour exécuter dans le cloud, utilisez [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - Pour exécuter localement, installez [curl](https://curl.haxx.se/download.html) et [Azure CLI](/cli/azure/install-azure-cli), puis connectez-vous à Azure en utilisant la commande [az login](/cli/azure/reference-index#az-login) avec un compte associé à l’abonnement Azure dont vous voulez gérer les identités managées affectées par le système ou par l’utilisateur.
+- Si vous n’êtes pas familiarisé avec les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](overview.md) Pour en savoir plus sur les types d’identités managées affectées par le système et par l’utilisateur, consultez [Types d’identités managées](overview.md#managed-identity-types).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
@@ -55,7 +55,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    az group create --name myResourceGroup --location westus
    ```
 
-2. Créez une [interface réseau](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) pour votre machine virtuelle :
+2. Créez une [interface réseau](/cli/azure/network/nic#az-network-nic-create) pour votre machine virtuelle :
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -67,7 +67,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    az account get-access-token
    ``` 
 
-4. Créez une machine virtuelle à l’aide de CURL pour appeler le point de terminaison REST Azure Resource Manager. L’exemple suivant crée une machine virtuelle nommée *myVM* avec une identité managée affectée par le système, telle qu’identifiée dans le corps de la demande par la valeur `"identity":{"type":"SystemAssigned"}`. Remplacez `<ACCESS TOKEN>` par la valeur que vous avez reçue à l’étape précédente lorsque vous avez demandé un jeton d’accès du porteur et la valeur `<SUBSCRIPTION ID>` adaptée à votre environnement.
+4. À l’aide d’Azure Cloud Shell, créez une machine virtuelle avec CURL pour appeler le point de terminaison REST Azure Resource Manager. L’exemple suivant crée une machine virtuelle nommée *myVM* avec une identité managée affectée par le système, telle qu’identifiée dans le corps de la demande par la valeur `"identity":{"type":"SystemAssigned"}`. Remplacez `<ACCESS TOKEN>` par la valeur que vous avez reçue à l’étape précédente lorsque vous avez demandé un jeton d’accès du porteur et la valeur `<SUBSCRIPTION ID>` adaptée à votre environnement.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -309,7 +309,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    az account get-access-token
    ```
 
-2. Créez une [interface réseau](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) pour votre machine virtuelle :
+2. Créez une [interface réseau](/cli/azure/network/nic#az-network-nic-create) pour votre machine virtuelle :
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

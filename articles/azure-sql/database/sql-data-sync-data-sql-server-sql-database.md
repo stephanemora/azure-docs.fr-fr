@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173563"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791424"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -46,7 +46,7 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 - Le **schéma de synchronisation** décrit quelles sont les données en cours de synchronisation.
 - Le **sens de synchronisation** peut être bidirectionnel ou peut circuler dans une seule direction. Autrement dit, le sens de synchronisation peut être *Hub vers membre* , *Membre vers hub* , ou les deux.
 - L’ **intervalle de synchronisation** correspond à la fréquence à laquelle la synchronisation se produit.
-- La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre* .
+- La **stratégie de résolution de conflit** est une stratégie au niveau groupe, qui peut être *Priorité au hub* ou *Priorité au membre*.
 
 ## <a name="when-to-use"></a>Quand l’utiliser
 
@@ -62,7 +62,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 |----------|----------------------------|
 | Récupération d’urgence | [Sauvegardes géoredondantes Azure](automated-backups-overview.md) |
 | Mise à l’échelle en lecture | [Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (préversion)](read-scale-out.md) |
-| ETL (OLTP vers OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP vers OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migration de SQL Server vers Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -72,7 +72,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
 - **Suivi des modifications de données :** Data Sync effectue le suivi des modifications en utilisant des déclencheurs d’insertion, de mise à jour et de suppression. Les modifications sont enregistrées dans une table latérale dans la base de données utilisateur. BULK INSERT n’active aucun déclencheur par défaut. Si FIRE_TRIGGERS n’est pas spécifié, aucun déclencheur d’insertion ne s’exécute. Ajoutez l’option FIRE_TRIGGERS afin que Data Sync puisse suivre ces insertions. 
 - **Synchronisation des données :** SQL Data Sync est conçu dans un modèle de Hub and Spoke. Le hub se synchronise avec chaque membre individuellement. Les modifications depuis le hub sont téléchargées vers le membre, puis les modifications à partir du membre sont chargées vers le hub.
-- **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre* .
+- **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre*.
   - Si vous sélectionnez *Priorité au hub* , les modifications dans le hub remplacent toujours les modifications dans le membre.
   - Si vous sélectionnez *Priorité au membre* , les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
 
@@ -81,7 +81,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
 | **Avantages** | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration <br/>\- Prise en charge d’Azure SQL Managed Instance |
-| **Inconvénients** | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
+| **Inconvénients** | - Fréquence minimale de 5 min entre les synchronisations<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
 
 ## <a name="get-started"></a>Bien démarrer 
 
@@ -101,7 +101,7 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
 ### <a name="did-something-go-wrong"></a>Un problème est survenu ?
 
-- [Résoudre les problèmes liés à Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Résoudre les problèmes liés à Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Cohérence et performances
 
@@ -126,7 +126,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 > - Les données entre le hub et le membre risquent d’être perdues même si la synchronisation ne signale aucun problème.
 > - La synchronisation peut échouer, car la table de suivi contient une ligne qui n’existe pas dans la source en raison du changement de la clé primaire.
 
-- Le niveau d’isolement d’instantané doit être activé pour le hub et les membres de synchronisation. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Le niveau d’isolement d’instantané doit être activé pour le hub et les membres de synchronisation. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitations générales
 
@@ -135,9 +135,9 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Une clé primaire ne peut pas avoir les types de données suivants : sql_variant, binary, varbinary, image et xml.
 - Si vous utilisez les types de données suivants comme clé primaire, n’oubliez pas que la précision n’est prise en charge qu’à la seconde près : time, datetime, datetime2 et datetimeoffset.
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
+- Un nom de table ne peut pas contenir les caractères imprimables : ! " # $ % ' ( ) * + - espace
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - S’il existe des tables avec le même nom mais un schéma différent (par exemple, dbo.customers et sales.customers), une seule des tables peut être ajoutée à la synchronisation.
-- Un nom de table ne peut pas contenir de caractères dont la valeur ASCII est inférieure ou égale à '-'.
 - Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge
 - Le déplacement de serveurs entre différents abonnements n’est pas pris en charge. 
 
@@ -166,7 +166,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
 | Taille de ligne de données sur une table                                        | 24 Mo                  |                             |
-| Intervalle de synchronisation minimale                                           | 5 minutes              |                             |
+| Intervalle de fréquence de synchronisation minimal                                 | 5 minutes              |                             |
 
 > [!NOTE]
 > Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
@@ -175,7 +175,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 Quand le groupe de synchronisation est établi, le service Data Sync doit se connecter à la base de données Hub. Au moment où vous établissez le groupe de synchronisation, le serveur SQL Azure doit disposer de la configuration suivante dans ses paramètres `Firewalls and virtual networks` :
 
- * Le paramètre *Refuser l’accès au réseau public* doit être *désactivé* .
+ * Le paramètre *Refuser l’accès au réseau public* doit être *désactivé*.
  * Le paramètre *Autoriser les services et les ressources Azure à accéder à ce serveur* doit avoir la valeur *Oui* , ou vous devez créer des règles IP pour les [adresses IP utilisées par le service Data Sync](network-access-controls-overview.md#data-sync).
 
 Une fois le groupe de synchronisation créé et provisionné, vous pouvez désactiver ces paramètres. L’agent de synchronisation se connecte directement à la base de données Hub et vous pouvez utiliser les [règles IP de pare-feu](firewall-configure.md) du serveur ou des [points de terminaison privés](private-endpoint-overview.md) pour permettre à l’agent d’accéder au serveur hub.
@@ -240,7 +240,7 @@ La base de données racine de fédération peut être utilisée sans limitation 
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Puis-je utiliser SQL Data Sync pour synchroniser des données exportées à partir de Dynamics 365 à l’aide de la fonctionnalité BYOD (apportez votre propre base de données) ?
 
-La fonctionnalité Dynamics 365 apportez votre propre base de données permet aux administrateurs d’exporter des entités de données depuis l’application dans leur propre base de données Microsoft Azure SQL. SQL Data Sync peut être utilisé pour synchroniser ces données dans d’autres bases de données si les données sont exportées à l’aide de **l’envoi (push) incrémentiel** (l’envoi intégral n’est pas pris en charge) et **si l’activation des déclencheurs dans la base de données cible** est définie sur **Oui** .
+La fonctionnalité Dynamics 365 apportez votre propre base de données permet aux administrateurs d’exporter des entités de données depuis l’application dans leur propre base de données Microsoft Azure SQL. SQL Data Sync peut être utilisé pour synchroniser ces données dans d’autres bases de données si les données sont exportées à l’aide de **l’envoi (push) incrémentiel** (l’envoi intégral n’est pas pris en charge) et **si l’activation des déclencheurs dans la base de données cible** est définie sur **Oui**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -248,20 +248,19 @@ La fonctionnalité Dynamics 365 apportez votre propre base de données permet au
 
 Vous devez mettre à jour le schéma d’une base de données dans un groupe de synchronisation ? Les modifications de schéma ne sont pas répliquées automatiquement. Pour des solutions à ce problème, consultez les articles suivants :
 
-- [Automatiser la réplication des modifications de schéma avec SQL Data Sync dans Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatiser la réplication des modifications de schéma avec SQL Data Sync dans Azure](./sql-data-sync-update-sync-schema.md)
 - [Utiliser PowerShell pour mettre à jour le schéma de synchronisation dans un groupe de synchronisation existant](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Superviser et dépanner
 
 SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
 
-- [Superviser SQL Data Sync avec des journaux Azure Monitor](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Résoudre les problèmes liés à Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Superviser SQL Data Sync avec des journaux Azure Monitor](./monitor-tune-overview.md)
+- [Résoudre les problèmes liés à Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>En savoir plus sur Azure SQL Database
 
 Pour plus d’informations sur Azure SQL Database, consultez les articles suivants :
 
 - [Vue d’ensemble des bases de données SQL](sql-database-paas-overview.md)
-- [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Gestion du cycle de vie des bases de données](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

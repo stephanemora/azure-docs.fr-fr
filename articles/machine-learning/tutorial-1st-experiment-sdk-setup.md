@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841842"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913294"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutoriel : Commencez à utiliser Azure Machine Learning dans des notebooks Jupyter
 
@@ -34,7 +34,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le service.
 
-Vous créez un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
+Passez à [Cloner un dossier de notebook](#clone) si vous disposez déjà d’un espace de travail Azure Machine Learning.  
+
+Il existe de nombreuses [façons de créer un espace de travail](how-to-manage-workspace.md).  Dans ce tutoriel, vous allez créer un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -49,7 +51,7 @@ Azure Machine Learning inclut un serveur de notebook cloud dans votre espace de 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Cloner un dossier de notebooks
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Cloner un dossier de notebooks
 
 Vous effectuez la configuration d’expérience suivante et vous exécutez les étapes indiquées dans le studio Azure Machine Learning. Cette interface centralisée comprend des outils Machine Learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétences.
 
@@ -65,7 +67,7 @@ Vous effectuez la configuration d’expérience suivante et vous exécutez les �
 
 1. Ouvrez le dossier contenant un numéro de version. Ce numéro représente la version actuelle du Kit de développement logiciel (SDK) Python.
 
-1. Sélectionnez le bouton  **...** à droite du dossier **tutoriels**, puis sélectionnez **Cloner**.
+1. Sélectionnez le bouton  **...** à droite du dossier **tutoriels** , puis sélectionnez **Cloner**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Capture d’écran montrant le dossier de clonage des tutoriels.":::
 
@@ -76,11 +78,11 @@ Vous effectuez la configuration d’expérience suivante et vous exécutez les �
 1. Ouvrez le dossier **tutoriels** qui a été fermé dans la section **Fichiers utilisateur**.
 
     > [!IMPORTANT]
-    > Vous pouvez voir les notebooks présents dans le dossier **exemples**, mais vous ne pouvez pas exécuter de notebook à partir de là. Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **Fichiers utilisateur**.
+    > Vous pouvez voir les notebooks présents dans le dossier **exemples** , mais vous ne pouvez pas exécuter de notebook à partir de là. Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **Fichiers utilisateur**.
     
 1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials/image-classification-mnist-data**.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Capture d’écran montrant le dossier de clonage des tutoriels.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Capture d’écran montrant le dossier d’ouverture des tutoriels.":::
 
 1. Dans la barre supérieure, sélectionnez une instance de calcul à utiliser pour exécuter le notebook. Ces machines virtuelles sont préconfigurées avec [tout ce dont vous avez besoin pour exécuter Azure Machine Learning](concept-compute-instance.md#contents).
 

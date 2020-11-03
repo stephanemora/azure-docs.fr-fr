@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973119"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676153"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -29,21 +29,11 @@ Si vous utilisez la version 2 du conteneur OCR Read de Vision par ordinateur, u
 
 ## <a name="api-changes"></a>Modifications d'API
 
-Les conteneurs Read v3.x utilisent la version 3 de l’API Vision par ordinateur et ont les points de terminaison suivants :
-
-#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
+Le conteneur Read v3.1 utilise la version 3 de l’API Vision par ordinateur et a les points de terminaison suivants :
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Pour plus d’informations sur la mise à jour de vos applications pour utiliser la version 3 de l’API Read cloud, consultez le [Guide de migration de l’API REST Vision par ordinateur v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions). Ces informations s’appliquent également au conteneur. Notez que les opérations de synchronisation sont uniquement prises en charge dans les conteneurs.
 
@@ -53,8 +43,7 @@ Les exigences et les suggestions sont basées sur des tests d’évaluation effe
 
 |Conteneur  |Minimum | Recommandé  |
 |---------|---------|------|
-|Read 3.0-preview     | 8 cœurs, 16 Go de mémoire         | 8 cœurs, 24 Go de mémoire
-|Read 3.1-preview | 8 cœurs, 16 Go de mémoire         | 8 cœurs, 24 Go de mémoire
+|Read 3.1-preview | 8 cœurs, 16 Go de mémoire         | 8 cœurs, 24 Go de mémoire |
 
 Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
 

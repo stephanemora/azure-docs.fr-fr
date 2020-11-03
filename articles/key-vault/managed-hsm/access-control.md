@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992677"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784420"
 ---
 # <a name="managed-hsm-access-control"></a>Contrôle d’accès HSM managé
 
@@ -46,7 +46,7 @@ Par exemple, un administrateur d’abonnements (dans la mesure où il dispose de
 
 Lorsqu’un HSM managé est créé dans un abonnement Azure, il est automatiquement associé au client Azure Active Directory de cet abonnement. Tous les appelants dans les deux plans doivent être inscrits auprès de ce locataire et s’authentifier pour accéder au HSM managé.
 
-L’application s’authentifie auprès d’Azure Active Directory avant d’appeler un plan. L’application peut utiliser une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource du plan afin d’y accéder. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST au point de terminaison du HSM managé. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+L’application s’authentifie auprès d’Azure Active Directory avant d’appeler un plan. L’application peut utiliser une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-vs-authorization.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource du plan afin d’y accéder. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST au point de terminaison du HSM managé. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 L’utilisation d’un même mécanisme d’authentification pour les deux plans présente plusieurs avantages :
 
@@ -63,18 +63,18 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 | Plan&nbsp;d’accès | Points de terminaison d’accès | Opérations | Mécanisme de contrôle d’accès |
 | --- | --- | --- | --- |
 | Plan de gestion | **Mondial :**<br> management.azure.com:443<br> | Créer, lire, mettre à jour, supprimer et déplacer des HSM managés<br>Définir des balises de HSM managé | Azure RBAC |
-| Plan de données | **Mondial :**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Clés** : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Gestion des rôles de plan de données (RBAC local HSM managé)*** : répertorier les définitions de rôles, attribuer des rôles, supprimer des attributions de rôles, définir des rôles personnalisés<br/><br/>** Sauvegarde/restauration  **: sauvegarde, restauration, vérification des opérations de sauvegarde/restauration de l’état <br/><br/>** Domaine de sécurité** : télécharger et charger le domaine de sécurité | RBAC local HSM managé |
+| Plan de données | **Mondial :**<br> &lt;hsm-name&gt;.vault.azure.net:443<br> | **Clés**  : decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Gestion des rôles de plan de données (RBAC local HSM managé)**   _: répertorier les définitions de rôles, attribuer des rôles, supprimer des attributions de rôles, définir des rôles personnalisés<br/><br/>_ *Sauvegarde/restauration  **: sauvegarde, restauration, vérification des opérations de sauvegarde/restauration de l’état <br/><br/>** Domaine de sécurité** : télécharger et charger le domaine de sécurité | RBAC local HSM managé |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Plan de gestion et Azure RBAC
 
-Dans le plan de gestion, vous utilisez Azure RBAC pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure Active Directory. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Dans le plan de gestion, vous utilisez Azure RBAC pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure Active Directory. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](/rest/api/authorization/roleassignments).
 
 Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure Active Directory. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles RBAC appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle RBAC :
 
-- **Groupe d'administration** :  un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les abonnements au sein de ce groupe d’administration.
-- **Abonnement**: un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
-- **Groupe de ressources** : un rôle RBAC attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
-- **Ressource spécifique** : un rôle RBAC attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
+- **Groupe d'administration**  :  un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les abonnements au sein de ce groupe d’administration.
+- **Abonnement** : un rôle RBAC attribué au niveau d’un abonnement s’applique à tous les groupes de ressources et à toutes les ressources au sein de cet abonnement.
+- **Groupe de ressources**  : un rôle RBAC attribué au niveau d’un groupe de ressources s’applique à toutes les ressources de ce groupe de ressources.
+- **Ressource spécifique**  : un rôle RBAC attribué pour une ressource spécifique s’applique à cette ressource. Dans ce cas, la ressource est un coffre de clés spécifique.
 
 Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas à vos besoins, vous pouvez définir votre propre rôle. Pour plus d’informations, consultez [RBAC : pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 

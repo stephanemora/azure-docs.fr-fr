@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078899"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746133"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -107,7 +107,7 @@ Le moyen le plus simple de connecter votre application ASP.NET Core à App Confi
               .UseStartup<Startup>();
    ```
 
-2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` en y ajoutant un middleware afin de permettre l’actualisation des valeurs des indicateurs de fonctionnalités à intervalles réguliers, pendant que l’application web ASP.NET continue de recevoir des demandes.
+2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` pour ajouter l’intergiciel (middleware) intégré appelé `UseAzureAppConfiguration`. Ce middleware permet l’actualisation des valeurs d’indicateurs de fonctionnalités à intervalles réguliers pendant que l’application web ASP.NET continue de recevoir des requêtes.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -227,11 +227,11 @@ public IActionResult Index()
 }
 ```
 
-Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off*, une interface `IDisabledFeaturesHandler` inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
+Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off* , une interface `IDisabledFeaturesHandler` inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
 
 ## <a name="mvc-views"></a>Vues MVC
 
-Ouvrez *_ViewImports.cshtml* dans le répertoire *Views*, puis ajoutez le tag helper du gestionnaire de fonctionnalités :
+Ouvrez *_ViewImports.cshtml* dans le répertoire *Views* , puis ajoutez le tag helper du gestionnaire de fonctionnalités :
 
 ```html
 @addTagHelper *, Microsoft.FeatureManagement.AspNetCore

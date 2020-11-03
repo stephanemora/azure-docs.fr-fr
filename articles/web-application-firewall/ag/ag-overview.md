@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267021"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785219"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -74,6 +74,7 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 - Créez des règles personnalisées pour répondre aux besoins spécifiques de votre application.
 - Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays/régions à vos applications. (préversion)
 - Protégez vos applications des bots avec l’ensemble de règles d’atténuation des risques des bots. (préversion)
+- Inspecter JSON et XML dans le corps de la requête
 
 ## <a name="waf-policy-and-rules"></a>Stratégie et règles WAF
 
@@ -121,8 +122,8 @@ Si la protection bot est activée, les demandes entrantes qui correspondent à d
 
 Le pare-feu d’applications web d’Application Gateway peut être configuré pour s’exécuter dans les deux modes suivants :
 
-* **Mode de détection** : Surveille et journalise toutes les alertes de menace. Vous activez l’enregistrement des diagnostics pour Application Gateway dans la section **Diagnostics**. Vous devez également vérifier que le journal WAF est sélectionné et activé. Le pare-feu d’applications web ne bloque pas les demandes entrantes quand il opère en mode de détection.
-* **Mode de prévention** : Bloque les intrusions et les attaques détectées par les règles. L’attaquant reçoit une exception « 403 Accès non autorisé » et la connexion est fermée. Le mode de prévention enregistre de telles attaques dans les journaux WAF.
+* **Mode de détection**  : Surveille et journalise toutes les alertes de menace. Vous activez l’enregistrement des diagnostics pour Application Gateway dans la section **Diagnostics**. Vous devez également vérifier que le journal WAF est sélectionné et activé. Le pare-feu d’applications web ne bloque pas les demandes entrantes quand il opère en mode de détection.
+* **Mode de prévention**  : Bloque les intrusions et les attaques détectées par les règles. L’attaquant reçoit une exception « 403 Accès non autorisé » et la connexion est fermée. Le mode de prévention enregistre de telles attaques dans les journaux WAF.
 
 > [!NOTE]
 > Il est recommandé d’exécuter un WAF récemment déployé en mode de détection pendant une brève période dans un environnement de production. Cela permet d’obtenir des [journaux de pare-feu](../../application-gateway/application-gateway-diagnostics.md#firewall-log) et de mettre à jour toutes les exceptions ou [règles personnalisées](./custom-waf-rules-overview.md) avant la transition vers le mode de prévention. Cela peut aider à réduire l’occurrence d’un trafic bloqué inattendu.
@@ -131,9 +132,9 @@ Le pare-feu d’applications web d’Application Gateway peut être configuré p
 
 OWASP dispose de deux modes pour décider de bloquer ou non le trafic : le mode traditionnel et le mode de calcul de scoring d’anomalie.
 
-En mode traditionnel, le trafic correspondant à une règle est considéré indépendamment de toute autre correspondance. Ce mode est facile à comprendre. Mais le manque d’informations sur le nombre de règles correspondant à une requête spécifique est une limitation. C’est ainsi que le mode de scoring d’anomalie a été introduit. C’est le mode par défaut pour 3 OWASP.*x*.
+En mode traditionnel, le trafic correspondant à une règle est considéré indépendamment de toute autre correspondance. Ce mode est facile à comprendre. Mais le manque d’informations sur le nombre de règles correspondant à une requête spécifique est une limitation. C’est ainsi que le mode de scoring d’anomalie a été introduit. C’est le mode par défaut pour 3 OWASP. *x*.
 
-En mode de scoring d’anomalie, le trafic correspondant à une règle n’est pas immédiatement bloqué lorsque le pare-feu est en mode de prévention. Les règles ont un niveau de gravité spécifique : *Critique*, *Erreur*, *Avertissement* ou *Avis*. Ce niveau de gravité affecte à la demande une valeur numérique appelée le score d’anomalie. Par exemple, une correspondance de règle *Avertissement* ajoute 3 au score. Une correspondance de règle *Avertissement* ajoute 5.
+En mode de scoring d’anomalie, le trafic correspondant à une règle n’est pas immédiatement bloqué lorsque le pare-feu est en mode de prévention. Les règles ont un niveau de gravité spécifique : *Critique* , *Erreur* , *Avertissement* ou *Avis*. Ce niveau de gravité affecte à la demande une valeur numérique appelée le score d’anomalie. Par exemple, une correspondance de règle *Avertissement* ajoute 3 au score. Une correspondance de règle *Avertissement* ajoute 5.
 
 |severity  |Valeur  |
 |---------|---------|

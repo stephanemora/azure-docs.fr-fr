@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92358996"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787157"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutoriel : Trier les alertes de sécurité, les examiner et y répondre
 Security Center analyse continuellement vos charges de travail de cloud hybride à l’aide de l’analytique avancée et du renseignement sur les menaces, afin de vous avertir des activités potentiellement malveillantes détectées sur vos ressources cloud. Vous pouvez également intégrer à Security Center des alertes provenant d’autres produits et services de sécurité. Lorsqu’une alerte est déclenchée, vous devez agir rapidement pour examiner et résoudre le problème de sécurité potentiel. 
@@ -49,7 +49,7 @@ Utilisez cette page pour examiner les alertes de sécurité actives dans votre e
 Quand vous triez les alertes de sécurité, hiérarchisez-les en fonction de leur gravité en traitant d’abord celles qui présentent un niveau de gravité supérieur. Découvrez-en plus sur la gravité des alertes dans [Comment les alertes sont-elles classifiées ?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> Vous pouvez connecter Azure Security Center aux solutions SIEM les plus populaires, y compris Azure Sentinel, et consommer les alertes à partir de l’outil de votre choix. Découvrez-en plus dans [Exportation d’alertes vers un système SIEM](continuous-export.md).
+> Vous pouvez connecter Azure Security Center aux solutions SIEM les plus populaires, y compris Azure Sentinel, et consommer les alertes à partir de l’outil de votre choix. Apprenez-en davantage dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Examiner une alerte de sécurité
@@ -60,7 +60,7 @@ Quand vous avez décidé de l’alerte à examiner en premier :
 1. Dans la page de vue d’ensemble de l’alerte, sélectionnez la ressource à examiner en premier.
 1. Commencez votre investigation dans le volet gauche, qui affiche les informations générales de l’alerte de sécurité.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Page de la liste des alertes de sécurité":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Volet gauche de la page Détails de l’alerte mettant en évidence les informations générales":::
 
     Ce volet affiche les éléments suivants :
     - Gravité de l’alerte, état et durée d’activité
@@ -68,7 +68,7 @@ Quand vous avez décidé de l’alerte à examiner en premier :
     - Ressources affectées
     - Intention de la chaîne d’arrêt de l’activité sur la matrice MITRE ATT&CK
 
-1. Pour obtenir des informations plus détaillées qui peuvent vous aider à examiner l’activité suspecte, consultez l’onglet **Détails de l’alerte** .
+1. Pour obtenir des informations plus détaillées qui peuvent vous aider à examiner l’activité suspecte, consultez l’onglet **Détails de l’alerte**.
 
 1. Une fois que vous avez consulté cette page, vous avez peut-être suffisamment d’informations pour passer à l’élaboration d’une réponse. Si vous avez besoin de plus de détails :
 
@@ -80,24 +80,24 @@ Après avoir examiné une alerte de sécurité et compris son étendue, vous pou
 
 1.  Ouvrez l’onglet **Entreprendre une action** pour voir les réponses recommandées.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Page de la liste des alertes de sécurité" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Onglet Entreprendre une action pour les alertes de sécurité" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Consultez la section **Atténuer la menace** , qui indique les étapes d’investigation manuelle nécessaires à l’atténuation du problème.
-1.  Pour renforcer vos ressources et empêcher les futures attaques de ce genre, appliquez les recommandations de sécurité indiquées dans la section **Empêcher les attaques futures** .
-1.  Pour déclencher une application logique avec des étapes de réponse automatisée, utilisez la section **Déclencher une réponse automatisée** .
-1.  Si l’activité détectée *n’est pas* malveillante, vous pouvez supprimer les alertes futures de ce genre à l’aide de la section **Supprimer les alertes similaires** .
+1.  Pour renforcer vos ressources et empêcher les futures attaques de ce genre, appliquez les recommandations de sécurité indiquées dans la section **Empêcher les attaques futures**.
+1.  Pour déclencher une application logique avec des étapes de réponse automatisée, utilisez la section **Déclencher une réponse automatisée**.
+1.  Si l’activité détectée *n’est pas* malveillante, vous pouvez supprimer les alertes futures de ce genre à l’aide de la section **Supprimer les alertes similaires**.
 
-1.  Quand vous avez terminé d’examiner l’alerte et y avez répondu de manière appropriée, changez l’état en **Ignoré** .
+1.  Quand vous avez terminé d’examiner l’alerte et y avez répondu de manière appropriée, changez l’état en **Ignoré**.
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Page de la liste des alertes de sécurité":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Définition de l’état d’une alerte":::
 
-    L’alerte est alors supprimée de la liste des alertes principales. Vous pouvez utiliser le filtre de la page de la liste des alertes pour voir toutes les alertes ayant l’état **Ignoré** .
+    L’alerte est alors supprimée de la liste des alertes principales. Vous pouvez utiliser le filtre de la page de la liste des alertes pour voir toutes les alertes ayant l’état **Ignoré**.
 
 1.  Nous vous encourageons à fournir à Microsoft des commentaires sur l’alerte,
-    1. en la signalant comme étant **Utile** ou **Inutile** .
+    1. en la signalant comme étant **Utile** ou **Inutile**.
     1. Sélectionnez une raison et ajoutez un commentaire.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Page de la liste des alertes de sécurité":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Fournir des commentaires à Microsoft sur l’utilité d’une alerte":::
 
     > [!TIP]
     > Nous examinons vos commentaires afin d’améliorer nos algorithmes et de fournir de meilleures alertes de sécurité.
@@ -108,11 +108,11 @@ D’autres guides de démarrage rapide et didacticiels de cette collection repos
 
 Si vous n’envisagez pas de continuer ou si vous souhaitez désactiver l’une de ces fonctionnalités :
 
-1. Revenez au menu principal de Security Center et sélectionnez **Tarifs et paramètres** .
+1. Revenez au menu principal de Security Center et sélectionnez **Tarifs et paramètres**.
 1. Sélectionnez l’abonnement approprié.
-1. Pour passer à une version antérieure, sélectionnez **Azure Defender désactivé** .
-1. Pour désactiver le provisionnement automatique, ouvrez la page **Collecte de données** et définissez **Provisionnement automatique** sur **Désactivé** .
-4. Sélectionnez **Enregistrer** .
+1. Pour passer à une version antérieure, sélectionnez **Azure Defender désactivé**.
+1. Pour désactiver le provisionnement automatique, ouvrez la page **Collecte de données** et définissez **Provisionnement automatique** sur **Désactivé**.
+4. Sélectionnez **Enregistrer**.
 
 >[!NOTE]
 > La désactivation du provisionnement automatique ne supprime pas l’agent Log Analytics des machines virtuelles Azure sur lesquelles il est déjà installé. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.

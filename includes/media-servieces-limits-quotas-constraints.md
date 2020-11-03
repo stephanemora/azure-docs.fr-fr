@@ -1,39 +1,39 @@
 ---
-author: Juliako
+author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 03/31/2020
-ms.author: juliako
-ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.author: inhenkel
+ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997692"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755362"
 ---
 > [!NOTE]
 > Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
 
 ### <a name="account-limits"></a>Limites relatives aux comptes
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
-| Comptes Media Services dans un même abonnement | 25 (fixe) |
+| Ressource | Limite par défaut |
+| --- | --- |
+| Comptes Media Services dans un même abonnement | 100 (fixe) |
 
 ### <a name="asset-limits"></a>Limites relatives aux ressources
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | Ressources par compte Media Services | 1 000 000|
 
 ### <a name="storage-media-limits"></a>Limites relatives au stockage (support)
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>(1)</sup> |
 | Comptes de stockage | 100<sup>(2)</sup> (fixe) |
 
-<sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Des limites supplémentaires sont applicables dans Media Services en fonction des tailles de machine virtuelle utilisées par le service. La limite de taille s’applique aux fichiers que vous chargez et également aux fichiers qui sont générés suite au traitement (encodage ou analyse) par Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. 
+<sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Des limites supplémentaires sont applicables dans Media Services en fonction des tailles de machine virtuelle utilisées par le service. La limite de taille s’applique aux fichiers que vous chargez et également aux fichiers qui sont générés suite au traitement (encodage ou analyse) par Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement.
 
 Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez un contenu 4K d’une taille supérieure à la limite de 260 Go des unités réservées Multimédia S3, ouvrez un ticket de support.
 
@@ -47,8 +47,8 @@ Le tableau suivant indique les limites pour les unités réservées Multimédia 
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Limites relatives aux travaux (encodage et analyse)
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | Travaux par compte Media Services | 500 000 <sup>(3)</sup> (fixe)|
 | Entrées de travaux - par travail | 50 (fixe)|
 | Sorties de travaux - par travail | 20 (fixe) |
@@ -62,8 +62,8 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 ### <a name="live-streaming-limits"></a>Limites relatives au streaming en direct
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
+| Ressource | Limite par défaut |
+| --- | --- |
 | Événements en direct <sup>(4)</sup> par compte Media Services |5|
 | Sorties en direct par événement en direct |3 <sup>(5)</sup> |
 | Durée maximale de la sortie en direct | [Taille de la fenêtre DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
@@ -74,9 +74,9 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 ### <a name="packaging--delivery-limits"></a>Limites relatives à l’empaquetage et à la remise
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
-| Points de terminaison de streaming (arrêtés ou en cours d’exécution) par compte Media Services|2 (fixe)|
+| Ressource | Limite par défaut |
+| --- | --- |
+| Points de terminaison de streaming (arrêtés ou en cours d’exécution) par compte Media Services| 2 |
 | Filtres de manifeste dynamique|100|
 | Stratégies de diffusion en continu | 100 <sup>(6)</sup> |
 | Localisateurs de streaming uniques associés à une ressource à un moment donné | 100<sup>(7)</sup> (fixe) |
@@ -87,9 +87,9 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 
 ### <a name="protection-limits"></a>Limites relatives à la protection
 
-| Ressource | Limite par défaut | 
-| --- | --- | 
-| Options de stratégie de clé de contenu |30 | 
+| Ressource | Limite par défaut |
+| --- | --- |
+| Options de stratégie de clé de contenu | 30 |
 | Licences par mois pour chacun des types de DRM sur le service de remise de clé Media Services par compte|1 000 000|
 
 ### <a name="support-ticket"></a>Ticket de support

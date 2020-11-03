@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729030"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741884"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -26,9 +26,9 @@ Découvrez comment vous authentifier auprès de votre espace de travail Azure Ma
 En général, il existe deux types d’authentification que vous pouvez utiliser avec Azure Machine Learning :
 
 * __Interactive :__ vous utilisez votre compte dans Azure Active Directory pour l’authentification directe ou pour obtenir un jeton utilisé pour l’authentification. L’authentification interactive est utilisée pendant l’expérimentation et le développement itératif. Ou lorsque vous souhaitez contrôler l’accès aux ressources (par exemple, un service web) pour chaque utilisateur.
-* __Principal du service__ : Vous créez un compte de principal de service dans Azure Active Directory et l’utilisez pour authentifier ou obtenir un jeton. Un principal de service est utilisé lorsque vous avez besoin d’un processus automatisé pour l’authentification auprès du service, sans intervention de l’utilisateur. Par exemple, un script d’intégration et de déploiement continus qui forme et teste un modèle chaque fois que le code d’apprentissage change. Vous pouvez également utiliser un principal de service pour récupérer un jeton à des fins d’authentification auprès d’un service web, si vous ne souhaitez pas que l’utilisateur final du service s’authentifie. Ou lorsque l’authentification de l’utilisateur final n’est pas effectuée directement à l’aide d’Azure Active Directory.
+* __Principal du service__  : Vous créez un compte de principal de service dans Azure Active Directory et l’utilisez pour authentifier ou obtenir un jeton. Un principal de service est utilisé lorsque vous avez besoin d’un processus automatisé pour l’authentification auprès du service, sans intervention de l’utilisateur. Par exemple, un script d’intégration et de déploiement continus qui forme et teste un modèle chaque fois que le code d’apprentissage change. Vous pouvez également utiliser un principal de service pour récupérer un jeton à des fins d’authentification auprès d’un service web, si vous ne souhaitez pas que l’utilisateur final du service s’authentifie. Ou lorsque l’authentification de l’utilisateur final n’est pas effectuée directement à l’aide d’Azure Active Directory.
 
-Quel que soit le type d’authentification utilisé, le contrôle d’accès en fonction du rôle (RBAC) permet de définir l’étendue du niveau d’accès autorisé aux ressources. Par exemple, un compte utilisé pour obtenir le jeton d’accès pour un modèle déployé a uniquement besoin d’un accès en lecture à l’espace de travail. Pour plus d'informations sur le contrôle d’accès en fonction du rôle, consultez [Gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md).
+Quel que soit le type d’authentification utilisé, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) permet de définir l’étendue du niveau d’accès autorisé aux ressources. Par exemple, un compte utilisé pour obtenir le jeton d’accès pour un modèle déployé a uniquement besoin d’un accès en lecture à l’espace de travail. Pour plus d’informations sur le contrôle d’accès en fonction du rôle Azure, consultez [Gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -73,7 +73,7 @@ La plupart des exemples de la documentation et des exemples utilisent l’authen
 Pour utiliser l’authentification du principal de service, vous devez d’abord créer le principal de service et lui accorder l’accès à votre espace de travail. Comme mentionné précédemment, le contrôle d’accès en fonction du rôle (Azure RBAC) permet de contrôler l’accès. Vous devez donc également décider de l’accès accordé au principal du service.
 
 > [!IMPORTANT]
-> Lorsque vous utilisez un principal de service, accordez-lui l’__accès minimal requis pour la tâche__ pour laquelle il est utilisé. Par exemple, vous ne pouvez pas accorder l’accès propriétaire ou contributeur au principal de service s’il est utilisé uniquement pour la lecture du jeton d’accès pour un déploiement web.
+> Lorsque vous utilisez un principal de service, accordez-lui l’ __accès minimal requis pour la tâche__ pour laquelle il est utilisé. Par exemple, vous ne pouvez pas accorder l’accès propriétaire ou contributeur au principal de service s’il est utilisé uniquement pour la lecture du jeton d’accès pour un déploiement web.
 >
 > La raison pour laquelle vous accordez l’accès le plus bas est qu’un principal de service utilise un mot de passe pour l’authentification et que le mot de passe peut être stocké dans le cadre d’un script d’automatisation. Si le mot de passe est divulgué, le fait d’avoir un accès minimal requis pour une tâche spécifique réduit au minimum l’utilisation malveillante du principal de service.
 
@@ -285,8 +285,8 @@ Utilisez `token_response["accessToken"]` pour récupérer (fetch) le jeton d’a
 
 Les déploiements de modèle créés par Azure Machine Learning fournissent deux méthodes d’authentification :
 
-* **Basée sur une clé** : une clé statique est utilisée pour l’authentification auprès du service web.
-* **Basée sur un jeton** : un jeton temporaire doit être obtenu de l’espace de travail et utilisé pour s’authentifier auprès du service web. Ce jeton expire au bout d’un certain temps et doit être actualisé pour continuer à fonctionner avec le service web.
+* **Basée sur une clé**  : une clé statique est utilisée pour l’authentification auprès du service web.
+* **Basée sur un jeton**  : un jeton temporaire doit être obtenu de l’espace de travail et utilisé pour s’authentifier auprès du service web. Ce jeton expire au bout d’un certain temps et doit être actualisé pour continuer à fonctionner avec le service web.
 
     > [!NOTE]
     > L’authentification basée sur un jeton est disponible uniquement lors du déploiement sur Azure Kubernetes Service.

@@ -3,14 +3,14 @@ title: Créer une fonction Azure Functions sur Linux avec une image personnalis�
 description: Découvrez comment créer une exécution d’Azure Functions sur une image Linux personnalisée.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758980"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747099"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-Le paramètre `-DjavaVersion` dit au runtime Functions quelle version de Java utiliser. Utilisez `-DjavaVersion=11` si vous voulez exécuter vos fonctions sur Java 11, qui est en préversion. Si vous ne spécifiez pas `-DjavaVersion`, par défaut Maven utilise Java 8. Pour plus d’informations, consultez [Versions de Java](functions-reference-java.md#java-versions).
+Le paramètre `-DjavaVersion` dit au runtime Functions quelle version de Java utiliser. Utilisez `-DjavaVersion=11` si vous voulez que vos fonctions s’exécutent sur Java 11. Si vous ne spécifiez pas `-DjavaVersion`, par défaut Maven utilise Java 8. Pour plus d’informations, consultez [Versions de Java](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du JDK pour suivre cet article.
 
 Maven vous invite à entrer les valeurs nécessaires pour terminer la génération du projet lors du déploiement.   
 Fournissez les valeurs suivantes à l’invite :
@@ -109,7 +112,7 @@ Fournissez les valeurs suivantes à l’invite :
 
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
-Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifactId_, qui est `fabrikam-functions` dans cet exemple. 
+Maven crée les fichiers projet dans un nouveau dossier avec le nom d’ _artifactId_ , qui est `fabrikam-functions` dans cet exemple. 
 ::: zone-end
 L’option `--docker` génère un `Dockerfile` pour le projet, qui définit un conteneur personnalisé approprié pour une utilisation avec Azure Functions et le runtime sélectionné.
 
@@ -303,7 +306,7 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
 
     1. Sélectionnez la fonction que vous souhaitez vérifier.
 
-    1. Dans le volet de navigation gauche, sélectionnez **Fonctions**, puis sélectionnez la fonction que vous souhaitez vérifier.
+    1. Dans le volet de navigation gauche, sélectionnez **Fonctions** , puis sélectionnez la fonction que vous souhaitez vérifier.
 
         ![Sélectionnez votre fonction dans le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
@@ -347,7 +350,7 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
     1. La sortie de la commande est la clé de la fonction. L’URL complète de la fonction est alors `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>` (remplacez `<app_name>`, `<function_name>` et `<key>` par vos valeurs spécifiques).
     
         > [!NOTE]
-        > La clé récupérée ici est la clé d’*hôte* qui marche pour toutes les fonctions de l’application de fonction ; la méthode montrée pour le portail récupère la clé pour cette seule fonction.
+        > La clé récupérée ici est la clé d’ *hôte* qui marche pour toutes les fonctions de l’application de fonction ; la méthode montrée pour le portail récupère la clé pour cette seule fonction.
 
     ---
 
@@ -372,7 +375,7 @@ Vous pouvez activer Azure Functions pour mettre à jour automatiquement votre d�
 
 1. Copiez l’URL du webhook de déploiement dans le Presse-papiers.
 
-1. Ouvrez [Docker Hub](https://hub.docker.com/), connectez-vous, puis sélectionnez **Référentiels** dans la barre de navigation. Recherchez et sélectionnez l’image, sélectionnez l’onglet **Webhooks**, spécifiez un **Nom de webhook**, collez votre URL dans **URL du webhook**, puis sélectionnez **Créer** :
+1. Ouvrez [Docker Hub](https://hub.docker.com/), connectez-vous, puis sélectionnez **Référentiels** dans la barre de navigation. Recherchez et sélectionnez l’image, sélectionnez l’onglet **Webhooks** , spécifiez un **Nom de webhook** , collez votre URL dans **URL du webhook** , puis sélectionnez **Créer**  :
 
     ![Ajoutez le webhook à votre référentiel DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -438,7 +441,7 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
 
 ## <a name="write-to-an-azure-storage-queue"></a>Écrire dans une file d’attente Stockage Azure
 
-Azure Functions vous permet de connecter vos fonctions à d’autres services et ressources Azure sans devoir écrire votre propre code d’intégration. Ces *liaisons*, qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un *déclencheur* est un type spécial de liaison d’entrée. Si une fonction ne peut avoir qu’un seul déclencheur, elle peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+Azure Functions vous permet de connecter vos fonctions à d’autres services et ressources Azure sans devoir écrire votre propre code d’intégration. Ces *liaisons* , qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un *déclencheur* est un type spécial de liaison d’entrée. Si une fonction ne peut avoir qu’un seul déclencheur, elle peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 Cette section vous montre comment intégrer votre fonction à une file d’attente de stockage Azure. La liaison de sortie que vous ajoutez à cette fonction écrit des données d’une requête HTTP dans un message en file d’attente.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119308"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896988"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutoriel : Utiliser une condition dans des modèles ARM
 
@@ -88,7 +88,7 @@ Voici la procédure pour apporter les modifications :
 1. Remplacez les trois **variables('storageAccountName')** par **parameters('storageAccountName')** dans le modèle entier.
 1. Supprimez la définition de variable suivante :
 
-    ![Diagramme de condition d’utilisation d’un modèle Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Capture d’écran mettant en évidence les définitions de variables que vous devez supprimer.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Ajoutez les deux paramètres suivants au début de la section des paramètres :
 
@@ -117,11 +117,11 @@ Voici la procédure pour apporter les modifications :
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condition vérifie la valeur d’un paramètre appelé **newOrExisting**. Si la valeur du paramètre est **nouveau**, le déploiement crée le compte de stockage.
+    La condition vérifie la valeur d’un paramètre appelé **newOrExisting**. Si la valeur du paramètre est **nouveau** , le déploiement crée le compte de stockage.
 
     La définition du compte de stockage mise à jour ressemble à :
 
-    ![Condition d’utilisation de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Capture d’écran montrant la définition du compte de stockage mise à jour.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Mettez à jour la propriété **storageUri** de la définition de ressource de machine virtuelle avec la valeur suivante :
 
     ```json
@@ -140,7 +140,7 @@ Voici la procédure pour apporter les modifications :
 
     ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
+1. Sélectionnez **Charger/Télécharger des fichiers** , puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
 
 1. Exécutez le script PowerShell suivant pour déployer le modèle.
 
@@ -172,7 +172,7 @@ Voici la procédure pour apporter les modifications :
     ```
 
     > [!NOTE]
-    > Le déploiement échoue si **newOrExisting** est **nouveau**, mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
+    > Le déploiement échoue si **newOrExisting** est **nouveau** , mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
 
 Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existing » (existant) et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../../storage/common/storage-account-create.md).
 

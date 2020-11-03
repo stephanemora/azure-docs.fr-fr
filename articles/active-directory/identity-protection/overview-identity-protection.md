@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996533"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783179"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -39,9 +39,9 @@ Dans son [billet de blog d'octobre 2018](https://techcommunity.microsoft.com/t5/
 >
 > L'an dernier, lors de la conférence Ignite, j'ai évoqué les trois principales attaques auxquelles nos systèmes d'identité sont confrontés. Voici le volume récent de ces attaques
 >   
->   - **Attaque par rejeu** : 4,6 milliards d'attaques détectées en mai 2018
->   - **Pulvérisation de mots de passe** : 350 000 en avril 2018
->   - **Hameçonnage** : ces attaques sont difficiles à quantifier, mais nous avons observé 23 millions d'événements à risque en mars 2018, dont beaucoup étaient liés au hameçonnage
+>   - **Attaque par rejeu**  : 4,6 milliards d'attaques détectées en mai 2018
+>   - **Pulvérisation de mots de passe**  : 350 000 en avril 2018
+>   - **Hameçonnage**  : ces attaques sont difficiles à quantifier, mais nous avons observé 23 millions d'événements à risque en mars 2018, dont beaucoup étaient liés au hameçonnage
 
 ## <a name="risk-detection-and-remediation"></a>Détection d'événements à risque et solutions pour y remédier
 
@@ -107,9 +107,9 @@ Les administrateurs d’accès conditionnel peuvent également créer des strat�
 | Stratégies de risque | Stratégie de risque utilisateur (via Identity Protection)  | Non | Non |Oui | 
 | Stratégies de risque | Stratégie de risque de connexion (via Identity Protection ou l’accès conditionnel)  | Non |  Non |Oui |
 | Rapports de sécurité | Vue d’ensemble |  Non | Non |Oui |
-| Rapports de sécurité | Utilisateurs à risque  | Informations limitées | Informations limitées | Accès total|
-| Rapports de sécurité | Connexions risquées  | Informations limitées | Informations limitées | Accès total|
-| Rapports de sécurité | Détections de risques   | Non | Informations limitées| Accès total|
+| Rapports de sécurité | Utilisateurs à risque  | Informations limitées. Seuls les utilisateurs présentant un risque moyen ou élevé sont affichés. Aucun tiroir de détails ou historique des risques. | Informations limitées. Seuls les utilisateurs présentant un risque moyen ou élevé sont affichés. Aucun tiroir de détails ou historique des risques. | Accès total|
+| Rapports de sécurité | Connexions risquées  | Informations limitées. Aucun détail sur les risques ou niveau de risque n’est affiché. | Informations limitées. Aucun détail sur les risques ou niveau de risque n’est affiché. | Accès total|
+| Rapports de sécurité | Détections de risques   | Non | Informations limitées. Aucun tiroir de détails.| Accès total|
 | Notifications | Alertes Utilisateurs à risque détectés  | Non | Non |Oui |
 | Notifications | Synthèse hebdomadaire| Non | Non | Oui | 
 | | Stratégie d'inscription MFA | Non | Non | Oui |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945615"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791866"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurer des notifications par e-mail pour les alertes de sécurité 
 
@@ -26,14 +26,14 @@ Les alertes de sécurité doivent toucher les bonnes personnes au sein de votre 
 
 Pour définir vos propres préférences en lien avec les e-mails de notification, la page des paramètres des **notifications par e-mail** du Centre de sécurité Azure vous permet de choisir :
 
-- ***qui* doit être notifié** – vous pouvez envoyer des e-mails à des personnes sélectionnées ou à toute personne disposant d’un rôle Azure spécifié pour un abonnement. 
-- ***ce qui* doit être notifié** – vous modifier les niveaux de gravité pour lesquels le Centre de sécurité doit envoyer des notifications.
+- **_qui_ doit être notifié** – vous pouvez envoyer des e-mails à des personnes sélectionnées ou à toute personne disposant d’un rôle Azure spécifié pour un abonnement. 
+- **_ce qui_ doit être notifié** – vous modifier les niveaux de gravité pour lesquels le Centre de sécurité doit envoyer des notifications.
 
 Pour éviter la fatigue liée aux alertes, Security Center limite le volume des e-mails sortants. Pour chaque abonnement, Security Center envoie :
 
 - un maximum de **quatre** e-mails par jour pour les alertes de **gravité élevée**
 - un maximum de **deux** e-mails par jour pour les alertes de **gravité moyenne**
-- un maximum d’**un** e-mail par jour pour les alertes de **faible gravité**
+- un maximum d’ **un** e-mail par jour pour les alertes de **faible gravité**
 
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuration des détails du contact qui recevra les e-mails sur les alertes de sécurité." :::
  
@@ -62,9 +62,10 @@ Vous pouvez envoyer des notifications par e-mail à des individus ou à tous les
 1. Pour appliquer les coordonnées de sécurité à votre abonnement, sélectionnez **Enregistrer**.
 
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les alertes de sécurité, consultez les pages suivantes :
 
 - [Alertes de sécurité – Guide de référence](alerts-reference.md) : apprenez-en davantage sur les alertes de sécurité possibles du module Protection contre les menaces d’Azure Security Center.
 - [Gérer et résoudre les alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-- [Automatisation de workflow](workflow-automation.md) : automatisez les réponses aux alertes avec une logique de notification personnalisée.
+- [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md) : utilisez l’automatisation pour répondre aux déclencheurs Security Center avec une logique de notification personnalisée.

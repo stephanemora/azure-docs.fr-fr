@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716089"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791186"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutoriel : Migrer des données locales vers le stockage cloud avec AzCopy
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre ce tutoriel, téléchargez la dernière version d’AzCopy. Consultez [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md).
 
-Si vous êtes sur Windows, vous aurez besoin de [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) car ce tutoriel l’utilise afin de planifier une tâche. Les utilisateurs Linux utiliseront la commande crontab à la place.
+Si vous êtes sur Windows, vous aurez besoin de [Schtasks](/windows/win32/taskschd/schtasks) car ce tutoriel l’utilise afin de planifier une tâche. Les utilisateurs Linux utiliseront la commande crontab à la place.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -44,9 +44,9 @@ La première étape consiste à créer un conteneur, étant donné que les objet
 Pour créer un conteneur, effectuez les étapes suivantes :
 
 1. Sélectionnez le bouton **Comptes de stockage** dans la page principale, puis sélectionnez le compte de stockage que vous avez créé.
-2. Sélectionnez **Objets blob** sous **Services**, puis sélectionnez **Conteneur**.
+2. Sélectionnez **Objets blob** sous **Services** , puis sélectionnez **Conteneur**.
 
-   ![Créez un conteneur.](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Capture d’écran montrant la création d’un conteneur](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Les noms de conteneur doivent commencer par une lettre ou un chiffre. Ils peuvent contenir uniquement des lettres, des chiffres et des traits d’union (-). Pour prendre connaissance des autres règles de nommage des objets blob et des conteneurs, consultez [Nommage et référencement des conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Placez le fichier AzCopy sur votre ordinateur à l’emplacement de votre choix.
 
 ## <a name="authenticate-with-azure-ad"></a>S’authentifier avec Azure AD
 
-Tout d’abord, attribuez le rôle [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à votre identité. Consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Tout d’abord, attribuez le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) à votre identité. Consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](./storage-auth-aad-rbac-portal.md).
 
 Ensuite, ouvrez une invite de commandes, tapez la commande suivante, puis appuyez sur la touche Entrée.
 
@@ -72,13 +72,13 @@ azcopy login
 
 Cette commande retourne un code d’authentification et l’URL d’un site web. Ouvrez le site web, indiquez le code, puis choisissez le bouton **Suivant**.
 
-![Créez un conteneur.](media/storage-use-azcopy-v10/azcopy-login.png)
+![Capture d’écran montrant l’invite de connexion](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à votre compte Azure à l’aide de vos informations d’identification de compte Azure. Une fois connecté, vous pouvez fermer la fenêtre du navigateur et commencer à utiliser AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Charger les contenus d’un dossier dans le Stockage Blob
 
-Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans le Stockage Blob sur [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Pour charger tous les objets blob d’un dossier, entrez la commande AzCopy suivante :
+Vous pouvez utiliser AzCopy pour charger tous les fichiers d’un dossier dans le Stockage Blob sur [Windows](./storage-use-azcopy-v10.md) ou [Linux](./storage-use-azcopy-v10.md). Pour charger tous les objets blob d’un dossier, entrez la commande AzCopy suivante :
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -135,9 +135,9 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-Dans ce didacticiel, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) est utilisé pour créer une tâche planifiée sur Windows. La commande [Crontab](http://crontab.org/) est utilisée pour créer un travail Cron sur Linux.
+Dans ce didacticiel, [Schtasks](/windows/win32/taskschd/schtasks) est utilisé pour créer une tâche planifiée sur Windows. La commande [Crontab](http://crontab.org/) est utilisée pour créer un travail Cron sur Linux.
 
- Avec **Schtasks**, un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron**, les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+ Avec **Schtasks** , un administrateur peut créer, supprimer, interroger, modifier, exécuter et terminer des tâches planifiées sur un ordinateur local ou distant. Avec **Cron** , les utilisateurs sur Linux et Unix peuvent exécuter des commandes ou des scripts à la date et à l’heure qu’ils ont spécifiées à l’aide [d’expressions Cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -166,7 +166,7 @@ La commande utilise les paramètres suivants :
 - `/TN` : spécifie le nom de la tâche.
 - `/TR` : spécifie le chemin du fichier `script.bat`.
 
-Pour en savoir plus sur la création d’une tâche planifiée sur Windows, consultez [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Pour en savoir plus sur la création d’une tâche planifiée sur Windows, consultez [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -176,7 +176,7 @@ Pour vérifier que la tâche planifiée ou le travail Cron s’exécute correcte
 
 Pour en savoir plus sur les façons de déplacer des données locales vers le Stockage Azure, et inversement, suivez ce lien :
 
-* [Déplacer des données vers et à partir de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Déplacer des données vers et à partir de Stockage Azure](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 Pour plus d’informations sur AzCopy, consultez les articles suivants :
 
