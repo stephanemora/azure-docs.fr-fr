@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79225509"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424711"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
 
@@ -23,9 +23,9 @@ Pour accéder au serveur vCenter sur un cloud privé CloudSimple à partir de st
 
 1. Connectez-vous au [portail CloudSimple](access-cloudsimple-portal.md).
 
-2. Accédez à **Ressources** > **Clouds privés**, puis sélectionnez le cloud privé auquel vous souhaitez vous connecter.
+2. Accédez à **Ressources** > **Clouds privés** , puis sélectionnez le cloud privé auquel vous souhaitez vous connecter.
 
-3. Sur la page **Résumé** du cloud privé sous **Informations de base**, copiez l’adresse IP du serveur DNS du cloud privé.
+3. Sur la page **Résumé** du cloud privé sous **Informations de base** , copiez l’adresse IP du serveur DNS du cloud privé.
 
     ![Serveurs DNS de cloud privé](media/private-cloud-dns-server.png)
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. Cliquez avec le bouton droit sur le serveur DNS et sélectionnez **Nouvelle zone**. 
   
-    ![Nouvelle zone](media/DNS01.png)
-2. Sélectionnez **Zone de stub**, puis cliquez sur **Suivant**.
+    ![Capture d'écran mettant en évidence l'option de menu Nouvelle zone.](media/DNS01.png)
+2. Sélectionnez **Zone de stub** , puis cliquez sur **Suivant**.
 
-    ![Nouvelle zone](media/DNS02.png)
+    ![Capture d'écran mettant en évidence l'option Zone de stub.](media/DNS02.png)
 3. Sélectionnez l’option appropriée en fonction de votre environnement, puis cliquez sur **Suivant**.
 
-    ![Nouvelle zone](media/DNS03.png)
-4. Sélectionnez **Zone de recherche directe**, puis cliquez sur **Suivant**.
+    ![Capture d'écran illustrant les options de réplication des données de zone.](media/DNS03.png)
+4. Sélectionnez **Zone de recherche directe** , puis cliquez sur **Suivant**.
 
-    ![Nouvelle zone](media/DNS01.png)
+    ![Capture d'écran mettant en évidence l'option Zone de recherche directe.](media/DNS01.png)
 5. Entrez le nom de la zone, puis cliquez sur **Suivant**.
 
-    ![Nouvelle zone](media/DNS05.png)
+    ![Capture d'écran montrant où entrer le nom de la zone.](media/DNS05.png)
 6. Entrez les adresses IP des serveurs DNS de votre cloud privé que vous avez obtenues à partir du portail CloudSimple.
 
     ![Nouvelle zone](media/DNS06.png)

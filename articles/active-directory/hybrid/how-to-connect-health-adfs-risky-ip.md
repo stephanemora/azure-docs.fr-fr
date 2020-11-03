@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458030"
 ---
 # <a name="risky-ip-report-public-preview"></a>Rapport sur les adresses IP à risque (préversion publique)
 Les clients AD FS peuvent exposer des points de terminaison d’authentification par mot de passe à Internet pour fournir des services d’authentification permettant aux utilisateurs finaux d’accéder aux applications SaaS telles que Microsoft 365. Dans ce cas, il est possible pour un mauvais acteur de tenter de se connecter à votre système AD FS pour deviner le mot de passe d’un utilisateur final et accéder aux ressources de l’application. AD FS fournit la fonctionnalité de verrouillage de compte extranet pour éviter ce type d’attaques depuis AD FS dans Windows Server 2012 R2. Si vous utilisez une version antérieure, nous vous recommandons vivement de mettre à niveau votre système AD FS vers Windows Server 2016. <br />
@@ -35,7 +35,7 @@ En outre, il est possible qu’une seule adresse IP tente de se connecter plusie
 
 > [!NOTE]
 > Pour utiliser ce rapport, vous devez vous assurer que l’audit AD FS est activé. Pour plus d’informations, consultez [Activer l’audit pour AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](../../role-based-access-control/built-in-roles.md#security-reader) est nécessaire.  
+> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](../../role-based-access-control/built-in-roles.md#security-reader) est nécessaire.  
 > 
 
 ## <a name="what-is-in-the-report"></a>Contenu du rapport
@@ -79,16 +79,16 @@ Vous pouvez exporter la liste complète des adresses IP risquées des 30 dernier
 Les administrateurs à contacter pour le rapport peuvent être mis à jour via les **Paramètres de notification**. Par défaut, la notification par e-mail des alertes d’adresse IP risquée est désactivée. Vous pouvez activer/désactiver la notification sous « Obtenir des notifications par e-mail pour les adresses IP dépassant le rapport de seuil d’échec d’activité ». Tout comme les paramètres de notification d’alerte génériques dans Connect Health, cela vous permet de personnaliser la liste des contacts à alerter sur les rapports d’adresse IP risquée. Vous pouvez également informer tous les administrateurs généraux lors de la modification de ce paramètre. 
 
 ## <a name="configure-threshold-settings"></a>Configurer les paramètres de seuil
-Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seuil est initialement défini par défaut dans le système. Il existe quatre catégories dans les paramètres de seuil du rapport d’adresse IP risquée :
+Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seuil est initialement défini par défaut dans le système. Les valeurs par défaut sont indiquées ci-dessous. Il existe quatre catégories dans les paramètres de seuil du rapport d’adresse IP risquée :
 
 ![portail Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Élément de seuil | Description |
 | --- | --- |
-| (Verrouillage U/P + extranet incorrect) / Jour  | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **jour**. |
-| (Verrouillage U/P + extranet incorrect) / Heure | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **heure**. |
-| Verrouillage extranet / Jour | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **jour**. |
-| Verrouillage extranet / Heure| Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **heure**. |
+| (Verrouillage U/P + extranet incorrect) / Jour  | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **jour**. La valeur par défaut est 100.|
+| (Verrouillage U/P + extranet incorrect) / Heure | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **heure**. La valeur par défaut est 50.|
+| Verrouillage extranet / Jour | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **jour**. La valeur par défaut est 50.|
+| Verrouillage extranet / Heure| Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **heure**. La valeur par défaut est 25|
 
 > [!NOTE]
 > - La modification du seuil du rapport est appliquée une heure après la modification de ce paramètre. 

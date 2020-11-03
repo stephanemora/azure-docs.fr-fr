@@ -8,16 +8,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056853"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558565"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
-## <a name="azure-api-for-fhir"></a>API Azure pour FHIR
+## <a name="azure-api-for-fhir-the-basics"></a>API Azure pour FHIR : Concepts de base
 
 ### <a name="what-is-fhir"></a>Qu’est-ce que FHIR ?
 FHIR (Prononcez "fire") ou Fast Healthcare Interoperability Resources est une norme d’interopérabilité destinée à permettre l’échange de données médicales entre différents systèmes de santé. Cette norme a été développée par l’organisation HL7 et est en cours d’adoption par les organisations de la santé du monde entier. La version actuelle de FHIR est la version R4 (Release 4). L’API Azure pour FHIR prend en charge R4 et prend également en charge la version précédente STU3 (Standard for Trial Use 3). Pour plus d’informations sur FHIR, accédez à [HL7.org](http://hl7.org/fhir/summary.html).
@@ -34,15 +34,25 @@ Nous prenons actuellement en charge Microsoft Azure Active Directory en tant que
 
 Nous prenons en charge les versions 4.0.0 et 3.0.1 dans le cadre de l’API Azure pour FHIR (PaaS) et de FHIR Server pour Azure (open source).
 
-Pour plus d’informations, consultez [Fonctionnalités prises en charge](fhir-features-supported.md). Lisez ce qui a changé entre les versions dans l’[historique des versions de HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+Pour plus d’informations, consultez [Fonctionnalités prises en charge](fhir-features-supported.md). Découvrez ce qui a changé entre les versions de FHIR (à savoir lors du passage de la version STU3 à la version R4) dans l’[historique des versions de HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
-### <a name="whats-the-difference-between-the-open-source-microsoft-fhir-server-for-azure-and-the-azure-api-for-fhir"></a>Quelle est la différence entre l’implémentation open source de Microsoft FHIR Server pour Azure et l’API Azure pour FHIR ?
+Le connecteur Azure IoT pour FHIR (préversion) ne prend actuellement en charge que la version R4 de FHIR, et n’est visible que sur les instances R4 de l’API Azure pour FHIR.
+
+### <a name="whats-the-difference-between-microsoft-fhir-server-for-azure-and-the-azure-api-for-fhir"></a>Quelle est la différence entre le serveur FHIR Microsoft pour Azure et l’API Azure pour FHIR ?
 
 L’API Azure pour FHIR est une version hébergée et managée de la version open source de Microsoft FHIR Server pour Azure. Dans le service managé, Microsoft fournit toutes les opérations de maintenance et mises à jour. 
 
-Quand vous exécutez FHIR Server pour Azure, vous avez un accès direct aux services sous-jacents. Toutefois, vous êtes également responsable de la maintenance et de la mise à jour du serveur ainsi que de tous les travaux de conformité nécessaires si vous stockez des données PHI.
+Lorsque vous exécutez le serveur FHIR pour Azure, vous avez un accès direct aux services sous-jacents, mais vous êtes responsable de la maintenance et de la mise à jour du serveur, ainsi que de tout travail de conformité requis en cas de stockage de données PHI.
 
-Du point de vue du développement, chaque fonctionnalité est d’abord déployée sur l’implémentation open source de Microsoft FHIR Server pour Azure. Une fois la version open source validée, elle est mise en production sur la solution PaaS API Azure pour FHIR. Le délai de mise en production entre la version open source et la solution PaaS dépend de la complexité des fonctionnalités et d’autres priorités relatives à la feuille de route. 
+Du point de vue du développement, chaque fonctionnalité qui ne s’applique pas uniquement au service géré est d’abord déployée sur le serveur Microsoft FHIR open source pour Azure. Une fois la version open source validée, elle est mise en production sur la solution PaaS API Azure pour FHIR. Le délai de mise en production entre la version open source et la solution PaaS dépend de la complexité des fonctionnalités et d’autres priorités relatives à la feuille de route. Le processus est identique pour tous nos services, tel le connecteur Azure IoT pour FHIR (préversion).
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Où puis-je voir les nouveautés de l’API Azure pour FHIR ?
+
+Pour en savoir plus sur les nouveautés de l’API Azure pour FHIR, reportez-vous à la [version release](https://github.com/microsoft/fhir-server/releases) de FHIR Server open source. Depuis le mois de novembre 2020, nous balisons les éléments open source avec Azure-API-for-FHIR en cas de publication de ceux-ci sur le service géré. Ces fonctionnalités sont généralement disponibles deux semaines après leur publication sur la page de mise en production en open source. Nous avons également inclus [ici] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) ) des instructions sur la façon de tester la build dans votre propre environnement. Nous sommes en train d’étudier le meilleur moyen de partager d’autres mises à jour du service managé.
+
+### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>Dans quelles régions l’API Azure pour FHIR est-elle disponible ?
+
+Elle est actuellement en disponibilité générale pour le grand public et le secteur public dans [plusieurs régions géographiques](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). Pour plus d’informations sur les services cloud de Microsoft pour le Secteur Public, consultez [Services Azure du FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Où puis-je voir les nouveautés de l’API Azure pour FHIR ?
 
@@ -52,6 +62,8 @@ Pour en savoir plus sur les nouveautés de l’API Azure pour FHIR, reportez-vou
 
 SMART (Substitutable Medical Applications and Reusable Technology) sur FHIR est un ensemble de spécifications ouvertes qui permettent d’intégrer les applications partenaires avec les serveurs FHIR et d’autres systèmes informatiques médicaux, par exemple les dossiers médicaux électroniques et les échanges d’informations médicales. En créant une application SMART sur FHIR, vous avez la garantie que votre application est accessible et exploitable par une multitude de systèmes distincts.
 Authentification et API Azure pour FHIR. Pour plus d’informations sur SMART, accédez à [SMART Health IT](https://smarthealthit.org/).
+
+## <a name="fhir-implementations-and-specifications"></a>Implémentations et spécifications de FHIR
 
 ### <a name="can-i-create-a-custom-fhir-resource"></a>Puis-je créer une ressource FHIR personnalisée ?
 
@@ -63,7 +75,7 @@ Nous vous autorisons à charger toutes données JSON FHIR valides dans le serveu
 
 ### <a name="what-is-the-limit-on-_count"></a>Quelle est la limite de _count ?
 
-La limite actuelle sur le nombre est de 100.
+La limite actuelle de _count est 100. Si vous définissez _count sur une valeur supérieure à 100, un avertissement apparaît dans l’offre groupée, indiquant que seuls 100 enregistrements seront présentés.
 
 ### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>Existe-t-il des limitations sur la fonctionnalité d’exportation de groupe ?
 
@@ -83,49 +95,40 @@ Voici quelques exemples :
 * GET Patient/<id>/Observation
 * GET Patient/<id>/Observation?code=8302-2
 
+### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Quel est le tri par défaut lors de la recherche de ressources dans l’API Azure pour FHIR ?
+
+Nous prenons en charge le tri sur la date de dernière mise à jour : _sort =_lastUpdated. Pour plus d’informations sur les autres paramètres de recherche pris en charge, consultez la [page des fonctionnalités prises en charge](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search).
+
+### <a name="how-does-export-work"></a>Comment la commande $export fonctionne-t-elle ?
+
+La commande $export fait partie de la spécification FHIR : https://hl7.org/fhir/uv/bulkdata/export/index.html. Si le service FHIR est configuré avec une identité gérée et un compte de stockage, et si l’identité gérée a accès à ce compte de stockage, vous pouvez simplement appeler la commande $export sur l’API FHIR pour exporter toutes les ressources FHIR vers le compte de stockage. Pour plus d’informations, consultez notre [article sur la commande $export](https://docs.microsoft.com/azure/healthcare-apis/export-data).
+
+## <a name="using-azure-api-for-fhir"></a>Utilisation de l’API Azure pour FHIR
+
+### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Comment faire pour activer l’analytique des journaux d’activité pour l’API Azure pour FHIR ?
+
+Nous activons la journalisation des diagnostics et autorisons la consultation des exemples de requêtes pour ces journaux. Pour plus d’informations sur l’activation des journaux d’audit et des exemples de requêtes, consultez [cette section](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging). Si vous souhaitez inclure des informations supplémentaires dans les journaux, découvrez comment [utiliser des en-têtes HTTP personnalisés](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers).
+
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Où puis-je voir des exemples d’utilisation de l’API Azure pour FHIR dans un workflow ?
 
 Nous avons une collection d’architectures de référence disponibles dans la [page Health Architecture sur GitHub](https://github.com/microsoft/health-architectures).
 
-## <a name="azure-iot-connector-for-fhir-preview"></a>Connecteur Azure IoT pour FHIR (préversion)
+### <a name="where-can-i-see-an-example-of-connecting-a-web-application-to-azure-api-for-fhir"></a>Où puis-je voir un exemple de connexion d’une application web à l’API Azure pour FHIR ?
 
-### <a name="what-is-iomt"></a>Qu’est-ce qu’IoMT ?
-IoMT est l’acronyme d’Internet of Medical Things (Internet des objets médicaux) et désigne une catégorie d’appareils IoT qui capturent et échangent des données relatives à la santé et au bien-être avec d’autres systèmes informatiques de santé sur un réseau. Voici quelques exemples d’appareils IoMT : technologies portables à usage clinique et sportif, capteurs de surveillance, dispositifs de suivi d’activité, kiosques de soins ou même pilule intelligente.
+Nous avons une [page GitHub Health Architecture](https://github.com/microsoft/health-architectures) contenant des exemples d’applications et de scénarios. Elle montre comment connecter une application web à l’API Azure pour FHIR.  
 
-### <a name="how-many-azure-iot-connector-for-fhir-preview-do-i-need"></a>De combien de connecteurs Azure IoT pour FHIR (préversion) ai-je besoin ?
-Un seul Connecteur Azure IoT pour FHIR* peut être utilisé pour ingérer des données provenant d’un grand nombre de types d’appareils différents. Vous pouvez néanmoins décider d’utiliser différents connecteurs pour les raisons suivantes :
-- **Mise à l’échelle** : pour la préversion publique, la capacité des ressources du Connecteur Azure IoT pour FHIR est fixe et devrait fournir un débit d’environ 200 messages par seconde. Vous pouvez ajouter des connecteurs Azure IoT pour FHIR si un débit plus élevé est nécessaire.
-- **Type d’appareil** : vous pouvez configurer un Connecteur Azure IoT pour FHIR distinct pour chaque type d’appareil IoMT dont vous disposez pour des raisons de gestion des appareils.
+## <a name="azure-api-for-fhir-features-and-services"></a>Fonctionnalités et services de l’API Azure pour FHIR 
 
-### <a name="is-there-a-limit-on-number-of-azure-iot-connector-for-fhir-preview-during-public-preview"></a>Existe-t-il une limite au nombre de connecteurs Azure IoT pour FHIR (préversion) pendant la période de préversion publique ?
-Oui, vous ne pouvez créer que deux connecteurs Azure IoT pour FHIR par abonnement tant que la fonctionnalité est en préversion publique. Cette limite existe pour empêcher les dépenses inattendues, car la fonctionnalité est disponible gratuitement pendant la préversion. Sur demande, cette limite peut être augmentée jusqu’à un maximum de cinq connecteurs Azure IoT pour FHIR.
+### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>Existe-t-il un moyen de chiffrer mes données à l’aide de ma clé personnelle au lieu d’une clé par défaut ?
 
-### <a name="what-azure-regions-azure-iot-connector-for-fhir-preview-feature-is-available-during-public-preview"></a>Pour quelles régions Azure la fonctionnalité Connecteur Azure IoT pour FHIR est-elle disponible pendant la période de préversion publique ?
-Le Connecteur Azure IoT pour FHIR est disponible dans toutes les régions Azure où l’API Azure pour FHIR est disponible.
+Oui, l’API Azure pour FHIR permet de configurer des clés gérées par le client, en tirant parti de la prise en charge de Cosmos DB. Pour plus d’informations sur le chiffrement de vos données avec une clé personnelle, consultez [cette section](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key).
+
+## <a name="azure-api-for-fhir-preview-features"></a>API Azure pour FHIR : Fonctionnalités de préversion
 
 ### <a name="can-i-configure-scaling-capacity-for-azure-iot-connector-for-fhir-preview"></a>Puis-je configurer la capacité de mise à l’échelle pour un Connecteur Azure IoT pour FHIR (préversion) ?
+
 Étant donné que le Connecteur Azure IoT pour FHIR est gratuit pendant la période de préversion publique, sa capacité de mise à l’échelle est fixe et limitée. La configuration de Connecteur Azure IoT pour FHIR disponible en préversion publique est supposée fournir un débit d’environ 200 messages par seconde. Une certaine forme de configuration de la capacité des ressources sera disponible en disponibilité générale.
 
-### <a name="what-fhir-version-does-azure-iot-connector-for-fhir-preview-support"></a>Quelle version de FHIR le Connecteur Azure IoT pour FHIR (préversion) prend-il en charge ?
-Le Connecteur Azure IoT pour FHIR prend actuellement en charge uniquement FHIR version R4. Par conséquent, cette fonctionnalité est uniquement visible sur les instances R4 d’API Azure pour FHIR, et Microsoft ne prévoit pas de prendre en charge la version STU3 pour le moment.
-
 ### <a name="why-cant-i-install-azure-iot-connector-for-fhir-preview-when-private-link-is-enabled-on-azure-api-for-fhir"></a>Pourquoi ne puis-je pas installer un Connecteur Azure IoT pour FHIR quand Azure Private Link est activé sur l’API Azure pour FHIR ?
+
 Un Connecteur Azure IoT pour FHIR ne prend pas en charge la capacité d’Azure Private Link pour l’instant. Par conséquent, si vous avez activé Azure Private Link sur l’API Azure pour FHIR, vous ne pouvez pas installer de Connecteur Azure IoT pour FHIR, et vice-versa. Cette limitation devrait disparaître lorsque Connecteur Azure IoT pour FHIR sera en disponibilité générale.
-
-### <a name="whats-the-difference-between-the-open-source-iomt-fhir-connector-for-azure-and-azure-iot-connector-for-fhir-preview-feature-of-azure-api-for-fhir-service"></a>Quelle est la différence entre le Connecteur IoMT FHIR open source pour Azure et la fonctionnalité du Connecteur Azure IoT pour FHIR (préversion) du service API Azure pour FHIR ?
-Le Connecteur Azure IoT pour FHIR est une version hébergée et gérée du connecteur IoMT FHIR open source pour Azure. Dans le service managé, Microsoft fournit toutes les opérations de maintenance et mises à jour.
-
-Quand vous exécutez Connecteur IoMT FHIR pour Azure, vous avez un accès direct aux ressources sous-jacentes. Toutefois, vous êtes également responsable de la maintenance et de la mise à jour du serveur ainsi que de tous les travaux de conformité nécessaires si vous stockez des données PHI.
-
-Du point de vue du développement, chaque fonctionnalité est d’abord déployée sur le connecteur IoMT FHIR open source pour Azure. Une fois la version open source validée, elle est mise en production sur la fonctionnalité de Connecteur Azure IoT pour FHIR PaaS du service API Azure pour FHIR. Le délai de mise en production entre la version open source et la solution PaaS dépend de la complexité de la fonctionnalité et d’autres priorités relatives à la feuille de route.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Dans cet article, vous avez vu des questions fréquentes sur l’API Azure pour FHIR. Découvrez les fonctionnalités prises en charge dans FHIR Server pour Azure :
- 
->[!div class="nextstepaction"]
->[Fonctionnalités prises en charge de FHIR](fhir-features-supported.md)
-
-*Dans le Portail Azure, le Connecteur Azure IoT pour FHIR est appelé Connecteur IoT (préversion).
-
-FHIR est la marque déposée de HL7 et est utilisé avec l’autorisation de HL7.

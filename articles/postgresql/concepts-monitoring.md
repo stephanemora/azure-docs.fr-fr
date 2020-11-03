@@ -5,19 +5,19 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708711"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487923"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de supervision pour fournir un insight sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures
-Azure Database pour PostgreSQL propose diverses métriques qui donnent des informations sur le comportement des ressources prenant en charge le serveur MySQL. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à [93 jours dans l’historique](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). Vous pouvez configurer des alertes basées sur les métriques. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database pour PostgreSQL propose diverses métriques qui donnent des informations sur le comportement des ressources prenant en charge le serveur MySQL. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à [93 jours dans l’historique](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). Vous pouvez configurer des alertes basées sur les métriques. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
@@ -55,28 +55,12 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 ## <a name="planned-maintenance-notification"></a>Notification de maintenance planifiée
 
-Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur Azure Database pour PostgreSQL (serveur unique). Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification au public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevez la notification concernant la maintenance à venir 72 heures avant l’événement.
+Les [notifications de maintenance planifiée](./concepts-planned-maintenance-notification.md) vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur Azure Database pour PostgreSQL (serveur unique). Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification au public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevez la notification concernant la maintenance à venir 72 heures avant l’événement.
 
-> [!Note]
-> Nous mettons tout en œuvre pour fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
-
-1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
-2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
-3. Sélectionnez **+ Ajouter une alerte d’intégrité de service** et renseignez les champs.
-4. Renseignez les champs obligatoires. 
-5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
-6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
-7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
-8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
-
-Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> Les notifications de maintenance planifiée sont actuellement disponibles en préversion dans toutes les régions, **sauf** USA Centre-Ouest.
+Apprenez-en davantage sur la configuration des notifications dans le document relatif aux [notifications de maintenance planifiée](./concepts-planned-maintenance-notification.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
-- Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../azure-monitor/platform/data-platform.md).
 - Lisez notre blog sur les [meilleures pratiques de surveillance de votre serveur](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- Apprenez-en davantage sur les [notifications de maintenance planifiée](./concepts-planned-maintenance-notification.md) dans Azure Database pour PostgreSQL – Serveur unique.

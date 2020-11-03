@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483726"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474663"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool Azure Synapse SQL
 
-Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L’utilisation d’un processus d’extraction, chargement et transformation (ELT, Extract, Load, and Transform) permet d’exploiter MPP et d’éliminer les ressources nécessaires à la transformation des données avant le chargement.
+Les entrepôts de données SMP traditionnels utilisent un processus d’extraction, transformation et chargement (ETL) pour le chargement des données. Un pool Azure SQL est une architecture de traitement massivement parallèle (MPP) qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage. L'utilisation d'un processus ELT permet de tirer parti des capacités de traitement de requêtes distribuées intégrées et d'éliminer les ressources nécessaires à la transformation des données avant le chargement.
 
 Bien que le pool SQL prenne en charge de nombreuses méthodes de chargement, notamment des options non-Polybase telles que les API BCP et SQL BulkCopy, le moyen le plus rapide et le plus scalable de charger des données consiste à utiliser PolyBase.  PolyBase est une technologie qui accède aux données externes stockées dans Stockage Blob Azure ou Azure Data Lake Store par le biais du langage T-SQL.
 
@@ -112,7 +112,7 @@ Pour formater les fichiers texte :
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Charger les données dans les tables de mise en lots du pool SQL à l’aide de PolyBase
 
-Il est recommandé de charger des données dans une table de mise en lots. Les tables de mise en lots vous permettent de gérer les erreurs sans interférer avec les tables de production. Une table de mise en lots vous donne également la possibilité d’utiliser le MPP de pool SQL pour transformer les données avant de les insérer dans des tables de production.
+Il est recommandé de charger des données dans une table de mise en lots. Les tables de mise en lots vous permettent de gérer les erreurs sans interférer avec les tables de production. Une table de mise en lots vous donne également la possibilité d'utiliser les capacités de traitement des requêtes distribuées intégrées au pool SQL pour transformer les données avant de les insérer dans des tables de production.
 
 ### <a name="options-for-loading-with-polybase"></a>Options de chargement avec PolyBase
 

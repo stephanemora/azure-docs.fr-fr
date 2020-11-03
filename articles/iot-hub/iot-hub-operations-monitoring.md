@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139323"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538491"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Surveillance des opérations IoT Hub (déconseillé)
 
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 >[!NOTE]
->La **surveillance des opérations d’IoT Hub est déconseillée et a été supprimée d’IoT Hub le 10 mars 2019**. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, voir [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md). Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>La **surveillance des opérations d’IoT Hub est déconseillée et a été supprimée d’IoT Hub le 10 mars 2019**. Pour surveiller les opérations et l'intégrité d'IoT Hub, consultez [Surveiller IoT Hub](monitor-iot-hub.md). Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub surveille six catégories d’événements :
 
@@ -48,7 +48,7 @@ IoT Hub surveille six catégories d’événements :
     ![Configurer la surveillance des opérations sur votre IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
-> Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions**, IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
+> Si vous sélectionnez la surveillance **détaillée** dans la catégorie **Connexions** , IoT Hub génère des messages de diagnostic supplémentaires. Pour toutes les autres catégories, le paramètre **Détaillée** modifie la quantité d’informations qu’IoT Hub inclut dans chaque message d’erreur.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Catégories d’événements et utilisation respective
 
@@ -197,11 +197,11 @@ Pour vous connecter au point de terminaison de surveillance, vous avez besoin d�
 
 1. Dans le portail, accédez à votre panneau de ressources IoT Hub.
 
-2. Sélectionnez **Surveillance des opérations**, notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub** :
+2. Sélectionnez **Surveillance des opérations** , notez les valeurs du **Nom compatible Event Hub** et du **Point de terminaison compatible Event Hub**  :
 
     ![Valeurs du point de terminaison compatible Event Hub](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Sélectionnez **Stratégies d’accès partagé**, puis **service**. Prenez note de la valeur de **Clé primaire** :
+3. Sélectionnez **Stratégies d’accès partagé** , puis **service**. Prenez note de la valeur de **Clé primaire**  :
 
     ![Clé primaire de la stratégie d’accès partagé du service](./media/iot-hub-operations-monitoring/service-key.png)
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710717"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428213"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -113,10 +113,10 @@ Pour en savoir plus sur la publication des conditions requises pour chaque plan 
 
     ![Illustre le menu de navigation de gauche.](./media/new-offer-azure-app.png)
 
-1. Dans la page **Nouvelle offre**, entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
+1. Dans la page **Nouvelle offre** , entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
      * Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-     * Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1** , l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
      * L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -193,7 +193,7 @@ Voici un exemple de la façon dont les informations de l’offre s’affichent d
 
 <br>Voici un exemple de la façon dont les informations de l’offre s’affichent dans le portail Azure :
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustre la façon dont cette offre s’affiche dans le portail Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descriptions de légende
 
@@ -236,7 +236,7 @@ Ajoutez des liens vers des documents en ligne supplémentaires facultatifs conce
 
 ### <a name="contact-information"></a>Informations de contact
 
-Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **Contact de support**, d’un **Contact ingénierie** et d’un **Contact du programme du fournisseur de solutions Cloud**. Ces informations ne sont pas présentées aux clients, mais destinées à Microsoft qui peut les communiquer aux fournisseurs de solutions Cloud partenaires. Certains contacts peuvent nécessiter des informations supplémentaires.
+Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **Contact de support** , d’un **Contact ingénierie** et d’un **Contact du programme du fournisseur de solutions Cloud**. Ces informations ne sont pas présentées aux clients, mais destinées à Microsoft qui peut les communiquer aux fournisseurs de solutions Cloud partenaires. Certains contacts peuvent nécessiter des informations supplémentaires.
 
 ### <a name="marketplace-media"></a>Médias de la Place de marché
 
@@ -293,7 +293,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Suivez les instructions de cette section uniquement si votre offre comprend une application managée qui doit émettre des événements de mesure à l’aide de l’API du service de mesure de la Place de marché. Entrez l’**ID de locataire Azure Active Directory** et l’**ID d’application Azure Active Directory** que votre service doit utiliser lors de l’émission d’événements de mesure.
+Suivez les instructions de cette section uniquement si votre offre comprend une application managée qui doit émettre des événements de mesure à l’aide de l’API du service de mesure de la Place de marché. Entrez l’ **ID de locataire Azure Active Directory** et l’ **ID d’application Azure Active Directory** que votre service doit utiliser lors de l’émission d’événements de mesure.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
@@ -304,8 +304,8 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 La configuration technique définit les détails (ID de locataire et ID d’application) utilisés pour identifier votre service qui émettra les événements de mesure pour une application managée à l’aide des [API du service de mesure de la Place de marché](./marketplace-metering-service-apis.md).  Entrez l’identité que votre service utilisera lors de l’émission d’événements de mesure.
 
-* **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), accédez à votre Azure Active Directory et sélectionnez **Propriétés**, puis cherchez le numéro de l’**ID de répertoire** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
-* **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID) de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, accédez à votre Azure Active Directory et sélectionnez **Inscriptions des applications**, puis cherchez le numéro d’**ID d’application** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
+* **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’ [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), accédez à votre Azure Active Directory et sélectionnez **Propriétés** , puis cherchez le numéro de l’ **ID de répertoire** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+* **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’ [ID) de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, accédez à votre Azure Active Directory et sélectionnez **Inscriptions des applications** , puis cherchez le numéro d’ **ID d’application** affiché (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
 
 >[!Note]
 >L’ID d’application Azure est associé à votre ID d’éditeur et ne peut être réutilisé que dans ce compte d’éditeur.
@@ -323,21 +323,21 @@ Une fois votre plan créé, vous verrez dans cet onglet diverses informations le
 
 Les **Actions** disponibles dans **Vue d’ensemble du plan** varient selon l’état actuel de votre plan et peuvent inclure :
 
-* Si le plan est dans l’état **Brouillon** : « Supprimer le brouillon ».
-* Si le plan est dans l’état **Publié** : « Arrêter la vente du plan » ou « Synchroniser le public privé ».
+* Si le plan est dans l’état **Brouillon**  : « Supprimer le brouillon ».
+* Si le plan est dans l’état **Publié**  : « Arrêter la vente du plan » ou « Synchroniser le public privé ».
 
 ### <a name="create-new-plan"></a>Créer un plan
 
-***ID du plan*** : créez un ID de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’URL du produit.  Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. 50 caractères maximum autorisés pour cet ID de plan. Cet ID n’est plus modifiable une fois que vous avez sélectionné Créer.
+**_ID du plan_*  : créez un ID de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’URL du produit.  Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. 50 caractères maximum autorisés pour cet ID de plan. Cet ID n’est plus modifiable une fois que vous avez sélectionné Créer.
 
-***Nom du plan*** : les clients verront ce nom au moment de choisir le plan à sélectionner dans votre offre. Créez un ID d’offre unique pour chaque plan dans cette offre. Le nom du plan sert à différencier les abonnements logiciels pouvant faire partie de la même offre (par exemple, nom de l’offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
+_*_Nom du plan_*_  : les clients verront ce nom au moment de choisir le plan à sélectionner dans votre offre. Créez un ID d’offre unique pour chaque plan dans cette offre. Le nom du plan sert à différencier les abonnements logiciels pouvant faire partie de la même offre (par exemple, nom de l’offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configuration du plan
 
 Cet onglet permet de définir la configuration générale du type de plan, si le plan réutilise des packages d’un autre plan et les clouds dans lesquels le plan sera disponible. Les choix effectués dans cet onglet déterminent les champs affichés dans les autres onglets du même plan.
 
 #### <a name="plan-type"></a>Type de plan
-Sélectionnez le type de plan de votre offre. Un plan **modèle de solution** est entièrement managé par le client. Un plan d’**application managée** permet aux éditeurs de manager l’application pour le compte du client. Pour plus d’informations, consultez [Types de plans d’application Azure](#types-of-azure-application-plans).
+Sélectionnez le type de plan de votre offre. Un plan _ *Modèle de solution* * est entièrement managé par le client. Un plan d’ **application managée** permet aux éditeurs de manager l’application pour le compte du client. Pour plus d’informations, consultez [Types de plans d’application Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Réutiliser la configuration technique
 
@@ -459,7 +459,7 @@ Cet onglet vous permet de charger le package de déploiement qui permettra aux c
 
 Cet onglet vous permet de modifier la version provisoire de votre configuration technique.
 
-**Version** : attribuez la version actuelle de la configuration technique.  Incrémentez cette version chaque fois que vous publiez une modification apportée à cette page. La version doit être au format `{integer}.{integer}.{integer}`.
+**Version**  : attribuez la version actuelle de la configuration technique.  Incrémentez cette version chaque fois que vous publiez une modification apportée à cette page. La version doit être au format `{integer}.{integer}.{integer}`.
 
 **Fichier de package** (.zip) : ce package regroupe tous les fichiers de modèle requis pour ce plan, ainsi toutes les ressources supplémentaires, dans un seul fichier `.zip`.
 
@@ -495,8 +495,8 @@ Sélectionnez cette option pour activer l’accès juste-à-temps (JIT) pour ce 
 
 Configurez le **mode de déploiement incrémentiel** ou **complet** pour ce plan : 
 
-* En **mode complet**, un redéploiement de l’application par le client entraîne la suppression des ressources dans le groupe de ressources managées si les ressources ne sont pas définies dans le fichier `mainTemplate.json`. 
-* En **mode incrémentiel**, le redéploiement de l’application laisse les ressources existantes inchangées.
+* En **mode complet** , un redéploiement de l’application par le client entraîne la suppression des ressources dans le groupe de ressources managées si les ressources ne sont pas définies dans le fichier `mainTemplate.json`. 
+* En **mode incrémentiel** , le redéploiement de l’application laisse les ressources existantes inchangées.
 
 Pour en savoir plus sur les modes de déploiement, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
 
@@ -508,17 +508,17 @@ Spécifiez un point de terminaison webhook HTTPS pour recevoir des notifications
 
 Sélectionnez cette option pour spécifier les actions que les clients peuvent effectuer sur les ressources managées en plus des actions « `*/read` » autorisées par défaut.
 
-Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](../../role-based-access-control/deny-assignments.md). Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
+Listez les actions supplémentaires que vous souhaitez autoriser pour votre client, en séparant les actions par des points-virgules.  Pour plus d’informations, consultez [Comprendre les affectations de refus relatives aux ressources Azure](../../role-based-access-control/deny-assignments.md). Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure](../../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure international / Cloud Azure Government
 
 Définissez qui doit avoir un accès administrateur à cette application managée dans chaque cloud pris en charge. Les utilisateurs, les groupes ou les applications auxquels vous souhaitez accorder l’autorisation d’accès au groupe de ressources managées sont définis à l’aide d’identités Azure Active Directory (AD).
 
-**ID de locataire Azure Active Directory** : ID du locataire Azure AD (également appelé ID d’annuaire) contenant les identités des utilisateurs, des groupes ou des applications auxquels vous souhaitez accorder des autorisations. Cet ID est indiqué dans les [propriétés d’Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) sur le portail Azure.
+**ID de locataire Azure Active Directory**  : ID du locataire Azure AD (également appelé ID d’annuaire) contenant les identités des utilisateurs, des groupes ou des applications auxquels vous souhaitez accorder des autorisations. Cet ID est indiqué dans les [propriétés d’Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) sur le portail Azure.
 
-**Autorisations** : ajoutez l’ID d’objet Azure Active Directory de l’utilisateur, du groupe ou de l’application que vous souhaitez autoriser à accéder au groupe de ressources managées. Identifiez l’utilisateur par son ID de principal, que vous trouverez dans le [panneau des utilisateurs Azure Active Directory sur le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
+**Autorisations**  : ajoutez l’ID d’objet Azure Active Directory de l’utilisateur, du groupe ou de l’application que vous souhaitez autoriser à accéder au groupe de ressources managées. Identifiez l’utilisateur par son ID de principal, que vous trouverez dans le [panneau des utilisateurs Azure Active Directory sur le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure](../../role-based-access-control/overview.md).
+Pour chaque principal, sélectionnez l’un des rôles intégrés Azure AD dans la liste (Propriétaire ou Contributeur). Le rôle sélectionné détermine les autorisations que le principal aura sur les ressources dans l’abonnement client. Pour plus d’informations, voir [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle (Azure RBAC), consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (Azure RBAC) ?](../../role-based-access-control/overview.md)
 
 >[!Note]
 >Vous avez la possibilité d'ajouter jusqu'à 100 autorisations par cloud. Toutefois, il est généralement plus simple de créer un groupe d'utilisateurs Active Directory et de spécifier son ID dans le champ « ID du principal ». Cela vous permet d’ajouter des utilisateurs au groupe d’administration après le déploiement du plan, et a pour effet de réduire le besoin de mise à jour du plan à l’ajout de quelques autorisations.
@@ -549,17 +549,17 @@ Pour activer une version d’évaluation, cochez la case **Activer une version d
 
 ### <a name="test-drive-technical-configuration"></a>Configuration technique de la version d’évaluation
 
-- **ID de l’application Azure AD** (obligatoire) : Entrez l’[ID de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory. Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de l’application Azure AD** (obligatoire) : Entrez l’ [ID de votre application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Azure Active Directory. Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications** , puis cherchez le numéro d’ **ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Détails de l’abonnement de déploiement
 
 Pour autoriser le déploiement de la version d’évaluation pour votre compte, créez et fournissez un abonnement Azure unique distinct (non requis pour les versions d’évaluation de Power BI).
 
 * **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et Logic Apps) : entrez l’ID d’abonnement pour accorder l’accès aux services de votre compte Azure pour les rapports d’utilisation des ressources et la facturation. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](../../billing/billing-create-subscription.md) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
-* **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés**, puis cherchez le numéro d’**ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+* **ID de locataire Azure AD** (obligatoire) – Entrez votre [ID de locataire](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour obtenir cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Propriétés** , puis cherchez le numéro d’ **ID d’annuaire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nom de locataire Azure AD** (obligatoire pour Dynamic 365) : entrez votre nom Azure Active Directory (AD). Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
-* **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications**, puis cherchez le numéro d’**ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory**, choisissez **Inscriptions d’applications**, puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
+* **ID d’application Azure AD** (obligatoire) : entrez votre [ID d’application](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) Azure Active Directory (AD). Pour trouver cet ID, connectez-vous au [portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, choisissez **Inscriptions d’applications** , puis cherchez le numéro d’ **ID d’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+* **Clé secrète client de l’application Azure Active Directory** (obligatoire) : entrez la [clé secrète client](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)) de votre application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation de gauche, sélectionnez l’onglet **Azure Active Directory** , choisissez **Inscriptions d’applications** , puis sélectionnez votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes** , **Nouvelle clé secrète client** , entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur avant de quitter cette page.
 
 Sélectionnez **Enregistrer le brouillon** avant de continuer.
 

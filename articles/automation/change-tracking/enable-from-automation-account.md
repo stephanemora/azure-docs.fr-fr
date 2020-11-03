@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c3630105e70ac28e7e9041aa9d5400f724401a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209042"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677296"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Activer Change Tracking et Inventory à partir d’un compte Automation
 
@@ -31,7 +31,7 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
-1. Accédez à votre compte Automation et sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration** .
+1. Accédez à votre compte Automation et sélectionnez **Inventorier** ou **Suivi des modifications** sous **Gestion de la configuration**.
 
 2. Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la fonctionnalité Suivi des modifications et inventaire. La configuration prend jusqu’à 15 minutes.
 
@@ -39,7 +39,7 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 ## <a name="enable-azure-vms"></a>Activer les machines virtuelles Azure
 
-1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration** .
+1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration**.
 
 2. Cliquez sur **+ Ajouter des machines virtuelles Azure** et sélectionnez une ou plusieurs machines virtuelles dans la liste. Les machines virtuelles qui ne peuvent pas être activées sont grisées et ne peuvent pas être sélectionnées. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. 
 
@@ -49,25 +49,25 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 ## <a name="enable-non-azure-vms"></a>Activer les machines virtuelles non-Azure
 
-Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement.
+Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en connectant d’abord votre machine à des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), puis en utilisant Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics sur des machines Azure Arc *Linux* ou *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si vous envisagez également de surveiller les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
-1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration** .
+1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration**.
 
-2. Cliquez sur **Ajouter une machine virtuelle non-Azure** . Une nouvelle fenêtre de navigateur s’ouvre et présente des [instructions d’installation et de configuration de l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md) afin de permettre à la machine de commencer à rapporter les opérations de la fonctionnalité Suivi des modifications et inventaire. Si vous activez une machine actuellement gérée par Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire et les informations de l’espace de travail sont entrées dans l’agent existant.
+2. Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre et présente des [instructions d’installation et de configuration de l’agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md) afin de permettre à la machine de commencer à rapporter les opérations de la fonctionnalité Suivi des modifications et inventaire. Si vous activez une machine actuellement gérée par Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire et les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="enable-machines-in-the-workspace"></a>Activer des machines dans l’espace de travail
 
 Les machines installées manuellement ou les machines déjà connectées à votre espace de travail doivent être ajoutées à Azure Automation pour que la solution Suivi des modifications et inventaire soit activée.
 
-1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration** .
+1. Dans votre compte Automation, sélectionnez **Inventaire** ou **Suivi des modifications** sous **Gestion de la configuration**.
 
-2. Sélectionnez **Gérer des machines** . L’option **Gérer les machines** peut être grisée si vous avez précédemment choisi l’option **Activer sur toutes les machines disponibles et futures**
+2. Sélectionnez **Gérer des machines**. L’option **Gérer les machines** peut être grisée si vous avez précédemment choisi l’option **Activer sur toutes les machines disponibles et futures**
 
     ![Recherches enregistrées](media/enable-from-automation-account/manage-machines.png)
 
-3. Pour activer le Suivi des modifications et inventaire sur toutes les machines disponibles, sélectionnez **Activer sur toutes les machines disponibles** sur la page **Gérer les machines** . Cette action désactive le contrôle pour ajouter des machines individuellement et ajoute toutes les machines qui sont en rapport avec l’espace de travail à la requête de recherche enregistrée de groupe d’ordinateurs. Quand elle est sélectionnée, cette action désactive l’option **Gérer des machines** .
+3. Pour activer le Suivi des modifications et inventaire sur toutes les machines disponibles, sélectionnez **Activer sur toutes les machines disponibles** sur la page **Gérer les machines** . Cette action désactive le contrôle pour ajouter des machines individuellement et ajoute toutes les machines qui sont en rapport avec l’espace de travail à la requête de recherche enregistrée de groupe d’ordinateurs. Quand elle est sélectionnée, cette action désactive l’option **Gérer des machines**.
 
-4. Pour activer la fonctionnalité sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures** . Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail et ouvre la fonctionnalité pour toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car il n’existe plus aucune configuration d’étendue.
+4. Pour activer la fonctionnalité sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail et ouvre la fonctionnalité pour toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car il n’existe plus aucune configuration d’étendue.
 
     > [!NOTE]
     > Comme cette option supprime la recherche enregistrée et la configuration d’étendue dans Log Analytics, il est important de supprimer tous les verrous de suppression sur l’espace de travail Log Analytics avant de sélectionner cette option. Si vous ne le faites pas, l’option ne parviendra pas à supprimer les configurations et vous devrez les supprimer manuellement.
@@ -78,6 +78,6 @@ Les machines installées manuellement ou les machines déjà connectées à votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer le Suivi des modifications](manage-change-tracking.md) et [Gérer l’inventaire](manage-inventory-vms.md).
+* Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer le suivi des modifications](manage-change-tracking.md) et [Gérer l’inventaire](manage-inventory-vms.md).
 
 * Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec la fonctionnalité Suivi des modifications et inventaire](../troubleshoot/change-tracking.md).

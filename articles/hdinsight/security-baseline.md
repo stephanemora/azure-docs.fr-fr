@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ff156ab401bc940a0f8d2f8e28c77c2b30b2bea3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327703"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539341"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Base de référence de sécurité Azure pour HDInsight
 
 La ligne de base de sécurité Azure pour HDInsight contient des recommandations qui permettent d’améliorer l’état de sécurité de votre déploiement.
 
-La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
+La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](../security/benchmarks/overview.md), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
-Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : sécurité réseau](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1 : Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
@@ -146,9 +146,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 Affichage des alias Azure Policy disponibles :
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Configurer et gérer Azure Policy :
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Guide pratique pour configurer et gérer Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -200,7 +198,7 @@ Comment créer des alertes dans Azure Monitor : https://docs.microsoft.com/azur
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
@@ -336,7 +334,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -346,11 +344,11 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 Comment obtenir un rôle d’annuaire dans Azure AD avec PowerShell :
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Comment obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell :
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Comment superviser les identités et les accès avec Azure Security Center :
 
@@ -518,7 +516,7 @@ Comment configurer et activer des stratégies de protection des identités :
 
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-**Supervision Azure Security Center**  : actuellement non disponible
+**Supervision d’Azure Security Center**  : actuellement non disponible
 
 **Responsabilité**  : Customer
 
@@ -536,7 +534,7 @@ Liste des services pris en charge pour Customer Lockbox : https://docs.microsof
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
@@ -546,7 +544,7 @@ Comment créer et utiliser des étiquettes :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center**  : actuellement non disponible
+**Supervision d’Azure Security Center**  : actuellement non disponible
 
 **Responsabilité**  : Customer
 
@@ -694,7 +692,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des vulnérabilités](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1 : Exécuter les outils d’analyse des vulnérabilités automatisés
 
@@ -766,7 +764,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Gestion des stocks et des ressources](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1 : Utiliser la découverte de ressources Azure
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Afficher vos abonnements Azure :
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Comprendre Azure RBAC :
 
@@ -901,7 +899,7 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 **Instructions**  : Pour les nœuds de cluster Azure HDInsight, implémentez une solution tierce qui empêche l’exécution de types de fichiers non autorisés.
 
 
-**Supervision Azure Security Center**  : actuellement non disponible
+**Supervision d’Azure Security Center**  : actuellement non disponible
 
 **Responsabilité**  : Customer
 
@@ -934,7 +932,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
@@ -942,7 +940,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 Affichage des alias Azure Policy disponibles :
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Configurer et gérer Azure Policy :
 
@@ -990,15 +988,11 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Aide**  : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-Comment stocker du code dans Azure DevOps :
+[Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+[Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
-Documentation Azure Repos
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
-
-**Supervision Azure Security Center**  : actuellement non disponible
+**Supervision d’Azure Security Center**  : actuellement non disponible
 
 **Responsabilité**  : Customer
 
@@ -1034,15 +1028,11 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Instructions**  : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.HDInsight » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration de votre cluster HDInsight.
 
-Affichage des alias Azure Policy disponibles :
+[Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+[Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Configurer et gérer Azure Policy :
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Supervision Azure Security Center**  : actuellement non disponible
+**Supervision d’Azure Security Center**  : actuellement non disponible
 
 **Responsabilité**  : Customer
 
@@ -1100,7 +1090,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : Défense contre les programmes malveillants](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1 : Utiliser un logiciel anti-programme malveillant géré de manière centralisée
 
@@ -1142,7 +1132,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## <a name="data-recovery"></a>Récupération des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : récupération de données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : récupération de données](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : garantir des sauvegardes automatisées régulières
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Comment sauvegarder des clés Key Vault dans Azure :
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Supervision Azure Security Center**  : actuellement non disponible
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Comment restaurer des clés de coffre de clés dans Azure :
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Supervision Azure Security Center**  : actuellement non disponible
 
@@ -1210,7 +1200,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -1228,13 +1218,13 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Conseils**  : Security Center affecte un degré de gravité aux alertes pour vous aider à hiérarchiser l’ordre dans lequel vous remédiez à chaque alerte. Ainsi, quand une ressource est compromise, vous pouvez vous en occuper immédiatement. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
-**Supervision Azure Security Center**  : Oui
+**Supervision d’Azure Security Center**  : Oui
 
 **Responsabilité**  : Customer
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
-**Conseils**  : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins. Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques) : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Aide**  : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins. Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques) : https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Supervision Azure Security Center**  : Non applicable
 
@@ -1282,7 +1272,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1 : Procédez régulièrement à des tests d’intrusion de vos ressources Azure et veillez à résoudre tous les problèmes de sécurité critiques détectés dans un délai de 60 jours
 
@@ -1292,11 +1282,11 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 Vous trouverez plus d’informations sur la stratégie de Microsoft et l’exécution de Red Teaming et des tests de pénétration de site actif sur l’infrastructure, les services et les applications cloud managés par Microsoft ici : https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
-**Supervision Azure Security Center**  : Non applicable
+**Supervision d’Azure Security Center**  : Non applicable
 
 **Responsabilité**  : Partagé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consultez le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
+- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

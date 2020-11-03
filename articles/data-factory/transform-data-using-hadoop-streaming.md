@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 5acfef94a98f105a7cc09c5b72b65e8c228ed87d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85dd75b2af5d14d835db8aacc415069a2d67298e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83844607"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631833"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -78,7 +78,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | mappeur            | Spécifie le nom de l’exécutable du mappeur. | Oui      |
 | raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | Oui      |
 | combinateur          | Spécifie le nom de l’exécutable du combinateur. | Non       |
-| fileLinkedService | Référence à un service lié de stockage Azure utilisée pour stocker les programmes du mappeur, du combinateur et du raccord de réduction à exécuter. Seuls les services liés **[Stockage Blob Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** et **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** sont pris en charge ici. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
+| fileLinkedService | Référence à un service lié de stockage Azure utilisée pour stocker les programmes du mappeur, du combinateur et du raccord de réduction à exécuter. Seuls les services liés **[Stockage Blob Azure](./connector-azure-blob-storage.md)** et **[ADLS Gen2](./connector-azure-data-lake-storage.md)** sont pris en charge ici. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
 | filePath          | Fournissez un tableau du chemin vers les programmes du mappeur, du combinateur et du raccord de réduction stockés dans le stockage Azure référencé par fileLinkedService. Le chemin d'accès respecte la casse. | Oui      |
 | entrée             | Spécifie le chemin WASB vers le fichier d’entrée du mappeur. | Oui      |
 | sortie            | Spécifie le chemin WASB vers le fichier de sortie du raccord de réduction. | Oui      |
@@ -95,5 +95,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité d’exécution du lot Machine Learning](transform-data-using-machine-learning.md)
+* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

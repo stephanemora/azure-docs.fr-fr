@@ -1,6 +1,6 @@
 ---
 title: Architecture Azure Synapse Analytics (anciennement SQL DW)
-description: Découvrez comment Azure Synapse Analytics (anciennement SQL DW) combine un traitement hautement parallèle (MPP, Massively Parallel Processing) avec Stockage Azure pour obtenir des performances et une extensibilité élevées.
+description: Découvrez comment Azure Synapse Analytics (anciennement SQL DW) combine des capacités de traitement de requêtes distribuées avec Stockage Azure pour atteindre des performances et une scalabilité élevées.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210964"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479338"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architecture Azure Synapse Analytics (anciennement SQL DW)
 
@@ -33,13 +33,13 @@ Azure Synapse est un service d’analytique illimité qui regroupe l’entreposa
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Composants de l’architecture MPP SQL Synapse
+## <a name="synapse-sql-architecture-components"></a>Composants de l’architecture SQL Synapse
 
 [SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) tire parti d’une architecture scale-out pour répartir le traitement informatique des données sur plusieurs nœuds. L’unité d’échelle est une abstraction de la puissance de calcul connue sous le nom de [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Le calcul est séparé du stockage, ce qui permet d’adapter l’échelle du calcul indépendamment des données présentes dans le système.
 
 ![Architecture de SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Synapse utilise une architecture basée sur des nœuds. Les applications se connectent et envoient des commandes T-SQL à un nœud de contrôle qui est le seul point d’entrée pour SQL Synapse. Le nœud de contrôle exécute le moteur MPP qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations à des nœuds de calcul qui accomplissent leur travail en parallèle.
+SQL Synapse utilise une architecture basée sur des nœuds. Les applications se connectent et envoient des commandes T-SQL à un nœud de contrôle qui est le seul point d’entrée pour SQL Synapse. Le nœud de contrôle héberge le moteur de requêtes distribuées, qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations aux nœuds de calcul qui accomplissent leur travail en parallèle.
 
 Les nœuds de calcul stockent toutes les données utilisateur dans un stockage Azure et exécutent les requêtes parallèles. Le service de déplacement de données (DMS) est un service interne de niveau système, qui déplace les données entre les nœuds en fonction des besoins pour exécuter des requêtes en parallèle et retourner des résultats précis.
 
@@ -60,13 +60,13 @@ SQL Synapse met à profit Stockage Azure pour sécuriser vos données utilisateu
 
 ### <a name="control-node"></a>Nœud de contrôle
 
-Le nœud de contrôle est le cerveau de l’architecture. Il s’agit du nœud frontal qui interagit avec toutes les applications et les connexions. Le moteur MPP s’exécute sur le nœud de contrôle pour optimiser et coordonner les requêtes parallèles. Quand vous envoyez une requête T-SQL, le nœud de contrôle la transforme en plusieurs requêtes distinctes qui s’exécutent sur chaque distribution en parallèle.
+Le nœud de contrôle est le cerveau de l’architecture. Il s’agit du nœud frontal qui interagit avec toutes les applications et les connexions. Le moteur de requêtes distribuées s'exécute sur le nœud de contrôle pour optimiser et coordonner les requêtes parallèles. Quand vous envoyez une requête T-SQL, le nœud de contrôle la transforme en plusieurs requêtes distinctes qui s’exécutent sur chaque distribution en parallèle.
 
 ### <a name="compute-nodes"></a>Nœuds de calcul
 
 Les nœuds de calcul fournissent la puissance de calcul. Les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, les distributions sont remappées aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service pour SQL Synapse.
 
-Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, voir [Vues système MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, consultez [Vues système Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Service de déplacement de données
 

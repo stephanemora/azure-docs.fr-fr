@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277796"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489232"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
 Dans Azure Cosmos DB, chaque conteneur est doté d’une stratégie d’indexation qui détermine la façon dont les éléments du conteneur doivent être indexés. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés indexe chaque propriété de chaque élément et applique des index de plage pour les chaînes ou les nombres. Ceci vous permet d’obtenir des performances de requête élevées sans avoir à réfléchir à l’indexation et à la gestion des index dès le départ.
 
-Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété* .
+Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement automatique pour mieux répondre à vos besoins. Vous pouvez personnaliser la stratégie d’indexation d’un conteneur en définissant son *mode d’indexation* et inclure ou exclure des *chemins de la propriété*.
 
 > [!NOTE]
 > La méthode de mise à jour des stratégies d’indexation décrite dans cet article s’applique uniquement à l’API SQL (principale) de la base de données SQL Azure Cosmos. Découvrez l’indexation dans[API Azure Cosmos DB pour MongoDB](mongodb-indexing.md).
@@ -30,11 +30,11 @@ Azure Cosmos DB prend en charge deux modes d’indexation :
 - **Aucun**  : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
 
 > [!NOTE]
-> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets** . Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md) qui ne prend pas en charge l’indexation différée).
+> Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. En juin 2020, nous avons introduit une modification qui n’autorise plus la définition de nouveaux conteneurs en mode d’indexation différée. Si votre compte Azure Cosmos DB contient déjà au moins un conteneur avec l’indexation différée, ce compte est automatiquement exempté de la modification. Vous pouvez également demander une exemption en contactant le [Support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md) qui ne prend pas en charge l’indexation différée).
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusion et exclusion de chemins de propriété
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusion et exclusion de chemins de propriété
 
 Une stratégie d’indexation personnalisée peut spécifier des chemins de propriétés qui sont explicitement inclus dans l’indexation ou en sont exclus. En optimisant le nombre de chemins d’accès qui sont indexés, vous pouvez réduire considérablement la latence et les frais de chargement des opérations d’écriture. Ces chemins sont définis à l’aide de [la méthode décrite dans la section de vue d’ensemble de l’indexation](index-overview.md#from-trees-to-property-paths) avec les ajouts suivants :
 

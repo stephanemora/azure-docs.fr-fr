@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604170"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669936"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
 Les organisations de grande taille qui se préoccupent de la sécurité souhaitent adopter des services cloud, comme Microsoft 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications software as a service (ou SaaS) sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme [outlook.office.com](https://outlook.office.com/) et [login.microsoftonline.com](https://login.microsoftonline.com/). Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
 
-La solution Azure Active Directory (Azure AD) consiste en une fonctionnalité appelée Restrictions liées au locataire. Grâce aux restrictions liées au locataire, les organisations peuvent contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Microsoft 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
+La solution Azure Active Directory (Azure AD) consiste en une fonctionnalité appelée Restrictions liées au locataire. Grâce aux restrictions liées au locataire, les organisations peuvent contrôler l’accès aux applications cloud SaaS, en fonction du client Azure AD utilisé par les applications pour l’authentification unique. Par exemple, vous souhaitez peut-être autoriser l’accès aux applications Microsoft 365 de votre organisation, tout en empêchant l’accès aux instances d’autres organisations de ces mêmes applications.  
 
 Grâce aux restrictions liées au locataire, les organisations peuvent spécifier la liste des locataires auxquels leurs utilisateurs sont autorisés à accéder. Dans ce cas, Azure AD accorde uniquement l’accès à ces clients autorisés.
 
@@ -33,7 +33,7 @@ Cet article est axé sur les restrictions liées au locataire pour Microsoft 36
 
 La solution comprend les composants suivants :
 
-1. **Azure AD** : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
+1. **Azure AD**  : si le paramètre `Restrict-Access-To-Tenants: <permitted tenant list>` est présent, Azure AD émet uniquement des jetons de sécurité pour les clients autorisés.
 
 2. **Infrastructure de serveur proxy locale** : cette infrastructure est un appareil proxy capable d’inspection TLS (Transport Layer Security). Vous devez configurer le serveur proxy pour insérer l’en-tête contenant la liste des locataires autorisés dans le trafic destiné à Azure AD.
 
@@ -51,7 +51,7 @@ Deux étapes sont nécessaires pour bien démarrer avec les restrictions liées 
 
 ### <a name="urls-and-ip-addresses"></a>URL et adresses IP
 
-Pour utiliser les restrictions liées au locataire, vos locataires doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) et [login.windows.net](https://login.windows.net/). En outre, pour accéder à Office 365, vos locataires doivent également être en mesure de se connecter aux noms de domaine complets (FQDN)/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Pour utiliser les restrictions liées au locataire, vos locataires doivent être en mesure de se connecter aux URL AD Azure suivantes pour s’authentifier : [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) et [login.windows.net](https://login.windows.net/). En outre, pour accéder à Office 365, vos locataires doivent également être en mesure de se connecter aux noms de domaine complets (FQDN)/URL et adresses IP définis dans [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### <a name="proxy-configuration-and-requirements"></a>Configuration du proxy et conditions requises
 
@@ -76,12 +76,14 @@ Pour chaque demande entrante sur login.microsoftonline.com, login.microsoft.com 
 
 Les éléments suivants doivent être inclus dans les en-têtes :
 
-- Pour *Restrict-Access-To-Tenants*, utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un client peut être utilisé pour identifier le client dans cette liste. Par exemple, pour autoriser l’accès aux clients Contoso et Fabrikam, la paire nom/valeur ressemble à :  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Pour *Restrict-Access-To-Tenants* , utilisez une valeur de \<permitted tenant list\> (liste de locataires autorisés), qui est une liste séparée par des virgules des locataires auxquels vous souhaitez que les utilisateurs puissent accéder. N’importe quel domaine qui est inscrit auprès d’un locataire peut être utilisé pour identifier le locataire dans cette liste, ainsi que l’ID de répertoire proprement dit. Pour obtenir un exemple des trois façons de décrire un locataire, la paire nom/valeur pour autoriser Contoso, Fabrikam et Microsoft ressemble à ceci : `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Pour *Restrict-Access-Context*, utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à :  `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- Pour *Restrict-Access-Context* , utilisez une valeur d’ID de répertoire unique, déclarant quel locataire définit les restrictions liées au locataire. Par exemple, pour déclarer Contoso en tant que locataire qui définit la stratégie de restrictions liées au locataire, la paire nom/valeur ressemble à ceci : `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  Vous **devez** utiliser votre propre ID de répertoire à cet endroit.
 
 > [!TIP]
-> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory**, puis sélectionnez **Propriétés**.
+> Vous trouverez votre ID de répertoire dans le [portail Azure Active Directory](https://aad.portal.azure.com/). Connectez-vous en tant qu’administrateur, sélectionnez **Azure Active Directory** , puis sélectionnez **Propriétés**. 
+>
+> Pour vérifier qu’un ID de répertoire ou un nom de domaine fait référence au même locataire, utilisez cet ID ou ce domaine à la place de <tenant> dans cette URL : `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  Si les résultats avec le domaine et l’ID sont identiques, ils font référence au même locataire. 
 
 Pour empêcher les utilisateurs d’insérer leur propre en-tête HTTP avec des locataires non approuvés, le proxy doit remplacer l’en-tête *Restrict-Access-To-Tenants* si celui-ci est déjà présent dans la requête entrante.
 
@@ -111,9 +113,9 @@ Bien que la configuration des restrictions liées au locataire est effectuée su
 L’administrateur du locataire spécifié en tant que locataire Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie de restrictions liées au locataire, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
 
 > [!NOTE]
-> Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, telles que le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires.
+> Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, telles que le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires (« 00000000-0000-0000-0000-00000000@domain.com ») 
 
-Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
+Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes** , vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 
 - **Utilisateur**
 - **Application**

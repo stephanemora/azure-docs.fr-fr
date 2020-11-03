@@ -2,13 +2,13 @@
 title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 10/22/2020
+ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372168"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676193"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -18,21 +18,19 @@ Les commandes de déploiement ont changé dans la version 2.2.0 d’Azure CLI. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Si Azure CLI n’est pas installé, vous pouvez utiliser le [Cloud Shell](#deploy-template-from-cloud-shell).
+Si Azure CLI n’est pas installé, vous pouvez utiliser le Cloud Shell. Pour plus d’informations, consultez [Déployer des modèles Azure Resource Manager à partir de Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Étendue du déploiement
 
-Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire. Dans la plupart des cas, un déploiement cible un groupe de ressources. Pour appliquer des stratégies et des attributions de rôles dans une plus grande étendue, effectuez des déploiements au niveau du groupe d’administration ou de l’abonnement. Lorsque vous effectuez un déploiement au niveau de l’abonnement, vous pouvez créer un groupe de ressources et y déployer des ressources.
+Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
-
-* Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) :
+* Pour un déploiement dans un **groupe de ressources** , utilisez [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) :
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Pour un déploiement dans un **abonnement**, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) :
+* Pour un déploiement dans un **abonnement** , utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) :
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +38,7 @@ Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement
 
   Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
-* Pour un déploiement dans un **groupe de d’administration**, utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
+* Pour un déploiement dans un **groupe de d’administration** , utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +46,7 @@ Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
 
-* Pour un déploiement dans un **locataire**, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
+* Pour un déploiement dans un **locataire** , utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -56,26 +54,25 @@ Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement
 
   Pour plus d’informations sur les déploiements au niveau du locataire, consultez [Créer des ressources au niveau du locataire](deploy-to-tenant.md).
 
-Les exemples de cet article illustrent des déploiements dans des groupes de ressources.
+Pour chaque étendue, l’utilisateur qui déploie le modèle doit disposer des autorisations nécessaires pour créer des ressources.
 
 ## <a name="deploy-local-template"></a>Déployer un modèle local
 
-Au moment de déployer des ressources dans Azure, vous effectuez les opérations suivantes :
+Vous pouvez déployer un modèle à partir de votre ordinateur local ou d’un modèle stocké en externe. Cette section décrit le déploiement d’un modèle local.
 
-1. Connexion à votre compte Azure
-2. Créez un groupe de ressources qui sert de conteneur pour les ressources déployées. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Il ne peut pas se terminer par un point.
-3. Déployez dans le groupe de ressources le modèle qui définit les ressources à créer.
-
-Un modèle peut inclure des paramètres qui permettent de personnaliser le déploiement. Par exemple, vous pouvez indiquer des valeurs qui sont adaptées à un environnement particulier (par exemple, de développement, de test ou de production). L’exemple de modèle définit un paramètre pour la référence (SKU) de compte de stockage.
-
-L’exemple suivant crée un groupe de ressources et déploie un modèle à partir de votre ordinateur local :
+Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pas, vous devez commencer par créer ce dernier. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Le nom ne peut pas se terminer par un point.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+Pour déployer un modèle local, utilisez le paramètre `--template-file` dans la commande de déploiement. L’exemple suivant montre également comment définir une valeur de paramètre provenant du modèle.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -85,9 +82,31 @@ Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message 
 "provisioningState": "Succeeded",
 ```
 
+## <a name="deploy-remote-template"></a>Déployer un modèle distant
+
+Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
+
+Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pas, vous devez commencer par créer ce dernier. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Le nom ne peut pas se terminer par un point.
+
+```azurecli-interactive
+az group create --name ExampleGroup --location "Central US"
+```
+
+Pour déployer un modèle externe, utilisez le paramètre `template-uri`.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous souhaitez gérer l’accès au modèle, envisagez d’utiliser des [spécifications de modèle](#deploy-template-spec).
+
 ## <a name="deployment-name"></a>Nom du déploiement
 
-Dans l’exemple précédent, vous avez nommé le déploiement `ExampleDeployment`. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé `azuredeploy.json` et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
+Lors du déploiement d’un modèle ARM, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé `azuredeploy.json` et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
 
 Chaque fois que vous exécutez un déploiement, une entrée est ajoutée à l’historique de déploiement du groupe de ressources avec le nom du déploiement. Si vous exécutez un autre déploiement et que vous lui attribuez le même nom, l’entrée précédente est remplacée par le déploiement actuel. Si vous souhaitez conserver des entrées uniques dans l’historique de déploiement, attribuez un nom unique à chaque déploiement.
 
@@ -111,30 +130,13 @@ Quand vous spécifiez un nom unique pour chaque déploiement, vous pouvez les ex
 
 Pour éviter les conflits lors de déploiements simultanés et faire en sorte que l’historique de déploiement présente des entrées uniques, attribuez un nom unique à chaque déploiement.
 
-## <a name="deploy-remote-template"></a>Déployer un modèle distant
-
-Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
-
-Pour déployer un modèle externe, utilisez le paramètre **template-uri**. Pour déployer l’exemple de modèle à partir de GitHub, utilisez l’URI figurant dans l’exemple.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](secure-template-with-sas-token.md).
-
 ## <a name="deploy-template-spec"></a>Déployer une spec de modèle
 
 Au lieu de déployer un modèle local ou distant, vous pouvez créer une [spécification de modèle](template-specs.md). La spécification de modèle est une ressource de votre abonnement Azure qui contient un modèle ARM. Elle facilite le partage sécurisé du modèle avec les utilisateurs de votre organisation. Vous utilisez le contrôle d’accès Azure en fonction du rôle (Azure RBAC) pour accorder l’accès à la spécification de modèle. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 Les exemples suivants montrent comment créer et déployer une spécification de modèle. Ces commandes sont disponibles seulement si vous vous êtes [inscrit pour la préversion](https://aka.ms/templateSpecOnboarding).
 
-Tout d’abord, vous créez la spécification de modèle en fournissant le modèle ARM.
+Tout d’abord, créez la spécification de modèle en fournissant le modèle ARM.
 
 ```azurecli
 az ts create \
@@ -145,7 +147,7 @@ az ts create \
   --template-file "./mainTemplate.json"
 ```
 
-Ensuite, vous recevez l’ID de la spécification de modèle et vous le déployez.
+Ensuite, recevez l’ID de la spécification de modèle et déployez-le.
 
 ```azurecli
 id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
@@ -160,17 +162,6 @@ Pour plus d’informations, consultez [Spécification de modèle Azure Resource
 ## <a name="preview-changes"></a>Prévisualiser les modifications
 
 Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](template-deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Dans Azure Cloud Shell, utilisez les commandes suivantes :
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## <a name="parameters"></a>Paramètres
 
@@ -275,4 +266,3 @@ Pour déployer un modèle avec des commentaires ou à plusieurs chaînes de lign
 - Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
 - Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
 - Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).
-- Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](secure-template-with-sas-token.md).

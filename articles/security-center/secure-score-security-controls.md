@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339932"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425373"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Présentation du degré de sécurisation
 
-Azure Security Center a deux objectifs principaux : vous permettre de connaître votre niveau de sécurité actuel et vous aider à l’améliorer efficacement. Dans Security Center, l’élément central qui vous permet d’atteindre ces objectifs est le degré de sécurisation.
+Les deux principaux objectifs d'Azure Security Center sont les suivants : 
+
+- Vous aider à comprendre votre situation actuelle en matière de sécurité
+- Vous aider à améliorer efficacement votre sécurité
+
+Pour vous permettre d'atteindre ces objectifs, Security Center met à votre disposition une fonctionnalité appelée **niveau de sécurité**.
 
 Security Center évalue continuellement vos ressources, vos abonnements et votre organisation en recherchant d’éventuels problèmes de sécurité. Il agrège ensuite toutes ses découvertes sous la forme d’un score qui vous permet de déterminer d’un coup d’œil votre niveau de sécurité actuel : plus le score est élevé, plus le niveau de risque identifié est faible.
 
-La page dédié au degré de sécurisations de Security Center comprend les éléments suivants :
+Sur les pages du portail Azure, le niveau de sécurité est indiqué sous forme de pourcentage, mais les valeurs sous-jacentes sont également clairement présentées :
 
-- **Le degré de sécurisation**  : il est affiché sous la forme de pourcentage, mais les valeurs sous-jacentes sont également claires :
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Score de sécurité global comme indiqué dans le portail":::
 
-    [![Degré de sécurisation affiché sous la forme d’un pourcentage avec des valeurs sous-jacentes également claires](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+Pour renforcer votre sécurité, consultez la page des recommandations de Security Center. Chaque recommandation comprend des instructions pour vous aider à résoudre un problème spécifique.
 
-- **Contrôles de sécurité**  : chaque contrôle est un groupe logique de recommandations de sécurité associées et reflète vos surfaces d’attaque vulnérables. Un contrôle est un ensemble de recommandations de sécurité, avec des instructions qui vous permettent de les implémenter. Votre degré de sécurisation n’augmente que si vous avez suivi *toutes* les recommandations fournies pour une même ressource au sein d’un contrôle.
+Les recommandations sont regroupées en **contrôles de sécurité**. Chaque contrôle est un groupe logique de recommandations de sécurité associées, et reflète les surfaces d'attaque vulnérables. Votre degré de sécurisation n’augmente que si vous avez suivi *toutes* les recommandations fournies pour une même ressource au sein d’un contrôle. Pour connaître le degré de sécurisation de chacune des surfaces d'attaque de votre organisation, examinez le niveau de sécurité de chaque contrôle de sécurité.
 
-    Pour voir immédiatement dans quelle mesure votre organisation sécurise chacune des surfaces d’attaque, examinez le degré de chaque contrôle de sécurité.
-
-    Pour plus d’informations, consultez [Mode de calcul de votre degré de sécurisation](secure-score-security-controls.md#how-your-secure-score-is-calculated), ci-dessous. 
-
-
->[!TIP]
-> Les versions antérieures de Security Center attribuaient des points au niveau des recommandations : quand vous appliquiez une recommandation pour une seule ressource, votre degré de sécurisation était amélioré. Aujourd’hui, votre degré de sécurisation augmente seulement si vous avez suivi *toutes* les recommandations fournies pour une même ressource au sein d’un contrôle. Par conséquent, votre degré de sécurisation n’augmente que quand vous avez amélioré la sécurité d’une ressource.
+Pour plus d’informations, consultez [Mode de calcul de votre degré de sécurisation](secure-score-security-controls.md#how-your-secure-score-is-calculated), ci-dessous. 
 
 
 ## <a name="access-your-secure-score"></a>Accédez à votre score de sécurité
 
-Vous pouvez trouver votre score de sécurité global, ainsi que votre score par abonnement, via le portail Azure ou par programmation avec l’API REST Azure Security Center.
+Vous pouvez connaître votre niveau de sécurité global, ainsi que votre niveau de sécurité par abonnement, via le portail Azure ou par programmation comme décrit dans les sections suivantes :
+
+- [Obtenir votre score de sécurité à partir du portail](#get-your-secure-score-from-the-portal)
+- [Obtenir votre score de sécurité à partir de l’API REST](#get-your-secure-score-from-the-rest-api)
+- [Obtenir le niveau de sécurité à partir d'Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtenir votre score de sécurité à partir du portail
 
-Security Center affiche le degré de sécurisation de manière bien visible dans le portail, puisque c’est la première chose que l’on voit quand on ouvre la page Vue d’ensemble. Si vous cliquez sur la page dédiée au degré de sécurisation, vous verrez le degré de sécurisation global décomposé par abonnement. Cliquez sur un abonnement pour voir la liste détaillée des recommandations classées par ordre de priorité ainsi que l’impact que peut avoir leur prise en compte sur le degré de sécurisation de l’abonnement.
+Security Center indique le niveau de sécurité de manière bien visible sur le portail puisqu'il s'agit de la première vignette que l'on voit sur la page de présentation. En sélectionnant cette vignette, vous accédez à la page consacrée au niveau de sécurité, où celui-ci est présenté par abonnement. Sélectionnez un abonnement pour voir la liste détaillée des recommandations classées par ordre de priorité ainsi que l'impact que peut avoir leur prise en compte sur le niveau de sécurité de l'abonnement.
 
-![Score de sécurité global comme indiqué dans le portail](media/secure-score-security-controls/single-secure-score-via-ui.png)
+Pour récapituler, votre niveau de sécurité apparaît aux emplacements suivants sur les pages du portail de Security Center.
+
+- Sur une vignette de la **page de présentation** de Security Center (tableau de bord principal) :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Niveau de sécurité sur le tableau de bord de Security Center":::
+
+- Sur la page **Niveau de sécurité**  :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Niveau de sécurité sur la page Niveau de sécurité de Security Center":::
+
+- En haut de la page **Recommandations**  :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Niveau de sécurité sur la page Recommandations de Security Center":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenir votre score de sécurité à partir de l’API REST
 
@@ -62,6 +79,40 @@ Vous pouvez accéder à votre degré de sécurisation par le biais de l’API De
 ![Récupération d’un score sécurisé unique via l’API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Pour obtenir des exemples d’outils créés sur la base de l’API de degré de sécurisation, consultez [la zone consacrée au degré de sécurisation de notre communauté GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Obtenir le niveau de sécurité à partir d'Azure Resource Graph (ARG)
+
+Azure Resource Graph fournit un accès instantané aux informations relatives aux ressources de vos environnements cloud avec des fonctionnalités robustes de filtrage, de regroupement et de tri. Il s’agit d’un moyen rapide et efficace de demander des informations dans les abonnements Azure par programmation ou depuis le Portail Azure. [Apprenez-en davantage sur Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+Pour accéder au niveau de sécurité de plusieurs abonnements avec ARG :
+
+1. Sur le portail Azure, ouvrez l' **Explorateur Azure Resource Graph**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Lancement de la page de recommandations de l’Explorateur Azure Resource Graph**" :::
+
+1. Entrez votre requête Kusto (en utilisant les exemples ci-dessous à titre indicatif).
+
+    - Cette requête renvoie l'ID d'abonnement, le niveau de sécurité actuel en points et en pourcentage, et le niveau de sécurité maximum de l'abonnement. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - Cette requête renvoie l'état de tous les contrôles de sécurité. Pour chaque contrôle, vous obtiendrez le nombre de ressources non saines, le niveau de sécurité actuel et le niveau de sécurité maximum. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Sélectionnez **Exécuter la requête**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Mode de calcul de votre degré de sécurisation 
 

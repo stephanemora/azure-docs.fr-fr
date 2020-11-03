@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984103"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478318"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -79,7 +79,7 @@ En comparaison à d’autres options de réglage, comme la mise à l’échelle 
 
 **Besoin d’une stratégie de distribution de données différente pour des performances de requête plus rapides**
 
-Un pool SQL est un système de traitement massivement parallèle (MPP) distribué.   Les données d'un pool SQL sont réparties sur 60 nœuds à l'aide de l'une des trois [stratégies de distribution](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) disponibles (hachage, tourniquet ou réplication).  
+Synapse SQL est un système de traitement de requêtes distribuées.  Les données d'une table SQL sont réparties sur 60 nœuds à l'aide de l'une des trois [stratégies de distribution](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) disponibles (hachage, tourniquet ou réplication).   
 
 La distribution des données est spécifiée au moment de la création de la table et reste inchangée jusqu’à ce que la table soit supprimée. Une vue matérialisée étant une table virtuelle sur un disque prend en charge les distributions de données en hachage et tourniquet.  Les utilisateurs peuvent choisir une distribution de données qui est différente des tables de base, mais optimale pour les performances des requêtes qui utilisent le plus les vues.  
 

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978252"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670671"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -42,11 +42,11 @@ Pour obtenir une liste des types de stockage et les contrats SLA associés pour 
 
 Les conditions certifiée SAP HANA minimales pour les différents types de stockages sont les suivantes : 
 
-- Le stockage Premium Azure - **/hana/log** doit être pris en charge par l’[Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) Azure. Le volume **/hana/data** peut être placé sur un stockage SSD sans Accélérateur d’écriture Azure ou sur un disque Ultra
+- Le stockage Premium Azure - **/hana/log** doit être pris en charge par l’ [Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) Azure. Le volume **/hana/data** peut être placé sur un stockage SSD sans Accélérateur d’écriture Azure ou sur un disque Ultra
 - Disque Ultra Azure au moins pour le volume **/hana/log**. Le volume **/hana/data** peut être placé sur un stockage Premium sans Accélérateur d’écriture Azure ou sur disque Ultra pour accélérer les temps de redémarrage
 - Volumes **NFS v4.1** par-dessus Azure NetApp Files pour **/hana/log et /hana/data**. Le volume de/hana/shared peut utiliser le protocole NFS v3 ou NFS v4.1
 
-Certains types de stockage peuvent être combinés. Par exemple, il est possible de placer **/hana/data** sur un stockage Premium et **/hana/log** sur un disque de stockage Ultra afin d’obtenir la faible latence requise. Si vous utilisez un volume basé sur ANF pour **/hana/data**, le volume **/hana/log** doit également être basé sur NFS en plus d’ANF. L’utilisation de NFS en plus d’ANF pour l’un des volumes (comme /hana/data) et du stockage Premium Azure ou d’un disque Ultra pour l’autre volume (comme **/hana/log**) n’est **pas prise en charge**.
+Certains types de stockage peuvent être combinés. Par exemple, il est possible de placer **/hana/data** sur un stockage Premium et **/hana/log** sur un disque de stockage Ultra afin d’obtenir la faible latence requise. Si vous utilisez un volume basé sur ANF pour **/hana/data** , le volume **/hana/log** doit également être basé sur NFS en plus d’ANF. L’utilisation de NFS en plus d’ANF pour l’un des volumes (comme /hana/data) et du stockage Premium Azure ou d’un disque Ultra pour l’autre volume (comme **/hana/log** ) n’est **pas prise en charge**.
 
 Localement, vous aviez rarement besoin de vous occuper des sous-systèmes d’E/S et de leurs fonctionnalités. En effet, le fournisseur d’appliance devait s’assurer que les exigences de stockage minimales étaient remplies pour SAP HANA. Comme vous générez l’infrastructure Azure vous-même, vous devez connaître certaines de ces conditions requises par SAP. Voici quelques-unes des caractéristiques de débit minimales recommandées par SAP :
 
@@ -75,7 +75,7 @@ Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linu
 L’Accélérateur d’écriture Azure est une fonctionnalité qui est fournie uniquement pour les machines virtuelles Azure de la série M. Comme son nom l’indique, cette fonctionnalité vise à améliorer la latence d’E/S des écritures dans le stockage Azure Premium. Pour SAP HANA, l’Accélérateur des écritures doit être utilisé exclusivement sur le volume **/hana/log**. Par conséquent, **/hana/data** et **/hana/log** sont des volumes distincts avec l’Accélérateur d’écriture Azure prenant en charge le volume **/hana/log** uniquement. 
 
 > [!IMPORTANT]
-> En cas d’utilisation du stockage Premium Azure, l’utilisation de l’[Accélérateur d’écriture](../../how-to-enable-write-accelerator.md) Azure ou du volume **/hana/log** est obligatoire. L’Accélérateur d’écriture est disponible pour le stockage Premium et les machines virtuelles de série M et Mv2 uniquement. L’Accélérateur d’écriture ne fonctionne pas en association avec d’autres familles de machines virtuelles Azure, notamment Esv3 ou Edsv4.
+> En cas d’utilisation du stockage Premium Azure, l’utilisation de l’ [Accélérateur d’écriture](../../how-to-enable-write-accelerator.md) Azure ou du volume **/hana/log** est obligatoire. L’Accélérateur d’écriture est disponible pour le stockage Premium et les machines virtuelles de série M et Mv2 uniquement. L’Accélérateur d’écriture ne fonctionne pas en association avec d’autres familles de machines virtuelles Azure, notamment Esv3 ou Edsv4.
 
 Les suggestions de mise en cache pour disques Azure Premium indiquées plus bas supposent que SAP HANA présente les caractéristiques d’E/S suivantes :
 
@@ -87,10 +87,10 @@ Les suggestions de mise en cache pour disques Azure Premium indiquées plus bas 
 
 **Recommandation : pour observer ces modèles d’E/S définis par SAP HANA, vous devez paramétrer la mise en cache pour les différents volumes à l’aide du stockage Premium Azure comme suit :**
 
-- **/hana/data** - aucune mise en cache ou mise en cache en lecture
-- **/hana/log** : aucune mise en cache, à l’exception des machines virtuelles des séries M et Mv2, où Accélérateur d’écriture Azure doit être activé 
+- **/hana/data**  - aucune mise en cache ou mise en cache en lecture
+- **/hana/log**  : aucune mise en cache, à l’exception des machines virtuelles des séries M et Mv2, où Accélérateur d’écriture Azure doit être activé 
 - **/hana/shared** : mise en cache en lecture
-- **Disque du système d’exploitation**  --ne pas modifier la mise en cache par défaut définie par Azure au moment de la création de la machine virtuelle
+- **Disque du système d’exploitation**   --ne pas modifier la mise en cache par défaut définie par Azure au moment de la création de la machine virtuelle
 
 
 Si vous utilisez LVM ou mdadm pour créer des jeux de bandes sur plusieurs disques Azure Premium, vous devez définir des tailles de bande. Ces tailles sont différentes pour **/hana/data** et **/hana/log**. **Recommandation : utilisez les tailles de bande recommandées suivantes :**
@@ -141,38 +141,38 @@ En particulier sur les systèmes SGBD plus petits dans lesquels votre charge de 
 
 **Recommandation : Les configurations recommandées avec le stockage Premium Azure pour les scénarios de production ressemblent à ce qui suit :**
 
-Configuration pour le volume SAP **/hana/data** :
+Configuration pour le volume SAP **/hana/data**  :
 
-| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
+| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | Débit approvisionné | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 Gio | 500 Mo/s | 4 x P6 | 680 Mbits/s | 960 | 14 000 |
-| M32ls | 256 Gio | 500 Mo/s | 4 x P6 | 680 Mbits/s | 960 | 14 000 |
-| M64ls | 512 Go | 1 000 Mbits/s | 4 x P10 |  680 Mbits/s | 2 000 | 14 000 |
-| M64s | 1 000 Gio | 1 000 Mbits/s | 4 x P15 | 680 Mbits/s | 4 400 | 14 000 |
-| M64ms | 1 750 Gio | 1 000 Mbits/s | 4 x P20 | 680 Mbits/s | 9 200 | 14 000 |  
-| M128s | 2 000 Gio | 2 000 Mbits/s | 4 x P20 | 680 Mbits/s | 9 200| 14 000 | 
-| M128ms | 3,800 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mbits/s (provisionné) | 20 000 | pas de rafale | 
-| M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 4 x P30 | 800 Mbits/s (provisionné) | 20 000| pas de rafale | 
-| M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 4 x P40 | 1 000 Mbits/s (provisionné) | 25 000 | pas de rafale |
-| M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 4 x P40 | 1 000 Mbits/s (provisionné) | 25 000 | pas de rafale |
-| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 4 x P50 | 2 000 Mbits/s (provisionné) | 25 000 | pas de rafale |
+| M32ts | 192 Gio | 500 Mo/s | 4 x P6 | 200 Mbits/s | 680 Mbits/s | 960 | 14 000 |
+| M32ls | 256 Gio | 500 Mo/s | 4 x P6 | 200 Mbits/s | 680 Mbits/s | 960 | 14 000 |
+| M64ls | 512 Go | 1 000 Mbits/s | 4 x P10 | 400 Mbits/s | 680 Mbits/s | 2 000 | 14 000 |
+| M64s | 1 000 Gio | 1 000 Mbits/s | 4 x P15 | 500 Mo/s | 680 Mbits/s | 4 400 | 14 000 |
+| M64ms | 1 750 Gio | 1 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200 | 14 000 |  
+| M128s | 2 000 Gio | 2 000 Mbits/s | 4 x P20 | 600 Mbits/s | 680 Mbits/s | 9 200| 14 000 | 
+| M128ms | 3,800 Gio | 2 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000 | pas de rafale | 
+| M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 4 x P30 | 800 Mo/s | pas de rafale | 20 000| pas de rafale | 
+| M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
+| M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 4 x P40 | 1 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
+| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 4 x P50 | 2 000 Mbits/s | pas de rafale | 30,000 | pas de rafale |
 
 
 Pour le volume **/hana/log**. la configuration ressemblerait à ceci :
 
-| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | Volume **/hana/log** | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
+| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | Volume **/hana/log** | Débit approvisionné | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 Gio | 500 Mo/s | 3 x P10 | 510 Mbits/s | 1 500 | 10 500 | 
-| M32ls | 256 Gio | 500 Mo/s | 3 x P10 | 510 Mbits/s | 1 500 | 10 500 | 
-| M64ls | 512 Go | 1 000 Mbits/s | 3 x P10 | 510 Mbits/s | 1 500 | 10 500 | 
-| M64s | 1 000 Gio | 1 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 | 
-| M64ms | 1 750 Gio | 1 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 |  
-| M128s | 2 000 Gio | 2 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500|  
-| M128ms | 3,800 Gio | 2 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 | 
-| M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 |  
-| M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 |  
-| M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 |  
-| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 3 x P15 | 510 Mbits/s | 3 300 | 10 500 | 
+| M32ts | 192 Gio | 500 Mo/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
+| M32ls | 256 Gio | 500 Mo/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
+| M64ls | 512 Go | 1 000 Mbits/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 | 
+| M64s | 1 000 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M64ms | 1 750 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
+| M128s | 2 000 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500|  
+| M128ms | 3,800 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| M208s_v2 | 2 850 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
+| M208ms_v2 | 5 700 Gio | 1 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
+| M416s_v2 | 5 700 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 |  
+| M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 3 x P15 | 375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
 
 
 Pour les autres volumes, la configuration ressemblerait à ceci :
@@ -192,19 +192,19 @@ Pour les autres volumes, la configuration ressemblerait à ceci :
 | M416ms_v2 | 11 400 Gio | 2 000 Mbits/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
+Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log** , augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
 
 L’Accélérateur des écritures Azure fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés. Vous trouverez des instructions et des restrictions plus détaillées sur l’Accélérateur des écritures Azure dans l’article [Accélérateur des écritures](../../how-to-enable-write-accelerator.md).
 
 Pour les machines virtuelles certifiées HANA de la famille Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) et [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), vous avez besoin d’ANF pour les volumes **/hana/data** et **/hana/log**. Ou vous devez tirer parti du stockage sur disque Ultra Azure au lieu du stockage Premium Azure uniquement pour le volume **/hana/log**. Par conséquent, les configurations pour le volume **/hana/data** sur le stockage Premium Azure peuvent ressembler à ceci :
 
-| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
+| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | Débit approvisionné | Débit maximum de rafale | E/S par seconde | IOPS en rafale |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 Gio | 480 Mo/s | 3 x P10 | 510 Mbits/s | 1 500 | 10 500 |
-| E32ds_v4 | 256 Gio | 768 Mbits/s | 3 x P10 |  510 Mbits/s | 1 500 | 10 500|
-| E48ds_v4 | 384 Gio | 1 152 Mo/s | 3 x P15 |  510 Mbits/s | 3 300  | 10 500 | 
-| E64ds_v4 | 504 Gio | 1 200 Mbits/s | 3 x P15 |  510 Mbits/s | 3 300 | 10 500 | 
-| E64s_v3 | 432 Gio | 1 200 Mo/s | 3 x P15 |  510 Mbits/s | 3 300 | 10 500 | 
+| E20ds_v4 | 160 Gio | 480 Mo/s | 3 x P10 | 300 Mbits/s | 510 Mbits/s | 1 500 | 10 500 |
+| E32ds_v4 | 256 Gio | 768 Mbits/s | 3 x P10 |  300 Mbits/s | 510 Mbits/s | 1 500 | 10 500|
+| E48ds_v4 | 384 Gio | 1 152 Mo/s | 3 x P15 |  375 Mbits/s |510 Mbits/s | 3 300  | 10 500 | 
+| E64ds_v4 | 504 Gio | 1 200 Mbits/s | 3 x P15 |  375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
+| E64s_v3 | 432 Gio | 1 200 Mo/s | 3 x P15 |  375 Mbits/s | 510 Mbits/s | 3 300 | 10 500 | 
 
 Pour les autres volumes, y compris **/hana/log** sur disque Ultra, la configuration peut ressembler à ceci :
 

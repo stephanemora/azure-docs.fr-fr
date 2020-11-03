@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996674"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534139"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
@@ -389,7 +389,7 @@ Il s’agit d’une étape facultative. Vous pouvez l’ignorer si vous utilisez
 3. Dans PuTTY Key Generator :
 
    - Pour générer une clé, sélectionnez le bouton **Generate** (Générer).
-   - Copiez le contenu de la clé (**Ctrl+C**).
+   - Copiez le contenu de la clé ( **Ctrl+C** ).
    - Sélectionnez le bouton **Save private key** (Enregistrer la clé privée).
    - Ignorer l’avertissement qui s’affiche, puis sélectionnez **OK**.
 
@@ -442,19 +442,19 @@ Pour installer Oracle Golden Gate, procédez comme suit :
 
 4. Modifiez le répertoire de l’inventaire, puis sélectionnez **Suivant** pour continuer.
 
-   ![Capture d’écran de la page Select Installation (Sélectionner l’installation)](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Capture d'écran de la page Sélectionner l'installation qui affiche le répertoire d'installation.](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Dans l’écran **Summary** (Récapitulatif), sélectionnez **Install** (Installer) pour continuer.
 
-   ![Capture d’écran de la page Select Installation (Sélectionner l’installation)](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Capture d'écran représentant la page Sélectionner l'installation et le bouton Installer.](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Vous pourriez être invité à exécuter un script en tant que « root ». Dans ce cas, ouvrez une session distincte, ssh vers la machine virtuelle, sudo vers la racine, puis exécutez le script. Sélectionnez **OK** pour continuer.
 
-   ![Capture d’écran de la page Select Installation (Sélectionner l’installation)](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Capture d'écran représentant l'emplacement du script et montrant comment exécuter le script de configuration.](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Une fois l’installation terminée, sélectionnez **Close** (Fermer) pour terminer le processus.
 
-   ![Capture d’écran de la page Select Installation (Sélectionner l’installation)](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Capture d'écran de la page Sélectionner l'installation qui affiche le bouton Fermer.](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Configurer le service sur myVM1 (machine virtuelle principale)
 

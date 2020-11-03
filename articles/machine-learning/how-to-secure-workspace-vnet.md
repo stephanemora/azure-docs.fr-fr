@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776038"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672860"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -43,12 +43,12 @@ Dans cet article, vous découvrirez comment activer les ressources d’espaces d
 
 + Un réseau virtuel et un sous-réseau existants à utiliser avec vos ressources de calcul.
 
-+ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (RBAC) :
++ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (Azure RBAC) :
 
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking).
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Sécuriser l’espace de travail avec point de terminaison privé
@@ -78,14 +78,19 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 
    ![La zone « Pare-feu et réseaux virtuels » de la page Stockage Azure dans le portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
+1. Dans la page __Pare-feux et réseaux virtuels__ , effectuez les actions suivantes :
     1. Sélectionnez __Réseaux sélectionnés__.
     1. Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel où réside votre capacité de calcul (voir l’étape 1).
 
         > [!IMPORTANT]
         > Le compte de stockage doit se trouver dans les mêmes réseau virtuel et sous-réseau que les instances de calcul ou clusters utilisés pour l'apprentissage ou l'inférence.
 
-    1. Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché.
+    1. Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché. Cela n’autorise pas tous les services Azure à accéder à votre compte de stockage.
+    
+        * Les ressources de certains services, **inscrites dans votre abonnement** , peuvent accéder au compte de stockage **dans le même abonnement** pour des opérations spécifiques. C’est, par exemple, le cas de l’écriture de journaux ou de la création de sauvegardes.
+        * Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en __attribuant un rôle Azure__ à son identité managée attribuée par le système.
+
+        Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > Lorsque vous travaillez avec le SDK Azure Machine Learning, votre environnement de développement doit être en mesure de se connecter au compte de Stockage Azure. Lorsque le compte de stockage se trouve dans un réseau virtuel, le pare-feu doit autoriser l’accès à partir de l’adresse IP de l’environnement de développement.
@@ -97,7 +102,7 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Sécuriser des comptes de stockage Azure avec des points de terminaison privés
 
 Azure Machine Learning prend en charge les comptes de stockage configurés pour utiliser des points de terminaison de service ou de points de terminaison privés. Si le compte de stockage utilise des points de terminaison privés, vous devez configurer deux points de terminaison privés pour votre compte de stockage par défaut :
-1. un point de terminaison privé avec une sous-ressource cible d’un objet **blob** ;
+1. un point de terminaison privé avec une sous-ressource cible d’un objet **blob**  ;
 1. un point de terminaison privé avec une sous-ressource cible d’un **fichier** (fileShare).
 
 ![Capture d’écran montrant la page de configuration du point de terminaison privé avec les options d’objets blob et de fichier](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
@@ -170,11 +175,11 @@ Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning a
 
 1. Accédez au coffre de clés associé à l’espace de travail.
 
-1. Sur la page __Key Vault__, dans le volet de gauche, sélectionnez __Mise en réseau__.
+1. Sur la page __Key Vault__ , dans le volet de gauche, sélectionnez __Mise en réseau__.
 
-1. Sous l’onglet __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
-    1. Sous __Autoriser l’accès depuis__, cliquez sur __Point de terminaison privé et réseaux sélectionnés__.
-    1. Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
+1. Sous l’onglet __Pare-feux et réseaux virtuels__ , effectuez les actions suivantes :
+    1. Sous __Autoriser l’accès depuis__ , cliquez sur __Point de terminaison privé et réseaux sélectionnés__.
+    1. Sous __Réseaux virtuels__ , sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
     1. Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?__ , sélectionnez __Oui__.
 
    [![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
@@ -281,6 +286,13 @@ Une fois ces conditions remplies, procédez comme suit pour activer Azure Contai
     ]
     }
     ```
+
+    Ce modèle crée un _point de terminaison privé_ pour l’accès réseau à votre ACR à partir de l’espace de travail. La capture d’écran ci-dessous montre un exemple de ce point de terminaison privé.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Paramètres de point de terminaison privé ACR":::
+
+    > [!IMPORTANT]
+    > Ne supprimez pas ce point de terminaison. Si vous le supprimez par inadvertance, vous pouvez réappliquer le modèle présenté dans cette étape pour en créer un nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

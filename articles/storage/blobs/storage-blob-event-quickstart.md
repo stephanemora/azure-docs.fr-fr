@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489841"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676268"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Démarrage rapide : Router des événements de stockage vers un point de terminaison web avec Azure CLI
 
@@ -24,7 +24,7 @@ En règle générale, vous envoyez des événements à un point de terminaison q
 
 En suivant les instructions de cet article, vous voyez que les données d’événement ont été envoyées à l’application web.
 
-![Afficher l’événement d’abonnement](./media/storage-blob-event-quickstart/view-results.png)
+![Capture d’écran de la visionneuse Azure Event Grid qui affiche les données d’événement envoyées à l’application web.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479844"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426541"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -58,7 +58,7 @@ Pour vérifier les rôles attribués à un utilisateur pour un abonnement :
 
 3. Pour répertorier tous les rôles attribués à un utilisateur donné, utilisez **Get-AzRoleAssignment -SignInName [e-mail utilisateur] -IncludeClassicAdministrators**. 
 
-Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d’informations, consultez [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôle Azure à l'aide d'Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Dans quelles régions Traffic Analytics est disponible ?
@@ -333,8 +333,8 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 
 La page de la carte géographique contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution du trafic (Déploiement, Trafic en provenance de pays/régions, Malveillant, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
-- **Carte** : Sous la bannière, la section de la carte montre la distribution du trafic entre les pays/régions et les centres de données Azure.
+- **Bannière**  : la bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution du trafic (Déploiement, Trafic en provenance de pays/régions, Malveillant, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
+- **Carte**  : Sous la bannière, la section de la carte montre la distribution du trafic entre les pays/régions et les centres de données Azure.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     
@@ -345,13 +345,13 @@ La page de la carte géographique contient deux sections principales :
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navigation au clavier sur la carte
     
-- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance (**Centre de données Azure** ou **Pays/Région**) dans la vue cartographique.
+- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance ( **Centre de données Azure** ou **Pays/Région** ) dans la vue cartographique.
 - Pour passer à d’autres nœuds en surbrillance dans la carte, utilisez la touche `Tab` ou `Right arrow` pour vous déplacer vers l’avant. Utilisez la touche `Shift+Tab` ou `Left arrow` pour vous déplacer vers l’arrière.
 - Pour sélectionner n’importe quel nœud en surbrillance sur la carte, utilisez la touche `Enter` ou `Down arrow`.
-- Lorsque vous sélectionnez ces nœuds, le focus se déplace vers la **boîte à outils Informations** du nœud. Par défaut, le focus se déplace sur le bouton Fermer de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte**, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
-- Quand vous appuyez sur `Tab` et que le focus est sur la **boîte à outils Informations**, le focus passe aux points de terminaison du même continent que le nœud sélectionné. Utilisez les touches `Right arrow` et `Left arrow` pour parcourir ces points de terminaison.
+- Lorsque vous sélectionnez ces nœuds, le focus se déplace vers la **boîte à outils Informations** du nœud. Par défaut, le focus se déplace sur le bouton Fermer de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte** , utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
+- Quand vous appuyez sur `Tab` et que le focus est sur la **boîte à outils Informations** , le focus passe aux points de terminaison du même continent que le nœud sélectionné. Utilisez les touches `Right arrow` et `Left arrow` pour parcourir ces points de terminaison.
 - Pour passer à d’autres clusters de continents/points de terminaison de flux, utilisez `Tab` pour vous déplacer vers l’avant et `Shift+Tab` pour vous déplacer vers l’arrière.
-- Quand le focus est sur des **clusters de continents**, utilisez la touche de direction `Enter` ou `Down` pour mettre en surbrillance les points de terminaison dans le cluster de continents. Pour parcourir les points de terminaison et accéder au bouton Fermer de la boîte d’informations du cluster de continents, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Sur n’importe quel point de terminaison, vous pouvez utiliser `Shift+L` pour basculer vers la ligne de connexion à partir du nœud sélectionné pour le point de terminaison. Vous pouvez réappuyer sur `Shift+L` pour passer au point de terminaison sélectionné.
+- Quand le focus est sur des **clusters de continents** , utilisez la touche de direction `Enter` ou `Down` pour mettre en surbrillance les points de terminaison dans le cluster de continents. Pour parcourir les points de terminaison et accéder au bouton Fermer de la boîte d’informations du cluster de continents, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Sur n’importe quel point de terminaison, vous pouvez utiliser `Shift+L` pour basculer vers la ligne de connexion à partir du nœud sélectionné pour le point de terminaison. Vous pouvez réappuyer sur `Shift+L` pour passer au point de terminaison sélectionné.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navigation au clavier à tout moment
     
@@ -363,8 +363,8 @@ La page de la carte géographique contient deux sections principales :
 
 La page de la topologie des réseaux virtuels contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la topologie des réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (réseaux virtuels connectés, réseaux virtuels déconnectés, adresses IP publiques, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance les réseaux virtuels actifs dans votre déploiement.
-- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les réseaux virtuels.
+- **Bannière**  : la bannière en haut de la topologie des réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (réseaux virtuels connectés, réseaux virtuels déconnectés, adresses IP publiques, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance les réseaux virtuels actifs dans votre déploiement.
+- **Topologie**  : sous la bannière, la section de la topologie montre la distribution du trafic entre les réseaux virtuels.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     
@@ -375,9 +375,9 @@ La page de la topologie des réseaux virtuels contient deux sections principales
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navigation au clavier sur la topologie
     
-- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance (**VNet**) dans la vue de la topologie.
+- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance ( **VNet** ) dans la vue de la topologie.
 - Pour passer à d’autres nœuds en surbrillance dans la vue de la topologie, utilisez la touche `Shift+Right arrow` pour vous déplacer vers l’avant. 
-- Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte**, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
+- Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte** , utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
 - Si vous sélectionnez l’un de ces nœuds, appuyez sur la touche `Shift+Left arrow` pour visiter chacune de ses connexions. Le focus passe à la **boîte à outils Informations** de cette connexion. Vous pouvez à tout moment réappuyer sur `Shift+Right arrow` pour faire revenir le focus sur le nœud.
     
 
@@ -385,8 +385,8 @@ La page de la topologie des réseaux virtuels contient deux sections principales
 
 La page de la topologie des sous-réseaux virtuels contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la topologie des sous-réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (sous-réseaux actifs, moyens, de passerelle, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance le sous-réseau virtuel actif dans votre déploiement.
-- **Topologie** : sous la bannière, la section de la topologie montre la distribution du trafic entre les sous-réseaux virtuels.
+- **Bannière**  : la bannière en haut de la topologie des sous-réseaux virtuels fournit des boutons pour sélectionner les filtres de distribution du trafic (sous-réseaux actifs, moyens, de passerelle, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la topologie. Par exemple, si vous sélectionnez le bouton Actif, la topologie met en surbrillance le sous-réseau virtuel actif dans votre déploiement.
+- **Topologie**  : sous la bannière, la section de la topologie montre la distribution du trafic entre les sous-réseaux virtuels.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     
@@ -397,7 +397,7 @@ La page de la topologie des sous-réseaux virtuels contient deux sections princi
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navigation au clavier sur la topologie
     
-- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance (**Sous-réseau**) dans la vue de la topologie.
+- Une fois que vous avez sélectionné un filtre sur la bannière et appuyé sur `Ctrl+F6`, le focus passe à l’un des nœuds en surbrillance ( **Sous-réseau** ) dans la vue de la topologie.
 - Pour passer à d’autres nœuds en surbrillance dans la vue de la topologie, utilisez la touche `Shift+Right arrow` pour vous déplacer vers l’avant. 
-- Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte**, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
+- Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte** , utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
 - Si vous sélectionnez l’un de ces nœuds, vous pouvez appuyer sur la touche `Shift+Left arrow` pour visiter chacune de ses connexions. Le focus passe à la **boîte à outils Informations** de cette connexion. Vous pouvez à tout moment réappuyer sur `Shift+Right arrow` pour faire revenir le focus sur le nœud.    

@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602929"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362771"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -57,20 +57,20 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     ![Créer une révision d’accès - Dates de début et de fin](./media/create-access-review/start-end-dates.png)
 
-1. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire**, **Mensuelle**, **Trimestrielle**, **Semestrielle** ou **Annuelle**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
+1. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire** , **Mensuelle** , **Trimestrielle** , **Semestrielle** ou **Annuelle**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
 
 1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. La série peut se terminer de trois façons : 
     1. Elle s’exécute en continu pour lancer des révisions indéfiniment.
     1. Elle s’exécute jusqu’à une date spécifique.
     1. Elle s’exécute jusqu’à la fin d’un nombre défini d’occurrences. 
   
-    Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
+    Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres** , afin qu’elle s’arrête à cette date.
 
-1. Dans la section **Utilisateurs**, spécifiez les utilisateurs auxquels s’applique la révision d’accès. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue seulement les utilisateurs invités qui sont des membres (ou affectés à l’application) au lieu d’examiner tous les utilisateurs qui sont des membres ou qui ont accès à l’application.
+1. Dans la section **Utilisateurs** , spécifiez les utilisateurs auxquels s’applique la révision d’accès. Les révisions d’accès peuvent porter sur les membres d’un groupe ou sur les utilisateurs qui ont été assignés à une application. Vous pouvez affiner davantage la révision d’accès pour passer en revue seulement les utilisateurs invités qui sont des membres (ou affectés à l’application) au lieu d’examiner tous les utilisateurs qui sont des membres ou qui ont accès à l’application.
 
     ![Créer une révision d’accès - Utilisateurs](./media/create-access-review/users.png)
 
-1. Dans la section **Groupe**, sélectionnez un ou plusieurs groupes dont vous souhaitez vérifier l’appartenance.
+1. Dans la section **Groupe** , sélectionnez un ou plusieurs groupes dont vous souhaitez vérifier l’appartenance.
 
     > [!NOTE]
     > La sélection de plusieurs groupes crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq groupes, vous créez cinq révisions d’accès distinctes.
@@ -84,11 +84,11 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
     
     ![Créer une révision d’accès - Sélectionner une application](./media/create-access-review/select-application.png)
 
-1. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour passer en revue tous les utilisateurs concernés. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès. Si la ressource est un groupe, vous pouvez demander aux propriétaires de groupe d’effectuer la révision. Vous pouvez également demander à ce que les réviseurs fournissent un motif lorsqu’ils approuvent l’accès.
+1. Dans la section **Réviseurs** , sélectionnez une ou plusieurs personnes pour passer en revue tous les utilisateurs concernés. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès. Si la ressource est un groupe, vous pouvez demander aux propriétaires de groupe d’effectuer la révision. Vous pouvez également demander à ce que les réviseurs fournissent un motif lorsqu’ils approuvent l’accès.
 
     ![Créer une révision d’accès - Réviseurs](./media/create-access-review/reviewers.png)
 
-1. Dans la section **Programmes**, sélectionnez le programme que vous voulez utiliser. L’option **Programme par défaut** est toujours présente.
+1. Dans la section **Programmes** , sélectionnez le programme que vous voulez utiliser. L’option **Programme par défaut** est toujours présente.
 
     ![Créer une révision d’accès - Programmes](./media/create-access-review/programs.png)
 
@@ -106,10 +106,10 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
 3. Utilisez la liste **Si les réviseurs ne répondent pas** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
 
-    - **Aucune modification** : laisser l’accès de l’utilisateur inchangé
-    - **Supprimer l’accès** : supprimer l’accès de l’utilisateur
-    - **Approuver l’accès** : approuver l’accès de l’utilisateur
-    - **Accepter les recommandations** : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
+    - **Aucune modification**  : laisser l’accès de l’utilisateur inchangé
+    - **Supprimer l’accès**  : supprimer l’accès de l’utilisateur
+    - **Approuver l’accès**  : approuver l’accès de l’utilisateur
+    - **Accepter les recommandations**  : accepter la recommandation du système sur le refus ou l’approbation de la prolongation de l’accès de l’utilisateur
 
     ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings-preview-new.png)
 
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisateurs invités qui n’ont plus accès aux ressources de votre organisation, lisez l’article intitulé [Utiliser Azure AD Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources.](access-reviews-external-users.md).
 
 >[!NOTE]
-> L’action à appliquer aux utilisateurs refusés ne fonctionne que si vous avez précédemment étendu une révision aux utilisateurs invités uniquement (voir la section **Créer une ou plusieurs révisions d’accès**, étape 8)
+> L’action à appliquer aux utilisateurs refusés ne fonctionne que si vous avez précédemment étendu une révision aux utilisateurs invités uniquement (voir la section **Créer une ou plusieurs révisions d’accès** , étape 8)
 
 ### <a name="advanced-settings"></a>Paramètres avancés
 
@@ -137,7 +137,7 @@ Pour en savoir plus sur les meilleures pratiques pour la suppression des utilisa
     >[!NOTE]
     > Par défaut, Azure AD envoie automatiquement un rappel à mi-parcours de l'échéance fixée pour les réviseurs qui n'ont pas encore répondu.
 
-1. (Préversion) Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans l’**e-mail Contenu supplémentaire pour le réviseur** qui sera inclus dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. Ces informations seront affichées dans la section en surbrillance ci-dessous.
+1. (Préversion) Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans l’ **e-mail Contenu supplémentaire pour le réviseur** qui sera inclus dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. Ces informations seront affichées dans la section en surbrillance ci-dessous.
 
     ![Réviser l'accès d'un utilisateur à un groupe](./media/create-access-review/review-users-access-group.png)
 
@@ -164,6 +164,7 @@ Si vous avez attribué le rôle de réviseur à des clients invités, mais que c
 |Révisé automatiquement | Les décisions ont été enregistrées par le système pour tous les utilisateurs qui n’ont pas été révisés. La révision est prête à passer à l’étape **Applying** si l’application automatique est activée. |
 |Applying | L’accès n’est pas modifié pour les utilisateurs qui ont été approuvés. |
 |Applied | Les utilisateurs refusés, le cas échéant, ont été supprimés de la ressource ou du répertoire. |
+|Échec | La révision n'a pas pu se poursuivre. Cette erreur peut être liée à la suppression du locataire, à une modification des licences ou à d'autres changements internes au niveau du locataire. |
 
 ## <a name="create-reviews-via-apis"></a>Créer des révisions via des API
 

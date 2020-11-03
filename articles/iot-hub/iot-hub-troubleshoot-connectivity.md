@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150769"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538423"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -28,25 +28,25 @@ Les problèmes de connectivité des appareils IoT sont parfois difficiles à ré
 
 Utilisez Azure Monitor pour recevoir des alertes et créer des journaux d’activité en cas de déconnexion des appareils.
 
-### <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
+### <a name="turn-on-logs"></a>Activer les journaux
 
-Pour enregistrer les événements et les erreurs de connexion d’appareil, activez les diagnostics pour IoT Hub. Nous vous recommandons d’activer ces journaux le plus tôt possible, car si les journaux de diagnostic ne sont pas activés, en cas de déconnexion d'appareils, vous ne disposez d’aucune information pour résoudre le problème.
+Pour consigner les événements et les erreurs de connexion de l'appareil, créez un paramètre de diagnostic pour les [journaux de ressources des connexions IoT Hub](monitor-iot-hub-reference.md#connections). Nous vous recommandons de créer ce paramètre le plus tôt possible, car ces journaux ne sont pas collectés par défaut et, sans eux, vous ne disposerez d'aucune information pour résoudre les problèmes éventuels de déconnexion de l'appareil.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Accédez à votre hub IoT.
+1. Accédez à votre hub IoT.
 
-3. Sélectionnez **Paramètres de diagnostic**.
+1. Sélectionnez **Paramètres de diagnostic**.
 
-4. Sélectionnez **Activer les diagnostics**.
+1. Sélectionnez **Ajouter le paramètre de diagnostic**.
 
-5. Activez la collecte des journaux d’activité **Connexions**.
+1. Sélectionnez les journaux des **Connexions**.
 
-6. Pour faciliter l’analyse, activez l’option **Envoyer à Log Analytics** ([voir les tarifs](https://azure.microsoft.com/pricing/details/log-analytics/)). Consultez l’exemple sous [Résoudre les erreurs de connectivité](#resolve-connectivity-errors).
+1. Pour faciliter l'analyse, sélectionnez **Envoyer à Log Analytics** ([voir les tarifs](https://azure.microsoft.com/pricing/details/log-analytics/)). Consultez l’exemple sous [Résoudre les erreurs de connectivité](#resolve-connectivity-errors).
 
    ![Paramètres recommandés](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-Pour plus d’informations, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes](iot-hub-monitor-resource-health.md).
+Pour plus d'informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Configurer des alertes en cas de déconnexion d'appareils à grande échelle
 
@@ -60,7 +60,7 @@ Pour recevoir des alertes lorsque des appareils se déconnectent, configurez des
 
 4. Sélectionnez **Nouvelle règle d’alerte**.
 
-5. Sélectionnez **Ajouter une condition**, puis sélectionnez « Appareils connectés (préversion) ».
+5. Sélectionnez **Ajouter une condition** , puis sélectionnez « Appareils connectés (préversion) ».
 
 6. Configurez le seuil et les alertes en suivant les invites.
 
@@ -72,7 +72,7 @@ Pour détecter les *déconnexions* par appareil (s'il vous faut savoir qu'une fa
 
 ## <a name="resolve-connectivity-errors"></a>Résoudre les erreurs de connectivité
 
-Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment examiner les problèmes courants lorsque vous recevez une alerte. Pour exécuter la procédure ci-après, vous devez avoir configuré les journaux Azure Monitor pour vos journaux de diagnostic.
+Lorsque vous activez les alertes et les journaux relatifs aux appareils connectés, vous recevez des alertes au moment où des erreurs se produisent. Cette section décrit comment examiner les problèmes courants lorsque vous recevez une alerte. La procédure ci-dessous part du principe que vous avez déjà créé un paramètre de diagnostic pour envoyer les journaux des connexions IoT Hub à un espace de travail Log Analytics.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -80,7 +80,7 @@ Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appa
 
 1. Sélectionnez **Journaux d’activité**.
 
-1. Pour isoler les journaux d’activité d’erreurs de connectivité pour IoT Hub, entrez la requête ci-après, puis sélectionnez **Exécuter** :
+1. Pour isoler les journaux d’activité d’erreurs de connectivité pour IoT Hub, entrez la requête ci-après, puis sélectionnez **Exécuter**  :
 
     ```kusto
     AzureDiagnostics

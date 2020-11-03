@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427020"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -36,24 +36,24 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 + Nombre total d'accès à l'API de service (filtrer par type d'activité) 
 + Codes d'erreur (filtrer par code d'état) 
 
-**Disponibilité du coffre** : cette métrique doit toujours être de 100 %. Elle doit impérativement être surveillée car elle peut rapidement vous indiquer si votre coffre de clés a subi une interruption. 
+**Disponibilité du coffre**  : cette métrique doit toujours être de 100 %. Elle doit impérativement être surveillée car elle peut rapidement vous indiquer si votre coffre de clés a subi une interruption. 
 
-**Saturation du coffre** : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
+**Saturation du coffre**  : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
 
-**Latence de l'API de service** : cette métrique indique la latence moyenne d'un appel au coffre de clés. Même si votre coffre de clés se trouve dans les limites de service, une utilisation intensive de celui-ci peut entraîner une latence qui fait échouer les applications situées en aval. 
+**Latence de l'API de service**  : cette métrique indique la latence moyenne d'un appel au coffre de clés. Même si votre coffre de clés se trouve dans les limites de service, une utilisation intensive de celui-ci peut entraîner une latence qui fait échouer les applications situées en aval. 
 
-**Nombre total d'accès à l'API** : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
+**Nombre total d'accès à l'API**  : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
 
-**Codes d'erreur** : cette métrique indique si votre coffre de clés rencontre un nombre inhabituel d'erreurs. Pour obtenir la liste complète des codes d'erreur et des conseils de dépannage, consultez le document suivant. [Codes d'erreur de l'API REST Azure Key Vault](rest-error-codes.md)
+**Codes d'erreur**  : cette métrique indique si votre coffre de clés rencontre un nombre inhabituel d'erreurs. Pour obtenir la liste complète des codes d'erreur et des conseils de dépannage, consultez le document suivant. [Codes d'erreur de l'API REST Azure Key Vault](rest-error-codes.md)
 
 ## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configurer les métriques et créer un tableau de bord
 
 1. Connectez-vous au portail Azure.
 2. Accédez à votre coffre de clés.
-3. Sous **Supervision**, sélectionnez **Métriques**. 
+3. Sous **Supervision** , sélectionnez **Métriques**. 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-1.png)
+> ![Capture d'écran mettant en évidence l'option Métriques dans la section Surveillance.](../media/alert-1.png)
 
 4. Modifiez le titre du graphique en fonction de ce que vous souhaitez voir sur votre tableau de bord. 
 5. Sélectionnez l'étendue. Dans cet exemple, nous allons sélectionner un seul coffre de clés. 
@@ -61,7 +61,7 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 7. Remplacez l'intervalle de temps par Dernières 24 heures et la Granularité temporelle par 1 minute. 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-2.png)
+> ![Capture d'écran illustrant la métrique Disponibilité globale du coffre.](../media/alert-2.png)
 
 8. Répétez les étapes ci-dessus pour les métriques Saturation du coffre et Latence de l'API de service. Sélectionnez **Épingler au tableau de bord** pour enregistrer vos métriques dans un tableau de bord. 
 
@@ -71,19 +71,19 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 9. Pour surveiller tous les types d'opérations sur le coffre de clés, utilisez la métrique **Nombre total d'accès à l'API de service** et sélectionnez **Appliquer le fractionnement par type d'activité**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-3.png)
+> ![Capture d'écran représentant le bouton Appliquer le fractionnement.](../media/alert-3.png)
 
-10. Pour surveiller les codes d'erreur sur le coffre de clés, utilisez la métrique **Résultats totaux de l'API de service**, puis sélectionnez **Appliquer le fractionnement par type d'activité**.
+10. Pour surveiller les codes d'erreur sur le coffre de clés, utilisez la métrique **Résultats totaux de l'API de service** , puis sélectionnez **Appliquer le fractionnement par type d'activité**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-4.png)
+> ![Capture d'écran dans laquelle la métrique Résultats totaux de l'API de service est sélectionnée.](../media/alert-4.png)
 
 Vous disposez à présent d'un tableau de bord semblable à celui-ci. Vous pouvez cliquer sur les 3 points situés en haut à droite de chaque vignette, et vous pouvez réorganiser et redimensionner les vignettes selon vos besoins. 
 
 Une fois le tableau de bord enregistré et publié, une nouvelle ressource est créée dans votre abonnement Azure. Pour y accéder à tout moment, recherchez « tableau de bord partagé ». 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-5.png)
+> ![Capture d'écran représentant le tableau de bord publié.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Configurer des alertes sur votre coffre de clés 
 
@@ -101,20 +101,20 @@ Un groupe d'actions est une liste configurable de notifications et de propriét�
 3. Sélectionnez **Gérer les actions**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-6.png)
+> ![Capture d'écran mettant en évidence le bouton Gérer les actions.](../media/alert-6.png)
 
 4. Sélectionnez **+ Ajouter un groupe d'actions**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-7.png)
+> ![Capture d'écran mettant en évidence le bouton + Ajouter un groupe d'actions.](../media/alert-7.png)
 
 5. Choisissez le **Type d'action** à associer à votre groupe d'actions. Pour les besoins de cet exemple, nous allons créer une alerte par e-mail.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-8.png)
+> ![Capture d'écran mettant en évidence les champs nécessaires à l'ajout d'un groupe d'actions.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-9.png)
+> ![Capture d'écran illustrant ce qui est nécessaire pour ajouter un message d'alerte par e-mail ou par SMS.](../media/alert-9.png)
 
 6. Cliquez sur **OK** au bas de la page. Vous venez de créer un groupe d'actions. 
 
@@ -125,12 +125,12 @@ Maintenant que vous avez configuré un groupe d'actions, vous allez configurer l
 1. Sélectionnez votre coffre de clés sur le portail Azure, puis choisissez **Alertes** sous **Surveillance**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-10.png)
+> ![Capture d'écran illustrant l'option de menu Alertes dans la section Surveillance.](../media/alert-10.png)
 
 2. Sélectionnez **Nouvelle règle d'alerte**.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-11.png)
+> ![Capture d'écran illustrant le bouton + Nouvelle règle d'alerte.](../media/alert-11.png)
 
 3. Sélectionnez l'étendue de votre règle d'alerte. Vous pouvez sélectionner un ou plusieurs coffres. 
 
@@ -138,7 +138,7 @@ Maintenant que vous avez configuré un groupe d'actions, vous allez configurer l
 > Veuillez noter que lorsque vous sélectionnez plusieurs coffres pour l'étendue de vos alertes, tous les coffres sélectionnés doivent se trouver dans la même région. Vous devez configurer des règles d'alerte distinctes pour les coffres situés dans des régions différentes. 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-12.png)
+> ![Capture d'écran montrant comment sélectionner un coffre.](../media/alert-12.png)
 
 4. Sélectionnez les conditions relatives à vos alertes. Vous pouvez choisir l'un des signaux suivants et définir votre logique d'alerte. L'équipe Key Vault recommande de configurer les seuils d'alerte suivants. 
 
@@ -149,13 +149,13 @@ Maintenant que vous avez configuré un groupe d'actions, vous allez configurer l
     + Le nombre total de codes d'erreur est supérieur à la moyenne (seuil dynamique) 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-13.png)
+> ![Capture d'écran montrant où sélectionner les conditions des alertes.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exemple 1 : Configuration d'un seuil d'alerte statique pour la latence
 
 Sélectionnez **Latence globale de l'API de service** comme nom de signal.
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-14.png)
+> ![Capture d'écran du nom de signal Latence globale de l'API de service.](../media/alert-14.png)
 
 Veuillez consulter les paramètres de configuration suivants.
 
@@ -168,14 +168,14 @@ Veuillez consulter les paramètres de configuration suivants.
 + Sélectionnez **Terminé**  
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-15.png)
+> ![Capture d'écran mettant en évidence la logique d'alerte configurée.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exemple 2 : Configuration d'un seuil d'alerte dynamique pour la saturation du coffre 
 
 Lorsque vous utilisez une alerte dynamique, vous pouvez consulter les données historiques du coffre de clés que vous avez sélectionné. La zone bleue représente l'utilisation moyenne de votre coffre de clés. La zone rouge indique les pics susceptibles de déclencher une alerte si d'autres critères de la configuration d'alerte sont remplis. Les points rouges indiquent les cas de violations dans lesquels les critères d'alerte ont été remplis pendant la fenêtre temporelle agrégée. Vous pouvez définir une alerte pour qu'elle se déclenche après un certain nombre de violations sur une période déterminée. Si vous ne souhaitez pas inclure de données passées, une option vous permet d'exclure les anciennes données ci-dessous dans les paramètres avancés. 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-16.png)
+> ![Capture d'écran d'un graphique représentant la saturation globale du coffre.](../media/alert-16.png)
 
 Veuillez consulter les paramètres de configuration suivants.
 
@@ -194,12 +194,12 @@ Veuillez consulter les paramètres de configuration suivants.
 5. Ajoutez le groupe d'actions que vous avez configuré.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-18.png)
+> ![Capture d'écran montrant comment ajouter un groupe d'actions.](../media/alert-18.png)
 
 6. Activez l'alerte et attribuez une gravité.
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-19.png)
+> ![Capture d'écran montrant où activer l'alerte et attribuer une gravité.](../media/alert-19.png)
 
 7. Créez l’alerte 
 
@@ -211,4 +211,4 @@ Félicitations, vous avez créé un tableau de bord de surveillance et configur�
 ### <a name="example-email-alert"></a>Exemple d'alerte par e-mail 
 
 > [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-20.png)
+> ![Capture d'écran mettant en évidence les informations nécessaires à la configuration d'une alerte par e-mail.](../media/alert-20.png)

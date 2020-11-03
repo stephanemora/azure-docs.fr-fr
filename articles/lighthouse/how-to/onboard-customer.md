@@ -3,12 +3,12 @@ title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109066"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426347"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Définir des rôles et des autorisations
 
-En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d’autorisations que nécessaire pour affecter les [rôles intégrés RBAC (contrôle d’accès basé sur un rôle)](../../role-based-access-control/built-in-roles.md) appropriés aux utilisateurs de votre locataire.
+En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d'autorisations que nécessaire pour attribuer les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) appropriés aux utilisateurs de votre locataire.
 
 Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle. Cela vous donne la possibilité d’ajouter ou de supprimer des utilisateurs individuels dans le groupe qui a accès, afin de ne pas avoir à répéter le processus d’intégration pour apporter des modifications à l’utilisateur. Vous pouvez assigner des rôles à un principal de service, ce qui peut être utile pour les scénarios d’automatisation.
 
@@ -211,8 +211,8 @@ Le déploiement peut être effectué sur le portail Azure, à l'aide de PowerShe
 ### <a name="azure-portal"></a>Portail Azure
 
 1. Dans notre [référentiel GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), sélectionnez le bouton **Déployer sur Azure** disponible en regard du modèle que vous souhaitez utiliser. Le modèle s’ouvre dans le portail Azure.
-1. Entrez vos valeurs dans les champs **Nom de l'offre MSP**, **Description de l'offre MSP**, **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
-1. Sélectionnez **Vérifier et créer**, puis **Créer**.
+1. Entrez vos valeurs dans les champs **Nom de l'offre MSP** , **Description de l'offre MSP** , **ID géré par le locataire** et **Autorisations**. Si vous préférez, vous pouvez sélectionner **Modifier les paramètres** pour entrer les valeurs de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` et `authorizations` directement dans le fichier de paramètres. Veillez à mettre à jour ces valeurs plutôt que d'utiliser les valeurs par défaut du modèle.
+1. Sélectionnez **Vérifier et créer** , puis **Créer**.
 
 Au bout de quelques minutes, une notification indique que le déploiement est terminé.
 

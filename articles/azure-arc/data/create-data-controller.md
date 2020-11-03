@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310918"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372291"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Créer le contrôleur de données Azure Arc
 
@@ -39,7 +39,7 @@ Actuellement, la liste des services Kubernetes et distributions pris en charge e
 > * la version minimale prise en charge de Kubernetes est la version v1.14.
 > * pour comprendre la connectivité requise entre votre environnement et Azure, consultez les [exigences de connectivité](connectivity.md).
 > * pour comprendre les détails de la configuration de votre stockage persistant, consultez les [Instructions de configuration du stockage](storage-configuration.md).
-> * si vous utilisez Azure Container Service, la taille de machine virtuelle du nœud Worker de votre cluster doit être au moins **Standard_D8s_v3** et utiliser des **disques Premium** . 
+> * si vous utilisez Azure Container Service, la taille de machine virtuelle du nœud Worker de votre cluster doit être au moins **Standard_D8s_v3** et utiliser des **disques Premium**. Le cluster ne doit pas s’étendre sur plusieurs zones de disponibilité. 
 > * Si vous utilisez une autre distribution ou un autre service Kubernetes, vous devez vous assurer de disposer d’une taille de nœud minimale de 8 Go de RAM et de 4 cœurs, ainsi que d’une capacité totale de 32 Go de RAM disponibles pour l’ensemble de vos nœuds Kubernetes. Par exemple, vous pouvez avoir 1 nœud de 32 Go de RAM et 4 cœurs, ou 2 nœuds de 16 Go de RAM et 4 cœurs chacun.
 
 > [!NOTE]

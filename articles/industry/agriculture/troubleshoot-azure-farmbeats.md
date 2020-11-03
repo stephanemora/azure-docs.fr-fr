@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd0ed78c56e4d656a2ecee6395d831ed093e85b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168288"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677371"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Résoudre les problèmes liés à Azure FarmBeats
 
-Cet article fournit des solutions aux problèmes courants liés à Azure FarmBeats. Pour obtenir de l’aide supplémentaire, contactez notre [Forum de support questions et réponses](https://aka.ms/farmbeatssupport) ou envoyez-nous un e-mail à l’adresse farmbeatssupport@microsoft.com.
+Cet article fournit des solutions aux problèmes courants liés à Azure FarmBeats. Pour obtenir de l’aide supplémentaire, contactez notre [Forum de support questions et réponses](/answers/topics/azure-farmbeats.html) ou envoyez-nous un e-mail à l’adresse farmbeatssupport@microsoft.com.
 
 > [!NOTE]
   > Si vous avez installé FarmBeats au mois d’avril et que vos travaux échouent avec un message d’erreur vide, il se peut que votre installation n’ait pas reçu de quota Batch pour hiérarchiser le support apporté à des organisations critiques en matière de sécurité et de santé. Pour plus d’informations, consultez [cet article](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Vous devez demander l’allocation de machines virtuelles au compte Batch pour exécuter les tâches.
@@ -44,9 +44,9 @@ Contactez-nous en vous munissant des informations suivantes :
 - Nom du groupe ressources
 - Procédez de la manière décrite ci-dessous pour joindre le fichier journal relatif à l’échec du déploiement :
 
-    1. Dans le portail Azure, accédez au **Groupe de ressources** .
+    1. Dans le portail Azure, accédez au **Groupe de ressources**.
 
-    2. Dans la section **Paramètres** sur le côté gauche, sélectionnez **Déploiements** .
+    2. Dans la section **Paramètres** sur le côté gauche, sélectionnez **Déploiements**.
 
     3. Pour chaque déploiement en **Échec** , sélectionnez et téléchargez les détails. Joignez ce fichier au courrier.
 
@@ -111,7 +111,7 @@ Pour comprendre comment télécharger les journaux, consultez la section [« Co
 > Notez l’ID partenaire du partenaire de capteur qui vous intéresse.
 
 3. Revenez dans l’API partenaire et sélectionnez **Get/\<ID>** .
-4. Spécifiez l’ID partenaire obtenue à l’étape 3, puis sélectionnez **Exécuter** .
+4. Spécifiez l’ID partenaire obtenue à l’étape 3, puis sélectionnez **Exécuter**.
 
    La réponse de l’API contient normalement la chaîne de connexion Event Hubs.
 
@@ -133,7 +133,7 @@ Quand vous supprimez un appareil, vous pouvez être confronté à l’un des sc�
 
 1. Supprimez les capteurs associés à l’appareil avec Accelerator.  
 2. Si vous souhaitez associer les capteurs à un autre appareil, demandez à votre partenaire d’appareil d’en faire de même.  
-3. Supprimez l’appareil à l’aide d’un appel `DELETE API`, puis définissez le paramètre force avec la valeur *true* .  
+3. Supprimez l’appareil à l’aide d’un appel `DELETE API`, puis définissez le paramètre force avec la valeur *true*.  
 
 **Message** : « L’appareil est référencé dans les appareils en tant que ParentDeviceId : Un ou plusieurs appareils associés à cet appareil sont des appareils enfants. Supprimez-les, puis supprimez cet appareil. »  
 
@@ -215,11 +215,11 @@ Si l’accès vous a déjà été accordé et que vous êtes confronté à cette
     2. Dans la zone **Rechercher** , recherchez le groupe de ressources FarmBeats Datahub.
     3. Sélectionnez keyvault-*****
     4. Sélectionnez stratégies d’accès sous Paramètres.
-    5. Sélectionnez **Ajouter une stratégie d’accès** .
+    5. Sélectionnez **Ajouter une stratégie d’accès**.
     6. Utilisez **Gestion des secrets** pour configurer à partir du Modèle et vous ajouter au Principal.
-    7. Dans la page **Stratégies d’accès** , sélectionnez **Ajouter** , puis **Enregistrer** .
-    8. Sous **Paramètres** , sélectionnez **Secrets** .
-    9. Sélectionner **Sentinel-Password** .
+    7. Dans la page **Stratégies d’accès** , sélectionnez **Ajouter** , puis **Enregistrer**.
+    8. Sous **Paramètres** , sélectionnez **Secrets**.
+    9. Sélectionner **Sentinel-Password**.
     10. Créez une nouvelle version de la valeur, puis activez-la.
 
 - Réexécutez le travail ayant échoué ou exécutez un travail d’indices satellite pour une plage de dates de 5 à 7 jours, puis vérifiez si le travail est réussi.
@@ -288,8 +288,8 @@ Ce problème peut se produire si des activités de maintenance sont effectuées 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la zone **Rechercher** , recherchez le groupe de ressources FarmBeats Datahub.
 3. Dans le tableau de bord **Groupe de ressources** , recherchez le compte de stockage *datahublogs\** . Par exemple, *datahublogsmvxmq*  
-4. Dans la colonne **Nom** , sélectionnez le compte de stockage pour afficher le tableau de bord **Compte de stockage** .
-5. Dans le volet **datahubblogs\*** , sélectionnez **Ouvrir dans l’Explorateur** pour afficher l’application **Explorateur Stockage Azure** .
+4. Dans la colonne **Nom** , sélectionnez le compte de stockage pour afficher le tableau de bord **Compte de stockage**.
+5. Dans le volet **datahubblogs\* *_, sélectionnez _* Ouvrir dans l’Explorateur** pour afficher l’application **Explorateur Stockage Azure**.
 6. Dans le volet gauche, sélectionnez **Conteneurs d’objets blob** , puis **job-logs** pour les journaux d’Azure Data Factory ou **appinsights-logs** pour les journaux d’App Service.
 7. Sélectionnez **Télécharger** , puis téléchargez les journaux dans un dossier local sur votre ordinateur.
 
@@ -300,19 +300,19 @@ Ce problème peut se produire si des activités de maintenance sont effectuées 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la zone **Rechercher** , recherchez le groupe de ressources FarmBeats Accelerator.
 3. Dans le tableau de bord **Groupe de ressources** , recherchez le compte de stockage *storage\** . Par exemple, *storagedop4k\** .
-4. Sélectionnez le compte de stockage dans la colonne **Nom** pour afficher le tableau de bord **Compte de stockage** .
-5. Dans le volet **storage\*** , sélectionnez **Ouvrir dans l’Explorateur** pour ouvrir l’application Explorateur Stockage Azure.
+4. Sélectionnez le compte de stockage dans la colonne **Nom** pour afficher le tableau de bord **Compte de stockage**.
+5. Dans le volet **storage\* *_, sélectionnez _* Ouvrir dans l’Explorateur** pour ouvrir l’application Explorateur Stockage Azure.
 6. Dans le volet gauche, sélectionnez **Conteneurs d’objets blob** , puis **job-logs** pour les journaux d’Azure Data Factory ou **appinsights-logs** pour les journaux d’App Service.
 7. Sélectionnez **Télécharger** , puis téléchargez les journaux dans un dossier local sur votre ordinateur.
 
 ## <a name="high-cpu-usage"></a>Utilisation élevée du processeur
 
-**Erreur**  : Vous recevez une alerte par e-mail qui fait référence à une **alerte d’utilisation élevée du processeur** .
+**Erreur**  : Vous recevez une alerte par e-mail qui fait référence à une **alerte d’utilisation élevée du processeur**.
 
 **Action corrective**  :
 
 1. Accédez à votre groupe de ressources FarmBeats Datahub.
-2. Sélectionnez **App Service** .  
+2. Sélectionnez **App Service**.  
 3. Accédez à la [page des prix App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) Scale Up, puis sélectionnez un niveau tarifaire approprié.
 
 ## <a name="weather-data-job-failures"></a>Échecs de travaux de données météorologiques
@@ -329,24 +329,24 @@ Ce problème peut se produire si des activités de maintenance sont effectuées 
 
 :::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
 
-3. Dans la page de présentation de la fabrique de données, cliquez sur **Créer et surveiller** . Un nouvel onglet s’ouvre dans votre navigateur. Cliquez sur **Surveiller** .
+3. Dans la page de présentation de la fabrique de données, cliquez sur **Créer et surveiller**. Un nouvel onglet s’ouvre dans votre navigateur. Cliquez sur **Surveiller**.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Capture d’écran qui met en évidence l’option de menu Redémarrer.":::
 
 4. Vous voyez la liste des exécutions de pipeline qui font partie de l’exécution du travail météorologique. Cliquez sur le travail pour lequel vous souhaitez collecter les journaux.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Capture d’écran mettant en évidence l’option de menu Exécutions de pipeline et la tâche sélectionnée.":::
 
 5. Dans la page de présentation du pipeline, vous voyez la liste des exécutions d’activités. Prenez note des ID d’exécution des activités pour lesquelles vous souhaitez collecter les journaux.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Capture d’écran montrant la liste des exécutions d’activités.":::
 
-6. Revenez à votre groupe de ressources FarmBeats sur le portail Azure, puis cliquez sur le compte de stockage portant le nom **datahublogs-XXXX** .
+6. Revenez à votre groupe de ressources FarmBeats sur le portail Azure, puis cliquez sur le compte de stockage portant le nom **datahublogs-XXXX**.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Capture d’écran mettant en évidence le compte de stockage nommé datahublogs-XXXX.":::
 
-7. Cliquez sur **Conteneurs** -> **adfjobs** . Dans la zone de recherche, entrez l’ID d’exécution du travail que vous avez noté à l’étape 5 ci-dessus.
+7. Cliquez sur **Conteneurs** -> **adfjobs**. Dans la zone de recherche, entrez l’ID d’exécution du travail que vous avez noté à l’étape 5 ci-dessus.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Capture d’écran mettant en évidence l’étiquette sku:Datahub.":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Projet FarmBeats":::
 
 8. Le résultat de la recherche inclut le dossier contenant les journaux relatifs au travail. Téléchargez les journaux et envoyez-les à farmbeatssupport@microsoft.com pour obtenir de l’aide afin de résoudre le problème.

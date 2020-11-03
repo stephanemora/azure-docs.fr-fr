@@ -3,12 +3,12 @@ title: Intégrer à Apache Kafka Connect - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’utilisation de Kafka Connect avec Azure Event Hubs pour Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061663"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369537"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs (préversion)
 Si l’ingestion des besoins métier augmente, les exigences augmentent également pour ingérer différents récepteurs et sources externes. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fournit cette infrastructure pour se connecter et importer/exporter des données depuis/vers n’importe quel système externe, tel que MySQL, HDFS, et système de fichiers via un cluster Kafka. Ce tutoriel vous montre comment utiliser l’infrastructure Kafka Connect avec des Event Hubs.
@@ -90,6 +90,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Remplacez `{YOUR.EVENTHUBS.CONNECTION.STRING}` par la chaîne de connexion de votre espace de noms Event Hubs. Pour savoir comment obtenir la chaîne de connexion, consultez [Obtenir une chaîne de connexion Event Hubs](event-hubs-get-connection-string.md). Voici un exemple de configuration : `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## <a name="run-kafka-connect"></a>Exécuter Kafka Connect
 

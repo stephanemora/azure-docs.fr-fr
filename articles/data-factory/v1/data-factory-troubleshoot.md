@@ -13,12 +13,12 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637069"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -67,7 +67,7 @@ Lancez le **Gestionnaire de configuration de la passerelle de gestion des donné
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problème : L’état des tranches d’entrée est En attente depuis longtemps
 Les tranches peuvent avoir l’état **En attente** pour diverses raisons. Une des raisons courantes est que la propriété **external** n’est pas définie sur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external** . Cette propriété indique que les données sont externes et qu’elles ne sont prises en charge par aucun pipeline dans la fabrique de données. Les tranches de données sont marquées comme prêtes ( **Ready** ) une fois que les données sont disponibles dans le magasin respectif.
 
-Consultez l’exemple suivant pour l’utilisation de la propriété **external** . Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
+Consultez l’exemple suivant pour l’utilisation de la propriété **external** . Vous pouvez éventuellement spécifier **externalData** _ quand vous affectez à la propriété external la valeur true.
 
 Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour plus d’informations sur cette propriété.
 
@@ -97,7 +97,7 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 }
 ```
 
-Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+Pour résoudre l’erreur, ajoutez la propriété *external* et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problème : Échec de l’opération de copie hybride
 Consultez la page [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.
@@ -130,9 +130,9 @@ Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure P
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
+[json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/
 

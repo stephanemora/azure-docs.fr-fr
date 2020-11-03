@@ -2,17 +2,17 @@
 title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385753"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371441"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
-Dans un workflow Azure Batch, un *nœud de calcul* (ou *nœud*) est une machine virtuelle qui traite une partie de la charge de travail de votre application. Un *pool* est une collection regroupant ces nœuds, sur lesquels votre application s’exécute. Cet article explique plus en détail les nœuds et les pools, ainsi que les éléments à prendre en compte lors de leur création et de leur utilisation dans un flux de travail Azure Batch.
+Dans un workflow Azure Batch, un *nœud de calcul* (ou *nœud* ) est une machine virtuelle qui traite une partie de la charge de travail de votre application. Un *pool* est une collection regroupant ces nœuds, sur lesquels votre application s’exécute. Cet article explique plus en détail les nœuds et les pools, ainsi que les éléments à prendre en compte lors de leur création et de leur utilisation dans un flux de travail Azure Batch.
 
 ## <a name="nodes"></a>Nœuds
 
@@ -26,7 +26,7 @@ Tous les nœuds de calcul Batch incluent également les éléments suivants :
 
 - Une [structure de dossiers](files-and-directories.md) standard et des [variables d’environnement](jobs-and-tasks.md) associées pouvant être référencées par les tâches.
 - **pare-feu** configurés pour le contrôle de l’accès.
-- [accès distant](error-handling.md#connect-to-compute-nodes) aux nœuds Windows (protocole RDP [Remote Desktop Protocol]) et Linux (Secure Shell [SSH]).
+- [Accès à distance](error-handling.md#connect-to-compute-nodes) aux nœuds Windows (Remote Desktop Protocol, RDP) et Linux (Secure Shell, SSH) (sauf si vous [créez votre pool avec l’accès à distance désactivé](pool-endpoint-configuration.md)).
 
 Par défaut, les nœuds peuvent communiquer entre eux, mais ils ne peuvent pas communiquer avec les machines virtuelles qui ne font pas partie du même pool. Pour permettre aux nœuds de communiquer en toute sécurité avec d’autres machines virtuelles, ou avec un réseau local, vous pouvez provisionner le pool [dans un sous-réseau d’un réseau virtuel Azure (VNet)](batch-virtual-network.md). Dans ce cas, vos nœuds sont accessibles via des adresses IP publiques. Ces adresses IP publiques sont créées par Batch et peuvent changer au cours de la durée de vie du pool. Vous pouvez également [créer un pool avec des adresses IP publiques statiques](create-pool-public-ip.md) que vous contrôlez, ce qui garantit qu’elles ne changeront pas de manière inattendue.
 
@@ -148,7 +148,7 @@ Vous pouvez également spécifier un *type de remplissage*. Il détermine si l�
 
 Dans la plupart des scénarios, les tâches fonctionnent indépendamment et n’ont pas besoin de communiquer les unes avec les autres. Cependant, il existe des applications dans lesquelles les tâches doivent communiquer, par exemple les [scénarios impliquant des applications MPI](batch-mpi.md).
 
-Vous pouvez configurer un pool de sorte qu’il autorise la **communication entre les nœuds**, afin de permettre aux nœuds du pool de communiquer au moment de l’exécution. Lorsque la communication entre les nœuds est activée, les nœuds des pools Configuration de Cloud Services peuvent communiquer entre eux sur les ports supérieurs à 1100, et les pools Configuration de la machine virtuelle ne limitent pas le trafic sur les ports.
+Vous pouvez configurer un pool de sorte qu’il autorise la **communication entre les nœuds** , afin de permettre aux nœuds du pool de communiquer au moment de l’exécution. Lorsque la communication entre les nœuds est activée, les nœuds des pools Configuration de Cloud Services peuvent communiquer entre eux sur les ports supérieurs à 1100, et les pools Configuration de la machine virtuelle ne limitent pas le trafic sur les ports.
 
 L’activation de la communication entre les nœuds affecte également le placement des nœuds dans des clusters et peut limiter le nombre maximal de nœuds dans un pool en raison des restrictions de déploiement. Si votre application ne nécessite pas de communication entre les nœuds, le service Batch peut éventuellement allouer au pool un grand nombre de nœuds issus de différents centres de données et clusters pour accroître la puissance de traitement parallèle.
 

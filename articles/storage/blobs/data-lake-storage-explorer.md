@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 088618c0f23f5cfd1b14c3c946ef735fadb893d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086096"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674865"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser l'Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d'accès dans Azure Data Lake Storage Gen2
 
@@ -36,9 +36,9 @@ Lors du premier démarrage de l’Explorateur Stockage, la fenêtre **Microsoft 
 |Utiliser un URI de chaîne de connexion ou de signature d’accès partagé | Peut être utilisé pour accéder directement à un conteneur ou un compte de stockage avec un jeton SAP ou une chaîne de connexion partagée. |
 |Utiliser le nom et la clé d’un compte de stockage| Utilisez le nom et la clé et de votre compte de stockage pour vous connecter à Stockage Azure.|
 
-Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
+Sélectionnez **Ajouter un compte Azure** , puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
-![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Capture d’écran montrant l’Explorateur Stockage Microsoft Azure, avec l’option Ajouter un compte Azure et le bouton Se connecter en évidence.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge avec l’onglet **Explorateur** affiché. Cette vue vous donne accès à l’ensemble de vos comptes Stockage Azure, ainsi qu’au stockage local configuré via les comptes de l’[émulateur de stockage Azure](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou les environnements [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -46,7 +46,7 @@ Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Un conteneur contient des répertoires et des fichiers. Pour en créer un, développez le compte de stockage que vous avez créé à l'étape précédente. Sélectionnez **Conteneurs d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur. Consultez la section [Créer un conteneur](storage-quickstart-blobs-dotnet.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs. Quand vous avez terminé, appuyez sur **Entrée** pour créer le conteneur. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d'objets blob** correspondant au compte de stockage sélectionné.
+Un conteneur contient des répertoires et des fichiers. Pour en créer un, développez le compte de stockage que vous avez créé à l'étape précédente. Sélectionnez **Conteneurs d’objets blob** , cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur. Consultez la section [Créer un conteneur](storage-quickstart-blobs-dotnet.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs. Quand vous avez terminé, appuyez sur **Entrée** pour créer le conteneur. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d'objets blob** correspondant au compte de stockage sélectionné.
 
 ![Explorateur Stockage Microsoft Azure - Création d’un conteneur](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -64,21 +64,21 @@ Choisissez les fichiers ou le dossier à télécharger.
 
 ![Explorateur Stockage Microsoft Azure - Charger un objet blob](media/data-lake-storage-explorer/upload-file.png)
 
-Lorsque vous sélectionnez **OK**, les fichiers sélectionnés sont mis en file d’attente de téléchargement ; ils sont traités un à un. Une fois le téléchargement terminé, les résultats s’affichent dans la fenêtre **Activités**.
+Lorsque vous sélectionnez **OK** , les fichiers sélectionnés sont mis en file d’attente de téléchargement ; ils sont traités un à un. Une fois le téléchargement terminé, les résultats s’affichent dans la fenêtre **Activités**.
 
 ## <a name="view-blobs-in-a-directory"></a>Afficher les objets blob d’un répertoire
 
-Dans l’application **Explorateur Stockage Azure**, sélectionnez un répertoire sous un compte de stockage. Le volet principal affiche une liste des objets blobs hébergés dans le répertoire sélectionné.
+Dans l’application **Explorateur Stockage Azure** , sélectionnez un répertoire sous un compte de stockage. Le volet principal affiche une liste des objets blobs hébergés dans le répertoire sélectionné.
 
 ![Explorateur Stockage Microsoft Azure - Liste des objets blob dans un répertoire](media/data-lake-storage-explorer/list-files.png)
 
 ## <a name="download-blobs"></a>Télécharger des objets blob
 
-Pour télécharger un fichier à l'aide de l'**Explorateur Stockage Azure**, sélectionnez le fichier, puis choisissez **Télécharger** sur le ruban. La boîte de dialogue qui s’ouvre vous permet de saisir un nom de fichier. Sélectionnez **Enregistrer** pour lancer le téléchargement d'un fichier à l'emplacement local.
+Pour télécharger un fichier à l'aide de l' **Explorateur Stockage Azure** , sélectionnez le fichier, puis choisissez **Télécharger** sur le ruban. La boîte de dialogue qui s’ouvre vous permet de saisir un nom de fichier. Sélectionnez **Enregistrer** pour lancer le téléchargement d'un fichier à l'emplacement local.
 
 ## <a name="managing-access"></a>Gestion de l’accès
 
-Vous pouvez définir des autorisations à la racine de votre conteneur. Pour ce faire, vous devez être connecté à l’Explorateur de stockage Azure avec votre compte spécifique disposant des droits adaptés (par opposition à une chaîne de connexion). Cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Gérer les autorisations**, ce qui fait apparaître la boîte de dialogue **Gérer les autorisations**.
+Vous pouvez définir des autorisations à la racine de votre conteneur. Pour ce faire, vous devez être connecté à l’Explorateur de stockage Azure avec votre compte spécifique disposant des droits adaptés (par opposition à une chaîne de connexion). Cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Gérer les autorisations** , ce qui fait apparaître la boîte de dialogue **Gérer les autorisations**.
 
 ![Explorateur de stockage Microsoft Azure - Gérer l’accès au répertoire](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -88,7 +88,7 @@ Pour ajouter un nouvel utilisateur ou un nouveau groupe à la liste de contrôle
 
 Entrez l’entrée Azure Active Directory (AAD) correspondante que vous souhaitez ajouter à la liste, puis sélectionnez **Ajouter**.
 
-L’utilisateur ou le groupe apparaît alors dans le champ **Utilisateurs et groupes**, ce qui vous permet de commencer à gérer leurs autorisations.
+L’utilisateur ou le groupe apparaît alors dans le champ **Utilisateurs et groupes** , ce qui vous permet de commencer à gérer leurs autorisations.
 
 > [!NOTE]
 > Créer un groupe de sécurité dans AAD et mettre à jour les autorisations au niveau du groupe plutôt qu’au niveau des utilisateurs individuels est recommandé et constitue une meilleure pratique. Pour plus d’informations sur cette recommandation ainsi que sur les autres meilleures pratiques, consultez [Meilleures pratiques pour Data Lake Storage Gen2](data-lake-storage-best-practices.md).
@@ -99,7 +99,7 @@ Il existe deux catégories d’autorisations pouvant être attribuées : les ACL
 
 * **Par défaut** : Un modèle d’ACL associées à un répertoire, qui détermine les ACL d’accès pour tous les éléments enfants créés dans ce répertoire. Les fichiers n’ont pas d’ACL par défaut.
 
-Dans ces deux catégories, il existe trois autorisations, que vous pouvez ensuite attribuer à des fichiers ou des répertoires : **Lire**, **écrire** et **exécuter**.
+Dans ces deux catégories, il existe trois autorisations, que vous pouvez ensuite attribuer à des fichiers ou des répertoires : **Lire** , **écrire** et **exécuter**.
 
 >[!NOTE]
 > Les sélections faites ici ne définiront pas d’autorisations sur tous les éléments existants actuellement au sein du répertoire. Vous devez accéder à chaque élément et définir les autorisations manuellement, si le fichier existe déjà.

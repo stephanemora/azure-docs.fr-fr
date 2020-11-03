@@ -3,12 +3,12 @@ title: Authentifier une application pour accéder aux entités Azure Service Bus
 description: Cet article fournit des informations sur l’authentification d’une application avec Azure Active Directory pour accéder aux entités Azure Service Bus (files d’attente, rubriques, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064823"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518226"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus
 Azure Service Bus prend en charge l’utilisation d’Azure Active Directory (Azure AD) pour autoriser les requêtes d’accès aux entités Service Bus (files d’attente, rubriques, abonnements ou filtres). Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle d’Azure (Azure RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -43,10 +43,10 @@ Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l�
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Service Bus, en commençant par la plus petite étendue :
 
-- **File d’attente**, **rubrique** ou **abonnement** : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. 
-- **Espace de noms Service Bus** : l’attribution de rôle s’étend à toute la topologie de Service Bus sous l’espace de noms et au groupe de consommateurs qui lui est associé.
-- **Groupe de ressources** : l’attribution de rôle s’applique à toutes les ressources Service Bus sous le groupe de ressources.
-- **Abonnement**: l’attribution de rôle s’applique à toutes les ressources Service Bus dans tous les groupes de ressources de l’abonnement.
+- **File d’attente** , **rubrique** ou **abonnement**  : l’attribution de rôle s’applique à l’entité Service Bus spécifique. Actuellement, le Portail Azure ne prend pas en charge l’affectation d’utilisateurs, de groupes ou d’identités managées aux rôles Azure Service Bus au niveau de l’abonnement. 
+- **Espace de noms Service Bus**  : l’attribution de rôle s’étend à toute la topologie de Service Bus sous l’espace de noms et au groupe de consommateurs qui lui est associé.
+- **Groupe de ressources**  : l’attribution de rôle s’applique à toutes les ressources Service Bus sous le groupe de ressources.
+- **Abonnement** : l’attribution de rôle s’applique à toutes les ressources Service Bus dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
 > Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. 
@@ -68,7 +68,7 @@ Après avoir déterminé l’étendue appropriée pour une attribution de rôle,
 1. Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles. Sélectionnez le bouton **Ajouter** dans la barre d’outils, puis sélectionnez **Ajouter une attribution de rôle**. 
 
     ![Ajouter un bouton à la barre d’outils](./media/authenticate-application/role-assignments-add-button.png)
-1. Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
+1. Sur la page **Ajouter une attribution de rôle** , procédez comme suit :
     1. Sélectionnez le **rôle Service Bus** que vous souhaitez attribuer. 
     1. Recherchez le **principal de sécurité** (utilisateur, groupe, principal de service) auquel vous souhaitez attribuer le rôle.
     1. Sélectionnez **Enregistrer** pour enregistrer l’attribution de rôle. 
@@ -105,14 +105,14 @@ Une fois votre application inscrite, **l’ID (client) d’application** se trou
 Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
-> Notez les valeurs de **TenantId** et **ApplicationId**, car vous en aurez besoin pour exécuter l’application.
+> Notez les valeurs de **TenantId** et **ApplicationId** , car vous en aurez besoin pour exécuter l’application.
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client   
 L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter le secret client, effectuez ces étapes.
 
 1. Accédez à la page d’inscription de votre application dans le portail Azure si vous n’y êtes pas déjà.
 1. Dans le menu de gauche, sélectionnez **Certificats et secrets**.
-1. Sous **Secrets client**, sélectionnez **Nouveau secret client** pour créer un secret.
+1. Sous **Secrets client** , sélectionnez **Nouveau secret client** pour créer un secret.
 
     ![Nouveau secret client (bouton)](./media/authenticate-application/new-client-secret-button.png)
 1. Entrez une description pour le secret, choisissez un intervalle d’expiration, puis sélectionnez **Ajouter**.
@@ -131,9 +131,9 @@ Une fois que vous avez inscrit votre application et lui avez accordé les autori
 Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est pris en charge, veuillez consulter la section [Scénarios](https://aka.ms/msal-net-scenarios) du référentiel GitHub [Microsoft Authentication Library (MSAL) pour .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
 ## <a name="sample-on-github"></a>Exemple sur GitHub
-Consultez l’exemple suivant sur GitHub : [Contrôle d’accès en fonction du rôle pour Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
+Consultez l’exemple suivant sur GitHub : [Contrôle d'accès en fonction du rôle Azure pour Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
 
-Utilisez l’option de **connexion avec le secret client**, et non l’option de **connexion de l’utilisateur interactif**. Si vous utilisez l’option du secret client, vous ne voyez pas de fenêtre indépendante s’afficher. L’application utilise l’ID de locataire et l’ID d’application pour l’authentification. 
+Utilisez l’option de **connexion avec le secret client** , et non l’option de **connexion de l’utilisateur interactif**. Si vous utilisez l’option du secret client, vous ne voyez pas de fenêtre indépendante s’afficher. L’application utilise l’ID de locataire et l’ID d’application pour l’authentification. 
 
 ### <a name="run-the-sample"></a>Exécution de l'exemple
 

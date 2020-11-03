@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128163"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673883"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Attribuer des rôles de ressources Azure dans Privileged Identity Management
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) peut gé
 
 Suivez ces étapes pour rendre un utilisateur éligible pour un rôle de ressource Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec les autorisations de rôle Propriétaire ou Administrateur de l’accès utilisateur.
 
     Pour plus d’informations sur la façon d’accorder l’accès à un autre administrateur pour la gestion de Privileged Identity Management, consultez [Accorder l’accès à d’autres administrateurs pour la gestion de Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -53,7 +53,7 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle de ressour
 
 1. Sélectionnez la ressource que vous souhaitez gérer pour ouvrir la page de présentation des ressources.
 
-1. Sous **Gérer**, sélectionnez **Rôles** pour afficher la liste des rôles pour les ressources Azure.
+1. Sous **Gérer** , sélectionnez **Rôles** pour afficher la liste des rôles pour les ressources Azure.
 
     ![Rôles de ressources Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -71,7 +71,7 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle de ressour
 
     ![Volet Sélectionner un membre ou un groupe](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. Dans l’onglet **Paramètres**, liste **Type d’affectation**, sélectionnez **Éligible** ou **Actif**.
+1. Dans l’onglet **Paramètres** , liste **Type d’affectation** , sélectionnez **Éligible** ou **Actif**.
 
     ![Volet des paramètres des appartenances](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -99,7 +99,7 @@ Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle exi
 
 1. Sélectionnez la ressource que vous souhaitez gérer pour ouvrir sa page de présentation.
 
-1. Sous **Gérer**, sélectionnez **Rôles** pour afficher la liste des rôles pour les ressources Azure.
+1. Sous **Gérer** , sélectionnez **Rôles** pour afficher la liste des rôles pour les ressources Azure.
 
     ![Rôles de ressources Azure - Sélectionner un rôle](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

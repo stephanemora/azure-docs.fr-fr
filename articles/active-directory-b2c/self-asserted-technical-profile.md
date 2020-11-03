@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096213"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670121"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -53,11 +53,11 @@ Dans un profil technique autodéclaré, vous pouvez utiliser les éléments **In
 
 ## <a name="display-claims"></a>Revendications d’affichage
 
-La fonctionnalité Revendications d’affichage est actuellement en **préversion** .
+La fonctionnalité Revendications d’affichage est actuellement en **préversion**.
 
 L’élément **DisplayClaims** contient une liste des revendications à présenter à l’écran pour recueillir des données de la part de l’utilisateur. Pour prérenseigner les valeurs des revendications d'affichage, utilisez les revendications d'entrée décrites précédemment. L’élément peut également contenir une valeur par défaut.
 
-L’ordre des revendications dans **DisplayClaims** détermine l’ordre dans lequel Azure AD B2C affiche les revendications à l’écran. Pour forcer l’utilisateur à fournir une valeur pour une revendication spécifique, affectez la valeur `true` à l’attribut **Required** de l’élément **DisplayClaims** .
+L’ordre des revendications dans **DisplayClaims** détermine l’ordre dans lequel Azure AD B2C affiche les revendications à l’écran. Pour forcer l’utilisateur à fournir une valeur pour une revendication spécifique, affectez la valeur `true` à l’attribut **Required** de l’élément **DisplayClaims**.
 
 L’élément **ClaimType** dans la collection **DisplayClaims** doit définir l’élément **UserInputType** sur n’importe quel type d’entrée d’utilisateur pris en charge par Azure AD B2C. Par exemple, `TextBox` ou `DropdownSingleSelect`.
 
@@ -118,12 +118,12 @@ La revendication `age` dans la stratégie de base n’est plus présentée à l�
 
 ## <a name="output-claims"></a>Revendications de sortie
 
-L’élément **OutputClaims** contient une liste de revendications à renvoyer lors de la prochaine étape d’orchestration. L’attribut **DefaultValue** prend effet uniquement si la revendication n’a encore jamais été définie. Si elle a déjà été définie lors d’une étape d’orchestration précédente, la valeur par défaut ne prend pas effet même si l’utilisateur laisse la valeur vide. Pour forcer l’utilisation d’une valeur par défaut, affectez la valeur `true` à l’attribut **AlwaysUseDefaultValue** .
+L’élément **OutputClaims** contient une liste de revendications à renvoyer lors de la prochaine étape d’orchestration. L’attribut **DefaultValue** prend effet uniquement si la revendication n’a encore jamais été définie. Si elle a déjà été définie lors d’une étape d’orchestration précédente, la valeur par défaut ne prend pas effet même si l’utilisateur laisse la valeur vide. Pour forcer l’utilisation d’une valeur par défaut, affectez la valeur `true` à l’attribut **AlwaysUseDefaultValue**.
 
 Pour des raisons de sécurité, une valeur de revendication de mot de passe (`UserInputType` défini sur `Password`) est uniquement disponible pour les profils techniques de validation du profil technique auto-déclaré. Vous ne pouvez pas utiliser la revendication de mot de passe lors des prochaines étapes d’orchestration. 
 
 > [!NOTE]
-> Dans les versions précédentes d’Identity Experience Framework (IEF), les revendications de sortie étaient utilisées pour recueillir des données auprès de l’utilisateur. Pour recueillir des données auprès de l’utilisateur, utilisez plutôt une collection **DisplayClaims** .
+> Dans les versions précédentes d’Identity Experience Framework (IEF), les revendications de sortie étaient utilisées pour recueillir des données auprès de l’utilisateur. Pour recueillir des données auprès de l’utilisateur, utilisez plutôt une collection **DisplayClaims**.
 
 L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
@@ -133,10 +133,10 @@ Dans un profil technique autodéclaré, la collection de revendications de sorti
 
 Utilisez les revendications de sortie dans les cas suivants :
 
-- **Génération de revendications par le biais d’une transformation des revendications de sortie** .
+- **Génération de revendications par le biais d’une transformation des revendications de sortie**.
 - **Définition d’une valeur par défaut dans une revendication de sortie** sans recueillir de données de l’utilisateur ou retourner les données à partir du profil technique de validation. Le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` définit la revendication **executed-SelfAsserted-Input** sur `true`.
 - **Un profil technique de validation retourne les revendications de sortie**  : votre profil technique peut appeler un profil technique de validation qui retourne certaines revendications. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. Par exemple, quand vous vous connectez avec un compte local, le profil technique autodéclaré nommé `SelfAsserted-LocalAccountSignin-Email` appelle le profil technique de validation nommé `login-NonInteractive`. Ce profil technique valide les informations d’identification utilisateur et retourne également le profil utilisateur. Par exemple « userPrincipalName », « displayName », « givenName » et « surName ».
-- **Un contrôle d’affichage renvoie les revendications de sortie**  : votre profil technique peut comporter une référence à un [contrôle d’affichage](display-controls.md). Le contrôle d’affichage renvoie certaines revendications, telles que l’adresse e-mail vérifiée. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. La fonctionnalité Contrôle d’affichage est actuellement en **préversion** .
+- **Un contrôle d’affichage renvoie les revendications de sortie**  : votre profil technique peut comporter une référence à un [contrôle d’affichage](display-controls.md). Le contrôle d’affichage renvoie certaines revendications, telles que l’adresse e-mail vérifiée. Vous souhaiterez peut-être faire remonter les revendications et les retourner aux étapes d’orchestration suivantes dans le parcours utilisateur. La fonctionnalité Contrôle d’affichage est actuellement en **préversion**.
 
 Dans l’exemple suivant, le profil technique autodéclaré utilise à la fois des revendications d’affichage et des revendications de sortie.
 
@@ -175,6 +175,14 @@ Dans l’exemple suivant, le profil technique autodéclaré utilise à la fois d
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Page de connexion ou d’inscription aux revendications de sortie
+
+Dans une page d’inscription et de connexion combinée, notez ce qui suit quand l’utilisation d’un élément [DataUri](contentdefinitions.md#datauri) de définition de contenu spécifie un type de page `unifiedssp` ou `unifiedssd` :
+
+- Seules les revendications de nom d’utilisateur et de mot de passe sont affichées.
+- Les deux premières revendications de sortie doivent être le nom d’utilisateur et le mot de passe (dans cet ordre). 
+- Les autres revendications ne sont pas affichées ; pour celles-ci, vous devez définir la `defaultValue` ou appeler un profil technique de validation de formulaire de revendications. 
+
 ## <a name="persist-claims"></a>Conserver les revendications
 
 L’élément PersistedClaims n’est pas utilisé. Le profil technique autodéclaré ne conserve pas les données dans Azure AD B2C. Au lieu de cela, un appel est effectué à un profil technique de validation qui est responsable de la persistance des données. Par exemple, la stratégie d’inscription utilise le profil technique autodéclaré `LocalAccountSignUpWithLogonEmail` pour recueillir le nouveau profil utilisateur. Le profil technique `LocalAccountSignUpWithLogonEmail` appelle le profil technique de validation pour créer le compte dans Azure AD B2C.
@@ -203,7 +211,7 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.|
 | setting.enableRememberMe <sup>2</sup>| Non| Affiche la case à cocher [Rester connecté](custom-policy-keep-me-signed-in.md). Valeurs possibles : `true` ou `false` (par défaut). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Non| Améliore l’expérience utilisateur en attendant que l’utilisateur arrête sa saisie puis en validant la valeur. La valeur par défaut est de 2000 millisecondes. |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 Remarques :
 1. Disponible pour la définition de contenu [DataUri](contentdefinitions.md#datauri) de type `unifiedssp` ou `unifiedssd`.

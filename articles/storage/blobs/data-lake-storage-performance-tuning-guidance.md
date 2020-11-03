@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905403"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677356"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimiser Azure Data Lake Storage Gen2 pour les performances
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 peut être mis à l’échelle afin de fournir le débit 
 
 Lors de l’ingestion de données à partir d’un système source dans Data Lake Storage Gen2, vous devez impérativement tenir compte du fait que le matériel source, le matériel réseau source et la connectivité réseau à Data Lake Storage Gen2 peuvent agir comme goulot d’étranglement.  
 
-![Performances de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagramme montrant les facteurs à prendre en compte lors de l’ingestion de données d’un système source dans Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 Vous devez impérativement vous assurer que le déplacement des données n’est pas affecté par ces facteurs.
 
@@ -107,7 +107,7 @@ Il existe trois couches au sein d’un cluster HDInsight qui peuvent être ajust
 
 **Exécutez le cluster avec le plus de nœuds et/ou les plus grosses machines virtuelles.**  Un plus grand cluster permet d’exécuter plus de conteneurs YARN, comme le montre l’image ci-dessous.
 
-![Performances de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagramme illustrant la façon dont un cluster de plus grande taille vous permet d’exécuter davantage de conteneurs YARN.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Utilisez des machines virtuelles avec davantage de bande passante réseau.**  La quantité de bande passante réseau peut être un goulot d’étranglement si elle moins importante que le débit de Data Lake Storage Gen2.  La taille de la bande passante réseau varie en fonction des machines virtuelles.  Choisissez un type de machine virtuelle qui possède la plus grande bande passante possible.
 
@@ -115,7 +115,7 @@ Il existe trois couches au sein d’un cluster HDInsight qui peuvent être ajust
 
 **Utilisez des conteneurs YARN plus petits.**  Réduisez la taille de chaque conteneur YARN pour créer plusieurs conteneurs avec la même quantité de ressources.
 
-![Performances de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagramme montrant le résultat de la réduction de la taille de chaque conteneur YARN pour créer d’autres conteneurs.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 En fonction de votre charge de travail, il y aura toujours une taille de conteneur YARN minimale requise. Si vous sélectionnez un conteneur trop petit, vos tâches rencontreront des problèmes de mémoire insuffisante. En général, les conteneurs YARN ne doivent pas être inférieurs à 1 Go. Les conteneurs YARN de 3 Go sont courants. Pour certaines charges de travail, des conteneurs YARN plus grands peuvent être nécessaires.  
 
@@ -125,7 +125,7 @@ En fonction de votre charge de travail, il y aura toujours une taille de contene
 
 **Utilisez tous les conteneurs disponibles.**  Définissez le nombre de tâches de manière à ce qu’il soit égal ou supérieur au nombre de conteneurs disponibles. Ainsi, toutes les ressources sont utilisées.
 
-![Performances de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagramme montrant l’utilisation de tous les conteneurs.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **L’échec des tâches est coûteux.** Si chaque tâche doit traiter une grande quantité de données, l’échec d’une tâche entraîne une nouvelle tentative coûteuse.  Par conséquent, il est préférable de créer davantage de tâches, chacune d’elle traitant une petite quantité de données.
 

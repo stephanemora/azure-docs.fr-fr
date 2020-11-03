@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826894"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425672"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -100,7 +100,7 @@ Vous pouvez utiliser le répertoire `/tmp` sur l’instance de calcul pour vos d
 
 ## <a name="managing-a-compute-instance"></a>Gestion d’une instance de calcul
 
-Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul**, puis sélectionnez **Instance de calcul** en haut.
+Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez **Calcul** , puis sélectionnez **Instance de calcul** en haut.
 
 ![Gérer une instance de calcul](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -118,9 +118,9 @@ Pour chaque instance de calcul de votre espace de travail que vous pouvez utilis
 * Ajouter un accès SSH à une instance de calcul. L’accès SSH est désactivé par défaut, mais il peut être activé au moment de la création de l’instance de calcul. L’accès SSH s’effectue par le biais d’un mécanisme de clé publique/privée. L’onglet vous donne des informations sur la connexion SSH, telles que l’adresse IP, le nom d’utilisateur et le numéro de port.
 * Obtenir des informations sur une instance de calcul spécifique, telles que l’adresse IP et la région.
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](/azure/role-based-access-control/overview) vous permet de contrôler quels utilisateurs dans l’espace de travail peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L’instance de calcul utilisera une connexion d’utilisateur unique et toutes les actions utiliseront l’identité de cet utilisateur pour le contrôle d’accès en fonction du rôle (RBAC) et l’attribution d’exécutions d’expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
+Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](/azure/role-based-access-control/overview) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L'instance de calcul utilisera une connexion mono-utilisateur et toutes les actions utiliseront l'identité de cet utilisateur pour le contrôle d'accès en fonction du rôle Azure (Azure RBAC) et l'attribution des exécutions d'expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
 
-Ces actions peuvent être contrôlées par RBAC :
+Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*
@@ -148,7 +148,7 @@ En tant qu’administrateur, vous pouvez créer une instance de calcul au nom d�
 * [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance)  Pour plus d’informations sur la façon de trouver les valeurs TenantID et ObjectID nécessaires dans ce modèle, consultez [Rechercher des ID d’objet d’identité pour la configuration de l’authentification](../healthcare-apis/find-identity-object-ids.md).  Vous pouvez également trouver ces valeurs dans le portail Azure Active Directory.
 * API REST
 
-Le scientifique des données pour lequel vous créez l’instance de calcul doit disposer des autorisations RBAC suivantes : 
+Le Scientifique Données pour lequel vous créez l'instance de calcul doit disposer des autorisations Azure RBAC suivantes : 
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*

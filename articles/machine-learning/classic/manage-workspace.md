@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 50607093dd71184740e972a3c8572630df609453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361138"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426918"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gérer un espace de travail Azure Machine Learning Studio (classique)
 
@@ -40,15 +40,15 @@ Pour gérer un espace de travail Studio (classique) dans le Portail Azure :
 
 Outre les options et les informations de gestion des ressources standard disponibles, vous pouvez :
 
-- Afficher la page **Propriétés** : cette page contient les informations d’espace de travail et de ressource. Vous pouvez modifier l’abonnement et le groupe de ressources auxquels cet espace de travail est connecté.
-- **Resynchroniser les clés de stockage** : l’espace de travail gère les clés d’accès au compte de stockage. Si le compte de stockage modifie les clés, vous pouvez cliquer sur **Resynchroniser les clés** pour les synchroniser avec l’espace de travail.
+- Afficher la page **Propriétés**  : cette page contient les informations d’espace de travail et de ressource. Vous pouvez modifier l’abonnement et le groupe de ressources auxquels cet espace de travail est connecté.
+- **Resynchroniser les clés de stockage**  : l’espace de travail gère les clés d’accès au compte de stockage. Si le compte de stockage modifie les clés, vous pouvez cliquer sur **Resynchroniser les clés** pour les synchroniser avec l’espace de travail.
 
 Pour gérer les services web associés à cet espace de travail Studio (classique), utilisez le portail des services web Machine Learning. Pour en savoir plus, consultez l’article [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md).
 
 > [!NOTE]
 > Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning Studio (classique), vous devez lui attribuer un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
 > 
->Pour plus d’informations sur la définition des autorisations d’accès, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+>Pour plus d'informations sur le paramétrage des autorisations d'accès, consultez [Ajouter ou supprimer des attributions de rôles Azure à l'aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [déployer le Machine Learning avec des modèles Azure Resource Manager](deploy-with-resource-manager-template.md). 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965146"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424571"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Vue d’ensemble de l’inscription combinée d’informations de sécurité pour Azure Active Directory
 
@@ -34,7 +34,7 @@ Cet article explique ce qu’est l’inscription de sécurité combinée. Pour p
 
 Avant d’activer la nouvelle expérience, passez en revue cette documentation axée sur l’administrateur et la documentation orientée utilisateur pour vous assurer de bien comprendre les fonctions et l’effet de cette fonctionnalité. Basez votre formation sur la [documentation pour les utilisateurs](../user-help/security-info-setup-signin.md) afin de préparer vos utilisateurs à cette nouvelle expérience et de favoriser un déploiement réussi.
 
-L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure US Government, Azure Allemagne et Azure China 21Vianet.
+L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure Allemagne et Azure China 21Vianet. Elle est disponible pour Azure - Gouvernement des États-Unis.
 
 > [!IMPORTANT]
 > Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences ne voient que la nouvelle expérience de la page Mon profil. La nouvelle page *Mon profil* s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).

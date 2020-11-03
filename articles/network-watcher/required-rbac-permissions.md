@@ -1,5 +1,5 @@
 ---
-title: Autorisations RBAC requises pour utiliser les fonctionnalités
+title: Autorisations Azure RBAC requises pour utiliser les fonctionnalités
 titleSuffix: Azure Network Watcher
 description: Découvrez les autorisations de contrôle d’accès en fonction du rôle Azure qui sont nécessaires pour utiliser les fonctionnalités de Network Watcher.
 services: network-watcher
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: de345578b2cade18d126a113937f2eede8e8157e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e048729aa1d37a63678451525f8f37612c8c464
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497305"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426742"
 ---
-# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorisations de contrôle d’accès en fonction du rôle obligatoires pour utiliser les fonctionnalités de Network Watcher
+# <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorisations de contrôle d'accès en fonction du rôle Azure obligatoires pour utiliser les fonctionnalités de Network Watcher
 
 Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet d’attribuer aux membres de votre organisation uniquement les actions dont ils ont besoin pour remplir leur fonction. Pour utiliser les fonctionnalités de Network Watcher, le compte avec lequel vous vous connectez à Azure doit être affecté aux rôles intégrés [Propriétaire](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributeur](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor) ou [Contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor), ou à un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) auquel sont affectées les actions listées pour chaque fonctionnalité de Network Watcher dans les sections qui suivent. Pour en savoir plus sur les fonctionnalités de Network Watcher, consultez [Qu’est-ce que Network Watcher](network-watcher-monitoring-overview.md).
 

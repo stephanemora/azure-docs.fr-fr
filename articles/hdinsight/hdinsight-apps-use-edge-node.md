@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086481"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547841"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
@@ -61,7 +61,7 @@ Après avoir créé un nœud de périphérie, vous pouvez vous connecter au nœu
 > [!WARNING]
 > Les composants personnalisés qui sont installés sur le nœud de périphérie bénéficient du support commercialement raisonnable de Microsoft. Ainsi, cela peut aider à résoudre les problèmes rencontrés. Vous pouvez également consulter les ressources de la communauté pour obtenir de l’aide. Voici quelques-uns des sites communautaires les plus actifs, sur lesquels vous pouvez obtenir de l’aide :
 >
-> * [Page de questions Microsoft Q&A pour HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+> * [Page de questions Microsoft Q&A pour HDInsight](/answers/topics/azure-hdinsight.html
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [https://apache.org](https://apache.org), comme le site [Apache Hadoop](https://hadoop.apache.org/).
@@ -86,7 +86,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter
     |Emplacement|sélectionnez l’emplacement du cluster HDInsight existant.|
     |Nom du cluster|entrez le nom d’un cluster HDInsight existant.|
 
-1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis sélectionnez **Acheter** pour créer le nœud de périphérie.
+1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus** , puis sélectionnez **Acheter** pour créer le nœud de périphérie.
 
 > [!IMPORTANT]  
 > Veillez à sélectionner le groupe de ressources Azure utilisé pour le cluster HDInsight existant.  Dans le cas contraire, vous obtenez le message d’erreur « Can not perform requested operation on nested resource. Parent resource '&lt;ClusterName>' not found » (Impossible d’effectuer l’opération demandée sur la ressource imbriquée. Ressource parente <Nom du cluster> introuvable).
@@ -117,7 +117,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 
     Certaines propriétés ont été codées en dur dans le modèle : type de cluster, nombre de nœuds de travail de cluster, taille de nœud de périphérie et nom de nœud de périphérie.
 
-1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis sélectionnez **Acheter** pour créer le cluster avec le nœud de périphérie.
+1. Cochez **J’accepte les termes et conditions mentionnés ci-dessus** , puis sélectionnez **Acheter** pour créer le cluster avec le nœud de périphérie.
 
 ## <a name="add-multiple-edge-nodes"></a>Ajouter plusieurs nœuds de périphérie
 
@@ -169,6 +169,6 @@ Dans cet article, vous avez appris comment ajouter un nœud de périphérie et c
 * [Installer des applications HDInsight](hdinsight-apps-install-applications.md) : découvrez comment installer une application HDInsight sur vos clusters.
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md): découvrez comment déployer des applications HDInsight inédites vers HDInsight.
 * [Publier des applications HDInsight](hdinsight-apps-publish-applications.md) : découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
-* [MSDN : Installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment définir les applications HDInsight.
+* [MSDN : Installer une application HDInsight](/rest/api/hdinsight/hdinsight-application) : découvrez comment définir les applications HDInsight.
 * [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md): apprenez à utiliser l’action de script pour installer des applications supplémentaires.
 * [Créer des clusters Apache Hadoop sous Linux dans HDInsight à l’aide de modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) : apprenez à appeler des modèles Resource Manager pour la création de clusters HDInsight.

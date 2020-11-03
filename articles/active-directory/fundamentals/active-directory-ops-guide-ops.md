@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312606"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370948"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Guide de référence des opérations générales Azure Active Directory
 
@@ -49,7 +49,7 @@ Quand vous passerez votre liste en revue, vous devrez peut-être affecter un pro
 
 #### <a name="owners-recommended-reading"></a>Lectures recommandées pour les propriétaires
 
-- [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Attribution de rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md)
 - [Gouvernance dans Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Gestion hybride
@@ -154,7 +154,7 @@ Reportez-vous au tableau suivant pour connaître le type de notifications qui so
 
 ### <a name="ad-fs-lockdown"></a>Verrouillage AD FS
 
-Les organisations qui configurent des applications pour s’authentifier directement auprès d’Azure AD bénéficient du  [verrouillage intelligent Azure AD](../authentication/concept-sspr-howitworks.md). Si vous utilisez AD FS dans Windows Server 2012 R2, implémentez la  [protection par verrouillage extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) AD FS. Si vous utilisez AD FS sur Windows Server 2016 ou version ultérieure, implémentez le  [verrouillage extranet intelligent](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Nous vous recommandons au minimum d’activer le verrouillage extranet pour limiter le risque d’attaque par force brute contre les annuaires Active Directory locaux. Cependant, si vous utilisez AD FS sur Windows 2016 ou version ultérieure, nous vous recommandons d’activer également le verrouillage extranet intelligent, qui vous aidera à atténuer les attaques [par pulvérisation de mots de passe](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/).
+Les organisations qui configurent des applications pour s’authentifier directement auprès d’Azure AD bénéficient du [verrouillage intelligent Azure AD](../authentication/concept-sspr-howitworks.md). Si vous utilisez AD FS dans Windows Server 2012 R2, implémentez la [protection par verrouillage extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection) AD FS. Si vous utilisez AD FS sur Windows Server 2016 ou version ultérieure, implémentez le [verrouillage extranet intelligent](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Nous vous recommandons au minimum d’activer le verrouillage extranet pour limiter le risque d’attaque par force brute contre les annuaires Active Directory locaux. Cependant, si vous utilisez AD FS sur Windows 2016 ou version ultérieure, nous vous recommandons d’activer également le verrouillage extranet intelligent, qui vous aidera à atténuer les attaques [par pulvérisation de mots de passe](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/).
 
 Si AD FS est utilisé uniquement pour la fédération Azure AD, certains points de terminaison peuvent être désactivés pour réduire la surface d’exposition aux attaques. Par exemple, si AD FS est utilisé uniquement pour Azure AD, il est préférable de désactiver les points de terminaison WS-Trust autres que ceux activés pour **usernamemixed** et **windowstransport**.
 
@@ -166,9 +166,9 @@ Le modèle de niveau administratif Active Directory a été conçu pour protége
 
 Le [modèle de niveau](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) se compose de trois niveaux et inclut uniquement des comptes d’administrateur, pas des comptes d’utilisateur standard.
 
-- **Niveau 0**  : contrôle direct des identités d’entreprise dans l’environnement. Le niveau 0 inclut les comptes, groupes et autres ressources qui ont un contrôle administratif direct ou indirect de la forêt Active Directory, des domaines ou des contrôleurs de domaine et de toutes les ressources qui y sont contenues. Le degré de sécurité de toutes les ressources du niveau 0 est équivalent car elles se contrôlent toutes efficacement les unes les autres.
-- **Niveau 1**  : contrôle des serveurs et applications d’entreprise. Les ressources du niveau 1 incluent des systèmes d’exploitation serveur, des services cloud et des applications d’entreprise. Les comptes d’administrateur du niveau 1 ont un contrôle administratif d’une valeur commerciale significative sur ces ressources. Les administrateurs de serveur qui gèrent ces systèmes d’exploitation avec la possibilité d’exercer un impact sur tous les services d’entreprise sont un exemple de rôle courant.
-- **Niveau 2**  : contrôle des stations de travail et appareils des utilisateurs. Les comptes d’administrateur du niveau 2 ont un contrôle administratif d’une valeur commerciale significative sur les stations de travail et appareils des utilisateurs. Exemples : les administrateurs du support technique des ordinateurs et de l’assistance, car ils peuvent exercer un impact sur l’intégrité de presque toutes les données utilisateur.
+- **Niveau 0**  : contrôle direct des identités d’entreprise dans l’environnement. Le niveau 0 inclut les comptes, groupes et autres ressources qui ont un contrôle administratif direct ou indirect de la forêt Active Directory, des domaines ou des contrôleurs de domaine et de toutes les ressources qui y sont contenues. Le degré de sécurité de toutes les ressources du niveau 0 est équivalent car elles se contrôlent toutes efficacement les unes les autres.
+- **Niveau 1**  : contrôle des serveurs et applications d’entreprise. Les ressources du niveau 1 incluent des systèmes d’exploitation serveur, des services cloud et des applications d’entreprise. Les comptes d’administrateur du niveau 1 ont un contrôle administratif d’une valeur commerciale significative sur ces ressources. Les administrateurs de serveur qui gèrent ces systèmes d’exploitation avec la possibilité d’exercer un impact sur tous les services d’entreprise sont un exemple de rôle courant.
+- **Niveau 2**  : contrôle des stations de travail et appareils des utilisateurs. Les comptes d’administrateur du niveau 2 ont un contrôle administratif d’une valeur commerciale significative sur les stations de travail et appareils des utilisateurs. Exemples : les administrateurs du support technique des ordinateurs et de l’assistance, car ils peuvent exercer un impact sur l’intégrité de presque toutes les données utilisateur.
 
 Verrouillez l’accès aux composants d’identité locaux tels qu’Azure AD Connect, AD FS et les services SQL de la même manière que pour les contrôleurs de domaine.
 

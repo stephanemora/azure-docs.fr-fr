@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: f99bc5b07f3749fac28f60d28b040a7e0682971b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522412"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632122"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Traiter des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -26,7 +26,7 @@ ms.locfileid: "86522412"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
+Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’ **activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
 
 Créez un compte Azure Data Lake Analytics avant de créer un pipeline avec une activité U-SQL Data Lake Analytics. Pour plus d’informations sur Azure Data Lake Analytics, consultez [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -45,7 +45,7 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 | **resourceGroupName**    | Nom du groupe de ressources Azure                | Non                                       |
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
-Le service lié d’Azure Data Lake Analytics a besoin d’une authentification de principal de service pour se connecter au service Azure Data Lake Analytics. Pour utiliser l’authentification d’un principal de service, inscrivez une entité d’application auprès d’Azure Active Directory (Azure AD) et accordez-lui l’accès aux services Data Lake Analytics et Data Lake Store qu’elle utilise. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) pour des instructions détaillées. Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
+Le service lié d’Azure Data Lake Analytics a besoin d’une authentification de principal de service pour se connecter au service Azure Data Lake Analytics. Pour utiliser l’authentification d’un principal de service, inscrivez une entité d’application auprès d’Azure Active Directory (Azure AD) et accordez-lui l’accès aux services Data Lake Analytics et Data Lake Store qu’elle utilise. Consultez la page [Authentification de service à service](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md) pour des instructions détaillées. Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
 * ID de l'application
 * Clé de l'application 
@@ -198,5 +198,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité d’exécution du lot Machine Learning](transform-data-using-machine-learning.md)
+* [Activité Exécution par lots Azure Machine Learning studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

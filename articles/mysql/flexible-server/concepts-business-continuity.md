@@ -1,17 +1,17 @@
 ---
-title: Vue d’ensemble de la continuité d’activité avec le serveur flexible Azure Database pour MySQL
+title: Vue d’ensemble de la continuité d’activité – Serveur flexible Azure Database pour MySQL
 description: Découvrir les concepts de la continuité d’activité avec le serveur flexible Azure Database pour MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107842"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546413"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107842"
 Le serveur flexible Azure Database pour MySQL offre des fonctionnalités de continuité d’activité qui protègent vos bases de données en cas d’interruption planifiée et non planifiée. Des fonctionnalités, telles que les sauvegardes automatisées et la haute disponibilité offrent plusieurs niveaux de protection contre les pannes, avec différents temps de récupération et risques de perte de données. Lorsque vous concevez des applications avec l’idée de les protéger contre les défaillances, vous devez tenir compte de l’objectif de délai de récupération (RTO) et de l’objectif de point de récupération (RPO) pour chaque application. L’objectif de délai de récupération est la tolérance aux temps d’arrêt, tandis que l’objectif de point de récupération est la tolérance à la perte de données après une disruption du service de base de données.
 
 Le tableau ci-dessous illustre les fonctionnalités qu’offre le serveur flexible.
-
 
 | **Fonctionnalité** | **Description** | **Restrictions** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ Le tableau ci-dessous illustre les fonctionnalités qu’offre le serveur flexib
 > Aucun temps d’activité ni aucun contrat de niveau de service RTO et RPO ne sont proposés pendant la préversion. Détails fournis dans cette page uniquement à titre d’information et à des fins de planification.
 
 ## <a name="planned-downtime-mitigation"></a>Réduction des temps d’arrêt planifiés
+
 Voici quelques scénarios de maintenance planifiée qui subissent un temps d’arrêt :
 
 | **Scénario** | **Processus**|
 | :------------ | :----------- |
 | **Mise à l’échelle du calcul (Utilisateur)**| Quand vous effectuez une opération de mise à l’échelle du calcul, un nouveau serveur flexible est provisionné en utilisant la configuration du calcul mis à l’échelle. Sur le serveur de base de données existant, les points de contrôle actifs sont autorisés à se produire, les connexions clientes sont purgées, toutes les transactions non validées sont annulées, puis le serveur est arrêté. Le stockage est ensuite attaché au nouveau serveur et la base de données démarrée, ce qui entraîne une récupération si nécessaire avant d’accepter les connexions clientes. |
 | **Déploiement de nouveaux logiciels (Azure)** | Le déploiement de nouvelles fonctionnalités ou les corrections de bogues se produisent automatiquement dans le cadre de la maintenance planifiée du service, et vous pouvez planifier le moment auquel ces activités se produisent. Pour plus d’informations, consultez la [documentation](https://aka.ms/servicehealthpm) et votre [portail](https://aka.ms/servicehealthpm). |
-| **Mises à niveau de version mineure (Azure)** | Azure Database pour MySQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification) et votre [portail](https://aka.ms/servicehealthpm).|
+| **Mises à niveau de version mineure (Azure)** | Azure Database pour MySQL opère automatiquement la mise à niveau des serveurs de base de données vers la version mineure déterminée par Azure. Cela se produit dans le cadre de la maintenance planifiée du service. L’opération entraîne un bref temps d’arrêt de quelques secondes, et le serveur de base de données est automatiquement redémarré avec la nouvelle version mineure. Pour plus d’informations, consultez la [documentation](../concepts-monitoring.md#planned-maintenance-notification) et votre [portail](https://aka.ms/servicehealthpm).|
 
-Lorsque le serveur flexible est configuré avec la **haute disponibilité redondante interzone**, il effectue d’abord des opérations sur le serveur de secours et ensuite sur le serveur principal, sans basculement. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
+Lorsque le serveur flexible est configuré avec la **haute disponibilité redondante interzone** , il effectue d’abord des opérations sur le serveur de secours et ensuite sur le serveur principal, sans basculement. Pour plus d’informations, consultez [Concepts – Haute disponibilité](./concepts-high-availability.md).
 
-##  <a name="unplanned-downtime-mitigation"></a>Réduction des temps d’arrêt non planifiés
+## <a name="unplanned-downtime-mitigation"></a>Réduction des temps d’arrêt non planifiés
 
 Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues, telles qu’une panne matérielle sous-jacente, des problèmes réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue et qu’il est configuré avec une haute disponibilité [HA], le réplica de secours est activé. Si ce n’est pas le cas, un nouveau serveur de base de données est automatiquement provisionné. Alors qu’il n’est pas possible d’éviter un temps d’arrêt non planifié, le serveur flexible réduit ce temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine.
 
@@ -60,12 +60,10 @@ Voici quelques scénarios d’échec non planifiés et le processus de récupér
 | **Défaillance de zone de disponibilité** | Bien qu’il s’agisse d’un événement rare, si vous souhaitez procéder à une récupération après une défaillance au niveau d’une zone, vous pouvez lancer la récupération à un instant dans le passé à l’aide de la sauvegarde et tout en choisissant un point de restauration personnalisé pour accéder aux données les plus récentes. Un nouveau serveur flexible sera déployé dans une autre zone. Le temps que prend la restauration dépend de la sauvegarde précédente et du nombre des journaux des transactions à récupérer. | Le serveur flexible effectue le basculement automatique vers le site de secours. Pour plus d’informations, consultez la page [Concepts de haute disponibilité](./concepts-high-availability.md). |
 | **Panne de région** | Les fonctionnalités de géorestauration et de réplica inter-région ne sont pas encore prises en charge dans la préversion. | |
 
-
 > [!IMPORTANT]
-> Il n’est  **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Pour éviter la suppression accidentelle de votre serveur, utilisez un [verrouillage des ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) .
-
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Utilisez le [verrouillage des ressources Azure](../../azure-resource-manager/management/lock-resources.md) pour éviter la suppression accidentelle de votre serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
--   Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)
+- Découvrir la [haute disponibilité redondante interzone](./concepts-high-availability.md)
+- Découvrir [la sauvegarde et la récupération](./concepts-backup-restore.md)

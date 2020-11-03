@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297975"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426789"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformations et travaux dans Media Services
 
@@ -58,11 +58,11 @@ Utilisez des **transformations** pour configurer des tâches courantes de codage
 
 ### <a name="viewing-schema"></a>Consultation du schéma
 
-Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset** ) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ### <a name="creating-transforms"></a>Création de transformations
 
-Vous pouvez créer des transformations à l’aide de REST ou de l’interface CLI, ou utiliser l’un des Kits de développement logiciel (SDK) publiés. L’API Azure Media Services v3 est pilotée par Azure Resource Manager. Vous pouvez donc utiliser des modèles Resource Manager pour créer et déployer des transformations dans votre compte Media Services. Le contrôle d’accès en fonction du rôle peut être utilisé pour bloquer l’accès aux transformations.
+Vous pouvez créer des transformations à l’aide de REST ou de l’interface CLI, ou utiliser l’un des Kits de développement logiciel (SDK) publiés. L’API Azure Media Services v3 est pilotée par Azure Resource Manager. Vous pouvez donc utiliser des modèles Resource Manager pour créer et déployer des transformations dans votre compte Media Services. Le Contrôle d'accès en fonction du rôle Azure peut être utilisé pour bloquer l'accès aux transformations.
 
 ### <a name="updating-transforms"></a>Mise à jour de transformations
 
@@ -94,7 +94,7 @@ La progression et l’état des travaux peuvent être obtenus en surveillant les
 
 ### <a name="updating-jobs"></a>Mise à jour des travaux
 
-L’opération de mise à jour de l’entité [Travail](/rest/api/media/jobs) permet de modifier les propriétés *description*, et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
+L’opération de mise à jour de l’entité [Travail](/rest/api/media/jobs) permet de modifier les propriétés *description* , et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
 
 ### <a name="job-object-diagram"></a>Schéma de l’objet de travail
 

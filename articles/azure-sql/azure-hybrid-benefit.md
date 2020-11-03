@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: f43d03f722617e88e7a00e71798351c88ce10e98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 186721fbb52ae153bd51076a9fe3a7413f29d1b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479117"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -96,5 +96,5 @@ Les clients SQL Database bénéficie des droits suivants associés à Azure Hyb
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment choisir une option de déploiement SQL Azure, consultez [Choisir l’option de déploiement appropriée dans Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
+- Pour savoir comment choisir une option de déploiement Azure SQL, consultez [Choisir l'option de déploiement appropriée dans Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - Pour comparer les fonctionnalités de SQL Database et de SQL Managed Instance, consultez [Fonctionnalités SQL Database et SQL Managed Instance](database/features-comparison.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278015"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674636"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturation à la consommation de la Place de marché
 
@@ -34,7 +34,7 @@ Un seul événement d’utilisation peut être émis pour chaque heure d’un jo
 
 Un seul événement d’utilisation peut être émis pour chaque heure d’un jour calendaire par ressource. Si plusieurs unités sont consommées au cours d’une heure, accumulez toutes les unités consommées dans l’heure, puis émettez-les en un seul événement. Les événements d’utilisation peuvent être émis uniquement au cours des dernières 24 heures. Si vous émettez un événement d’utilisation à tout moment entre 8h00 et 8h59m59s (et qu’il est accepté) et que vous envoyez un événement supplémentaire pour le même jour entre 8h00 et 8h59m59s, il sera rejeté en tant que doublon.
 
-**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
@@ -67,7 +67,7 @@ Un seul événement d’utilisation peut être émis pour chaque heure d’un jo
 >[!NOTE]
 >`resourceId` a une signification différente pour l’application SaaS et pour l’application managée qui émet un compteur personnalisé. 
 
-Pour les plans des applications managées Azure Application, le paramètre `resourceId` correspond à l’élément `resourceUsageId` disponible sous le paramètre `billingDetails` de l’objet de métadonnées de l’application managée. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Pour les plans des applications managées Azure Application, l’ID `resourceId` correspond à l’application managée `resource group Id`. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Pour les offres SaaS, le paramètre `resourceId` est l’ID d’abonnement SaaS. Pour plus d’informations sur les abonnements SaaS, voir [Lister les abonnements](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -191,7 +191,7 @@ L’API d’événement d’utilisation par lot vous permet d’émettre des év
 >[!NOTE]
 >`resourceId` a une signification différente pour l’application SaaS et pour l’application managée qui émet un compteur personnalisé. 
 
-Pour les plans des applications managées Azure Application, le paramètre `resourceId` correspond à l’élément `resourceUsageId` disponible sous le paramètre `billingDetails` de l’objet de métadonnées de l’application managée. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Pour les plans des applications managées Azure Application, l’ID `resourceId` correspond à l’application managée `resource group Id`. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Pour les offres SaaS, le paramètre `resourceId` est l’ID d’abonnement SaaS. Pour plus d’informations sur les abonnements SaaS, voir [Lister les abonnements](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 

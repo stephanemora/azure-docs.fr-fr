@@ -1,14 +1,14 @@
 ---
 title: Gestion de l’agent Azure Arc enabled servers
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent Connected Machine Azure Arc enabled servers.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108930"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371424"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -138,27 +138,29 @@ Les actions de la commande [yum](https://access.redhat.com/articles/yum-cheat-sh
     zypper update
     ```
 
-Les actions de la commande [zypper](https://en.opensuse.org/Portal:Zypper), telles que l’installation et la suppression de packages, sont consignées dans le fichier journal `/var/log/zypper.log`. 
+Les actions de la commande [zypper](https://en.opensuse.org/Portal:Zypper), telles que l’installation et la suppression de packages, sont consignées dans le fichier journal `/var/log/zypper.log`.
 
 ## <a name="about-the-azcmagent-tool"></a>À propos de l’outil Azcmagent
 
 L’outil Azcmagent (Azcmagent.exe) sert à configurer l’agent Connected Machine Azure Arc enabled servers pendant l’installation, ou à modifier la configuration initiale de l’agent après installation. Azcmagent.exe fournit des paramètres de ligne de commande pour personnaliser l’agent et afficher son état :
 
-* **Connect** : pour connecter la machine à Azure Arc.
+* **Connect**  : pour connecter la machine à Azure Arc.
 
-* **Disconnect** : pour déconnecter la machine d’Azure Arc.
+* **Disconnect**  : pour déconnecter la machine d’Azure Arc.
 
-* **Reconnect** : pour reconnecter une machine déconnectée à Azure Arc.
+* **Show**  : afficher l’état et les propriétés de configuration de l’agent (nom du groupe de ressources, ID d’abonnement, version, etc.), qui peuvent être utiles lors de la résolution d’un problème avec l’agent. Incluez le paramètre `-j` pour générer les résultats au format JSON.
 
-* **Show** : afficher l’état et les propriétés de configuration de l’agent (nom du groupe de ressources, ID d’abonnement, version, etc.), qui peuvent être utiles lors de la résolution d’un problème avec l’agent.
+* **Logs**  : crée un fichier. zip dans le répertoire actif contenant les journaux pour vous aider lors de la résolution des problèmes.
 
-* **-h ou--Help** : afficher les paramètres de ligne de commande disponibles.
+* **Version**  : montre la version de l’agent Connected Machine.
 
-    Par exemple, pour obtenir une aide détaillée sur le paramètre **Reconnect**, tapez `azcmagent reconnect -h`. 
+* **-h ou--Help**  : afficher les paramètres de ligne de commande disponibles.
 
-* **-v ou--verbose** : activer la journalisation détaillée.
+    Par exemple, pour obtenir une aide détaillée sur le paramètre **Reconnect** , tapez `azcmagent reconnect -h`. 
 
-Vous pouvez effectuer une opération **Connect**, **Disconnect** ou **Reconnect** manuellement quand vous êtes connecté de manière interactive, l’automatiser en utilisant le principal de service utilisé pour intégrer plusieurs agents, ou avec un [jeton d’accès](../../active-directory/develop/access-tokens.md) de plateforme d’identité Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès d’Azure Arc enabled servers, consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
+* **-v ou--verbose**  : activer la journalisation détaillée.
+
+Vous pouvez effectuer une opération **Connect** et **Disconnect** manuellement quand vous êtes connecté de manière interactive, l’automatiser en utilisant le principal de service utilisé pour intégrer plusieurs agents ou avec un [jeton d’accès](../../active-directory/develop/access-tokens.md) de plateforme d’identité Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès d’Azure Arc enabled servers, consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
 
 >[!NOTE]
 >Vous devez disposer des autorisations d’accès *racine* sur les ordinateurs Linux pour exécuter **azcmagent**.
@@ -198,28 +200,7 @@ Pour vous déconnecter à l’aide d’un jeton d’accès, exécutez la command
 
 Pour vous déconnecter à l’aide de vos informations d’identification d’ouverture de session avec privilèges élevés (interactives), exécutez la commande suivante :
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Reconnexion
-
-> [!WARNING]
-> La commande `reconnect` est obsolète et ne doit pas être utilisée. La commande sera supprimée dans une prochaine version de l’agent et les agents existants ne pourront pas terminer la demande de reconnexion. Au lieu de cela, [déconnectez](#disconnect) votre machine, puis [connectez-la](#connect) à nouveau.
-
-Ce paramètre reconnecte la machine déjà inscrite ou connectée avec Azure Arc enabled servers. Cela peut s’avérer nécessaire si la machine a été mise hors tension au moins 45 jours avant que son certificat expire. Cette commande utilise les options d’authentification fournies pour récupérer de nouvelles informations d’identification correspondant à la ressource Azure Resource Manager représentant cet machine.
-
-Cette commande requiert des autorisations plus élevées que le rôle[Intégration d’ordinateurs connectés à Azure](agent-overview.md#required-permissions).
-
-Pour vous reconnecter à un principal de service, exécutez la commande suivante :
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Pour vous reconnecter à l’aide d’un jeton d’accès, exécutez la commande suivante :
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Pour vous reconnecter à l’aide de vos informations d’identification d’ouverture de session avec privilèges élevés (interactives), exécutez la commande suivante :
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Supprimer l’agent
 
@@ -234,8 +215,8 @@ Les deux méthodes suivantes suppriment l’agent, mais pas le dossier *C:\Progr
 1. Pour désinstaller l’agent Windows de la machine, procédez comme suit :
 
     a. Connectez-vous à la machine avec un compte disposant des autorisations d’administration.  
-    b. Dans **Panneau de configuration**, sélectionnez **Programmes et fonctionnalités**.  
-    c. Dans **Programmes et fonctionnalités**, sélectionnez **Agent Azure Connected Machine Agent**, **Désinstaller**, puis **Oui**.  
+    b. Dans **Panneau de configuration** , sélectionnez **Programmes et fonctionnalités**.  
+    c. Dans **Programmes et fonctionnalités** , sélectionnez **Agent Azure Connected Machine Agent** , **Désinstaller** , puis **Oui**.  
 
     >[!NOTE]
     > Vous pouvez également exécuter l’Assistant Installation de l’agent en double-cliquant sur le package d’installation **AzureConnectedMachineAgent.msi**.

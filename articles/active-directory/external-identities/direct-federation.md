@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907221"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442080"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -45,7 +45,7 @@ Avec la fédération directe, les utilisateurs invités se connectent à votre c
 ## <a name="limitations"></a>Limites
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
-Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
+Le domaine avec lequel vous voulez vous fédérer ne doit * **pas** _ être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
 
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
@@ -60,20 +60,20 @@ La fédération directe est uniquement autorisée pour les stratégies où le do
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Par exemple, lorsque vous configurez la fédération directe pour **fabrikam.com**, l’URL d’authentification `https://fabrikam.com/adfs` transmet la validation. Un ordinateur hôte dans le même domaine passe également, par exemple `https://sts.fabrikam.com/adfs`. Toutefois, l’URL d’authentification `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` pour le même domaine ne passera pas.
+Par exemple, lorsque vous configurez la fédération directe pour _*fabrikam.com**, l'URL d'authentification `https://fabrikam.com/adfs` transmet la validation. Un ordinateur hôte dans le même domaine passe également, par exemple `https://sts.fabrikam.com/adfs`. Toutefois, l’URL d’authentification `https://fabrikamconglomerate.com/adfs` ou `https://fabrikam.com.uk/adfs` pour le même domaine ne passera pas.
 
 ### <a name="signing-certificate-renewal"></a>Renouvellement du certificat de signature
 Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
 
 ### <a name="limit-on-federation-relationships"></a>Limite des relations de fédération
-Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0).
+Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0).
 
 ### <a name="limit-on-multiple-domains"></a>Limite des domaines multiples
 Nous ne prenons pas en charge actuellement la fédération directe avec plusieurs domaines du même locataire.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Puis-je configurer la fédération directe avec un domaine pour lequel un client non géré (vérifié par e-mail) existe ? 
-Oui. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi de [prise en charge administrateur](../users-groups-roles/domains-admin-takeover.md), vous pouvez configurer la fédération directe avec de domaine. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération directe avec ces domaines. Si vous essayez de configurer la fédération directe avec un domaine vérifié par DNS, dans le portail Azure ou via PowerShell, vous rencontrerez une erreur.
+Oui. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi de [prise en charge administrateur](../enterprise-users/domains-admin-takeover.md), vous pouvez configurer la fédération directe avec de domaine. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération directe avec ces domaines. Si vous essayez de configurer la fédération directe avec un domaine vérifié par DNS, dans le portail Azure ou via PowerShell, vous rencontrerez une erreur.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la fédération directe et l’authentification par code secret à usage unique par e-mail sont activées, quelle méthode est prioritaire ?
 Lorsque la fédération directe est établie avec une organisation partenaire, elle est prioritaire sur l’authentification par code secret à usage unique par e-mail pour les nouveaux utilisateurs invités de cette organisation. Si un utilisateur invité a utilisé une invitation à l’aide de l’authentification par code secret à usage unique avant que vous n’ayez configuré la fédération directe, il continue d’utiliser l’authentification par code secret à usage unique. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La fédération directe répond-elle aux problèmes de connexion, étant une location partiellement synchronisée ?
@@ -87,7 +87,7 @@ Votre organisation partenaire doit d’abord configurer son fournisseur d’iden
 
 ### <a name="saml-20-configuration"></a>Configuration SAML 2.0
 
-Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole SAML avec certaines exigences spécifiques indiquées ci-dessous. Pour plus d’informations sur la configuration d’une approbation entre votre fournisseur d’identité SAML et Azure AD, consultez [Utiliser un fournisseur d’identité SAML 2.0 pour l’authentification unique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole SAML avec certaines exigences spécifiques indiquées ci-dessous. Pour plus d’informations sur la configuration d’une approbation entre votre fournisseur d’identité SAML et Azure AD, consultez [Utiliser un fournisseur d’identité SAML 2.0 pour l’authentification unique](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > Le domaine cible pour la fédération directe ne doit pas être vérifié par DNS sur Azure AD. Le domaine de l’URL d’authentification doit correspondre au domaine cible, ou doit être le domaine d’un fournisseur d’identité autorisé. Consultez la section [Limitations](#limitations) pour plus d’informations. 
@@ -150,7 +150,7 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
 
     ![Capture d’écran montrant le bouton pour ajouter un nouveau fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. Sur la page **Nouveau fournisseur d’identité SAML/WS-Fed**, sous **Protocole de fournisseur d’identité**, sélectionnez **SAML** ou **WS-FED**.
+4. Sur la page **Nouveau fournisseur d’identité SAML/WS-Fed** , sous **Protocole de fournisseur d’identité** , sélectionnez **SAML** ou **WS-FED**.
 
     ![Capture d’écran montrant le bouton d’analyse sur la page Fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
@@ -195,7 +195,7 @@ Testez maintenant la configuration de votre fédération directe en invitant un 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
 2. Sélectionnez **Identités externes**.
 3. Sélectionnez **Tous les fournisseurs d’identité**
-4. Sous **Fournisseurs d’identité SAML/WS-Fed**, sélectionnez le fournisseur.
+4. Sous **Fournisseurs d’identité SAML/WS-Fed** , sélectionnez le fournisseur.
 5. Dans le volet des informations du fournisseur identité, mettez à jour les valeurs.
 6. Sélectionnez **Enregistrer**.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394515"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673850"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 
@@ -53,6 +53,7 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 * Cette procédure utilise des itinéraires définis par l’utilisateur (UDR) pour créer une table de routage et ajouter un itinéraire par défaut, puis associer la table de routage à vos sous-réseaux de réseaux virtuels pour activer le tunneling forcé sur ces sous-réseaux.
 * Le tunneling forcé doit être associé à un réseau virtuel équipé d’une passerelle VPN avec itinéraire. Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel. En outre, le périphérique VPN local doit être configuré à l’aide de 0.0.0.0/0 comme des sélecteurs de trafic. 
 * Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions de peering BGP ExpressRoute. Pour plus d’informations, consultez la [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+* Quand une passerelle VPN et une passerelle ExpressRoute sont déployées dans le même réseau virtuel, les itinéraires définis par l’utilisateur (UDR) ne sont plus nécessaires, car la passerelle ExpressRoute annonce le « site par défaut » configuré dans le réseau virtuel.
 
 ## <a name="configuration-overview"></a>Présentation de la configuration
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135761"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424828"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Répliquer des machines virtuelles Azure exécutant des espaces de stockage direct dans une autre région
 
@@ -49,12 +49,12 @@ Le diagramme ci-dessous montre un cluster de basculement de machine virtuelle Az
 1. Sélectionnez la stratégie de réplication avec une cohérence des applications off* (seule la prise en charge de la cohérence en cas d’incident est disponible)
 1. Activer la réplication
 
-   ![Protection storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Capture d'écran montrant où configurer les paramètres de réplication.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Accédez aux éléments répliqués pour voir l’état des deux machines virtuelles.
 3. Les deux machines virtuelles sont protégées et font partie d’un groupe de cohérence multimachine virtuelle.
 
-   ![Protection storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Capture d'écran montrant que les machines virtuelles sont protégées et font partie d'un groupe de cohérence multimachine virtuelle.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Création d’un plan de récupération
 Lors d’un basculement, un plan de récupération prend en charge le séquencement des différents niveaux d’une application multiniveau. La mise en séquence permet d’assurer la cohérence de l’application. Lorsque vous créez un plan de récupération pour une application web multiniveau, suivez les étapes décrites dans [Créer un plan de récupération à l’aide de Site Recovery](site-recovery-create-recovery-plans.md).

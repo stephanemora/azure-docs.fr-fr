@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131392"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426963"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 
@@ -32,16 +32,18 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Magasins de données pris en charge
+## <a name="supported-linked-service-types"></a>Types de services liés pris en charge
 
 Vous pouvez paramétrer n’importe quel type de service lié.
-Lors de la création d’un service lié sur l’interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de connecteurs suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique.
+Lors de la création d'un service lié sur l'interface utilisateur, Data Factory fournit une expérience de paramétrage intégrée pour les types de services liés suivants. Dans le panneau de création/modification de service lié, vous pouvez trouver des options pour les nouveaux paramètres et ajouter du contenu dynamique.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (API SQL)
 - Azure Database pour MySQL
+- Azure Databricks
 - Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Synapse Analytics (anciennement SQL DW)
 - MySQL
 - Oracle
@@ -49,7 +51,7 @@ Lors de la création d’un service lié sur l’interface utilisateur, Data Fac
 - HTTP générique
 - REST générique
 
-Pour les autres types, vous pouvez paramétrer le service lié en modifiant le JSON sur l’interface utilisateur :
+Pour les autres types de services liés qui ne figurent pas dans la liste ci-dessus, le paramétrage peut être effectué en modifiant le JSON sur l'interface utilisateur :
 
 - Dans le panneau de création/modification du service lié -> développez « Avancé » en bas -> activez la case à cocher « Spécifier un contenu dynamique au format JSON » -> spécifiez la charge utile du JSON du service lié. 
 - Ou bien, après avoir créé un service lié sans paramétrage, dans [Hub de gestion](author-visually.md#management-hub) -> Services liés-> recherchez le service lié spécifique -> cliquez sur « Code » (bouton « {} ») pour modifier le JSON. 

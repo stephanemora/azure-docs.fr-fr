@@ -3,15 +3,15 @@ title: Stratégies d’intégration Dapr de Gestion des API Azure | Microsoft Do
 description: Apprenez-en davantage sur les stratégies de Gestion des API Azure pour interagir avec des extensions de microservices Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338626"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558395"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Stratégies d’intégration Dapr de Gestion des API
 
@@ -104,14 +104,14 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Envoyer un message à une rubrique Publier/S’abonner
 
-Cette stratégie indique à la passerelle de Gestion des API d’envoyer un message à une rubrique Publier/S’abonner de Dapr. La stratégie accomplit cela en adressant une requête HTTP POST à `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` en remplaçant les paramètres du modèle et en ajoutant le contenu spécifié dans la déclaration de stratégie.
+Cette stratégie indique à la passerelle de Gestion des API d’envoyer un message à une rubrique Publier/S’abonner de Dapr. La stratégie accomplit cela en adressant une requête HTTP POST à `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` en remplaçant les paramètres du modèle et en ajoutant le contenu spécifié dans la déclaration de stratégie.
 
 La stratégie part du principe que le runtime Dapr s’exécute dans un conteneur sidecar se trouvant dans le même pod que la passerelle. Le runtime Dapr implémente la sémantique Publier/S’abonner.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ La section « backend » est vide et la demande n’est pas transférée au se
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -158,7 +159,8 @@ La section « backend » est vide et la demande n’est pas transférée au se
 
 | Attribut        | Description                     | Obligatoire | Default |
 |------------------|---------------------------------|----------|---------|
-| topic            | Nom de la rubrique cible               | Oui      | N/A     |
+| pubsub-name      | Nom du composant PubSub cible. Correspond au paramètre [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) dans Dapr. À défaut, la valeur de l’attribut __rubric__ doit se présenter sous la forme `pubsub-name/topic-name`.    | Non       | None    |
+| topic            | Nom de la rubrique. Correspond au paramètre [topic](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) dans Dapr.               | Oui      | N/A     |
 | ignore-error     | Si cette valeur est définie sur `true`, elle indique à la stratégie de ne pas déclencher la section [« on-error »](api-management-error-handling-policies.md) lors de la réception d’une erreur du runtime Dapr | Non | `false` |
 | response-variable-name | Nom de l’entrée de collection [Variables](api-management-policy-expressions.md#ContextVariables) à utiliser pour stocker la réponse du runtime Dapr | Non | None |
 | délai d'expiration | Durée (en secondes) d’attente de la réponse du runtime Dapr. Peut être comprise entre 1 et 240 secondes. | Non | 5 |

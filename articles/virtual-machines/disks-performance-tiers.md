@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359677"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Niveaux de performance des disques managés (préversion)
 
@@ -52,9 +52,9 @@ Pour plus d’informations sur la facturation, consultez [Tarification des disqu
 ## <a name="restrictions"></a>Restrictions
 
 - Cette fonctionnalité est actuellement prise en charge uniquement pour les disques SSD Premium.
-- Vous devez détacher votre disque d’une machine virtuelle en cours d’exécution avant de pouvoir modifier le niveau du disque.
+- Vous devez libérer votre machine virtuelle ou détacher votre disque d'une machine virtuelle en cours d'exécution avant de pouvoir modifier le niveau du disque.
 - L’utilisation des niveaux de performance P60, P70 et P80 est limitée aux disques de 4 096 Gio ou plus.
-- Le niveau de performance d’un disque ne peut être modifié qu’une fois toutes les 24 heures.
+- Le niveau de performance d'un disque ne peut être rétrogradé qu'une fois toutes les 24 heures.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 

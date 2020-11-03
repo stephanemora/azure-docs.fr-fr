@@ -1,6 +1,6 @@
 ---
 title: Architecture de SQL Synapse
-description: Découvrez comment Azure Synapse SQL combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec Stockage Azure pour obtenir des performances et une scalabilité élevées.
+description: Découvrez comment Azure Synapse Analytics combine des capacités de traitement de requêtes distribuées avec Stockage Azure pour atteindre des performances et une scalabilité élevées.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046853"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476006"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architecture Azure Synapse SQL 
 
@@ -35,7 +35,7 @@ Pour SQL à la demande, serverless, la mise à l’échelle s’effectue automat
 
 SQL Synapse utilise une architecture basée sur des nœuds. Les applications se connectent et envoient des commandes T-SQL à un nœud de contrôle qui est le seul point d’entrée pour SQL Synapse. 
 
-Le nœud de contrôle du pool SQL utilise le moteur MPP qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations à des nœuds de calcul qui accomplissent leur travail en parallèle. 
+Le nœud de contrôle Azure Synapse SQL utilise un moteur de requêtes distribuées, qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations aux nœuds de calcul qui accomplissent leur travail en parallèle. 
 
 Le nœud de contrôle de SQL à la demande utilise le moteur de traitement des requêtes distribuées (DQP) pour optimiser et orchestrer l’exécution distribuée de la requête utilisateur en la fractionnant en requêtes plus petites qui seront exécutées sur des nœuds de calcul. Chaque petite requête est appelée tâche et représente une unité d’exécution distribuée. Elle lit les fichiers à partir du stockage, joint les résultats à partir d’autres tâches, regroupe ou organise les données récupérées à partir d’autres tâches. 
 
@@ -61,7 +61,7 @@ SQL à la demande vous permet d’interroger les fichiers de votre Data Lake en 
 
 Le nœud de contrôle est le cerveau de l’architecture. Il s’agit du nœud frontal qui interagit avec toutes les applications et les connexions. 
 
-Dans un pool SQL, le moteur MPP s’exécute sur le nœud de contrôle pour optimiser et coordonner les requêtes parallèles. Lorsque vous envoyez une requête T-SQL à un pool SQL, le nœud de contrôle la transforme en plusieurs requêtes distinctes qui s’exécutent sur chaque distribution en parallèle.
+Dans Synapse SQL, le moteur de requêtes distribuées s'exécute sur le nœud de contrôle pour optimiser et coordonner les requêtes parallèles. Lorsque vous envoyez une requête T-SQL à un pool SQL, le nœud de contrôle la transforme en plusieurs requêtes distinctes qui s’exécutent sur chaque distribution en parallèle.
 
 Dans SQL à la demande, le moteur de traitement des requêtes distribuées (DQP) s’exécute sur le nœud de contrôle pour optimiser et coordonner l’exécution distribuée de la requête utilisateur en la fractionnant en requêtes plus petites qui seront exécutées sur des nœuds de calcul. Il assigne également des ensembles de fichiers à traiter par chaque nœud.
 
@@ -69,7 +69,7 @@ Dans SQL à la demande, le moteur de traitement des requêtes distribuées (DQP)
 
 Les nœuds de calcul fournissent la puissance de calcul. 
 
-Dans un pool SQL, les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, le pool re-mappe les distributions aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service pour le pool SQL. Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, voir [Vues système MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Dans un pool SQL, les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, le pool re-mappe les distributions aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service pour le pool SQL. Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, consultez [Vues système Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 Dans SQL à la demande, chaque nœud de calcul reçoit une tâche et un ensemble de fichiers sur lesquels exécuter la tâche. La tâche est une unité d’exécution de requête distribuée, qui fait partie de la requête envoyée par l’utilisateur. La mise à l’échelle automatique est activée afin de s’assurer qu’un nombre suffisant de nœuds de calcul est utilisé pour exécuter une requête utilisateur.
 

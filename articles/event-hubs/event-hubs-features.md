@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Do
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ebf4e928cadfc87f52fc10b27f9c8419d11a8f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936229"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369639"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -33,7 +33,9 @@ Toute entité qui envoie des données à un concentrateur d’événements est u
 
 ### <a name="publishing-an-event"></a>Publication d'un événement
 
-Vous pouvez publier un événement avec AMQP 1.0, Kafka 1.0 (ou version ultérieure) ou HTTPS. Event Hubs fournit des [bibliothèques et des classes client](./event-hubs-dotnet-framework-getstarted-send.md) pour la publication d’événements sur un concentrateur d’événements à partir de clients .NET. Pour les autres runtimes et plateformes, vous pouvez utiliser n'importe quel client AMQP 1.0, comme [Apache Qpid](https://qpid.apache.org/). Vous pouvez publier les événements individuellement ou par lots. Une publication unique (instance de données d’événement) est limitée à 1 Mo, qu’il s’agisse d’un événement unique ou d’un lot. La publication d'événements plus volumineux que ce seuil entraîne une erreur. Il est préférable pour les éditeurs de ne pas être au courant des partitions dans le concentrateur d’événements et de spécifier uniquement une *clé de partition* (présentée dans la section suivante) ou leur identité par le biais de leur jeton SAS.
+Vous pouvez publier un événement avec AMQP 1.0, Kafka 1.0 (ou version ultérieure) ou HTTPS. Le service Event Hubs fournit l'[API REST](https://docs.microsoft.com/rest/api/eventhub/) ainsi que les bibliothèques de clients [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md) et [Go](event-hubs-go-get-started-send.md) pour la publication d'événements dans un Event Hub. Pour les autres runtimes et plateformes, vous pouvez utiliser n'importe quel client AMQP 1.0, comme [Apache Qpid](https://qpid.apache.org/). 
+
+Vous pouvez publier les événements individuellement ou par lots. Une publication unique (instance de données d’événement) est limitée à 1 Mo, qu’il s’agisse d’un événement unique ou d’un lot. La publication d'événements plus volumineux que ce seuil entraîne une erreur. Il est préférable pour les éditeurs de ne pas être au courant des partitions dans le concentrateur d’événements et de spécifier uniquement une *clé de partition* (présentée dans la section suivante) ou leur identité par le biais de leur jeton SAS.
 
 Le choix d'utiliser AMQP ou HTTPS est spécifique au scénario d'utilisation. AMQP requiert l'établissement d'un socket bidirectionnel persistant en plus de la sécurité au niveau du transport (TLS) ou SSL/TLS. Le protocole AMQP présente des coûts de gestion réseau plus élevés lors de l’initialisation de la session, mais le protocole HTTPS nécessite un temps de traitement TLS supplémentaire pour chaque requête. Par ailleurs, AMQP propose des performances plus élevées pour les éditeurs courants.
 

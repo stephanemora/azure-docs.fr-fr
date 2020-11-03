@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823581"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521048"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Annulation de la transformation de tableau croisé dynamique dans le flux de données de mappage
 
@@ -28,27 +28,27 @@ Utilisez la suppression de tableau croisé dynamique dans le flux de données de
 
 ![Transformation de suppression de tableau croisé dynamique](media/data-flow/unpivot5.png "Options de suppression de tableau croisé dynamique 2")
 
-Commencez par définir les colonnes de groupement souhaitée pour l’agrégation de votre ajout de tableau croisé dynamique. Définissez une ou plusieurs colonnes à dissocier avec le signe + en regard de la liste des colonnes.
+Commencez par définir les colonnes de dissociation souhaitées pour l'agrégation de votre suppression de tableau croisé dynamique. Définissez une ou plusieurs colonnes à dissocier avec le signe + en regard de la liste des colonnes.
 
 ## <a name="unpivot-key"></a>Clé de suppression du tableau croisé dynamique
 
 ![Transformation de suppression de tableau croisé dynamique](media/data-flow/unpivot6.png "Options de suppression de tableau croisé dynamique 3")
 
-La clé d’ajout du tableau croisé dynamique est la colonne qu’ADF ajoutera de la ligne dans la colonne. Par défaut, chaque valeur unique du jeu de données pour ce champ ajoutera un tableau croisé dynamique à une colonne. Toutefois, vous pouvez éventuellement entrer les valeurs du jeu de données que vous souhaitez ajouter en tant que tableau croisé dynamique aux valeurs de la colonne.
+La Clé de suppression de tableau croisé dynamique est la colonne à partir de laquelle ADF ajoutera un tableau croisé dynamique à une ligne. Par défaut, chaque valeur unique comprise dans le jeu de données de ce champ ajoutera un tableau croisé dynamique à une ligne. Toutefois, si vous le souhaitez, vous pouvez entrer les valeurs du jeu de données que vous souhaitez ajouter en tant que tableau croisé dynamique aux valeurs de la ligne.
 
 ## <a name="unpivoted-columns"></a>Tableau croisé dynamique des colonnes supprimé
 
 ![Transformation de suppression de tableau croisé dynamique](media/data-flow//unpivot7.png "Options de suppression de tableau croisé dynamique 4")
 
-Pour finir, choisissez l’agrégation que vous souhaitez utiliser pour les valeurs du tableau croisé dynamique ajouté et la façon dont vous souhaitez afficher les colonnes dans la nouvelle projection de sortie à partir de la transformation.
+Enfin, choisissez le nom de la colonne de stockage des valeurs des colonnes faisant l'objet de la suppression de tableau croisé dynamique qui sont transformées en lignes.
 
-(Facultatif) Vous pouvez définir un modèle d’affectation de noms avec un préfixe, un milieu et un suffixe à ajouter à chaque nouveau nom de colonne à partir des valeurs de ligne.
+(Facultatif) Vous pouvez supprimer des lignes contenant des valeurs Null.
 
-Par exemple, l’ajout d’un tableau croisé dynamique « Ventes » par « Région » vous donnera simplement de nouvelles valeurs de colonne à partir de chaque valeur des ventes. Par exemple : "25", "50", "1000", ... Toutefois, si vous définissez une valeur de préfixe « Ventes », « Ventes » précédera les valeurs.
+Par exemple, SumCost est le nom de colonne choisi dans l'exemple présenté ci-dessus.
 
 ![Image représentant les colonnes PO, Vendor et Fruit avant et après une transformation UnPivot utilisant la colonne Fruit comme clé de suppression du tableau croisé dynamique.](media/data-flow/unpivot3.png)
 
-La disposition des colonnes sur « Normal » regroupera toutes les colonnes du tableau croisé dynamique ajouté avec leurs valeurs agrégées. La disposition des colonnes sur « Latéral » alternera entre colonne et valeur.
+La disposition des colonnes sur « Normal » regroupera toutes les nouvelles colonnes concernées par la suppression de tableau croisé dynamique à partir d'une seule valeur. La disposition des colonnes sur « Latéral » regroupera les nouvelles colonnes concernées par la suppression de tableau croisé dynamique générées à partir d'une colonne existante.
 
 ![Transformation de suppression de tableau croisé dynamique](media/data-flow//unpivot7.png "Options de suppression de tableau croisé dynamique 5")
 

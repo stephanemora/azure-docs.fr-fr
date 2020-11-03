@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c20bbd3ab02cd1eccd00e2d36c14eebf2f63205
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319723"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360301"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notes de publication – Services de données activés par Azure Arc (préversion)
 
@@ -33,9 +33,9 @@ Pour obtenir des instructions, consultez [Présentation des services de données
 
 Les règles s’appliquant à cette version sont les suivantes :
 
-* **Suppression du groupe de serveurs Hyperscale PostgreSQL** : Si vous avez modifié la configuration de votre groupe de serveurs ou de votre instance, attendez la fin de l’opération de modification avant de supprimer un groupe de serveurs Hyperscale PostgreSQL.
+* **Suppression du groupe de serveurs Hyperscale PostgreSQL**  : Si vous avez modifié la configuration de votre groupe de serveurs ou de votre instance, attendez la fin de l’opération de modification avant de supprimer un groupe de serveurs Hyperscale PostgreSQL.
 
-* **`azdata notebook run` peut échouer** : Pour résoudre ce problème, exécutez `azdata notebook run` dans un environnement virtuel Python. Ce problème se manifeste également dans un échec de tentative de création d’une instance gérée SQL ou d’un groupe de serveurs Hyperscale PostgreSQL à l’aide de l’Assistant Déploiement d’Azure Data Studio. Dans ce cas, vous pouvez ouvrir le bloc-notes et cliquer sur le bouton **Exécuter tout** en haut du bloc-notes.
+* **`azdata notebook run` peut échouer**  : Pour résoudre ce problème, exécutez `azdata notebook run` dans un environnement virtuel Python. Ce problème se manifeste également dans un échec de tentative de création d’une instance gérée SQL ou d’un groupe de serveurs Hyperscale PostgreSQL à l’aide de l’Assistant Déploiement d’Azure Data Studio. Dans ce cas, vous pouvez ouvrir le bloc-notes et cliquer sur le bouton **Exécuter tout** en haut du bloc-notes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -62,3 +62,8 @@ Les règles s’appliquant à cette version sont les suivantes :
 - La _réduction d’échelle_ du nombre de nœuds Worker Postgres Hyperscale n’est pas prise en charge.
 - Si vous utilisez un moteur Azure Kubernetes Service (moteur AKS) sur Azure Stack Hub avec un contrôleur de données Azure Arc et des instances de base de données, la mise à niveau vers une version plus récente de Kubernetes n’est pas prise en charge. Avant de mettre à niveau le cluster Kubernetes, désinstallez le contrôleur de données Azure Arc et toutes les instances de base de données.
 - La préversion ne prend pas en charge la sauvegarde/restauration pour la version 11 du moteur Postgres. Elle prend uniquement en charge la sauvegarde/restauration pour la version 12 de Postgres.
+- Pour les clusters Azure Kubernetes Service (AKS) qui s'étendent sur [plusieurs zones de disponibilité](../../aks/availability-zones.md), les services de données avec Azure Arc ne sont actuellement pas pris en charge. Pour contourner ce problème, lorsque vous créez le cluster AKS sur le portail Azure, si vous sélectionnez une région dans laquelle des zones sont disponibles, effacez toutes les zones du contrôle de sélection. Consultez le graphique suivant :
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Décochez les cases des différentes zones pour n'en spécifier aucune.":::
+
+  

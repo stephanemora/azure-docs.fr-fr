@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115473"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478131"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Comprendre les expériences de consentement de l’application Azure AD
 
@@ -65,13 +65,13 @@ Voici les expériences de consentement auxquelles un utilisateur peut être conf
     
     2. Les utilisateurs voient l’invite de consentement standard.
 
-        ![Invite de consentement pour le scénario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Capture d'écran représentant l'invite de consentement standard.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Des utilisateurs accèdent à une application qui nécessite au moins une autorisation non compatible avec leur niveau d’autorité.
     1. Les administrateurs voient la même invite que celle de l’exemple 1.i indiquée ci-dessus.
     2. Les utilisateurs ne peuvent pas donner leur consentement à l’application et sont invités à contacter leur administrateur pour autoriser l’accès à l’application. 
                 
-        ![Invite de consentement pour le scénario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Capture d'écran de l'invite de consentement demandant à l'utilisateur de contacter un administrateur pour accéder à l'application.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Des utilisateurs naviguent ou sont dirigés vers le flux de consentement administrateur.
     1. Les utilisateurs administrateurs voient l’invite de consentement administrateur. L’intitulé et les descriptions d’autorisation ont été modifiés sur cette invite. Les modifications indiquent qu’en acceptant cette invite, l’utilisateur autorise l’application à accéder aux données demandées pour le compte de l’ensemble du locataire.

@@ -1,21 +1,24 @@
 ---
-title: Collecter des journaux d’activité personnalisés dans Azure Monitor | Microsoft Docs
+title: Collecter les journaux personnalisés avec l'agent Log Analytics dans Azure Monitor
 description: Azure Monitor peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269486"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461564"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux personnalisés avec l'agent Log Analytics dans Azure Monitor
 
-La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
+La source de données Journaux d'activité personnalisés de l'agent Log Analytics disponible dans Azure Monitor vous permet de collecter des événements à partir de fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
+
+> [!IMPORTANT]
+> Cet article traite de la collecte des journaux personnalisés avec l'[agent Log Analytics](log-analytics-agent.md), qui est un des agents utilisés par Azure Monitor. D'autres agents collectent des données différentes et sont configurés différemment. Pour obtenir la liste des agents disponibles et en savoir plus sur les données qu'ils peuvent collecter, consultez [Vue d'ensemble des agents Azure Monitor](agents-overview.md).
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
 

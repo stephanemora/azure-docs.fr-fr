@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212252"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425747"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
@@ -33,7 +33,7 @@ Ce guide explique les tâches à effectuer pour configurer un domaine et des con
 Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter), [augmentez temporairement vos privilèges vCenter](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls des comptes de service doivent être ajoutés au groupe *Administrateurs*, et les comptes de service en doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.   
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group* , à *Cloud-Global-Cluster-Admin-Group* , à *Cloud-Global-Storage-Admin-Group* , à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls des comptes de service doivent être ajoutés au groupe *Administrateurs* , et les comptes de service en doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.   
 
 
 ## <a name="identity-source-options"></a>Options de la source d’identité
@@ -61,9 +61,9 @@ Utilisez les informations du tableau suivant lors de la configuration de votre d
 | **Nom de domaine** | Nom de domaine complet du domaine, par exemple « example.com ». Ne fournissez pas d’adresse IP dans cette zone de texte. |
 | **Alias de domaine** | Nom NetBIOS du domaine. Ajoutez le nom NetBIOS du domaine Active Directory en tant qu’alias de la source d’identité si vous utilisez des authentifications SSPI. |
 | **DN de base pour les groupes** | Nom unique de base pour les groupes. |
-| **URL du serveur principal** | Serveur LDAP du contrôleur de domaine principal pour le domaine.<br><br>Utilisez le format `ldap://hostname:port` ou `ldaps://hostname:port`. Le port est généralement 389 pour les connexions LDAP et 636 pour les connexions LDAPS. Pour les déploiements de contrôleurs à domaines multiples Active Directory, le port est généralement 3268 pour LDAP et 3269 pour LDAPS.<br><br>Un certificat établissant une relation de confiance pour le point de terminaison LDAPS du serveur Active Directory est nécessaire quand vous utilisez `ldaps://` dans l’URL LDAP principale ou secondaire. |
+| **URL du serveur principal** | Serveur LDAP du contrôleur de domaine principal pour le domaine.<br><br>Utilisez le format `ldap://hostname:port` ou `ldaps://hostname:port`. Le port est généralement 389 pour les connexions LDAP et 636 pour les connexions LDAPS. Pour les déploiements de contrôleurs à domaines multiples Active Directory, le port est généralement 3268 pour LDAP et 3269 pour LDAPS.<br><br>Un certificat établissant une relation de confiance pour le point de terminaison LDAPS du serveur Active Directory est nécessaire lorsque vous utilisez `ldaps://` dans l'URL LDAP principale ou secondaire. |
 | **URL du serveur secondaire** | Adresse d’un serveur LDAP de contrôleur de domaine secondaire utilisé pour le basculement. |
-| **Choisir un certificat** | Si vous souhaitez utiliser LDAPS avec votre serveur LDAP Active Directory ou votre source d’identité serveur OpenLDAP, un bouton Choisir un certificat s’affiche une fois que vous avez entré `ldaps://` dans la zone de texte URL. Une URL secondaire n’est pas nécessaire. |
+| **Choisir un certificat** | Si vous souhaitez utiliser LDAPS avec votre serveur LDAP Active Directory ou votre source d'identité serveur OpenLDAP, un bouton Choisir un certificat s'affiche une fois que vous avez entré `ldaps://` dans la zone de texte URL. Une URL secondaire n’est pas nécessaire. |
 | **Nom d’utilisateur** | ID d’un utilisateur dans le domaine qui dispose au minimum d’un accès en lecture seule au DN de base pour les utilisateurs et les groupes. |
 | **Mot de passe** | Mot de passe de l’utilisateur spécifié dans Nom d’utilisateur. |
 
@@ -125,9 +125,9 @@ Une fois la connexion réseau établie, suivez les étapes fournies dans [Ajoute
 
     ![Sources d’identité](media/OnPremAD03.png)
 
-6. Sélectionnez **Active Directory en tant que serveur LDAP**, puis cliquez sur **Suivant**.
+6. Sélectionnez **Active Directory en tant que serveur LDAP** , puis cliquez sur **Suivant**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Capture d'écran mettant en évidence l'option Active Directory en tant que serveur LDAP.](media/OnPremAD04.png)
 
 7. Spécifiez les paramètres de la source d’identité pour votre environnement, puis cliquez sur **Suivant**.
 

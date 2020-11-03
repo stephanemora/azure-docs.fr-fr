@@ -2,17 +2,24 @@
 title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079446"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675397"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
-Cet article explique comment utiliser le bouton **Déployer sur Azure** pour déployer des modèles à partir d’un référentiel GitHub. Vous pouvez ajouter le bouton directement au fichier README.md dans votre référentiel GitHub ou à une page web qui fait référence au référentiel. Cette méthode prend uniquement en charge le déploiement au niveau du groupe de ressources.
+Cet article explique comment utiliser le bouton **Déployer sur Azure** pour déployer des modèles à partir d’un référentiel GitHub. Vous pouvez ajouter le bouton directement au fichier README.md dans votre dépôt GitHub. Vous pouvez également ajouter le bouton à une page web faisant référence au dépôt.
+
+L’étendue du déploiement est déterminée par le schéma du modèle. Pour plus d'informations, consultez les pages suivantes :
+
+* [resource groups](deploy-to-resource-group.md)
+* [subscriptions](deploy-to-subscription.md)
+* [groupes d’administration](deploy-to-management-group.md)
+* [locataires](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Utiliser une image courante
 
@@ -38,7 +45,7 @@ Le format de l’URL est le suivant :
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Ensuite, encodez-la par URL. Vous pouvez utiliser un encodeur en ligne ou exécuter une commande. L’exemple PowerShell suivant montre comment encoder une valeur par URL.
+Ensuite, convertissez l’URL en une valeur encodée URL. Vous pouvez utiliser un encodeur en ligne ou exécuter une commande. L’exemple PowerShell suivant montre comment encoder une valeur par URL.
 
 ```powershell
 [uri]::EscapeDataString($url)

@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214007"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487005"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Guide de conception de tables distribuées dans un pool SQL Synapse
 
 Recommandations pour la conception de tables distribuées par hachage et par tourniquet (round robin) dans des pools SQL Synapse.
 
-Cet article suppose que les concepts de distribution et de déplacement de données dans un pool SQL Synapse vous sont familiers.  Pour plus d'informations, consultez [Architecture de traitement massivement parallèle (MPP) Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Cet article part du principe que les concepts de distribution et de déplacement de données dans SQL Synapse vous sont familiers.  Pour plus d'informations, consultez [Architecture Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Qu’est-ce qu’une table distribuée ?
 
@@ -32,7 +32,7 @@ Les **tables distribuées par hachage** améliorent les performances des requêt
 
 Une autre option de stockage de table est de répliquer une petite table sur tous les nœuds de calcul. Pour plus d’informations, consultez [Guide de conception pour les tables répliquées](design-guidance-for-replicated-tables.md). Pour choisir rapidement parmi les trois options, consultez Tables distribuées dans la [vue d’ensemble des tables](sql-data-warehouse-tables-overview.md).
 
-Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
+Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.    Considérez par exemple les questions suivantes :
 
 - Quelle est la taille de la table ?
 - Quelle est la fréquence d’actualisation de la table ?

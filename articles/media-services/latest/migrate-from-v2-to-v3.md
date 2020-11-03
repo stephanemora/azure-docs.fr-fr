@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017741"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426873"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -59,7 +59,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 * La sortie en direct est plus simple à utiliser que l’entité Program dans les API v2. 
 * Prise en charge améliorée de RTMP (stabilité accrue et meilleure prise en charge de l’encodeur source).
 * Ingestion sécurisée RTMPS.<br/>Quand vous créez un événement en direct, vous obtenez 4 URL de réception. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   
-* Vous disposez d’un contrôle d’accès en fonction du rôle (RBAC) sur vos entités. 
+* Vous disposez d'un contrôle d'accès en fonction du rôle Azure (Azure RBAC) sur vos entités. 
 
 ## <a name="known-issues"></a>Problèmes connus
 

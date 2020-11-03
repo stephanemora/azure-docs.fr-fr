@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342142"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368081"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -31,9 +31,9 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 - Services de chasse gérés
 
 > [!TIP]
-> Lancé à l’origine sous le nom **Windows Defender ATP** , ce produit de détection de point de terminaison et réponse (EDR) a été renommé en 2019 en **Microsoft Defender ATP** .
+> Lancé à l’origine sous le nom **Windows Defender ATP** , ce produit de détection de point de terminaison et réponse (EDR) a été renommé en 2019 en **Microsoft Defender ATP**.
 >
-> À l’occasion d’Ignite 2020, nous avons lancé la [suite Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) et ce composant EDR a été renommé **Microsoft Defender for Endpoint** .
+> À l’occasion d’Ignite 2020, nous avons lancé la [suite Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) et ce composant EDR a été renommé **Microsoft Defender for Endpoint**.
 
 
 ## <a name="availability"></a>Disponibilité
@@ -53,17 +53,17 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 
 Microsoft Defender for Endpoint fournit les éléments suivants :
 
-- **Capteurs de détection des violations avancés** . Les capteurs de Defender for Endpoint pour machines Windows collectent un large éventail de signaux comportementaux.
+- **Capteurs de détection des violations avancés**. Les capteurs de Defender for Endpoint pour machines Windows collectent un large éventail de signaux comportementaux.
 
-- **Détection des violations basée sur des analyses dans le cloud** . Defender for Endpoint s’adapte rapidement aux menaces changeantes. Elle utilise l’analytique avancée et le Big Data. Il est amplifié par la puissance d’Intelligent Security Graph avec des signaux à travers Windows, Azure et Office pour détecter les menaces inconnues. Il fournit des alertes actionnables et vous permet de réagir rapidement.
+- **Détection des violations basée sur des analyses dans le cloud**. Defender for Endpoint s’adapte rapidement aux menaces changeantes. Elle utilise l’analytique avancée et le Big Data. Il est amplifié par la puissance d’Intelligent Security Graph avec des signaux à travers Windows, Azure et Office pour détecter les menaces inconnues. Il fournit des alertes actionnables et vous permet de réagir rapidement.
 
-- **Informations sur les menaces** . Defender for Endpoint génère des alertes quand il identifie les outils, les techniques et les procédures de l’attaquant. Il utilise les données générées par les chasseurs de menaces de Microsoft et les équipes de sécurité, complétées par les renseignements fournis par les partenaires.
+- **Informations sur les menaces**. Defender for Endpoint génère des alertes quand il identifie les outils, les techniques et les procédures de l’attaquant. Il utilise les données générées par les chasseurs de menaces de Microsoft et les équipes de sécurité, complétées par les renseignements fournis par les partenaires.
 
 En intégrant Defender for Endpoint à Security Center, vous bénéficierez des capacités supplémentaires suivantes :
 
-- **Intégration automatisée** . Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center (à moins qu’ils n’exécutent Windows Server 2019).
+- **Intégration automatisée**. Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center (à moins qu’ils n’exécutent Windows Server 2019).
 
-- **Volet unique** . La console Security Center affiche des alertes Microsoft Defender for Endpoint. Pour approfondir vos recherches, utilisez les pages du portail de Microsoft Defender for Endpoint, où vous verrez des informations supplémentaires telles que l’arborescence du processus d’alerte et le graphique d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
+- **Volet unique**. La console Security Center affiche des alertes Microsoft Defender for Endpoint. Pour approfondir vos recherches, utilisez les pages du portail de Microsoft Defender for Endpoint, où vous verrez des informations supplémentaires telles que l’arborescence du processus d’alerte et le graphique d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Centre de sécurité de Microsoft Defender for Endpoint" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
@@ -76,18 +76,18 @@ Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifi
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Activation de l’intégration de Microsoft Defender for Endpoint
 
-1. Activez **Azure Defender pour les serveurs** . Voir [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md#enable-azure-defender).
+1. Activez **Azure Defender pour les serveurs**. Voir [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md#enable-azure-defender).
 
     > [!NOTE]
     > Pour protéger vos machines Azure Arc, suivez les instructions dans [Démarrage rapide : Connecter une machine hybride à l’aide d’un serveur avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Si vous avez déjà acheté et déployé des licences Microsoft Defender for Endpoint sur vos serveurs, supprimez-les à l’aide de la procédure décrite dans [Retirer des serveurs Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres** .
+1. Dans le menu de Security Center, sélectionnez **Tarification et paramètres**.
 1. Sélectionnez l’abonnement que vous souhaitez modifier.
-1. Sélectionnez **Détection des menaces** .
-1. Sélectionnez **Autoriser Windows Defender ATP à accéder à mes données** et sélectionnez **Enregistrer** .
+1. Sélectionnez **Détection des menaces**.
+1. Sélectionnez **Autoriser Microsoft Defender for Endpoint à accéder à mes données** , puis **Enregistrer**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Centre de sécurité de Microsoft Defender for Endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Activer l’intégration entre Azure Security Center et la solution EDR de Microsoft, Microsoft Defender for Endpoint":::
 
     Azure Security Center intégrera automatiquement vos serveurs à Microsoft Defender for Endpoint. L’intégration peut prendre jusqu’à 24 heures.
 
@@ -112,10 +112,10 @@ Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Centre de sécurité de Microsoft Defender for Endpoint":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Une fenêtre d’invite de commandes avec la commande pour générer une alerte de test.":::
 
 1. Si la commande réussit, une nouvelle alerte s’affiche sur le tableau de bord Azure Security Center et sur le portail Microsoft Defender for Endpoint. L’alerte peut mettre quelques minutes à s’afficher.
-1. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande PowerShell suspecte** .
+1. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande PowerShell suspecte**.
 1. Dans la fenêtre d’enquête, sélectionnez le lien d’accès au portail Microsoft Defender for Endpoint.
 
 
@@ -123,7 +123,7 @@ Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?
 
-Defender for Endpoint est inclus sans coût supplémentaire avec **Azure Defender pour les serveurs** . Vous pouvez également l’acheter séparément pour 50 machines ou plus.
+Defender for Endpoint est inclus sans coût supplémentaire avec **Azure Defender pour les serveurs**. Vous pouvez également l’acheter séparément pour 50 machines ou plus.
 
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Comment basculer dessus à partir d’un outil EDR tiers ?

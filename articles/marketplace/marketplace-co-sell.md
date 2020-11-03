@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207703"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520985"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
 Vous pouvez utiliser le programme de co-vente afin de collaborer directement avec des vendeurs Microsoft sur des opportunités de vente groupée et de profiter d'avantages supplémentaires importants, tant sur le plan commercial que sur le plan du merchandising, en vendant par le biais de la Place de marché commerciale.
 
-Le programme de co-vente est disponible pour les **logiciels créés avec votre propriété intellectuelle (IP) sous forme d'offres groupées et reproductibles** et pour les **services incorporant la technologie Microsoft** . La plupart des types d'offres du programme de co-vente sont également disponibles sur la place de marché commerciale. Les offres réunissant certaines conditions supplémentaires atteignent le statut d'offres **Prêtes pour la co-vente** ou d'offres de **Co-vente avec incentives** .
+Le programme de co-vente est disponible pour les **logiciels créés avec votre propriété intellectuelle (IP) sous forme d'offres groupées et reproductibles** et pour les **services incorporant la technologie Microsoft**. La plupart des types d'offres du programme de co-vente sont également disponibles sur la place de marché commerciale. Les offres réunissant certaines conditions supplémentaires atteignent le statut d'offres **Prêtes pour la co-vente** ou d'offres de **Co-vente avec incentives**.
 
 - Les offres **Prêtes pour la co-vente** sont présentées aux vendeurs de terrain Microsoft. Lorsque vous travaillez avec des vendeurs Microsoft, le programme de co-vente vous donne accès à une importante communauté de clients managés par Microsoft et vous permet de collaborer sur des opportunités de vente qui stimulent la croissance de votre entreprise.
 
@@ -61,25 +61,34 @@ Vous pouvez vous lancer dans la co-vente directement à partir de l’Espace par
     > [!NOTE]
     > Vous pouvez rejoindre le programme de co-vente avec une nouvelle offre qui n'a pas encore été publiée ou avec une offre déjà publiée.
 
-1. Dans le menu de gauche, sélectionnez **Covendre avec Microsoft** .
+1. Dans le menu de gauche, sélectionnez **Covendre avec Microsoft**.
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.":::
 
-1. Fournissez des détails sur la liste de base pour aider les vendeurs Microsoft à trier et découvrir rapidement votre offre dans la section **Liste** . ( *Obligatoire : tous les champs.* )
+1. Fournissez des détails sur la liste de base pour aider les vendeurs Microsoft à trier et découvrir rapidement votre offre dans la section **Liste**. ( *Obligatoire : tous les champs.* )
 
-    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.":::  
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Cette image montre la section Liste de l’onglet Co-vente.":::  
 
-1. Fournissez des détails sur votre offre et chargez les éléments associés dans la section **Documents** . Les vendeurs Microsoft utiliseront ces informations pour recommander et vendre votre offre. ( *Obligatoire : récepteur de radiomessagerie client et jeu de présentation client.* )
+1. Fournissez des détails sur votre offre et chargez les éléments associés dans la section **Documents**. Les vendeurs Microsoft utiliseront ces informations pour recommander et vendre votre offre. ( *Obligatoire : récepteur de radiomessagerie client et jeu de présentation client.* )
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.":::
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Cette image montre la section Documents sous l’onglet Covente.":::
  
-1. Chargez les coordonnées du service commerciale dans la section **Contacts** . Les vendeurs Microsoft sont susceptibles de contacter ces personnes afin d’obtenir des informations supplémentaires sur votre offre. ( *Obligatoire : contact pour chaque zone géographique dans laquelle votre offre est disponible.* )
+1. Chargez les coordonnées du service commerciale dans la section **Contacts**. Les vendeurs Microsoft sont susceptibles de contacter ces personnes afin d’obtenir des informations supplémentaires sur votre offre. ( *Obligatoire : contact pour chaque zone géographique dans laquelle votre offre est disponible.* )
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Cette image montre la section Contacts de l’onglet Covente.":::
 
 1. Enregistrez le brouillon avant de continuer.
-1. Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez l’envoyer pour révision et publication. Dans l’angle supérieur droit, sélectionnez **Vérifier et publier** . Passez en revue les détails de l’offre, puis sélectionnez **Publier** .
-1. Nous examinerons les documents que vous avez chargés et déterminerons si votre offre est éligible au programme de co-vente.
+1. Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez l’envoyer pour révision et publication. Dans l’angle supérieur droit, sélectionnez **Vérifier et publier**. Passez en revue les détails de l’offre, puis sélectionnez **Publier**.
+1. Après vous être assuré que vous respectez les [critères pour le statut de covente que vous poursuivez](#co-sell-publishing-steps-and-requirements), suivez les instructions ci-dessous pour proposer votre offre pour la co-vente :
+    1. **Si vous avez un responsable partenaire Microsoft (par exemple, PDM) :** contactez-le pour obtenir de l’aide. Il vous guidera dans le processus de proposition pour l’état Prêt pour la co-vente, ainsi que la co-vente Azure IP ou la Co-vente d’applications métier avec incentives (le cas échéant).
+    
+    1. **Si vous n’avez pas de responsable partenaire Microsoft (par exemple, PDM) :** [proposez vous-même via le Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Sélectionnez « Becoming co-sell ready » (Devenir Prêt pour la co-vente) dans la liste déroulante « Desired CED Services » (Services CED souhaités) :
+<ul><ul>
+
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Cette image présente la liste déroulante CED pour demander une révision de co-vente.":::
+
+Le CED vous contactera pour terminer le processus.
+</ul></ul>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
